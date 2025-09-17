@@ -34,6 +34,8 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { LambdaClient, DeleteFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // DeleteFunctionRequest
  *   FunctionName: "STRING_VALUE", // required

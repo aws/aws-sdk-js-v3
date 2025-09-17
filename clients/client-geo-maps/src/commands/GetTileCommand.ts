@@ -42,6 +42,8 @@ export interface GetTileCommandOutput extends GetTileCommandOutputType, __Metada
  * ```javascript
  * import { GeoMapsClient, GetTileCommand } from "@aws-sdk/client-geo-maps"; // ES Modules import
  * // const { GeoMapsClient, GetTileCommand } = require("@aws-sdk/client-geo-maps"); // CommonJS import
+ * // import type { GeoMapsClientConfig } from "@aws-sdk/client-geo-maps";
+ * const config = {}; // type is GeoMapsClientConfig
  * const client = new GeoMapsClient(config);
  * const input = { // GetTileRequest
  *   Tileset: "STRING_VALUE", // required

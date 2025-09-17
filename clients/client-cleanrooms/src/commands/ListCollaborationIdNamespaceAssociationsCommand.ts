@@ -43,6 +43,8 @@ export interface ListCollaborationIdNamespaceAssociationsCommandOutput
  * ```javascript
  * import { CleanRoomsClient, ListCollaborationIdNamespaceAssociationsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListCollaborationIdNamespaceAssociationsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // ListCollaborationIdNamespaceAssociationsInput
  *   collaborationIdentifier: "STRING_VALUE", // required

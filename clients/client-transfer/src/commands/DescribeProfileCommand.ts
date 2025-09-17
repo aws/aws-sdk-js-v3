@@ -34,6 +34,8 @@ export interface DescribeProfileCommandOutput extends DescribeProfileResponse, _
  * ```javascript
  * import { TransferClient, DescribeProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // DescribeProfileRequest
  *   ProfileId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * ```javascript
  * import { DocDBClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // DescribeDBEngineVersionsMessage
  *   Engine: "STRING_VALUE",

@@ -72,6 +72,8 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * ```javascript
  * import { GameLiftClient, CreateScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // CreateScriptInput
  *   Name: "STRING_VALUE",

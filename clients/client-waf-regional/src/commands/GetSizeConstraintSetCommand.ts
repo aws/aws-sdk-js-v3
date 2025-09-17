@@ -42,6 +42,8 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  * ```javascript
  * import { WAFRegionalClient, GetSizeConstraintSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetSizeConstraintSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // GetSizeConstraintSetRequest
  *   SizeConstraintSetId: "STRING_VALUE", // required

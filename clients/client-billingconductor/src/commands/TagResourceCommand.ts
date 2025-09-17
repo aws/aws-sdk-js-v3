@@ -36,6 +36,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { BillingconductorClient, TagResourceCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, TagResourceCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // import type { BillingconductorClientConfig } from "@aws-sdk/client-billingconductor";
+ * const config = {}; // type is BillingconductorClientConfig
  * const client = new BillingconductorClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

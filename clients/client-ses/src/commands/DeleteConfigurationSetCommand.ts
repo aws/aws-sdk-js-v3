@@ -37,6 +37,8 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * ```javascript
  * import { SESClient, DeleteConfigurationSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteConfigurationSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // DeleteConfigurationSetRequest
  *   ConfigurationSetName: "STRING_VALUE", // required

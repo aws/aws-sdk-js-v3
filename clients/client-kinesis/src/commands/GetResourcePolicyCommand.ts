@@ -44,6 +44,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  * ```javascript
  * import { KinesisClient, GetResourcePolicyCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, GetResourcePolicyCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // GetResourcePolicyInput
  *   ResourceARN: "STRING_VALUE", // required

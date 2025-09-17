@@ -35,6 +35,8 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * ```javascript
  * import { IoTClient, CreateAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreateAuthorizerRequest
  *   authorizerName: "STRING_VALUE", // required

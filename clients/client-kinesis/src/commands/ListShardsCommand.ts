@@ -49,6 +49,8 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * ```javascript
  * import { KinesisClient, ListShardsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, ListShardsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // ListShardsInput
  *   StreamName: "STRING_VALUE",

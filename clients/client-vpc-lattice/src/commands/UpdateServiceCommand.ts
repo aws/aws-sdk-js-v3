@@ -34,6 +34,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * ```javascript
  * import { VPCLatticeClient, UpdateServiceCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, UpdateServiceCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // UpdateServiceRequest
  *   serviceIdentifier: "STRING_VALUE", // required

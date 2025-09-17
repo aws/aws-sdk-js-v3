@@ -35,6 +35,8 @@ export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KendraClient, StopDataSourceSyncJobCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, StopDataSourceSyncJobCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // StopDataSourceSyncJobRequest
  *   Id: "STRING_VALUE", // required

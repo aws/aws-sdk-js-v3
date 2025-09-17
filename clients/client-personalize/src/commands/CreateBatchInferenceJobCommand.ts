@@ -55,6 +55,8 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * ```javascript
  * import { PersonalizeClient, CreateBatchInferenceJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateBatchInferenceJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // CreateBatchInferenceJobRequest
  *   jobName: "STRING_VALUE", // required

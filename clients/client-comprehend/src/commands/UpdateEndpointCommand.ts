@@ -35,6 +35,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * ```javascript
  * import { ComprehendClient, UpdateEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, UpdateEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // UpdateEndpointRequest
  *   EndpointArn: "STRING_VALUE", // required

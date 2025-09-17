@@ -38,6 +38,8 @@ export interface ListCloudConnectorsCommandOutput extends ListCloudConnectorsRes
  * ```javascript
  * import { IoTManagedIntegrationsClient, ListCloudConnectorsCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, ListCloudConnectorsCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // ListCloudConnectorsRequest
  *   Type: "LISTED" || "UNLISTED",

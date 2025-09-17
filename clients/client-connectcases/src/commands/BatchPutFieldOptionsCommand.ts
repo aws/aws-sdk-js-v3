@@ -34,6 +34,8 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  * ```javascript
  * import { ConnectCasesClient, BatchPutFieldOptionsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, BatchPutFieldOptionsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // BatchPutFieldOptionsRequest
  *   domainId: "STRING_VALUE", // required

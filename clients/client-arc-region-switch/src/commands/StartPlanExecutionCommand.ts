@@ -34,6 +34,8 @@ export interface StartPlanExecutionCommandOutput extends StartPlanExecutionRespo
  * ```javascript
  * import { ARCRegionSwitchClient, StartPlanExecutionCommand } from "@aws-sdk/client-arc-region-switch"; // ES Modules import
  * // const { ARCRegionSwitchClient, StartPlanExecutionCommand } = require("@aws-sdk/client-arc-region-switch"); // CommonJS import
+ * // import type { ARCRegionSwitchClientConfig } from "@aws-sdk/client-arc-region-switch";
+ * const config = {}; // type is ARCRegionSwitchClientConfig
  * const client = new ARCRegionSwitchClient(config);
  * const input = { // StartPlanExecutionRequest
  *   planArn: "STRING_VALUE", // required

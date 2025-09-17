@@ -43,6 +43,8 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  * ```javascript
  * import { LexModelBuildingServiceClient, PutBotAliasCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, PutBotAliasCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * // import type { LexModelBuildingServiceClientConfig } from "@aws-sdk/client-lex-model-building-service";
+ * const config = {}; // type is LexModelBuildingServiceClientConfig
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // PutBotAliasRequest
  *   name: "STRING_VALUE", // required

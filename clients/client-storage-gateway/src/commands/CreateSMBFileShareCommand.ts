@@ -48,6 +48,8 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * ```javascript
  * import { StorageGatewayClient, CreateSMBFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateSMBFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // CreateSMBFileShareInput
  *   ClientToken: "STRING_VALUE", // required

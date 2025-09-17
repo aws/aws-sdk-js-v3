@@ -71,6 +71,8 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * ```javascript
  * import { CloudWatchLogsClient, StartQueryCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, StartQueryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // StartQueryRequest
  *   queryLanguage: "CWLI" || "SQL" || "PPL",

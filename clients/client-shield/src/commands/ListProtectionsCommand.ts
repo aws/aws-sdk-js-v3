@@ -35,6 +35,8 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  * ```javascript
  * import { ShieldClient, ListProtectionsCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, ListProtectionsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * // import type { ShieldClientConfig } from "@aws-sdk/client-shield";
+ * const config = {}; // type is ShieldClientConfig
  * const client = new ShieldClient(config);
  * const input = { // ListProtectionsRequest
  *   NextToken: "STRING_VALUE",

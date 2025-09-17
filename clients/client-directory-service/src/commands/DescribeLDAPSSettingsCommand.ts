@@ -34,6 +34,8 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  * ```javascript
  * import { DirectoryServiceClient, DescribeLDAPSSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeLDAPSSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeLDAPSSettingsRequest
  *   DirectoryId: "STRING_VALUE", // required

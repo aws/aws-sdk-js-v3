@@ -64,6 +64,8 @@ export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForU
  * ```javascript
  * import { CognitoIdentityProviderClient, AdminListGroupsForUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminListGroupsForUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
+ * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminListGroupsForUserRequest
  *   Username: "STRING_VALUE", // required

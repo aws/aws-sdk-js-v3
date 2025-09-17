@@ -37,6 +37,8 @@ export interface UpdateDomainEntryCommandOutput extends UpdateDomainEntryResult,
  * ```javascript
  * import { LightsailClient, UpdateDomainEntryCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateDomainEntryCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // UpdateDomainEntryRequest
  *   domainName: "STRING_VALUE", // required

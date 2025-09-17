@@ -69,6 +69,8 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  * ```javascript
  * import { GlacierClient, ListJobsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListJobsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // import type { GlacierClientConfig } from "@aws-sdk/client-glacier";
+ * const config = {}; // type is GlacierClientConfig
  * const client = new GlacierClient(config);
  * const input = { // ListJobsInput
  *   accountId: "STRING_VALUE", // required

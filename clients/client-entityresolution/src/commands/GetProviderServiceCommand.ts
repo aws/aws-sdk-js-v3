@@ -34,6 +34,8 @@ export interface GetProviderServiceCommandOutput extends GetProviderServiceOutpu
  * ```javascript
  * import { EntityResolutionClient, GetProviderServiceCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, GetProviderServiceCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // GetProviderServiceInput
  *   providerName: "STRING_VALUE", // required

@@ -58,6 +58,8 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * ```javascript
  * import { ForecastClient, DescribeDatasetGroupCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeDatasetGroupCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // DescribeDatasetGroupRequest
  *   DatasetGroupArn: "STRING_VALUE", // required

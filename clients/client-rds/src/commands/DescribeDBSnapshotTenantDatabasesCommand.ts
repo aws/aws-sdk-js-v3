@@ -44,6 +44,8 @@ export interface DescribeDBSnapshotTenantDatabasesCommandOutput
  * ```javascript
  * import { RDSClient, DescribeDBSnapshotTenantDatabasesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBSnapshotTenantDatabasesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeDBSnapshotTenantDatabasesMessage
  *   DBInstanceIdentifier: "STRING_VALUE",

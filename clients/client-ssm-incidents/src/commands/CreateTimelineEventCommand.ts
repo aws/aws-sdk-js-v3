@@ -37,6 +37,8 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
  * ```javascript
  * import { SSMIncidentsClient, CreateTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, CreateTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // CreateTimelineEventInput
  *   clientToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface UpdateTestCaseCommandOutput extends UpdateTestCaseResponse, __M
  * ```javascript
  * import { AppTestClient, UpdateTestCaseCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, UpdateTestCaseCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // UpdateTestCaseRequest
  *   testCaseId: "STRING_VALUE", // required

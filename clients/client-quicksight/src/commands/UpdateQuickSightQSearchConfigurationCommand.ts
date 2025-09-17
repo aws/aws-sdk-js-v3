@@ -42,6 +42,8 @@ export interface UpdateQuickSightQSearchConfigurationCommandOutput
  * ```javascript
  * import { QuickSightClient, UpdateQuickSightQSearchConfigurationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateQuickSightQSearchConfigurationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateQuickSightQSearchConfigurationRequest
  *   AwsAccountId: "STRING_VALUE", // required

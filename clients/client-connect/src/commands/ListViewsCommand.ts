@@ -35,6 +35,8 @@ export interface ListViewsCommandOutput extends ListViewsResponse, __MetadataBea
  * ```javascript
  * import { ConnectClient, ListViewsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListViewsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // ListViewsRequest
  *   InstanceId: "STRING_VALUE", // required

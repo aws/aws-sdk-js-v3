@@ -34,6 +34,8 @@ export interface DeleteMessageTemplateCommandOutput extends DeleteMessageTemplat
  * ```javascript
  * import { QConnectClient, DeleteMessageTemplateCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, DeleteMessageTemplateCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // DeleteMessageTemplateRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListCustomModelDeploymentsCommandOutput extends ListCustomModel
  * ```javascript
  * import { BedrockClient, ListCustomModelDeploymentsCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, ListCustomModelDeploymentsCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // ListCustomModelDeploymentsRequest
  *   createdBefore: new Date("TIMESTAMP"),

@@ -39,6 +39,8 @@ export interface DeleteAccountCustomPermissionCommandOutput
  * ```javascript
  * import { QuickSightClient, DeleteAccountCustomPermissionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteAccountCustomPermissionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteAccountCustomPermissionRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGrou
  * ```javascript
  * import { GlobalAcceleratorClient, DescribeEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // import type { GlobalAcceleratorClientConfig } from "@aws-sdk/client-global-accelerator";
+ * const config = {}; // type is GlobalAcceleratorClientConfig
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DescribeEndpointGroupRequest
  *   EndpointGroupArn: "STRING_VALUE", // required

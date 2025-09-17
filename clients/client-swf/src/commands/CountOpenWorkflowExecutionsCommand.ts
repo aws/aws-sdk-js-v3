@@ -80,6 +80,8 @@ export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecut
  * ```javascript
  * import { SWFClient, CountOpenWorkflowExecutionsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, CountOpenWorkflowExecutionsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // CountOpenWorkflowExecutionsInput
  *   domain: "STRING_VALUE", // required

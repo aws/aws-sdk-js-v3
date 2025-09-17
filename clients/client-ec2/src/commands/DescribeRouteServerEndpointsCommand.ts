@@ -38,6 +38,8 @@ export interface DescribeRouteServerEndpointsCommandOutput
  * ```javascript
  * import { EC2Client, DescribeRouteServerEndpointsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeRouteServerEndpointsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeRouteServerEndpointsRequest
  *   RouteServerEndpointIds: [ // RouteServerEndpointIdsList

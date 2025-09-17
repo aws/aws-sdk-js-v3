@@ -34,6 +34,8 @@ export interface ListLineageEventsCommandOutput extends ListLineageEventsOutput,
  * ```javascript
  * import { DataZoneClient, ListLineageEventsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListLineageEventsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListLineageEventsInput
  *   domainIdentifier: "STRING_VALUE", // required

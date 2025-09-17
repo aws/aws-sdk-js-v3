@@ -38,6 +38,8 @@ export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsea
  * ```javascript
  * import { ElasticsearchServiceClient, DeleteElasticsearchDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DeleteElasticsearchDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // import type { ElasticsearchServiceClientConfig } from "@aws-sdk/client-elasticsearch-service";
+ * const config = {}; // type is ElasticsearchServiceClientConfig
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // DeleteElasticsearchDomainRequest
  *   DomainName: "STRING_VALUE", // required

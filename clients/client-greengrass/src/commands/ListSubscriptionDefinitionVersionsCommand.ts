@@ -42,6 +42,8 @@ export interface ListSubscriptionDefinitionVersionsCommandOutput
  * ```javascript
  * import { GreengrassClient, ListSubscriptionDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListSubscriptionDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // ListSubscriptionDefinitionVersionsRequest
  *   MaxResults: "STRING_VALUE",

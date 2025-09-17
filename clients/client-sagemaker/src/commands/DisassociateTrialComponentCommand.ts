@@ -34,6 +34,8 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * ```javascript
  * import { SageMakerClient, DisassociateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DisassociateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DisassociateTrialComponentRequest
  *   TrialComponentName: "STRING_VALUE", // required

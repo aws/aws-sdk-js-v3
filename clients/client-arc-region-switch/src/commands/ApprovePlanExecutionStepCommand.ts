@@ -34,6 +34,8 @@ export interface ApprovePlanExecutionStepCommandOutput extends ApprovePlanExecut
  * ```javascript
  * import { ARCRegionSwitchClient, ApprovePlanExecutionStepCommand } from "@aws-sdk/client-arc-region-switch"; // ES Modules import
  * // const { ARCRegionSwitchClient, ApprovePlanExecutionStepCommand } = require("@aws-sdk/client-arc-region-switch"); // CommonJS import
+ * // import type { ARCRegionSwitchClientConfig } from "@aws-sdk/client-arc-region-switch";
+ * const config = {}; // type is ARCRegionSwitchClientConfig
  * const client = new ARCRegionSwitchClient(config);
  * const input = { // ApprovePlanExecutionStepRequest
  *   planArn: "STRING_VALUE", // required

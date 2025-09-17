@@ -38,6 +38,8 @@ export interface ListCustomRoutingListenersCommandOutput extends ListCustomRouti
  * ```javascript
  * import { GlobalAcceleratorClient, ListCustomRoutingListenersCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListCustomRoutingListenersCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // import type { GlobalAcceleratorClientConfig } from "@aws-sdk/client-global-accelerator";
+ * const config = {}; // type is GlobalAcceleratorClientConfig
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ListCustomRoutingListenersRequest
  *   AcceleratorArn: "STRING_VALUE", // required

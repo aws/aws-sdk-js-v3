@@ -79,6 +79,8 @@ export interface GetMediaForFragmentListCommandOutput
  * ```javascript
  * import { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * // import type { KinesisVideoArchivedMediaClientConfig } from "@aws-sdk/client-kinesis-video-archived-media";
+ * const config = {}; // type is KinesisVideoArchivedMediaClientConfig
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetMediaForFragmentListInput
  *   StreamName: "STRING_VALUE",

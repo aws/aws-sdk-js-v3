@@ -36,6 +36,8 @@ export interface GetCostComparisonDriversCommandOutput extends GetCostComparison
  * ```javascript
  * import { CostExplorerClient, GetCostComparisonDriversCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetCostComparisonDriversCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // import type { CostExplorerClientConfig } from "@aws-sdk/client-cost-explorer";
+ * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // GetCostComparisonDriversRequest
  *   BillingViewArn: "STRING_VALUE",

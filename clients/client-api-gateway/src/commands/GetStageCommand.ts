@@ -34,6 +34,8 @@ export interface GetStageCommandOutput extends Stage, __MetadataBearer {}
  * ```javascript
  * import { APIGatewayClient, GetStageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetStageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // GetStageRequest
  *   restApiId: "STRING_VALUE", // required

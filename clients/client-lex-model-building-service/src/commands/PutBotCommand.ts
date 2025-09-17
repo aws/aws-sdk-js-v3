@@ -54,6 +54,8 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * ```javascript
  * import { LexModelBuildingServiceClient, PutBotCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, PutBotCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * // import type { LexModelBuildingServiceClientConfig } from "@aws-sdk/client-lex-model-building-service";
+ * const config = {}; // type is LexModelBuildingServiceClientConfig
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // PutBotRequest
  *   name: "STRING_VALUE", // required

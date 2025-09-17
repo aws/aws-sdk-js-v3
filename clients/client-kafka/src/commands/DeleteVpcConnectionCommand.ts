@@ -34,6 +34,8 @@ export interface DeleteVpcConnectionCommandOutput extends DeleteVpcConnectionRes
  * ```javascript
  * import { KafkaClient, DeleteVpcConnectionCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DeleteVpcConnectionCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // DeleteVpcConnectionRequest
  *   Arn: "STRING_VALUE", // required

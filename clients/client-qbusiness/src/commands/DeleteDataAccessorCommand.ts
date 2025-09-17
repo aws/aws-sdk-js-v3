@@ -34,6 +34,8 @@ export interface DeleteDataAccessorCommandOutput extends DeleteDataAccessorRespo
  * ```javascript
  * import { QBusinessClient, DeleteDataAccessorCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, DeleteDataAccessorCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // DeleteDataAccessorRequest
  *   applicationId: "STRING_VALUE", // required

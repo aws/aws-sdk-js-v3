@@ -34,6 +34,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * ```javascript
  * import { GameLiftStreamsClient, ListApplicationsCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, ListApplicationsCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // ListApplicationsInput
  *   NextToken: "STRING_VALUE",

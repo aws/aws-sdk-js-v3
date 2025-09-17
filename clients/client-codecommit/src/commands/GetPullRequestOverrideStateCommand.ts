@@ -35,6 +35,8 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  * ```javascript
  * import { CodeCommitClient, GetPullRequestOverrideStateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetPullRequestOverrideStateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // GetPullRequestOverrideStateInput
  *   pullRequestId: "STRING_VALUE", // required

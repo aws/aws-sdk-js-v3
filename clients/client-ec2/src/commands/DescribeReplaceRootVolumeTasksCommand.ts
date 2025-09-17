@@ -40,6 +40,8 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
  * ```javascript
  * import { EC2Client, DescribeReplaceRootVolumeTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeReplaceRootVolumeTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeReplaceRootVolumeTasksRequest
  *   ReplaceRootVolumeTaskIds: [ // ReplaceRootVolumeTaskIds

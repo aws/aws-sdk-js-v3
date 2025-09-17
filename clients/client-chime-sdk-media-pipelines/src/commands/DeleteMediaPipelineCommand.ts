@@ -38,6 +38,8 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, DeleteMediaPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // DeleteMediaPipelineRequest
  *   MediaPipelineId: "STRING_VALUE", // required

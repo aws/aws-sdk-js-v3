@@ -38,6 +38,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * ```javascript
  * import { QuickSightClient, UpdateTemplateCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateTemplateCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateTemplateRequest
  *   AwsAccountId: "STRING_VALUE", // required

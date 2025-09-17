@@ -39,6 +39,8 @@ export interface ListEntityRecognizerSummariesCommandOutput
  * ```javascript
  * import { ComprehendClient, ListEntityRecognizerSummariesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListEntityRecognizerSummariesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // ListEntityRecognizerSummariesRequest
  *   NextToken: "STRING_VALUE",

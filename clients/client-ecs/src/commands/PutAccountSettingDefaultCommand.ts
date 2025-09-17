@@ -35,6 +35,8 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * ```javascript
  * import { ECSClient, PutAccountSettingDefaultCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutAccountSettingDefaultCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // PutAccountSettingDefaultRequest
  *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod" || "guardDutyActivate" || "defaultLogDriverMode", // required

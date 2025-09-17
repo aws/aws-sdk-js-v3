@@ -54,6 +54,8 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * ```javascript
  * import { RDSClient, DeleteCustomDBEngineVersionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteCustomDBEngineVersionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DeleteCustomDBEngineVersionMessage
  *   Engine: "STRING_VALUE", // required

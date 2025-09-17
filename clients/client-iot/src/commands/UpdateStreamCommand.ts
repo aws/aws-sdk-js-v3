@@ -35,6 +35,8 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  * ```javascript
  * import { IoTClient, UpdateStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // UpdateStreamRequest
  *   streamId: "STRING_VALUE", // required

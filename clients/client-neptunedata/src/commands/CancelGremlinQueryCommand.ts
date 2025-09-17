@@ -34,6 +34,8 @@ export interface CancelGremlinQueryCommandOutput extends CancelGremlinQueryOutpu
  * ```javascript
  * import { NeptunedataClient, CancelGremlinQueryCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, CancelGremlinQueryCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // CancelGremlinQueryInput
  *   queryId: "STRING_VALUE", // required

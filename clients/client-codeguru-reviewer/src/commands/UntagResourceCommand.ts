@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { CodeGuruReviewerClient, UntagResourceCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, UntagResourceCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * // import type { CodeGuruReviewerClientConfig } from "@aws-sdk/client-codeguru-reviewer";
+ * const config = {}; // type is CodeGuruReviewerClientConfig
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

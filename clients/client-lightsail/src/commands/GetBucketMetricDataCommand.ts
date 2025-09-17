@@ -37,6 +37,8 @@ export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataRes
  * ```javascript
  * import { LightsailClient, GetBucketMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBucketMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetBucketMetricDataRequest
  *   bucketName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { BedrockAgentClient, UntagResourceCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, UntagResourceCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

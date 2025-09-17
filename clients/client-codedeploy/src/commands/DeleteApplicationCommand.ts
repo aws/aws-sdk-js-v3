@@ -34,6 +34,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CodeDeployClient, DeleteApplicationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeleteApplicationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // import type { CodeDeployClientConfig } from "@aws-sdk/client-codedeploy";
+ * const config = {}; // type is CodeDeployClientConfig
  * const client = new CodeDeployClient(config);
  * const input = { // DeleteApplicationInput
  *   applicationName: "STRING_VALUE", // required

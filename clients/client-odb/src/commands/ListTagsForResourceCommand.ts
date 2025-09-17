@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { OdbClient, ListTagsForResourceCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, ListTagsForResourceCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

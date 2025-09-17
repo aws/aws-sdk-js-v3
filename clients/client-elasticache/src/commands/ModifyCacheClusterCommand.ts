@@ -35,6 +35,8 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * ```javascript
  * import { ElastiCacheClient, ModifyCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // ModifyCacheClusterMessage
  *   CacheClusterId: "STRING_VALUE", // required

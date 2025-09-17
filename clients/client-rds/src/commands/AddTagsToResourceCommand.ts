@@ -38,6 +38,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RDSClient, AddTagsToResourceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, AddTagsToResourceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // AddTagsToResourceMessage
  *   ResourceName: "STRING_VALUE", // required

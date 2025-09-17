@@ -38,6 +38,8 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * ```javascript
  * import { ConnectCasesClient, CreateRelatedItemCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateRelatedItemCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // CreateRelatedItemRequest
  *   domainId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * ```javascript
  * import { ECSClient, UpdateCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // UpdateCapacityProviderRequest
  *   name: "STRING_VALUE", // required

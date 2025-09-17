@@ -35,6 +35,8 @@ export interface GetDataLakeSourcesCommandOutput extends GetDataLakeSourcesRespo
  * ```javascript
  * import { SecurityLakeClient, GetDataLakeSourcesCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDataLakeSourcesCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // GetDataLakeSourcesRequest
  *   accounts: [ // AccountList

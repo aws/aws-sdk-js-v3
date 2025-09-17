@@ -36,6 +36,8 @@ export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __Metad
  * ```javascript
  * import { GlueClient, StartCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // StartCrawlerRequest
  *   Name: "STRING_VALUE", // required

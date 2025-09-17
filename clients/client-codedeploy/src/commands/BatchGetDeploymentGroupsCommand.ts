@@ -34,6 +34,8 @@ export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymen
  * ```javascript
  * import { CodeDeployClient, BatchGetDeploymentGroupsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetDeploymentGroupsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // import type { CodeDeployClientConfig } from "@aws-sdk/client-codedeploy";
+ * const config = {}; // type is CodeDeployClientConfig
  * const client = new CodeDeployClient(config);
  * const input = { // BatchGetDeploymentGroupsInput
  *   applicationName: "STRING_VALUE", // required

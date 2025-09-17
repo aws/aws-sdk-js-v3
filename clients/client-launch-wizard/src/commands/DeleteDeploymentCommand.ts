@@ -34,6 +34,8 @@ export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, _
  * ```javascript
  * import { LaunchWizardClient, DeleteDeploymentCommand } from "@aws-sdk/client-launch-wizard"; // ES Modules import
  * // const { LaunchWizardClient, DeleteDeploymentCommand } = require("@aws-sdk/client-launch-wizard"); // CommonJS import
+ * // import type { LaunchWizardClientConfig } from "@aws-sdk/client-launch-wizard";
+ * const config = {}; // type is LaunchWizardClientConfig
  * const client = new LaunchWizardClient(config);
  * const input = { // DeleteDeploymentInput
  *   deploymentId: "STRING_VALUE", // required

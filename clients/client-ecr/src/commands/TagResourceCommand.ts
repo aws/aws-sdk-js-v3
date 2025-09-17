@@ -35,6 +35,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { ECRClient, TagResourceCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, TagResourceCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

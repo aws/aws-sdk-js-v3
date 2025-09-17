@@ -37,6 +37,8 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, _
  * ```javascript
  * import { LightsailClient, SetIpAddressTypeCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, SetIpAddressTypeCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // SetIpAddressTypeRequest
  *   resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket", // required

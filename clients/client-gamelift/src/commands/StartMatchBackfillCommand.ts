@@ -76,6 +76,8 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * ```javascript
  * import { GameLiftClient, StartMatchBackfillCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartMatchBackfillCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // StartMatchBackfillInput
  *   TicketId: "STRING_VALUE",

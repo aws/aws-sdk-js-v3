@@ -34,6 +34,8 @@ export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyRes
  * ```javascript
  * import { FraudDetectorClient, GetKMSEncryptionKeyCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetKMSEncryptionKeyCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = {};
  * const command = new GetKMSEncryptionKeyCommand(input);

@@ -35,6 +35,8 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * ```javascript
  * import { MediaStoreDataClient, ListItemsCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
  * // const { MediaStoreDataClient, ListItemsCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
+ * // import type { MediaStoreDataClientConfig } from "@aws-sdk/client-mediastore-data";
+ * const config = {}; // type is MediaStoreDataClientConfig
  * const client = new MediaStoreDataClient(config);
  * const input = { // ListItemsRequest
  *   Path: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataB
  * ```javascript
  * import { S3VectorsClient, DeleteIndexCommand } from "@aws-sdk/client-s3vectors"; // ES Modules import
  * // const { S3VectorsClient, DeleteIndexCommand } = require("@aws-sdk/client-s3vectors"); // CommonJS import
+ * // import type { S3VectorsClientConfig } from "@aws-sdk/client-s3vectors";
+ * const config = {}; // type is S3VectorsClientConfig
  * const client = new S3VectorsClient(config);
  * const input = { // DeleteIndexInput
  *   vectorBucketName: "STRING_VALUE",

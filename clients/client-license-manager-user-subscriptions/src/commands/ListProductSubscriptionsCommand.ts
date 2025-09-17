@@ -38,6 +38,8 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, ListProductSubscriptionsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, ListProductSubscriptionsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerUserSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-user-subscriptions";
+ * const config = {}; // type is LicenseManagerUserSubscriptionsClientConfig
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // ListProductSubscriptionsRequest
  *   Product: "STRING_VALUE",

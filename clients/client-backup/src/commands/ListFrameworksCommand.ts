@@ -34,6 +34,8 @@ export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __Met
  * ```javascript
  * import { BackupClient, ListFrameworksCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListFrameworksCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListFrameworksInput
  *   MaxResults: Number("int"),

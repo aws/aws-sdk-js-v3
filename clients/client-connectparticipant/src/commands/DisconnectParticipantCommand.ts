@@ -46,6 +46,8 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * ```javascript
  * import { ConnectParticipantClient, DisconnectParticipantCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, DisconnectParticipantCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // import type { ConnectParticipantClientConfig } from "@aws-sdk/client-connectparticipant";
+ * const config = {}; // type is ConnectParticipantClientConfig
  * const client = new ConnectParticipantClient(config);
  * const input = { // DisconnectParticipantRequest
  *   ClientToken: "STRING_VALUE",

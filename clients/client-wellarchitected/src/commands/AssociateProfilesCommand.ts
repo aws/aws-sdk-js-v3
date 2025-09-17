@@ -34,6 +34,8 @@ export interface AssociateProfilesCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WellArchitectedClient, AssociateProfilesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, AssociateProfilesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // AssociateProfilesInput
  *   WorkloadId: "STRING_VALUE", // required

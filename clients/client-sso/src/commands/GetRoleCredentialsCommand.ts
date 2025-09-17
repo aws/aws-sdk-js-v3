@@ -40,6 +40,8 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  * ```javascript
  * import { SSOClient, GetRoleCredentialsCommand } from "@aws-sdk/client-sso"; // ES Modules import
  * // const { SSOClient, GetRoleCredentialsCommand } = require("@aws-sdk/client-sso"); // CommonJS import
+ * // import type { SSOClientConfig } from "@aws-sdk/client-sso";
+ * const config = {}; // type is SSOClientConfig
  * const client = new SSOClient(config);
  * const input = { // GetRoleCredentialsRequest
  *   roleName: "STRING_VALUE", // required

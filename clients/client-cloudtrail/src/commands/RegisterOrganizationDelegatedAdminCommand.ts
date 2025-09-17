@@ -42,6 +42,8 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  * ```javascript
  * import { CloudTrailClient, RegisterOrganizationDelegatedAdminCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, RegisterOrganizationDelegatedAdminCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // RegisterOrganizationDelegatedAdminRequest
  *   MemberAccountId: "STRING_VALUE", // required

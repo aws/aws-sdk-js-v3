@@ -34,6 +34,8 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * ```javascript
  * import { CleanRoomsClient, ListMembershipsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListMembershipsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // ListMembershipsInput
  *   nextToken: "STRING_VALUE",

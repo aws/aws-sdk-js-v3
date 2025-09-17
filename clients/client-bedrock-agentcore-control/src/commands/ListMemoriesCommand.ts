@@ -38,6 +38,8 @@ export interface ListMemoriesCommandOutput extends ListMemoriesOutput, __Metadat
  * ```javascript
  * import { BedrockAgentCoreControlClient, ListMemoriesCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, ListMemoriesCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListMemoriesInput
  *   maxResults: Number("int"),

@@ -34,6 +34,8 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * ```javascript
  * import { BCMDataExportsClient, GetExportCommand } from "@aws-sdk/client-bcm-data-exports"; // ES Modules import
  * // const { BCMDataExportsClient, GetExportCommand } = require("@aws-sdk/client-bcm-data-exports"); // CommonJS import
+ * // import type { BCMDataExportsClientConfig } from "@aws-sdk/client-bcm-data-exports";
+ * const config = {}; // type is BCMDataExportsClientConfig
  * const client = new BCMDataExportsClient(config);
  * const input = { // GetExportRequest
  *   ExportArn: "STRING_VALUE", // required

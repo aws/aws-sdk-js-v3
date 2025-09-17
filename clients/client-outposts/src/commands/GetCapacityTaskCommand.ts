@@ -34,6 +34,8 @@ export interface GetCapacityTaskCommandOutput extends GetCapacityTaskOutput, __M
  * ```javascript
  * import { OutpostsClient, GetCapacityTaskCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetCapacityTaskCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // import type { OutpostsClientConfig } from "@aws-sdk/client-outposts";
+ * const config = {}; // type is OutpostsClientConfig
  * const client = new OutpostsClient(config);
  * const input = { // GetCapacityTaskInput
  *   CapacityTaskId: "STRING_VALUE", // required

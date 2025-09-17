@@ -38,6 +38,8 @@ export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse,
  * ```javascript
  * import { ApplicationInsightsClient, CreateLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, CreateLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * // import type { ApplicationInsightsClientConfig } from "@aws-sdk/client-application-insights";
+ * const config = {}; // type is ApplicationInsightsClientConfig
  * const client = new ApplicationInsightsClient(config);
  * const input = { // CreateLogPatternRequest
  *   ResourceGroupName: "STRING_VALUE", // required

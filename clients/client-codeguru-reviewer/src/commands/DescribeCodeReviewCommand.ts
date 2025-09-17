@@ -34,6 +34,8 @@ export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewRespo
  * ```javascript
  * import { CodeGuruReviewerClient, DescribeCodeReviewCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, DescribeCodeReviewCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * // import type { CodeGuruReviewerClientConfig } from "@aws-sdk/client-codeguru-reviewer";
+ * const config = {}; // type is CodeGuruReviewerClientConfig
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // DescribeCodeReviewRequest
  *   CodeReviewArn: "STRING_VALUE", // required

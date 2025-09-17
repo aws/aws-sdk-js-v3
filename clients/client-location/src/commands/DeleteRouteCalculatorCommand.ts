@@ -37,6 +37,8 @@ export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculato
  * ```javascript
  * import { LocationClient, DeleteRouteCalculatorCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteRouteCalculatorCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // DeleteRouteCalculatorRequest
  *   CalculatorName: "STRING_VALUE", // required

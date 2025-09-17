@@ -42,6 +42,8 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  * ```javascript
  * import { WorkSpacesClient, DisassociateConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DisassociateConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DisassociateConnectionAliasRequest
  *   AliasId: "STRING_VALUE", // required

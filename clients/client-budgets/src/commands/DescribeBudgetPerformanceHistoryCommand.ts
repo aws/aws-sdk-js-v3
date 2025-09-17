@@ -39,6 +39,8 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * ```javascript
  * import { BudgetsClient, DescribeBudgetPerformanceHistoryCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetPerformanceHistoryCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // import type { BudgetsClientConfig } from "@aws-sdk/client-budgets";
+ * const config = {}; // type is BudgetsClientConfig
  * const client = new BudgetsClient(config);
  * const input = { // DescribeBudgetPerformanceHistoryRequest
  *   AccountId: "STRING_VALUE", // required

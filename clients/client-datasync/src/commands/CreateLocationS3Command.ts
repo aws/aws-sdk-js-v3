@@ -54,6 +54,8 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * ```javascript
  * import { DataSyncClient, CreateLocationS3Command } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationS3Command } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationS3Request
  *   Subdirectory: "STRING_VALUE",

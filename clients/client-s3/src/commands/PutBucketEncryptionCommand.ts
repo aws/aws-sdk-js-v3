@@ -153,6 +153,8 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { S3Client, PutBucketEncryptionCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketEncryptionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // PutBucketEncryptionRequest
  *   Bucket: "STRING_VALUE", // required

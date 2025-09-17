@@ -38,6 +38,8 @@ export interface CreateSessionLoggerCommandOutput extends CreateSessionLoggerRes
  * ```javascript
  * import { WorkSpacesWebClient, CreateSessionLoggerCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateSessionLoggerCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // CreateSessionLoggerRequest
  *   eventFilter: { // EventFilter Union: only one key present

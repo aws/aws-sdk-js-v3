@@ -34,6 +34,8 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * ```javascript
  * import { MediaTailorClient, StartChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, StartChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // StartChannelRequest
  *   ChannelName: "STRING_VALUE", // required

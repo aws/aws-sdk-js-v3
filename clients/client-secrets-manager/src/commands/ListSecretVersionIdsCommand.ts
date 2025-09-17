@@ -44,6 +44,8 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * ```javascript
  * import { SecretsManagerClient, ListSecretVersionIdsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ListSecretVersionIdsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * // import type { SecretsManagerClientConfig } from "@aws-sdk/client-secrets-manager";
+ * const config = {}; // type is SecretsManagerClientConfig
  * const client = new SecretsManagerClient(config);
  * const input = { // ListSecretVersionIdsRequest
  *   SecretId: "STRING_VALUE", // required

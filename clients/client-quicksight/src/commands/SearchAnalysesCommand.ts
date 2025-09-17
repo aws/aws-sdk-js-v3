@@ -37,6 +37,8 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
  * ```javascript
  * import { QuickSightClient, SearchAnalysesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchAnalysesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // SearchAnalysesRequest
  *   AwsAccountId: "STRING_VALUE", // required

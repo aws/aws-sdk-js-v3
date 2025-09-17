@@ -38,6 +38,8 @@ export interface CreateSourceNetworkCommandOutput extends CreateSourceNetworkRes
  * ```javascript
  * import { DrsClient, CreateSourceNetworkCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, CreateSourceNetworkCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // CreateSourceNetworkRequest
  *   vpcID: "STRING_VALUE", // required

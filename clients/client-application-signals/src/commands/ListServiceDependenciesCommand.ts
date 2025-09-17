@@ -41,6 +41,8 @@ export interface ListServiceDependenciesCommandOutput extends ListServiceDepende
  * ```javascript
  * import { ApplicationSignalsClient, ListServiceDependenciesCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, ListServiceDependenciesCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // ListServiceDependenciesInput
  *   StartTime: new Date("TIMESTAMP"), // required

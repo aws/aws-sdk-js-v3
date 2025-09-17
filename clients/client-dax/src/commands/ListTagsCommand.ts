@@ -35,6 +35,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * ```javascript
  * import { DAXClient, ListTagsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, ListTagsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // ListTagsRequest
  *   ResourceName: "STRING_VALUE", // required

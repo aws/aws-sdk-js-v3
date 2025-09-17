@@ -39,6 +39,8 @@ export interface UpdateChatResponseConfigurationCommandOutput
  * ```javascript
  * import { QBusinessClient, UpdateChatResponseConfigurationCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, UpdateChatResponseConfigurationCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // UpdateChatResponseConfigurationRequest
  *   applicationId: "STRING_VALUE", // required

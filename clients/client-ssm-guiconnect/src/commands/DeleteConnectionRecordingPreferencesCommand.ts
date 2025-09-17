@@ -42,6 +42,8 @@ export interface DeleteConnectionRecordingPreferencesCommandOutput
  * ```javascript
  * import { SSMGuiConnectClient, DeleteConnectionRecordingPreferencesCommand } from "@aws-sdk/client-ssm-guiconnect"; // ES Modules import
  * // const { SSMGuiConnectClient, DeleteConnectionRecordingPreferencesCommand } = require("@aws-sdk/client-ssm-guiconnect"); // CommonJS import
+ * // import type { SSMGuiConnectClientConfig } from "@aws-sdk/client-ssm-guiconnect";
+ * const config = {}; // type is SSMGuiConnectClientConfig
  * const client = new SSMGuiConnectClient(config);
  * const input = { // DeleteConnectionRecordingPreferencesRequest
  *   ClientToken: "STRING_VALUE",

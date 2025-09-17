@@ -34,6 +34,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * ```javascript
  * import { AppStreamClient, DescribeImagesCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeImagesCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // DescribeImagesRequest
  *   Names: [ // StringList

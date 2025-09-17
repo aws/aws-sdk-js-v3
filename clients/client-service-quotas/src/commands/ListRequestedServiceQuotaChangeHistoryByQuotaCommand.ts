@@ -44,6 +44,8 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
  * ```javascript
  * import { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryByQuotaCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryByQuotaCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * // import type { ServiceQuotasClientConfig } from "@aws-sdk/client-service-quotas";
+ * const config = {}; // type is ServiceQuotasClientConfig
  * const client = new ServiceQuotasClient(config);
  * const input = { // ListRequestedServiceQuotaChangeHistoryByQuotaRequest
  *   ServiceCode: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface UpdatePracticeRunConfigurationCommandOutput
  * ```javascript
  * import { ARCZonalShiftClient, UpdatePracticeRunConfigurationCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, UpdatePracticeRunConfigurationCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * // import type { ARCZonalShiftClientConfig } from "@aws-sdk/client-arc-zonal-shift";
+ * const config = {}; // type is ARCZonalShiftClientConfig
  * const client = new ARCZonalShiftClient(config);
  * const input = { // UpdatePracticeRunConfigurationRequest
  *   resourceIdentifier: "STRING_VALUE", // required

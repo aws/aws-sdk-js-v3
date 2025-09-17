@@ -34,6 +34,8 @@ export interface DeleteMeteredProductCommandOutput extends DeleteMeteredProductR
  * ```javascript
  * import { DeadlineClient, DeleteMeteredProductCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteMeteredProductCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteMeteredProductRequest
  *   licenseEndpointId: "STRING_VALUE", // required

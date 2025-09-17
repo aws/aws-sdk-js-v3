@@ -42,6 +42,8 @@ export interface GetCollaborationPrivacyBudgetTemplateCommandOutput
  * ```javascript
  * import { CleanRoomsClient, GetCollaborationPrivacyBudgetTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetCollaborationPrivacyBudgetTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // GetCollaborationPrivacyBudgetTemplateInput
  *   collaborationIdentifier: "STRING_VALUE", // required

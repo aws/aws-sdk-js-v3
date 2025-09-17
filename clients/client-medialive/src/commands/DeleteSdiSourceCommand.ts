@@ -34,6 +34,8 @@ export interface DeleteSdiSourceCommandOutput extends DeleteSdiSourceResponse, _
  * ```javascript
  * import { MediaLiveClient, DeleteSdiSourceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteSdiSourceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteSdiSourceRequest
  *   SdiSourceId: "STRING_VALUE", // required

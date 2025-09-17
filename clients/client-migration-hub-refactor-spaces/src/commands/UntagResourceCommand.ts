@@ -44,6 +44,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, UntagResourceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, UntagResourceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // import type { MigrationHubRefactorSpacesClientConfig } from "@aws-sdk/client-migration-hub-refactor-spaces";
+ * const config = {}; // type is MigrationHubRefactorSpacesClientConfig
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

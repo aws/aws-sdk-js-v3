@@ -45,6 +45,8 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput
  * ```javascript
  * import { QuickSightClient, GenerateEmbedUrlForRegisteredUserWithIdentityCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GenerateEmbedUrlForRegisteredUserWithIdentityCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // GenerateEmbedUrlForRegisteredUserWithIdentityRequest
  *   AwsAccountId: "STRING_VALUE", // required

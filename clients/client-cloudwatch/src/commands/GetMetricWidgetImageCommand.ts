@@ -50,6 +50,8 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * ```javascript
  * import { CloudWatchClient, GetMetricWidgetImageCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricWidgetImageCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // GetMetricWidgetImageInput
  *   MetricWidget: "STRING_VALUE", // required

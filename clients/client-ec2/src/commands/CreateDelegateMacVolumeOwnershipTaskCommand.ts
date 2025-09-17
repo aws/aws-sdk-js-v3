@@ -44,6 +44,8 @@ export interface CreateDelegateMacVolumeOwnershipTaskCommandOutput
  * ```javascript
  * import { EC2Client, CreateDelegateMacVolumeOwnershipTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateDelegateMacVolumeOwnershipTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateDelegateMacVolumeOwnershipTaskRequest
  *   ClientToken: "STRING_VALUE",

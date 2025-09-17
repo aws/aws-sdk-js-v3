@@ -39,6 +39,8 @@ export interface DeleteDataSetRefreshPropertiesCommandOutput
  * ```javascript
  * import { QuickSightClient, DeleteDataSetRefreshPropertiesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteDataSetRefreshPropertiesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteDataSetRefreshPropertiesRequest
  *   AwsAccountId: "STRING_VALUE", // required

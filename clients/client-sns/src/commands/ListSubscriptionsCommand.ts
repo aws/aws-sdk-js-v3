@@ -38,6 +38,8 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  * ```javascript
  * import { SNSClient, ListSubscriptionsCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListSubscriptionsCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // import type { SNSClientConfig } from "@aws-sdk/client-sns";
+ * const config = {}; // type is SNSClientConfig
  * const client = new SNSClient(config);
  * const input = { // ListSubscriptionsInput
  *   NextToken: "STRING_VALUE",

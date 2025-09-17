@@ -55,6 +55,8 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * ```javascript
  * import { WAFClient, DeleteWebACLCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteWebACLCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // DeleteWebACLRequest
  *   WebACLId: "STRING_VALUE", // required

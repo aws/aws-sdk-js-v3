@@ -47,6 +47,8 @@ export interface CreateLicenseServerEndpointCommandOutput
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, CreateLicenseServerEndpointCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, CreateLicenseServerEndpointCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerUserSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-user-subscriptions";
+ * const config = {}; // type is LicenseManagerUserSubscriptionsClientConfig
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // CreateLicenseServerEndpointRequest
  *   IdentityProviderArn: "STRING_VALUE", // required

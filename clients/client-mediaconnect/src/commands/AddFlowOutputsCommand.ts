@@ -34,6 +34,8 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * ```javascript
  * import { MediaConnectClient, AddFlowOutputsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, AddFlowOutputsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // AddFlowOutputsRequest
  *   FlowArn: "STRING_VALUE", // required

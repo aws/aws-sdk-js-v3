@@ -43,6 +43,8 @@ export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput
  * ```javascript
  * import { ChatbotClient, ListMicrosoftTeamsChannelConfigurationsCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, ListMicrosoftTeamsChannelConfigurationsCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // ListTeamsChannelConfigurationsRequest
  *   MaxResults: Number("int"),

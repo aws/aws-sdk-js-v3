@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { MediaConvertClient, TagResourceCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, TagResourceCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // TagResourceRequest
  *   Arn: "STRING_VALUE", // required

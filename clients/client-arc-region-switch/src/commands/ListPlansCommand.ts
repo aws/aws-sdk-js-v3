@@ -34,6 +34,8 @@ export interface ListPlansCommandOutput extends ListPlansResponse, __MetadataBea
  * ```javascript
  * import { ARCRegionSwitchClient, ListPlansCommand } from "@aws-sdk/client-arc-region-switch"; // ES Modules import
  * // const { ARCRegionSwitchClient, ListPlansCommand } = require("@aws-sdk/client-arc-region-switch"); // CommonJS import
+ * // import type { ARCRegionSwitchClientConfig } from "@aws-sdk/client-arc-region-switch";
+ * const config = {}; // type is ARCRegionSwitchClientConfig
  * const client = new ARCRegionSwitchClient(config);
  * const input = { // ListPlansRequest
  *   maxResults: Number("int"),

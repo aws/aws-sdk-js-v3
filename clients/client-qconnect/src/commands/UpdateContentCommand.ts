@@ -38,6 +38,8 @@ export interface UpdateContentCommandOutput extends UpdateContentResponse, __Met
  * ```javascript
  * import { QConnectClient, UpdateContentCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, UpdateContentCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // UpdateContentRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

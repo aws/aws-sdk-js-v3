@@ -43,6 +43,8 @@ export interface GetContactReachabilityStatusCommandOutput
  * ```javascript
  * import { Route53DomainsClient, GetContactReachabilityStatusCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, GetContactReachabilityStatusCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * // import type { Route53DomainsClientConfig } from "@aws-sdk/client-route-53-domains";
+ * const config = {}; // type is Route53DomainsClientConfig
  * const client = new Route53DomainsClient(config);
  * const input = { // GetContactReachabilityStatusRequest
  *   domainName: "STRING_VALUE",

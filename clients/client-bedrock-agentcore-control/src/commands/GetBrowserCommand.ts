@@ -38,6 +38,8 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * ```javascript
  * import { BedrockAgentCoreControlClient, GetBrowserCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, GetBrowserCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetBrowserRequest
  *   browserId: "STRING_VALUE", // required

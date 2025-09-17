@@ -57,6 +57,8 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  * ```javascript
  * import { AutoScalingClient, RollbackInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, RollbackInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // RollbackInstanceRefreshType
  *   AutoScalingGroupName: "STRING_VALUE", // required

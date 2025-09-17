@@ -34,6 +34,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * ```javascript
  * import { MediaConnectClient, ListGatewaysCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, ListGatewaysCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // ListGatewaysRequest
  *   MaxResults: Number("int"),

@@ -46,6 +46,8 @@ export interface GetQueryResultsMonitorTopContributorsCommandOutput
  * ```javascript
  * import { NetworkFlowMonitorClient, GetQueryResultsMonitorTopContributorsCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, GetQueryResultsMonitorTopContributorsCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // GetQueryResultsMonitorTopContributorsInput
  *   monitorName: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface AutocompleteCommandOutput extends AutocompleteResponse, __Metad
  * ```javascript
  * import { GeoPlacesClient, AutocompleteCommand } from "@aws-sdk/client-geo-places"; // ES Modules import
  * // const { GeoPlacesClient, AutocompleteCommand } = require("@aws-sdk/client-geo-places"); // CommonJS import
+ * // import type { GeoPlacesClientConfig } from "@aws-sdk/client-geo-places";
+ * const config = {}; // type is GeoPlacesClientConfig
  * const client = new GeoPlacesClient(config);
  * const input = { // AutocompleteRequest
  *   QueryText: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * ```javascript
  * import { CloudFrontClient, CreateFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // CreateFunctionRequest
  *   Name: "STRING_VALUE", // required

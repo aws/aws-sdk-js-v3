@@ -43,6 +43,8 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * ```javascript
  * import { MarketplaceCatalogClient, ListChangeSetsCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, ListChangeSetsCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * // import type { MarketplaceCatalogClientConfig } from "@aws-sdk/client-marketplace-catalog";
+ * const config = {}; // type is MarketplaceCatalogClientConfig
  * const client = new MarketplaceCatalogClient(config);
  * const input = { // ListChangeSetsRequest
  *   Catalog: "STRING_VALUE", // required

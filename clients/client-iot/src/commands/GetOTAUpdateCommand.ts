@@ -35,6 +35,8 @@ export interface GetOTAUpdateCommandOutput extends GetOTAUpdateResponse, __Metad
  * ```javascript
  * import { IoTClient, GetOTAUpdateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetOTAUpdateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // GetOTAUpdateRequest
  *   otaUpdateId: "STRING_VALUE", // required

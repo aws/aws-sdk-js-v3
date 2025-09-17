@@ -34,6 +34,8 @@ export interface AcceptGrantCommandOutput extends AcceptGrantResponse, __Metadat
  * ```javascript
  * import { LicenseManagerClient, AcceptGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, AcceptGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // AcceptGrantRequest
  *   GrantArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  * ```javascript
  * import { GlueClient, StopCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // StopCrawlerRequest
  *   Name: "STRING_VALUE", // required

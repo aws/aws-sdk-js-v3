@@ -35,6 +35,8 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { InspectorClient, SubscribeToEventCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, SubscribeToEventCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // import type { InspectorClientConfig } from "@aws-sdk/client-inspector";
+ * const config = {}; // type is InspectorClientConfig
  * const client = new InspectorClient(config);
  * const input = { // SubscribeToEventRequest
  *   resourceArn: "STRING_VALUE", // required

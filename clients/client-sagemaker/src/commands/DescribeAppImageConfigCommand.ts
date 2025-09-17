@@ -34,6 +34,8 @@ export interface DescribeAppImageConfigCommandOutput extends DescribeAppImageCon
  * ```javascript
  * import { SageMakerClient, DescribeAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeAppImageConfigRequest
  *   AppImageConfigName: "STRING_VALUE", // required

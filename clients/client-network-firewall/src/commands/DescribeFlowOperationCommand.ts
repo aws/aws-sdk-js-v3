@@ -34,6 +34,8 @@ export interface DescribeFlowOperationCommandOutput extends DescribeFlowOperatio
  * ```javascript
  * import { NetworkFirewallClient, DescribeFlowOperationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeFlowOperationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // DescribeFlowOperationRequest
  *   FirewallArn: "STRING_VALUE", // required

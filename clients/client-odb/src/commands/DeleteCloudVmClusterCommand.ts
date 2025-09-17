@@ -34,6 +34,8 @@ export interface DeleteCloudVmClusterCommandOutput extends DeleteCloudVmClusterO
  * ```javascript
  * import { OdbClient, DeleteCloudVmClusterCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, DeleteCloudVmClusterCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // DeleteCloudVmClusterInput
  *   cloudVmClusterId: "STRING_VALUE", // required

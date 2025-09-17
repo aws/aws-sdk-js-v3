@@ -43,6 +43,8 @@ export interface GetOauth2CredentialProviderCommandOutput
  * ```javascript
  * import { BedrockAgentCoreControlClient, GetOauth2CredentialProviderCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, GetOauth2CredentialProviderCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetOauth2CredentialProviderRequest
  *   name: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * ```javascript
  * import { GlueClient, GetTableVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTableVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetTableVersionRequest
  *   CatalogId: "STRING_VALUE",

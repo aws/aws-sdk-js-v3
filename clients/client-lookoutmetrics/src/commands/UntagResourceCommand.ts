@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { LookoutMetricsClient, UntagResourceCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, UntagResourceCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

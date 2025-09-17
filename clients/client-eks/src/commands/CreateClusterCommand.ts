@@ -72,6 +72,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * ```javascript
  * import { EKSClient, CreateClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // CreateClusterRequest
  *   name: "STRING_VALUE", // required

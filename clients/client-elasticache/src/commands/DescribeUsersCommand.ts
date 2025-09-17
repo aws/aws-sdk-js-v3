@@ -34,6 +34,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * ```javascript
  * import { ElastiCacheClient, DescribeUsersCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeUsersCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeUsersMessage
  *   Engine: "STRING_VALUE",

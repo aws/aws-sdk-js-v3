@@ -37,6 +37,8 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse,
  * ```javascript
  * import { CodeGuruReviewerClient, CreateCodeReviewCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, CreateCodeReviewCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * // import type { CodeGuruReviewerClientConfig } from "@aws-sdk/client-codeguru-reviewer";
+ * const config = {}; // type is CodeGuruReviewerClientConfig
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // CreateCodeReviewRequest
  *   Name: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateRotationCommandOutput extends UpdateRotationResult, __Met
  * ```javascript
  * import { SSMContactsClient, UpdateRotationCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, UpdateRotationCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // import type { SSMContactsClientConfig } from "@aws-sdk/client-ssm-contacts";
+ * const config = {}; // type is SSMContactsClientConfig
  * const client = new SSMContactsClient(config);
  * const input = { // UpdateRotationRequest
  *   RotationId: "STRING_VALUE", // required

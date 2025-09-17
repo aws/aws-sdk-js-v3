@@ -34,6 +34,8 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * ```javascript
  * import { EKSClient, ListAccessPoliciesCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListAccessPoliciesCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // ListAccessPoliciesRequest
  *   maxResults: Number("int"),

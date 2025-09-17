@@ -35,6 +35,8 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * ```javascript
  * import { BackupClient, GetBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // GetBackupPlanInput
  *   BackupPlanId: "STRING_VALUE", // required

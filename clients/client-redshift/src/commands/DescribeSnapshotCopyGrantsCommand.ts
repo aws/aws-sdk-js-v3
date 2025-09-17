@@ -40,6 +40,8 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  * ```javascript
  * import { RedshiftClient, DescribeSnapshotCopyGrantsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeSnapshotCopyGrantsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeSnapshotCopyGrantsMessage
  *   SnapshotCopyGrantName: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface UpdateBrowserStreamCommandOutput extends UpdateBrowserStreamRes
  * ```javascript
  * import { BedrockAgentCoreClient, UpdateBrowserStreamCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, UpdateBrowserStreamCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // UpdateBrowserStreamRequest
  *   browserIdentifier: "STRING_VALUE", // required

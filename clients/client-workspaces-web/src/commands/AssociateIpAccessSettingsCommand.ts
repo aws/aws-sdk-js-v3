@@ -34,6 +34,8 @@ export interface AssociateIpAccessSettingsCommandOutput extends AssociateIpAcces
  * ```javascript
  * import { WorkSpacesWebClient, AssociateIpAccessSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateIpAccessSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // AssociateIpAccessSettingsRequest
  *   portalArn: "STRING_VALUE", // required

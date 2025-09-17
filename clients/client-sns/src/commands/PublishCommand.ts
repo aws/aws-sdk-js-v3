@@ -51,6 +51,8 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * ```javascript
  * import { SNSClient, PublishCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, PublishCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // import type { SNSClientConfig } from "@aws-sdk/client-sns";
+ * const config = {}; // type is SNSClientConfig
  * const client = new SNSClient(config);
  * const input = { // PublishInput
  *   TopicArn: "STRING_VALUE",

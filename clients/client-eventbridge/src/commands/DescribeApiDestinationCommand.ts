@@ -34,6 +34,8 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  * ```javascript
  * import { EventBridgeClient, DescribeApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // DescribeApiDestinationRequest
  *   Name: "STRING_VALUE", // required

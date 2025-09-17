@@ -34,6 +34,8 @@ export interface DeleteAccountPoolCommandOutput extends DeleteAccountPoolOutput,
  * ```javascript
  * import { DataZoneClient, DeleteAccountPoolCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteAccountPoolCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteAccountPoolInput
  *   domainIdentifier: "STRING_VALUE", // required

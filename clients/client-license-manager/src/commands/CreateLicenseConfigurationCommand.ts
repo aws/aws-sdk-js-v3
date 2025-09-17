@@ -39,6 +39,8 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * ```javascript
  * import { LicenseManagerClient, CreateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // CreateLicenseConfigurationRequest
  *   Name: "STRING_VALUE", // required

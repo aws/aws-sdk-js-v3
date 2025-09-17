@@ -43,6 +43,8 @@ export interface ListOauth2CredentialProvidersCommandOutput
  * ```javascript
  * import { BedrockAgentCoreControlClient, ListOauth2CredentialProvidersCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, ListOauth2CredentialProvidersCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListOauth2CredentialProvidersRequest
  *   nextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface UpgradeAppliedSchemaCommandOutput extends UpgradeAppliedSchemaR
  * ```javascript
  * import { CloudDirectoryClient, UpgradeAppliedSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpgradeAppliedSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // UpgradeAppliedSchemaRequest
  *   PublishedSchemaArn: "STRING_VALUE", // required

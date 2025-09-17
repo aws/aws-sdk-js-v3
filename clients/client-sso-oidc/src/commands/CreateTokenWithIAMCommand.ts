@@ -42,6 +42,8 @@ export interface CreateTokenWithIAMCommandOutput extends CreateTokenWithIAMRespo
  * ```javascript
  * import { SSOOIDCClient, CreateTokenWithIAMCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, CreateTokenWithIAMCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
+ * // import type { SSOOIDCClientConfig } from "@aws-sdk/client-sso-oidc";
+ * const config = {}; // type is SSOOIDCClientConfig
  * const client = new SSOOIDCClient(config);
  * const input = { // CreateTokenWithIAMRequest
  *   clientId: "STRING_VALUE", // required

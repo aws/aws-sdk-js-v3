@@ -36,6 +36,8 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  * ```javascript
  * import { SSMContactsClient, SendActivationCodeCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, SendActivationCodeCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // import type { SSMContactsClientConfig } from "@aws-sdk/client-ssm-contacts";
+ * const config = {}; // type is SSMContactsClientConfig
  * const client = new SSMContactsClient(config);
  * const input = { // SendActivationCodeRequest
  *   ContactChannelId: "STRING_VALUE", // required

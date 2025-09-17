@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { MediaPackageV2Client, ListTagsForResourceCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, ListTagsForResourceCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // import type { MediaPackageV2ClientConfig } from "@aws-sdk/client-mediapackagev2";
+ * const config = {}; // type is MediaPackageV2ClientConfig
  * const client = new MediaPackageV2Client(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

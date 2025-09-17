@@ -34,6 +34,8 @@ export interface BatchDeleteUniqueIdCommandOutput extends BatchDeleteUniqueIdOut
  * ```javascript
  * import { EntityResolutionClient, BatchDeleteUniqueIdCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, BatchDeleteUniqueIdCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // BatchDeleteUniqueIdInput
  *   workflowName: "STRING_VALUE", // required

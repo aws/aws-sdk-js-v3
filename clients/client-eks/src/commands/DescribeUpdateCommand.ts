@@ -37,6 +37,8 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  * ```javascript
  * import { EKSClient, DescribeUpdateCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeUpdateCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // DescribeUpdateRequest
  *   name: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface ListJobsByConsumableResourceCommandOutput
  * ```javascript
  * import { BatchClient, ListJobsByConsumableResourceCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, ListJobsByConsumableResourceCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // ListJobsByConsumableResourceRequest
  *   consumableResource: "STRING_VALUE", // required

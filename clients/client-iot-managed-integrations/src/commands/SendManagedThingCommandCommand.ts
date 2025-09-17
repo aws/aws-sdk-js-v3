@@ -42,6 +42,8 @@ export interface SendManagedThingCommandCommandOutput extends SendManagedThingCo
  * ```javascript
  * import { IoTManagedIntegrationsClient, SendManagedThingCommandCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, SendManagedThingCommandCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // SendManagedThingCommandRequest
  *   ManagedThingId: "STRING_VALUE", // required

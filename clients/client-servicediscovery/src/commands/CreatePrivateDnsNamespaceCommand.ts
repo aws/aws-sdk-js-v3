@@ -41,6 +41,8 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * ```javascript
  * import { ServiceDiscoveryClient, CreatePrivateDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, CreatePrivateDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // import type { ServiceDiscoveryClientConfig } from "@aws-sdk/client-servicediscovery";
+ * const config = {}; // type is ServiceDiscoveryClientConfig
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // CreatePrivateDnsNamespaceRequest
  *   Name: "STRING_VALUE", // required

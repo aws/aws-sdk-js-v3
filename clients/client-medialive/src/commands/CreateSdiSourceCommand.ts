@@ -34,6 +34,8 @@ export interface CreateSdiSourceCommandOutput extends CreateSdiSourceResponse, _
  * ```javascript
  * import { MediaLiveClient, CreateSdiSourceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateSdiSourceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // CreateSdiSourceRequest
  *   Mode: "QUADRANT" || "INTERLEAVE",

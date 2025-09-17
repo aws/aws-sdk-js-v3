@@ -41,6 +41,8 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ForecastClient, DeleteDatasetCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteDatasetCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // DeleteDatasetRequest
  *   DatasetArn: "STRING_VALUE", // required

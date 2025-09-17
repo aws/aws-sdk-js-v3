@@ -40,6 +40,8 @@ export interface BatchDeleteCustomVocabularyItemCommandOutput
  * ```javascript
  * import { LexModelsV2Client, BatchDeleteCustomVocabularyItemCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, BatchDeleteCustomVocabularyItemCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // BatchDeleteCustomVocabularyItemRequest
  *   botId: "STRING_VALUE", // required

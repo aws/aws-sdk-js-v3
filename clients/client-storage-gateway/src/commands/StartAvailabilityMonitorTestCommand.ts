@@ -46,6 +46,8 @@ export interface StartAvailabilityMonitorTestCommandOutput
  * ```javascript
  * import { StorageGatewayClient, StartAvailabilityMonitorTestCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, StartAvailabilityMonitorTestCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // StartAvailabilityMonitorTestInput
  *   GatewayARN: "STRING_VALUE", // required

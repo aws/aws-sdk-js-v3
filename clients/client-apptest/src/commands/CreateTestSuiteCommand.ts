@@ -34,6 +34,8 @@ export interface CreateTestSuiteCommandOutput extends CreateTestSuiteResponse, _
  * ```javascript
  * import { AppTestClient, CreateTestSuiteCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, CreateTestSuiteCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // CreateTestSuiteRequest
  *   name: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * ```javascript
  * import { IVSRealTimeClient, GetPublicKeyCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, GetPublicKeyCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // GetPublicKeyRequest
  *   arn: "STRING_VALUE", // required

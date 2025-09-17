@@ -35,6 +35,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { KendraClient, ListTagsForResourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListTagsForResourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

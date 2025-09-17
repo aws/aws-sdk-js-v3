@@ -38,6 +38,8 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  * ```javascript
  * import { PaymentCryptographyClient, UpdateAliasCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, UpdateAliasCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // UpdateAliasInput
  *   AliasName: "STRING_VALUE", // required

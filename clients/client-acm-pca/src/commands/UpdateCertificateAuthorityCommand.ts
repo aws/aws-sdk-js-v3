@@ -34,6 +34,8 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * ```javascript
  * import { ACMPCAClient, UpdateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, UpdateCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * // import type { ACMPCAClientConfig } from "@aws-sdk/client-acm-pca";
+ * const config = {}; // type is ACMPCAClientConfig
  * const client = new ACMPCAClient(config);
  * const input = { // UpdateCertificateAuthorityRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required

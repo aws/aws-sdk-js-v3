@@ -36,6 +36,8 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * ```javascript
  * import { KinesisClient, ListStreamConsumersCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, ListStreamConsumersCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // ListStreamConsumersInput
  *   StreamARN: "STRING_VALUE", // required

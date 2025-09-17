@@ -47,6 +47,8 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  * ```javascript
  * import { KinesisAnalyticsV2Client, DeleteApplicationInputProcessingConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DeleteApplicationInputProcessingConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * // import type { KinesisAnalyticsV2ClientConfig } from "@aws-sdk/client-kinesis-analytics-v2";
+ * const config = {}; // type is KinesisAnalyticsV2ClientConfig
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // DeleteApplicationInputProcessingConfigurationRequest
  *   ApplicationName: "STRING_VALUE", // required

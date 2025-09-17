@@ -34,6 +34,8 @@ export interface AddPolicyStatementCommandOutput extends AddPolicyStatementOutpu
  * ```javascript
  * import { EntityResolutionClient, AddPolicyStatementCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, AddPolicyStatementCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // AddPolicyStatementInput
  *   arn: "STRING_VALUE", // required

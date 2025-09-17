@@ -41,6 +41,8 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
  * ```javascript
  * import { RolesAnywhereClient, GetSubjectCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, GetSubjectCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * // import type { RolesAnywhereClientConfig } from "@aws-sdk/client-rolesanywhere";
+ * const config = {}; // type is RolesAnywhereClientConfig
  * const client = new RolesAnywhereClient(config);
  * const input = { // ScalarSubjectRequest
  *   subjectId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface StartCapacityTaskCommandOutput extends StartCapacityTaskOutput,
  * ```javascript
  * import { OutpostsClient, StartCapacityTaskCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, StartCapacityTaskCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // import type { OutpostsClientConfig } from "@aws-sdk/client-outposts";
+ * const config = {}; // type is OutpostsClientConfig
  * const client = new OutpostsClient(config);
  * const input = { // StartCapacityTaskInput
  *   OutpostIdentifier: "STRING_VALUE", // required

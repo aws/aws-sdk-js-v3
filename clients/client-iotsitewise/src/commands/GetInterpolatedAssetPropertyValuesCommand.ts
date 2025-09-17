@@ -56,6 +56,8 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  * ```javascript
  * import { IoTSiteWiseClient, GetInterpolatedAssetPropertyValuesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, GetInterpolatedAssetPropertyValuesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // GetInterpolatedAssetPropertyValuesRequest
  *   assetId: "STRING_VALUE",

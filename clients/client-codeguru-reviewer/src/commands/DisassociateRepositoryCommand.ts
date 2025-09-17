@@ -34,6 +34,8 @@ export interface DisassociateRepositoryCommandOutput extends DisassociateReposit
  * ```javascript
  * import { CodeGuruReviewerClient, DisassociateRepositoryCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, DisassociateRepositoryCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * // import type { CodeGuruReviewerClientConfig } from "@aws-sdk/client-codeguru-reviewer";
+ * const config = {}; // type is CodeGuruReviewerClientConfig
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // DisassociateRepositoryRequest
  *   AssociationArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { TextractClient, ListTagsForResourceCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, ListTagsForResourceCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __Met
  * ```javascript
  * import { BedrockAgentCoreControlClient, DeleteGatewayCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, DeleteGatewayCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // DeleteGatewayRequest
  *   gatewayIdentifier: "STRING_VALUE", // required

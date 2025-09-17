@@ -34,6 +34,8 @@ export interface StartRemoteMoveCommandOutput extends StartRemoteMoveResponse, _
  * ```javascript
  * import { TransferClient, StartRemoteMoveCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, StartRemoteMoveCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // StartRemoteMoveRequest
  *   ConnectorId: "STRING_VALUE", // required

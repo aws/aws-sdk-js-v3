@@ -34,6 +34,8 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  * ```javascript
  * import { RedshiftClient, DescribeClusterTracksCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterTracksCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeClusterTracksMessage
  *   MaintenanceTrackName: "STRING_VALUE",

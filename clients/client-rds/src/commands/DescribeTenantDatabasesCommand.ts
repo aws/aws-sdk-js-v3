@@ -39,6 +39,8 @@ export interface DescribeTenantDatabasesCommandOutput extends TenantDatabasesMes
  * ```javascript
  * import { RDSClient, DescribeTenantDatabasesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeTenantDatabasesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeTenantDatabasesMessage
  *   DBInstanceIdentifier: "STRING_VALUE",

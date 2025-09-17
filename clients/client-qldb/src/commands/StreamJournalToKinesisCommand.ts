@@ -36,6 +36,8 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  * ```javascript
  * import { QLDBClient, StreamJournalToKinesisCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, StreamJournalToKinesisCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * // import type { QLDBClientConfig } from "@aws-sdk/client-qldb";
+ * const config = {}; // type is QLDBClientConfig
  * const client = new QLDBClient(config);
  * const input = { // StreamJournalToKinesisRequest
  *   LedgerName: "STRING_VALUE", // required

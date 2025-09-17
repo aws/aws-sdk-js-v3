@@ -44,6 +44,8 @@ export interface ListCommandExecutionsForSandboxCommandOutput
  * ```javascript
  * import { CodeBuildClient, ListCommandExecutionsForSandboxCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListCommandExecutionsForSandboxCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // ListCommandExecutionsForSandboxInput
  *   sandboxId: "STRING_VALUE", // required

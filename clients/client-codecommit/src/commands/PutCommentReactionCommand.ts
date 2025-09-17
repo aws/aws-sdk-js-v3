@@ -35,6 +35,8 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CodeCommitClient, PutCommentReactionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PutCommentReactionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // PutCommentReactionInput
  *   commentId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface GetSamplingStatisticSummariesCommandOutput
  * ```javascript
  * import { XRayClient, GetSamplingStatisticSummariesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetSamplingStatisticSummariesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // import type { XRayClientConfig } from "@aws-sdk/client-xray";
+ * const config = {}; // type is XRayClientConfig
  * const client = new XRayClient(config);
  * const input = { // GetSamplingStatisticSummariesRequest
  *   NextToken: "STRING_VALUE",

@@ -39,6 +39,8 @@ export interface ApplyGuardrailCommandOutput extends ApplyGuardrailResponse, __M
  * ```javascript
  * import { BedrockRuntimeClient, ApplyGuardrailCommand } from "@aws-sdk/client-bedrock-runtime"; // ES Modules import
  * // const { BedrockRuntimeClient, ApplyGuardrailCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
+ * // import type { BedrockRuntimeClientConfig } from "@aws-sdk/client-bedrock-runtime";
+ * const config = {}; // type is BedrockRuntimeClientConfig
  * const client = new BedrockRuntimeClient(config);
  * const input = { // ApplyGuardrailRequest
  *   guardrailIdentifier: "STRING_VALUE", // required

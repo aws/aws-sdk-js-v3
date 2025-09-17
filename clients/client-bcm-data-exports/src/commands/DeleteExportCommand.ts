@@ -34,6 +34,8 @@ export interface DeleteExportCommandOutput extends DeleteExportResponse, __Metad
  * ```javascript
  * import { BCMDataExportsClient, DeleteExportCommand } from "@aws-sdk/client-bcm-data-exports"; // ES Modules import
  * // const { BCMDataExportsClient, DeleteExportCommand } = require("@aws-sdk/client-bcm-data-exports"); // CommonJS import
+ * // import type { BCMDataExportsClientConfig } from "@aws-sdk/client-bcm-data-exports";
+ * const config = {}; // type is BCMDataExportsClientConfig
  * const client = new BCMDataExportsClient(config);
  * const input = { // DeleteExportRequest
  *   ExportArn: "STRING_VALUE", // required

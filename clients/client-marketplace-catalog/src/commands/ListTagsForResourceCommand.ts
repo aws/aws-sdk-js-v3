@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { MarketplaceCatalogClient, ListTagsForResourceCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, ListTagsForResourceCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * // import type { MarketplaceCatalogClientConfig } from "@aws-sdk/client-marketplace-catalog";
+ * const config = {}; // type is MarketplaceCatalogClientConfig
  * const client = new MarketplaceCatalogClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

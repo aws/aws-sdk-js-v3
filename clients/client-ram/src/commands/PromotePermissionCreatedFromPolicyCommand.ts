@@ -73,6 +73,8 @@ export interface PromotePermissionCreatedFromPolicyCommandOutput
  * ```javascript
  * import { RAMClient, PromotePermissionCreatedFromPolicyCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, PromotePermissionCreatedFromPolicyCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // PromotePermissionCreatedFromPolicyRequest
  *   permissionArn: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface ListLinkedWhatsAppBusinessAccountsCommandOutput
  * ```javascript
  * import { SocialMessagingClient, ListLinkedWhatsAppBusinessAccountsCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
  * // const { SocialMessagingClient, ListLinkedWhatsAppBusinessAccountsCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
+ * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
  * const input = { // ListLinkedWhatsAppBusinessAccountsInput
  *   nextToken: "STRING_VALUE",

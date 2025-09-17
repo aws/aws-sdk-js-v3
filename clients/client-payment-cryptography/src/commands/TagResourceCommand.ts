@@ -38,6 +38,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { PaymentCryptographyClient, TagResourceCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, TagResourceCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required

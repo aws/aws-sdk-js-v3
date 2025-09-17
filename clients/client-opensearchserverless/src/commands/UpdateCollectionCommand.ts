@@ -38,6 +38,8 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * ```javascript
  * import { OpenSearchServerlessClient, UpdateCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // UpdateCollectionRequest
  *   id: "STRING_VALUE", // required

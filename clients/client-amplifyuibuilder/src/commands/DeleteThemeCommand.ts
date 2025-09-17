@@ -34,6 +34,8 @@ export interface DeleteThemeCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AmplifyUIBuilderClient, DeleteThemeCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, DeleteThemeCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // import type { AmplifyUIBuilderClientConfig } from "@aws-sdk/client-amplifyuibuilder";
+ * const config = {}; // type is AmplifyUIBuilderClientConfig
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // DeleteThemeRequest
  *   appId: "STRING_VALUE", // required

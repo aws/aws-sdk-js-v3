@@ -35,6 +35,8 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * ```javascript
  * import { FSxClient, UpdateVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // UpdateVolumeRequest
  *   ClientRequestToken: "STRING_VALUE",

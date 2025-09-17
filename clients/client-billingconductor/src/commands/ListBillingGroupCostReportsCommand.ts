@@ -38,6 +38,8 @@ export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGro
  * ```javascript
  * import { BillingconductorClient, ListBillingGroupCostReportsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListBillingGroupCostReportsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // import type { BillingconductorClientConfig } from "@aws-sdk/client-billingconductor";
+ * const config = {}; // type is BillingconductorClientConfig
  * const client = new BillingconductorClient(config);
  * const input = { // ListBillingGroupCostReportsInput
  *   BillingPeriod: "STRING_VALUE",

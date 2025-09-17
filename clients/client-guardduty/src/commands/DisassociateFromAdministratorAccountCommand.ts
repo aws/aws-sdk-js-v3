@@ -51,6 +51,8 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * ```javascript
  * import { GuardDutyClient, DisassociateFromAdministratorAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DisassociateFromAdministratorAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // DisassociateFromAdministratorAccountRequest
  *   DetectorId: "STRING_VALUE", // required

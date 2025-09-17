@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { EvidentlyClient, ListTagsForResourceCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListTagsForResourceCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

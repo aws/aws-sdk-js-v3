@@ -36,6 +36,8 @@ export interface DeleteCatalogCommandOutput extends DeleteCatalogResponse, __Met
  * ```javascript
  * import { GlueClient, DeleteCatalogCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteCatalogCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteCatalogRequest
  *   CatalogId: "STRING_VALUE", // required

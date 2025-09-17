@@ -38,6 +38,8 @@ export interface DescribeConnectorOperationCommandOutput extends DescribeConnect
  * ```javascript
  * import { KafkaConnectClient, DescribeConnectorOperationCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, DescribeConnectorOperationCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * // import type { KafkaConnectClientConfig } from "@aws-sdk/client-kafkaconnect";
+ * const config = {}; // type is KafkaConnectClientConfig
  * const client = new KafkaConnectClient(config);
  * const input = { // DescribeConnectorOperationRequest
  *   connectorOperationArn: "STRING_VALUE", // required

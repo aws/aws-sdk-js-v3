@@ -34,6 +34,8 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
  * ```javascript
  * import { CodeCommitClient, GetBlobCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetBlobCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // GetBlobInput
  *   repositoryName: "STRING_VALUE", // required

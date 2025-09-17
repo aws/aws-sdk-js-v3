@@ -38,6 +38,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * ```javascript
  * import { VoiceIDClient, DescribeDomainCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DescribeDomainCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // import type { VoiceIDClientConfig } from "@aws-sdk/client-voice-id";
+ * const config = {}; // type is VoiceIDClientConfig
  * const client = new VoiceIDClient(config);
  * const input = { // DescribeDomainRequest
  *   DomainId: "STRING_VALUE", // required

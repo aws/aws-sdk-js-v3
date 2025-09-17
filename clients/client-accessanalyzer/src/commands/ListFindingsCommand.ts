@@ -34,6 +34,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * ```javascript
  * import { AccessAnalyzerClient, ListFindingsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListFindingsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // import type { AccessAnalyzerClientConfig } from "@aws-sdk/client-accessanalyzer";
+ * const config = {}; // type is AccessAnalyzerClientConfig
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListFindingsRequest
  *   analyzerArn: "STRING_VALUE", // required

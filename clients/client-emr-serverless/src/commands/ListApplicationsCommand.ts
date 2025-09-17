@@ -34,6 +34,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * ```javascript
  * import { EMRServerlessClient, ListApplicationsCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, ListApplicationsCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * // import type { EMRServerlessClientConfig } from "@aws-sdk/client-emr-serverless";
+ * const config = {}; // type is EMRServerlessClientConfig
  * const client = new EMRServerlessClient(config);
  * const input = { // ListApplicationsRequest
  *   nextToken: "STRING_VALUE",

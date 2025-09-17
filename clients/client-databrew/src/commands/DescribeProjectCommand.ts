@@ -34,6 +34,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * ```javascript
  * import { DataBrewClient, DescribeProjectCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeProjectCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // DescribeProjectRequest
  *   Name: "STRING_VALUE", // required

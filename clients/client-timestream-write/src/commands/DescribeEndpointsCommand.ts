@@ -54,6 +54,8 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * ```javascript
  * import { TimestreamWriteClient, DescribeEndpointsCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, DescribeEndpointsCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // import type { TimestreamWriteClientConfig } from "@aws-sdk/client-timestream-write";
+ * const config = {}; // type is TimestreamWriteClientConfig
  * const client = new TimestreamWriteClient(config);
  * const input = {};
  * const command = new DescribeEndpointsCommand(input);

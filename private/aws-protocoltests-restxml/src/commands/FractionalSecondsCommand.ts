@@ -35,6 +35,8 @@ export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput,
  * ```javascript
  * import { RestXmlProtocolClient, FractionalSecondsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, FractionalSecondsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = {};
  * const command = new FractionalSecondsCommand(input);

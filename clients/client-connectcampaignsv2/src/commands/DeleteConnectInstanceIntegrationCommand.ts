@@ -41,6 +41,8 @@ export interface DeleteConnectInstanceIntegrationCommandOutput extends __Metadat
  * ```javascript
  * import { ConnectCampaignsV2Client, DeleteConnectInstanceIntegrationCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
  * // const { ConnectCampaignsV2Client, DeleteConnectInstanceIntegrationCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
+ * // import type { ConnectCampaignsV2ClientConfig } from "@aws-sdk/client-connectcampaignsv2";
+ * const config = {}; // type is ConnectCampaignsV2ClientConfig
  * const client = new ConnectCampaignsV2Client(config);
  * const input = { // DeleteConnectInstanceIntegrationRequest
  *   connectInstanceId: "STRING_VALUE", // required

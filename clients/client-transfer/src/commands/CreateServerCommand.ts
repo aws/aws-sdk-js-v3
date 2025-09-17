@@ -34,6 +34,8 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * ```javascript
  * import { TransferClient, CreateServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // CreateServerRequest
  *   Certificate: "STRING_VALUE",

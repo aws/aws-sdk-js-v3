@@ -35,6 +35,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * ```javascript
  * import { GuardDutyClient, ListInvitationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListInvitationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // ListInvitationsRequest
  *   MaxResults: Number("int"),

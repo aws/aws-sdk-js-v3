@@ -75,6 +75,8 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * ```javascript
  * import { ChimeSDKMessagingClient, CreateChannelMembershipCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, CreateChannelMembershipCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * // import type { ChimeSDKMessagingClientConfig } from "@aws-sdk/client-chime-sdk-messaging";
+ * const config = {}; // type is ChimeSDKMessagingClientConfig
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // CreateChannelMembershipRequest
  *   ChannelArn: "STRING_VALUE", // required

@@ -55,6 +55,8 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  * ```javascript
  * import { CloudFormationClient, CreateStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // CreateStackInstancesInput
  *   StackSetName: "STRING_VALUE", // required

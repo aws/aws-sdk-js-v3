@@ -38,6 +38,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  * ```javascript
  * import { DirectoryServiceDataClient, DeleteUserCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, DeleteUserCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // import type { DirectoryServiceDataClientConfig } from "@aws-sdk/client-directory-service-data";
+ * const config = {}; // type is DirectoryServiceDataClientConfig
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // DeleteUserRequest
  *   DirectoryId: "STRING_VALUE", // required

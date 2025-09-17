@@ -42,6 +42,8 @@ export interface ActivateEmailContactCommandOutput extends ActivateEmailContactR
  * ```javascript
  * import { NotificationsContactsClient, ActivateEmailContactCommand } from "@aws-sdk/client-notificationscontacts"; // ES Modules import
  * // const { NotificationsContactsClient, ActivateEmailContactCommand } = require("@aws-sdk/client-notificationscontacts"); // CommonJS import
+ * // import type { NotificationsContactsClientConfig } from "@aws-sdk/client-notificationscontacts";
+ * const config = {}; // type is NotificationsContactsClientConfig
  * const client = new NotificationsContactsClient(config);
  * const input = { // ActivateEmailContactRequest
  *   arn: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface OmitsSerializingEmptyListsCommandOutput extends __MetadataBeare
  * ```javascript
  * import { RestJsonProtocolClient, OmitsSerializingEmptyListsCommand } from "@aws-sdk/aws-protocoltests-restjson-schema"; // ES Modules import
  * // const { RestJsonProtocolClient, OmitsSerializingEmptyListsCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson-schema";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // OmitsSerializingEmptyListsInput
  *   queryStringList: [ // StringList

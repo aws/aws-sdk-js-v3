@@ -48,6 +48,8 @@ export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput
  * ```javascript
  * import { NetworkFirewallClient, AcceptNetworkFirewallTransitGatewayAttachmentCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, AcceptNetworkFirewallTransitGatewayAttachmentCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // AcceptNetworkFirewallTransitGatewayAttachmentRequest
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required

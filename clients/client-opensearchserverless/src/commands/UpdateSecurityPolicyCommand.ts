@@ -38,6 +38,8 @@ export interface UpdateSecurityPolicyCommandOutput extends UpdateSecurityPolicyR
  * ```javascript
  * import { OpenSearchServerlessClient, UpdateSecurityPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateSecurityPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // UpdateSecurityPolicyRequest
  *   type: "STRING_VALUE", // required

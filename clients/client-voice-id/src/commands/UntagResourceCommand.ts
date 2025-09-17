@@ -38,6 +38,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { VoiceIDClient, UntagResourceCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, UntagResourceCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // import type { VoiceIDClientConfig } from "@aws-sdk/client-voice-id";
+ * const config = {}; // type is VoiceIDClientConfig
  * const client = new VoiceIDClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

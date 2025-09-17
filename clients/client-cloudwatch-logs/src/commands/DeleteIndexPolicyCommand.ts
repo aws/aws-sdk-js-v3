@@ -40,6 +40,8 @@ export interface DeleteIndexPolicyCommandOutput extends DeleteIndexPolicyRespons
  * ```javascript
  * import { CloudWatchLogsClient, DeleteIndexPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteIndexPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DeleteIndexPolicyRequest
  *   logGroupIdentifier: "STRING_VALUE", // required

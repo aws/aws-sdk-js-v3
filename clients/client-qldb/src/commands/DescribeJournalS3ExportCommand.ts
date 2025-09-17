@@ -42,6 +42,8 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  * ```javascript
  * import { QLDBClient, DescribeJournalS3ExportCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DescribeJournalS3ExportCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * // import type { QLDBClientConfig } from "@aws-sdk/client-qldb";
+ * const config = {}; // type is QLDBClientConfig
  * const client = new QLDBClient(config);
  * const input = { // DescribeJournalS3ExportRequest
  *   Name: "STRING_VALUE", // required

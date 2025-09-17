@@ -42,6 +42,8 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
  * ```javascript
  * import { RedshiftClient, ModifyClusterIamRolesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterIamRolesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // ModifyClusterIamRolesMessage
  *   ClusterIdentifier: "STRING_VALUE", // required

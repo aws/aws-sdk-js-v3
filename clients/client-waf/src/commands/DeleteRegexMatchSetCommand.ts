@@ -57,6 +57,8 @@ export interface DeleteRegexMatchSetCommandOutput extends DeleteRegexMatchSetRes
  * ```javascript
  * import { WAFClient, DeleteRegexMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteRegexMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // DeleteRegexMatchSetRequest
  *   RegexMatchSetId: "STRING_VALUE", // required

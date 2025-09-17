@@ -34,6 +34,8 @@ export interface DeregisterAdminCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RepostspaceClient, DeregisterAdminCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, DeregisterAdminCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // DeregisterAdminInput
  *   spaceId: "STRING_VALUE", // required

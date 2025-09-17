@@ -40,6 +40,8 @@ export interface PutActionsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { PersonalizeEventsClient, PutActionsCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
  * // const { PersonalizeEventsClient, PutActionsCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
+ * // import type { PersonalizeEventsClientConfig } from "@aws-sdk/client-personalize-events";
+ * const config = {}; // type is PersonalizeEventsClientConfig
  * const client = new PersonalizeEventsClient(config);
  * const input = { // PutActionsRequest
  *   datasetArn: "STRING_VALUE", // required

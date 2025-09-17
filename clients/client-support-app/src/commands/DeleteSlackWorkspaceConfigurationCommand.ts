@@ -40,6 +40,8 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  * ```javascript
  * import { SupportAppClient, DeleteSlackWorkspaceConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, DeleteSlackWorkspaceConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * // import type { SupportAppClientConfig } from "@aws-sdk/client-support-app";
+ * const config = {}; // type is SupportAppClientConfig
  * const client = new SupportAppClient(config);
  * const input = { // DeleteSlackWorkspaceConfigurationRequest
  *   teamId: "STRING_VALUE", // required

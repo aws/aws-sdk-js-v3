@@ -34,6 +34,8 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * ```javascript
  * import { PanoramaClient, DeleteDeviceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DeleteDeviceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // import type { PanoramaClientConfig } from "@aws-sdk/client-panorama";
+ * const config = {}; // type is PanoramaClientConfig
  * const client = new PanoramaClient(config);
  * const input = { // DeleteDeviceRequest
  *   DeviceId: "STRING_VALUE", // required

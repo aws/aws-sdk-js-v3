@@ -44,6 +44,8 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * ```javascript
  * import { RDSClient, DescribePendingMaintenanceActionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribePendingMaintenanceActionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribePendingMaintenanceActionsMessage
  *   ResourceIdentifier: "STRING_VALUE",

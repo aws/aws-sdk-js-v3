@@ -37,6 +37,8 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * ```javascript
  * import { GuardDutyClient, GetUsageStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetUsageStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // GetUsageStatisticsRequest
  *   DetectorId: "STRING_VALUE", // required

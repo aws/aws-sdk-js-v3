@@ -33,6 +33,8 @@ export interface OnlySigv4AuthOptionalCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WeatherClient, OnlySigv4AuthOptionalCommand } from "@aws-sdk/weather-legacy-auth"; // ES Modules import
  * // const { WeatherClient, OnlySigv4AuthOptionalCommand } = require("@aws-sdk/weather-legacy-auth"); // CommonJS import
+ * // import type { WeatherClientConfig } from "@aws-sdk/weather-legacy-auth";
+ * const config = {}; // type is WeatherClientConfig
  * const client = new WeatherClient(config);
  * const input = {};
  * const command = new OnlySigv4AuthOptionalCommand(input);

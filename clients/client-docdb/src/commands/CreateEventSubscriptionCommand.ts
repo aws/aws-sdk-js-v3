@@ -36,6 +36,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * ```javascript
  * import { DocDBClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // CreateEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required

@@ -54,6 +54,8 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * ```javascript
  * import { ChimeSDKMessagingClient, DescribeChannelMembershipForAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DescribeChannelMembershipForAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * // import type { ChimeSDKMessagingClientConfig } from "@aws-sdk/client-chime-sdk-messaging";
+ * const config = {}; // type is ChimeSDKMessagingClientConfig
  * const client = new ChimeSDKMessagingClient(config);
  * const input = { // DescribeChannelMembershipForAppInstanceUserRequest
  *   ChannelArn: "STRING_VALUE", // required

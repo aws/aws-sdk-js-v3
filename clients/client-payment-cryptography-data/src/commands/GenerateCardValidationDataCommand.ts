@@ -43,6 +43,8 @@ export interface GenerateCardValidationDataCommandOutput extends GenerateCardVal
  * ```javascript
  * import { PaymentCryptographyDataClient, GenerateCardValidationDataCommand } from "@aws-sdk/client-payment-cryptography-data"; // ES Modules import
  * // const { PaymentCryptographyDataClient, GenerateCardValidationDataCommand } = require("@aws-sdk/client-payment-cryptography-data"); // CommonJS import
+ * // import type { PaymentCryptographyDataClientConfig } from "@aws-sdk/client-payment-cryptography-data";
+ * const config = {}; // type is PaymentCryptographyDataClientConfig
  * const client = new PaymentCryptographyDataClient(config);
  * const input = { // GenerateCardValidationDataInput
  *   KeyIdentifier: "STRING_VALUE", // required

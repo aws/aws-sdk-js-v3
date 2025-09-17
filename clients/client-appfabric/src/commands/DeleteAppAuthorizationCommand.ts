@@ -35,6 +35,8 @@ export interface DeleteAppAuthorizationCommandOutput extends DeleteAppAuthorizat
  * ```javascript
  * import { AppFabricClient, DeleteAppAuthorizationCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, DeleteAppAuthorizationCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // DeleteAppAuthorizationRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

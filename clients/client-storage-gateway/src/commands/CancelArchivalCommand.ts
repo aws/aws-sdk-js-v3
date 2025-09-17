@@ -35,6 +35,8 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * ```javascript
  * import { StorageGatewayClient, CancelArchivalCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CancelArchivalCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // CancelArchivalInput
  *   GatewayARN: "STRING_VALUE", // required

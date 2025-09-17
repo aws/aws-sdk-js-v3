@@ -35,6 +35,8 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  * ```javascript
  * import { WorkMailClient, ListMailboxExportJobsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListMailboxExportJobsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // ListMailboxExportJobsRequest
  *   OrganizationId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * ```javascript
  * import { OpenSearchServerlessClient, ListCollectionsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListCollectionsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // ListCollectionsRequest
  *   collectionFilters: { // CollectionFilters

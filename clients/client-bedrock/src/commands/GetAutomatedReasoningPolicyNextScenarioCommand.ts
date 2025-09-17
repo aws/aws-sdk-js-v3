@@ -44,6 +44,8 @@ export interface GetAutomatedReasoningPolicyNextScenarioCommandOutput
  * ```javascript
  * import { BedrockClient, GetAutomatedReasoningPolicyNextScenarioCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, GetAutomatedReasoningPolicyNextScenarioCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // GetAutomatedReasoningPolicyNextScenarioRequest
  *   policyArn: "STRING_VALUE", // required

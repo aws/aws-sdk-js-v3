@@ -34,6 +34,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * ```javascript
  * import { QuickSightClient, DescribeUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeUserRequest
  *   UserName: "STRING_VALUE", // required

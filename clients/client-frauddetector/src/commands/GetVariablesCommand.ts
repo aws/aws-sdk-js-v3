@@ -39,6 +39,8 @@ export interface GetVariablesCommandOutput extends GetVariablesResult, __Metadat
  * ```javascript
  * import { FraudDetectorClient, GetVariablesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetVariablesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // GetVariablesRequest
  *   name: "STRING_VALUE",

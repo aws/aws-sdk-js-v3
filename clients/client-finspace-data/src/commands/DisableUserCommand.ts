@@ -36,6 +36,8 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
  * ```javascript
  * import { FinspaceDataClient, DisableUserCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, DisableUserCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // import type { FinspaceDataClientConfig } from "@aws-sdk/client-finspace-data";
+ * const config = {}; // type is FinspaceDataClientConfig
  * const client = new FinspaceDataClient(config);
  * const input = { // DisableUserRequest
  *   userId: "STRING_VALUE", // required

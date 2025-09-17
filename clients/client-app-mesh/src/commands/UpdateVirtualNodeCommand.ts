@@ -34,6 +34,8 @@ export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput,
  * ```javascript
  * import { AppMeshClient, UpdateVirtualNodeCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateVirtualNodeCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // UpdateVirtualNodeInput
  *   virtualNodeName: "STRING_VALUE", // required

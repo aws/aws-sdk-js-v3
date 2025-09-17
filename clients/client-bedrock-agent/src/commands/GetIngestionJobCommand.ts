@@ -35,6 +35,8 @@ export interface GetIngestionJobCommandOutput extends GetIngestionJobResponse, _
  * ```javascript
  * import { BedrockAgentClient, GetIngestionJobCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, GetIngestionJobCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // GetIngestionJobRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

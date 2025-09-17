@@ -36,6 +36,8 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * ```javascript
  * import { GrafanaClient, ListVersionsCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, ListVersionsCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // import type { GrafanaClientConfig } from "@aws-sdk/client-grafana";
+ * const config = {}; // type is GrafanaClientConfig
  * const client = new GrafanaClient(config);
  * const input = { // ListVersionsRequest
  *   maxResults: Number("int"),

@@ -37,6 +37,8 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  * ```javascript
  * import { PersonalizeClient, ListEventTrackersCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListEventTrackersCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // ListEventTrackersRequest
  *   datasetGroupArn: "STRING_VALUE",

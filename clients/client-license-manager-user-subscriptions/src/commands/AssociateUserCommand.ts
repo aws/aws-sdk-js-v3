@@ -47,6 +47,8 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, AssociateUserCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, AssociateUserCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerUserSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-user-subscriptions";
+ * const config = {}; // type is LicenseManagerUserSubscriptionsClientConfig
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // AssociateUserRequest
  *   Username: "STRING_VALUE", // required

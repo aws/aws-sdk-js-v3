@@ -37,6 +37,8 @@ export interface DisassociateUserProficienciesCommandOutput extends __MetadataBe
  * ```javascript
  * import { ConnectClient, DisassociateUserProficienciesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateUserProficienciesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DisassociateUserProficienciesRequest
  *   InstanceId: "STRING_VALUE", // required

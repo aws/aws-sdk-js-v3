@@ -40,6 +40,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * ```javascript
  * import { CustomerProfilesClient, CreateProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, CreateProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // CreateProfileRequest
  *   DomainName: "STRING_VALUE", // required

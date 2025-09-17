@@ -34,6 +34,8 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  * ```javascript
  * import { DirectConnectClient, DisassociateMacSecKeyCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DisassociateMacSecKeyCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
+ * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
  * const input = { // DisassociateMacSecKeyRequest
  *   connectionId: "STRING_VALUE", // required

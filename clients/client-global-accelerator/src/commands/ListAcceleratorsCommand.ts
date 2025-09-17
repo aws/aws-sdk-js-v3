@@ -38,6 +38,8 @@ export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse,
  * ```javascript
  * import { GlobalAcceleratorClient, ListAcceleratorsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListAcceleratorsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // import type { GlobalAcceleratorClientConfig } from "@aws-sdk/client-global-accelerator";
+ * const config = {}; // type is GlobalAcceleratorClientConfig
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ListAcceleratorsRequest
  *   MaxResults: Number("int"),

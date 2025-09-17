@@ -35,6 +35,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * ```javascript
  * import { KinesisVideoClient, DescribeStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * // import type { KinesisVideoClientConfig } from "@aws-sdk/client-kinesis-video";
+ * const config = {}; // type is KinesisVideoClientConfig
  * const client = new KinesisVideoClient(config);
  * const input = { // DescribeStreamInput
  *   StreamName: "STRING_VALUE",

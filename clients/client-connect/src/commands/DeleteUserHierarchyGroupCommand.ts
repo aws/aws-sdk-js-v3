@@ -35,6 +35,8 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { ConnectClient, DeleteUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DeleteUserHierarchyGroupRequest
  *   HierarchyGroupId: "STRING_VALUE", // required

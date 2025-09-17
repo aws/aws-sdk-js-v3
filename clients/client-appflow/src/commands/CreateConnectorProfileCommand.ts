@@ -42,6 +42,8 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * ```javascript
  * import { AppflowClient, CreateConnectorProfileCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, CreateConnectorProfileCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // import type { AppflowClientConfig } from "@aws-sdk/client-appflow";
+ * const config = {}; // type is AppflowClientConfig
  * const client = new AppflowClient(config);
  * const input = { // CreateConnectorProfileRequest
  *   connectorProfileName: "STRING_VALUE", // required

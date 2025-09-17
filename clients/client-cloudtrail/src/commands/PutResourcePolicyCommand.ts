@@ -38,6 +38,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * ```javascript
  * import { CloudTrailClient, PutResourcePolicyCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, PutResourcePolicyCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // PutResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

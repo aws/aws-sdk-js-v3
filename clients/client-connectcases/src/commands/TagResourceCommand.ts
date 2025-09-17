@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ConnectCasesClient, TagResourceCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, TagResourceCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // TagResourceRequest
  *   arn: "STRING_VALUE", // required

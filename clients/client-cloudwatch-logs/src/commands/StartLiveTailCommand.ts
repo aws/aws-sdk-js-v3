@@ -81,6 +81,8 @@ export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __Met
  * ```javascript
  * import { CloudWatchLogsClient, StartLiveTailCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, StartLiveTailCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // StartLiveTailRequest
  *   logGroupIdentifiers: [ // StartLiveTailLogGroupIdentifiers // required

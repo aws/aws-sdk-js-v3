@@ -38,6 +38,8 @@ export interface GetMembershipCommandOutput extends GetMembershipResponse, __Met
  * ```javascript
  * import { SecurityIRClient, GetMembershipCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, GetMembershipCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // GetMembershipRequest
  *   membershipId: "STRING_VALUE", // required

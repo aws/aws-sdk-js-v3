@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { MgnClient, TagResourceCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, TagResourceCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

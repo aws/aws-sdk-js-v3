@@ -34,6 +34,8 @@ export interface ListRoleMembershipsCommandOutput extends ListRoleMembershipsRes
  * ```javascript
  * import { QuickSightClient, ListRoleMembershipsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListRoleMembershipsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // ListRoleMembershipsRequest
  *   Role: "ADMIN" || "AUTHOR" || "READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO", // required

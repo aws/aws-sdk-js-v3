@@ -43,6 +43,8 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  * ```javascript
  * import { SESv2Client, PutConfigurationSetReputationOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutConfigurationSetReputationOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * // import type { SESv2ClientConfig } from "@aws-sdk/client-sesv2";
+ * const config = {}; // type is SESv2ClientConfig
  * const client = new SESv2Client(config);
  * const input = { // PutConfigurationSetReputationOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required

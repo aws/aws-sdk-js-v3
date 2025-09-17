@@ -34,6 +34,8 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
  * ```javascript
  * import { CloudFrontClient, ListInvalidationsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListInvalidationsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // ListInvalidationsRequest
  *   DistributionId: "STRING_VALUE", // required

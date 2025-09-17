@@ -34,6 +34,8 @@ export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockRespons
  * ```javascript
  * import { MTurkClient, CreateWorkerBlockCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateWorkerBlockCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // CreateWorkerBlockRequest
  *   WorkerId: "STRING_VALUE", // required

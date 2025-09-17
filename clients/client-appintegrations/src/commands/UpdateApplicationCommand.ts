@@ -34,6 +34,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * ```javascript
  * import { AppIntegrationsClient, UpdateApplicationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, UpdateApplicationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * // import type { AppIntegrationsClientConfig } from "@aws-sdk/client-appintegrations";
+ * const config = {}; // type is AppIntegrationsClientConfig
  * const client = new AppIntegrationsClient(config);
  * const input = { // UpdateApplicationRequest
  *   Arn: "STRING_VALUE", // required

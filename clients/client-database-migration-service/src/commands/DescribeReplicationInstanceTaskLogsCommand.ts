@@ -46,6 +46,8 @@ export interface DescribeReplicationInstanceTaskLogsCommandOutput
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeReplicationInstanceTaskLogsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationInstanceTaskLogsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeReplicationInstanceTaskLogsMessage
  *   ReplicationInstanceArn: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  * ```javascript
  * import { IotDeviceAdvisorClient, StartSuiteRunCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, StartSuiteRunCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * // import type { IotDeviceAdvisorClientConfig } from "@aws-sdk/client-iotdeviceadvisor";
+ * const config = {}; // type is IotDeviceAdvisorClientConfig
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // StartSuiteRunRequest
  *   suiteDefinitionId: "STRING_VALUE", // required

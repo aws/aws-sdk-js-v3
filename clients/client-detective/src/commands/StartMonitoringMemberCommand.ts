@@ -46,6 +46,8 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { DetectiveClient, StartMonitoringMemberCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, StartMonitoringMemberCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * // import type { DetectiveClientConfig } from "@aws-sdk/client-detective";
+ * const config = {}; // type is DetectiveClientConfig
  * const client = new DetectiveClient(config);
  * const input = { // StartMonitoringMemberRequest
  *   GraphArn: "STRING_VALUE", // required

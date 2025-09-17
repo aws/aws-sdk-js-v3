@@ -34,6 +34,8 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * ```javascript
  * import { GlueClient, DeleteWorkflowCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteWorkflowCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteWorkflowRequest
  *   Name: "STRING_VALUE", // required

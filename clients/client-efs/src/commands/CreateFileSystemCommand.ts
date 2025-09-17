@@ -91,6 +91,8 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * ```javascript
  * import { EFSClient, CreateFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // import type { EFSClientConfig } from "@aws-sdk/client-efs";
+ * const config = {}; // type is EFSClientConfig
  * const client = new EFSClient(config);
  * const input = { // CreateFileSystemRequest
  *   CreationToken: "STRING_VALUE", // required

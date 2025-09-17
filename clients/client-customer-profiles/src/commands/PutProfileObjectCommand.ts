@@ -47,6 +47,8 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  * ```javascript
  * import { CustomerProfilesClient, PutProfileObjectCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, PutProfileObjectCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // PutProfileObjectRequest
  *   ObjectTypeName: "STRING_VALUE", // required

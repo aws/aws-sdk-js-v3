@@ -57,6 +57,8 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudWatchLogsClient, PutMetricFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutMetricFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutMetricFilterRequest
  *   logGroupName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { DrsClient, UntagResourceCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, UntagResourceCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

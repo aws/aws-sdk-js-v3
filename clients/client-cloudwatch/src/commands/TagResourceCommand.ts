@@ -47,6 +47,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { CloudWatchClient, TagResourceCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, TagResourceCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // TagResourceInput
  *   ResourceARN: "STRING_VALUE", // required

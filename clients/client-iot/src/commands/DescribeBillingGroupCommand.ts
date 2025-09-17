@@ -35,6 +35,8 @@ export interface DescribeBillingGroupCommandOutput extends DescribeBillingGroupR
  * ```javascript
  * import { IoTClient, DescribeBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DescribeBillingGroupRequest
  *   billingGroupName: "STRING_VALUE", // required

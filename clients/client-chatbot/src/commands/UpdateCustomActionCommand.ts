@@ -34,6 +34,8 @@ export interface UpdateCustomActionCommandOutput extends UpdateCustomActionResul
  * ```javascript
  * import { ChatbotClient, UpdateCustomActionCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, UpdateCustomActionCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // UpdateCustomActionRequest
  *   CustomActionArn: "STRING_VALUE", // required

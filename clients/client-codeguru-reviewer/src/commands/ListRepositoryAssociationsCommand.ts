@@ -35,6 +35,8 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  * ```javascript
  * import { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * // import type { CodeGuruReviewerClientConfig } from "@aws-sdk/client-codeguru-reviewer";
+ * const config = {}; // type is CodeGuruReviewerClientConfig
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // ListRepositoryAssociationsRequest
  *   ProviderTypes: [ // ProviderTypes

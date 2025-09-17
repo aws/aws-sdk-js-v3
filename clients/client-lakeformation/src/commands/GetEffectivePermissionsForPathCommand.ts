@@ -40,6 +40,8 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * ```javascript
  * import { LakeFormationClient, GetEffectivePermissionsForPathCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetEffectivePermissionsForPathCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // GetEffectivePermissionsForPathRequest
  *   CatalogId: "STRING_VALUE",

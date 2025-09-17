@@ -36,6 +36,8 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * ```javascript
  * import { EC2ProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-protocoltests-ec2-schema"; // ES Modules import
  * // const { EC2ProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-protocoltests-ec2-schema"); // CommonJS import
+ * // import type { EC2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-ec2-schema";
+ * const config = {}; // type is EC2ProtocolClientConfig
  * const client = new EC2ProtocolClient(config);
  * const input = {};
  * const command = new EmptyInputAndEmptyOutputCommand(input);

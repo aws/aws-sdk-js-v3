@@ -34,6 +34,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  * ```javascript
  * import { XRayClient, CreateGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, CreateGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // import type { XRayClientConfig } from "@aws-sdk/client-xray";
+ * const config = {}; // type is XRayClientConfig
  * const client = new XRayClient(config);
  * const input = { // CreateGroupRequest
  *   GroupName: "STRING_VALUE", // required

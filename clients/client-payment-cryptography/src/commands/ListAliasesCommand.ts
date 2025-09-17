@@ -38,6 +38,8 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  * ```javascript
  * import { PaymentCryptographyClient, ListAliasesCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, ListAliasesCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // ListAliasesInput
  *   KeyArn: "STRING_VALUE",

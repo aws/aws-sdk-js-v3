@@ -37,6 +37,8 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  * ```javascript
  * import { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * // import type { ConnectCampaignsClientConfig } from "@aws-sdk/client-connectcampaigns";
+ * const config = {}; // type is ConnectCampaignsClientConfig
  * const client = new ConnectCampaignsClient(config);
  * const input = { // UpdateCampaignOutboundCallConfigRequest
  *   id: "STRING_VALUE", // required

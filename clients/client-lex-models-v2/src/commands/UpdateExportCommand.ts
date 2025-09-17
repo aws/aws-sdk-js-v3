@@ -38,6 +38,8 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * ```javascript
  * import { LexModelsV2Client, UpdateExportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateExportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // UpdateExportRequest
  *   exportId: "STRING_VALUE", // required

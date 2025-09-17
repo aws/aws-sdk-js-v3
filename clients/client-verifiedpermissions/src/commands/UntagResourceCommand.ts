@@ -38,6 +38,8 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * ```javascript
  * import { VerifiedPermissionsClient, UntagResourceCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, UntagResourceCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // UntagResourceInput
  *   resourceArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * ```javascript
  * import { DataBrewClient, StartJobRunCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, StartJobRunCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // StartJobRunRequest
  *   Name: "STRING_VALUE", // required

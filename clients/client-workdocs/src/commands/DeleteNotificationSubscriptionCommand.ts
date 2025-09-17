@@ -37,6 +37,8 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  * ```javascript
  * import { WorkDocsClient, DeleteNotificationSubscriptionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteNotificationSubscriptionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteNotificationSubscriptionRequest
  *   SubscriptionId: "STRING_VALUE", // required

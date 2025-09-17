@@ -39,6 +39,8 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  * ```javascript
  * import { EMRContainersClient, DescribeManagedEndpointCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DescribeManagedEndpointCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // DescribeManagedEndpointRequest
  *   id: "STRING_VALUE", // required

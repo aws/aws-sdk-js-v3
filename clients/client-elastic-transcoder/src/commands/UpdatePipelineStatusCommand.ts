@@ -43,6 +43,8 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  * ```javascript
  * import { ElasticTranscoderClient, UpdatePipelineStatusCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, UpdatePipelineStatusCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * // import type { ElasticTranscoderClientConfig } from "@aws-sdk/client-elastic-transcoder";
+ * const config = {}; // type is ElasticTranscoderClientConfig
  * const client = new ElasticTranscoderClient(config);
  * const input = { // UpdatePipelineStatusRequest
  *   Id: "STRING_VALUE", // required

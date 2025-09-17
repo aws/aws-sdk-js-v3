@@ -121,6 +121,8 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * ```javascript
  * import { STSClient, AssumeRoleCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * // import type { STSClientConfig } from "@aws-sdk/client-sts";
+ * const config = {}; // type is STSClientConfig
  * const client = new STSClient(config);
  * const input = { // AssumeRoleRequest
  *   RoleArn: "STRING_VALUE", // required

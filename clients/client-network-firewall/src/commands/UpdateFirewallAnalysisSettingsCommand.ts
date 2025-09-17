@@ -39,6 +39,8 @@ export interface UpdateFirewallAnalysisSettingsCommandOutput
  * ```javascript
  * import { NetworkFirewallClient, UpdateFirewallAnalysisSettingsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateFirewallAnalysisSettingsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // UpdateFirewallAnalysisSettingsRequest
  *   EnabledAnalysisTypes: [ // EnabledAnalysisTypes

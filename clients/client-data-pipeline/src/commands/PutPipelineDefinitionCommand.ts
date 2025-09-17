@@ -193,6 +193,8 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * ```javascript
  * import { DataPipelineClient, PutPipelineDefinitionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, PutPipelineDefinitionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * // import type { DataPipelineClientConfig } from "@aws-sdk/client-data-pipeline";
+ * const config = {}; // type is DataPipelineClientConfig
  * const client = new DataPipelineClient(config);
  * const input = { // PutPipelineDefinitionInput
  *   pipelineId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { AppSyncClient, ListTagsForResourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListTagsForResourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

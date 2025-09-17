@@ -34,6 +34,8 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * ```javascript
  * import { InternetMonitorClient, ListMonitorsCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, ListMonitorsCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // import type { InternetMonitorClientConfig } from "@aws-sdk/client-internetmonitor";
+ * const config = {}; // type is InternetMonitorClientConfig
  * const client = new InternetMonitorClient(config);
  * const input = { // ListMonitorsInput
  *   NextToken: "STRING_VALUE",

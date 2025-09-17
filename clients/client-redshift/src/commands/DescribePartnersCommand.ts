@@ -34,6 +34,8 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
  * ```javascript
  * import { RedshiftClient, DescribePartnersCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribePartnersCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribePartnersInputMessage
  *   AccountId: "STRING_VALUE", // required

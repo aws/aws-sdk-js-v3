@@ -39,6 +39,8 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
  * ```javascript
  * import { ProtonClient, ListServiceInstancesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServiceInstancesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // ListServiceInstancesInput
  *   serviceName: "STRING_VALUE",

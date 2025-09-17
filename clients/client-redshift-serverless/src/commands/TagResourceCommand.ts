@@ -38,6 +38,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { RedshiftServerlessClient, TagResourceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, TagResourceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

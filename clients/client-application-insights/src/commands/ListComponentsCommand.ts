@@ -38,6 +38,8 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * ```javascript
  * import { ApplicationInsightsClient, ListComponentsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListComponentsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * // import type { ApplicationInsightsClientConfig } from "@aws-sdk/client-application-insights";
+ * const config = {}; // type is ApplicationInsightsClientConfig
  * const client = new ApplicationInsightsClient(config);
  * const input = { // ListComponentsRequest
  *   ResourceGroupName: "STRING_VALUE", // required

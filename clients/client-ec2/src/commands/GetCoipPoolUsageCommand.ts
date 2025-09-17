@@ -34,6 +34,8 @@ export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, _
  * ```javascript
  * import { EC2Client, GetCoipPoolUsageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetCoipPoolUsageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // GetCoipPoolUsageRequest
  *   PoolId: "STRING_VALUE", // required

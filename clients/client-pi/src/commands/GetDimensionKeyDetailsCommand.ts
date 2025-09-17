@@ -37,6 +37,8 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * ```javascript
  * import { PIClient, GetDimensionKeyDetailsCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, GetDimensionKeyDetailsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * // import type { PIClientConfig } from "@aws-sdk/client-pi";
+ * const config = {}; // type is PIClientConfig
  * const client = new PIClient(config);
  * const input = { // GetDimensionKeyDetailsRequest
  *   ServiceType: "RDS" || "DOCDB", // required

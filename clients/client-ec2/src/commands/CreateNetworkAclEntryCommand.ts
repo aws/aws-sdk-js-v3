@@ -42,6 +42,8 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EC2Client, CreateNetworkAclEntryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateNetworkAclEntryRequest
  *   DryRun: true || false,

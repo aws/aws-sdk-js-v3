@@ -37,6 +37,8 @@ export interface UpdateKxVolumeCommandOutput extends UpdateKxVolumeResponse, __M
  * ```javascript
  * import { FinspaceClient, UpdateKxVolumeCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, UpdateKxVolumeCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // UpdateKxVolumeRequest
  *   environmentId: "STRING_VALUE", // required

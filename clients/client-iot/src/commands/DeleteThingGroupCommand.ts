@@ -35,6 +35,8 @@ export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse,
  * ```javascript
  * import { IoTClient, DeleteThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteThingGroupRequest
  *   thingGroupName: "STRING_VALUE", // required

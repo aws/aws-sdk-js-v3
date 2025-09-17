@@ -42,6 +42,8 @@ export interface DescribeLocationFsxOpenZfsCommandOutput extends DescribeLocatio
  * ```javascript
  * import { DataSyncClient, DescribeLocationFsxOpenZfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationFsxOpenZfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // DescribeLocationFsxOpenZfsRequest
  *   LocationArn: "STRING_VALUE", // required

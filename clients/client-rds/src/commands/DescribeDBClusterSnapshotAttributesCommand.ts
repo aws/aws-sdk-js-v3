@@ -49,6 +49,8 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * ```javascript
  * import { RDSClient, DescribeDBClusterSnapshotAttributesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBClusterSnapshotAttributesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeDBClusterSnapshotAttributesMessage
  *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required

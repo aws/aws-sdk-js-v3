@@ -37,6 +37,8 @@ export interface DeleteStorageConfigurationCommandOutput extends DeleteStorageCo
  * ```javascript
  * import { IVSRealTimeClient, DeleteStorageConfigurationCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, DeleteStorageConfigurationCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // DeleteStorageConfigurationRequest
  *   arn: "STRING_VALUE", // required

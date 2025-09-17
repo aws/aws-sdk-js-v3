@@ -34,6 +34,8 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  * ```javascript
  * import { QConnectClient, SearchSessionsCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, SearchSessionsCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // SearchSessionsRequest
  *   nextToken: "STRING_VALUE",

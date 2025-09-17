@@ -34,6 +34,8 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * ```javascript
  * import { SyntheticsClient, GetCanaryRunsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, GetCanaryRunsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // import type { SyntheticsClientConfig } from "@aws-sdk/client-synthetics";
+ * const config = {}; // type is SyntheticsClientConfig
  * const client = new SyntheticsClient(config);
  * const input = { // GetCanaryRunsRequest
  *   Name: "STRING_VALUE", // required

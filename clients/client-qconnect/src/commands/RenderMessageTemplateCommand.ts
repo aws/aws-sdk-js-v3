@@ -39,6 +39,8 @@ export interface RenderMessageTemplateCommandOutput extends RenderMessageTemplat
  * ```javascript
  * import { QConnectClient, RenderMessageTemplateCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, RenderMessageTemplateCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // RenderMessageTemplateRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

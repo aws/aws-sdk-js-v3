@@ -35,6 +35,8 @@ export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __M
  * ```javascript
  * import { AthenaClient, DeleteWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeleteWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // DeleteWorkGroupInput
  *   WorkGroup: "STRING_VALUE", // required

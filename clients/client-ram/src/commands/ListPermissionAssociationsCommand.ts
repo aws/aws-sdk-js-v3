@@ -36,6 +36,8 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  * ```javascript
  * import { RAMClient, ListPermissionAssociationsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPermissionAssociationsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // ListPermissionAssociationsRequest
  *   permissionArn: "STRING_VALUE",

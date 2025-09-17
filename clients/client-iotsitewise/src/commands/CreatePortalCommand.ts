@@ -40,6 +40,8 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * ```javascript
  * import { IoTSiteWiseClient, CreatePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreatePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreatePortalRequest
  *   portalName: "STRING_VALUE", // required

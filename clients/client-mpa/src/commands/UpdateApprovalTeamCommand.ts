@@ -38,6 +38,8 @@ export interface UpdateApprovalTeamCommandOutput extends UpdateApprovalTeamRespo
  * ```javascript
  * import { MPAClient, UpdateApprovalTeamCommand } from "@aws-sdk/client-mpa"; // ES Modules import
  * // const { MPAClient, UpdateApprovalTeamCommand } = require("@aws-sdk/client-mpa"); // CommonJS import
+ * // import type { MPAClientConfig } from "@aws-sdk/client-mpa";
+ * const config = {}; // type is MPAClientConfig
  * const client = new MPAClient(config);
  * const input = { // UpdateApprovalTeamRequest
  *   ApprovalStrategy: { // ApprovalStrategy Union: only one key present

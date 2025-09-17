@@ -34,6 +34,8 @@ export interface GetDbNodeCommandOutput extends GetDbNodeOutput, __MetadataBeare
  * ```javascript
  * import { OdbClient, GetDbNodeCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, GetDbNodeCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // GetDbNodeInput
  *   cloudVmClusterId: "STRING_VALUE", // required

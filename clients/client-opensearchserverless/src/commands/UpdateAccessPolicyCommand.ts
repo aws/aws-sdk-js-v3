@@ -38,6 +38,8 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  * ```javascript
  * import { OpenSearchServerlessClient, UpdateAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // UpdateAccessPolicyRequest
  *   type: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface DescribeMaintenanceWindowScheduleCommandOutput
  * ```javascript
  * import { SSMClient, DescribeMaintenanceWindowScheduleCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowScheduleCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeMaintenanceWindowScheduleRequest
  *   WindowId: "STRING_VALUE",

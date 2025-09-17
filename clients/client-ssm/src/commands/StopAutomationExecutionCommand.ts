@@ -34,6 +34,8 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  * ```javascript
  * import { SSMClient, StopAutomationExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StopAutomationExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // StopAutomationExecutionRequest
  *   AutomationExecutionId: "STRING_VALUE", // required

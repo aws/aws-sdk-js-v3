@@ -36,6 +36,8 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * ```javascript
  * import { KendraRankingClient, DeleteRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, DeleteRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
+ * // import type { KendraRankingClientConfig } from "@aws-sdk/client-kendra-ranking";
+ * const config = {}; // type is KendraRankingClientConfig
  * const client = new KendraRankingClient(config);
  * const input = { // DeleteRescoreExecutionPlanRequest
  *   Id: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput,
  * ```javascript
  * import { ControlTowerClient, GetEnabledControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, GetEnabledControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // GetEnabledControlInput
  *   enabledControlIdentifier: "STRING_VALUE", // required

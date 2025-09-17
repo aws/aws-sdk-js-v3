@@ -34,6 +34,8 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  * ```javascript
  * import { DataExchangeClient, UpdateAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, UpdateAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // import type { DataExchangeClientConfig } from "@aws-sdk/client-dataexchange";
+ * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // UpdateAssetRequest
  *   AssetId: "STRING_VALUE", // required

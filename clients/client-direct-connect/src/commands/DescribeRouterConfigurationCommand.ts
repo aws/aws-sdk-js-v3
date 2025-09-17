@@ -38,6 +38,8 @@ export interface DescribeRouterConfigurationCommandOutput
  * ```javascript
  * import { DirectConnectClient, DescribeRouterConfigurationCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeRouterConfigurationCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
+ * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
  * const input = { // DescribeRouterConfigurationRequest
  *   virtualInterfaceId: "STRING_VALUE", // required

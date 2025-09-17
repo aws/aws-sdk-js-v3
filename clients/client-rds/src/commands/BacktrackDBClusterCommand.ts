@@ -41,6 +41,8 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  * ```javascript
  * import { RDSClient, BacktrackDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, BacktrackDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // BacktrackDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required

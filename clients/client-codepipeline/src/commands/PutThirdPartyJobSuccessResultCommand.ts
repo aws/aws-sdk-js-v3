@@ -38,6 +38,8 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  * ```javascript
  * import { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // PutThirdPartyJobSuccessResultInput
  *   jobId: "STRING_VALUE", // required

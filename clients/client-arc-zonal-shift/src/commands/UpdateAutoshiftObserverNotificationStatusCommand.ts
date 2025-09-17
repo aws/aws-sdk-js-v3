@@ -43,6 +43,8 @@ export interface UpdateAutoshiftObserverNotificationStatusCommandOutput
  * ```javascript
  * import { ARCZonalShiftClient, UpdateAutoshiftObserverNotificationStatusCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, UpdateAutoshiftObserverNotificationStatusCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * // import type { ARCZonalShiftClientConfig } from "@aws-sdk/client-arc-zonal-shift";
+ * const config = {}; // type is ARCZonalShiftClientConfig
  * const client = new ARCZonalShiftClient(config);
  * const input = { // UpdateAutoshiftObserverNotificationStatusRequest
  *   status: "ENABLED" || "DISABLED", // required

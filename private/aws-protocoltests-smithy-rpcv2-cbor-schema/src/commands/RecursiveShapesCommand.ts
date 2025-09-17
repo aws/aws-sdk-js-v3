@@ -34,6 +34,8 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * ```javascript
  * import { RpcV2ProtocolClient, RecursiveShapesCommand } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema"; // ES Modules import
  * // const { RpcV2ProtocolClient, RecursiveShapesCommand } = require("@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema"); // CommonJS import
+ * // import type { RpcV2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema";
+ * const config = {}; // type is RpcV2ProtocolClientConfig
  * const client = new RpcV2ProtocolClient(config);
  * const input = { // RecursiveShapesInputOutput
  *   nested: { // RecursiveShapesInputOutputNested1

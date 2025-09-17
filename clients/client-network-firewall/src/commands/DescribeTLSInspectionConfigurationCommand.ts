@@ -42,6 +42,8 @@ export interface DescribeTLSInspectionConfigurationCommandOutput
  * ```javascript
  * import { NetworkFirewallClient, DescribeTLSInspectionConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeTLSInspectionConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // DescribeTLSInspectionConfigurationRequest
  *   TLSInspectionConfigurationArn: "STRING_VALUE",

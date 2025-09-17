@@ -72,6 +72,8 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  * ```javascript
  * import { CognitoIdentityProviderClient, RespondToAuthChallengeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, RespondToAuthChallengeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
+ * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // RespondToAuthChallengeRequest
  *   ClientId: "STRING_VALUE", // required

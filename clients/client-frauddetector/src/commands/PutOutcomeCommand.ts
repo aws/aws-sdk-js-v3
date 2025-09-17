@@ -34,6 +34,8 @@ export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBea
  * ```javascript
  * import { FraudDetectorClient, PutOutcomeCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutOutcomeCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // PutOutcomeRequest
  *   name: "STRING_VALUE", // required

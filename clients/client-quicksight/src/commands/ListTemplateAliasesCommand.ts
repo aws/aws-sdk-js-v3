@@ -34,6 +34,8 @@ export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesRes
  * ```javascript
  * import { QuickSightClient, ListTemplateAliasesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListTemplateAliasesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // ListTemplateAliasesRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface BatchDeleteAgentsCommandOutput extends BatchDeleteAgentsRespons
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, BatchDeleteAgentsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, BatchDeleteAgentsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * // import type { ApplicationDiscoveryServiceClientConfig } from "@aws-sdk/client-application-discovery-service";
+ * const config = {}; // type is ApplicationDiscoveryServiceClientConfig
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // BatchDeleteAgentsRequest
  *   deleteAgents: [ // DeleteAgents // required

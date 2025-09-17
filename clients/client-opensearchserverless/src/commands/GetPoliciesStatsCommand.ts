@@ -38,6 +38,8 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  * ```javascript
  * import { OpenSearchServerlessClient, GetPoliciesStatsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, GetPoliciesStatsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = {};
  * const command = new GetPoliciesStatsCommand(input);

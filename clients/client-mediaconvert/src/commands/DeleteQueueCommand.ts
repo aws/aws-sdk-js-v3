@@ -34,6 +34,8 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  * ```javascript
  * import { MediaConvertClient, DeleteQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DeleteQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // DeleteQueueRequest
  *   Name: "STRING_VALUE", // required

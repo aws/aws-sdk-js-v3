@@ -34,6 +34,8 @@ export interface AddEntityOwnerCommandOutput extends AddEntityOwnerOutput, __Met
  * ```javascript
  * import { DataZoneClient, AddEntityOwnerCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, AddEntityOwnerCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // AddEntityOwnerInput
  *   domainIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * ```javascript
  * import { QuickSightClient, RegisterUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, RegisterUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // RegisterUserRequest
  *   IdentityType: "IAM" || "QUICKSIGHT" || "IAM_IDENTITY_CENTER", // required

@@ -35,6 +35,8 @@ export interface DescribePackageGroupCommandOutput extends DescribePackageGroupR
  * ```javascript
  * import { CodeartifactClient, DescribePackageGroupCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DescribePackageGroupCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // DescribePackageGroupRequest
  *   domain: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetChannelGroupCommandOutput extends GetChannelGroupResponse, _
  * ```javascript
  * import { MediaPackageV2Client, GetChannelGroupCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, GetChannelGroupCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // import type { MediaPackageV2ClientConfig } from "@aws-sdk/client-mediapackagev2";
+ * const config = {}; // type is MediaPackageV2ClientConfig
  * const client = new MediaPackageV2Client(config);
  * const input = { // GetChannelGroupRequest
  *   ChannelGroupName: "STRING_VALUE", // required

@@ -41,6 +41,8 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * ```javascript
  * import { NeptuneClient, DescribeDBClusterParameterGroupsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBClusterParameterGroupsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBClusterParameterGroupsMessage
  *   DBClusterParameterGroupName: "STRING_VALUE",

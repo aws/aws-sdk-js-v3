@@ -42,6 +42,8 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  * ```javascript
  * import { RedshiftClient, DeleteClusterSecurityGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteClusterSecurityGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DeleteClusterSecurityGroupMessage
  *   ClusterSecurityGroupName: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface GetWorkspaceInstanceCommandOutput extends GetWorkspaceInstanceR
  * ```javascript
  * import { WorkspacesInstancesClient, GetWorkspaceInstanceCommand } from "@aws-sdk/client-workspaces-instances"; // ES Modules import
  * // const { WorkspacesInstancesClient, GetWorkspaceInstanceCommand } = require("@aws-sdk/client-workspaces-instances"); // CommonJS import
+ * // import type { WorkspacesInstancesClientConfig } from "@aws-sdk/client-workspaces-instances";
+ * const config = {}; // type is WorkspacesInstancesClientConfig
  * const client = new WorkspacesInstancesClient(config);
  * const input = { // GetWorkspaceInstanceRequest
  *   WorkspaceInstanceId: "STRING_VALUE", // required

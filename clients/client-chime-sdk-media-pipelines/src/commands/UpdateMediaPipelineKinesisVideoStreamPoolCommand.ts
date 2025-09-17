@@ -48,6 +48,8 @@ export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, UpdateMediaPipelineKinesisVideoStreamPoolCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, UpdateMediaPipelineKinesisVideoStreamPoolCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // UpdateMediaPipelineKinesisVideoStreamPoolRequest
  *   Identifier: "STRING_VALUE", // required

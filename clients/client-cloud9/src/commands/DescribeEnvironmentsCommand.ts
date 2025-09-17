@@ -44,6 +44,8 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  * ```javascript
  * import { Cloud9Client, DescribeEnvironmentsCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, DescribeEnvironmentsCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * // import type { Cloud9ClientConfig } from "@aws-sdk/client-cloud9";
+ * const config = {}; // type is Cloud9ClientConfig
  * const client = new Cloud9Client(config);
  * const input = { // DescribeEnvironmentsRequest
  *   environmentIds: [ // BoundedEnvironmentIdList // required

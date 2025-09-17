@@ -45,6 +45,8 @@ export interface DeleteDataLakeOrganizationConfigurationCommandOutput
  * ```javascript
  * import { SecurityLakeClient, DeleteDataLakeOrganizationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteDataLakeOrganizationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteDataLakeOrganizationConfigurationRequest
  *   autoEnableNewAccount: [ // DataLakeAutoEnableNewAccountConfigurationList

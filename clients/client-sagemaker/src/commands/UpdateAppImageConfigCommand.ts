@@ -34,6 +34,8 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  * ```javascript
  * import { SageMakerClient, UpdateAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateAppImageConfigRequest
  *   AppImageConfigName: "STRING_VALUE", // required

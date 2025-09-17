@@ -46,6 +46,8 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
  * ```javascript
  * import { ChimeSDKVoiceClient, DisassociatePhoneNumbersFromVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, DisassociatePhoneNumbersFromVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // DisassociatePhoneNumbersFromVoiceConnectorRequest
  *   VoiceConnectorId: "STRING_VALUE", // required

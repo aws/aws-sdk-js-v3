@@ -35,6 +35,8 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
  * ```javascript
  * import { NetworkManagerClient, GetLinksCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetLinksCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // GetLinksRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

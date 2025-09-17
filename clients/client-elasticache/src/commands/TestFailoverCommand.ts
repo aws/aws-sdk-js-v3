@@ -110,6 +110,8 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * ```javascript
  * import { ElastiCacheClient, TestFailoverCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, TestFailoverCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // TestFailoverMessage
  *   ReplicationGroupId: "STRING_VALUE", // required

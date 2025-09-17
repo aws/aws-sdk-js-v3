@@ -36,6 +36,8 @@ export interface StartEmailContactCommandOutput extends StartEmailContactRespons
  * ```javascript
  * import { ConnectClient, StartEmailContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartEmailContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // StartEmailContactRequest
  *   InstanceId: "STRING_VALUE", // required

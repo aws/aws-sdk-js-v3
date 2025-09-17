@@ -45,6 +45,8 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  * ```javascript
  * import { ForecastqueryClient, QueryForecastCommand } from "@aws-sdk/client-forecastquery"; // ES Modules import
  * // const { ForecastqueryClient, QueryForecastCommand } = require("@aws-sdk/client-forecastquery"); // CommonJS import
+ * // import type { ForecastqueryClientConfig } from "@aws-sdk/client-forecastquery";
+ * const config = {}; // type is ForecastqueryClientConfig
  * const client = new ForecastqueryClient(config);
  * const input = { // QueryForecastRequest
  *   ForecastArn: "STRING_VALUE", // required

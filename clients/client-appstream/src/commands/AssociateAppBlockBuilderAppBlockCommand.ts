@@ -39,6 +39,8 @@ export interface AssociateAppBlockBuilderAppBlockCommandOutput
  * ```javascript
  * import { AppStreamClient, AssociateAppBlockBuilderAppBlockCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, AssociateAppBlockBuilderAppBlockCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // AssociateAppBlockBuilderAppBlockRequest
  *   AppBlockArn: "STRING_VALUE", // required

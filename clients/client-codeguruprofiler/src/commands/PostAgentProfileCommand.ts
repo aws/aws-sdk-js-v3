@@ -47,6 +47,8 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  * ```javascript
  * import { CodeGuruProfilerClient, PostAgentProfileCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, PostAgentProfileCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * // import type { CodeGuruProfilerClientConfig } from "@aws-sdk/client-codeguruprofiler";
+ * const config = {}; // type is CodeGuruProfilerClientConfig
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // PostAgentProfileRequest
  *   profilingGroupName: "STRING_VALUE", // required

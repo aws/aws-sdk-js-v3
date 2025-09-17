@@ -34,6 +34,8 @@ export interface PostCommentForPullRequestCommandOutput extends PostCommentForPu
  * ```javascript
  * import { CodeCommitClient, PostCommentForPullRequestCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PostCommentForPullRequestCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // PostCommentForPullRequestInput
  *   pullRequestId: "STRING_VALUE", // required

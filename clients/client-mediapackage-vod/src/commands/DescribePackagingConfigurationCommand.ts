@@ -39,6 +39,8 @@ export interface DescribePackagingConfigurationCommandOutput
  * ```javascript
  * import { MediaPackageVodClient, DescribePackagingConfigurationCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, DescribePackagingConfigurationCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * // import type { MediaPackageVodClientConfig } from "@aws-sdk/client-mediapackage-vod";
+ * const config = {}; // type is MediaPackageVodClientConfig
  * const client = new MediaPackageVodClient(config);
  * const input = { // DescribePackagingConfigurationRequest
  *   Id: "STRING_VALUE", // required

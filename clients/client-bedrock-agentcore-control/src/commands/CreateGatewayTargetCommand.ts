@@ -43,6 +43,8 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  * ```javascript
  * import { BedrockAgentCoreControlClient, CreateGatewayTargetCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, CreateGatewayTargetCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // CreateGatewayTargetRequest
  *   gatewayIdentifier: "STRING_VALUE", // required

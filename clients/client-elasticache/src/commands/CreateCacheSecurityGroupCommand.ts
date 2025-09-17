@@ -38,6 +38,8 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * ```javascript
  * import { ElastiCacheClient, CreateCacheSecurityGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateCacheSecurityGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // CreateCacheSecurityGroupMessage
  *   CacheSecurityGroupName: "STRING_VALUE", // required

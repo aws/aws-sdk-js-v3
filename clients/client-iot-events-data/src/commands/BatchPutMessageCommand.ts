@@ -38,6 +38,8 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * ```javascript
  * import { IoTEventsDataClient, BatchPutMessageCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchPutMessageCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * // import type { IoTEventsDataClientConfig } from "@aws-sdk/client-iot-events-data";
+ * const config = {}; // type is IoTEventsDataClientConfig
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchPutMessageRequest
  *   messages: [ // Messages // required

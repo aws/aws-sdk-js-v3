@@ -39,6 +39,8 @@ export interface CreateFormTypeCommandOutput extends CreateFormTypeOutput, __Met
  * ```javascript
  * import { DataZoneClient, CreateFormTypeCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateFormTypeCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateFormTypeInput
  *   domainIdentifier: "STRING_VALUE", // required

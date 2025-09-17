@@ -34,6 +34,8 @@ export interface CloseCaseCommandOutput extends CloseCaseResponse, __MetadataBea
  * ```javascript
  * import { SecurityIRClient, CloseCaseCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, CloseCaseCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // CloseCaseRequest
  *   caseId: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface PutSchemaCommandOutput extends PutSchemaOutput, __MetadataBeare
  * ```javascript
  * import { VerifiedPermissionsClient, PutSchemaCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, PutSchemaCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // PutSchemaInput
  *   policyStoreId: "STRING_VALUE", // required

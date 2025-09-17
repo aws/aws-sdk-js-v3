@@ -39,6 +39,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * ```javascript
  * import { DataZoneClient, CreateConnectionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateConnectionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateConnectionInput
  *   awsLocation: { // AwsLocation

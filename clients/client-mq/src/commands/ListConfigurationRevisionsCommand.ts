@@ -34,6 +34,8 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * ```javascript
  * import { MqClient, ListConfigurationRevisionsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListConfigurationRevisionsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // ListConfigurationRevisionsRequest
  *   ConfigurationId: "STRING_VALUE", // required

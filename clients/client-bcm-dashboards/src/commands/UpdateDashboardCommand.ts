@@ -34,6 +34,8 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * ```javascript
  * import { BCMDashboardsClient, UpdateDashboardCommand } from "@aws-sdk/client-bcm-dashboards"; // ES Modules import
  * // const { BCMDashboardsClient, UpdateDashboardCommand } = require("@aws-sdk/client-bcm-dashboards"); // CommonJS import
+ * // import type { BCMDashboardsClientConfig } from "@aws-sdk/client-bcm-dashboards";
+ * const config = {}; // type is BCMDashboardsClientConfig
  * const client = new BCMDashboardsClient(config);
  * const input = { // UpdateDashboardRequest
  *   arn: "STRING_VALUE", // required

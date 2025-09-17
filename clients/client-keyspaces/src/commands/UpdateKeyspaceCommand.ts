@@ -34,6 +34,8 @@ export interface UpdateKeyspaceCommandOutput extends UpdateKeyspaceResponse, __M
  * ```javascript
  * import { KeyspacesClient, UpdateKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, UpdateKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * // import type { KeyspacesClientConfig } from "@aws-sdk/client-keyspaces";
+ * const config = {}; // type is KeyspacesClientConfig
  * const client = new KeyspacesClient(config);
  * const input = { // UpdateKeyspaceRequest
  *   keyspaceName: "STRING_VALUE", // required

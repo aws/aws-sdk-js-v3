@@ -45,6 +45,8 @@ export interface GetResourceEvaluationSummaryCommandOutput
  * ```javascript
  * import { ConfigServiceClient, GetResourceEvaluationSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetResourceEvaluationSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // GetResourceEvaluationSummaryRequest
  *   ResourceEvaluationId: "STRING_VALUE", // required

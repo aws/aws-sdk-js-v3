@@ -43,6 +43,8 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * ```javascript
  * import { KendraClient, BatchDeleteDocumentCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, BatchDeleteDocumentCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // BatchDeleteDocumentRequest
  *   IndexId: "STRING_VALUE", // required

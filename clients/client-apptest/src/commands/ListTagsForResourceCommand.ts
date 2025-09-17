@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { AppTestClient, ListTagsForResourceCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, ListTagsForResourceCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

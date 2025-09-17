@@ -38,6 +38,8 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, DeleteQueueCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteQueueCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteQueueRequest
  *   farmId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface DescribeFieldIndexesCommandOutput extends DescribeFieldIndexesR
  * ```javascript
  * import { CloudWatchLogsClient, DescribeFieldIndexesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeFieldIndexesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeFieldIndexesRequest
  *   logGroupIdentifiers: [ // DescribeFieldIndexesLogGroupIdentifiers // required

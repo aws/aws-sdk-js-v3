@@ -51,6 +51,8 @@ export interface DescribeCreateCaseOptionsCommandOutput extends DescribeCreateCa
  * ```javascript
  * import { SupportClient, DescribeCreateCaseOptionsCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeCreateCaseOptionsCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * // import type { SupportClientConfig } from "@aws-sdk/client-support";
+ * const config = {}; // type is SupportClientConfig
  * const client = new SupportClient(config);
  * const input = { // DescribeCreateCaseOptionsRequest
  *   issueType: "STRING_VALUE", // required

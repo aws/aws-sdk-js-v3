@@ -86,6 +86,8 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  * ```javascript
  * import { ForecastClient, CreateAutoPredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateAutoPredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // CreateAutoPredictorRequest
  *   PredictorName: "STRING_VALUE", // required

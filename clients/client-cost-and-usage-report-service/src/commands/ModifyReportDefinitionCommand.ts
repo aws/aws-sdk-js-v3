@@ -38,6 +38,8 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * ```javascript
  * import { CostAndUsageReportServiceClient, ModifyReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
  * // const { CostAndUsageReportServiceClient, ModifyReportDefinitionCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
+ * // import type { CostAndUsageReportServiceClientConfig } from "@aws-sdk/client-cost-and-usage-report-service";
+ * const config = {}; // type is CostAndUsageReportServiceClientConfig
  * const client = new CostAndUsageReportServiceClient(config);
  * const input = { // ModifyReportDefinitionRequest
  *   ReportName: "STRING_VALUE", // required

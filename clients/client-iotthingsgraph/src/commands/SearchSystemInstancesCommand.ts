@@ -36,6 +36,8 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  * ```javascript
  * import { IoTThingsGraphClient, SearchSystemInstancesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchSystemInstancesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * // import type { IoTThingsGraphClientConfig } from "@aws-sdk/client-iotthingsgraph";
+ * const config = {}; // type is IoTThingsGraphClientConfig
  * const client = new IoTThingsGraphClient(config);
  * const input = { // SearchSystemInstancesRequest
  *   filters: [ // SystemInstanceFilters

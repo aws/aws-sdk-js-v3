@@ -34,6 +34,8 @@ export interface ListCustomerAgreementsCommandOutput extends ListCustomerAgreeme
  * ```javascript
  * import { ArtifactClient, ListCustomerAgreementsCommand } from "@aws-sdk/client-artifact"; // ES Modules import
  * // const { ArtifactClient, ListCustomerAgreementsCommand } = require("@aws-sdk/client-artifact"); // CommonJS import
+ * // import type { ArtifactClientConfig } from "@aws-sdk/client-artifact";
+ * const config = {}; // type is ArtifactClientConfig
  * const client = new ArtifactClient(config);
  * const input = { // ListCustomerAgreementsRequest
  *   maxResults: Number("int"),

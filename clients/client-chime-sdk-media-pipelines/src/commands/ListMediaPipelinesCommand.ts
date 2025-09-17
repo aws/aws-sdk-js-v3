@@ -38,6 +38,8 @@ export interface ListMediaPipelinesCommandOutput extends ListMediaPipelinesRespo
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, ListMediaPipelinesCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, ListMediaPipelinesCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // ListMediaPipelinesRequest
  *   NextToken: "STRING_VALUE",

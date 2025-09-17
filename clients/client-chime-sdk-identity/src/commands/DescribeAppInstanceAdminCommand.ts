@@ -38,6 +38,8 @@ export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstan
  * ```javascript
  * import { ChimeSDKIdentityClient, DescribeAppInstanceAdminCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, DescribeAppInstanceAdminCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * // import type { ChimeSDKIdentityClientConfig } from "@aws-sdk/client-chime-sdk-identity";
+ * const config = {}; // type is ChimeSDKIdentityClientConfig
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // DescribeAppInstanceAdminRequest
  *   AppInstanceAdminArn: "STRING_VALUE", // required

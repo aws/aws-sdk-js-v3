@@ -36,6 +36,8 @@ export interface UpdateLaunchCommandOutput extends UpdateLaunchResponse, __Metad
  * ```javascript
  * import { EvidentlyClient, UpdateLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // UpdateLaunchRequest
  *   project: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  * ```javascript
  * import { QBusinessClient, BatchPutDocumentCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, BatchPutDocumentCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // BatchPutDocumentRequest
  *   applicationId: "STRING_VALUE", // required

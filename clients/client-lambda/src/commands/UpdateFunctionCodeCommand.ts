@@ -39,6 +39,8 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  * ```javascript
  * import { LambdaClient, UpdateFunctionCodeCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateFunctionCodeCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // UpdateFunctionCodeRequest
  *   FunctionName: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelRes
  * ```javascript
  * import { IoTWirelessClient, GetResourceLogLevelCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetResourceLogLevelCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // GetResourceLogLevelRequest
  *   ResourceIdentifier: "STRING_VALUE", // required

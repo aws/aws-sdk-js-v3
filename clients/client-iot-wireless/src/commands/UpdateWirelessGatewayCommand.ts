@@ -34,6 +34,8 @@ export interface UpdateWirelessGatewayCommandOutput extends UpdateWirelessGatewa
  * ```javascript
  * import { IoTWirelessClient, UpdateWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateWirelessGatewayRequest
  *   Id: "STRING_VALUE", // required

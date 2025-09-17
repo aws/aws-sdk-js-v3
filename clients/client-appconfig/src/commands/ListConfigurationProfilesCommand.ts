@@ -34,6 +34,8 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
  * ```javascript
  * import { AppConfigClient, ListConfigurationProfilesCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListConfigurationProfilesCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // ListConfigurationProfilesRequest
  *   ApplicationId: "STRING_VALUE", // required

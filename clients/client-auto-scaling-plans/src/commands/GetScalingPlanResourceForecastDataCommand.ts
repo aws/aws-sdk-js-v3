@@ -45,6 +45,8 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * ```javascript
  * import { AutoScalingPlansClient, GetScalingPlanResourceForecastDataCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, GetScalingPlanResourceForecastDataCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * // import type { AutoScalingPlansClientConfig } from "@aws-sdk/client-auto-scaling-plans";
+ * const config = {}; // type is AutoScalingPlansClientConfig
  * const client = new AutoScalingPlansClient(config);
  * const input = { // GetScalingPlanResourceForecastDataRequest
  *   ScalingPlanName: "STRING_VALUE", // required

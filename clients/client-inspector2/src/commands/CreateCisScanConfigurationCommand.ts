@@ -34,6 +34,8 @@ export interface CreateCisScanConfigurationCommandOutput extends CreateCisScanCo
  * ```javascript
  * import { Inspector2Client, CreateCisScanConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, CreateCisScanConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // import type { Inspector2ClientConfig } from "@aws-sdk/client-inspector2";
+ * const config = {}; // type is Inspector2ClientConfig
  * const client = new Inspector2Client(config);
  * const input = { // CreateCisScanConfigurationRequest
  *   scanName: "STRING_VALUE", // required

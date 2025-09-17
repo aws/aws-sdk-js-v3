@@ -34,6 +34,8 @@ export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { LambdaClient, DeleteLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // DeleteLayerVersionRequest
  *   LayerName: "STRING_VALUE", // required

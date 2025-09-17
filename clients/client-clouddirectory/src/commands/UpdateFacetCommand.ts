@@ -45,6 +45,8 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  * ```javascript
  * import { CloudDirectoryClient, UpdateFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // UpdateFacetRequest
  *   SchemaArn: "STRING_VALUE", // required

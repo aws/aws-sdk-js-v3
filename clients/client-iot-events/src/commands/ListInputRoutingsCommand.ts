@@ -36,6 +36,8 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * ```javascript
  * import { IoTEventsClient, ListInputRoutingsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListInputRoutingsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * // import type { IoTEventsClientConfig } from "@aws-sdk/client-iot-events";
+ * const config = {}; // type is IoTEventsClientConfig
  * const client = new IoTEventsClient(config);
  * const input = { // ListInputRoutingsRequest
  *   inputIdentifier: { // InputIdentifier

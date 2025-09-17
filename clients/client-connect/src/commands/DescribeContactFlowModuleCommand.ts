@@ -38,6 +38,8 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
  * ```javascript
  * import { ConnectClient, DescribeContactFlowModuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeContactFlowModuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DescribeContactFlowModuleRequest
  *   InstanceId: "STRING_VALUE", // required

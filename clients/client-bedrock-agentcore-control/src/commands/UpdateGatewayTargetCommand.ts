@@ -43,6 +43,8 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * ```javascript
  * import { BedrockAgentCoreControlClient, UpdateGatewayTargetCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, UpdateGatewayTargetCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // UpdateGatewayTargetRequest
  *   gatewayIdentifier: "STRING_VALUE", // required

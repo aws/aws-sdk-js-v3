@@ -38,6 +38,8 @@ export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpoints
  * ```javascript
  * import { ElasticsearchServiceClient, ListVpcEndpointsForDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, ListVpcEndpointsForDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // import type { ElasticsearchServiceClientConfig } from "@aws-sdk/client-elasticsearch-service";
+ * const config = {}; // type is ElasticsearchServiceClientConfig
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // ListVpcEndpointsForDomainRequest
  *   DomainName: "STRING_VALUE", // required

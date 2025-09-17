@@ -38,6 +38,8 @@ export interface DeleteHoursOfOperationOverrideCommandOutput extends __MetadataB
  * ```javascript
  * import { ConnectClient, DeleteHoursOfOperationOverrideCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteHoursOfOperationOverrideCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DeleteHoursOfOperationOverrideRequest
  *   InstanceId: "STRING_VALUE", // required

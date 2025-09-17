@@ -34,6 +34,8 @@ export interface DisassociateConnectPeerCommandOutput extends DisassociateConnec
  * ```javascript
  * import { NetworkManagerClient, DisassociateConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DisassociateConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // DisassociateConnectPeerRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

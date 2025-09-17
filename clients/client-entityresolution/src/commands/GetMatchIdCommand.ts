@@ -34,6 +34,8 @@ export interface GetMatchIdCommandOutput extends GetMatchIdOutput, __MetadataBea
  * ```javascript
  * import { EntityResolutionClient, GetMatchIdCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, GetMatchIdCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // GetMatchIdInput
  *   workflowName: "STRING_VALUE", // required

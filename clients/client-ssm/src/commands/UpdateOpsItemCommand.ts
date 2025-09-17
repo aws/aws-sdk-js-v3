@@ -39,6 +39,8 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * ```javascript
  * import { SSMClient, UpdateOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // UpdateOpsItemRequest
  *   Description: "STRING_VALUE",

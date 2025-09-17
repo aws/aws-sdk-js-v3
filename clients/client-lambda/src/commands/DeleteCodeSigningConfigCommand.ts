@@ -34,6 +34,8 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  * ```javascript
  * import { LambdaClient, DeleteCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // DeleteCodeSigningConfigRequest
  *   CodeSigningConfigArn: "STRING_VALUE", // required

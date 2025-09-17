@@ -34,6 +34,8 @@ export interface CreateTrainingDatasetCommandOutput extends CreateTrainingDatase
  * ```javascript
  * import { CleanRoomsMLClient, CreateTrainingDatasetCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, CreateTrainingDatasetCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // CreateTrainingDatasetRequest
  *   name: "STRING_VALUE", // required

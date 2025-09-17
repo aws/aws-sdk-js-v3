@@ -40,6 +40,8 @@ export interface UpdateTelemetryRuleCommandOutput extends UpdateTelemetryRuleOut
  * ```javascript
  * import { ObservabilityAdminClient, UpdateTelemetryRuleCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
  * // const { ObservabilityAdminClient, UpdateTelemetryRuleCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
+ * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
  * const input = { // UpdateTelemetryRuleInput
  *   RuleIdentifier: "STRING_VALUE", // required

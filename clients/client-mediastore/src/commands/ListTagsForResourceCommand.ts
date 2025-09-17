@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { MediaStoreClient, ListTagsForResourceCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // import type { MediaStoreClientConfig } from "@aws-sdk/client-mediastore";
+ * const config = {}; // type is MediaStoreClientConfig
  * const client = new MediaStoreClient(config);
  * const input = { // ListTagsForResourceInput
  *   Resource: "STRING_VALUE", // required

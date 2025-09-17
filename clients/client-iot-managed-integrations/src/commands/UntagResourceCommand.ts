@@ -38,6 +38,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { IoTManagedIntegrationsClient, UntagResourceCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, UntagResourceCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

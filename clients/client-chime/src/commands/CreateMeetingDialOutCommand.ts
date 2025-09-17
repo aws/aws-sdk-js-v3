@@ -46,6 +46,8 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * ```javascript
  * import { ChimeClient, CreateMeetingDialOutCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateMeetingDialOutCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // CreateMeetingDialOutRequest
  *   MeetingId: "STRING_VALUE", // required

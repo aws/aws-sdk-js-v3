@@ -38,6 +38,8 @@ export interface ListSessionLoggersCommandOutput extends ListSessionLoggersRespo
  * ```javascript
  * import { WorkSpacesWebClient, ListSessionLoggersCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListSessionLoggersCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // ListSessionLoggersRequest
  *   nextToken: "STRING_VALUE",

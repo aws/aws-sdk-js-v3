@@ -38,6 +38,8 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * ```javascript
  * import { QuickSightClient, DescribeTopicCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeTopicCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeTopicRequest
  *   AwsAccountId: "STRING_VALUE", // required

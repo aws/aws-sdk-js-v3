@@ -34,6 +34,8 @@ export interface ExportThemesCommandOutput extends ExportThemesResponse, __Metad
  * ```javascript
  * import { AmplifyUIBuilderClient, ExportThemesCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, ExportThemesCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // import type { AmplifyUIBuilderClientConfig } from "@aws-sdk/client-amplifyuibuilder";
+ * const config = {}; // type is AmplifyUIBuilderClientConfig
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // ExportThemesRequest
  *   appId: "STRING_VALUE", // required

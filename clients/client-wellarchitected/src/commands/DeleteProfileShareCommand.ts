@@ -34,6 +34,8 @@ export interface DeleteProfileShareCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WellArchitectedClient, DeleteProfileShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, DeleteProfileShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // DeleteProfileShareInput
  *   ShareId: "STRING_VALUE", // required

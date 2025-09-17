@@ -34,6 +34,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * ```javascript
  * import { IoTAnalyticsClient, ListDatasetsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, ListDatasetsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // import type { IoTAnalyticsClientConfig } from "@aws-sdk/client-iotanalytics";
+ * const config = {}; // type is IoTAnalyticsClientConfig
  * const client = new IoTAnalyticsClient(config);
  * const input = { // ListDatasetsRequest
  *   nextToken: "STRING_VALUE",

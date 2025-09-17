@@ -35,6 +35,8 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * ```javascript
  * import { StorageGatewayClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // RemoveTagsFromResourceInput
  *   ResourceARN: "STRING_VALUE", // required

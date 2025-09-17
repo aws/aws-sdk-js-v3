@@ -40,6 +40,8 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * ```javascript
  * import { KinesisClient, ListTagsForStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, ListTagsForStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // ListTagsForStreamInput
  *   StreamName: "STRING_VALUE",

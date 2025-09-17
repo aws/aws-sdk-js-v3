@@ -38,6 +38,8 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, DeactivateMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeactivateMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // DeactivateMFADeviceRequest
  *   UserName: "STRING_VALUE",

@@ -39,6 +39,8 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * ```javascript
  * import { CloudWatchClient, DescribeAnomalyDetectorsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAnomalyDetectorsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // DescribeAnomalyDetectorsInput
  *   NextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListPackageImportJobsCommandOutput extends ListPackageImportJob
  * ```javascript
  * import { PanoramaClient, ListPackageImportJobsCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListPackageImportJobsCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // import type { PanoramaClientConfig } from "@aws-sdk/client-panorama";
+ * const config = {}; // type is PanoramaClientConfig
  * const client = new PanoramaClient(config);
  * const input = { // ListPackageImportJobsRequest
  *   NextToken: "STRING_VALUE",

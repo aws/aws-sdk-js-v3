@@ -37,6 +37,8 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * ```javascript
  * import { CognitoIdentityClient, DescribeIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, DescribeIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * // import type { CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
+ * const config = {}; // type is CognitoIdentityClientConfig
  * const client = new CognitoIdentityClient(config);
  * const input = { // DescribeIdentityInput
  *   IdentityId: "STRING_VALUE", // required

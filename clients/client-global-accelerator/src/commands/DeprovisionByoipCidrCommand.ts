@@ -44,6 +44,8 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * ```javascript
  * import { GlobalAcceleratorClient, DeprovisionByoipCidrCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DeprovisionByoipCidrCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // import type { GlobalAcceleratorClientConfig } from "@aws-sdk/client-global-accelerator";
+ * const config = {}; // type is GlobalAcceleratorClientConfig
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DeprovisionByoipCidrRequest
  *   Cidr: "STRING_VALUE", // required

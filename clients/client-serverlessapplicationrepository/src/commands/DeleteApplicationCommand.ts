@@ -38,6 +38,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ServerlessApplicationRepositoryClient, DeleteApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, DeleteApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * // import type { ServerlessApplicationRepositoryClientConfig } from "@aws-sdk/client-serverlessapplicationrepository";
+ * const config = {}; // type is ServerlessApplicationRepositoryClientConfig
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const input = { // DeleteApplicationRequest
  *   ApplicationId: "STRING_VALUE", // required

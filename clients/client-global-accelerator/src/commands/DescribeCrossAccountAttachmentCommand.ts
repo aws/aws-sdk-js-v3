@@ -43,6 +43,8 @@ export interface DescribeCrossAccountAttachmentCommandOutput
  * ```javascript
  * import { GlobalAcceleratorClient, DescribeCrossAccountAttachmentCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeCrossAccountAttachmentCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // import type { GlobalAcceleratorClientConfig } from "@aws-sdk/client-global-accelerator";
+ * const config = {}; // type is GlobalAcceleratorClientConfig
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DescribeCrossAccountAttachmentRequest
  *   AttachmentArn: "STRING_VALUE", // required

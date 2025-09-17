@@ -34,6 +34,8 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  * ```javascript
  * import { ComprehendClient, StartEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // StartEventsDetectionJobRequest
  *   InputDataConfig: { // InputDataConfig

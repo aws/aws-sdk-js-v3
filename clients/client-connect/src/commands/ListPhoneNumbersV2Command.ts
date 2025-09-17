@@ -51,6 +51,8 @@ export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Respo
  * ```javascript
  * import { ConnectClient, ListPhoneNumbersV2Command } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListPhoneNumbersV2Command } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // ListPhoneNumbersV2Request
  *   TargetArn: "STRING_VALUE",

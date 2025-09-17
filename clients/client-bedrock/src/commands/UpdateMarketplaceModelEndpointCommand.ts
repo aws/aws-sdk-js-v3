@@ -39,6 +39,8 @@ export interface UpdateMarketplaceModelEndpointCommandOutput
  * ```javascript
  * import { BedrockClient, UpdateMarketplaceModelEndpointCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, UpdateMarketplaceModelEndpointCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // UpdateMarketplaceModelEndpointRequest
  *   endpointArn: "STRING_VALUE", // required

@@ -33,6 +33,8 @@ export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __Metadata
  * ```javascript
  * import { JsonProtocolClient, JsonEnumsCommand } from "@aws-sdk/aws-protocoltests-json-schema"; // ES Modules import
  * // const { JsonProtocolClient, JsonEnumsCommand } = require("@aws-sdk/aws-protocoltests-json-schema"); // CommonJS import
+ * // import type { JsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-json-schema";
+ * const config = {}; // type is JsonProtocolClientConfig
  * const client = new JsonProtocolClient(config);
  * const input = { // JsonEnumsInputOutput
  *   fooEnum1: "Foo" || "Baz" || "Bar" || "1" || "0",

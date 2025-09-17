@@ -42,6 +42,8 @@ export interface DeleteAccessControlConfigurationCommandOutput
  * ```javascript
  * import { KendraClient, DeleteAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // DeleteAccessControlConfigurationRequest
  *   IndexId: "STRING_VALUE", // required

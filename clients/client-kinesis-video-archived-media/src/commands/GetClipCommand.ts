@@ -78,6 +78,8 @@ export interface GetClipCommandOutput extends Omit<GetClipOutput, "Payload">, __
  * ```javascript
  * import { KinesisVideoArchivedMediaClient, GetClipCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetClipCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * // import type { KinesisVideoArchivedMediaClientConfig } from "@aws-sdk/client-kinesis-video-archived-media";
+ * const config = {}; // type is KinesisVideoArchivedMediaClientConfig
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetClipInput
  *   StreamName: "STRING_VALUE",

@@ -39,6 +39,8 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * ```javascript
  * import { ConnectCasesClient, SearchRelatedItemsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, SearchRelatedItemsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // SearchRelatedItemsRequest
  *   domainId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  * ```javascript
  * import { BedrockAgentRuntimeClient, RetrieveAndGenerateCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, RetrieveAndGenerateCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // RetrieveAndGenerateRequest
  *   sessionId: "STRING_VALUE",

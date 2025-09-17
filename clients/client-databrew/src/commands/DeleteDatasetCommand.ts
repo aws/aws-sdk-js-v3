@@ -34,6 +34,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * ```javascript
  * import { DataBrewClient, DeleteDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // DeleteDatasetRequest
  *   Name: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * ```javascript
  * import { OrganizationsClient, DescribeOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // DescribeOrganizationalUnitRequest
  *   OrganizationalUnitId: "STRING_VALUE", // required

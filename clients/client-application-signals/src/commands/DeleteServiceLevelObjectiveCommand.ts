@@ -41,6 +41,8 @@ export interface DeleteServiceLevelObjectiveCommandOutput extends DeleteServiceL
  * ```javascript
  * import { ApplicationSignalsClient, DeleteServiceLevelObjectiveCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, DeleteServiceLevelObjectiveCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // DeleteServiceLevelObjectiveInput
  *   Id: "STRING_VALUE", // required

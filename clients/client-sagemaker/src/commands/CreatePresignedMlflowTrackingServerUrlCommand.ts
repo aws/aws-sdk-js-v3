@@ -43,6 +43,8 @@ export interface CreatePresignedMlflowTrackingServerUrlCommandOutput
  * ```javascript
  * import { SageMakerClient, CreatePresignedMlflowTrackingServerUrlCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePresignedMlflowTrackingServerUrlCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreatePresignedMlflowTrackingServerUrlRequest
  *   TrackingServerName: "STRING_VALUE", // required

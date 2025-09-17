@@ -34,6 +34,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * ```javascript
  * import { QuickSightClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateAccountSettingsRequest
  *   AwsAccountId: "STRING_VALUE", // required

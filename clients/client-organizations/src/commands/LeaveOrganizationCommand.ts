@@ -94,6 +94,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OrganizationsClient, LeaveOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, LeaveOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = {};
  * const command = new LeaveOrganizationCommand(input);

@@ -38,6 +38,8 @@ export interface CreateContentCommandOutput extends CreateContentResponse, __Met
  * ```javascript
  * import { QConnectClient, CreateContentCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, CreateContentCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // CreateContentRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

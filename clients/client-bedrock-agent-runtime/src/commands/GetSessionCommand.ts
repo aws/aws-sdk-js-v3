@@ -38,6 +38,8 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * ```javascript
  * import { BedrockAgentRuntimeClient, GetSessionCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, GetSessionCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // GetSessionRequest
  *   sessionIdentifier: "STRING_VALUE", // required

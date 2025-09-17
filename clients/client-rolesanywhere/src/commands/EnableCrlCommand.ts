@@ -38,6 +38,8 @@ export interface EnableCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * ```javascript
  * import { RolesAnywhereClient, EnableCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, EnableCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * // import type { RolesAnywhereClientConfig } from "@aws-sdk/client-rolesanywhere";
+ * const config = {}; // type is RolesAnywhereClientConfig
  * const client = new RolesAnywhereClient(config);
  * const input = { // ScalarCrlRequest
  *   crlId: "STRING_VALUE", // required

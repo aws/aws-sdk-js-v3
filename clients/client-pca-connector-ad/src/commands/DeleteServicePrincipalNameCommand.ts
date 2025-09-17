@@ -35,6 +35,8 @@ export interface DeleteServicePrincipalNameCommandOutput extends __MetadataBeare
  * ```javascript
  * import { PcaConnectorAdClient, DeleteServicePrincipalNameCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, DeleteServicePrincipalNameCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // DeleteServicePrincipalNameRequest
  *   DirectoryRegistrationArn: "STRING_VALUE", // required

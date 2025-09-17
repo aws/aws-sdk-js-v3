@@ -34,6 +34,8 @@ export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { APIGatewayClient, FlushStageCacheCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, FlushStageCacheCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // FlushStageCacheRequest
  *   restApiId: "STRING_VALUE", // required

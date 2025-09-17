@@ -112,6 +112,8 @@ export interface RecognizeUtteranceCommandOutput
  * ```javascript
  * import { LexRuntimeV2Client, RecognizeUtteranceCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, RecognizeUtteranceCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * // import type { LexRuntimeV2ClientConfig } from "@aws-sdk/client-lex-runtime-v2";
+ * const config = {}; // type is LexRuntimeV2ClientConfig
  * const client = new LexRuntimeV2Client(config);
  * const input = { // RecognizeUtteranceRequest
  *   botId: "STRING_VALUE", // required

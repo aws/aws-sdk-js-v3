@@ -53,6 +53,8 @@ export interface CancelEnvironmentDeploymentCommandOutput extends CancelEnvironm
  * ```javascript
  * import { ProtonClient, CancelEnvironmentDeploymentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CancelEnvironmentDeploymentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // CancelEnvironmentDeploymentInput
  *   environmentName: "STRING_VALUE", // required

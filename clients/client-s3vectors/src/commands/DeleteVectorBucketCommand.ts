@@ -34,6 +34,8 @@ export interface DeleteVectorBucketCommandOutput extends DeleteVectorBucketOutpu
  * ```javascript
  * import { S3VectorsClient, DeleteVectorBucketCommand } from "@aws-sdk/client-s3vectors"; // ES Modules import
  * // const { S3VectorsClient, DeleteVectorBucketCommand } = require("@aws-sdk/client-s3vectors"); // CommonJS import
+ * // import type { S3VectorsClientConfig } from "@aws-sdk/client-s3vectors";
+ * const config = {}; // type is S3VectorsClientConfig
  * const client = new S3VectorsClient(config);
  * const input = { // DeleteVectorBucketInput
  *   vectorBucketName: "STRING_VALUE",

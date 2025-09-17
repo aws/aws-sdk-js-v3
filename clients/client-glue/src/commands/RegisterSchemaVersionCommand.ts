@@ -36,6 +36,8 @@ export interface RegisterSchemaVersionCommandOutput extends RegisterSchemaVersio
  * ```javascript
  * import { GlueClient, RegisterSchemaVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, RegisterSchemaVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // RegisterSchemaVersionInput
  *   SchemaId: { // SchemaId

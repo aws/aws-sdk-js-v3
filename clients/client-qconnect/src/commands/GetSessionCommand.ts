@@ -34,6 +34,8 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * ```javascript
  * import { QConnectClient, GetSessionCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, GetSessionCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // GetSessionRequest
  *   assistantId: "STRING_VALUE", // required

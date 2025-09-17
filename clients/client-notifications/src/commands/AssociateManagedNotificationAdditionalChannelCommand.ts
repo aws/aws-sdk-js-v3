@@ -43,6 +43,8 @@ export interface AssociateManagedNotificationAdditionalChannelCommandOutput
  * ```javascript
  * import { NotificationsClient, AssociateManagedNotificationAdditionalChannelCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, AssociateManagedNotificationAdditionalChannelCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // AssociateManagedNotificationAdditionalChannelRequest
  *   channelArn: "STRING_VALUE", // required

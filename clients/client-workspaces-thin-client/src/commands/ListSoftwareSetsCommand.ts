@@ -38,6 +38,8 @@ export interface ListSoftwareSetsCommandOutput extends ListSoftwareSetsResponse,
  * ```javascript
  * import { WorkSpacesThinClientClient, ListSoftwareSetsCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, ListSoftwareSetsCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // ListSoftwareSetsRequest
  *   nextToken: "STRING_VALUE",

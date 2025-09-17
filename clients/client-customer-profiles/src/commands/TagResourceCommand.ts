@@ -45,6 +45,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { CustomerProfilesClient, TagResourceCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, TagResourceCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

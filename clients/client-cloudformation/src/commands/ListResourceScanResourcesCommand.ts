@@ -37,6 +37,8 @@ export interface ListResourceScanResourcesCommandOutput extends ListResourceScan
  * ```javascript
  * import { CloudFormationClient, ListResourceScanResourcesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListResourceScanResourcesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ListResourceScanResourcesInput
  *   ResourceScanId: "STRING_VALUE", // required

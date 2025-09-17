@@ -34,6 +34,8 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  * ```javascript
  * import { WellArchitectedClient, ListLensSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListLensSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // ListLensSharesInput
  *   LensAlias: "STRING_VALUE", // required

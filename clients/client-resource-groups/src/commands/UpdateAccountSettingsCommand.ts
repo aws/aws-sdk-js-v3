@@ -38,6 +38,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * ```javascript
  * import { ResourceGroupsClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // import type { ResourceGroupsClientConfig } from "@aws-sdk/client-resource-groups";
+ * const config = {}; // type is ResourceGroupsClientConfig
  * const client = new ResourceGroupsClient(config);
  * const input = { // UpdateAccountSettingsInput
  *   GroupLifecycleEventsDesiredStatus: "ACTIVE" || "INACTIVE",

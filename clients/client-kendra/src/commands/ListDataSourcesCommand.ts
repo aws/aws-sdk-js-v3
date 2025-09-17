@@ -34,6 +34,8 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * ```javascript
  * import { KendraClient, ListDataSourcesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListDataSourcesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // ListDataSourcesRequest
  *   IndexId: "STRING_VALUE", // required

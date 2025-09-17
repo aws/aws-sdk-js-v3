@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { LambdaClient, TagResourceCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, TagResourceCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // TagResourceRequest
  *   Resource: "STRING_VALUE", // required

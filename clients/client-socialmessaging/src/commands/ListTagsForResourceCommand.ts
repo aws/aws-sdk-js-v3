@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { SocialMessagingClient, ListTagsForResourceCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
  * // const { SocialMessagingClient, ListTagsForResourceCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
+ * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
  * const input = { // ListTagsForResourceInput
  *   resourceArn: "STRING_VALUE", // required

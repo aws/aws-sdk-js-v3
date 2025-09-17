@@ -34,6 +34,8 @@ export interface AcceptShareCommandOutput extends AcceptShareResponse, __Metadat
  * ```javascript
  * import { OmicsClient, AcceptShareCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, AcceptShareCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // AcceptShareRequest
  *   shareId: "STRING_VALUE", // required

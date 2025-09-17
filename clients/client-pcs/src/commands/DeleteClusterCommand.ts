@@ -34,6 +34,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * ```javascript
  * import { PCSClient, DeleteClusterCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, DeleteClusterCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // DeleteClusterRequest
  *   clusterIdentifier: "STRING_VALUE", // required

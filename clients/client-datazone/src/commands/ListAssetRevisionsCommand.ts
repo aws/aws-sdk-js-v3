@@ -34,6 +34,8 @@ export interface ListAssetRevisionsCommandOutput extends ListAssetRevisionsOutpu
  * ```javascript
  * import { DataZoneClient, ListAssetRevisionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListAssetRevisionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListAssetRevisionsInput
  *   domainIdentifier: "STRING_VALUE", // required

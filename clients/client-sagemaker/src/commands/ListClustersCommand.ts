@@ -34,6 +34,8 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * ```javascript
  * import { SageMakerClient, ListClustersCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListClustersCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListClustersRequest
  *   CreationTimeAfter: new Date("TIMESTAMP"),

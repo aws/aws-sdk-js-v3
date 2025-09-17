@@ -34,6 +34,8 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionRespons
  * ```javascript
  * import { TransferClient, DescribeExecutionCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeExecutionCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // DescribeExecutionRequest
  *   ExecutionId: "STRING_VALUE", // required

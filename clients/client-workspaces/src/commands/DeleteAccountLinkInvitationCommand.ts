@@ -34,6 +34,8 @@ export interface DeleteAccountLinkInvitationCommandOutput extends DeleteAccountL
  * ```javascript
  * import { WorkSpacesClient, DeleteAccountLinkInvitationCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteAccountLinkInvitationCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DeleteAccountLinkInvitationRequest
  *   LinkId: "STRING_VALUE", // required

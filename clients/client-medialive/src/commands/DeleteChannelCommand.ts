@@ -34,6 +34,8 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * ```javascript
  * import { MediaLiveClient, DeleteChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteChannelRequest
  *   ChannelId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * ```javascript
  * import { CodeartifactClient, TagResourceCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, TagResourceCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

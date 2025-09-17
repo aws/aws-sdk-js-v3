@@ -38,6 +38,8 @@ export interface GetIngestConfigurationCommandOutput extends GetIngestConfigurat
  * ```javascript
  * import { IVSRealTimeClient, GetIngestConfigurationCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, GetIngestConfigurationCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // GetIngestConfigurationRequest
  *   arn: "STRING_VALUE", // required

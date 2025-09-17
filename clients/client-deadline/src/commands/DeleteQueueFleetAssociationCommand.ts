@@ -39,6 +39,8 @@ export interface DeleteQueueFleetAssociationCommandOutput
  * ```javascript
  * import { DeadlineClient, DeleteQueueFleetAssociationCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteQueueFleetAssociationCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteQueueFleetAssociationRequest
  *   farmId: "STRING_VALUE", // required

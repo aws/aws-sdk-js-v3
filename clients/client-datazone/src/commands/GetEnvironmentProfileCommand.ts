@@ -38,6 +38,8 @@ export interface GetEnvironmentProfileCommandOutput extends GetEnvironmentProfil
  * ```javascript
  * import { DataZoneClient, GetEnvironmentProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetEnvironmentProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetEnvironmentProfileInput
  *   domainIdentifier: "STRING_VALUE", // required

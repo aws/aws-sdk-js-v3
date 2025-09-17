@@ -51,6 +51,8 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * ```javascript
  * import { MarketplaceMeteringClient, MeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, MeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
+ * // import type { MarketplaceMeteringClientConfig } from "@aws-sdk/client-marketplace-metering";
+ * const config = {}; // type is MarketplaceMeteringClientConfig
  * const client = new MarketplaceMeteringClient(config);
  * const input = { // MeterUsageRequest
  *   ProductCode: "STRING_VALUE", // required

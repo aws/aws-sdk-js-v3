@@ -34,6 +34,8 @@ export interface ListAttachmentsCommandOutput extends ListAttachmentsResponse, _
  * ```javascript
  * import { NetworkManagerClient, ListAttachmentsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListAttachmentsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // ListAttachmentsRequest
  *   CoreNetworkId: "STRING_VALUE",

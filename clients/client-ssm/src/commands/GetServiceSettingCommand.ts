@@ -47,6 +47,8 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  * ```javascript
  * import { SSMClient, GetServiceSettingCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetServiceSettingCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetServiceSettingRequest
  *   SettingId: "STRING_VALUE", // required

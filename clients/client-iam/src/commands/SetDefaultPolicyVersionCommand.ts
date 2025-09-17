@@ -39,6 +39,8 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * ```javascript
  * import { IAMClient, SetDefaultPolicyVersionCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, SetDefaultPolicyVersionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // SetDefaultPolicyVersionRequest
  *   PolicyArn: "STRING_VALUE", // required

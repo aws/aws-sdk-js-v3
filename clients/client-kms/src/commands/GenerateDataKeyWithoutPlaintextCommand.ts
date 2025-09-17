@@ -114,6 +114,8 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * ```javascript
  * import { KMSClient, GenerateDataKeyWithoutPlaintextCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateDataKeyWithoutPlaintextCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // GenerateDataKeyWithoutPlaintextRequest
  *   KeyId: "STRING_VALUE", // required

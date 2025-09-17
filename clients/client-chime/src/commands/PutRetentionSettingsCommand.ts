@@ -45,6 +45,8 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * ```javascript
  * import { ChimeClient, PutRetentionSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutRetentionSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // PutRetentionSettingsRequest
  *   AccountId: "STRING_VALUE", // required

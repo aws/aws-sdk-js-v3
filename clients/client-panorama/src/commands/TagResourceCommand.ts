@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { PanoramaClient, TagResourceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, TagResourceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // import type { PanoramaClientConfig } from "@aws-sdk/client-panorama";
+ * const config = {}; // type is PanoramaClientConfig
  * const client = new PanoramaClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

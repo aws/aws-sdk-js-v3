@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { OdbClient, TagResourceCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, TagResourceCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * ```javascript
  * import { OpenSearchClient, UpdateDataSourceCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, UpdateDataSourceCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // UpdateDataSourceRequest
  *   DomainName: "STRING_VALUE", // required

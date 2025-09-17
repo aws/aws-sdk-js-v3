@@ -37,6 +37,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  * ```javascript
  * import { SnowballClient, UpdateClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, UpdateClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * // import type { SnowballClientConfig } from "@aws-sdk/client-snowball";
+ * const config = {}; // type is SnowballClientConfig
  * const client = new SnowballClient(config);
  * const input = { // UpdateClusterRequest
  *   ClusterId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  * ```javascript
  * import { MediaLiveClient, ListOfferingsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListOfferingsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // ListOfferingsRequest
  *   ChannelClass: "STRING_VALUE",

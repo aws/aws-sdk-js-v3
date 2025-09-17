@@ -38,6 +38,8 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * ```javascript
  * import { BedrockAgentRuntimeClient, DeleteSessionCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, DeleteSessionCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // DeleteSessionRequest
  *   sessionIdentifier: "STRING_VALUE", // required

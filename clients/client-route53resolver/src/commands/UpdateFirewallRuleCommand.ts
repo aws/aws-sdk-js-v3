@@ -34,6 +34,8 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * ```javascript
  * import { Route53ResolverClient, UpdateFirewallRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateFirewallRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
+ * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
  * const input = { // UpdateFirewallRuleRequest
  *   FirewallRuleGroupId: "STRING_VALUE", // required

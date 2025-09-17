@@ -34,6 +34,8 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  * ```javascript
  * import { LookoutEquipmentClient, ListLabelsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListLabelsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // import type { LookoutEquipmentClientConfig } from "@aws-sdk/client-lookoutequipment";
+ * const config = {}; // type is LookoutEquipmentClientConfig
  * const client = new LookoutEquipmentClient(config);
  * const input = { // ListLabelsRequest
  *   LabelGroupName: "STRING_VALUE", // required

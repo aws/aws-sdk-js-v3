@@ -47,6 +47,8 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * ```javascript
  * import { CloudHSMClient, GetConfigCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, GetConfigCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * // import type { CloudHSMClientConfig } from "@aws-sdk/client-cloudhsm";
+ * const config = {}; // type is CloudHSMClientConfig
  * const client = new CloudHSMClient(config);
  * const input = { // GetConfigRequest
  *   ClientArn: "STRING_VALUE", // required

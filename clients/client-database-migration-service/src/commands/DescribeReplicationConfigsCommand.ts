@@ -39,6 +39,8 @@ export interface DescribeReplicationConfigsCommandOutput extends DescribeReplica
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeReplicationConfigsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationConfigsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeReplicationConfigsMessage
  *   Filters: [ // FilterList

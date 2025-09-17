@@ -38,6 +38,8 @@ export interface StopKeyUsageCommandOutput extends StopKeyUsageOutput, __Metadat
  * ```javascript
  * import { PaymentCryptographyClient, StopKeyUsageCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, StopKeyUsageCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // StopKeyUsageInput
  *   KeyIdentifier: "STRING_VALUE", // required

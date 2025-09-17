@@ -48,6 +48,8 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * ```javascript
  * import { KinesisAnalyticsClient, DiscoverInputSchemaCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, DiscoverInputSchemaCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * // import type { KinesisAnalyticsClientConfig } from "@aws-sdk/client-kinesis-analytics";
+ * const config = {}; // type is KinesisAnalyticsClientConfig
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // DiscoverInputSchemaRequest
  *   ResourceARN: "STRING_VALUE",

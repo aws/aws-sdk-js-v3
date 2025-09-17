@@ -36,6 +36,8 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * ```javascript
  * import { GlacierClient, ListTagsForVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListTagsForVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // import type { GlacierClientConfig } from "@aws-sdk/client-glacier";
+ * const config = {}; // type is GlacierClientConfig
  * const client = new GlacierClient(config);
  * const input = { // ListTagsForVaultInput
  *   accountId: "STRING_VALUE", // required

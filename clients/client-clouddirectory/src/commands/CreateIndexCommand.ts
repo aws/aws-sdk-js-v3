@@ -34,6 +34,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * ```javascript
  * import { CloudDirectoryClient, CreateIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // CreateIndexRequest
  *   DirectoryArn: "STRING_VALUE", // required

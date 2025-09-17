@@ -35,6 +35,8 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  * ```javascript
  * import { ChimeSDKVoiceClient, CreateSipRuleCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, CreateSipRuleCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // CreateSipRuleRequest
  *   Name: "STRING_VALUE", // required

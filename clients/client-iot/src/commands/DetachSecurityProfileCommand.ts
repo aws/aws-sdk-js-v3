@@ -35,6 +35,8 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
  * ```javascript
  * import { IoTClient, DetachSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DetachSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DetachSecurityProfileRequest
  *   securityProfileName: "STRING_VALUE", // required

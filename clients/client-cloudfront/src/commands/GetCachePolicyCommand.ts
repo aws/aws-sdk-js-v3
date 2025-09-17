@@ -34,6 +34,8 @@ export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __Met
  * ```javascript
  * import { CloudFrontClient, GetCachePolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetCachePolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // GetCachePolicyRequest
  *   Id: "STRING_VALUE", // required

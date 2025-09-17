@@ -37,6 +37,8 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CodeCommitClient, UpdateDefaultBranchCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateDefaultBranchCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // UpdateDefaultBranchInput
  *   repositoryName: "STRING_VALUE", // required

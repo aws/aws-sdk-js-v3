@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { AppMeshClient, ListTagsForResourceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListTagsForResourceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // ListTagsForResourceInput
  *   resourceArn: "STRING_VALUE", // required

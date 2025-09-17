@@ -188,6 +188,8 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * ```javascript
  * import { SnowballClient, CreateJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * // import type { SnowballClientConfig } from "@aws-sdk/client-snowball";
+ * const config = {}; // type is SnowballClientConfig
  * const client = new SnowballClient(config);
  * const input = { // CreateJobRequest
  *   JobType: "IMPORT" || "EXPORT" || "LOCAL_USE",

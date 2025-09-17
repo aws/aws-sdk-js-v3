@@ -34,6 +34,8 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * ```javascript
  * import { PcaConnectorScepClient, CreateConnectorCommand } from "@aws-sdk/client-pca-connector-scep"; // ES Modules import
  * // const { PcaConnectorScepClient, CreateConnectorCommand } = require("@aws-sdk/client-pca-connector-scep"); // CommonJS import
+ * // import type { PcaConnectorScepClientConfig } from "@aws-sdk/client-pca-connector-scep";
+ * const config = {}; // type is PcaConnectorScepClientConfig
  * const client = new PcaConnectorScepClient(config);
  * const input = { // CreateConnectorRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required

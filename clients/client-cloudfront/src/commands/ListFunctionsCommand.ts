@@ -34,6 +34,8 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  * ```javascript
  * import { CloudFrontClient, ListFunctionsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListFunctionsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // ListFunctionsRequest
  *   Marker: "STRING_VALUE",

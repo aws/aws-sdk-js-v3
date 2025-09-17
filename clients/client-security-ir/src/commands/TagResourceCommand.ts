@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { SecurityIRClient, TagResourceCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, TagResourceCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required

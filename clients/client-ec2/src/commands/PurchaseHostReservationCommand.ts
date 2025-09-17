@@ -37,6 +37,8 @@ export interface PurchaseHostReservationCommandOutput extends PurchaseHostReserv
  * ```javascript
  * import { EC2Client, PurchaseHostReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, PurchaseHostReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // PurchaseHostReservationRequest
  *   ClientToken: "STRING_VALUE",

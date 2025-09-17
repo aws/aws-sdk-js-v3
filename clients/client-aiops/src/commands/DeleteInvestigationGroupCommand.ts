@@ -34,6 +34,8 @@ export interface DeleteInvestigationGroupCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { AIOpsClient, DeleteInvestigationGroupCommand } from "@aws-sdk/client-aiops"; // ES Modules import
  * // const { AIOpsClient, DeleteInvestigationGroupCommand } = require("@aws-sdk/client-aiops"); // CommonJS import
+ * // import type { AIOpsClientConfig } from "@aws-sdk/client-aiops";
+ * const config = {}; // type is AIOpsClientConfig
  * const client = new AIOpsClient(config);
  * const input = { // DeleteInvestigationGroupRequest
  *   identifier: "STRING_VALUE", // required

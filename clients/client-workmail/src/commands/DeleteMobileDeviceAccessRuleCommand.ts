@@ -42,6 +42,8 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
  * ```javascript
  * import { WorkMailClient, DeleteMobileDeviceAccessRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteMobileDeviceAccessRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // DeleteMobileDeviceAccessRuleRequest
  *   OrganizationId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { BedrockAgentRuntimeClient, ListTagsForResourceCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

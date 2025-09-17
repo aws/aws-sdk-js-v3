@@ -34,6 +34,8 @@ export interface DescribeIpamByoasnCommandOutput extends DescribeIpamByoasnResul
  * ```javascript
  * import { EC2Client, DescribeIpamByoasnCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIpamByoasnCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeIpamByoasnRequest
  *   DryRun: true || false,

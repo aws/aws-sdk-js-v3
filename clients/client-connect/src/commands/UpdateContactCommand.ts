@@ -41,6 +41,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * ```javascript
  * import { ConnectClient, UpdateContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateContactRequest
  *   InstanceId: "STRING_VALUE", // required

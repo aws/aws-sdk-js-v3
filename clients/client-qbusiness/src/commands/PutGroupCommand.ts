@@ -34,6 +34,8 @@ export interface PutGroupCommandOutput extends PutGroupResponse, __MetadataBeare
  * ```javascript
  * import { QBusinessClient, PutGroupCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, PutGroupCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // PutGroupRequest
  *   applicationId: "STRING_VALUE", // required

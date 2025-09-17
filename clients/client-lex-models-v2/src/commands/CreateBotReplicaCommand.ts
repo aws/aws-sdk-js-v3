@@ -34,6 +34,8 @@ export interface CreateBotReplicaCommandOutput extends CreateBotReplicaResponse,
  * ```javascript
  * import { LexModelsV2Client, CreateBotReplicaCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateBotReplicaCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // CreateBotReplicaRequest
  *   botId: "STRING_VALUE", // required

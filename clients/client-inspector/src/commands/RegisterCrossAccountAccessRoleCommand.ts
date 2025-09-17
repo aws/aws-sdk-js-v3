@@ -38,6 +38,8 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * ```javascript
  * import { InspectorClient, RegisterCrossAccountAccessRoleCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, RegisterCrossAccountAccessRoleCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // import type { InspectorClientConfig } from "@aws-sdk/client-inspector";
+ * const config = {}; // type is InspectorClientConfig
  * const client = new InspectorClient(config);
  * const input = { // RegisterCrossAccountAccessRoleRequest
  *   roleArn: "STRING_VALUE", // required

@@ -66,6 +66,8 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { DataPipelineClient, SetStatusCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, SetStatusCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * // import type { DataPipelineClientConfig } from "@aws-sdk/client-data-pipeline";
+ * const config = {}; // type is DataPipelineClientConfig
  * const client = new DataPipelineClient(config);
  * const input = { // SetStatusInput
  *   pipelineId: "STRING_VALUE", // required

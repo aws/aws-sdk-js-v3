@@ -34,6 +34,8 @@ export interface ListMLInputChannelsCommandOutput extends ListMLInputChannelsRes
  * ```javascript
  * import { CleanRoomsMLClient, ListMLInputChannelsCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, ListMLInputChannelsCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // ListMLInputChannelsRequest
  *   nextToken: "STRING_VALUE",

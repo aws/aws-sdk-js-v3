@@ -34,6 +34,8 @@ export interface BatchAddClusterNodesCommandOutput extends BatchAddClusterNodesR
  * ```javascript
  * import { SageMakerClient, BatchAddClusterNodesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, BatchAddClusterNodesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // BatchAddClusterNodesRequest
  *   ClusterName: "STRING_VALUE", // required

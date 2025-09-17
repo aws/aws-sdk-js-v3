@@ -36,6 +36,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * ```javascript
  * import { EvidentlyClient, CreateProjectCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateProjectCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // CreateProjectRequest
  *   name: "STRING_VALUE", // required

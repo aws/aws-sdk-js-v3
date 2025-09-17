@@ -35,6 +35,8 @@ export interface CreateKxVolumeCommandOutput extends CreateKxVolumeResponse, __M
  * ```javascript
  * import { FinspaceClient, CreateKxVolumeCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, CreateKxVolumeCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // CreateKxVolumeRequest
  *   clientToken: "STRING_VALUE",

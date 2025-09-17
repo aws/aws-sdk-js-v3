@@ -35,6 +35,8 @@ export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricD
  * ```javascript
  * import { RUMClient, UpdateRumMetricDefinitionCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, UpdateRumMetricDefinitionCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * // import type { RUMClientConfig } from "@aws-sdk/client-rum";
+ * const config = {}; // type is RUMClientConfig
  * const client = new RUMClient(config);
  * const input = { // UpdateRumMetricDefinitionRequest
  *   AppMonitorName: "STRING_VALUE", // required

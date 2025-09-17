@@ -39,6 +39,8 @@ export interface UpdatePullRequestDescriptionCommandOutput
  * ```javascript
  * import { CodeCommitClient, UpdatePullRequestDescriptionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdatePullRequestDescriptionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // UpdatePullRequestDescriptionInput
  *   pullRequestId: "STRING_VALUE", // required

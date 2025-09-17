@@ -34,6 +34,8 @@ export interface GetRelationalDatabaseEventsCommandOutput extends GetRelationalD
  * ```javascript
  * import { LightsailClient, GetRelationalDatabaseEventsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseEventsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabaseEventsRequest
  *   relationalDatabaseName: "STRING_VALUE", // required

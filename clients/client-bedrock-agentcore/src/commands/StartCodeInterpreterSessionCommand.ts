@@ -39,6 +39,8 @@ export interface StartCodeInterpreterSessionCommandOutput
  * ```javascript
  * import { BedrockAgentCoreClient, StartCodeInterpreterSessionCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, StartCodeInterpreterSessionCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // StartCodeInterpreterSessionRequest
  *   codeInterpreterIdentifier: "STRING_VALUE", // required

@@ -44,6 +44,8 @@ export interface ExecuteGremlinProfileQueryCommandOutput
  * ```javascript
  * import { NeptunedataClient, ExecuteGremlinProfileQueryCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, ExecuteGremlinProfileQueryCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // ExecuteGremlinProfileQueryInput
  *   gremlinQuery: "STRING_VALUE", // required

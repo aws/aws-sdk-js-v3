@@ -41,6 +41,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { SecurityLakeClient, TagResourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, TagResourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

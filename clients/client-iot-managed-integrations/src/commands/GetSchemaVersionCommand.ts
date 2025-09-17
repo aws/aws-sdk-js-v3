@@ -38,6 +38,8 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * ```javascript
  * import { IoTManagedIntegrationsClient, GetSchemaVersionCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, GetSchemaVersionCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // GetSchemaVersionRequest
  *   Type: "capability" || "definition", // required

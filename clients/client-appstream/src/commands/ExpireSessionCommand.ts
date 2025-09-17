@@ -34,6 +34,8 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  * ```javascript
  * import { AppStreamClient, ExpireSessionCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, ExpireSessionCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // ExpireSessionRequest
  *   SessionId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListJobRunAttemptsCommandOutput extends ListJobRunAttemptsRespo
  * ```javascript
  * import { EMRServerlessClient, ListJobRunAttemptsCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, ListJobRunAttemptsCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * // import type { EMRServerlessClientConfig } from "@aws-sdk/client-emr-serverless";
+ * const config = {}; // type is EMRServerlessClientConfig
  * const client = new EMRServerlessClient(config);
  * const input = { // ListJobRunAttemptsRequest
  *   applicationId: "STRING_VALUE", // required

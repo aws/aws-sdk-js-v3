@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { OutpostsClient, ListTagsForResourceCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // import type { OutpostsClientConfig } from "@aws-sdk/client-outposts";
+ * const config = {}; // type is OutpostsClientConfig
  * const client = new OutpostsClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

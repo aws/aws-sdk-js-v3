@@ -40,6 +40,8 @@ export interface PutPositionConfigurationCommandOutput extends PutPositionConfig
  * ```javascript
  * import { IoTWirelessClient, PutPositionConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, PutPositionConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // PutPositionConfigurationRequest
  *   ResourceIdentifier: "STRING_VALUE", // required

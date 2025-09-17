@@ -49,6 +49,8 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * ```javascript
  * import { GuardDutyClient, GetAdministratorAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetAdministratorAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // GetAdministratorAccountRequest
  *   DetectorId: "STRING_VALUE", // required

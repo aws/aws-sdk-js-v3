@@ -36,6 +36,8 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * ```javascript
  * import { AppConfigClient, ListExtensionsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListExtensionsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // ListExtensionsRequest
  *   MaxResults: Number("int"),

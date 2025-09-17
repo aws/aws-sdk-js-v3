@@ -34,6 +34,8 @@ export interface ListLensesCommandOutput extends ListLensesOutput, __MetadataBea
  * ```javascript
  * import { WellArchitectedClient, ListLensesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListLensesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // ListLensesInput
  *   NextToken: "STRING_VALUE",

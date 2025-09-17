@@ -36,6 +36,8 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * ```javascript
  * import { RekognitionClient, UpdateStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, UpdateStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // UpdateStreamProcessorRequest
  *   Name: "STRING_VALUE", // required

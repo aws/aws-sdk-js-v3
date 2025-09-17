@@ -34,6 +34,8 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  * ```javascript
  * import { CloudFrontClient, GetPublicKeyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetPublicKeyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // GetPublicKeyConfigRequest
  *   Id: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface ListApprovalTeamsCommandOutput extends ListApprovalTeamsRespons
  * ```javascript
  * import { MPAClient, ListApprovalTeamsCommand } from "@aws-sdk/client-mpa"; // ES Modules import
  * // const { MPAClient, ListApprovalTeamsCommand } = require("@aws-sdk/client-mpa"); // CommonJS import
+ * // import type { MPAClientConfig } from "@aws-sdk/client-mpa";
+ * const config = {}; // type is MPAClientConfig
  * const client = new MPAClient(config);
  * const input = { // ListApprovalTeamsRequest
  *   MaxResults: Number("int"),

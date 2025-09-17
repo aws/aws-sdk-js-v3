@@ -37,6 +37,8 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * ```javascript
  * import { SESClient, GetSendStatisticsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetSendStatisticsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = {};
  * const command = new GetSendStatisticsCommand(input);

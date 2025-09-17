@@ -40,6 +40,8 @@ export interface DescribeNodeConfigurationOptionsCommandOutput
  * ```javascript
  * import { RedshiftClient, DescribeNodeConfigurationOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeNodeConfigurationOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeNodeConfigurationOptionsMessage
  *   ActionType: "restore-cluster" || "recommend-node-config" || "resize-cluster", // required

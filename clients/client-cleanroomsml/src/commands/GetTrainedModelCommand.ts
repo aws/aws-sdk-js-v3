@@ -34,6 +34,8 @@ export interface GetTrainedModelCommandOutput extends GetTrainedModelResponse, _
  * ```javascript
  * import { CleanRoomsMLClient, GetTrainedModelCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, GetTrainedModelCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // GetTrainedModelRequest
  *   trainedModelArn: "STRING_VALUE", // required

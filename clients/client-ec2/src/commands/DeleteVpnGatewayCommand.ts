@@ -37,6 +37,8 @@ export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EC2Client, DeleteVpnGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpnGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DeleteVpnGatewayRequest
  *   VpnGatewayId: "STRING_VALUE", // required

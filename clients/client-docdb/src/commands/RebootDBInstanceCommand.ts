@@ -40,6 +40,8 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * ```javascript
  * import { DocDBClient, RebootDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RebootDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // RebootDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListLogAnomalyDetectorsCommandOutput extends ListLogAnomalyDete
  * ```javascript
  * import { CloudWatchLogsClient, ListLogAnomalyDetectorsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, ListLogAnomalyDetectorsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // ListLogAnomalyDetectorsRequest
  *   filterLogGroupArn: "STRING_VALUE",

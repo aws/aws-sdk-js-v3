@@ -34,6 +34,8 @@ export interface ListDomainConflictsCommandOutput extends ListDomainConflictsRes
  * ```javascript
  * import { CloudFrontClient, ListDomainConflictsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDomainConflictsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // ListDomainConflictsRequest
  *   Domain: "STRING_VALUE", // required

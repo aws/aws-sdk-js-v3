@@ -41,6 +41,8 @@ export interface ListAssetContractsCommandOutput extends ListAssetContractsOutpu
  * ```javascript
  * import { ManagedBlockchainQueryClient, ListAssetContractsCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
  * // const { ManagedBlockchainQueryClient, ListAssetContractsCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
+ * // import type { ManagedBlockchainQueryClientConfig } from "@aws-sdk/client-managedblockchain-query";
+ * const config = {}; // type is ManagedBlockchainQueryClientConfig
  * const client = new ManagedBlockchainQueryClient(config);
  * const input = { // ListAssetContractsInput
  *   contractFilter: { // ContractFilter

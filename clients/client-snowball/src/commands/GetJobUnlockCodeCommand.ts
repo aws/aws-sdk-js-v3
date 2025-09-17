@@ -46,6 +46,8 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  * ```javascript
  * import { SnowballClient, GetJobUnlockCodeCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, GetJobUnlockCodeCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * // import type { SnowballClientConfig } from "@aws-sdk/client-snowball";
+ * const config = {}; // type is SnowballClientConfig
  * const client = new SnowballClient(config);
  * const input = { // GetJobUnlockCodeRequest
  *   JobId: "STRING_VALUE", // required

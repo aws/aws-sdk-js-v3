@@ -34,6 +34,8 @@ export interface AcceptDataGrantCommandOutput extends AcceptDataGrantResponse, _
  * ```javascript
  * import { DataExchangeClient, AcceptDataGrantCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, AcceptDataGrantCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // import type { DataExchangeClientConfig } from "@aws-sdk/client-dataexchange";
+ * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // AcceptDataGrantRequest
  *   DataGrantArn: "STRING_VALUE", // required

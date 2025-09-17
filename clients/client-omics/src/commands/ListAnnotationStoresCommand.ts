@@ -34,6 +34,8 @@ export interface ListAnnotationStoresCommandOutput extends ListAnnotationStoresR
  * ```javascript
  * import { OmicsClient, ListAnnotationStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListAnnotationStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // ListAnnotationStoresRequest
  *   ids: [ // IdList

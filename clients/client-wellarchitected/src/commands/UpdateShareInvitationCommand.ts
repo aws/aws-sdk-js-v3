@@ -37,6 +37,8 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  * ```javascript
  * import { WellArchitectedClient, UpdateShareInvitationCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateShareInvitationCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateShareInvitationInput
  *   ShareInvitationId: "STRING_VALUE", // required

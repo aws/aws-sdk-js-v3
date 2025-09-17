@@ -35,6 +35,8 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * ```javascript
  * import { RAMClient, ListPermissionsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPermissionsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // ListPermissionsRequest
  *   resourceType: "STRING_VALUE",

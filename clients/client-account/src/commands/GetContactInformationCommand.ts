@@ -38,6 +38,8 @@ export interface GetContactInformationCommandOutput extends GetContactInformatio
  * ```javascript
  * import { AccountClient, GetContactInformationCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, GetContactInformationCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * // import type { AccountClientConfig } from "@aws-sdk/client-account";
+ * const config = {}; // type is AccountClientConfig
  * const client = new AccountClient(config);
  * const input = { // GetContactInformationRequest
  *   AccountId: "STRING_VALUE",

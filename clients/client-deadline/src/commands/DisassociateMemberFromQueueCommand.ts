@@ -39,6 +39,8 @@ export interface DisassociateMemberFromQueueCommandOutput
  * ```javascript
  * import { DeadlineClient, DisassociateMemberFromQueueCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DisassociateMemberFromQueueCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DisassociateMemberFromQueueRequest
  *   farmId: "STRING_VALUE", // required

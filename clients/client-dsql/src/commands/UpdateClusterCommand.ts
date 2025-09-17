@@ -120,6 +120,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * ```javascript
  * import { DSQLClient, UpdateClusterCommand } from "@aws-sdk/client-dsql"; // ES Modules import
  * // const { DSQLClient, UpdateClusterCommand } = require("@aws-sdk/client-dsql"); // CommonJS import
+ * // import type { DSQLClientConfig } from "@aws-sdk/client-dsql";
+ * const config = {}; // type is DSQLClientConfig
  * const client = new DSQLClient(config);
  * const input = { // UpdateClusterInput
  *   identifier: "STRING_VALUE", // required

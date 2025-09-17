@@ -34,6 +34,8 @@ export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, _
  * ```javascript
  * import { GlueClient, DeleteBlueprintCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteBlueprintCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteBlueprintRequest
  *   Name: "STRING_VALUE", // required

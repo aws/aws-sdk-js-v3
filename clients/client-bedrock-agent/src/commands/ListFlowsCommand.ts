@@ -34,6 +34,8 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * ```javascript
  * import { BedrockAgentClient, ListFlowsCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, ListFlowsCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // ListFlowsRequest
  *   maxResults: Number("int"),

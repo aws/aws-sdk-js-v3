@@ -51,6 +51,8 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * ```javascript
  * import { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * // import type { KinesisAnalyticsV2ClientConfig } from "@aws-sdk/client-kinesis-analytics-v2";
+ * const config = {}; // type is KinesisAnalyticsV2ClientConfig
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // AddApplicationReferenceDataSourceRequest
  *   ApplicationName: "STRING_VALUE", // required

@@ -40,6 +40,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * ```javascript
  * import { LookoutVisionClient, ListProjectsCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, ListProjectsCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * // import type { LookoutVisionClientConfig } from "@aws-sdk/client-lookoutvision";
+ * const config = {}; // type is LookoutVisionClientConfig
  * const client = new LookoutVisionClient(config);
  * const input = { // ListProjectsRequest
  *   NextToken: "STRING_VALUE",

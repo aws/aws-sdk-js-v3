@@ -38,6 +38,8 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * ```javascript
  * import { DatabaseMigrationServiceClient, CreateInstanceProfileCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateInstanceProfileCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // CreateInstanceProfileMessage
  *   AvailabilityZone: "STRING_VALUE",

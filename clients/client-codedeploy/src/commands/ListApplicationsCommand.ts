@@ -34,6 +34,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * ```javascript
  * import { CodeDeployClient, ListApplicationsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListApplicationsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // import type { CodeDeployClientConfig } from "@aws-sdk/client-codedeploy";
+ * const config = {}; // type is CodeDeployClientConfig
  * const client = new CodeDeployClient(config);
  * const input = { // ListApplicationsInput
  *   nextToken: "STRING_VALUE",

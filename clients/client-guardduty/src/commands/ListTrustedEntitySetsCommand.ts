@@ -36,6 +36,8 @@ export interface ListTrustedEntitySetsCommandOutput extends ListTrustedEntitySet
  * ```javascript
  * import { GuardDutyClient, ListTrustedEntitySetsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListTrustedEntitySetsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // ListTrustedEntitySetsRequest
  *   DetectorId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * ```javascript
  * import { BCMDashboardsClient, GetResourcePolicyCommand } from "@aws-sdk/client-bcm-dashboards"; // ES Modules import
  * // const { BCMDashboardsClient, GetResourcePolicyCommand } = require("@aws-sdk/client-bcm-dashboards"); // CommonJS import
+ * // import type { BCMDashboardsClientConfig } from "@aws-sdk/client-bcm-dashboards";
+ * const config = {}; // type is BCMDashboardsClientConfig
  * const client = new BCMDashboardsClient(config);
  * const input = { // GetResourcePolicyRequest
  *   resourceArn: "STRING_VALUE", // required

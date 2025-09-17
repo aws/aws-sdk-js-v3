@@ -36,6 +36,8 @@ export interface AssociateResourceToProfileCommandOutput extends AssociateResour
  * ```javascript
  * import { Route53ProfilesClient, AssociateResourceToProfileCommand } from "@aws-sdk/client-route53profiles"; // ES Modules import
  * // const { Route53ProfilesClient, AssociateResourceToProfileCommand } = require("@aws-sdk/client-route53profiles"); // CommonJS import
+ * // import type { Route53ProfilesClientConfig } from "@aws-sdk/client-route53profiles";
+ * const config = {}; // type is Route53ProfilesClientConfig
  * const client = new Route53ProfilesClient(config);
  * const input = { // AssociateResourceToProfileRequest
  *   ProfileId: "STRING_VALUE", // required

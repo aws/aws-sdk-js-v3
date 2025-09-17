@@ -34,6 +34,8 @@ export interface GetBaselineOperationCommandOutput extends GetBaselineOperationO
  * ```javascript
  * import { ControlTowerClient, GetBaselineOperationCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, GetBaselineOperationCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // GetBaselineOperationInput
  *   operationIdentifier: "STRING_VALUE", // required

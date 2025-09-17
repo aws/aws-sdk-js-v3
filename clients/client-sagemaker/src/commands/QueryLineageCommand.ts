@@ -34,6 +34,8 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  * ```javascript
  * import { SageMakerClient, QueryLineageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, QueryLineageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // QueryLineageRequest
  *   StartArns: [ // QueryLineageStartArns

@@ -37,6 +37,8 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  * ```javascript
  * import { VPCLatticeClient, PutAuthPolicyCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, PutAuthPolicyCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // PutAuthPolicyRequest
  *   resourceIdentifier: "STRING_VALUE", // required

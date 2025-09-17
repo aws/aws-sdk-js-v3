@@ -34,6 +34,8 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  * ```javascript
  * import { CodeCommitClient, BatchGetCommitsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchGetCommitsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // BatchGetCommitsInput
  *   commitIds: [ // CommitIdsInputList // required

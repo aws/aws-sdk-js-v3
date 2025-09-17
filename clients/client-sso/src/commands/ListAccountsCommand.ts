@@ -36,6 +36,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * ```javascript
  * import { SSOClient, ListAccountsCommand } from "@aws-sdk/client-sso"; // ES Modules import
  * // const { SSOClient, ListAccountsCommand } = require("@aws-sdk/client-sso"); // CommonJS import
+ * // import type { SSOClientConfig } from "@aws-sdk/client-sso";
+ * const config = {}; // type is SSOClientConfig
  * const client = new SSOClient(config);
  * const input = { // ListAccountsRequest
  *   nextToken: "STRING_VALUE",

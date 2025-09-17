@@ -37,6 +37,8 @@ export interface DescribePlatformVersionCommandOutput extends DescribePlatformVe
  * ```javascript
  * import { ElasticBeanstalkClient, DescribePlatformVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribePlatformVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * // import type { ElasticBeanstalkClientConfig } from "@aws-sdk/client-elastic-beanstalk";
+ * const config = {}; // type is ElasticBeanstalkClientConfig
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribePlatformVersionRequest
  *   PlatformArn: "STRING_VALUE",

@@ -42,6 +42,8 @@ export interface UpdateDataRepositoryAssociationCommandOutput
  * ```javascript
  * import { FSxClient, UpdateDataRepositoryAssociationCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateDataRepositoryAssociationCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // UpdateDataRepositoryAssociationRequest
  *   AssociationId: "STRING_VALUE", // required

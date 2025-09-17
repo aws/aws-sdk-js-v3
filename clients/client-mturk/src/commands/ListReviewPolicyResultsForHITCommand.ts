@@ -45,6 +45,8 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  * ```javascript
  * import { MTurkClient, ListReviewPolicyResultsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListReviewPolicyResultsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // ListReviewPolicyResultsForHITRequest
  *   HITId: "STRING_VALUE", // required

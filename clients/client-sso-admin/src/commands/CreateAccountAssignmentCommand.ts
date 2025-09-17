@@ -34,6 +34,8 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  * ```javascript
  * import { SSOAdminClient, CreateAccountAssignmentCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, CreateAccountAssignmentCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // CreateAccountAssignmentRequest
  *   InstanceArn: "STRING_VALUE", // required

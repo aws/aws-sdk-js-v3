@@ -44,6 +44,8 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
  * ```javascript
  * import { SSMClient, DescribeEffectivePatchesForPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeEffectivePatchesForPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeEffectivePatchesForPatchBaselineRequest
  *   BaselineId: "STRING_VALUE", // required

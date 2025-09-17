@@ -43,6 +43,8 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  * ```javascript
  * import { IAMClient, CreateLoginProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // CreateLoginProfileRequest
  *   UserName: "STRING_VALUE",

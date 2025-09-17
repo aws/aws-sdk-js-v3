@@ -98,6 +98,8 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * ```javascript
  * import { DSQLClient, CreateClusterCommand } from "@aws-sdk/client-dsql"; // ES Modules import
  * // const { DSQLClient, CreateClusterCommand } = require("@aws-sdk/client-dsql"); // CommonJS import
+ * // import type { DSQLClientConfig } from "@aws-sdk/client-dsql";
+ * const config = {}; // type is DSQLClientConfig
  * const client = new DSQLClient(config);
  * const input = { // CreateClusterInput
  *   deletionProtectionEnabled: true || false,

@@ -39,6 +39,8 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * ```javascript
  * import { RedshiftDataClient, DescribeStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, DescribeStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * // import type { RedshiftDataClientConfig } from "@aws-sdk/client-redshift-data";
+ * const config = {}; // type is RedshiftDataClientConfig
  * const client = new RedshiftDataClient(config);
  * const input = { // DescribeStatementRequest
  *   Id: "STRING_VALUE", // required

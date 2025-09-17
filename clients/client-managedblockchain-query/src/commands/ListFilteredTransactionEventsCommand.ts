@@ -46,6 +46,8 @@ export interface ListFilteredTransactionEventsCommandOutput
  * ```javascript
  * import { ManagedBlockchainQueryClient, ListFilteredTransactionEventsCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
  * // const { ManagedBlockchainQueryClient, ListFilteredTransactionEventsCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
+ * // import type { ManagedBlockchainQueryClientConfig } from "@aws-sdk/client-managedblockchain-query";
+ * const config = {}; // type is ManagedBlockchainQueryClientConfig
  * const client = new ManagedBlockchainQueryClient(config);
  * const input = { // ListFilteredTransactionEventsInput
  *   network: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlemen
  * ```javascript
  * import { MediaConnectClient, UpdateFlowEntitlementCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowEntitlementCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateFlowEntitlementRequest
  *   Description: "STRING_VALUE",

@@ -46,6 +46,8 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * ```javascript
  * import { IoTFleetWiseClient, CreateCampaignCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateCampaignCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = { // CreateCampaignRequest
  *   name: "STRING_VALUE", // required

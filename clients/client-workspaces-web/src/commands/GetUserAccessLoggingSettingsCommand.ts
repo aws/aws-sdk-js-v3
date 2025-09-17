@@ -39,6 +39,8 @@ export interface GetUserAccessLoggingSettingsCommandOutput
  * ```javascript
  * import { WorkSpacesWebClient, GetUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // GetUserAccessLoggingSettingsRequest
  *   userAccessLoggingSettingsArn: "STRING_VALUE", // required

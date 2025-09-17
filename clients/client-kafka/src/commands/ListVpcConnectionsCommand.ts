@@ -34,6 +34,8 @@ export interface ListVpcConnectionsCommandOutput extends ListVpcConnectionsRespo
  * ```javascript
  * import { KafkaClient, ListVpcConnectionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListVpcConnectionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // ListVpcConnectionsRequest
  *   MaxResults: Number("int"),

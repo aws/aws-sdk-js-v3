@@ -67,6 +67,8 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  * ```javascript
  * import { OrganizationsClient, RemoveAccountFromOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, RemoveAccountFromOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // RemoveAccountFromOrganizationRequest
  *   AccountId: "STRING_VALUE", // required

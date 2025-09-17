@@ -38,6 +38,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * ```javascript
  * import { EventBridgeClient, ListRulesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListRulesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // ListRulesRequest
  *   NamePrefix: "STRING_VALUE",

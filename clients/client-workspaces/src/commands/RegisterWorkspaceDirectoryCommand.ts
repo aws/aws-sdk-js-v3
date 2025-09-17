@@ -38,6 +38,8 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * ```javascript
  * import { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // RegisterWorkspaceDirectoryRequest
  *   DirectoryId: "STRING_VALUE",

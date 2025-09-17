@@ -40,6 +40,8 @@ export interface BatchGetUserAccessTasksCommandOutput extends BatchGetUserAccess
  * ```javascript
  * import { AppFabricClient, BatchGetUserAccessTasksCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, BatchGetUserAccessTasksCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // BatchGetUserAccessTasksRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

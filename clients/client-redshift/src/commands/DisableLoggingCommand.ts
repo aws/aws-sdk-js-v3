@@ -35,6 +35,8 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  * ```javascript
  * import { RedshiftClient, DisableLoggingCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DisableLoggingCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DisableLoggingMessage
  *   ClusterIdentifier: "STRING_VALUE", // required

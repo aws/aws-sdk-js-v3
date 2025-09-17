@@ -38,6 +38,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { BedrockDataAutomationRuntimeClient, TagResourceCommand } from "@aws-sdk/client-bedrock-data-automation-runtime"; // ES Modules import
  * // const { BedrockDataAutomationRuntimeClient, TagResourceCommand } = require("@aws-sdk/client-bedrock-data-automation-runtime"); // CommonJS import
+ * // import type { BedrockDataAutomationRuntimeClientConfig } from "@aws-sdk/client-bedrock-data-automation-runtime";
+ * const config = {}; // type is BedrockDataAutomationRuntimeClientConfig
  * const client = new BedrockDataAutomationRuntimeClient(config);
  * const input = { // TagResourceRequest
  *   resourceARN: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateVariableCommandOutput extends UpdateVariableResult, __Met
  * ```javascript
  * import { FraudDetectorClient, UpdateVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateVariableRequest
  *   name: "STRING_VALUE", // required

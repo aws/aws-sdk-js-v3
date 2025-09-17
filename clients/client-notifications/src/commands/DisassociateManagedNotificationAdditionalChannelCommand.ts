@@ -43,6 +43,8 @@ export interface DisassociateManagedNotificationAdditionalChannelCommandOutput
  * ```javascript
  * import { NotificationsClient, DisassociateManagedNotificationAdditionalChannelCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, DisassociateManagedNotificationAdditionalChannelCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // DisassociateManagedNotificationAdditionalChannelRequest
  *   channelArn: "STRING_VALUE", // required

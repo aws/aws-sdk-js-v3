@@ -35,6 +35,8 @@ export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityRes
  * ```javascript
  * import { CustomerProfilesClient, ListIdentityResolutionJobsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListIdentityResolutionJobsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListIdentityResolutionJobsRequest
  *   DomainName: "STRING_VALUE", // required

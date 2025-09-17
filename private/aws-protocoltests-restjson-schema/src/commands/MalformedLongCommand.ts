@@ -34,6 +34,8 @@ export interface MalformedLongCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RestJsonProtocolClient, MalformedLongCommand } from "@aws-sdk/aws-protocoltests-restjson-schema"; // ES Modules import
  * // const { RestJsonProtocolClient, MalformedLongCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson-schema";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // MalformedLongInput
  *   longInBody: Number("long"),

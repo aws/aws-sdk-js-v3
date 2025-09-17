@@ -34,6 +34,8 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  * ```javascript
  * import { CleanRoomsClient, CreateConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // CreateConfiguredTableInput
  *   name: "STRING_VALUE", // required

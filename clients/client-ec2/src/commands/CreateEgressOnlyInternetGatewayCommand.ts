@@ -42,6 +42,8 @@ export interface CreateEgressOnlyInternetGatewayCommandOutput
  * ```javascript
  * import { EC2Client, CreateEgressOnlyInternetGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateEgressOnlyInternetGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateEgressOnlyInternetGatewayRequest
  *   ClientToken: "STRING_VALUE",

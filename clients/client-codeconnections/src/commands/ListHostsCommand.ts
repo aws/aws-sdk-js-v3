@@ -34,6 +34,8 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  * ```javascript
  * import { CodeConnectionsClient, ListHostsCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, ListHostsCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // ListHostsInput
  *   MaxResults: Number("int"),

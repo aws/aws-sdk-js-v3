@@ -38,6 +38,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { MigrationHubOrchestratorClient, TagResourceCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, TagResourceCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * // import type { MigrationHubOrchestratorClientConfig } from "@aws-sdk/client-migrationhuborchestrator";
+ * const config = {}; // type is MigrationHubOrchestratorClientConfig
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

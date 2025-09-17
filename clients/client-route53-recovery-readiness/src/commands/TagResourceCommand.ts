@@ -38,6 +38,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { Route53RecoveryReadinessClient, TagResourceCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, TagResourceCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * // import type { Route53RecoveryReadinessClientConfig } from "@aws-sdk/client-route53-recovery-readiness";
+ * const config = {}; // type is Route53RecoveryReadinessClientConfig
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

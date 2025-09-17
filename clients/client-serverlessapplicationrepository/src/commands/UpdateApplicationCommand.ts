@@ -38,6 +38,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * ```javascript
  * import { ServerlessApplicationRepositoryClient, UpdateApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, UpdateApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * // import type { ServerlessApplicationRepositoryClientConfig } from "@aws-sdk/client-serverlessapplicationrepository";
+ * const config = {}; // type is ServerlessApplicationRepositoryClientConfig
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const input = { // UpdateApplicationRequest
  *   ApplicationId: "STRING_VALUE", // required

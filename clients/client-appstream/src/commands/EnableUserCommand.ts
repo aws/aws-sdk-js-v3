@@ -34,6 +34,8 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  * ```javascript
  * import { AppStreamClient, EnableUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, EnableUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // EnableUserRequest
  *   UserName: "STRING_VALUE", // required

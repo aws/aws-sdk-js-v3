@@ -34,6 +34,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * ```javascript
  * import { AppStreamClient, DescribeUsersCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeUsersCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // DescribeUsersRequest
  *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required

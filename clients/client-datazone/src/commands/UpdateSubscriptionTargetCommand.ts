@@ -39,6 +39,8 @@ export interface UpdateSubscriptionTargetCommandOutput extends UpdateSubscriptio
  * ```javascript
  * import { DataZoneClient, UpdateSubscriptionTargetCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateSubscriptionTargetCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateSubscriptionTargetInput
  *   domainIdentifier: "STRING_VALUE", // required

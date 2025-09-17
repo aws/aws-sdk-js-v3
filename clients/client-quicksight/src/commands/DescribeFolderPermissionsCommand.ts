@@ -34,6 +34,8 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  * ```javascript
  * import { QuickSightClient, DescribeFolderPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeFolderPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeFolderPermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required

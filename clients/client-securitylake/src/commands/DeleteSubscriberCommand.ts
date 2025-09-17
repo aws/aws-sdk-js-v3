@@ -37,6 +37,8 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * ```javascript
  * import { SecurityLakeClient, DeleteSubscriberCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteSubscriberCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteSubscriberRequest
  *   subscriberId: "STRING_VALUE", // required

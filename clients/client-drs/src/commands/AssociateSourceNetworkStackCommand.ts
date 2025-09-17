@@ -44,6 +44,8 @@ export interface AssociateSourceNetworkStackCommandOutput
  * ```javascript
  * import { DrsClient, AssociateSourceNetworkStackCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, AssociateSourceNetworkStackCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // AssociateSourceNetworkStackRequest
  *   sourceNetworkID: "STRING_VALUE", // required

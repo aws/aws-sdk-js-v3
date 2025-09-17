@@ -41,6 +41,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * ```javascript
  * import { KinesisAnalyticsV2Client, UpdateApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, UpdateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * // import type { KinesisAnalyticsV2ClientConfig } from "@aws-sdk/client-kinesis-analytics-v2";
+ * const config = {}; // type is KinesisAnalyticsV2ClientConfig
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // UpdateApplicationRequest
  *   ApplicationName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * ```javascript
  * import { GuardDutyClient, ListDetectorsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListDetectorsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // ListDetectorsRequest
  *   MaxResults: Number("int"),

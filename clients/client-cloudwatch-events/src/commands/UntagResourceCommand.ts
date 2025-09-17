@@ -35,6 +35,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { CloudWatchEventsClient, UntagResourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, UntagResourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * // import type { CloudWatchEventsClientConfig } from "@aws-sdk/client-cloudwatch-events";
+ * const config = {}; // type is CloudWatchEventsClientConfig
  * const client = new CloudWatchEventsClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

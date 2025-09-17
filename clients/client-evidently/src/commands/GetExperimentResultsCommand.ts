@@ -41,6 +41,8 @@ export interface GetExperimentResultsCommandOutput extends GetExperimentResultsR
  * ```javascript
  * import { EvidentlyClient, GetExperimentResultsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetExperimentResultsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // GetExperimentResultsRequest
  *   project: "STRING_VALUE", // required

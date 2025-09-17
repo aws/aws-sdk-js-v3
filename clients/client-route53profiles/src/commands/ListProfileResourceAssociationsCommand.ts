@@ -41,6 +41,8 @@ export interface ListProfileResourceAssociationsCommandOutput
  * ```javascript
  * import { Route53ProfilesClient, ListProfileResourceAssociationsCommand } from "@aws-sdk/client-route53profiles"; // ES Modules import
  * // const { Route53ProfilesClient, ListProfileResourceAssociationsCommand } = require("@aws-sdk/client-route53profiles"); // CommonJS import
+ * // import type { Route53ProfilesClientConfig } from "@aws-sdk/client-route53profiles";
+ * const config = {}; // type is Route53ProfilesClientConfig
  * const client = new Route53ProfilesClient(config);
  * const input = { // ListProfileResourceAssociationsRequest
  *   ProfileId: "STRING_VALUE", // required

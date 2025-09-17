@@ -39,6 +39,8 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * ```javascript
  * import { DocDBElasticClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * // import type { DocDBElasticClientConfig } from "@aws-sdk/client-docdb-elastic";
+ * const config = {}; // type is DocDBElasticClientConfig
  * const client = new DocDBElasticClient(config);
  * const input = { // ApplyPendingMaintenanceActionInput
  *   resourceArn: "STRING_VALUE", // required

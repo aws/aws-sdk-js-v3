@@ -38,6 +38,8 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * ```javascript
  * import { SESv2Client, PutAccountDetailsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutAccountDetailsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * // import type { SESv2ClientConfig } from "@aws-sdk/client-sesv2";
+ * const config = {}; // type is SESv2ClientConfig
  * const client = new SESv2Client(config);
  * const input = { // PutAccountDetailsRequest
  *   MailType: "MARKETING" || "TRANSACTIONAL", // required

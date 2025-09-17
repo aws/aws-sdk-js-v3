@@ -34,6 +34,8 @@ export interface CreateVectorBucketCommandOutput extends CreateVectorBucketOutpu
  * ```javascript
  * import { S3VectorsClient, CreateVectorBucketCommand } from "@aws-sdk/client-s3vectors"; // ES Modules import
  * // const { S3VectorsClient, CreateVectorBucketCommand } = require("@aws-sdk/client-s3vectors"); // CommonJS import
+ * // import type { S3VectorsClientConfig } from "@aws-sdk/client-s3vectors";
+ * const config = {}; // type is S3VectorsClientConfig
  * const client = new S3VectorsClient(config);
  * const input = { // CreateVectorBucketInput
  *   vectorBucketName: "STRING_VALUE", // required

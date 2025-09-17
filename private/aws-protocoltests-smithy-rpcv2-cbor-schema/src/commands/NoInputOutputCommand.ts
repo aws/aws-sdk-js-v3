@@ -33,6 +33,8 @@ export interface NoInputOutputCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RpcV2ProtocolClient, NoInputOutputCommand } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema"; // ES Modules import
  * // const { RpcV2ProtocolClient, NoInputOutputCommand } = require("@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema"); // CommonJS import
+ * // import type { RpcV2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema";
+ * const config = {}; // type is RpcV2ProtocolClientConfig
  * const client = new RpcV2ProtocolClient(config);
  * const input = {};
  * const command = new NoInputOutputCommand(input);

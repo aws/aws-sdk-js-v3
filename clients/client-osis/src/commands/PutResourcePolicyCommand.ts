@@ -35,6 +35,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * ```javascript
  * import { OSISClient, PutResourcePolicyCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, PutResourcePolicyCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // import type { OSISClientConfig } from "@aws-sdk/client-osis";
+ * const config = {}; // type is OSISClientConfig
  * const client = new OSISClient(config);
  * const input = { // PutResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

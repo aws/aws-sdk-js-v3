@@ -34,6 +34,8 @@ export interface ListCategoriesCommandOutput extends ListCategoriesOutput, __Met
  * ```javascript
  * import { QAppsClient, ListCategoriesCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, ListCategoriesCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // ListCategoriesInput
  *   instanceId: "STRING_VALUE", // required

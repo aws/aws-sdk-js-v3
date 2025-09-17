@@ -34,6 +34,8 @@ export interface HttpRequestWithRegexLiteralCommandOutput extends __MetadataBear
  * ```javascript
  * import { RestJsonProtocolClient, HttpRequestWithRegexLiteralCommand } from "@aws-sdk/aws-protocoltests-restjson-schema"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpRequestWithRegexLiteralCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson-schema";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // HttpRequestWithRegexLiteralInput
  *   str: "STRING_VALUE", // required

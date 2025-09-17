@@ -34,6 +34,8 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * ```javascript
  * import { IoTTwinMakerClient, ListComponentsCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ListComponentsCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // import type { IoTTwinMakerClientConfig } from "@aws-sdk/client-iottwinmaker";
+ * const config = {}; // type is IoTTwinMakerClientConfig
  * const client = new IoTTwinMakerClient(config);
  * const input = { // ListComponentsRequest
  *   workspaceId: "STRING_VALUE", // required

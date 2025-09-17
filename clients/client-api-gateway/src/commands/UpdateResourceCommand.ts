@@ -34,6 +34,8 @@ export interface UpdateResourceCommandOutput extends Resource, __MetadataBearer 
  * ```javascript
  * import { APIGatewayClient, UpdateResourceCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateResourceCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateResourceRequest
  *   restApiId: "STRING_VALUE", // required

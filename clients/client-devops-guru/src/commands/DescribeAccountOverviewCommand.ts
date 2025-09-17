@@ -36,6 +36,8 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  * ```javascript
  * import { DevOpsGuruClient, DescribeAccountOverviewCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeAccountOverviewCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // import type { DevOpsGuruClientConfig } from "@aws-sdk/client-devops-guru";
+ * const config = {}; // type is DevOpsGuruClientConfig
  * const client = new DevOpsGuruClient(config);
  * const input = { // DescribeAccountOverviewRequest
  *   FromTime: new Date("TIMESTAMP"), // required

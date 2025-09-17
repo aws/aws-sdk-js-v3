@@ -35,6 +35,8 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * ```javascript
  * import { ResiliencehubClient, DeleteAppAssessmentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteAppAssessmentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * // import type { ResiliencehubClientConfig } from "@aws-sdk/client-resiliencehub";
+ * const config = {}; // type is ResiliencehubClientConfig
  * const client = new ResiliencehubClient(config);
  * const input = { // DeleteAppAssessmentRequest
  *   assessmentArn: "STRING_VALUE", // required

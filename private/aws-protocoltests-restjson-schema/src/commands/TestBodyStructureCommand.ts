@@ -38,6 +38,8 @@ export interface TestBodyStructureCommandOutput extends TestBodyStructureInputOu
  * ```javascript
  * import { RestJsonProtocolClient, TestBodyStructureCommand } from "@aws-sdk/aws-protocoltests-restjson-schema"; // ES Modules import
  * // const { RestJsonProtocolClient, TestBodyStructureCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson-schema";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // TestBodyStructureInputOutput
  *   testId: "STRING_VALUE",

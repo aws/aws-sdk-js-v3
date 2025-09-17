@@ -36,6 +36,8 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  * ```javascript
  * import { ECRClient, PutRegistryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutRegistryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // PutRegistryPolicyRequest
  *   policyText: "STRING_VALUE", // required

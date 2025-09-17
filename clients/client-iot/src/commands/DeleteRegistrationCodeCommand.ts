@@ -35,6 +35,8 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  * ```javascript
  * import { IoTClient, DeleteRegistrationCodeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteRegistrationCodeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = {};
  * const command = new DeleteRegistrationCodeCommand(input);

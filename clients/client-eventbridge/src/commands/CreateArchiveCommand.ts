@@ -43,6 +43,8 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  * ```javascript
  * import { EventBridgeClient, CreateArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, CreateArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // CreateArchiveRequest
  *   ArchiveName: "STRING_VALUE", // required

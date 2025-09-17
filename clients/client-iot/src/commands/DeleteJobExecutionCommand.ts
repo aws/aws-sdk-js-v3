@@ -35,6 +35,8 @@ export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTClient, DeleteJobExecutionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteJobExecutionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteJobExecutionRequest
  *   jobId: "STRING_VALUE", // required

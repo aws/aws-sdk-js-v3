@@ -51,6 +51,8 @@ export interface CreateHITWithHITTypeCommandOutput extends CreateHITWithHITTypeR
  * ```javascript
  * import { MTurkClient, CreateHITWithHITTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITWithHITTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // CreateHITWithHITTypeRequest
  *   HITTypeId: "STRING_VALUE", // required

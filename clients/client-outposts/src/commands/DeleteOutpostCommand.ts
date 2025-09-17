@@ -34,6 +34,8 @@ export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __Metad
  * ```javascript
  * import { OutpostsClient, DeleteOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, DeleteOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // import type { OutpostsClientConfig } from "@aws-sdk/client-outposts";
+ * const config = {}; // type is OutpostsClientConfig
  * const client = new OutpostsClient(config);
  * const input = { // DeleteOutpostInput
  *   OutpostId: "STRING_VALUE", // required

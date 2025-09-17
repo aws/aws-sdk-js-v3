@@ -45,6 +45,8 @@ export interface CreateExtensionAssociationCommandOutput extends ExtensionAssoci
  * ```javascript
  * import { AppConfigClient, CreateExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // CreateExtensionAssociationRequest
  *   ExtensionIdentifier: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface ListWorkflowExecutionsCommandOutput extends ListWorkflowExecuti
  * ```javascript
  * import { ImagebuilderClient, ListWorkflowExecutionsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListWorkflowExecutionsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // ListWorkflowExecutionsRequest
  *   maxResults: Number("int"),

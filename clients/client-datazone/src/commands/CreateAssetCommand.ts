@@ -39,6 +39,8 @@ export interface CreateAssetCommandOutput extends CreateAssetOutput, __MetadataB
  * ```javascript
  * import { DataZoneClient, CreateAssetCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateAssetCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateAssetInput
  *   name: "STRING_VALUE", // required

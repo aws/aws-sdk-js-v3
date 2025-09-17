@@ -34,6 +34,8 @@ export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __Metadat
  * ```javascript
  * import { ConnectCasesClient, ListLayoutsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, ListLayoutsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // ListLayoutsRequest
  *   domainId: "STRING_VALUE", // required

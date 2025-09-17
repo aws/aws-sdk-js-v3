@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { MedicalImagingClient, ListTagsForResourceCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, ListTagsForResourceCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

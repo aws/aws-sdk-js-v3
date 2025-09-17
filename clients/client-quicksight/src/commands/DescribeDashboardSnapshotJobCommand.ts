@@ -44,6 +44,8 @@ export interface DescribeDashboardSnapshotJobCommandOutput
  * ```javascript
  * import { QuickSightClient, DescribeDashboardSnapshotJobCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeDashboardSnapshotJobCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeDashboardSnapshotJobRequest
  *   AwsAccountId: "STRING_VALUE", // required

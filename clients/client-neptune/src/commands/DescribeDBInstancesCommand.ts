@@ -38,6 +38,8 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * ```javascript
  * import { NeptuneClient, DescribeDBInstancesCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBInstancesMessage
  *   DBInstanceIdentifier: "STRING_VALUE",

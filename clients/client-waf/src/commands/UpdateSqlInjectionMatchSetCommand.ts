@@ -83,6 +83,8 @@ export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInject
  * ```javascript
  * import { WAFClient, UpdateSqlInjectionMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateSqlInjectionMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // UpdateSqlInjectionMatchSetRequest
  *   SqlInjectionMatchSetId: "STRING_VALUE", // required

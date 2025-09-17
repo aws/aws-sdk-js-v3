@@ -34,6 +34,8 @@ export interface AssociateMemberToJobCommandOutput extends AssociateMemberToJobR
  * ```javascript
  * import { DeadlineClient, AssociateMemberToJobCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, AssociateMemberToJobCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // AssociateMemberToJobRequest
  *   farmId: "STRING_VALUE", // required

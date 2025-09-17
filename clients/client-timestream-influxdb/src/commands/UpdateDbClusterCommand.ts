@@ -38,6 +38,8 @@ export interface UpdateDbClusterCommandOutput extends UpdateDbClusterOutput, __M
  * ```javascript
  * import { TimestreamInfluxDBClient, UpdateDbClusterCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, UpdateDbClusterCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
+ * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // UpdateDbClusterInput
  *   dbClusterId: "STRING_VALUE", // required

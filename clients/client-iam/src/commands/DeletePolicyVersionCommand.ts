@@ -39,6 +39,8 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, DeletePolicyVersionCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeletePolicyVersionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // DeletePolicyVersionRequest
  *   PolicyArn: "STRING_VALUE", // required

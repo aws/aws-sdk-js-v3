@@ -36,6 +36,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { TranslateClient, ListTagsForResourceCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ListTagsForResourceCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // import type { TranslateClientConfig } from "@aws-sdk/client-translate";
+ * const config = {}; // type is TranslateClientConfig
  * const client = new TranslateClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

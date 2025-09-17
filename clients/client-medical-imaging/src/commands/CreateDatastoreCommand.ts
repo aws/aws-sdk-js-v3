@@ -34,6 +34,8 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * ```javascript
  * import { MedicalImagingClient, CreateDatastoreCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, CreateDatastoreCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // CreateDatastoreRequest
  *   datastoreName: "STRING_VALUE",

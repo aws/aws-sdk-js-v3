@@ -97,6 +97,8 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * ```javascript
  * import { EFSClient, PutLifecycleConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutLifecycleConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // import type { EFSClientConfig } from "@aws-sdk/client-efs";
+ * const config = {}; // type is EFSClientConfig
  * const client = new EFSClient(config);
  * const input = { // PutLifecycleConfigurationRequest
  *   FileSystemId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetLineageGroupPolicyCommandOutput extends GetLineageGroupPolic
  * ```javascript
  * import { SageMakerClient, GetLineageGroupPolicyCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetLineageGroupPolicyCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // GetLineageGroupPolicyRequest
  *   LineageGroupName: "STRING_VALUE", // required

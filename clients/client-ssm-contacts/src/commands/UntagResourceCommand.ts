@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * ```javascript
  * import { SSMContactsClient, UntagResourceCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, UntagResourceCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // import type { SSMContactsClientConfig } from "@aws-sdk/client-ssm-contacts";
+ * const config = {}; // type is SSMContactsClientConfig
  * const client = new SSMContactsClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

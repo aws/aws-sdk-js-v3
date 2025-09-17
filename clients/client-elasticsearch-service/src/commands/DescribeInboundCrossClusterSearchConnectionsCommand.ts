@@ -47,6 +47,8 @@ export interface DescribeInboundCrossClusterSearchConnectionsCommandOutput
  * ```javascript
  * import { ElasticsearchServiceClient, DescribeInboundCrossClusterSearchConnectionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeInboundCrossClusterSearchConnectionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // import type { ElasticsearchServiceClientConfig } from "@aws-sdk/client-elasticsearch-service";
+ * const config = {}; // type is ElasticsearchServiceClientConfig
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // DescribeInboundCrossClusterSearchConnectionsRequest
  *   Filters: [ // FilterList

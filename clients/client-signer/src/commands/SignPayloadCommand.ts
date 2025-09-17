@@ -34,6 +34,8 @@ export interface SignPayloadCommandOutput extends SignPayloadResponse, __Metadat
  * ```javascript
  * import { SignerClient, SignPayloadCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, SignPayloadCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * // import type { SignerClientConfig } from "@aws-sdk/client-signer";
+ * const config = {}; // type is SignerClientConfig
  * const client = new SignerClient(config);
  * const input = { // SignPayloadRequest
  *   profileName: "STRING_VALUE", // required

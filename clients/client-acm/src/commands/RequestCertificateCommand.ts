@@ -34,6 +34,8 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * ```javascript
  * import { ACMClient, RequestCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, RequestCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * // import type { ACMClientConfig } from "@aws-sdk/client-acm";
+ * const config = {}; // type is ACMClientConfig
  * const client = new ACMClient(config);
  * const input = { // RequestCertificateRequest
  *   DomainName: "STRING_VALUE", // required

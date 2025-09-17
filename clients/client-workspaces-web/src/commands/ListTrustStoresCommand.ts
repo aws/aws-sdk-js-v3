@@ -34,6 +34,8 @@ export interface ListTrustStoresCommandOutput extends ListTrustStoresResponse, _
  * ```javascript
  * import { WorkSpacesWebClient, ListTrustStoresCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListTrustStoresCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // ListTrustStoresRequest
  *   nextToken: "STRING_VALUE",

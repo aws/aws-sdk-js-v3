@@ -44,6 +44,8 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerUserSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-user-subscriptions";
+ * const config = {}; // type is LicenseManagerUserSubscriptionsClientConfig
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // UpdateIdentityProviderSettingsRequest
  *   IdentityProvider: { // IdentityProvider Union: only one key present

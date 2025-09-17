@@ -35,6 +35,8 @@ export interface ListDataLakeExceptionsCommandOutput extends ListDataLakeExcepti
  * ```javascript
  * import { SecurityLakeClient, ListDataLakeExceptionsCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListDataLakeExceptionsCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // ListDataLakeExceptionsRequest
  *   regions: [ // RegionList

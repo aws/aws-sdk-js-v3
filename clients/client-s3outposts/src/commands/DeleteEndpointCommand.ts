@@ -51,6 +51,8 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { S3OutpostsClient, DeleteEndpointCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, DeleteEndpointCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
+ * // import type { S3OutpostsClientConfig } from "@aws-sdk/client-s3outposts";
+ * const config = {}; // type is S3OutpostsClientConfig
  * const client = new S3OutpostsClient(config);
  * const input = { // DeleteEndpointRequest
  *   EndpointId: "STRING_VALUE", // required

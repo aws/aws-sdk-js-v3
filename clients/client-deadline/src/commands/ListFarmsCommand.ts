@@ -34,6 +34,8 @@ export interface ListFarmsCommandOutput extends ListFarmsResponse, __MetadataBea
  * ```javascript
  * import { DeadlineClient, ListFarmsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListFarmsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListFarmsRequest
  *   nextToken: "STRING_VALUE",

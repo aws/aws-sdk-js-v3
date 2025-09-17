@@ -34,6 +34,8 @@ export interface ListFarmMembersCommandOutput extends ListFarmMembersResponse, _
  * ```javascript
  * import { DeadlineClient, ListFarmMembersCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListFarmMembersCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListFarmMembersRequest
  *   farmId: "STRING_VALUE", // required

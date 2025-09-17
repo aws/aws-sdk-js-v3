@@ -36,6 +36,8 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  * ```javascript
  * import { DynamoDBClient, DescribeBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // import type { DynamoDBClientConfig } from "@aws-sdk/client-dynamodb";
+ * const config = {}; // type is DynamoDBClientConfig
  * const client = new DynamoDBClient(config);
  * const input = { // DescribeBackupInput
  *   BackupArn: "STRING_VALUE", // required

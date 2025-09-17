@@ -38,6 +38,8 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * ```javascript
  * import { QuickSightClient, DescribeDataSetCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeDataSetCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeDataSetRequest
  *   AwsAccountId: "STRING_VALUE", // required

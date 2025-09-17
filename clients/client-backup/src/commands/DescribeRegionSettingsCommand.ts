@@ -38,6 +38,8 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * ```javascript
  * import { BackupClient, DescribeRegionSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeRegionSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = {};
  * const command = new DescribeRegionSettingsCommand(input);

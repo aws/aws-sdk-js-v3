@@ -43,6 +43,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * ```javascript
  * import { SecurityHubClient, AcceptInvitationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, AcceptInvitationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // AcceptInvitationRequest
  *   MasterId: "STRING_VALUE", // required

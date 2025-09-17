@@ -34,6 +34,8 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, DeleteFleetCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteFleetCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteFleetRequest
  *   clientToken: "STRING_VALUE",

@@ -37,6 +37,8 @@ export interface DeletePrivacyBudgetTemplateCommandOutput extends DeletePrivacyB
  * ```javascript
  * import { CleanRoomsClient, DeletePrivacyBudgetTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeletePrivacyBudgetTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // DeletePrivacyBudgetTemplateInput
  *   membershipIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ProvisionIpamByoasnCommandOutput extends ProvisionIpamByoasnRes
  * ```javascript
  * import { EC2Client, ProvisionIpamByoasnCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ProvisionIpamByoasnCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // ProvisionIpamByoasnRequest
  *   DryRun: true || false,

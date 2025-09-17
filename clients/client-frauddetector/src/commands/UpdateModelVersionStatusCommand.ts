@@ -46,6 +46,8 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  * ```javascript
  * import { FraudDetectorClient, UpdateModelVersionStatusCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateModelVersionStatusCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateModelVersionStatusRequest
  *   modelId: "STRING_VALUE", // required

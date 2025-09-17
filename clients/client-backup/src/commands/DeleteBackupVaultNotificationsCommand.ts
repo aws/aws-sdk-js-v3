@@ -37,6 +37,8 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
  * ```javascript
  * import { BackupClient, DeleteBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // DeleteBackupVaultNotificationsInput
  *   BackupVaultName: "STRING_VALUE", // required

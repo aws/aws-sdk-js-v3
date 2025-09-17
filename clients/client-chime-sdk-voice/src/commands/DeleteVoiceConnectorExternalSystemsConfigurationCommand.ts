@@ -38,6 +38,8 @@ export interface DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput e
  * ```javascript
  * import { ChimeSDKVoiceClient, DeleteVoiceConnectorExternalSystemsConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, DeleteVoiceConnectorExternalSystemsConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // DeleteVoiceConnectorExternalSystemsConfigurationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required

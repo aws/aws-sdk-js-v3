@@ -48,6 +48,8 @@ export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __M
  * ```javascript
  * import { LexModelBuildingServiceClient, GetBotVersionsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotVersionsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * // import type { LexModelBuildingServiceClientConfig } from "@aws-sdk/client-lex-model-building-service";
+ * const config = {}; // type is LexModelBuildingServiceClientConfig
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBotVersionsRequest
  *   name: "STRING_VALUE", // required

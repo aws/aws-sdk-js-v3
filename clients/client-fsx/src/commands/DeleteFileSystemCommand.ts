@@ -76,6 +76,8 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * ```javascript
  * import { FSxClient, DeleteFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // DeleteFileSystemRequest
  *   FileSystemId: "STRING_VALUE", // required

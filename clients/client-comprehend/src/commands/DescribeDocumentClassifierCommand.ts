@@ -38,6 +38,8 @@ export interface DescribeDocumentClassifierCommandOutput extends DescribeDocumen
  * ```javascript
  * import { ComprehendClient, DescribeDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // DescribeDocumentClassifierRequest
  *   DocumentClassifierArn: "STRING_VALUE", // required

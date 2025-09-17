@@ -34,6 +34,8 @@ export interface CancelPracticeRunCommandOutput extends CancelPracticeRunRespons
  * ```javascript
  * import { ARCZonalShiftClient, CancelPracticeRunCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, CancelPracticeRunCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * // import type { ARCZonalShiftClientConfig } from "@aws-sdk/client-arc-zonal-shift";
+ * const config = {}; // type is ARCZonalShiftClientConfig
  * const client = new ARCZonalShiftClient(config);
  * const input = { // CancelPracticeRunRequest
  *   zonalShiftId: "STRING_VALUE", // required

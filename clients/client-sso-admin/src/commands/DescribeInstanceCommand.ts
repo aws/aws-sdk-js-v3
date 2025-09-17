@@ -34,6 +34,8 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * ```javascript
  * import { SSOAdminClient, DescribeInstanceCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DescribeInstanceCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // DescribeInstanceRequest
  *   InstanceArn: "STRING_VALUE", // required

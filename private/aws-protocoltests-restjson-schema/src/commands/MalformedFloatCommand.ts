@@ -34,6 +34,8 @@ export interface MalformedFloatCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RestJsonProtocolClient, MalformedFloatCommand } from "@aws-sdk/aws-protocoltests-restjson-schema"; // ES Modules import
  * // const { RestJsonProtocolClient, MalformedFloatCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson-schema";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // MalformedFloatInput
  *   floatInBody: Number("float"),

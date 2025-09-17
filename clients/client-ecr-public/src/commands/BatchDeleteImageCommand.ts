@@ -40,6 +40,8 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * ```javascript
  * import { ECRPUBLICClient, BatchDeleteImageCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, BatchDeleteImageCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * // import type { ECRPUBLICClientConfig } from "@aws-sdk/client-ecr-public";
+ * const config = {}; // type is ECRPUBLICClientConfig
  * const client = new ECRPUBLICClient(config);
  * const input = { // BatchDeleteImageRequest
  *   registryId: "STRING_VALUE",

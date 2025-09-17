@@ -35,6 +35,8 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * ```javascript
  * import { DataSyncClient, DescribeAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // DescribeAgentRequest
  *   AgentArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * ```javascript
  * import { IvsClient, GetChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * // import type { IvsClientConfig } from "@aws-sdk/client-ivs";
+ * const config = {}; // type is IvsClientConfig
  * const client = new IvsClient(config);
  * const input = { // GetChannelRequest
  *   arn: "STRING_VALUE", // required

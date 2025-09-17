@@ -54,6 +54,8 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  * ```javascript
  * import { Route53Client, DeleteVPCAssociationAuthorizationCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteVPCAssociationAuthorizationCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // DeleteVPCAssociationAuthorizationRequest
  *   HostedZoneId: "STRING_VALUE", // required

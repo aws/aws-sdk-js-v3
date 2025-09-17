@@ -35,6 +35,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * ```javascript
  * import { ECSClient, DescribeClustersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeClustersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DescribeClustersRequest
  *   clusters: [ // StringList

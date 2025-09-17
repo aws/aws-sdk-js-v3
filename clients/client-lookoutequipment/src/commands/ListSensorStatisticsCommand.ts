@@ -36,6 +36,8 @@ export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsR
  * ```javascript
  * import { LookoutEquipmentClient, ListSensorStatisticsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListSensorStatisticsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // import type { LookoutEquipmentClientConfig } from "@aws-sdk/client-lookoutequipment";
+ * const config = {}; // type is LookoutEquipmentClientConfig
  * const client = new LookoutEquipmentClient(config);
  * const input = { // ListSensorStatisticsRequest
  *   DatasetName: "STRING_VALUE", // required

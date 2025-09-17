@@ -34,6 +34,8 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * ```javascript
  * import { ProtonClient, GetRepositoryCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetRepositoryCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // GetRepositoryInput
  *   provider: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { FisClient, ListTagsForResourceCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, ListTagsForResourceCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

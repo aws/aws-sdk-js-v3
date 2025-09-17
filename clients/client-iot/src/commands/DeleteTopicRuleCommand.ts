@@ -35,6 +35,8 @@ export interface DeleteTopicRuleCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTClient, DeleteTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteTopicRuleRequest
  *   ruleName: "STRING_VALUE", // required

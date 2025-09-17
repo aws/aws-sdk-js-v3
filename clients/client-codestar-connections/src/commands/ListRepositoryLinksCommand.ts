@@ -38,6 +38,8 @@ export interface ListRepositoryLinksCommandOutput extends ListRepositoryLinksOut
  * ```javascript
  * import { CodeStarConnectionsClient, ListRepositoryLinksCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, ListRepositoryLinksCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * // import type { CodeStarConnectionsClientConfig } from "@aws-sdk/client-codestar-connections";
+ * const config = {}; // type is CodeStarConnectionsClientConfig
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // ListRepositoryLinksInput
  *   MaxResults: Number("int"),

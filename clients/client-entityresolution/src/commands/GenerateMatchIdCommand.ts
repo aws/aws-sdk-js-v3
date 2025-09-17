@@ -38,6 +38,8 @@ export interface GenerateMatchIdCommandOutput extends GenerateMatchIdOutput, __M
  * ```javascript
  * import { EntityResolutionClient, GenerateMatchIdCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, GenerateMatchIdCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // GenerateMatchIdInput
  *   workflowName: "STRING_VALUE", // required

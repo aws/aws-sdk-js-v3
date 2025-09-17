@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { ChatbotClient, TagResourceCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, TagResourceCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // TagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

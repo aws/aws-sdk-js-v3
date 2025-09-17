@@ -34,6 +34,8 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * ```javascript
  * import { CloudWatchLogsClient, GetDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // GetDataProtectionPolicyRequest
  *   logGroupIdentifier: "STRING_VALUE", // required

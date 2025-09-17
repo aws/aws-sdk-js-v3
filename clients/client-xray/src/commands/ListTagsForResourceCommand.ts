@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { XRayClient, ListTagsForResourceCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, ListTagsForResourceCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // import type { XRayClientConfig } from "@aws-sdk/client-xray";
+ * const config = {}; // type is XRayClientConfig
  * const client = new XRayClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

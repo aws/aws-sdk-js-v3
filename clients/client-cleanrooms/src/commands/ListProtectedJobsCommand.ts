@@ -34,6 +34,8 @@ export interface ListProtectedJobsCommandOutput extends ListProtectedJobsOutput,
  * ```javascript
  * import { CleanRoomsClient, ListProtectedJobsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListProtectedJobsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // ListProtectedJobsInput
  *   membershipIdentifier: "STRING_VALUE", // required

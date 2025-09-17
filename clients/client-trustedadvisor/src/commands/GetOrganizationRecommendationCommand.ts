@@ -45,6 +45,8 @@ export interface GetOrganizationRecommendationCommandOutput
  * ```javascript
  * import { TrustedAdvisorClient, GetOrganizationRecommendationCommand } from "@aws-sdk/client-trustedadvisor"; // ES Modules import
  * // const { TrustedAdvisorClient, GetOrganizationRecommendationCommand } = require("@aws-sdk/client-trustedadvisor"); // CommonJS import
+ * // import type { TrustedAdvisorClientConfig } from "@aws-sdk/client-trustedadvisor";
+ * const config = {}; // type is TrustedAdvisorClientConfig
  * const client = new TrustedAdvisorClient(config);
  * const input = { // GetOrganizationRecommendationRequest
  *   organizationRecommendationIdentifier: "STRING_VALUE", // required

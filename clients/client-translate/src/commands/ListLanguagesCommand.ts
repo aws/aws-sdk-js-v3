@@ -34,6 +34,8 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * ```javascript
  * import { TranslateClient, ListLanguagesCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ListLanguagesCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // import type { TranslateClientConfig } from "@aws-sdk/client-translate";
+ * const config = {}; // type is TranslateClientConfig
  * const client = new TranslateClient(config);
  * const input = { // ListLanguagesRequest
  *   DisplayLanguageCode: "de" || "en" || "es" || "fr" || "it" || "ja" || "ko" || "pt" || "zh" || "zh-TW",

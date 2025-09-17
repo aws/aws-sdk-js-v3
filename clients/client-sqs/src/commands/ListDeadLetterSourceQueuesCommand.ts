@@ -44,6 +44,8 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * ```javascript
  * import { SQSClient, ListDeadLetterSourceQueuesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ListDeadLetterSourceQueuesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * // import type { SQSClientConfig } from "@aws-sdk/client-sqs";
+ * const config = {}; // type is SQSClientConfig
  * const client = new SQSClient(config);
  * const input = { // ListDeadLetterSourceQueuesRequest
  *   QueueUrl: "STRING_VALUE", // required

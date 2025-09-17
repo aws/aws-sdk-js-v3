@@ -38,6 +38,8 @@ export interface GetStorageProfileForQueueCommandOutput extends GetStorageProfil
  * ```javascript
  * import { DeadlineClient, GetStorageProfileForQueueCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetStorageProfileForQueueCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetStorageProfileForQueueRequest
  *   farmId: "STRING_VALUE", // required

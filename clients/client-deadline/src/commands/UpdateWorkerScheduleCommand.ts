@@ -39,6 +39,8 @@ export interface UpdateWorkerScheduleCommandOutput extends UpdateWorkerScheduleR
  * ```javascript
  * import { DeadlineClient, UpdateWorkerScheduleCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, UpdateWorkerScheduleCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateWorkerScheduleRequest
  *   farmId: "STRING_VALUE", // required

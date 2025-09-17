@@ -43,6 +43,8 @@ export interface ListOpenIDConnectProviderTagsCommandOutput
  * ```javascript
  * import { IAMClient, ListOpenIDConnectProviderTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListOpenIDConnectProviderTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ListOpenIDConnectProviderTagsRequest
  *   OpenIDConnectProviderArn: "STRING_VALUE", // required

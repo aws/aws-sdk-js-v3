@@ -34,6 +34,8 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * ```javascript
  * import { QConnectClient, ListMessagesCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, ListMessagesCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // ListMessagesRequest
  *   assistantId: "STRING_VALUE", // required

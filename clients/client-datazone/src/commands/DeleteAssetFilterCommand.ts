@@ -34,6 +34,8 @@ export interface DeleteAssetFilterCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { DataZoneClient, DeleteAssetFilterCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteAssetFilterCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteAssetFilterInput
  *   domainIdentifier: "STRING_VALUE", // required

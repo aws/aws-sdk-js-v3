@@ -34,6 +34,8 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
  * ```javascript
  * import { LookoutEquipmentClient, CreateLabelGroupCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateLabelGroupCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // import type { LookoutEquipmentClientConfig } from "@aws-sdk/client-lookoutequipment";
+ * const config = {}; // type is LookoutEquipmentClientConfig
  * const client = new LookoutEquipmentClient(config);
  * const input = { // CreateLabelGroupRequest
  *   LabelGroupName: "STRING_VALUE", // required

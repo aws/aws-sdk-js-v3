@@ -51,6 +51,8 @@ export interface UpdateLocationS3CommandOutput extends UpdateLocationS3Response,
  * ```javascript
  * import { DataSyncClient, UpdateLocationS3Command } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationS3Command } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // UpdateLocationS3Request
  *   LocationArn: "STRING_VALUE", // required

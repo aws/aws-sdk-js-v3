@@ -36,6 +36,8 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * ```javascript
  * import { GroundStationClient, UpdateConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, UpdateConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // UpdateConfigRequest
  *   configId: "STRING_VALUE", // required

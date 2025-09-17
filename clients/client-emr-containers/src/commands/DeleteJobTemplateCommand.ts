@@ -37,6 +37,8 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  * ```javascript
  * import { EMRContainersClient, DeleteJobTemplateCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DeleteJobTemplateCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // DeleteJobTemplateRequest
  *   id: "STRING_VALUE", // required

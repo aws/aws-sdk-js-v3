@@ -34,6 +34,8 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { QueryProtocolClient, QueryListsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryListsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = { // QueryListsInput
  *   ListArg: [ // StringList

@@ -39,6 +39,8 @@ export interface GetReservationCommandOutput extends GetReservationResponse, __M
  * ```javascript
  * import { RedshiftServerlessClient, GetReservationCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetReservationCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // GetReservationRequest
  *   reservationId: "STRING_VALUE", // required

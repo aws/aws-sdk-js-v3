@@ -39,6 +39,8 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * ```javascript
  * import { PollyClient, PutLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, PutLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * // import type { PollyClientConfig } from "@aws-sdk/client-polly";
+ * const config = {}; // type is PollyClientConfig
  * const client = new PollyClient(config);
  * const input = { // PutLexiconInput
  *   Name: "STRING_VALUE", // required

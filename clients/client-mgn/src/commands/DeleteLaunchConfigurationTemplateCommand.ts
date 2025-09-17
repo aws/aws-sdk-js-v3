@@ -42,6 +42,8 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * ```javascript
  * import { MgnClient, DeleteLaunchConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // DeleteLaunchConfigurationTemplateRequest
  *   launchConfigurationTemplateID: "STRING_VALUE", // required

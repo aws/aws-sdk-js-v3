@@ -42,6 +42,8 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  * ```javascript
  * import { TimestreamInfluxDBClient, CreateDbClusterCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, CreateDbClusterCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
+ * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // CreateDbClusterInput
  *   name: "STRING_VALUE", // required

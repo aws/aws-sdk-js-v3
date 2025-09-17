@@ -35,6 +35,8 @@ export interface XmlEmptyListsCommandOutput extends XmlListsOutput, __MetadataBe
  * ```javascript
  * import { QueryProtocolClient, XmlEmptyListsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, XmlEmptyListsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = {};
  * const command = new XmlEmptyListsCommand(input);

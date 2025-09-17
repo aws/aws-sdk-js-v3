@@ -37,6 +37,8 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * ```javascript
  * import { PinpointEmailClient, CreateDedicatedIpPoolCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, CreateDedicatedIpPoolCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * // import type { PinpointEmailClientConfig } from "@aws-sdk/client-pinpoint-email";
+ * const config = {}; // type is PinpointEmailClientConfig
  * const client = new PinpointEmailClient(config);
  * const input = { // CreateDedicatedIpPoolRequest
  *   PoolName: "STRING_VALUE", // required

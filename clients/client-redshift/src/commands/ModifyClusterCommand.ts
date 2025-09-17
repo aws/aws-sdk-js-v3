@@ -69,6 +69,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * ```javascript
  * import { RedshiftClient, ModifyClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // ModifyClusterMessage
  *   ClusterIdentifier: "STRING_VALUE", // required

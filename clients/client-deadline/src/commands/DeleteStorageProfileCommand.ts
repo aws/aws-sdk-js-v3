@@ -34,6 +34,8 @@ export interface DeleteStorageProfileCommandOutput extends DeleteStorageProfileR
  * ```javascript
  * import { DeadlineClient, DeleteStorageProfileCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteStorageProfileCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteStorageProfileRequest
  *   farmId: "STRING_VALUE", // required

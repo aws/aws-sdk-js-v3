@@ -38,6 +38,8 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  * ```javascript
  * import { SSOClient, ListAccountRolesCommand } from "@aws-sdk/client-sso"; // ES Modules import
  * // const { SSOClient, ListAccountRolesCommand } = require("@aws-sdk/client-sso"); // CommonJS import
+ * // import type { SSOClientConfig } from "@aws-sdk/client-sso";
+ * const config = {}; // type is SSOClientConfig
  * const client = new SSOClient(config);
  * const input = { // ListAccountRolesRequest
  *   nextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  * ```javascript
  * import { VoiceIDClient, ListSpeakersCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, ListSpeakersCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // import type { VoiceIDClientConfig } from "@aws-sdk/client-voice-id";
+ * const config = {}; // type is VoiceIDClientConfig
  * const client = new VoiceIDClient(config);
  * const input = { // ListSpeakersRequest
  *   DomainId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * ```javascript
  * import { SageMakerClient, DescribeHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeHyperParameterTuningJobRequest
  *   HyperParameterTuningJobName: "STRING_VALUE", // required

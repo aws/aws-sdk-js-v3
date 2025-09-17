@@ -39,6 +39,8 @@ export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchRes
  * ```javascript
  * import { DrsClient, StartFailbackLaunchCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, StartFailbackLaunchCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // StartFailbackLaunchRequest
  *   recoveryInstanceIDs: [ // StartFailbackRequestRecoveryInstanceIDs // required

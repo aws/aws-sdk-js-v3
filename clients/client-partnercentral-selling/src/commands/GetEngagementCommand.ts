@@ -42,6 +42,8 @@ export interface GetEngagementCommandOutput extends GetEngagementResponse, __Met
  * ```javascript
  * import { PartnerCentralSellingClient, GetEngagementCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, GetEngagementCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // GetEngagementRequest
  *   Catalog: "STRING_VALUE", // required

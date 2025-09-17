@@ -52,6 +52,8 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * ```javascript
  * import { MTurkClient, DeleteQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, DeleteQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // DeleteQualificationTypeRequest
  *   QualificationTypeId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * ```javascript
  * import { VPCLatticeClient, GetRuleCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, GetRuleCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // GetRuleRequest
  *   serviceIdentifier: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * ```javascript
  * import { SESClient, CreateConfigurationSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CreateConfigurationSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // CreateConfigurationSetRequest
  *   ConfigurationSet: { // ConfigurationSet

@@ -44,6 +44,8 @@ export interface DescribeDomainChangeProgressCommandOutput
  * ```javascript
  * import { ElasticsearchServiceClient, DescribeDomainChangeProgressCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeDomainChangeProgressCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // import type { ElasticsearchServiceClientConfig } from "@aws-sdk/client-elasticsearch-service";
+ * const config = {}; // type is ElasticsearchServiceClientConfig
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // DescribeDomainChangeProgressRequest
  *   DomainName: "STRING_VALUE", // required

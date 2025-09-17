@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { MPAClient, ListTagsForResourceCommand } from "@aws-sdk/client-mpa"; // ES Modules import
  * // const { MPAClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mpa"); // CommonJS import
+ * // import type { MPAClientConfig } from "@aws-sdk/client-mpa";
+ * const config = {}; // type is MPAClientConfig
  * const client = new MPAClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

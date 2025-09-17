@@ -38,6 +38,8 @@ export interface ListDbInstancesCommandOutput extends ListDbInstancesOutput, __M
  * ```javascript
  * import { TimestreamInfluxDBClient, ListDbInstancesCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, ListDbInstancesCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
+ * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // ListDbInstancesInput
  *   nextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
  * ```javascript
  * import { QAppsClient, CreateQAppCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, CreateQAppCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // CreateQAppInput
  *   instanceId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * ```javascript
  * import { IoTTwinMakerClient, GetPropertyValueCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetPropertyValueCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // import type { IoTTwinMakerClientConfig } from "@aws-sdk/client-iottwinmaker";
+ * const config = {}; // type is IoTTwinMakerClientConfig
  * const client = new IoTTwinMakerClient(config);
  * const input = { // GetPropertyValueRequest
  *   componentName: "STRING_VALUE",

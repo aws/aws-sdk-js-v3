@@ -34,6 +34,8 @@ export interface AssociateSessionLoggerCommandOutput extends AssociateSessionLog
  * ```javascript
  * import { WorkSpacesWebClient, AssociateSessionLoggerCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateSessionLoggerCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // AssociateSessionLoggerRequest
  *   portalArn: "STRING_VALUE", // required

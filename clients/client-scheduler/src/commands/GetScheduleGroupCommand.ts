@@ -34,6 +34,8 @@ export interface GetScheduleGroupCommandOutput extends GetScheduleGroupOutput, _
  * ```javascript
  * import { SchedulerClient, GetScheduleGroupCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, GetScheduleGroupCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * // import type { SchedulerClientConfig } from "@aws-sdk/client-scheduler";
+ * const config = {}; // type is SchedulerClientConfig
  * const client = new SchedulerClient(config);
  * const input = { // GetScheduleGroupInput
  *   Name: "STRING_VALUE", // required

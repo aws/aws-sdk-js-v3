@@ -38,6 +38,8 @@ export interface ListInvocationsCommandOutput extends ListInvocationsResponse, _
  * ```javascript
  * import { BedrockAgentRuntimeClient, ListInvocationsCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, ListInvocationsCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // ListInvocationsRequest
  *   nextToken: "STRING_VALUE",

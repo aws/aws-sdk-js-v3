@@ -34,6 +34,8 @@ export interface UpdateSdiSourceCommandOutput extends UpdateSdiSourceResponse, _
  * ```javascript
  * import { MediaLiveClient, UpdateSdiSourceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateSdiSourceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // UpdateSdiSourceRequest
  *   Mode: "QUADRANT" || "INTERLEAVE",

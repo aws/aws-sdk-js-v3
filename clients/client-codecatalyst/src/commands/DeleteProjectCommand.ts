@@ -34,6 +34,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * ```javascript
  * import { CodeCatalystClient, DeleteProjectCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, DeleteProjectCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // import type { CodeCatalystClientConfig } from "@aws-sdk/client-codecatalyst";
+ * const config = {}; // type is CodeCatalystClientConfig
  * const client = new CodeCatalystClient(config);
  * const input = { // DeleteProjectRequest
  *   spaceName: "STRING_VALUE", // required

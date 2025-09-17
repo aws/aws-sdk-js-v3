@@ -35,6 +35,8 @@ export interface GetTopicRuleDestinationCommandOutput extends GetTopicRuleDestin
  * ```javascript
  * import { IoTClient, GetTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // GetTopicRuleDestinationRequest
  *   arn: "STRING_VALUE", // required

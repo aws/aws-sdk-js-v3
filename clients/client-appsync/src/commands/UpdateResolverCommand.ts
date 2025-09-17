@@ -34,6 +34,8 @@ export interface UpdateResolverCommandOutput extends UpdateResolverResponse, __M
  * ```javascript
  * import { AppSyncClient, UpdateResolverCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateResolverCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // UpdateResolverRequest
  *   apiId: "STRING_VALUE", // required

@@ -44,6 +44,8 @@ export interface CreateLaunchConfigurationTemplateCommandOutput
  * ```javascript
  * import { DrsClient, CreateLaunchConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, CreateLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // CreateLaunchConfigurationTemplateRequest
  *   tags: { // TagsMap

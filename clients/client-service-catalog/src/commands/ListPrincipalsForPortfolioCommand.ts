@@ -34,6 +34,8 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  * ```javascript
  * import { ServiceCatalogClient, ListPrincipalsForPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListPrincipalsForPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // import type { ServiceCatalogClientConfig } from "@aws-sdk/client-service-catalog";
+ * const config = {}; // type is ServiceCatalogClientConfig
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListPrincipalsForPortfolioInput
  *   AcceptLanguage: "STRING_VALUE",

@@ -38,6 +38,8 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * ```javascript
  * import { EMRClient, RemoveTagsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RemoveTagsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // RemoveTagsInput
  *   ResourceId: "STRING_VALUE", // required

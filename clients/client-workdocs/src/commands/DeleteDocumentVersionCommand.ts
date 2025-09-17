@@ -34,6 +34,8 @@ export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WorkDocsClient, DeleteDocumentVersionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteDocumentVersionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteDocumentVersionRequest
  *   AuthenticationToken: "STRING_VALUE",

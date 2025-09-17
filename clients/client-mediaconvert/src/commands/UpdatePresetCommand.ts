@@ -34,6 +34,8 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * ```javascript
  * import { MediaConvertClient, UpdatePresetCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, UpdatePresetCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // UpdatePresetRequest
  *   Category: "STRING_VALUE",

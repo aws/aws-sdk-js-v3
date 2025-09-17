@@ -34,6 +34,8 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * ```javascript
  * import { CodeCatalystClient, ListWorkflowsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, ListWorkflowsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // import type { CodeCatalystClientConfig } from "@aws-sdk/client-codecatalyst";
+ * const config = {}; // type is CodeCatalystClientConfig
  * const client = new CodeCatalystClient(config);
  * const input = { // ListWorkflowsRequest
  *   spaceName: "STRING_VALUE", // required

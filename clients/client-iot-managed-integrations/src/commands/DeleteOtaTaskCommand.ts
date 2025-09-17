@@ -38,6 +38,8 @@ export interface DeleteOtaTaskCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTManagedIntegrationsClient, DeleteOtaTaskCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, DeleteOtaTaskCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // DeleteOtaTaskRequest
  *   Identifier: "STRING_VALUE", // required

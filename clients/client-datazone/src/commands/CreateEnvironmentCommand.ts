@@ -38,6 +38,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * ```javascript
  * import { DataZoneClient, CreateEnvironmentCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateEnvironmentCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateEnvironmentInput
  *   projectIdentifier: "STRING_VALUE", // required

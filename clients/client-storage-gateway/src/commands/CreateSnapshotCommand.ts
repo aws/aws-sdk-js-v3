@@ -57,6 +57,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * ```javascript
  * import { StorageGatewayClient, CreateSnapshotCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateSnapshotCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // CreateSnapshotInput
  *   VolumeARN: "STRING_VALUE", // required

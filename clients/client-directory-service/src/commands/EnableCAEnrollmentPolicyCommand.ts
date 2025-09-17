@@ -41,6 +41,8 @@ export interface EnableCAEnrollmentPolicyCommandOutput extends EnableCAEnrollmen
  * ```javascript
  * import { DirectoryServiceClient, EnableCAEnrollmentPolicyCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, EnableCAEnrollmentPolicyCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // EnableCAEnrollmentPolicyRequest
  *   DirectoryId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  * ```javascript
  * import { AmplifyUIBuilderClient, UpdateFormCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, UpdateFormCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // import type { AmplifyUIBuilderClientConfig } from "@aws-sdk/client-amplifyuibuilder";
+ * const config = {}; // type is AmplifyUIBuilderClientConfig
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // UpdateFormRequest
  *   appId: "STRING_VALUE", // required

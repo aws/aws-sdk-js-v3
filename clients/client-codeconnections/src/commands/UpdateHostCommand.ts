@@ -34,6 +34,8 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * ```javascript
  * import { CodeConnectionsClient, UpdateHostCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, UpdateHostCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // UpdateHostInput
  *   HostArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateSpaceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RepostspaceClient, UpdateSpaceCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, UpdateSpaceCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // UpdateSpaceInput
  *   spaceId: "STRING_VALUE", // required

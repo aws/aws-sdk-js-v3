@@ -42,6 +42,8 @@ export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType
  * ```javascript
  * import { GeoMapsClient, GetStaticMapCommand } from "@aws-sdk/client-geo-maps"; // ES Modules import
  * // const { GeoMapsClient, GetStaticMapCommand } = require("@aws-sdk/client-geo-maps"); // CommonJS import
+ * // import type { GeoMapsClientConfig } from "@aws-sdk/client-geo-maps";
+ * const config = {}; // type is GeoMapsClientConfig
  * const client = new GeoMapsClient(config);
  * const input = { // GetStaticMapRequest
  *   BoundingBox: "STRING_VALUE",

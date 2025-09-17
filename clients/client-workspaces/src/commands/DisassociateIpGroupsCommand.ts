@@ -34,6 +34,8 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  * ```javascript
  * import { WorkSpacesClient, DisassociateIpGroupsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DisassociateIpGroupsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DisassociateIpGroupsRequest
  *   DirectoryId: "STRING_VALUE", // required

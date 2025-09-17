@@ -45,6 +45,8 @@ export interface DeleteVpcEndpointAssociationCommandOutput
  * ```javascript
  * import { NetworkFirewallClient, DeleteVpcEndpointAssociationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteVpcEndpointAssociationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // DeleteVpcEndpointAssociationRequest
  *   VpcEndpointAssociationArn: "STRING_VALUE", // required

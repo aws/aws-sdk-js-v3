@@ -34,6 +34,8 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  * ```javascript
  * import { MediaConvertClient, UpdateJobTemplateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, UpdateJobTemplateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // UpdateJobTemplateRequest
  *   AccelerationSettings: { // AccelerationSettings

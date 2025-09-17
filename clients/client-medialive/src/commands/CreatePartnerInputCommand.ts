@@ -34,6 +34,8 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * ```javascript
  * import { MediaLiveClient, CreatePartnerInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreatePartnerInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // CreatePartnerInputRequest
  *   InputId: "STRING_VALUE", // required

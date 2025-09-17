@@ -35,6 +35,8 @@ export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurati
  * ```javascript
  * import { DeviceFarmClient, ListVPCEConfigurationsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListVPCEConfigurationsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // ListVPCEConfigurationsRequest
  *   maxResults: Number("int"),

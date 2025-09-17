@@ -36,6 +36,8 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * ```javascript
  * import { RUMClient, ListRumMetricsDestinationsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, ListRumMetricsDestinationsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * // import type { RUMClientConfig } from "@aws-sdk/client-rum";
+ * const config = {}; // type is RUMClientConfig
  * const client = new RUMClient(config);
  * const input = { // ListRumMetricsDestinationsRequest
  *   AppMonitorName: "STRING_VALUE", // required

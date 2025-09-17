@@ -35,6 +35,8 @@ export interface DeleteDynamicThingGroupCommandOutput extends DeleteDynamicThing
  * ```javascript
  * import { IoTClient, DeleteDynamicThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteDynamicThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteDynamicThingGroupRequest
  *   thingGroupName: "STRING_VALUE", // required

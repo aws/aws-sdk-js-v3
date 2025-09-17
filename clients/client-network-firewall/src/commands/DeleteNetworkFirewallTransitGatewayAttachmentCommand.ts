@@ -47,6 +47,8 @@ export interface DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput
  * ```javascript
  * import { NetworkFirewallClient, DeleteNetworkFirewallTransitGatewayAttachmentCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteNetworkFirewallTransitGatewayAttachmentCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // DeleteNetworkFirewallTransitGatewayAttachmentRequest
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required

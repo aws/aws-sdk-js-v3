@@ -38,6 +38,8 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * ```javascript
  * import { OpenSearchServerlessClient, DeleteVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // DeleteVpcEndpointRequest
  *   id: "STRING_VALUE", // required

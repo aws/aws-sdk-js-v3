@@ -35,6 +35,8 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * ```javascript
  * import { IoTClient, CreateJobTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateJobTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreateJobTemplateRequest
  *   jobTemplateId: "STRING_VALUE", // required

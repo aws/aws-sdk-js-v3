@@ -34,6 +34,8 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  * ```javascript
  * import { ServiceCatalogClient, DescribeCopyProductStatusCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeCopyProductStatusCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // import type { ServiceCatalogClientConfig } from "@aws-sdk/client-service-catalog";
+ * const config = {}; // type is ServiceCatalogClientConfig
  * const client = new ServiceCatalogClient(config);
  * const input = { // DescribeCopyProductStatusInput
  *   AcceptLanguage: "STRING_VALUE",

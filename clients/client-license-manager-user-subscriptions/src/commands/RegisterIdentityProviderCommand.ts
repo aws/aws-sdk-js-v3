@@ -42,6 +42,8 @@ export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityP
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, RegisterIdentityProviderCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, RegisterIdentityProviderCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerUserSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-user-subscriptions";
+ * const config = {}; // type is LicenseManagerUserSubscriptionsClientConfig
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // RegisterIdentityProviderRequest
  *   IdentityProvider: { // IdentityProvider Union: only one key present

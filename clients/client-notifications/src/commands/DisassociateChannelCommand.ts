@@ -34,6 +34,8 @@ export interface DisassociateChannelCommandOutput extends DisassociateChannelRes
  * ```javascript
  * import { NotificationsClient, DisassociateChannelCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, DisassociateChannelCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // DisassociateChannelRequest
  *   arn: "STRING_VALUE", // required

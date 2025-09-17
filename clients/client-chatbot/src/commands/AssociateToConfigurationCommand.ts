@@ -34,6 +34,8 @@ export interface AssociateToConfigurationCommandOutput extends AssociateToConfig
  * ```javascript
  * import { ChatbotClient, AssociateToConfigurationCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, AssociateToConfigurationCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // AssociateToConfigurationRequest
  *   Resource: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  * ```javascript
  * import { DirectoryServiceClient, UpdateNumberOfDomainControllersCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UpdateNumberOfDomainControllersCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // UpdateNumberOfDomainControllersRequest
  *   DirectoryId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { BillingClient, ListTagsForResourceCommand } from "@aws-sdk/client-billing"; // ES Modules import
  * // const { BillingClient, ListTagsForResourceCommand } = require("@aws-sdk/client-billing"); // CommonJS import
+ * // import type { BillingClientConfig } from "@aws-sdk/client-billing";
+ * const config = {}; // type is BillingClientConfig
  * const client = new BillingClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

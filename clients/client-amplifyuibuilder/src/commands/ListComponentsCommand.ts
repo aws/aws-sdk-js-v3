@@ -35,6 +35,8 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * ```javascript
  * import { AmplifyUIBuilderClient, ListComponentsCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, ListComponentsCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // import type { AmplifyUIBuilderClientConfig } from "@aws-sdk/client-amplifyuibuilder";
+ * const config = {}; // type is AmplifyUIBuilderClientConfig
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // ListComponentsRequest
  *   appId: "STRING_VALUE", // required

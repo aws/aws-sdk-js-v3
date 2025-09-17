@@ -35,6 +35,8 @@ export interface UpdatePermissionsCommandOutput extends UpdatePermissionsRespons
  * ```javascript
  * import { GrafanaClient, UpdatePermissionsCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdatePermissionsCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // import type { GrafanaClientConfig } from "@aws-sdk/client-grafana";
+ * const config = {}; // type is GrafanaClientConfig
  * const client = new GrafanaClient(config);
  * const input = { // UpdatePermissionsRequest
  *   updateInstructionBatch: [ // UpdateInstructionBatch // required

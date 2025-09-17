@@ -43,6 +43,8 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  * ```javascript
  * import { FMSClient, ListThirdPartyFirewallFirewallPoliciesCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListThirdPartyFirewallFirewallPoliciesCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // import type { FMSClientConfig } from "@aws-sdk/client-fms";
+ * const config = {}; // type is FMSClientConfig
  * const client = new FMSClient(config);
  * const input = { // ListThirdPartyFirewallFirewallPoliciesRequest
  *   ThirdPartyFirewall: "PALO_ALTO_NETWORKS_CLOUD_NGFW" || "FORTIGATE_CLOUD_NATIVE_FIREWALL", // required

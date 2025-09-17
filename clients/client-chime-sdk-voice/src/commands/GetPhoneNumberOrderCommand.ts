@@ -40,6 +40,8 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
  * ```javascript
  * import { ChimeSDKVoiceClient, GetPhoneNumberOrderCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetPhoneNumberOrderCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetPhoneNumberOrderRequest
  *   PhoneNumberOrderId: "STRING_VALUE", // required

@@ -37,6 +37,8 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * ```javascript
  * import { SyntheticsClient, AssociateResourceCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, AssociateResourceCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // import type { SyntheticsClientConfig } from "@aws-sdk/client-synthetics";
+ * const config = {}; // type is SyntheticsClientConfig
  * const client = new SyntheticsClient(config);
  * const input = { // AssociateResourceRequest
  *   GroupIdentifier: "STRING_VALUE", // required

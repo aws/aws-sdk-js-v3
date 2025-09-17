@@ -35,6 +35,8 @@ export interface ListVPCConnectionsCommandOutput extends ListVPCConnectionsRespo
  * ```javascript
  * import { QuickSightClient, ListVPCConnectionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListVPCConnectionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // ListVPCConnectionsRequest
  *   AwsAccountId: "STRING_VALUE", // required

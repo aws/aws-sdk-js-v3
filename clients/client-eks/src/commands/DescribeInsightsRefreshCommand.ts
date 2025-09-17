@@ -34,6 +34,8 @@ export interface DescribeInsightsRefreshCommandOutput extends DescribeInsightsRe
  * ```javascript
  * import { EKSClient, DescribeInsightsRefreshCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeInsightsRefreshCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // DescribeInsightsRefreshRequest
  *   clusterName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteOutpostResolverCommandOutput extends DeleteOutpostResolve
  * ```javascript
  * import { Route53ResolverClient, DeleteOutpostResolverCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DeleteOutpostResolverCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
+ * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
  * const input = { // DeleteOutpostResolverRequest
  *   Id: "STRING_VALUE", // required

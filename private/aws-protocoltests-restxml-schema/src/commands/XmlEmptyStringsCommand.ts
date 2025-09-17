@@ -34,6 +34,8 @@ export interface XmlEmptyStringsCommandOutput extends XmlEmptyStringsResponse, _
  * ```javascript
  * import { RestXmlProtocolClient, XmlEmptyStringsCommand } from "@aws-sdk/aws-protocoltests-restxml-schema"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEmptyStringsCommand } = require("@aws-sdk/aws-protocoltests-restxml-schema"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml-schema";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlEmptyStringsRequest
  *   emptyString: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface StartDiscovererCommandOutput extends StartDiscovererResponse, _
  * ```javascript
  * import { SchemasClient, StartDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, StartDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // import type { SchemasClientConfig } from "@aws-sdk/client-schemas";
+ * const config = {}; // type is SchemasClientConfig
  * const client = new SchemasClient(config);
  * const input = { // StartDiscovererRequest
  *   DiscovererId: "STRING_VALUE", // required

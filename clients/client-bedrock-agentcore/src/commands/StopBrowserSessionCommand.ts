@@ -34,6 +34,8 @@ export interface StopBrowserSessionCommandOutput extends StopBrowserSessionRespo
  * ```javascript
  * import { BedrockAgentCoreClient, StopBrowserSessionCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, StopBrowserSessionCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // StopBrowserSessionRequest
  *   browserIdentifier: "STRING_VALUE", // required

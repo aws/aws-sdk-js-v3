@@ -43,6 +43,8 @@ export interface ListServiceInstanceProvisionedResourcesCommandOutput
  * ```javascript
  * import { ProtonClient, ListServiceInstanceProvisionedResourcesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServiceInstanceProvisionedResourcesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // ListServiceInstanceProvisionedResourcesInput
  *   serviceName: "STRING_VALUE", // required

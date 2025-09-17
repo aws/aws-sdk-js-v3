@@ -46,6 +46,8 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  * ```javascript
  * import { CloudHSMClient, ListAvailableZonesCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ListAvailableZonesCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * // import type { CloudHSMClientConfig } from "@aws-sdk/client-cloudhsm";
+ * const config = {}; // type is CloudHSMClientConfig
  * const client = new CloudHSMClient(config);
  * const input = {};
  * const command = new ListAvailableZonesCommand(input);

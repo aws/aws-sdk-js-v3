@@ -35,6 +35,8 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * ```javascript
  * import { IoTEventsDataClient, BatchUpdateDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchUpdateDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * // import type { IoTEventsDataClientConfig } from "@aws-sdk/client-iot-events-data";
+ * const config = {}; // type is IoTEventsDataClientConfig
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchUpdateDetectorRequest
  *   detectors: [ // UpdateDetectorRequests // required

@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { MWAAClient, ListTagsForResourceCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * // import type { MWAAClientConfig } from "@aws-sdk/client-mwaa";
+ * const config = {}; // type is MWAAClientConfig
  * const client = new MWAAClient(config);
  * const input = { // ListTagsForResourceInput
  *   ResourceArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface PrepareAgentCommandOutput extends PrepareAgentResponse, __Metad
  * ```javascript
  * import { BedrockAgentClient, PrepareAgentCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, PrepareAgentCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // PrepareAgentRequest
  *   agentId: "STRING_VALUE", // required

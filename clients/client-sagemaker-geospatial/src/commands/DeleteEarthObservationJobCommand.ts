@@ -38,6 +38,8 @@ export interface DeleteEarthObservationJobCommandOutput extends DeleteEarthObser
  * ```javascript
  * import { SageMakerGeospatialClient, DeleteEarthObservationJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, DeleteEarthObservationJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * // import type { SageMakerGeospatialClientConfig } from "@aws-sdk/client-sagemaker-geospatial";
+ * const config = {}; // type is SageMakerGeospatialClientConfig
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // DeleteEarthObservationJobInput
  *   Arn: "STRING_VALUE", // required

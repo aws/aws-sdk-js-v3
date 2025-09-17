@@ -38,6 +38,8 @@ export interface GetSyncBlockerSummaryCommandOutput extends GetSyncBlockerSummar
  * ```javascript
  * import { CodeStarConnectionsClient, GetSyncBlockerSummaryCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, GetSyncBlockerSummaryCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * // import type { CodeStarConnectionsClientConfig } from "@aws-sdk/client-codestar-connections";
+ * const config = {}; // type is CodeStarConnectionsClientConfig
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // GetSyncBlockerSummaryInput
  *   SyncType: "CFN_STACK_SYNC", // required

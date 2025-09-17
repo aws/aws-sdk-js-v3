@@ -34,6 +34,8 @@ export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __Metad
  * ```javascript
  * import { FinspaceClient, DeleteKxUserCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, DeleteKxUserCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // DeleteKxUserRequest
  *   userName: "STRING_VALUE", // required

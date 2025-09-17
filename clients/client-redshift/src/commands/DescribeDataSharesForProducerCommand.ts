@@ -39,6 +39,8 @@ export interface DescribeDataSharesForProducerCommandOutput
  * ```javascript
  * import { RedshiftClient, DescribeDataSharesForProducerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeDataSharesForProducerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeDataSharesForProducerMessage
  *   ProducerArn: "STRING_VALUE",

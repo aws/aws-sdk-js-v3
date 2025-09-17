@@ -39,6 +39,8 @@ export interface DeleteTransformerCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudWatchLogsClient, DeleteTransformerCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteTransformerCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DeleteTransformerRequest
  *   logGroupIdentifier: "STRING_VALUE", // required

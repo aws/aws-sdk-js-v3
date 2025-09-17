@@ -39,6 +39,8 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  * ```javascript
  * import { GlueClient, GetDataCatalogEncryptionSettingsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataCatalogEncryptionSettingsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetDataCatalogEncryptionSettingsRequest
  *   CatalogId: "STRING_VALUE",

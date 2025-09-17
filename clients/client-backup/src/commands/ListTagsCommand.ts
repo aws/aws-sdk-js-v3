@@ -46,6 +46,8 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * ```javascript
  * import { BackupClient, ListTagsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListTagsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListTagsInput
  *   ResourceArn: "STRING_VALUE", // required

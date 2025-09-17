@@ -43,6 +43,8 @@ export interface BatchUpdateAutomatedDiscoveryAccountsCommandOutput
  * ```javascript
  * import { Macie2Client, BatchUpdateAutomatedDiscoveryAccountsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, BatchUpdateAutomatedDiscoveryAccountsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * // import type { Macie2ClientConfig } from "@aws-sdk/client-macie2";
+ * const config = {}; // type is Macie2ClientConfig
  * const client = new Macie2Client(config);
  * const input = { // BatchUpdateAutomatedDiscoveryAccountsRequest
  *   accounts: [ // __listOfAutomatedDiscoveryAccountUpdate

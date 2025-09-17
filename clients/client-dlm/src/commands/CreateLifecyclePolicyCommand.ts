@@ -57,6 +57,8 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * ```javascript
  * import { DLMClient, CreateLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, CreateLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
+ * // import type { DLMClientConfig } from "@aws-sdk/client-dlm";
+ * const config = {}; // type is DLMClientConfig
  * const client = new DLMClient(config);
  * const input = { // CreateLifecyclePolicyRequest
  *   ExecutionRoleArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteContentAssociationCommandOutput extends DeleteContentAsso
  * ```javascript
  * import { QConnectClient, DeleteContentAssociationCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, DeleteContentAssociationCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // DeleteContentAssociationRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

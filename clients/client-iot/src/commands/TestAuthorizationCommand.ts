@@ -37,6 +37,8 @@ export interface TestAuthorizationCommandOutput extends TestAuthorizationRespons
  * ```javascript
  * import { IoTClient, TestAuthorizationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, TestAuthorizationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // TestAuthorizationRequest
  *   principal: "STRING_VALUE",

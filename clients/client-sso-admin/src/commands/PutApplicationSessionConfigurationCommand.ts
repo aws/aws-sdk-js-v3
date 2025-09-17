@@ -42,6 +42,8 @@ export interface PutApplicationSessionConfigurationCommandOutput
  * ```javascript
  * import { SSOAdminClient, PutApplicationSessionConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, PutApplicationSessionConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // PutApplicationSessionConfigurationRequest
  *   ApplicationArn: "STRING_VALUE", // required

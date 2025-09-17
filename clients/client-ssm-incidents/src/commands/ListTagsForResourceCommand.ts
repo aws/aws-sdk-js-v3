@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { SSMIncidentsClient, ListTagsForResourceCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

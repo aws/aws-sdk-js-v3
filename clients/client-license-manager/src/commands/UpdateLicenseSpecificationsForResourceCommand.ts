@@ -46,6 +46,8 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  * ```javascript
  * import { LicenseManagerClient, UpdateLicenseSpecificationsForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateLicenseSpecificationsForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // UpdateLicenseSpecificationsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

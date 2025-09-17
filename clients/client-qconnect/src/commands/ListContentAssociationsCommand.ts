@@ -34,6 +34,8 @@ export interface ListContentAssociationsCommandOutput extends ListContentAssocia
  * ```javascript
  * import { QConnectClient, ListContentAssociationsCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, ListContentAssociationsCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // ListContentAssociationsRequest
  *   nextToken: "STRING_VALUE",

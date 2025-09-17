@@ -38,6 +38,8 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionOutput, __M
  * ```javascript
  * import { DataZoneClient, GetSubscriptionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetSubscriptionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetSubscriptionInput
  *   domainIdentifier: "STRING_VALUE", // required

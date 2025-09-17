@@ -34,6 +34,8 @@ export interface ListTemplateSharesCommandOutput extends ListTemplateSharesOutpu
  * ```javascript
  * import { WellArchitectedClient, ListTemplateSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListTemplateSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // ListTemplateSharesInput
  *   TemplateArn: "STRING_VALUE", // required

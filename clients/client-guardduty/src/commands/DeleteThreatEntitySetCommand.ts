@@ -35,6 +35,8 @@ export interface DeleteThreatEntitySetCommandOutput extends DeleteThreatEntitySe
  * ```javascript
  * import { GuardDutyClient, DeleteThreatEntitySetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeleteThreatEntitySetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // DeleteThreatEntitySetRequest
  *   DetectorId: "STRING_VALUE", // required

@@ -40,6 +40,8 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  * ```javascript
  * import { CloudWatchEventsClient, DescribeEventBusCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DescribeEventBusCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * // import type { CloudWatchEventsClientConfig } from "@aws-sdk/client-cloudwatch-events";
+ * const config = {}; // type is CloudWatchEventsClientConfig
  * const client = new CloudWatchEventsClient(config);
  * const input = { // DescribeEventBusRequest
  *   Name: "STRING_VALUE",

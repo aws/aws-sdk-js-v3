@@ -34,6 +34,8 @@ export interface GetAddonInstanceCommandOutput extends GetAddonInstanceResponse,
  * ```javascript
  * import { MailManagerClient, GetAddonInstanceCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, GetAddonInstanceCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // GetAddonInstanceRequest
  *   AddonInstanceId: "STRING_VALUE", // required

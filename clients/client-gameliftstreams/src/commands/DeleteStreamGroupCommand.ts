@@ -34,6 +34,8 @@ export interface DeleteStreamGroupCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { GameLiftStreamsClient, DeleteStreamGroupCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, DeleteStreamGroupCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // DeleteStreamGroupInput
  *   Identifier: "STRING_VALUE", // required

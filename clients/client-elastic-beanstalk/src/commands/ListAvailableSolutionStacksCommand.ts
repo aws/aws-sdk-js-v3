@@ -37,6 +37,8 @@ export interface ListAvailableSolutionStacksCommandOutput
  * ```javascript
  * import { ElasticBeanstalkClient, ListAvailableSolutionStacksCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ListAvailableSolutionStacksCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * // import type { ElasticBeanstalkClientConfig } from "@aws-sdk/client-elastic-beanstalk";
+ * const config = {}; // type is ElasticBeanstalkClientConfig
  * const client = new ElasticBeanstalkClient(config);
  * const input = {};
  * const command = new ListAvailableSolutionStacksCommand(input);

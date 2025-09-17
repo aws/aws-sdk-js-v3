@@ -38,6 +38,8 @@ export interface ImportKeyCommandOutput extends ImportKeyOutput, __MetadataBeare
  * ```javascript
  * import { PaymentCryptographyClient, ImportKeyCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, ImportKeyCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // ImportKeyInput
  *   KeyMaterial: { // ImportKeyMaterial Union: only one key present

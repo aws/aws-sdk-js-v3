@@ -35,6 +35,8 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * ```javascript
  * import { QuickSightClient, ListDataSetsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListDataSetsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // ListDataSetsRequest
  *   AwsAccountId: "STRING_VALUE", // required

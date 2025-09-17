@@ -39,6 +39,8 @@ export interface ListConfigurationCheckDefinitionsCommandOutput
  * ```javascript
  * import { SsmSapClient, ListConfigurationCheckDefinitionsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListConfigurationCheckDefinitionsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // ListConfigurationCheckDefinitionsInput
  *   MaxResults: Number("int"),

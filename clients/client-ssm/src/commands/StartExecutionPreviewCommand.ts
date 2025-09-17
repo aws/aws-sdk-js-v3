@@ -35,6 +35,8 @@ export interface StartExecutionPreviewCommandOutput extends StartExecutionPrevie
  * ```javascript
  * import { SSMClient, StartExecutionPreviewCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StartExecutionPreviewCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // StartExecutionPreviewRequest
  *   DocumentName: "STRING_VALUE", // required

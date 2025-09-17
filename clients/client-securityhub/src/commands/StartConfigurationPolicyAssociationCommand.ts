@@ -46,6 +46,8 @@ export interface StartConfigurationPolicyAssociationCommandOutput
  * ```javascript
  * import { SecurityHubClient, StartConfigurationPolicyAssociationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, StartConfigurationPolicyAssociationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // StartConfigurationPolicyAssociationRequest
  *   ConfigurationPolicyIdentifier: "STRING_VALUE", // required

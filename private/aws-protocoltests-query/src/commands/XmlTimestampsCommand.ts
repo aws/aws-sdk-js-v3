@@ -36,6 +36,8 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __Metad
  * ```javascript
  * import { QueryProtocolClient, XmlTimestampsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, XmlTimestampsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = {};
  * const command = new XmlTimestampsCommand(input);

@@ -34,6 +34,8 @@ export interface ListRestoreTestingPlansCommandOutput extends ListRestoreTesting
  * ```javascript
  * import { BackupClient, ListRestoreTestingPlansCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRestoreTestingPlansCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListRestoreTestingPlansInput
  *   MaxResults: Number("int"),

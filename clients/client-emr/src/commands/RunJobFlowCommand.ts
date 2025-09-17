@@ -55,6 +55,8 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  * ```javascript
  * import { EMRClient, RunJobFlowCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RunJobFlowCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // RunJobFlowInput
  *   Name: "STRING_VALUE", // required

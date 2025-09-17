@@ -36,6 +36,8 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  * ```javascript
  * import { AppSyncClient, CreateResolverCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateResolverCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // CreateResolverRequest
  *   apiId: "STRING_VALUE", // required

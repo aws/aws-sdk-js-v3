@@ -34,6 +34,8 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * ```javascript
  * import { BraketClient, SearchDevicesCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, SearchDevicesCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * // import type { BraketClientConfig } from "@aws-sdk/client-braket";
+ * const config = {}; // type is BraketClientConfig
  * const client = new BraketClient(config);
  * const input = { // SearchDevicesRequest
  *   nextToken: "STRING_VALUE",

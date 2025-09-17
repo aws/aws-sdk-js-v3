@@ -50,6 +50,8 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * ```javascript
  * import { ResourceExplorer2Client, SearchCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, SearchCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * // import type { ResourceExplorer2ClientConfig } from "@aws-sdk/client-resource-explorer-2";
+ * const config = {}; // type is ResourceExplorer2ClientConfig
  * const client = new ResourceExplorer2Client(config);
  * const input = { // SearchInput
  *   QueryString: "STRING_VALUE", // required

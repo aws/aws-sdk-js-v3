@@ -42,6 +42,8 @@ export interface GetManagedNotificationConfigurationCommandOutput
  * ```javascript
  * import { NotificationsClient, GetManagedNotificationConfigurationCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, GetManagedNotificationConfigurationCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // GetManagedNotificationConfigurationRequest
  *   arn: "STRING_VALUE", // required

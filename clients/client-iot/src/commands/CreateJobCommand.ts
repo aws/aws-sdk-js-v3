@@ -35,6 +35,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * ```javascript
  * import { IoTClient, CreateJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreateJobRequest
  *   jobId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetResolverCommandOutput extends GetResolverResponse, __Metadat
  * ```javascript
  * import { AppSyncClient, GetResolverCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetResolverCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // GetResolverRequest
  *   apiId: "STRING_VALUE", // required

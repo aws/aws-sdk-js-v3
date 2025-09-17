@@ -46,6 +46,8 @@ export interface StartMetadataModelAssessmentCommandOutput
  * ```javascript
  * import { DatabaseMigrationServiceClient, StartMetadataModelAssessmentCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StartMetadataModelAssessmentCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // StartMetadataModelAssessmentMessage
  *   MigrationProjectIdentifier: "STRING_VALUE", // required

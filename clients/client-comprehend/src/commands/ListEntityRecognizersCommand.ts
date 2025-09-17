@@ -43,6 +43,8 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  * ```javascript
  * import { ComprehendClient, ListEntityRecognizersCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListEntityRecognizersCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // ListEntityRecognizersRequest
  *   Filter: { // EntityRecognizerFilter

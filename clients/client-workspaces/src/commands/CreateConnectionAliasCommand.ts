@@ -36,6 +36,8 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  * ```javascript
  * import { WorkSpacesClient, CreateConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateConnectionAliasRequest
  *   ConnectionString: "STRING_VALUE", // required

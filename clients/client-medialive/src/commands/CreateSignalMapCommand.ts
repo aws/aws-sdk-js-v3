@@ -34,6 +34,8 @@ export interface CreateSignalMapCommandOutput extends CreateSignalMapResponse, _
  * ```javascript
  * import { MediaLiveClient, CreateSignalMapCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateSignalMapCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // CreateSignalMapRequest
  *   CloudWatchAlarmTemplateGroupIdentifiers: [ // __listOf__stringPatternS

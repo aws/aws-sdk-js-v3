@@ -39,6 +39,8 @@ export interface ListDistributionsByVpcOriginIdCommandOutput
  * ```javascript
  * import { CloudFrontClient, ListDistributionsByVpcOriginIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByVpcOriginIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // ListDistributionsByVpcOriginIdRequest
  *   Marker: "STRING_VALUE",

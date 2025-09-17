@@ -39,6 +39,8 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
  * ```javascript
  * import { ProtonClient, DeleteServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // DeleteServiceTemplateInput
  *   name: "STRING_VALUE", // required

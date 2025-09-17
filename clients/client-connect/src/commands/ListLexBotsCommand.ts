@@ -37,6 +37,8 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
  * ```javascript
  * import { ConnectClient, ListLexBotsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListLexBotsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // ListLexBotsRequest
  *   InstanceId: "STRING_VALUE", // required

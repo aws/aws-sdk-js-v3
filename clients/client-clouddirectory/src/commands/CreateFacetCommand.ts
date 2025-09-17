@@ -35,6 +35,8 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * ```javascript
  * import { CloudDirectoryClient, CreateFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // CreateFacetRequest
  *   SchemaArn: "STRING_VALUE", // required

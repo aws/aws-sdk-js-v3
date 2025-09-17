@@ -35,6 +35,8 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  * ```javascript
  * import { SSMClient, CancelCommandCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CancelCommandCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // CancelCommandRequest
  *   CommandId: "STRING_VALUE", // required

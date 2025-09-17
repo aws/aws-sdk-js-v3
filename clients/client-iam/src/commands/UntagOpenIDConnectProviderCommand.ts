@@ -37,6 +37,8 @@ export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBeare
  * ```javascript
  * import { IAMClient, UntagOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // UntagOpenIDConnectProviderRequest
  *   OpenIDConnectProviderArn: "STRING_VALUE", // required

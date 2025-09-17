@@ -99,6 +99,8 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * ```javascript
  * import { LexRuntimeV2Client, StartConversationCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, StartConversationCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * // import type { LexRuntimeV2ClientConfig } from "@aws-sdk/client-lex-runtime-v2";
+ * const config = {}; // type is LexRuntimeV2ClientConfig
  * const client = new LexRuntimeV2Client(config);
  * const input = { // StartConversationRequest
  *   botId: "STRING_VALUE", // required

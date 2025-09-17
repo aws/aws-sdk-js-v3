@@ -71,6 +71,8 @@ export interface PutDeliveryDestinationCommandOutput extends PutDeliveryDestinat
  * ```javascript
  * import { CloudWatchLogsClient, PutDeliveryDestinationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutDeliveryDestinationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutDeliveryDestinationRequest
  *   name: "STRING_VALUE", // required

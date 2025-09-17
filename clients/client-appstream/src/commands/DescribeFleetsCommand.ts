@@ -34,6 +34,8 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * ```javascript
  * import { AppStreamClient, DescribeFleetsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeFleetsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // DescribeFleetsRequest
  *   Names: [ // StringList

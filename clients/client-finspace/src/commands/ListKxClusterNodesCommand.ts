@@ -34,6 +34,8 @@ export interface ListKxClusterNodesCommandOutput extends ListKxClusterNodesRespo
  * ```javascript
  * import { FinspaceClient, ListKxClusterNodesCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, ListKxClusterNodesCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // ListKxClusterNodesRequest
  *   environmentId: "STRING_VALUE", // required

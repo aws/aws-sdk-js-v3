@@ -38,6 +38,8 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * ```javascript
  * import { WorkSpacesThinClientClient, GetDeviceCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, GetDeviceCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // GetDeviceRequest
  *   id: "STRING_VALUE", // required

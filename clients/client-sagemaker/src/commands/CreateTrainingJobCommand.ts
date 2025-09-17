@@ -34,6 +34,8 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  * ```javascript
  * import { SageMakerClient, CreateTrainingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateTrainingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateTrainingJobRequest
  *   TrainingJobName: "STRING_VALUE", // required

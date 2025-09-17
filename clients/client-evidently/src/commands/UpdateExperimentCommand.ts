@@ -36,6 +36,8 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
  * ```javascript
  * import { EvidentlyClient, UpdateExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // UpdateExperimentRequest
  *   project: "STRING_VALUE", // required

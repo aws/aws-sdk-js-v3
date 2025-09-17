@@ -34,6 +34,8 @@ export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryO
  * ```javascript
  * import { SageMakerClient, UpdateCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateCodeRepositoryInput
  *   CodeRepositoryName: "STRING_VALUE", // required

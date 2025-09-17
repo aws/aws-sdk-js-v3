@@ -40,6 +40,8 @@ export interface BatchGetApplicationRevisionsCommandOutput
  * ```javascript
  * import { CodeDeployClient, BatchGetApplicationRevisionsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetApplicationRevisionsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // import type { CodeDeployClientConfig } from "@aws-sdk/client-codedeploy";
+ * const config = {}; // type is CodeDeployClientConfig
  * const client = new CodeDeployClient(config);
  * const input = { // BatchGetApplicationRevisionsInput
  *   applicationName: "STRING_VALUE", // required

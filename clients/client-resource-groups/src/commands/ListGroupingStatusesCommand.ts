@@ -35,6 +35,8 @@ export interface ListGroupingStatusesCommandOutput extends ListGroupingStatusesO
  * ```javascript
  * import { ResourceGroupsClient, ListGroupingStatusesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, ListGroupingStatusesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // import type { ResourceGroupsClientConfig } from "@aws-sdk/client-resource-groups";
+ * const config = {}; // type is ResourceGroupsClientConfig
  * const client = new ResourceGroupsClient(config);
  * const input = { // ListGroupingStatusesInput
  *   Group: "STRING_VALUE", // required

@@ -49,6 +49,8 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
  * ```javascript
  * import { ComputeOptimizerClient, GetEC2RecommendationProjectedMetricsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEC2RecommendationProjectedMetricsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * // import type { ComputeOptimizerClientConfig } from "@aws-sdk/client-compute-optimizer";
+ * const config = {}; // type is ComputeOptimizerClientConfig
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetEC2RecommendationProjectedMetricsRequest
  *   instanceArn: "STRING_VALUE", // required

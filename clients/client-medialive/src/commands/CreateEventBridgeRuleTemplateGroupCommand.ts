@@ -42,6 +42,8 @@ export interface CreateEventBridgeRuleTemplateGroupCommandOutput
  * ```javascript
  * import { MediaLiveClient, CreateEventBridgeRuleTemplateGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateEventBridgeRuleTemplateGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // CreateEventBridgeRuleTemplateGroupRequest
  *   Description: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
  * ```javascript
  * import { MediaConvertClient, AssociateCertificateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, AssociateCertificateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // AssociateCertificateRequest
  *   Arn: "STRING_VALUE", // required

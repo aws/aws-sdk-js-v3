@@ -35,6 +35,8 @@ export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput,
  * ```javascript
  * import { JsonProtocolClient, FractionalSecondsCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, FractionalSecondsCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * // import type { JsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-json";
+ * const config = {}; // type is JsonProtocolClientConfig
  * const client = new JsonProtocolClient(config);
  * const input = {};
  * const command = new FractionalSecondsCommand(input);

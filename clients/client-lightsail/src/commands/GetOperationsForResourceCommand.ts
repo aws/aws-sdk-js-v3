@@ -34,6 +34,8 @@ export interface GetOperationsForResourceCommandOutput extends GetOperationsForR
  * ```javascript
  * import { LightsailClient, GetOperationsForResourceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetOperationsForResourceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetOperationsForResourceRequest
  *   resourceName: "STRING_VALUE", // required

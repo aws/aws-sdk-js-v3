@@ -44,6 +44,8 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WellArchitectedClient, AssociateLensesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, AssociateLensesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // AssociateLensesInput
  *   WorkloadId: "STRING_VALUE", // required

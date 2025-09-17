@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { WisdomClient, ListTagsForResourceCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListTagsForResourceCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

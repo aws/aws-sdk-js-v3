@@ -34,6 +34,8 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * ```javascript
  * import { IVSRealTimeClient, GetCompositionCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, GetCompositionCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // GetCompositionRequest
  *   arn: "STRING_VALUE", // required

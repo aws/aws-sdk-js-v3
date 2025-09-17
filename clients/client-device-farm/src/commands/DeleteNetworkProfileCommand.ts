@@ -34,6 +34,8 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  * ```javascript
  * import { DeviceFarmClient, DeleteNetworkProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteNetworkProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // DeleteNetworkProfileRequest
  *   arn: "STRING_VALUE", // required

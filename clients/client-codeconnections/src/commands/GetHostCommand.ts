@@ -35,6 +35,8 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * ```javascript
  * import { CodeConnectionsClient, GetHostCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, GetHostCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // GetHostInput
  *   HostArn: "STRING_VALUE", // required

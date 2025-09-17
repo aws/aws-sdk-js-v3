@@ -71,6 +71,8 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * ```javascript
  * import { RedshiftDataClient, DescribeTableCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, DescribeTableCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * // import type { RedshiftDataClientConfig } from "@aws-sdk/client-redshift-data";
+ * const config = {}; // type is RedshiftDataClientConfig
  * const client = new RedshiftDataClient(config);
  * const input = { // DescribeTableRequest
  *   ClusterIdentifier: "STRING_VALUE",

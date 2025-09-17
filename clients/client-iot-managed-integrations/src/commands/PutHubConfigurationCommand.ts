@@ -38,6 +38,8 @@ export interface PutHubConfigurationCommandOutput extends PutHubConfigurationRes
  * ```javascript
  * import { IoTManagedIntegrationsClient, PutHubConfigurationCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, PutHubConfigurationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // PutHubConfigurationRequest
  *   HubTokenTimerExpirySettingInSeconds: Number("long"), // required

@@ -62,6 +62,8 @@ export interface DescribeForecastCommandOutput extends DescribeForecastResponse,
  * ```javascript
  * import { ForecastClient, DescribeForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // DescribeForecastRequest
  *   ForecastArn: "STRING_VALUE", // required

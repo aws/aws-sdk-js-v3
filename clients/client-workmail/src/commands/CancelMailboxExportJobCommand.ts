@@ -38,6 +38,8 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  * ```javascript
  * import { WorkMailClient, CancelMailboxExportJobCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CancelMailboxExportJobCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // CancelMailboxExportJobRequest
  *   ClientToken: "STRING_VALUE", // required

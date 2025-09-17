@@ -43,6 +43,8 @@ export interface ListServerCertificateTagsCommandOutput extends ListServerCertif
  * ```javascript
  * import { IAMClient, ListServerCertificateTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListServerCertificateTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ListServerCertificateTagsRequest
  *   ServerCertificateName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBea
  * ```javascript
  * import { MemoryDBClient, DeleteACLCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DeleteACLCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // DeleteACLRequest
  *   ACLName: "STRING_VALUE", // required

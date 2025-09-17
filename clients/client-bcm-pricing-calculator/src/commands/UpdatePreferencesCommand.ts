@@ -38,6 +38,8 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
  * ```javascript
  * import { BCMPricingCalculatorClient, UpdatePreferencesCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, UpdatePreferencesCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // UpdatePreferencesRequest
  *   managementAccountRateTypeSelections: [ // RateTypes

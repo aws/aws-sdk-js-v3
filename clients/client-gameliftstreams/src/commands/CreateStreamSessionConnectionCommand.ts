@@ -44,6 +44,8 @@ export interface CreateStreamSessionConnectionCommandOutput
  * ```javascript
  * import { GameLiftStreamsClient, CreateStreamSessionConnectionCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, CreateStreamSessionConnectionCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // CreateStreamSessionConnectionInput
  *   ClientToken: "STRING_VALUE",

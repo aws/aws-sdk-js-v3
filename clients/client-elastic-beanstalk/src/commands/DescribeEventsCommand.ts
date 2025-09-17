@@ -38,6 +38,8 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  * ```javascript
  * import { ElasticBeanstalkClient, DescribeEventsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEventsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * // import type { ElasticBeanstalkClientConfig } from "@aws-sdk/client-elastic-beanstalk";
+ * const config = {}; // type is ElasticBeanstalkClientConfig
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribeEventsMessage
  *   ApplicationName: "STRING_VALUE",

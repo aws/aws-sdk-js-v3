@@ -34,6 +34,8 @@ export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowO
  * ```javascript
  * import { EntityResolutionClient, GetIdMappingWorkflowCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, GetIdMappingWorkflowCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // GetIdMappingWorkflowInput
  *   workflowName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
  * ```javascript
  * import { AccessAnalyzerClient, GetFindingCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetFindingCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // import type { AccessAnalyzerClientConfig } from "@aws-sdk/client-accessanalyzer";
+ * const config = {}; // type is AccessAnalyzerClientConfig
  * const client = new AccessAnalyzerClient(config);
  * const input = { // GetFindingRequest
  *   analyzerArn: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface GetEngagementInvitationCommandOutput extends GetEngagementInvit
  * ```javascript
  * import { PartnerCentralSellingClient, GetEngagementInvitationCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, GetEngagementInvitationCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // GetEngagementInvitationRequest
  *   Catalog: "STRING_VALUE", // required

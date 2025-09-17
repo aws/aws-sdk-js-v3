@@ -37,6 +37,8 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * ```javascript
  * import { CloudHSMV2Client, CreateHsmCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, CreateHsmCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * // import type { CloudHSMV2ClientConfig } from "@aws-sdk/client-cloudhsm-v2";
+ * const config = {}; // type is CloudHSMV2ClientConfig
  * const client = new CloudHSMV2Client(config);
  * const input = { // CreateHsmRequest
  *   ClusterId: "STRING_VALUE", // required

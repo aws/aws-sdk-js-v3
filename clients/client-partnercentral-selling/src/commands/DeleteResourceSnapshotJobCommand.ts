@@ -38,6 +38,8 @@ export interface DeleteResourceSnapshotJobCommandOutput extends __MetadataBearer
  * ```javascript
  * import { PartnerCentralSellingClient, DeleteResourceSnapshotJobCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, DeleteResourceSnapshotJobCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // DeleteResourceSnapshotJobRequest
  *   Catalog: "STRING_VALUE", // required

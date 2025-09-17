@@ -35,6 +35,8 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * ```javascript
  * import { ImagebuilderClient, UpdateLifecyclePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateLifecyclePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // UpdateLifecyclePolicyRequest
  *   lifecyclePolicyArn: "STRING_VALUE", // required

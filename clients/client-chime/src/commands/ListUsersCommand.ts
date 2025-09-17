@@ -40,6 +40,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * ```javascript
  * import { ChimeClient, ListUsersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListUsersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // ListUsersRequest
  *   AccountId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface SetTokenVaultCMKCommandOutput extends SetTokenVaultCMKResponse,
  * ```javascript
  * import { BedrockAgentCoreControlClient, SetTokenVaultCMKCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, SetTokenVaultCMKCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // SetTokenVaultCMKRequest
  *   tokenVaultId: "STRING_VALUE",

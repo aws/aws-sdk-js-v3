@@ -56,6 +56,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  * ```javascript
  * import { StorageGatewayClient, AddTagsToResourceCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AddTagsToResourceCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // AddTagsToResourceInput
  *   ResourceARN: "STRING_VALUE", // required

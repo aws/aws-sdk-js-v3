@@ -34,6 +34,8 @@ export interface UpdateServiceSettingsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SSMQuickSetupClient, UpdateServiceSettingsCommand } from "@aws-sdk/client-ssm-quicksetup"; // ES Modules import
  * // const { SSMQuickSetupClient, UpdateServiceSettingsCommand } = require("@aws-sdk/client-ssm-quicksetup"); // CommonJS import
+ * // import type { SSMQuickSetupClientConfig } from "@aws-sdk/client-ssm-quicksetup";
+ * const config = {}; // type is SSMQuickSetupClientConfig
  * const client = new SSMQuickSetupClient(config);
  * const input = { // UpdateServiceSettingsInput
  *   ExplorerEnablingRoleArn: "STRING_VALUE",

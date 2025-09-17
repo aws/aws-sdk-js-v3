@@ -34,6 +34,8 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * ```javascript
  * import { MediaConvertClient, ListVersionsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ListVersionsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // ListVersionsRequest
  *   MaxResults: Number("int"),

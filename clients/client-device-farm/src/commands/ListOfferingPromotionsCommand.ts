@@ -36,6 +36,8 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  * ```javascript
  * import { DeviceFarmClient, ListOfferingPromotionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListOfferingPromotionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // ListOfferingPromotionsRequest
  *   nextToken: "STRING_VALUE",

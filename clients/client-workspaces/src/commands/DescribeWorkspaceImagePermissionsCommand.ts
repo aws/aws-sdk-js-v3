@@ -39,6 +39,8 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  * ```javascript
  * import { WorkSpacesClient, DescribeWorkspaceImagePermissionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceImagePermissionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeWorkspaceImagePermissionsRequest
  *   ImageId: "STRING_VALUE", // required

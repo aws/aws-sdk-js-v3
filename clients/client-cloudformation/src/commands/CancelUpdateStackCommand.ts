@@ -38,6 +38,8 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudFormationClient, CancelUpdateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CancelUpdateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // CancelUpdateStackInput
  *   StackName: "STRING_VALUE", // required

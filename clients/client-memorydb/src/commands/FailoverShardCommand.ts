@@ -35,6 +35,8 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  * ```javascript
  * import { MemoryDBClient, FailoverShardCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, FailoverShardCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // FailoverShardRequest
  *   ClusterName: "STRING_VALUE", // required

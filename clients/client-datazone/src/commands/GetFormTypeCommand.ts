@@ -34,6 +34,8 @@ export interface GetFormTypeCommandOutput extends GetFormTypeOutput, __MetadataB
  * ```javascript
  * import { DataZoneClient, GetFormTypeCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetFormTypeCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetFormTypeInput
  *   domainIdentifier: "STRING_VALUE", // required

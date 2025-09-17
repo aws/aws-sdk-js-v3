@@ -65,6 +65,8 @@ export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SWFClient, DeprecateDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DeprecateDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // DeprecateDomainInput
  *   name: "STRING_VALUE", // required

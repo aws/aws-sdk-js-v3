@@ -43,6 +43,8 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  * ```javascript
  * import { VerifiedPermissionsClient, IsAuthorizedCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, IsAuthorizedCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // IsAuthorizedInput
  *   policyStoreId: "STRING_VALUE", // required

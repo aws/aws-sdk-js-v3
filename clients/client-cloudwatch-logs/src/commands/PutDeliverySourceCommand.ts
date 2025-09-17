@@ -67,6 +67,8 @@ export interface PutDeliverySourceCommandOutput extends PutDeliverySourceRespons
  * ```javascript
  * import { CloudWatchLogsClient, PutDeliverySourceCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutDeliverySourceCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutDeliverySourceRequest
  *   name: "STRING_VALUE", // required

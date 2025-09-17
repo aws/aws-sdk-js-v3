@@ -71,6 +71,8 @@ export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { IAMClient, TagOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // TagOpenIDConnectProviderRequest
  *   OpenIDConnectProviderArn: "STRING_VALUE", // required

@@ -47,6 +47,8 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
  * ```javascript
  * import { ElasticsearchServiceClient, PurchaseReservedElasticsearchInstanceOfferingCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, PurchaseReservedElasticsearchInstanceOfferingCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // import type { ElasticsearchServiceClientConfig } from "@aws-sdk/client-elasticsearch-service";
+ * const config = {}; // type is ElasticsearchServiceClientConfig
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // PurchaseReservedElasticsearchInstanceOfferingRequest
  *   ReservedElasticsearchInstanceOfferingId: "STRING_VALUE", // required

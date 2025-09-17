@@ -39,6 +39,8 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * ```javascript
  * import { DocDBClient, DescribeDBClustersCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBClustersCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // DescribeDBClustersMessage
  *   DBClusterIdentifier: "STRING_VALUE",

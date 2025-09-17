@@ -43,6 +43,8 @@ export interface ListCustomDomainAssociationsCommandOutput
  * ```javascript
  * import { RedshiftServerlessClient, ListCustomDomainAssociationsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListCustomDomainAssociationsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // ListCustomDomainAssociationsRequest
  *   nextToken: "STRING_VALUE",

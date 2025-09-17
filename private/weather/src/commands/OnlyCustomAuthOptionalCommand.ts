@@ -33,6 +33,8 @@ export interface OnlyCustomAuthOptionalCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WeatherClient, OnlyCustomAuthOptionalCommand } from "@aws-sdk/weather"; // ES Modules import
  * // const { WeatherClient, OnlyCustomAuthOptionalCommand } = require("@aws-sdk/weather"); // CommonJS import
+ * // import type { WeatherClientConfig } from "@aws-sdk/weather";
+ * const config = {}; // type is WeatherClientConfig
  * const client = new WeatherClient(config);
  * const input = {};
  * const command = new OnlyCustomAuthOptionalCommand(input);

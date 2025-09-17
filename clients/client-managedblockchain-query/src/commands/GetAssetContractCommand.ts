@@ -50,6 +50,8 @@ export interface GetAssetContractCommandOutput extends GetAssetContractOutput, _
  * ```javascript
  * import { ManagedBlockchainQueryClient, GetAssetContractCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
  * // const { ManagedBlockchainQueryClient, GetAssetContractCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
+ * // import type { ManagedBlockchainQueryClientConfig } from "@aws-sdk/client-managedblockchain-query";
+ * const config = {}; // type is ManagedBlockchainQueryClientConfig
  * const client = new ManagedBlockchainQueryClient(config);
  * const input = { // GetAssetContractInput
  *   contractIdentifier: { // ContractIdentifier

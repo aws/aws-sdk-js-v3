@@ -34,6 +34,8 @@ export interface ResetChannelStateCommandOutput extends ResetChannelStateRespons
  * ```javascript
  * import { MediaPackageV2Client, ResetChannelStateCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, ResetChannelStateCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // import type { MediaPackageV2ClientConfig } from "@aws-sdk/client-mediapackagev2";
+ * const config = {}; // type is MediaPackageV2ClientConfig
  * const client = new MediaPackageV2Client(config);
  * const input = { // ResetChannelStateRequest
  *   ChannelGroupName: "STRING_VALUE", // required

@@ -41,6 +41,8 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * ```javascript
  * import { VoiceIDClient, UpdateDomainCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, UpdateDomainCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // import type { VoiceIDClientConfig } from "@aws-sdk/client-voice-id";
+ * const config = {}; // type is VoiceIDClientConfig
  * const client = new VoiceIDClient(config);
  * const input = { // UpdateDomainRequest
  *   DomainId: "STRING_VALUE", // required

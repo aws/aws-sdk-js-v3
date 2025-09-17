@@ -35,6 +35,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * ```javascript
  * import { AppRunnerClient, DeleteConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // import type { AppRunnerClientConfig } from "@aws-sdk/client-apprunner";
+ * const config = {}; // type is AppRunnerClientConfig
  * const client = new AppRunnerClient(config);
  * const input = { // DeleteConnectionRequest
  *   ConnectionArn: "STRING_VALUE", // required

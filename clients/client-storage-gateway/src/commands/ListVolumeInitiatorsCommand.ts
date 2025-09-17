@@ -36,6 +36,8 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  * ```javascript
  * import { StorageGatewayClient, ListVolumeInitiatorsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListVolumeInitiatorsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // ListVolumeInitiatorsInput
  *   VolumeARN: "STRING_VALUE", // required

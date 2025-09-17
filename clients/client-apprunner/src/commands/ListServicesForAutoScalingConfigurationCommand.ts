@@ -43,6 +43,8 @@ export interface ListServicesForAutoScalingConfigurationCommandOutput
  * ```javascript
  * import { AppRunnerClient, ListServicesForAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListServicesForAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // import type { AppRunnerClientConfig } from "@aws-sdk/client-apprunner";
+ * const config = {}; // type is AppRunnerClientConfig
  * const client = new AppRunnerClient(config);
  * const input = { // ListServicesForAutoScalingConfigurationRequest
  *   AutoScalingConfigurationArn: "STRING_VALUE", // required

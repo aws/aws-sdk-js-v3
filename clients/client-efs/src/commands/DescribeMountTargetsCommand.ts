@@ -40,6 +40,8 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * ```javascript
  * import { EFSClient, DescribeMountTargetsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeMountTargetsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // import type { EFSClientConfig } from "@aws-sdk/client-efs";
+ * const config = {}; // type is EFSClientConfig
  * const client = new EFSClient(config);
  * const input = { // DescribeMountTargetsRequest
  *   MaxItems: Number("int"),

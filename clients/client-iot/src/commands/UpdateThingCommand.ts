@@ -35,6 +35,8 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  * ```javascript
  * import { IoTClient, UpdateThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // UpdateThingRequest
  *   thingName: "STRING_VALUE", // required

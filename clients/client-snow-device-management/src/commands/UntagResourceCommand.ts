@@ -38,6 +38,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SnowDeviceManagementClient, UntagResourceCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, UntagResourceCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
+ * // import type { SnowDeviceManagementClientConfig } from "@aws-sdk/client-snow-device-management";
+ * const config = {}; // type is SnowDeviceManagementClientConfig
  * const client = new SnowDeviceManagementClient(config);
  * const input = { // UntagResourceInput
  *   resourceArn: "STRING_VALUE", // required

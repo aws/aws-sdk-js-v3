@@ -53,6 +53,8 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KinesisClient, StopStreamEncryptionCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, StopStreamEncryptionCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // StopStreamEncryptionInput
  *   StreamName: "STRING_VALUE",

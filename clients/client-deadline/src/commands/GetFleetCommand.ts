@@ -34,6 +34,8 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * ```javascript
  * import { DeadlineClient, GetFleetCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetFleetCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetFleetRequest
  *   farmId: "STRING_VALUE", // required

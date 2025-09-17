@@ -35,6 +35,8 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  * ```javascript
  * import { CodeCommitClient, ListApprovalRuleTemplatesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListApprovalRuleTemplatesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // ListApprovalRuleTemplatesInput
  *   nextToken: "STRING_VALUE",

@@ -42,6 +42,8 @@ export interface UpdateKxClusterCodeConfigurationCommandOutput
  * ```javascript
  * import { FinspaceClient, UpdateKxClusterCodeConfigurationCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, UpdateKxClusterCodeConfigurationCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // UpdateKxClusterCodeConfigurationRequest
  *   environmentId: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
  * ```javascript
  * import { NetworkManagerClient, DisassociateTransitGatewayConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DisassociateTransitGatewayConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // DisassociateTransitGatewayConnectPeerRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

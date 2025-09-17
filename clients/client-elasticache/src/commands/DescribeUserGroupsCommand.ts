@@ -34,6 +34,8 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
  * ```javascript
  * import { ElastiCacheClient, DescribeUserGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeUserGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeUserGroupsMessage
  *   UserGroupId: "STRING_VALUE",

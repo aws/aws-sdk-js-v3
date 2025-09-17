@@ -34,6 +34,8 @@ export interface GetWorkUnitsCommandOutput extends GetWorkUnitsResponse, __Metad
  * ```javascript
  * import { LakeFormationClient, GetWorkUnitsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetWorkUnitsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // GetWorkUnitsRequest
  *   NextToken: "STRING_VALUE",

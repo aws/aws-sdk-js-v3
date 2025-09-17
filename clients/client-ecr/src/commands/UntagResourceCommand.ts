@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { ECRClient, UntagResourceCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, UntagResourceCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

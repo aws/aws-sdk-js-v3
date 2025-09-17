@@ -44,6 +44,8 @@ export interface ListAppInstanceUserEndpointsCommandOutput
  * ```javascript
  * import { ChimeSDKIdentityClient, ListAppInstanceUserEndpointsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, ListAppInstanceUserEndpointsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * // import type { ChimeSDKIdentityClientConfig } from "@aws-sdk/client-chime-sdk-identity";
+ * const config = {}; // type is ChimeSDKIdentityClientConfig
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // ListAppInstanceUserEndpointsRequest
  *   AppInstanceUserArn: "STRING_VALUE", // required

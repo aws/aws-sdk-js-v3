@@ -35,6 +35,8 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  * ```javascript
  * import { NetworkManagerClient, DeleteGlobalNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteGlobalNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // DeleteGlobalNetworkRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

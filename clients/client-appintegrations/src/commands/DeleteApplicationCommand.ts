@@ -35,6 +35,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * ```javascript
  * import { AppIntegrationsClient, DeleteApplicationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, DeleteApplicationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * // import type { AppIntegrationsClientConfig } from "@aws-sdk/client-appintegrations";
+ * const config = {}; // type is AppIntegrationsClientConfig
  * const client = new AppIntegrationsClient(config);
  * const input = { // DeleteApplicationRequest
  *   Arn: "STRING_VALUE", // required

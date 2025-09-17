@@ -35,6 +35,8 @@ export interface GetConnectorCommandOutput extends GetConnectorResponse, __Metad
  * ```javascript
  * import { PcaConnectorAdClient, GetConnectorCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, GetConnectorCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // GetConnectorRequest
  *   ConnectorArn: "STRING_VALUE", // required

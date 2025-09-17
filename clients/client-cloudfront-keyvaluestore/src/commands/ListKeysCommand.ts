@@ -38,6 +38,8 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * ```javascript
  * import { CloudFrontKeyValueStoreClient, ListKeysCommand } from "@aws-sdk/client-cloudfront-keyvaluestore"; // ES Modules import
  * // const { CloudFrontKeyValueStoreClient, ListKeysCommand } = require("@aws-sdk/client-cloudfront-keyvaluestore"); // CommonJS import
+ * // import type { CloudFrontKeyValueStoreClientConfig } from "@aws-sdk/client-cloudfront-keyvaluestore";
+ * const config = {}; // type is CloudFrontKeyValueStoreClientConfig
  * const client = new CloudFrontKeyValueStoreClient(config);
  * const input = { // ListKeysRequest
  *   KvsARN: "STRING_VALUE", // required

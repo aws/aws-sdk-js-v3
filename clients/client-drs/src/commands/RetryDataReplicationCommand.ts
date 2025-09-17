@@ -38,6 +38,8 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * ```javascript
  * import { DrsClient, RetryDataReplicationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, RetryDataReplicationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // RetryDataReplicationRequest
  *   sourceServerID: "STRING_VALUE", // required

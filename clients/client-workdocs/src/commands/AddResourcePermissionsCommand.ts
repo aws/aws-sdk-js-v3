@@ -41,6 +41,8 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  * ```javascript
  * import { WorkDocsClient, AddResourcePermissionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, AddResourcePermissionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // AddResourcePermissionsRequest
  *   AuthenticationToken: "STRING_VALUE",

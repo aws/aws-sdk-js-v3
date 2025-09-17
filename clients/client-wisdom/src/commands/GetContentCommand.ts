@@ -34,6 +34,8 @@ export interface GetContentCommandOutput extends GetContentResponse, __MetadataB
  * ```javascript
  * import { WisdomClient, GetContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // GetContentRequest
  *   contentId: "STRING_VALUE", // required

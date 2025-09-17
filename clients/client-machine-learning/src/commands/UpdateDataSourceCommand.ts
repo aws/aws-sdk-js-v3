@@ -35,6 +35,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * ```javascript
  * import { MachineLearningClient, UpdateDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, UpdateDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * // import type { MachineLearningClientConfig } from "@aws-sdk/client-machine-learning";
+ * const config = {}; // type is MachineLearningClientConfig
  * const client = new MachineLearningClient(config);
  * const input = { // UpdateDataSourceInput
  *   DataSourceId: "STRING_VALUE", // required

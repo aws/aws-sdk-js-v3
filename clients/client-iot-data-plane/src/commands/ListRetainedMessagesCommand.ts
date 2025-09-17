@@ -43,6 +43,8 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * ```javascript
  * import { IoTDataPlaneClient, ListRetainedMessagesCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, ListRetainedMessagesCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * // import type { IoTDataPlaneClientConfig } from "@aws-sdk/client-iot-data-plane";
+ * const config = {}; // type is IoTDataPlaneClientConfig
  * const client = new IoTDataPlaneClient(config);
  * const input = { // ListRetainedMessagesRequest
  *   nextToken: "STRING_VALUE",

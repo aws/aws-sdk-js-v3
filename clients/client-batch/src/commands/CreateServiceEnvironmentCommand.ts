@@ -34,6 +34,8 @@ export interface CreateServiceEnvironmentCommandOutput extends CreateServiceEnvi
  * ```javascript
  * import { BatchClient, CreateServiceEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, CreateServiceEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // CreateServiceEnvironmentRequest
  *   serviceEnvironmentName: "STRING_VALUE", // required

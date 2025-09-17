@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { IoTFleetHubClient, UntagResourceCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, UntagResourceCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * // import type { IoTFleetHubClientConfig } from "@aws-sdk/client-iotfleethub";
+ * const config = {}; // type is IoTFleetHubClientConfig
  * const client = new IoTFleetHubClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

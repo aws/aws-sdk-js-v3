@@ -49,6 +49,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * ```javascript
  * import { SSMClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DeleteResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

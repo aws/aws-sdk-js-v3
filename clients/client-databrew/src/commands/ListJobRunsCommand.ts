@@ -34,6 +34,8 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * ```javascript
  * import { DataBrewClient, ListJobRunsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListJobRunsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // ListJobRunsRequest
  *   Name: "STRING_VALUE", // required

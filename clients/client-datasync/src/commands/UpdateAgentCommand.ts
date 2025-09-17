@@ -34,6 +34,8 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * ```javascript
  * import { DataSyncClient, UpdateAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // UpdateAgentRequest
  *   AgentArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * ```javascript
  * import { EventBridgeClient, UpdateArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, UpdateArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // UpdateArchiveRequest
  *   ArchiveName: "STRING_VALUE", // required

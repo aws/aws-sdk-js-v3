@@ -35,6 +35,8 @@ export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecu
  * ```javascript
  * import { LookoutEquipmentClient, ListInferenceExecutionsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListInferenceExecutionsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // import type { LookoutEquipmentClientConfig } from "@aws-sdk/client-lookoutequipment";
+ * const config = {}; // type is LookoutEquipmentClientConfig
  * const client = new LookoutEquipmentClient(config);
  * const input = { // ListInferenceExecutionsRequest
  *   NextToken: "STRING_VALUE",

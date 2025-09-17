@@ -34,6 +34,8 @@ export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __Metad
  * ```javascript
  * import { WorkDocsClient, DeleteLabelsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteLabelsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteLabelsRequest
  *   ResourceId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface UpdateTemplateGroupAccessControlEntryCommandOutput extends __Me
  * ```javascript
  * import { PcaConnectorAdClient, UpdateTemplateGroupAccessControlEntryCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, UpdateTemplateGroupAccessControlEntryCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // UpdateTemplateGroupAccessControlEntryRequest
  *   TemplateArn: "STRING_VALUE", // required

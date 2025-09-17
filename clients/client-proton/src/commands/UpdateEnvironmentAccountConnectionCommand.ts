@@ -41,6 +41,8 @@ export interface UpdateEnvironmentAccountConnectionCommandOutput
  * ```javascript
  * import { ProtonClient, UpdateEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // UpdateEnvironmentAccountConnectionInput
  *   id: "STRING_VALUE", // required

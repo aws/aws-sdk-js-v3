@@ -38,6 +38,8 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
  * ```javascript
  * import { SageMakerGeospatialClient, ExportEarthObservationJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, ExportEarthObservationJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * // import type { SageMakerGeospatialClientConfig } from "@aws-sdk/client-sagemaker-geospatial";
+ * const config = {}; // type is SageMakerGeospatialClientConfig
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // ExportEarthObservationJobInput
  *   Arn: "STRING_VALUE", // required

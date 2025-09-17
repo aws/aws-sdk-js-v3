@@ -34,6 +34,8 @@ export interface CreateScanCommandOutput extends CreateScanResponse, __MetadataB
  * ```javascript
  * import { CodeGuruSecurityClient, CreateScanCommand } from "@aws-sdk/client-codeguru-security"; // ES Modules import
  * // const { CodeGuruSecurityClient, CreateScanCommand } = require("@aws-sdk/client-codeguru-security"); // CommonJS import
+ * // import type { CodeGuruSecurityClientConfig } from "@aws-sdk/client-codeguru-security";
+ * const config = {}; // type is CodeGuruSecurityClientConfig
  * const client = new CodeGuruSecurityClient(config);
  * const input = { // CreateScanRequest
  *   clientToken: "STRING_VALUE",

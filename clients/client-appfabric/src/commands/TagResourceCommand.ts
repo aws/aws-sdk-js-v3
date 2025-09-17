@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { AppFabricClient, TagResourceCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, TagResourceCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

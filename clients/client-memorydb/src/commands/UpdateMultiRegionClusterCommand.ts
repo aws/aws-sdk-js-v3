@@ -34,6 +34,8 @@ export interface UpdateMultiRegionClusterCommandOutput extends UpdateMultiRegion
  * ```javascript
  * import { MemoryDBClient, UpdateMultiRegionClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateMultiRegionClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // UpdateMultiRegionClusterRequest
  *   MultiRegionClusterName: "STRING_VALUE", // required

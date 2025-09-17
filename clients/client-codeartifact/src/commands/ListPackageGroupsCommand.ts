@@ -34,6 +34,8 @@ export interface ListPackageGroupsCommandOutput extends ListPackageGroupsResult,
  * ```javascript
  * import { CodeartifactClient, ListPackageGroupsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListPackageGroupsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // ListPackageGroupsRequest
  *   domain: "STRING_VALUE", // required

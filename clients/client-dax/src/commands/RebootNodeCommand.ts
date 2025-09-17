@@ -40,6 +40,8 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  * ```javascript
  * import { DAXClient, RebootNodeCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, RebootNodeCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // RebootNodeRequest
  *   ClusterName: "STRING_VALUE", // required

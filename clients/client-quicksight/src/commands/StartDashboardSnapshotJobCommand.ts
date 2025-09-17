@@ -97,6 +97,8 @@ export interface StartDashboardSnapshotJobCommandOutput extends StartDashboardSn
  * ```javascript
  * import { QuickSightClient, StartDashboardSnapshotJobCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, StartDashboardSnapshotJobCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // StartDashboardSnapshotJobRequest
  *   AwsAccountId: "STRING_VALUE", // required

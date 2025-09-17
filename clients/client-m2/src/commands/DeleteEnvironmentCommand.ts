@@ -36,6 +36,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * ```javascript
  * import { M2Client, DeleteEnvironmentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, DeleteEnvironmentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * // import type { M2ClientConfig } from "@aws-sdk/client-m2";
+ * const config = {}; // type is M2ClientConfig
  * const client = new M2Client(config);
  * const input = { // DeleteEnvironmentRequest
  *   environmentId: "STRING_VALUE", // required

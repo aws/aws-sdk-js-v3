@@ -46,6 +46,8 @@ export interface ExportECSServiceRecommendationsCommandOutput
  * ```javascript
  * import { ComputeOptimizerClient, ExportECSServiceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, ExportECSServiceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * // import type { ComputeOptimizerClientConfig } from "@aws-sdk/client-compute-optimizer";
+ * const config = {}; // type is ComputeOptimizerClientConfig
  * const client = new ComputeOptimizerClient(config);
  * const input = { // ExportECSServiceRecommendationsRequest
  *   accountIds: [ // AccountIds

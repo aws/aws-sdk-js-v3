@@ -38,6 +38,8 @@ export interface GetDataAutomationStatusCommandOutput extends GetDataAutomationS
  * ```javascript
  * import { BedrockDataAutomationRuntimeClient, GetDataAutomationStatusCommand } from "@aws-sdk/client-bedrock-data-automation-runtime"; // ES Modules import
  * // const { BedrockDataAutomationRuntimeClient, GetDataAutomationStatusCommand } = require("@aws-sdk/client-bedrock-data-automation-runtime"); // CommonJS import
+ * // import type { BedrockDataAutomationRuntimeClientConfig } from "@aws-sdk/client-bedrock-data-automation-runtime";
+ * const config = {}; // type is BedrockDataAutomationRuntimeClientConfig
  * const client = new BedrockDataAutomationRuntimeClient(config);
  * const input = { // GetDataAutomationStatusRequest
  *   invocationArn: "STRING_VALUE", // required

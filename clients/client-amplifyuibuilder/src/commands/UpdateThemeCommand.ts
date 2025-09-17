@@ -34,6 +34,8 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * ```javascript
  * import { AmplifyUIBuilderClient, UpdateThemeCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, UpdateThemeCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // import type { AmplifyUIBuilderClientConfig } from "@aws-sdk/client-amplifyuibuilder";
+ * const config = {}; // type is AmplifyUIBuilderClientConfig
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // UpdateThemeRequest
  *   appId: "STRING_VALUE", // required

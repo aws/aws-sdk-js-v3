@@ -34,6 +34,8 @@ export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorD
  * ```javascript
  * import { GreengrassClient, CreateConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // CreateConnectorDefinitionRequest
  *   AmznClientToken: "STRING_VALUE",

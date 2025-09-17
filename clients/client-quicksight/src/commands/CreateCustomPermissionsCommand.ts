@@ -34,6 +34,8 @@ export interface CreateCustomPermissionsCommandOutput extends CreateCustomPermis
  * ```javascript
  * import { QuickSightClient, CreateCustomPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateCustomPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateCustomPermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required

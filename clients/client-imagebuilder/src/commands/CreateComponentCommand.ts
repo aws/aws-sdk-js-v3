@@ -45,6 +45,8 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * ```javascript
  * import { ImagebuilderClient, CreateComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateComponentRequest
  *   name: "STRING_VALUE", // required

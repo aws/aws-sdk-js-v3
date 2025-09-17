@@ -34,6 +34,8 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * ```javascript
  * import { ECRClient, DeletePullThroughCacheRuleCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DeletePullThroughCacheRuleCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // DeletePullThroughCacheRuleRequest
  *   ecrRepositoryPrefix: "STRING_VALUE", // required

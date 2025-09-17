@@ -54,6 +54,8 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * ```javascript
  * import { SESClient, UpdateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // UpdateConfigurationSetEventDestinationRequest
  *   ConfigurationSetName: "STRING_VALUE", // required

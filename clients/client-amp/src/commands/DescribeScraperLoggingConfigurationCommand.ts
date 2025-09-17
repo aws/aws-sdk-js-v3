@@ -42,6 +42,8 @@ export interface DescribeScraperLoggingConfigurationCommandOutput
  * ```javascript
  * import { AmpClient, DescribeScraperLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DescribeScraperLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // DescribeScraperLoggingConfigurationRequest
  *   scraperId: "STRING_VALUE", // required

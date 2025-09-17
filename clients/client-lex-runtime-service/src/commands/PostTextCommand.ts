@@ -118,6 +118,8 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  * ```javascript
  * import { LexRuntimeServiceClient, PostTextCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, PostTextCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
+ * // import type { LexRuntimeServiceClientConfig } from "@aws-sdk/client-lex-runtime-service";
+ * const config = {}; // type is LexRuntimeServiceClientConfig
  * const client = new LexRuntimeServiceClient(config);
  * const input = { // PostTextRequest
  *   botName: "STRING_VALUE", // required

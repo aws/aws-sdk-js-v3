@@ -64,6 +64,8 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  * ```javascript
  * import { SupportClient, DescribeTrustedAdvisorChecksCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeTrustedAdvisorChecksCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * // import type { SupportClientConfig } from "@aws-sdk/client-support";
+ * const config = {}; // type is SupportClientConfig
  * const client = new SupportClient(config);
  * const input = { // DescribeTrustedAdvisorChecksRequest
  *   language: "STRING_VALUE", // required

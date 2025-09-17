@@ -33,6 +33,8 @@ export interface HttpPayloadWithUnionCommandOutput extends HttpPayloadWithUnionI
  * ```javascript
  * import { RestXmlProtocolClient, HttpPayloadWithUnionCommand } from "@aws-sdk/aws-protocoltests-restxml-schema"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadWithUnionCommand } = require("@aws-sdk/aws-protocoltests-restxml-schema"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml-schema";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // HttpPayloadWithUnionInputOutput
  *   nested: { // UnionPayload Union: only one key present

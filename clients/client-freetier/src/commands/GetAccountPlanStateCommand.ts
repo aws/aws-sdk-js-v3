@@ -34,6 +34,8 @@ export interface GetAccountPlanStateCommandOutput extends GetAccountPlanStateRes
  * ```javascript
  * import { FreeTierClient, GetAccountPlanStateCommand } from "@aws-sdk/client-freetier"; // ES Modules import
  * // const { FreeTierClient, GetAccountPlanStateCommand } = require("@aws-sdk/client-freetier"); // CommonJS import
+ * // import type { FreeTierClientConfig } from "@aws-sdk/client-freetier";
+ * const config = {}; // type is FreeTierClientConfig
  * const client = new FreeTierClient(config);
  * const input = {};
  * const command = new GetAccountPlanStateCommand(input);

@@ -34,6 +34,8 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * ```javascript
  * import { GlueClient, GetConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetConnectionRequest
  *   CatalogId: "STRING_VALUE",

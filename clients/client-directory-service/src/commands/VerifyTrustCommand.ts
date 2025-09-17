@@ -37,6 +37,8 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  * ```javascript
  * import { DirectoryServiceClient, VerifyTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, VerifyTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // VerifyTrustRequest
  *   TrustId: "STRING_VALUE", // required

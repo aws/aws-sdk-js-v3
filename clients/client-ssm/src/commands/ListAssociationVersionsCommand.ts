@@ -38,6 +38,8 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
  * ```javascript
  * import { SSMClient, ListAssociationVersionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListAssociationVersionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListAssociationVersionsRequest
  *   AssociationId: "STRING_VALUE", // required

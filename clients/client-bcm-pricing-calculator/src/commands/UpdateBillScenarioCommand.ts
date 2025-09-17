@@ -38,6 +38,8 @@ export interface UpdateBillScenarioCommandOutput extends UpdateBillScenarioRespo
  * ```javascript
  * import { BCMPricingCalculatorClient, UpdateBillScenarioCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, UpdateBillScenarioCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // UpdateBillScenarioRequest
  *   identifier: "STRING_VALUE", // required

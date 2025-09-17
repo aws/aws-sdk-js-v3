@@ -122,6 +122,8 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * ```javascript
  * import { KMSClient, GenerateDataKeyPairCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateDataKeyPairCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // GenerateDataKeyPairRequest
  *   EncryptionContext: { // EncryptionContextType

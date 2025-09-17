@@ -34,6 +34,8 @@ export interface AssociateGovernedTermsCommandOutput extends AssociateGovernedTe
  * ```javascript
  * import { DataZoneClient, AssociateGovernedTermsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, AssociateGovernedTermsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // AssociateGovernedTermsInput
  *   domainIdentifier: "STRING_VALUE", // required

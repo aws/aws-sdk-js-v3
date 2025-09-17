@@ -34,6 +34,8 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * ```javascript
  * import { WAFV2Client, GetLoggingConfigurationCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetLoggingConfigurationCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // import type { WAFV2ClientConfig } from "@aws-sdk/client-wafv2";
+ * const config = {}; // type is WAFV2ClientConfig
  * const client = new WAFV2Client(config);
  * const input = { // GetLoggingConfigurationRequest
  *   ResourceArn: "STRING_VALUE", // required

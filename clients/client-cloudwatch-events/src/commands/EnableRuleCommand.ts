@@ -36,6 +36,8 @@ export interface EnableRuleCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudWatchEventsClient, EnableRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, EnableRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * // import type { CloudWatchEventsClientConfig } from "@aws-sdk/client-cloudwatch-events";
+ * const config = {}; // type is CloudWatchEventsClientConfig
  * const client = new CloudWatchEventsClient(config);
  * const input = { // EnableRuleRequest
  *   Name: "STRING_VALUE", // required

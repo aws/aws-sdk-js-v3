@@ -36,6 +36,8 @@ export interface DescribeEnvironmentResourcesCommandOutput
  * ```javascript
  * import { ElasticBeanstalkClient, DescribeEnvironmentResourcesCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentResourcesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * // import type { ElasticBeanstalkClientConfig } from "@aws-sdk/client-elastic-beanstalk";
+ * const config = {}; // type is ElasticBeanstalkClientConfig
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribeEnvironmentResourcesMessage
  *   EnvironmentId: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ContentTypeParametersCommandOutput extends ContentTypeParameter
  * ```javascript
  * import { JsonProtocolClient, ContentTypeParametersCommand } from "@aws-sdk/aws-protocoltests-json-schema"; // ES Modules import
  * // const { JsonProtocolClient, ContentTypeParametersCommand } = require("@aws-sdk/aws-protocoltests-json-schema"); // CommonJS import
+ * // import type { JsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-json-schema";
+ * const config = {}; // type is JsonProtocolClientConfig
  * const client = new JsonProtocolClient(config);
  * const input = { // ContentTypeParametersInput
  *   value: Number("int"),

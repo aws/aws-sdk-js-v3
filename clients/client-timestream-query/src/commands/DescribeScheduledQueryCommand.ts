@@ -39,6 +39,8 @@ export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQu
  * ```javascript
  * import { TimestreamQueryClient, DescribeScheduledQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, DescribeScheduledQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * // import type { TimestreamQueryClientConfig } from "@aws-sdk/client-timestream-query";
+ * const config = {}; // type is TimestreamQueryClientConfig
  * const client = new TimestreamQueryClient(config);
  * const input = { // DescribeScheduledQueryRequest
  *   ScheduledQueryArn: "STRING_VALUE", // required

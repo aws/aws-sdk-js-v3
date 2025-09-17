@@ -35,6 +35,8 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * ```javascript
  * import { SecurityLakeClient, UpdateSubscriberCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, UpdateSubscriberCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // UpdateSubscriberRequest
  *   subscriberId: "STRING_VALUE", // required

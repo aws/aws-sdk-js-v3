@@ -35,6 +35,8 @@ export interface GetRepositoryLinkCommandOutput extends GetRepositoryLinkOutput,
  * ```javascript
  * import { CodeConnectionsClient, GetRepositoryLinkCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, GetRepositoryLinkCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // GetRepositoryLinkInput
  *   RepositoryLinkId: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface ListLogGroupsCommandOutput extends ListLogGroupsResponse, __Met
  * ```javascript
  * import { CloudWatchLogsClient, ListLogGroupsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, ListLogGroupsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // ListLogGroupsRequest
  *   logGroupNamePattern: "STRING_VALUE",

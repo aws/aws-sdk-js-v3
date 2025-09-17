@@ -35,6 +35,8 @@ export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { TimestreamQueryClient, DeleteScheduledQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, DeleteScheduledQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * // import type { TimestreamQueryClientConfig } from "@aws-sdk/client-timestream-query";
+ * const config = {}; // type is TimestreamQueryClientConfig
  * const client = new TimestreamQueryClient(config);
  * const input = { // DeleteScheduledQueryRequest
  *   ScheduledQueryArn: "STRING_VALUE", // required

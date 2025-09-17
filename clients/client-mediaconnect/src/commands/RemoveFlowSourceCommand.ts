@@ -34,6 +34,8 @@ export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse,
  * ```javascript
  * import { MediaConnectClient, RemoveFlowSourceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, RemoveFlowSourceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // RemoveFlowSourceRequest
  *   FlowArn: "STRING_VALUE", // required

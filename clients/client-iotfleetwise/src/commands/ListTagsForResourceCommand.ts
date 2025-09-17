@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { IoTFleetWiseClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

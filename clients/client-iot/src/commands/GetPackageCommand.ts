@@ -35,6 +35,8 @@ export interface GetPackageCommandOutput extends GetPackageResponse, __MetadataB
  * ```javascript
  * import { IoTClient, GetPackageCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetPackageCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // GetPackageRequest
  *   packageName: "STRING_VALUE", // required

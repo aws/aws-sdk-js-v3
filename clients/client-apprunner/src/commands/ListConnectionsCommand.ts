@@ -34,6 +34,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * ```javascript
  * import { AppRunnerClient, ListConnectionsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListConnectionsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // import type { AppRunnerClientConfig } from "@aws-sdk/client-apprunner";
+ * const config = {}; // type is AppRunnerClientConfig
  * const client = new AppRunnerClient(config);
  * const input = { // ListConnectionsRequest
  *   ConnectionName: "STRING_VALUE",

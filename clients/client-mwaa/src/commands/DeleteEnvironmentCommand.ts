@@ -34,6 +34,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  * ```javascript
  * import { MWAAClient, DeleteEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * // import type { MWAAClientConfig } from "@aws-sdk/client-mwaa";
+ * const config = {}; // type is MWAAClientConfig
  * const client = new MWAAClient(config);
  * const input = { // DeleteEnvironmentInput
  *   Name: "STRING_VALUE", // required

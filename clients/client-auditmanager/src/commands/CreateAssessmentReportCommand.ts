@@ -39,6 +39,8 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * ```javascript
  * import { AuditManagerClient, CreateAssessmentReportCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, CreateAssessmentReportCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // CreateAssessmentReportRequest
  *   name: "STRING_VALUE", // required

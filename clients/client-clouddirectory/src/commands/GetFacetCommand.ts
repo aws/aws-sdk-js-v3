@@ -35,6 +35,8 @@ export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBeare
  * ```javascript
  * import { CloudDirectoryClient, GetFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // GetFacetRequest
  *   SchemaArn: "STRING_VALUE", // required

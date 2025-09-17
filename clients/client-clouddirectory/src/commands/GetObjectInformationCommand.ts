@@ -34,6 +34,8 @@ export interface GetObjectInformationCommandOutput extends GetObjectInformationR
  * ```javascript
  * import { CloudDirectoryClient, GetObjectInformationCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetObjectInformationCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // GetObjectInformationRequest
  *   DirectoryArn: "STRING_VALUE", // required

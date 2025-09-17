@@ -34,6 +34,8 @@ export interface UpdateActionCommandOutput extends UpdateActionResponse, __Metad
  * ```javascript
  * import { SageMakerClient, UpdateActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateActionRequest
  *   ActionName: "STRING_VALUE", // required

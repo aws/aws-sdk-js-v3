@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { IvschatClient, ListTagsForResourceCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // import type { IvschatClientConfig } from "@aws-sdk/client-ivschat";
+ * const config = {}; // type is IvschatClientConfig
  * const client = new IvschatClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

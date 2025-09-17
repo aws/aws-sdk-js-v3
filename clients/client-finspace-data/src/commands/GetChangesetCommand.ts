@@ -36,6 +36,8 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
  * ```javascript
  * import { FinspaceDataClient, GetChangesetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetChangesetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // import type { FinspaceDataClientConfig } from "@aws-sdk/client-finspace-data";
+ * const config = {}; // type is FinspaceDataClientConfig
  * const client = new FinspaceDataClient(config);
  * const input = { // GetChangesetRequest
  *   datasetId: "STRING_VALUE", // required

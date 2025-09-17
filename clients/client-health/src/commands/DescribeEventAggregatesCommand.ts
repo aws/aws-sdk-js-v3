@@ -39,6 +39,8 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * ```javascript
  * import { HealthClient, DescribeEventAggregatesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventAggregatesCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * // import type { HealthClientConfig } from "@aws-sdk/client-health";
+ * const config = {}; // type is HealthClientConfig
  * const client = new HealthClient(config);
  * const input = { // DescribeEventAggregatesRequest
  *   filter: { // EventFilter

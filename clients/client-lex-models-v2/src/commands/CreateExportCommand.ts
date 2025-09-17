@@ -43,6 +43,8 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  * ```javascript
  * import { LexModelsV2Client, CreateExportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateExportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // CreateExportRequest
  *   resourceSpecification: { // ExportResourceSpecification

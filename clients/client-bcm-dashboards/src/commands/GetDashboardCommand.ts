@@ -34,6 +34,8 @@ export interface GetDashboardCommandOutput extends GetDashboardResponse, __Metad
  * ```javascript
  * import { BCMDashboardsClient, GetDashboardCommand } from "@aws-sdk/client-bcm-dashboards"; // ES Modules import
  * // const { BCMDashboardsClient, GetDashboardCommand } = require("@aws-sdk/client-bcm-dashboards"); // CommonJS import
+ * // import type { BCMDashboardsClientConfig } from "@aws-sdk/client-bcm-dashboards";
+ * const config = {}; // type is BCMDashboardsClientConfig
  * const client = new BCMDashboardsClient(config);
  * const input = { // GetDashboardRequest
  *   arn: "STRING_VALUE", // required

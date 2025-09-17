@@ -34,6 +34,8 @@ export interface ListPagesByContactCommandOutput extends ListPagesByContactResul
  * ```javascript
  * import { SSMContactsClient, ListPagesByContactCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListPagesByContactCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // import type { SSMContactsClientConfig } from "@aws-sdk/client-ssm-contacts";
+ * const config = {}; // type is SSMContactsClientConfig
  * const client = new SSMContactsClient(config);
  * const input = { // ListPagesByContactRequest
  *   ContactId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTClient, DeleteFleetMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteFleetMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteFleetMetricRequest
  *   metricName: "STRING_VALUE", // required

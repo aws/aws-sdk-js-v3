@@ -34,6 +34,8 @@ export interface GetAuthorizerCommandOutput extends GetAuthorizerResponse, __Met
  * ```javascript
  * import { ApiGatewayV2Client, GetAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * // import type { ApiGatewayV2ClientConfig } from "@aws-sdk/client-apigatewayv2";
+ * const config = {}; // type is ApiGatewayV2ClientConfig
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetAuthorizerRequest
  *   ApiId: "STRING_VALUE", // required

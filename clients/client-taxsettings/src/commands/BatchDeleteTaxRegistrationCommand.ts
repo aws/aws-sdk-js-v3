@@ -42,6 +42,8 @@ export interface BatchDeleteTaxRegistrationCommandOutput extends BatchDeleteTaxR
  * ```javascript
  * import { TaxSettingsClient, BatchDeleteTaxRegistrationCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, BatchDeleteTaxRegistrationCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // import type { TaxSettingsClientConfig } from "@aws-sdk/client-taxsettings";
+ * const config = {}; // type is TaxSettingsClientConfig
  * const client = new TaxSettingsClient(config);
  * const input = { // BatchDeleteTaxRegistrationRequest
  *   accountIds: [ // AccountIds // required

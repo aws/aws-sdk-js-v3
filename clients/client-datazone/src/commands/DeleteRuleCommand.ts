@@ -34,6 +34,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * ```javascript
  * import { DataZoneClient, DeleteRuleCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteRuleCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteRuleInput
  *   domainIdentifier: "STRING_VALUE", // required

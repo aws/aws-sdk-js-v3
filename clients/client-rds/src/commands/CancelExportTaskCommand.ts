@@ -35,6 +35,8 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * ```javascript
  * import { RDSClient, CancelExportTaskCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CancelExportTaskCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // CancelExportTaskMessage
  *   ExportTaskIdentifier: "STRING_VALUE", // required

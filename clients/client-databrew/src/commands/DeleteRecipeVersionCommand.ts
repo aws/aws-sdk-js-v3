@@ -34,6 +34,8 @@ export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionRes
  * ```javascript
  * import { DataBrewClient, DeleteRecipeVersionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteRecipeVersionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // DeleteRecipeVersionRequest
  *   Name: "STRING_VALUE", // required

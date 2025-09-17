@@ -42,6 +42,8 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  * ```javascript
  * import { WAFClient, GetGeoMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetGeoMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // GetGeoMatchSetRequest
  *   GeoMatchSetId: "STRING_VALUE", // required

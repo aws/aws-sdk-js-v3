@@ -33,6 +33,8 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsOutput, __MetadataB
  * ```javascript
  * import { QueryProtocolClient, XmlIntEnumsCommand } from "@aws-sdk/aws-protocoltests-query-schema"; // ES Modules import
  * // const { QueryProtocolClient, XmlIntEnumsCommand } = require("@aws-sdk/aws-protocoltests-query-schema"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query-schema";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = {};
  * const command = new XmlIntEnumsCommand(input);

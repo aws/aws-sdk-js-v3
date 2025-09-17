@@ -58,6 +58,8 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  * ```javascript
  * import { EKSClient, CreateFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // CreateFargateProfileRequest
  *   fargateProfileName: "STRING_VALUE", // required

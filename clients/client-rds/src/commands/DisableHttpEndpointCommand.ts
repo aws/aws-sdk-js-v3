@@ -40,6 +40,8 @@ export interface DisableHttpEndpointCommandOutput extends DisableHttpEndpointRes
  * ```javascript
  * import { RDSClient, DisableHttpEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DisableHttpEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DisableHttpEndpointRequest
  *   ResourceArn: "STRING_VALUE", // required

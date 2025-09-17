@@ -39,6 +39,8 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  * ```javascript
  * import { DataSyncClient, CreateLocationEfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationEfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationEfsRequest
  *   Subdirectory: "STRING_VALUE",

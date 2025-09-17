@@ -34,6 +34,8 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  * ```javascript
  * import { LookoutMetricsClient, CreateMetricSetCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, CreateMetricSetCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // CreateMetricSetRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required

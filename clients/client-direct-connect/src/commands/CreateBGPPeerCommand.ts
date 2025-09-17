@@ -49,6 +49,8 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * ```javascript
  * import { DirectConnectClient, CreateBGPPeerCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateBGPPeerCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
+ * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
  * const input = { // CreateBGPPeerRequest
  *   virtualInterfaceId: "STRING_VALUE",

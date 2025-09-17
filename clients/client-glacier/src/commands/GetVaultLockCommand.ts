@@ -61,6 +61,8 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * ```javascript
  * import { GlacierClient, GetVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // import type { GlacierClientConfig } from "@aws-sdk/client-glacier";
+ * const config = {}; // type is GlacierClientConfig
  * const client = new GlacierClient(config);
  * const input = { // GetVaultLockInput
  *   accountId: "STRING_VALUE", // required

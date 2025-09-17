@@ -35,6 +35,8 @@ export interface ListTargetGroupsCommandOutput extends ListTargetGroupsResponse,
  * ```javascript
  * import { VPCLatticeClient, ListTargetGroupsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListTargetGroupsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // ListTargetGroupsRequest
  *   maxResults: Number("int"),

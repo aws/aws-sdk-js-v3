@@ -43,6 +43,8 @@ export interface CancelDataQualityRuleRecommendationRunCommandOutput
  * ```javascript
  * import { GlueClient, CancelDataQualityRuleRecommendationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CancelDataQualityRuleRecommendationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // CancelDataQualityRuleRecommendationRunRequest
  *   RunId: "STRING_VALUE", // required

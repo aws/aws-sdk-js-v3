@@ -34,6 +34,8 @@ export interface CreateServiceSyncConfigCommandOutput extends CreateServiceSyncC
  * ```javascript
  * import { ProtonClient, CreateServiceSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateServiceSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // CreateServiceSyncConfigInput
  *   serviceName: "STRING_VALUE", // required

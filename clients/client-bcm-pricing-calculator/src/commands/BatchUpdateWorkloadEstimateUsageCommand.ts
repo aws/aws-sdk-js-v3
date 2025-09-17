@@ -43,6 +43,8 @@ export interface BatchUpdateWorkloadEstimateUsageCommandOutput
  * ```javascript
  * import { BCMPricingCalculatorClient, BatchUpdateWorkloadEstimateUsageCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, BatchUpdateWorkloadEstimateUsageCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // BatchUpdateWorkloadEstimateUsageRequest
  *   workloadEstimateId: "STRING_VALUE", // required

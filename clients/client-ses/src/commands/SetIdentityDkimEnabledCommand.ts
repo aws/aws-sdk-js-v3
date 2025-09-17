@@ -47,6 +47,8 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  * ```javascript
  * import { SESClient, SetIdentityDkimEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetIdentityDkimEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // SetIdentityDkimEnabledRequest
  *   Identity: "STRING_VALUE", // required

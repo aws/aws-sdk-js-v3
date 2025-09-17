@@ -46,6 +46,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { RoboMakerClient, TagResourceCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, TagResourceCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

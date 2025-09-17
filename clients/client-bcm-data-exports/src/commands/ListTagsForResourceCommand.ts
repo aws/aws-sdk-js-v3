@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { BCMDataExportsClient, ListTagsForResourceCommand } from "@aws-sdk/client-bcm-data-exports"; // ES Modules import
  * // const { BCMDataExportsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-bcm-data-exports"); // CommonJS import
+ * // import type { BCMDataExportsClientConfig } from "@aws-sdk/client-bcm-data-exports";
+ * const config = {}; // type is BCMDataExportsClientConfig
  * const client = new BCMDataExportsClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

@@ -48,6 +48,8 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  * ```javascript
  * import { QLDBClient, ListJournalKinesisStreamsForLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListJournalKinesisStreamsForLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * // import type { QLDBClientConfig } from "@aws-sdk/client-qldb";
+ * const config = {}; // type is QLDBClientConfig
  * const client = new QLDBClient(config);
  * const input = { // ListJournalKinesisStreamsForLedgerRequest
  *   LedgerName: "STRING_VALUE", // required

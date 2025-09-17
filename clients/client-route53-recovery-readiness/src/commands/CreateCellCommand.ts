@@ -38,6 +38,8 @@ export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataB
  * ```javascript
  * import { Route53RecoveryReadinessClient, CreateCellCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, CreateCellCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * // import type { Route53RecoveryReadinessClientConfig } from "@aws-sdk/client-route53-recovery-readiness";
+ * const config = {}; // type is Route53RecoveryReadinessClientConfig
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // CreateCellRequest
  *   CellName: "STRING_VALUE", // required

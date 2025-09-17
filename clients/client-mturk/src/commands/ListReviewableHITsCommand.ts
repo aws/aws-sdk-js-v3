@@ -37,6 +37,8 @@ export interface ListReviewableHITsCommandOutput extends ListReviewableHITsRespo
  * ```javascript
  * import { MTurkClient, ListReviewableHITsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListReviewableHITsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // ListReviewableHITsRequest
  *   HITTypeId: "STRING_VALUE",

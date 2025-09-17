@@ -34,6 +34,8 @@ export interface GetCalculationExecutionCommandOutput extends GetCalculationExec
  * ```javascript
  * import { AthenaClient, GetCalculationExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetCalculationExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // GetCalculationExecutionRequest
  *   CalculationExecutionId: "STRING_VALUE", // required

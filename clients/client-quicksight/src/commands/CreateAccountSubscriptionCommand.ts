@@ -55,6 +55,8 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * ```javascript
  * import { QuickSightClient, CreateAccountSubscriptionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateAccountSubscriptionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateAccountSubscriptionRequest
  *   Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q",

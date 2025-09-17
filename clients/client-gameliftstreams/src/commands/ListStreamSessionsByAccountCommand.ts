@@ -37,6 +37,8 @@ export interface ListStreamSessionsByAccountCommandOutput extends ListStreamSess
  * ```javascript
  * import { GameLiftStreamsClient, ListStreamSessionsByAccountCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, ListStreamSessionsByAccountCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // ListStreamSessionsByAccountInput
  *   Status: "ACTIVATING" || "ACTIVE" || "CONNECTED" || "PENDING_CLIENT_RECONNECTION" || "RECONNECTING" || "TERMINATING" || "TERMINATED" || "ERROR",

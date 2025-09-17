@@ -34,6 +34,8 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * ```javascript
  * import { DocDBClient, CreateDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // CreateDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required

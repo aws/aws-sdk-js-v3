@@ -34,6 +34,8 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
  * ```javascript
  * import { DocDBElasticClient, ListClusterSnapshotsCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, ListClusterSnapshotsCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * // import type { DocDBElasticClientConfig } from "@aws-sdk/client-docdb-elastic";
+ * const config = {}; // type is DocDBElasticClientConfig
  * const client = new DocDBElasticClient(config);
  * const input = { // ListClusterSnapshotsInput
  *   clusterArn: "STRING_VALUE",

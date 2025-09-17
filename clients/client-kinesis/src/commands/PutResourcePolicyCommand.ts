@@ -51,6 +51,8 @@ export interface PutResourcePolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KinesisClient, PutResourcePolicyCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, PutResourcePolicyCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // PutResourcePolicyInput
  *   ResourceARN: "STRING_VALUE", // required

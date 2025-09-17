@@ -43,6 +43,8 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * ```javascript
  * import { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * // import type { ServerlessApplicationRepositoryClientConfig } from "@aws-sdk/client-serverlessapplicationrepository";
+ * const config = {}; // type is ServerlessApplicationRepositoryClientConfig
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const input = { // CreateCloudFormationChangeSetRequest
  *   ApplicationId: "STRING_VALUE", // required

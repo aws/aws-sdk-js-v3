@@ -38,6 +38,8 @@ export interface GetPreferencesCommandOutput extends GetPreferencesResponse, __M
  * ```javascript
  * import { CostOptimizationHubClient, GetPreferencesCommand } from "@aws-sdk/client-cost-optimization-hub"; // ES Modules import
  * // const { CostOptimizationHubClient, GetPreferencesCommand } = require("@aws-sdk/client-cost-optimization-hub"); // CommonJS import
+ * // import type { CostOptimizationHubClientConfig } from "@aws-sdk/client-cost-optimization-hub";
+ * const config = {}; // type is CostOptimizationHubClientConfig
  * const client = new CostOptimizationHubClient(config);
  * const input = {};
  * const command = new GetPreferencesCommand(input);

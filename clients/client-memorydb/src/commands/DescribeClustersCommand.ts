@@ -34,6 +34,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * ```javascript
  * import { MemoryDBClient, DescribeClustersCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeClustersCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeClustersRequest
  *   ClusterName: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface UpdateTestConfigurationCommandOutput extends UpdateTestConfigur
  * ```javascript
  * import { AppTestClient, UpdateTestConfigurationCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, UpdateTestConfigurationCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // UpdateTestConfigurationRequest
  *   testConfigurationId: "STRING_VALUE", // required

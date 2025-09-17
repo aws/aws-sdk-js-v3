@@ -34,6 +34,8 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * ```javascript
  * import { DeviceFarmClient, ScheduleRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ScheduleRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // ScheduleRunRequest
  *   projectArn: "STRING_VALUE", // required

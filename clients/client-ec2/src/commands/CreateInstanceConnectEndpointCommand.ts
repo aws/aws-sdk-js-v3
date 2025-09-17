@@ -40,6 +40,8 @@ export interface CreateInstanceConnectEndpointCommandOutput
  * ```javascript
  * import { EC2Client, CreateInstanceConnectEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateInstanceConnectEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateInstanceConnectEndpointRequest
  *   DryRun: true || false,

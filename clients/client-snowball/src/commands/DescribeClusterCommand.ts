@@ -35,6 +35,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * ```javascript
  * import { SnowballClient, DescribeClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * // import type { SnowballClientConfig } from "@aws-sdk/client-snowball";
+ * const config = {}; // type is SnowballClientConfig
  * const client = new SnowballClient(config);
  * const input = { // DescribeClusterRequest
  *   ClusterId: "STRING_VALUE", // required

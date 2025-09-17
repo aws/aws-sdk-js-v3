@@ -34,6 +34,8 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * ```javascript
  * import { SESv2Client, GetImportJobCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetImportJobCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * // import type { SESv2ClientConfig } from "@aws-sdk/client-sesv2";
+ * const config = {}; // type is SESv2ClientConfig
  * const client = new SESv2Client(config);
  * const input = { // GetImportJobRequest
  *   JobId: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * ```javascript
  * import { RoboMakerClient, DescribeSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // DescribeSimulationJobRequest
  *   job: "STRING_VALUE", // required

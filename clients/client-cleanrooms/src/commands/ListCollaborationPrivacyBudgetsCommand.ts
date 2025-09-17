@@ -39,6 +39,8 @@ export interface ListCollaborationPrivacyBudgetsCommandOutput
  * ```javascript
  * import { CleanRoomsClient, ListCollaborationPrivacyBudgetsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListCollaborationPrivacyBudgetsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // ListCollaborationPrivacyBudgetsInput
  *   collaborationIdentifier: "STRING_VALUE", // required

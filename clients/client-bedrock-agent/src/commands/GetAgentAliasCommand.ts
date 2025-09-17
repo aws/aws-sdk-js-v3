@@ -34,6 +34,8 @@ export interface GetAgentAliasCommandOutput extends GetAgentAliasResponse, __Met
  * ```javascript
  * import { BedrockAgentClient, GetAgentAliasCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, GetAgentAliasCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // GetAgentAliasRequest
  *   agentId: "STRING_VALUE", // required

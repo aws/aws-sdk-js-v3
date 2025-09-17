@@ -39,6 +39,8 @@ export interface GetContactMethodsCommandOutput extends GetContactMethodsResult,
  * ```javascript
  * import { LightsailClient, GetContactMethodsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContactMethodsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetContactMethodsRequest
  *   protocols: [ // ContactProtocolsList

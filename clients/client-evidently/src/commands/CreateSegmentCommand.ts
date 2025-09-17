@@ -46,6 +46,8 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  * ```javascript
  * import { EvidentlyClient, CreateSegmentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateSegmentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // CreateSegmentRequest
  *   name: "STRING_VALUE", // required

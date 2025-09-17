@@ -38,6 +38,8 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * ```javascript
  * import { TimestreamWriteClient, CreateDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, CreateDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // import type { TimestreamWriteClientConfig } from "@aws-sdk/client-timestream-write";
+ * const config = {}; // type is TimestreamWriteClientConfig
  * const client = new TimestreamWriteClient(config);
  * const input = { // CreateDatabaseRequest
  *   DatabaseName: "STRING_VALUE", // required

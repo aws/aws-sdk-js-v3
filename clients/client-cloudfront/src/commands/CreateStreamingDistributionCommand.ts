@@ -34,6 +34,8 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  * ```javascript
  * import { CloudFrontClient, CreateStreamingDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateStreamingDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // CreateStreamingDistributionRequest
  *   StreamingDistributionConfig: { // StreamingDistributionConfig

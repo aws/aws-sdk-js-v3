@@ -34,6 +34,8 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * ```javascript
  * import { VPCLatticeClient, UpdateListenerCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, UpdateListenerCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // UpdateListenerRequest
  *   serviceIdentifier: "STRING_VALUE", // required

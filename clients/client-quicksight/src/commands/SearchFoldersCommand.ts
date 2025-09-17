@@ -34,6 +34,8 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * ```javascript
  * import { QuickSightClient, SearchFoldersCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchFoldersCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // SearchFoldersRequest
  *   AwsAccountId: "STRING_VALUE", // required

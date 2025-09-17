@@ -38,6 +38,8 @@ export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __M
  * ```javascript
  * import { ChimeClient, GetPhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetPhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // GetPhoneNumberRequest
  *   PhoneNumberId: "STRING_VALUE", // required

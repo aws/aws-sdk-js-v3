@@ -46,6 +46,8 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
  * ```javascript
  * import { IAMClient, GetServiceLinkedRoleDeletionStatusCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetServiceLinkedRoleDeletionStatusCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // GetServiceLinkedRoleDeletionStatusRequest
  *   DeletionTaskId: "STRING_VALUE", // required

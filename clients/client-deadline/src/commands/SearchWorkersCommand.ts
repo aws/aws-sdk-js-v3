@@ -34,6 +34,8 @@ export interface SearchWorkersCommandOutput extends SearchWorkersResponse, __Met
  * ```javascript
  * import { DeadlineClient, SearchWorkersCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, SearchWorkersCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // SearchWorkersRequest
  *   farmId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
  * ```javascript
  * import { MediaTailorClient, DescribeVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DescribeVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // DescribeVodSourceRequest
  *   SourceLocationName: "STRING_VALUE", // required

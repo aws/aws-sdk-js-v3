@@ -38,6 +38,8 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsOutput,
  * ```javascript
  * import { DataZoneClient, ListSubscriptionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListSubscriptionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListSubscriptionsInput
  *   domainIdentifier: "STRING_VALUE", // required

@@ -82,6 +82,8 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  * ```javascript
  * import { CognitoSyncClient, DescribeIdentityPoolUsageCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, DescribeIdentityPoolUsageCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * // import type { CognitoSyncClientConfig } from "@aws-sdk/client-cognito-sync";
+ * const config = {}; // type is CognitoSyncClientConfig
  * const client = new CognitoSyncClient(config);
  * const input = { // DescribeIdentityPoolUsageRequest
  *   IdentityPoolId: "STRING_VALUE", // required

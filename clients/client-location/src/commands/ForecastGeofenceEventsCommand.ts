@@ -58,6 +58,8 @@ export interface ForecastGeofenceEventsCommandOutput extends ForecastGeofenceEve
  * ```javascript
  * import { LocationClient, ForecastGeofenceEventsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ForecastGeofenceEventsCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // ForecastGeofenceEventsRequest
  *   CollectionName: "STRING_VALUE", // required

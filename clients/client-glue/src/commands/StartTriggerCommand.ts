@@ -36,6 +36,8 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  * ```javascript
  * import { GlueClient, StartTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // StartTriggerRequest
  *   Name: "STRING_VALUE", // required

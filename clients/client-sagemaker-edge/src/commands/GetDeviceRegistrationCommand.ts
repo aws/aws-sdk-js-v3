@@ -34,6 +34,8 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  * ```javascript
  * import { SagemakerEdgeClient, GetDeviceRegistrationCommand } from "@aws-sdk/client-sagemaker-edge"; // ES Modules import
  * // const { SagemakerEdgeClient, GetDeviceRegistrationCommand } = require("@aws-sdk/client-sagemaker-edge"); // CommonJS import
+ * // import type { SagemakerEdgeClientConfig } from "@aws-sdk/client-sagemaker-edge";
+ * const config = {}; // type is SagemakerEdgeClientConfig
  * const client = new SagemakerEdgeClient(config);
  * const input = { // GetDeviceRegistrationRequest
  *   DeviceName: "STRING_VALUE", // required

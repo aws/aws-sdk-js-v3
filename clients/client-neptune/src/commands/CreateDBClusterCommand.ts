@@ -41,6 +41,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * ```javascript
  * import { NeptuneClient, CreateDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // CreateDBClusterMessage
  *   AvailabilityZones: [ // AvailabilityZones

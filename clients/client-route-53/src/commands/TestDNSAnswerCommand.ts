@@ -44,6 +44,8 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * ```javascript
  * import { Route53Client, TestDNSAnswerCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, TestDNSAnswerCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // TestDNSAnswerRequest
  *   HostedZoneId: "STRING_VALUE", // required

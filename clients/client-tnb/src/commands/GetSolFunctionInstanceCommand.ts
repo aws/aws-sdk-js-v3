@@ -40,6 +40,8 @@ export interface GetSolFunctionInstanceCommandOutput extends GetSolFunctionInsta
  * ```javascript
  * import { TnbClient, GetSolFunctionInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolFunctionInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // import type { TnbClientConfig } from "@aws-sdk/client-tnb";
+ * const config = {}; // type is TnbClientConfig
  * const client = new TnbClient(config);
  * const input = { // GetSolFunctionInstanceInput
  *   vnfInstanceId: "STRING_VALUE", // required

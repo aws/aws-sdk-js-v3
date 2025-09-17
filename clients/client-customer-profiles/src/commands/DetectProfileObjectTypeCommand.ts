@@ -39,6 +39,8 @@ export interface DetectProfileObjectTypeCommandOutput extends DetectProfileObjec
  * ```javascript
  * import { CustomerProfilesClient, DetectProfileObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DetectProfileObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // DetectProfileObjectTypeRequest
  *   Objects: [ // Objects // required

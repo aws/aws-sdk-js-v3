@@ -39,6 +39,8 @@ export interface DescribeRoleCustomPermissionCommandOutput
  * ```javascript
  * import { QuickSightClient, DescribeRoleCustomPermissionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeRoleCustomPermissionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeRoleCustomPermissionRequest
  *   Role: "ADMIN" || "AUTHOR" || "READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO", // required

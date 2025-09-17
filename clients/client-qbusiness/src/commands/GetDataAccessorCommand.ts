@@ -35,6 +35,8 @@ export interface GetDataAccessorCommandOutput extends GetDataAccessorResponse, _
  * ```javascript
  * import { QBusinessClient, GetDataAccessorCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, GetDataAccessorCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // GetDataAccessorRequest
  *   applicationId: "STRING_VALUE", // required

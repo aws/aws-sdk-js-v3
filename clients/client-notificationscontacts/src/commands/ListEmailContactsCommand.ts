@@ -42,6 +42,8 @@ export interface ListEmailContactsCommandOutput extends ListEmailContactsRespons
  * ```javascript
  * import { NotificationsContactsClient, ListEmailContactsCommand } from "@aws-sdk/client-notificationscontacts"; // ES Modules import
  * // const { NotificationsContactsClient, ListEmailContactsCommand } = require("@aws-sdk/client-notificationscontacts"); // CommonJS import
+ * // import type { NotificationsContactsClientConfig } from "@aws-sdk/client-notificationscontacts";
+ * const config = {}; // type is NotificationsContactsClientConfig
  * const client = new NotificationsContactsClient(config);
  * const input = { // ListEmailContactsRequest
  *   maxResults: Number("int"),

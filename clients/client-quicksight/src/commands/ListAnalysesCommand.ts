@@ -34,6 +34,8 @@ export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __Metad
  * ```javascript
  * import { QuickSightClient, ListAnalysesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListAnalysesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // ListAnalysesRequest
  *   AwsAccountId: "STRING_VALUE", // required

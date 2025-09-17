@@ -43,6 +43,8 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  * ```javascript
  * import { KinesisVideoClient, TagStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, TagStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * // import type { KinesisVideoClientConfig } from "@aws-sdk/client-kinesis-video";
+ * const config = {}; // type is KinesisVideoClientConfig
  * const client = new KinesisVideoClient(config);
  * const input = { // TagStreamInput
  *   StreamARN: "STRING_VALUE",

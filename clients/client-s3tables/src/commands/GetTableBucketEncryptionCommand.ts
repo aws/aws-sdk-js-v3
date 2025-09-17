@@ -34,6 +34,8 @@ export interface GetTableBucketEncryptionCommandOutput extends GetTableBucketEnc
  * ```javascript
  * import { S3TablesClient, GetTableBucketEncryptionCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
  * // const { S3TablesClient, GetTableBucketEncryptionCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // import type { S3TablesClientConfig } from "@aws-sdk/client-s3tables";
+ * const config = {}; // type is S3TablesClientConfig
  * const client = new S3TablesClient(config);
  * const input = { // GetTableBucketEncryptionRequest
  *   tableBucketARN: "STRING_VALUE", // required

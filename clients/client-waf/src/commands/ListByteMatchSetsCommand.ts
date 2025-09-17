@@ -42,6 +42,8 @@ export interface ListByteMatchSetsCommandOutput extends ListByteMatchSetsRespons
  * ```javascript
  * import { WAFClient, ListByteMatchSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListByteMatchSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // ListByteMatchSetsRequest
  *   NextMarker: "STRING_VALUE",

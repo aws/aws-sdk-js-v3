@@ -39,6 +39,8 @@ export interface DescribeActivitiesCommandOutput extends DescribeActivitiesRespo
  * ```javascript
  * import { WorkDocsClient, DescribeActivitiesCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeActivitiesCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DescribeActivitiesRequest
  *   AuthenticationToken: "STRING_VALUE",

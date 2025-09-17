@@ -34,6 +34,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * ```javascript
  * import { AppStreamClient, CreateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // CreateFleetRequest
  *   Name: "STRING_VALUE", // required

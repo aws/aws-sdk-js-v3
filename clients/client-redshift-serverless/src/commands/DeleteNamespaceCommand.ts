@@ -43,6 +43,8 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * ```javascript
  * import { RedshiftServerlessClient, DeleteNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, DeleteNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // DeleteNamespaceRequest
  *   namespaceName: "STRING_VALUE", // required

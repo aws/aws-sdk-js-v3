@@ -35,6 +35,8 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SignerClient, RevokeSignatureCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, RevokeSignatureCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * // import type { SignerClientConfig } from "@aws-sdk/client-signer";
+ * const config = {}; // type is SignerClientConfig
  * const client = new SignerClient(config);
  * const input = { // RevokeSignatureRequest
  *   jobId: "STRING_VALUE", // required

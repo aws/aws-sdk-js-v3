@@ -42,6 +42,8 @@ export interface PutInvocationStepCommandOutput extends PutInvocationStepRespons
  * ```javascript
  * import { BedrockAgentRuntimeClient, PutInvocationStepCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, PutInvocationStepCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // PutInvocationStepRequest
  *   sessionIdentifier: "STRING_VALUE", // required

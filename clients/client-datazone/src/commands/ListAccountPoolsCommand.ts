@@ -39,6 +39,8 @@ export interface ListAccountPoolsCommandOutput extends ListAccountPoolsOutput, _
  * ```javascript
  * import { DataZoneClient, ListAccountPoolsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListAccountPoolsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListAccountPoolsInput
  *   domainIdentifier: "STRING_VALUE", // required

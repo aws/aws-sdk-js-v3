@@ -41,6 +41,8 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * ```javascript
  * import { FirehoseClient, ListDeliveryStreamsCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, ListDeliveryStreamsCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * // import type { FirehoseClientConfig } from "@aws-sdk/client-firehose";
+ * const config = {}; // type is FirehoseClientConfig
  * const client = new FirehoseClient(config);
  * const input = { // ListDeliveryStreamsInput
  *   Limit: Number("int"),

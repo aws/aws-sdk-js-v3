@@ -38,6 +38,8 @@ export interface ListDataProtectionSettingsCommandOutput extends ListDataProtect
  * ```javascript
  * import { WorkSpacesWebClient, ListDataProtectionSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListDataProtectionSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // ListDataProtectionSettingsRequest
  *   nextToken: "STRING_VALUE",

@@ -39,6 +39,8 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * ```javascript
  * import { DataZoneClient, UpdateConnectionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateConnectionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateConnectionInput
  *   domainIdentifier: "STRING_VALUE", // required

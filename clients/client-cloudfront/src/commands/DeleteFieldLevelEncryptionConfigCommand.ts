@@ -37,6 +37,8 @@ export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __Metadat
  * ```javascript
  * import { CloudFrontClient, DeleteFieldLevelEncryptionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteFieldLevelEncryptionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // DeleteFieldLevelEncryptionConfigRequest
  *   Id: "STRING_VALUE", // required

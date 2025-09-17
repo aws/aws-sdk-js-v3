@@ -38,6 +38,8 @@ export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __Metadat
  * ```javascript
  * import { OpenSearchServerlessClient, UpdateIndexCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateIndexCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // UpdateIndexRequest
  *   id: "STRING_VALUE", // required

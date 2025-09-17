@@ -35,6 +35,8 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * ```javascript
  * import { EventBridgeClient, DeauthorizeConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeauthorizeConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // DeauthorizeConnectionRequest
  *   Name: "STRING_VALUE", // required

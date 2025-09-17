@@ -39,6 +39,8 @@ export interface StartParticipantReplicationCommandOutput
  * ```javascript
  * import { IVSRealTimeClient, StartParticipantReplicationCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, StartParticipantReplicationCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // StartParticipantReplicationRequest
  *   sourceStageArn: "STRING_VALUE", // required

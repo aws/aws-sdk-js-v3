@@ -38,6 +38,8 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * ```javascript
  * import { MPAClient, GetPolicyVersionCommand } from "@aws-sdk/client-mpa"; // ES Modules import
  * // const { MPAClient, GetPolicyVersionCommand } = require("@aws-sdk/client-mpa"); // CommonJS import
+ * // import type { MPAClientConfig } from "@aws-sdk/client-mpa";
+ * const config = {}; // type is MPAClientConfig
  * const client = new MPAClient(config);
  * const input = { // GetPolicyVersionRequest
  *   PolicyVersionArn: "STRING_VALUE", // required

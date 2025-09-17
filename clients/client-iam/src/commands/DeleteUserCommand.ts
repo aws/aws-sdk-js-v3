@@ -66,6 +66,8 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, DeleteUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // DeleteUserRequest
  *   UserName: "STRING_VALUE", // required

@@ -57,6 +57,8 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  * ```javascript
  * import { AppMeshClient, CreateVirtualNodeCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateVirtualNodeCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // CreateVirtualNodeInput
  *   virtualNodeName: "STRING_VALUE", // required

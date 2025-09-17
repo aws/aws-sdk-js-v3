@@ -34,6 +34,8 @@ export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngres
  * ```javascript
  * import { AppRunnerClient, CreateVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // import type { AppRunnerClientConfig } from "@aws-sdk/client-apprunner";
+ * const config = {}; // type is AppRunnerClientConfig
  * const client = new AppRunnerClient(config);
  * const input = { // CreateVpcIngressConnectionRequest
  *   ServiceArn: "STRING_VALUE", // required

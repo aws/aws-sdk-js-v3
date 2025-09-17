@@ -35,6 +35,8 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * ```javascript
  * import { EvidentlyClient, StopExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, StopExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // StopExperimentRequest
  *   project: "STRING_VALUE", // required

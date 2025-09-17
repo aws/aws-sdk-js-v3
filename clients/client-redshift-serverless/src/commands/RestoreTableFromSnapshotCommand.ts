@@ -39,6 +39,8 @@ export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromS
  * ```javascript
  * import { RedshiftServerlessClient, RestoreTableFromSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, RestoreTableFromSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // RestoreTableFromSnapshotRequest
  *   namespaceName: "STRING_VALUE", // required

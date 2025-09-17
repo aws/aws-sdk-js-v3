@@ -34,6 +34,8 @@ export interface DeleteSyncConfigurationCommandOutput extends DeleteSyncConfigur
  * ```javascript
  * import { CodeConnectionsClient, DeleteSyncConfigurationCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, DeleteSyncConfigurationCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // DeleteSyncConfigurationInput
  *   SyncType: "CFN_STACK_SYNC", // required

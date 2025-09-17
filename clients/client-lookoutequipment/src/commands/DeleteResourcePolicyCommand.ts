@@ -34,6 +34,8 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { LookoutEquipmentClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // import type { LookoutEquipmentClientConfig } from "@aws-sdk/client-lookoutequipment";
+ * const config = {}; // type is LookoutEquipmentClientConfig
  * const client = new LookoutEquipmentClient(config);
  * const input = { // DeleteResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

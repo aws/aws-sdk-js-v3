@@ -42,6 +42,8 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * ```javascript
  * import { SESClient, SetIdentityMailFromDomainCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetIdentityMailFromDomainCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // SetIdentityMailFromDomainRequest
  *   Identity: "STRING_VALUE", // required

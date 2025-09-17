@@ -34,6 +34,8 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  * ```javascript
  * import { AutoScalingClient, DescribeLaunchConfigurationsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeLaunchConfigurationsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // LaunchConfigurationNamesType
  *   LaunchConfigurationNames: [ // LaunchConfigurationNames

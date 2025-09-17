@@ -43,6 +43,8 @@ export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
  * ```javascript
  * import { EC2Client, GetTransitGatewayPolicyTableAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetTransitGatewayPolicyTableAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // GetTransitGatewayPolicyTableAssociationsRequest
  *   TransitGatewayPolicyTableId: "STRING_VALUE", // required

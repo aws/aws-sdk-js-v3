@@ -34,6 +34,8 @@ export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataB
  * ```javascript
  * import { NetworkManagerClient, DeleteSiteCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteSiteCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // DeleteSiteRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

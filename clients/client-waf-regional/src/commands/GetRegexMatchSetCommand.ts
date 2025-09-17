@@ -42,6 +42,8 @@ export interface GetRegexMatchSetCommandOutput extends GetRegexMatchSetResponse,
  * ```javascript
  * import { WAFRegionalClient, GetRegexMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetRegexMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // GetRegexMatchSetRequest
  *   RegexMatchSetId: "STRING_VALUE", // required

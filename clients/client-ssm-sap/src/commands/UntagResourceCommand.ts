@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { SsmSapClient, UntagResourceCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, UntagResourceCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * ```javascript
  * import { GlueClient, DescribeConnectionTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DescribeConnectionTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DescribeConnectionTypeRequest
  *   ConnectionType: "STRING_VALUE", // required

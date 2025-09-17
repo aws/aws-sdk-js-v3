@@ -38,6 +38,8 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * ```javascript
  * import { NetworkFlowMonitorClient, UpdateMonitorCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, UpdateMonitorCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // UpdateMonitorInput
  *   monitorName: "STRING_VALUE", // required

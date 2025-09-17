@@ -34,6 +34,8 @@ export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput,
  * ```javascript
  * import { ControlTowerClient, CreateLandingZoneCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, CreateLandingZoneCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // CreateLandingZoneInput
  *   version: "STRING_VALUE", // required

@@ -76,6 +76,8 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * ```javascript
  * import { Route53Client, ListHostedZonesByVPCCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListHostedZonesByVPCCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // ListHostedZonesByVPCRequest
  *   VPCId: "STRING_VALUE", // required

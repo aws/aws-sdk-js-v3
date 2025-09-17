@@ -34,6 +34,8 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * ```javascript
  * import { SageMakerClient, DescribeAutoMLJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeAutoMLJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeAutoMLJobRequest
  *   AutoMLJobName: "STRING_VALUE", // required

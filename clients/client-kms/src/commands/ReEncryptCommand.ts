@@ -128,6 +128,8 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * ```javascript
  * import { KMSClient, ReEncryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ReEncryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // ReEncryptRequest
  *   CiphertextBlob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required

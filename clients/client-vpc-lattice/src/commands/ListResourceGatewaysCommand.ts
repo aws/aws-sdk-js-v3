@@ -34,6 +34,8 @@ export interface ListResourceGatewaysCommandOutput extends ListResourceGatewaysR
  * ```javascript
  * import { VPCLatticeClient, ListResourceGatewaysCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListResourceGatewaysCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // ListResourceGatewaysRequest
  *   maxResults: Number("int"),

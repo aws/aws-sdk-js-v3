@@ -44,6 +44,8 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  * ```javascript
  * import { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * // import type { ComputeOptimizerClientConfig } from "@aws-sdk/client-compute-optimizer";
+ * const config = {}; // type is ComputeOptimizerClientConfig
  * const client = new ComputeOptimizerClient(config);
  * const input = { // ExportEC2InstanceRecommendationsRequest
  *   accountIds: [ // AccountIds

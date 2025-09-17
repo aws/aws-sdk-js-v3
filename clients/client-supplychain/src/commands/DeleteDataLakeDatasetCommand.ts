@@ -34,6 +34,8 @@ export interface DeleteDataLakeDatasetCommandOutput extends DeleteDataLakeDatase
  * ```javascript
  * import { SupplyChainClient, DeleteDataLakeDatasetCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
  * // const { SupplyChainClient, DeleteDataLakeDatasetCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * // import type { SupplyChainClientConfig } from "@aws-sdk/client-supplychain";
+ * const config = {}; // type is SupplyChainClientConfig
  * const client = new SupplyChainClient(config);
  * const input = { // DeleteDataLakeDatasetRequest
  *   instanceId: "STRING_VALUE", // required

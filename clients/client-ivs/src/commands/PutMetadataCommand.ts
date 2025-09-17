@@ -38,6 +38,8 @@ export interface PutMetadataCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IvsClient, PutMetadataCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, PutMetadataCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * // import type { IvsClientConfig } from "@aws-sdk/client-ivs";
+ * const config = {}; // type is IvsClientConfig
  * const client = new IvsClient(config);
  * const input = { // PutMetadataRequest
  *   channelArn: "STRING_VALUE", // required

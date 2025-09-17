@@ -34,6 +34,8 @@ export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentRespons
  * ```javascript
  * import { CodeCatalystClient, GetDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // import type { CodeCatalystClientConfig } from "@aws-sdk/client-codecatalyst";
+ * const config = {}; // type is CodeCatalystClientConfig
  * const client = new CodeCatalystClient(config);
  * const input = { // GetDevEnvironmentRequest
  *   spaceName: "STRING_VALUE", // required

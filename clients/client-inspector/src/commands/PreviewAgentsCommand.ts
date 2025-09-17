@@ -35,6 +35,8 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * ```javascript
  * import { InspectorClient, PreviewAgentsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, PreviewAgentsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // import type { InspectorClientConfig } from "@aws-sdk/client-inspector";
+ * const config = {}; // type is InspectorClientConfig
  * const client = new InspectorClient(config);
  * const input = { // PreviewAgentsRequest
  *   previewAgentsArn: "STRING_VALUE", // required

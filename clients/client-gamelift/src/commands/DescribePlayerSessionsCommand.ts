@@ -66,6 +66,8 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  * ```javascript
  * import { GameLiftClient, DescribePlayerSessionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribePlayerSessionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // DescribePlayerSessionsInput
  *   GameSessionId: "STRING_VALUE",

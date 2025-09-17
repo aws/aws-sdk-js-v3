@@ -34,6 +34,8 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  * ```javascript
  * import { CodeCommitClient, PutRepositoryTriggersCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PutRepositoryTriggersCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // PutRepositoryTriggersInput
  *   repositoryName: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * ```javascript
  * import { ConnectClient, CreatePromptCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreatePromptCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // CreatePromptRequest
  *   InstanceId: "STRING_VALUE", // required

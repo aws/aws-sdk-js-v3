@@ -50,6 +50,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * ```javascript
  * import { RedshiftClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // CreateEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required

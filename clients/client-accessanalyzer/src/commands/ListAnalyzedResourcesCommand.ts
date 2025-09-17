@@ -34,6 +34,8 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * ```javascript
  * import { AccessAnalyzerClient, ListAnalyzedResourcesCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListAnalyzedResourcesCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // import type { AccessAnalyzerClientConfig } from "@aws-sdk/client-accessanalyzer";
+ * const config = {}; // type is AccessAnalyzerClientConfig
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListAnalyzedResourcesRequest
  *   analyzerArn: "STRING_VALUE", // required

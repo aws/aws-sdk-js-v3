@@ -40,6 +40,8 @@ export interface PutNotificationSettingsCommandOutput extends PutNotificationSet
  * ```javascript
  * import { RolesAnywhereClient, PutNotificationSettingsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, PutNotificationSettingsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * // import type { RolesAnywhereClientConfig } from "@aws-sdk/client-rolesanywhere";
+ * const config = {}; // type is RolesAnywhereClientConfig
  * const client = new RolesAnywhereClient(config);
  * const input = { // PutNotificationSettingsRequest
  *   trustAnchorId: "STRING_VALUE", // required

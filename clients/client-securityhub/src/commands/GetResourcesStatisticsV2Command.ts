@@ -34,6 +34,8 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
  * ```javascript
  * import { SecurityHubClient, GetResourcesStatisticsV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetResourcesStatisticsV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // GetResourcesStatisticsV2Request
  *   GroupByRules: [ // ResourceGroupByRules // required

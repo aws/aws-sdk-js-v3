@@ -34,6 +34,8 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ACMClient, DeleteCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, DeleteCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * // import type { ACMClientConfig } from "@aws-sdk/client-acm";
+ * const config = {}; // type is ACMClientConfig
  * const client = new ACMClient(config);
  * const input = { // DeleteCertificateRequest
  *   CertificateArn: "STRING_VALUE", // required

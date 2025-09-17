@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { RepostspaceClient, UntagResourceCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, UntagResourceCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

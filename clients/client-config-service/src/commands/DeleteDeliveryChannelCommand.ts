@@ -35,6 +35,8 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ConfigServiceClient, DeleteDeliveryChannelCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteDeliveryChannelCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteDeliveryChannelRequest
  *   DeliveryChannelName: "STRING_VALUE", // required

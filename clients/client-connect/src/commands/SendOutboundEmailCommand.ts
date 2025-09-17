@@ -43,6 +43,8 @@ export interface SendOutboundEmailCommandOutput extends SendOutboundEmailRespons
  * ```javascript
  * import { ConnectClient, SendOutboundEmailCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SendOutboundEmailCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // SendOutboundEmailRequest
  *   InstanceId: "STRING_VALUE", // required

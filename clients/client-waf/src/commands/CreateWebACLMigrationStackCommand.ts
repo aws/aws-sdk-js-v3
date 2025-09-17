@@ -41,6 +41,8 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  * ```javascript
  * import { WAFClient, CreateWebACLMigrationStackCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateWebACLMigrationStackCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // CreateWebACLMigrationStackRequest
  *   WebACLId: "STRING_VALUE", // required

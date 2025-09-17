@@ -38,6 +38,8 @@ export interface CreateInvocationCommandOutput extends CreateInvocationResponse,
  * ```javascript
  * import { BedrockAgentRuntimeClient, CreateInvocationCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, CreateInvocationCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // CreateInvocationRequest
  *   invocationId: "STRING_VALUE",

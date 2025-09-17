@@ -37,6 +37,8 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * ```javascript
  * import { CloudControlClient, GetResourceCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, GetResourceCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * // import type { CloudControlClientConfig } from "@aws-sdk/client-cloudcontrol";
+ * const config = {}; // type is CloudControlClientConfig
  * const client = new CloudControlClient(config);
  * const input = { // GetResourceInput
  *   TypeName: "STRING_VALUE", // required

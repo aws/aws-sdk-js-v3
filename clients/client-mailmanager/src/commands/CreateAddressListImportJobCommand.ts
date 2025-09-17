@@ -38,6 +38,8 @@ export interface CreateAddressListImportJobCommandOutput extends CreateAddressLi
  * ```javascript
  * import { MailManagerClient, CreateAddressListImportJobCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, CreateAddressListImportJobCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // CreateAddressListImportJobRequest
  *   ClientToken: "STRING_VALUE",

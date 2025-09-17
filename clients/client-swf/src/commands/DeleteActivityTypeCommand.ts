@@ -73,6 +73,8 @@ export interface DeleteActivityTypeCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SWFClient, DeleteActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DeleteActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // DeleteActivityTypeInput
  *   domain: "STRING_VALUE", // required

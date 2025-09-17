@@ -67,6 +67,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * ```javascript
  * import { RedshiftClient, CreateClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // CreateClusterMessage
  *   DBName: "STRING_VALUE",

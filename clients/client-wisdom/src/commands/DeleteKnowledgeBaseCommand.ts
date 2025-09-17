@@ -42,6 +42,8 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  * ```javascript
  * import { WisdomClient, DeleteKnowledgeBaseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteKnowledgeBaseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // DeleteKnowledgeBaseRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

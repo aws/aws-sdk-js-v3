@@ -64,6 +64,8 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  * ```javascript
  * import { TextractClient, StartLendingAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, StartLendingAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // StartLendingAnalysisRequest
  *   DocumentLocation: { // DocumentLocation

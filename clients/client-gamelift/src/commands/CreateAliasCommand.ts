@@ -53,6 +53,8 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  * ```javascript
  * import { GameLiftClient, CreateAliasCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateAliasCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // CreateAliasInput
  *   Name: "STRING_VALUE", // required

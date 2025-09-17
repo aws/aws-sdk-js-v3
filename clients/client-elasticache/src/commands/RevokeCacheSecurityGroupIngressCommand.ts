@@ -41,6 +41,8 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * ```javascript
  * import { ElastiCacheClient, RevokeCacheSecurityGroupIngressCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, RevokeCacheSecurityGroupIngressCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // RevokeCacheSecurityGroupIngressMessage
  *   CacheSecurityGroupName: "STRING_VALUE", // required

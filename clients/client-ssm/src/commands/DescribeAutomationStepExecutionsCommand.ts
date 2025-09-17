@@ -40,6 +40,8 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * ```javascript
  * import { SSMClient, DescribeAutomationStepExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAutomationStepExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeAutomationStepExecutionsRequest
  *   AutomationExecutionId: "STRING_VALUE", // required

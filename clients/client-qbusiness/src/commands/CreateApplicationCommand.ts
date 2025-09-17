@@ -38,6 +38,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * ```javascript
  * import { QBusinessClient, CreateApplicationCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, CreateApplicationCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // CreateApplicationRequest
  *   displayName: "STRING_VALUE", // required

@@ -45,6 +45,8 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * ```javascript
  * import { AutoScalingClient, PutScheduledUpdateGroupActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutScheduledUpdateGroupActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // PutScheduledUpdateGroupActionType
  *   AutoScalingGroupName: "STRING_VALUE", // required

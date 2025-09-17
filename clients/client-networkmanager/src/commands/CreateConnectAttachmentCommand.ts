@@ -37,6 +37,8 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * ```javascript
  * import { NetworkManagerClient, CreateConnectAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateConnectAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateConnectAttachmentRequest
  *   CoreNetworkId: "STRING_VALUE", // required

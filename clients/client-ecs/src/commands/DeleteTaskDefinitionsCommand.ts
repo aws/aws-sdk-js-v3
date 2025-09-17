@@ -53,6 +53,8 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * ```javascript
  * import { ECSClient, DeleteTaskDefinitionsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteTaskDefinitionsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DeleteTaskDefinitionsRequest
  *   taskDefinitions: [ // StringList // required

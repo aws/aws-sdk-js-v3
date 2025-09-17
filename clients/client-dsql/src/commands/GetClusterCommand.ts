@@ -34,6 +34,8 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * ```javascript
  * import { DSQLClient, GetClusterCommand } from "@aws-sdk/client-dsql"; // ES Modules import
  * // const { DSQLClient, GetClusterCommand } = require("@aws-sdk/client-dsql"); // CommonJS import
+ * // import type { DSQLClientConfig } from "@aws-sdk/client-dsql";
+ * const config = {}; // type is DSQLClientConfig
  * const client = new DSQLClient(config);
  * const input = { // GetClusterInput
  *   identifier: "STRING_VALUE", // required

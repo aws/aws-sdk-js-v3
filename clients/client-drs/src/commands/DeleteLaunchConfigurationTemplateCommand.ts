@@ -42,6 +42,8 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * ```javascript
  * import { DrsClient, DeleteLaunchConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DeleteLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // DeleteLaunchConfigurationTemplateRequest
  *   launchConfigurationTemplateID: "STRING_VALUE", // required

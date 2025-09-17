@@ -43,6 +43,8 @@ export interface RestoreTableFromRecoveryPointCommandOutput
  * ```javascript
  * import { RedshiftServerlessClient, RestoreTableFromRecoveryPointCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, RestoreTableFromRecoveryPointCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // RestoreTableFromRecoveryPointRequest
  *   namespaceName: "STRING_VALUE", // required

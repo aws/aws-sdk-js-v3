@@ -62,6 +62,8 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * ```javascript
  * import { ElasticLoadBalancingV2Client, CreateListenerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, CreateListenerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * // import type { ElasticLoadBalancingV2ClientConfig } from "@aws-sdk/client-elastic-load-balancing-v2";
+ * const config = {}; // type is ElasticLoadBalancingV2ClientConfig
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // CreateListenerInput
  *   LoadBalancerArn: "STRING_VALUE", // required

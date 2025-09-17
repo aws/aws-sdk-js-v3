@@ -69,6 +69,8 @@ export interface DeleteBucketLifecycleConfigurationCommandOutput extends __Metad
  * ```javascript
  * import { S3ControlClient, DeleteBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // DeleteBucketLifecycleConfigurationRequest
  *   AccountId: "STRING_VALUE",

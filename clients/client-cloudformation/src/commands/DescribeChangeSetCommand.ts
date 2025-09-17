@@ -37,6 +37,8 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * ```javascript
  * import { CloudFormationClient, DescribeChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeChangeSetInput
  *   ChangeSetName: "STRING_VALUE", // required

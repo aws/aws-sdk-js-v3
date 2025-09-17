@@ -34,6 +34,8 @@ export interface GetAggregatorV2CommandOutput extends GetAggregatorV2Response, _
  * ```javascript
  * import { SecurityHubClient, GetAggregatorV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetAggregatorV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // GetAggregatorV2Request
  *   AggregatorV2Arn: "STRING_VALUE", // required

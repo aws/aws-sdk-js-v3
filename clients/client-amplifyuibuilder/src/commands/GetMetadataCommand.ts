@@ -34,6 +34,8 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  * ```javascript
  * import { AmplifyUIBuilderClient, GetMetadataCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, GetMetadataCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // import type { AmplifyUIBuilderClientConfig } from "@aws-sdk/client-amplifyuibuilder";
+ * const config = {}; // type is AmplifyUIBuilderClientConfig
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // GetMetadataRequest
  *   appId: "STRING_VALUE", // required

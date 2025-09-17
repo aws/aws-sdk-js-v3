@@ -37,6 +37,8 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * ```javascript
  * import { ServiceQuotasClient, ListServiceQuotasCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListServiceQuotasCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * // import type { ServiceQuotasClientConfig } from "@aws-sdk/client-service-quotas";
+ * const config = {}; // type is ServiceQuotasClientConfig
  * const client = new ServiceQuotasClient(config);
  * const input = { // ListServiceQuotasRequest
  *   ServiceCode: "STRING_VALUE", // required

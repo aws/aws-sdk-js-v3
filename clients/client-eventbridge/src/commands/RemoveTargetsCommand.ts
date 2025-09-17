@@ -45,6 +45,8 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * ```javascript
  * import { EventBridgeClient, RemoveTargetsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, RemoveTargetsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // RemoveTargetsRequest
  *   Rule: "STRING_VALUE", // required

@@ -44,6 +44,8 @@ export interface UpdateSlackChannelConfigurationCommandOutput
  * ```javascript
  * import { ChatbotClient, UpdateSlackChannelConfigurationCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, UpdateSlackChannelConfigurationCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // UpdateSlackChannelConfigurationRequest
  *   ChatConfigurationArn: "STRING_VALUE", // required

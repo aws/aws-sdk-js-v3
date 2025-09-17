@@ -35,6 +35,8 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * ```javascript
  * import { IvschatClient, ListRoomsCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, ListRoomsCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // import type { IvschatClientConfig } from "@aws-sdk/client-ivschat";
+ * const config = {}; // type is IvschatClientConfig
  * const client = new IvschatClient(config);
  * const input = { // ListRoomsRequest
  *   name: "STRING_VALUE",

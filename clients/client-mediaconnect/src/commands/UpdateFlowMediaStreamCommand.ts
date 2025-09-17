@@ -34,6 +34,8 @@ export interface UpdateFlowMediaStreamCommandOutput extends UpdateFlowMediaStrea
  * ```javascript
  * import { MediaConnectClient, UpdateFlowMediaStreamCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowMediaStreamCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateFlowMediaStreamRequest
  *   Attributes: { // MediaStreamAttributesRequest

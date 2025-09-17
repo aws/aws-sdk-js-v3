@@ -35,6 +35,8 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * ```javascript
  * import { ServiceDiscoveryClient, UpdatePrivateDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdatePrivateDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // import type { ServiceDiscoveryClientConfig } from "@aws-sdk/client-servicediscovery";
+ * const config = {}; // type is ServiceDiscoveryClientConfig
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // UpdatePrivateDnsNamespaceRequest
  *   Id: "STRING_VALUE", // required

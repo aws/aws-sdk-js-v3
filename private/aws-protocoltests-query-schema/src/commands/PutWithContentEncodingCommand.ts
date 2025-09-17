@@ -35,6 +35,8 @@ export interface PutWithContentEncodingCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { QueryProtocolClient, PutWithContentEncodingCommand } from "@aws-sdk/aws-protocoltests-query-schema"; // ES Modules import
  * // const { QueryProtocolClient, PutWithContentEncodingCommand } = require("@aws-sdk/aws-protocoltests-query-schema"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query-schema";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = { // PutWithContentEncodingInput
  *   encoding: "STRING_VALUE",

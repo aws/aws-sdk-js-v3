@@ -39,6 +39,8 @@ export interface BatchGetMemberAccountDetailsCommandOutput
  * ```javascript
  * import { SecurityIRClient, BatchGetMemberAccountDetailsCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, BatchGetMemberAccountDetailsCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // BatchGetMemberAccountDetailsRequest
  *   membershipId: "STRING_VALUE", // required

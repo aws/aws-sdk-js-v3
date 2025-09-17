@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { ARCRegionSwitchClient, ListTagsForResourceCommand } from "@aws-sdk/client-arc-region-switch"; // ES Modules import
  * // const { ARCRegionSwitchClient, ListTagsForResourceCommand } = require("@aws-sdk/client-arc-region-switch"); // CommonJS import
+ * // import type { ARCRegionSwitchClientConfig } from "@aws-sdk/client-arc-region-switch";
+ * const config = {}; // type is ARCRegionSwitchClientConfig
  * const client = new ARCRegionSwitchClient(config);
  * const input = { // ListTagsForResourceRequest
  *   arn: "STRING_VALUE", // required

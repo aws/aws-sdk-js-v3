@@ -42,6 +42,8 @@ export interface GetConnectionGroupByRoutingEndpointCommandOutput
  * ```javascript
  * import { CloudFrontClient, GetConnectionGroupByRoutingEndpointCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetConnectionGroupByRoutingEndpointCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // GetConnectionGroupByRoutingEndpointRequest
  *   RoutingEndpoint: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface GetWirelessGatewayStatisticsCommandOutput
  * ```javascript
  * import { IoTWirelessClient, GetWirelessGatewayStatisticsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessGatewayStatisticsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // GetWirelessGatewayStatisticsRequest
  *   WirelessGatewayId: "STRING_VALUE", // required

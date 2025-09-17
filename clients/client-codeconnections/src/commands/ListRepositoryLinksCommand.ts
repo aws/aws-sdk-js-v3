@@ -34,6 +34,8 @@ export interface ListRepositoryLinksCommandOutput extends ListRepositoryLinksOut
  * ```javascript
  * import { CodeConnectionsClient, ListRepositoryLinksCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, ListRepositoryLinksCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // ListRepositoryLinksInput
  *   MaxResults: Number("int"),

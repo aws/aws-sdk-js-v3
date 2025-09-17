@@ -39,6 +39,8 @@ export interface DeleteDeliverySourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudWatchLogsClient, DeleteDeliverySourceCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteDeliverySourceCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DeleteDeliverySourceRequest
  *   name: "STRING_VALUE", // required

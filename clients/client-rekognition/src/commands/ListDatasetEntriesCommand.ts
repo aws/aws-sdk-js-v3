@@ -50,6 +50,8 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * ```javascript
  * import { RekognitionClient, ListDatasetEntriesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListDatasetEntriesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // ListDatasetEntriesRequest
  *   DatasetArn: "STRING_VALUE", // required

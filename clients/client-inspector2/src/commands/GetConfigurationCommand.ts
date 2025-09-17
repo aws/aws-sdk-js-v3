@@ -34,6 +34,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * ```javascript
  * import { Inspector2Client, GetConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, GetConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // import type { Inspector2ClientConfig } from "@aws-sdk/client-inspector2";
+ * const config = {}; // type is Inspector2ClientConfig
  * const client = new Inspector2Client(config);
  * const input = {};
  * const command = new GetConfigurationCommand(input);

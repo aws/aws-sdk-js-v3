@@ -45,6 +45,8 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EventBridgeClient, DeleteRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeleteRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // DeleteRuleRequest
  *   Name: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DeleteAliasCommandOutput extends DeleteAliasOutput, __MetadataB
  * ```javascript
  * import { PaymentCryptographyClient, DeleteAliasCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, DeleteAliasCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // DeleteAliasInput
  *   AliasName: "STRING_VALUE", // required

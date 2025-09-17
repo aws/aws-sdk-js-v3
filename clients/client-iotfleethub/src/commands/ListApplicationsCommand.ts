@@ -34,6 +34,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * ```javascript
  * import { IoTFleetHubClient, ListApplicationsCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, ListApplicationsCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * // import type { IoTFleetHubClientConfig } from "@aws-sdk/client-iotfleethub";
+ * const config = {}; // type is IoTFleetHubClientConfig
  * const client = new IoTFleetHubClient(config);
  * const input = { // ListApplicationsRequest
  *   nextToken: "STRING_VALUE",

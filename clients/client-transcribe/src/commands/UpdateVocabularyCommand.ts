@@ -36,6 +36,8 @@ export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse,
  * ```javascript
  * import { TranscribeClient, UpdateVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, UpdateVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // import type { TranscribeClientConfig } from "@aws-sdk/client-transcribe";
+ * const config = {}; // type is TranscribeClientConfig
  * const client = new TranscribeClient(config);
  * const input = { // UpdateVocabularyRequest
  *   VocabularyName: "STRING_VALUE", // required

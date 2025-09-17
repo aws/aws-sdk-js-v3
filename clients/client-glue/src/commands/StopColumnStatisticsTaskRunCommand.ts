@@ -36,6 +36,8 @@ export interface StopColumnStatisticsTaskRunCommandOutput
  * ```javascript
  * import { GlueClient, StopColumnStatisticsTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopColumnStatisticsTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // StopColumnStatisticsTaskRunRequest
  *   DatabaseName: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * ```javascript
  * import { IAMClient, CreateGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // CreateGroupRequest
  *   Path: "STRING_VALUE",

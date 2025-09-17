@@ -82,6 +82,8 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  * ```javascript
  * import { KMSClient, ListKeyRotationsCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListKeyRotationsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // ListKeyRotationsRequest
  *   KeyId: "STRING_VALUE", // required

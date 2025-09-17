@@ -34,6 +34,8 @@ export interface SearchRelevantContentCommandOutput extends SearchRelevantConten
  * ```javascript
  * import { QBusinessClient, SearchRelevantContentCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, SearchRelevantContentCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // SearchRelevantContentRequest
  *   applicationId: "STRING_VALUE", // required

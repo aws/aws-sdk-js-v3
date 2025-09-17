@@ -37,6 +37,8 @@ export interface AssociateResolverRuleCommandOutput extends AssociateResolverRul
  * ```javascript
  * import { Route53ResolverClient, AssociateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, AssociateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
+ * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
  * const input = { // AssociateResolverRuleRequest
  *   ResolverRuleId: "STRING_VALUE", // required

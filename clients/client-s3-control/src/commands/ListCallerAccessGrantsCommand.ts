@@ -55,6 +55,8 @@ export interface ListCallerAccessGrantsCommandOutput extends ListCallerAccessGra
  * ```javascript
  * import { S3ControlClient, ListCallerAccessGrantsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListCallerAccessGrantsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // ListCallerAccessGrantsRequest
  *   AccountId: "STRING_VALUE",

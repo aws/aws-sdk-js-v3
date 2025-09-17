@@ -34,6 +34,8 @@ export interface ListPluginTypeMetadataCommandOutput extends ListPluginTypeMetad
  * ```javascript
  * import { QBusinessClient, ListPluginTypeMetadataCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, ListPluginTypeMetadataCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // ListPluginTypeMetadataRequest
  *   nextToken: "STRING_VALUE",

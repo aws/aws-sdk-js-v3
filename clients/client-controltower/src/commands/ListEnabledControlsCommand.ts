@@ -34,6 +34,8 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * ```javascript
  * import { ControlTowerClient, ListEnabledControlsCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, ListEnabledControlsCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // ListEnabledControlsInput
  *   targetIdentifier: "STRING_VALUE",

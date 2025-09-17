@@ -51,6 +51,8 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * ```javascript
  * import { ElastiCacheClient, CreateCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // CreateCacheParameterGroupMessage
  *   CacheParameterGroupName: "STRING_VALUE", // required

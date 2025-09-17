@@ -44,6 +44,8 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * ```javascript
  * import { MediaStoreClient, PutCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, PutCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // import type { MediaStoreClientConfig } from "@aws-sdk/client-mediastore";
+ * const config = {}; // type is MediaStoreClientConfig
  * const client = new MediaStoreClient(config);
  * const input = { // PutCorsPolicyInput
  *   ContainerName: "STRING_VALUE", // required

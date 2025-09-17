@@ -34,6 +34,8 @@ export interface ListAIAgentsCommandOutput extends ListAIAgentsResponse, __Metad
  * ```javascript
  * import { QConnectClient, ListAIAgentsCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, ListAIAgentsCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // ListAIAgentsRequest
  *   assistantId: "STRING_VALUE", // required

@@ -45,6 +45,8 @@ export interface CreateReviewTemplateCommandOutput extends CreateReviewTemplateO
  * ```javascript
  * import { WellArchitectedClient, CreateReviewTemplateCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, CreateReviewTemplateCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // CreateReviewTemplateInput
  *   TemplateName: "STRING_VALUE", // required

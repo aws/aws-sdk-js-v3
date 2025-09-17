@@ -47,6 +47,8 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * ```javascript
  * import { TimestreamWriteClient, CreateBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, CreateBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // import type { TimestreamWriteClientConfig } from "@aws-sdk/client-timestream-write";
+ * const config = {}; // type is TimestreamWriteClientConfig
  * const client = new TimestreamWriteClient(config);
  * const input = { // CreateBatchLoadTaskRequest
  *   ClientToken: "STRING_VALUE",

@@ -35,6 +35,8 @@ export interface DeleteBackupVaultCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { BackupClient, DeleteBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // DeleteBackupVaultInput
  *   BackupVaultName: "STRING_VALUE", // required

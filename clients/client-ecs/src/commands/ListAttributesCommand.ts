@@ -40,6 +40,8 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * ```javascript
  * import { ECSClient, ListAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // ListAttributesRequest
  *   cluster: "STRING_VALUE",

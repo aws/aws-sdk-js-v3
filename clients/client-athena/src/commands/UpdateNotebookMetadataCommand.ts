@@ -34,6 +34,8 @@ export interface UpdateNotebookMetadataCommandOutput extends UpdateNotebookMetad
  * ```javascript
  * import { AthenaClient, UpdateNotebookMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateNotebookMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // UpdateNotebookMetadataInput
  *   NotebookId: "STRING_VALUE", // required

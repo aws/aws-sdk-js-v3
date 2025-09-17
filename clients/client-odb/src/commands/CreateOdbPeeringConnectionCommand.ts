@@ -34,6 +34,8 @@ export interface CreateOdbPeeringConnectionCommandOutput extends CreateOdbPeerin
  * ```javascript
  * import { OdbClient, CreateOdbPeeringConnectionCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, CreateOdbPeeringConnectionCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // CreateOdbPeeringConnectionInput
  *   odbNetworkId: "STRING_VALUE", // required

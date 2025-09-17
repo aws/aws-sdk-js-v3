@@ -36,6 +36,8 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  * ```javascript
  * import { CloudTrailClient, DeleteTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeleteTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // DeleteTrailRequest
  *   Name: "STRING_VALUE", // required

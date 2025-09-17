@@ -39,6 +39,8 @@ export interface GetPackageVersionCommandOutput extends GetPackageVersionRespons
  * ```javascript
  * import { IoTClient, GetPackageVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetPackageVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // GetPackageVersionRequest
  *   packageName: "STRING_VALUE", // required

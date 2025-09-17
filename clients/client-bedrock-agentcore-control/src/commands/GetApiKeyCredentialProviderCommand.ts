@@ -43,6 +43,8 @@ export interface GetApiKeyCredentialProviderCommandOutput
  * ```javascript
  * import { BedrockAgentCoreControlClient, GetApiKeyCredentialProviderCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, GetApiKeyCredentialProviderCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetApiKeyCredentialProviderRequest
  *   name: "STRING_VALUE", // required

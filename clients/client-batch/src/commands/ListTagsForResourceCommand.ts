@@ -35,6 +35,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { BatchClient, ListTagsForResourceCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, ListTagsForResourceCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

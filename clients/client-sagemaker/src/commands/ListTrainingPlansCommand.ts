@@ -34,6 +34,8 @@ export interface ListTrainingPlansCommandOutput extends ListTrainingPlansRespons
  * ```javascript
  * import { SageMakerClient, ListTrainingPlansCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrainingPlansCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListTrainingPlansRequest
  *   NextToken: "STRING_VALUE",

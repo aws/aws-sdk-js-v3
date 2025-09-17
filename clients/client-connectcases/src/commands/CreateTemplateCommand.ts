@@ -34,6 +34,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * ```javascript
  * import { ConnectCasesClient, CreateTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // CreateTemplateRequest
  *   domainId: "STRING_VALUE", // required

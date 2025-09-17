@@ -34,6 +34,8 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * ```javascript
  * import { SageMakerClient, CreateArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateArtifactRequest
  *   ArtifactName: "STRING_VALUE",

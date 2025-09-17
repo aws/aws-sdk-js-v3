@@ -80,6 +80,8 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OrganizationsClient, CloseAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CloseAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // CloseAccountRequest
  *   AccountId: "STRING_VALUE", // required

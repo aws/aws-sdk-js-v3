@@ -34,6 +34,8 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * ```javascript
  * import { DevOpsGuruClient, PutFeedbackCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, PutFeedbackCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // import type { DevOpsGuruClientConfig } from "@aws-sdk/client-devops-guru";
+ * const config = {}; // type is DevOpsGuruClientConfig
  * const client = new DevOpsGuruClient(config);
  * const input = { // PutFeedbackRequest
  *   InsightFeedback: { // InsightFeedback

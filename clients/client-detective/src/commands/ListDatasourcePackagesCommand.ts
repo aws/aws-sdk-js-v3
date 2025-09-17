@@ -34,6 +34,8 @@ export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePacka
  * ```javascript
  * import { DetectiveClient, ListDatasourcePackagesCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListDatasourcePackagesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * // import type { DetectiveClientConfig } from "@aws-sdk/client-detective";
+ * const config = {}; // type is DetectiveClientConfig
  * const client = new DetectiveClient(config);
  * const input = { // ListDatasourcePackagesRequest
  *   GraphArn: "STRING_VALUE", // required

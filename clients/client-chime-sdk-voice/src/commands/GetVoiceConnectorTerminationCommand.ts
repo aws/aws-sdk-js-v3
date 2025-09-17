@@ -43,6 +43,8 @@ export interface GetVoiceConnectorTerminationCommandOutput
  * ```javascript
  * import { ChimeSDKVoiceClient, GetVoiceConnectorTerminationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetVoiceConnectorTerminationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceConnectorTerminationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required

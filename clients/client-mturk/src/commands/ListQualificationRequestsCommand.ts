@@ -41,6 +41,8 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  * ```javascript
  * import { MTurkClient, ListQualificationRequestsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListQualificationRequestsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // ListQualificationRequestsRequest
  *   QualificationTypeId: "STRING_VALUE",

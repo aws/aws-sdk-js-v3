@@ -34,6 +34,8 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  * ```javascript
  * import { WAFV2Client, DeleteRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DeleteRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // import type { WAFV2ClientConfig } from "@aws-sdk/client-wafv2";
+ * const config = {}; // type is WAFV2ClientConfig
  * const client = new WAFV2Client(config);
  * const input = { // DeleteRegexPatternSetRequest
  *   Name: "STRING_VALUE", // required

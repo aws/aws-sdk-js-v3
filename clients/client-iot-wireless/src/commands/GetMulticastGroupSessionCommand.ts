@@ -34,6 +34,8 @@ export interface GetMulticastGroupSessionCommandOutput extends GetMulticastGroup
  * ```javascript
  * import { IoTWirelessClient, GetMulticastGroupSessionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetMulticastGroupSessionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // GetMulticastGroupSessionRequest
  *   Id: "STRING_VALUE", // required

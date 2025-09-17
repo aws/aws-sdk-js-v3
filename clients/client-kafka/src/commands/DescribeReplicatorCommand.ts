@@ -34,6 +34,8 @@ export interface DescribeReplicatorCommandOutput extends DescribeReplicatorRespo
  * ```javascript
  * import { KafkaClient, DescribeReplicatorCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DescribeReplicatorCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // DescribeReplicatorRequest
  *   ReplicatorArn: "STRING_VALUE", // required

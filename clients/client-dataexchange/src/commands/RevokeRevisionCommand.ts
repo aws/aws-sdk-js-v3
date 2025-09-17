@@ -34,6 +34,8 @@ export interface RevokeRevisionCommandOutput extends RevokeRevisionResponse, __M
  * ```javascript
  * import { DataExchangeClient, RevokeRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, RevokeRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // import type { DataExchangeClientConfig } from "@aws-sdk/client-dataexchange";
+ * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // RevokeRevisionRequest
  *   DataSetId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface CreateWorkloadIdentityCommandOutput extends CreateWorkloadIdent
  * ```javascript
  * import { BedrockAgentCoreControlClient, CreateWorkloadIdentityCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, CreateWorkloadIdentityCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // CreateWorkloadIdentityRequest
  *   name: "STRING_VALUE", // required

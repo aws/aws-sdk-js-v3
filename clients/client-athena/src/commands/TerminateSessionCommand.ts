@@ -38,6 +38,8 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * ```javascript
  * import { AthenaClient, TerminateSessionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, TerminateSessionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // TerminateSessionRequest
  *   SessionId: "STRING_VALUE", // required

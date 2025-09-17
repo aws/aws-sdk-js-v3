@@ -34,6 +34,8 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * ```javascript
  * import { MediaTailorClient, ListPlaybackConfigurationsCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListPlaybackConfigurationsCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // ListPlaybackConfigurationsRequest
  *   MaxResults: Number("int"),

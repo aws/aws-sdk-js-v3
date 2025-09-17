@@ -36,6 +36,8 @@ export interface AssociateThirdPartyFirewallCommandOutput
  * ```javascript
  * import { FMSClient, AssociateThirdPartyFirewallCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, AssociateThirdPartyFirewallCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // import type { FMSClientConfig } from "@aws-sdk/client-fms";
+ * const config = {}; // type is FMSClientConfig
  * const client = new FMSClient(config);
  * const input = { // AssociateThirdPartyFirewallRequest
  *   ThirdPartyFirewall: "PALO_ALTO_NETWORKS_CLOUD_NGFW" || "FORTIGATE_CLOUD_NATIVE_FIREWALL", // required

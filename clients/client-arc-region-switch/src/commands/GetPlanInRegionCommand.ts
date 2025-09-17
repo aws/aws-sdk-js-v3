@@ -34,6 +34,8 @@ export interface GetPlanInRegionCommandOutput extends GetPlanInRegionResponse, _
  * ```javascript
  * import { ARCRegionSwitchClient, GetPlanInRegionCommand } from "@aws-sdk/client-arc-region-switch"; // ES Modules import
  * // const { ARCRegionSwitchClient, GetPlanInRegionCommand } = require("@aws-sdk/client-arc-region-switch"); // CommonJS import
+ * // import type { ARCRegionSwitchClientConfig } from "@aws-sdk/client-arc-region-switch";
+ * const config = {}; // type is ARCRegionSwitchClientConfig
  * const client = new ARCRegionSwitchClient(config);
  * const input = { // GetPlanInRegionRequest
  *   arn: "STRING_VALUE", // required

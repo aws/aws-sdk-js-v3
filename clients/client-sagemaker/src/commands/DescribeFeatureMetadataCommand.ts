@@ -34,6 +34,8 @@ export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMet
  * ```javascript
  * import { SageMakerClient, DescribeFeatureMetadataCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeFeatureMetadataCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeFeatureMetadataRequest
  *   FeatureGroupName: "STRING_VALUE", // required

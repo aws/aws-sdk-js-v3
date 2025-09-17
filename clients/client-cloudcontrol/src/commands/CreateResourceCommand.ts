@@ -43,6 +43,8 @@ export interface CreateResourceCommandOutput extends CreateResourceOutput, __Met
  * ```javascript
  * import { CloudControlClient, CreateResourceCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, CreateResourceCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * // import type { CloudControlClientConfig } from "@aws-sdk/client-cloudcontrol";
+ * const config = {}; // type is CloudControlClientConfig
  * const client = new CloudControlClient(config);
  * const input = { // CreateResourceInput
  *   TypeName: "STRING_VALUE", // required

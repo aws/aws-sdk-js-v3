@@ -58,6 +58,8 @@ export interface DeleteTermsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CognitoIdentityProviderClient, DeleteTermsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DeleteTermsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
+ * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // DeleteTermsRequest
  *   TermsId: "STRING_VALUE", // required

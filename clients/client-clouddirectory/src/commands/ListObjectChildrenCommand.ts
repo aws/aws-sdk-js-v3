@@ -35,6 +35,8 @@ export interface ListObjectChildrenCommandOutput extends ListObjectChildrenRespo
  * ```javascript
  * import { CloudDirectoryClient, ListObjectChildrenCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListObjectChildrenCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListObjectChildrenRequest
  *   DirectoryArn: "STRING_VALUE", // required

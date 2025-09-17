@@ -39,6 +39,8 @@ export interface CreateAppInstanceBotCommandOutput extends CreateAppInstanceBotR
  * ```javascript
  * import { ChimeSDKIdentityClient, CreateAppInstanceBotCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, CreateAppInstanceBotCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * // import type { ChimeSDKIdentityClientConfig } from "@aws-sdk/client-chime-sdk-identity";
+ * const config = {}; // type is ChimeSDKIdentityClientConfig
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // CreateAppInstanceBotRequest
  *   AppInstanceArn: "STRING_VALUE", // required

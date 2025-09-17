@@ -48,6 +48,8 @@ export interface UpdatePackageGroupOriginConfigurationCommandOutput
  * ```javascript
  * import { CodeartifactClient, UpdatePackageGroupOriginConfigurationCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, UpdatePackageGroupOriginConfigurationCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // UpdatePackageGroupOriginConfigurationRequest
  *   domain: "STRING_VALUE", // required

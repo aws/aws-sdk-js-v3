@@ -38,6 +38,8 @@ export interface StopVoiceToneAnalysisTaskCommandOutput extends __MetadataBearer
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, StopVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, StopVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // StopVoiceToneAnalysisTaskRequest
  *   Identifier: "STRING_VALUE", // required

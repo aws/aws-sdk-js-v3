@@ -35,6 +35,8 @@ export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatu
  * ```javascript
  * import { CodeConnectionsClient, GetResourceSyncStatusCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, GetResourceSyncStatusCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // GetResourceSyncStatusInput
  *   ResourceName: "STRING_VALUE", // required

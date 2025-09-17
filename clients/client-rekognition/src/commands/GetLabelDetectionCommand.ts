@@ -101,6 +101,8 @@ export interface GetLabelDetectionCommandOutput extends GetLabelDetectionRespons
  * ```javascript
  * import { RekognitionClient, GetLabelDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetLabelDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // GetLabelDetectionRequest
  *   JobId: "STRING_VALUE", // required

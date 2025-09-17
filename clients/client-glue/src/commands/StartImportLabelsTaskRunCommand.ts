@@ -55,6 +55,8 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  * ```javascript
  * import { GlueClient, StartImportLabelsTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartImportLabelsTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // StartImportLabelsTaskRunRequest
  *   TransformId: "STRING_VALUE", // required

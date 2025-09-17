@@ -34,6 +34,8 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * ```javascript
  * import { DeviceFarmClient, ListArtifactsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListArtifactsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // ListArtifactsRequest
  *   arn: "STRING_VALUE", // required

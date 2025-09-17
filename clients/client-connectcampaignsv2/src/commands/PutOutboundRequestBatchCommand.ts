@@ -42,6 +42,8 @@ export interface PutOutboundRequestBatchCommandOutput extends PutOutboundRequest
  * ```javascript
  * import { ConnectCampaignsV2Client, PutOutboundRequestBatchCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
  * // const { ConnectCampaignsV2Client, PutOutboundRequestBatchCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
+ * // import type { ConnectCampaignsV2ClientConfig } from "@aws-sdk/client-connectcampaignsv2";
+ * const config = {}; // type is ConnectCampaignsV2ClientConfig
  * const client = new ConnectCampaignsV2Client(config);
  * const input = { // PutOutboundRequestBatchRequest
  *   id: "STRING_VALUE", // required

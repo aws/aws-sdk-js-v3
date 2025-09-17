@@ -34,6 +34,8 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * ```javascript
  * import { QuickSightClient, ListThemesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListThemesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // ListThemesRequest
  *   AwsAccountId: "STRING_VALUE", // required

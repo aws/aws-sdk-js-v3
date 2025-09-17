@@ -33,6 +33,8 @@ export interface EndpointOperationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { QueryProtocolClient, EndpointOperationCommand } from "@aws-sdk/aws-protocoltests-query-schema"; // ES Modules import
  * // const { QueryProtocolClient, EndpointOperationCommand } = require("@aws-sdk/aws-protocoltests-query-schema"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query-schema";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = {};
  * const command = new EndpointOperationCommand(input);

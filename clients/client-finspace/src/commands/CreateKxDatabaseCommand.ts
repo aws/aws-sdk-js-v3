@@ -34,6 +34,8 @@ export interface CreateKxDatabaseCommandOutput extends CreateKxDatabaseResponse,
  * ```javascript
  * import { FinspaceClient, CreateKxDatabaseCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, CreateKxDatabaseCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // CreateKxDatabaseRequest
  *   environmentId: "STRING_VALUE", // required

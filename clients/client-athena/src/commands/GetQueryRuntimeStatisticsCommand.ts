@@ -40,6 +40,8 @@ export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeS
  * ```javascript
  * import { AthenaClient, GetQueryRuntimeStatisticsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetQueryRuntimeStatisticsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // GetQueryRuntimeStatisticsInput
  *   QueryExecutionId: "STRING_VALUE", // required

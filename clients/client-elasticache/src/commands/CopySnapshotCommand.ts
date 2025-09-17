@@ -124,6 +124,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * ```javascript
  * import { ElastiCacheClient, CopySnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CopySnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // CopySnapshotMessage
  *   SourceSnapshotName: "STRING_VALUE", // required

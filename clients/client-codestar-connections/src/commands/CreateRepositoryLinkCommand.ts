@@ -38,6 +38,8 @@ export interface CreateRepositoryLinkCommandOutput extends CreateRepositoryLinkO
  * ```javascript
  * import { CodeStarConnectionsClient, CreateRepositoryLinkCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, CreateRepositoryLinkCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * // import type { CodeStarConnectionsClientConfig } from "@aws-sdk/client-codestar-connections";
+ * const config = {}; // type is CodeStarConnectionsClientConfig
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // CreateRepositoryLinkInput
  *   ConnectionArn: "STRING_VALUE", // required

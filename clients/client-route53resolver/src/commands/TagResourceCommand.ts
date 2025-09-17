@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { Route53ResolverClient, TagResourceCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, TagResourceCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
+ * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

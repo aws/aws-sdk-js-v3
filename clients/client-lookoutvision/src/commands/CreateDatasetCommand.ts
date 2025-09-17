@@ -43,6 +43,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * ```javascript
  * import { LookoutVisionClient, CreateDatasetCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, CreateDatasetCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * // import type { LookoutVisionClientConfig } from "@aws-sdk/client-lookoutvision";
+ * const config = {}; // type is LookoutVisionClientConfig
  * const client = new LookoutVisionClient(config);
  * const input = { // CreateDatasetRequest
  *   ProjectName: "STRING_VALUE", // required

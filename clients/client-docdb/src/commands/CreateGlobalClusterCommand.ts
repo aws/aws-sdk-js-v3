@@ -39,6 +39,8 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * ```javascript
  * import { DocDBClient, CreateGlobalClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateGlobalClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // CreateGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required

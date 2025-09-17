@@ -38,6 +38,8 @@ export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertif
  * ```javascript
  * import { PaymentCryptographyClient, GetPublicKeyCertificateCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, GetPublicKeyCertificateCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // GetPublicKeyCertificateInput
  *   KeyIdentifier: "STRING_VALUE", // required

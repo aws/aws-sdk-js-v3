@@ -34,6 +34,8 @@ export interface DeleteRoomCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IvschatClient, DeleteRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, DeleteRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // import type { IvschatClientConfig } from "@aws-sdk/client-ivschat";
+ * const config = {}; // type is IvschatClientConfig
  * const client = new IvschatClient(config);
  * const input = { // DeleteRoomRequest
  *   identifier: "STRING_VALUE", // required

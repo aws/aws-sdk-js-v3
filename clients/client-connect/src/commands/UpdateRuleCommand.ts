@@ -36,6 +36,8 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ConnectClient, UpdateRuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateRuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateRuleRequest
  *   RuleId: "STRING_VALUE", // required

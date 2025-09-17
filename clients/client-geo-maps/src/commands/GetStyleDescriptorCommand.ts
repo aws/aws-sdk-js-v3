@@ -46,6 +46,8 @@ export interface GetStyleDescriptorCommandOutput extends GetStyleDescriptorComma
  * ```javascript
  * import { GeoMapsClient, GetStyleDescriptorCommand } from "@aws-sdk/client-geo-maps"; // ES Modules import
  * // const { GeoMapsClient, GetStyleDescriptorCommand } = require("@aws-sdk/client-geo-maps"); // CommonJS import
+ * // import type { GeoMapsClientConfig } from "@aws-sdk/client-geo-maps";
+ * const config = {}; // type is GeoMapsClientConfig
  * const client = new GeoMapsClient(config);
  * const input = { // GetStyleDescriptorRequest
  *   Style: "STRING_VALUE", // required

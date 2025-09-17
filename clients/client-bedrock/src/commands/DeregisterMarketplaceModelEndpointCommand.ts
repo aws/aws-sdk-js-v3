@@ -42,6 +42,8 @@ export interface DeregisterMarketplaceModelEndpointCommandOutput
  * ```javascript
  * import { BedrockClient, DeregisterMarketplaceModelEndpointCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, DeregisterMarketplaceModelEndpointCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // DeregisterMarketplaceModelEndpointRequest
  *   endpointArn: "STRING_VALUE", // required

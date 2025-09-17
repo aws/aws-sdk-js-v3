@@ -42,6 +42,8 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
  * ```javascript
  * import { LookoutMetricsClient, DescribeAnomalyDetectionExecutionsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DescribeAnomalyDetectionExecutionsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // DescribeAnomalyDetectionExecutionsRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required

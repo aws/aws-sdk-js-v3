@@ -34,6 +34,8 @@ export interface DeleteAIPromptCommandOutput extends DeleteAIPromptResponse, __M
  * ```javascript
  * import { QConnectClient, DeleteAIPromptCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, DeleteAIPromptCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // DeleteAIPromptRequest
  *   assistantId: "STRING_VALUE", // required

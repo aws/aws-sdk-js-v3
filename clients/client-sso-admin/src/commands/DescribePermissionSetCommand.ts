@@ -34,6 +34,8 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
  * ```javascript
  * import { SSOAdminClient, DescribePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DescribePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // DescribePermissionSetRequest
  *   InstanceArn: "STRING_VALUE", // required

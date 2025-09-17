@@ -34,6 +34,8 @@ export interface DescribeProcessingJobCommandOutput extends DescribeProcessingJo
  * ```javascript
  * import { SageMakerClient, DescribeProcessingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeProcessingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeProcessingJobRequest
  *   ProcessingJobName: "STRING_VALUE", // required

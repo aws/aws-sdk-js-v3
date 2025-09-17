@@ -34,6 +34,8 @@ export interface DisassociateCertificateCommandOutput extends DisassociateCertif
  * ```javascript
  * import { MediaConvertClient, DisassociateCertificateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DisassociateCertificateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // DisassociateCertificateRequest
  *   Arn: "STRING_VALUE", // required

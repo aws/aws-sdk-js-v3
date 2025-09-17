@@ -39,6 +39,8 @@ export interface CreateGlossaryTermCommandOutput extends CreateGlossaryTermOutpu
  * ```javascript
  * import { DataZoneClient, CreateGlossaryTermCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateGlossaryTermCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateGlossaryTermInput
  *   domainIdentifier: "STRING_VALUE", // required

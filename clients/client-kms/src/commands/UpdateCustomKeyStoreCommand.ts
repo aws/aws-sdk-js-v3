@@ -133,6 +133,8 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * ```javascript
  * import { KMSClient, UpdateCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UpdateCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // UpdateCustomKeyStoreRequest
  *   CustomKeyStoreId: "STRING_VALUE", // required

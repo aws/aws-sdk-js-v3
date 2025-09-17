@@ -34,6 +34,8 @@ export interface DeleteFolderCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WorkDocsClient, DeleteFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteFolderRequest
  *   AuthenticationToken: "STRING_VALUE",

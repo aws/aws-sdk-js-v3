@@ -40,6 +40,8 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  * ```javascript
  * import { ElasticBeanstalkClient, AssociateEnvironmentOperationsRoleCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, AssociateEnvironmentOperationsRoleCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * // import type { ElasticBeanstalkClientConfig } from "@aws-sdk/client-elastic-beanstalk";
+ * const config = {}; // type is ElasticBeanstalkClientConfig
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // AssociateEnvironmentOperationsRoleMessage
  *   EnvironmentName: "STRING_VALUE", // required

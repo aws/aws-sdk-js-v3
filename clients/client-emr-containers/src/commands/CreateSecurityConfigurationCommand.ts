@@ -42,6 +42,8 @@ export interface CreateSecurityConfigurationCommandOutput
  * ```javascript
  * import { EMRContainersClient, CreateSecurityConfigurationCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CreateSecurityConfigurationCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // CreateSecurityConfigurationRequest
  *   clientToken: "STRING_VALUE", // required

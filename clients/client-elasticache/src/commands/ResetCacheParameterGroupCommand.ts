@@ -37,6 +37,8 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  * ```javascript
  * import { ElastiCacheClient, ResetCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ResetCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // ResetCacheParameterGroupMessage
  *   CacheParameterGroupName: "STRING_VALUE", // required

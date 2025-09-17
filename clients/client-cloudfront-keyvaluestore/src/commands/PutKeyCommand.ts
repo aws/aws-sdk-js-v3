@@ -38,6 +38,8 @@ export interface PutKeyCommandOutput extends PutKeyResponse, __MetadataBearer {}
  * ```javascript
  * import { CloudFrontKeyValueStoreClient, PutKeyCommand } from "@aws-sdk/client-cloudfront-keyvaluestore"; // ES Modules import
  * // const { CloudFrontKeyValueStoreClient, PutKeyCommand } = require("@aws-sdk/client-cloudfront-keyvaluestore"); // CommonJS import
+ * // import type { CloudFrontKeyValueStoreClientConfig } from "@aws-sdk/client-cloudfront-keyvaluestore";
+ * const config = {}; // type is CloudFrontKeyValueStoreClientConfig
  * const client = new CloudFrontKeyValueStoreClient(config);
  * const input = { // PutKeyRequest
  *   Key: "STRING_VALUE", // required

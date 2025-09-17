@@ -42,6 +42,8 @@ export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateRes
  * ```javascript
  * import { RoboMakerClient, DeleteWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeleteWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // DeleteWorldTemplateRequest
  *   template: "STRING_VALUE", // required

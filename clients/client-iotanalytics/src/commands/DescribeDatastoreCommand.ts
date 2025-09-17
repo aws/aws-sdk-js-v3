@@ -34,6 +34,8 @@ export interface DescribeDatastoreCommandOutput extends DescribeDatastoreRespons
  * ```javascript
  * import { IoTAnalyticsClient, DescribeDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DescribeDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // import type { IoTAnalyticsClientConfig } from "@aws-sdk/client-iotanalytics";
+ * const config = {}; // type is IoTAnalyticsClientConfig
  * const client = new IoTAnalyticsClient(config);
  * const input = { // DescribeDatastoreRequest
  *   datastoreName: "STRING_VALUE", // required

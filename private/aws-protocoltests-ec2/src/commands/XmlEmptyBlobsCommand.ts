@@ -35,6 +35,8 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsOutput, __MetadataBe
  * ```javascript
  * import { EC2ProtocolClient, XmlEmptyBlobsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, XmlEmptyBlobsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
+ * // import type { EC2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-ec2";
+ * const config = {}; // type is EC2ProtocolClientConfig
  * const client = new EC2ProtocolClient(config);
  * const input = {};
  * const command = new XmlEmptyBlobsCommand(input);

@@ -34,6 +34,8 @@ export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __Metad
  * ```javascript
  * import { FraudDetectorClient, PutEntityTypeCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutEntityTypeCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // PutEntityTypeRequest
  *   name: "STRING_VALUE", // required

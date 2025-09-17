@@ -40,6 +40,8 @@ export interface ListEntitiesDetectionV2JobsCommandOutput
  * ```javascript
  * import { ComprehendMedicalClient, ListEntitiesDetectionV2JobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, ListEntitiesDetectionV2JobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // import type { ComprehendMedicalClientConfig } from "@aws-sdk/client-comprehendmedical";
+ * const config = {}; // type is ComprehendMedicalClientConfig
  * const client = new ComprehendMedicalClient(config);
  * const input = { // ListEntitiesDetectionV2JobsRequest
  *   Filter: { // ComprehendMedicalAsyncJobFilter

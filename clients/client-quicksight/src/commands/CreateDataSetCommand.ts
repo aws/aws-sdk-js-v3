@@ -38,6 +38,8 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * ```javascript
  * import { QuickSightClient, CreateDataSetCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateDataSetCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateDataSetRequest
  *   AwsAccountId: "STRING_VALUE", // required

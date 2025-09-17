@@ -34,6 +34,8 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * ```javascript
  * import { SageMakerClient, ListExperimentsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListExperimentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListExperimentsRequest
  *   CreatedAfter: new Date("TIMESTAMP"),

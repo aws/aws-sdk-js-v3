@@ -39,6 +39,8 @@ export interface CreateAIPromptCommandOutput extends CreateAIPromptResponse, __M
  * ```javascript
  * import { QConnectClient, CreateAIPromptCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, CreateAIPromptCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // CreateAIPromptRequest
  *   clientToken: "STRING_VALUE",

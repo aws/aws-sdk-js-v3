@@ -40,6 +40,8 @@ export interface UpdateEksAnywhereSubscriptionCommandOutput
  * ```javascript
  * import { EKSClient, UpdateEksAnywhereSubscriptionCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateEksAnywhereSubscriptionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // UpdateEksAnywhereSubscriptionRequest
  *   id: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  * ```javascript
  * import { TranslateClient, GetTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, GetTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // import type { TranslateClientConfig } from "@aws-sdk/client-translate";
+ * const config = {}; // type is TranslateClientConfig
  * const client = new TranslateClient(config);
  * const input = { // GetTerminologyRequest
  *   Name: "STRING_VALUE", // required

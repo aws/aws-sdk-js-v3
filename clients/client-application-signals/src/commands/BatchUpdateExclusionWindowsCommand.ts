@@ -41,6 +41,8 @@ export interface BatchUpdateExclusionWindowsCommandOutput extends BatchUpdateExc
  * ```javascript
  * import { ApplicationSignalsClient, BatchUpdateExclusionWindowsCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, BatchUpdateExclusionWindowsCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // BatchUpdateExclusionWindowsInput
  *   SloIds: [ // ServiceLevelObjectiveIds // required

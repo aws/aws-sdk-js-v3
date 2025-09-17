@@ -38,6 +38,8 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  * ```javascript
  * import { RolesAnywhereClient, ListCrlsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ListCrlsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * // import type { RolesAnywhereClientConfig } from "@aws-sdk/client-rolesanywhere";
+ * const config = {}; // type is RolesAnywhereClientConfig
  * const client = new RolesAnywhereClient(config);
  * const input = { // ListRequest
  *   nextToken: "STRING_VALUE",

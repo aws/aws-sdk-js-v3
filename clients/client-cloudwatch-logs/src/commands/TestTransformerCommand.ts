@@ -36,6 +36,8 @@ export interface TestTransformerCommandOutput extends TestTransformerResponse, _
  * ```javascript
  * import { CloudWatchLogsClient, TestTransformerCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, TestTransformerCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // TestTransformerRequest
  *   transformerConfig: [ // Processors // required

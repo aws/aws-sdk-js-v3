@@ -33,6 +33,8 @@ export interface EndpointOperationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EC2ProtocolClient, EndpointOperationCommand } from "@aws-sdk/aws-protocoltests-ec2-schema"; // ES Modules import
  * // const { EC2ProtocolClient, EndpointOperationCommand } = require("@aws-sdk/aws-protocoltests-ec2-schema"); // CommonJS import
+ * // import type { EC2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-ec2-schema";
+ * const config = {}; // type is EC2ProtocolClientConfig
  * const client = new EC2ProtocolClient(config);
  * const input = {};
  * const command = new EndpointOperationCommand(input);

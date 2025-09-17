@@ -39,6 +39,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * ```javascript
  * import { VPCLatticeClient, DeleteRuleCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteRuleCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteRuleRequest
  *   serviceIdentifier: "STRING_VALUE", // required

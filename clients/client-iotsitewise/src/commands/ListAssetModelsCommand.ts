@@ -34,6 +34,8 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * ```javascript
  * import { IoTSiteWiseClient, ListAssetModelsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssetModelsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListAssetModelsRequest
  *   assetModelTypes: [ // ListAssetModelsTypeFilter

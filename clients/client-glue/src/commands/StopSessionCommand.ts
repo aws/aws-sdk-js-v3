@@ -34,6 +34,8 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  * ```javascript
  * import { GlueClient, StopSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // StopSessionRequest
  *   Id: "STRING_VALUE", // required

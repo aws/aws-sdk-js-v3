@@ -34,6 +34,8 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * ```javascript
  * import { MediaTailorClient, CreatePrefetchScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreatePrefetchScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // CreatePrefetchScheduleRequest
  *   Consumption: { // PrefetchConsumption

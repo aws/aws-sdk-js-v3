@@ -40,6 +40,8 @@ export interface DescribeIndexPoliciesCommandOutput extends DescribeIndexPolicie
  * ```javascript
  * import { CloudWatchLogsClient, DescribeIndexPoliciesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeIndexPoliciesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeIndexPoliciesRequest
  *   logGroupIdentifiers: [ // DescribeIndexPoliciesLogGroupIdentifiers // required

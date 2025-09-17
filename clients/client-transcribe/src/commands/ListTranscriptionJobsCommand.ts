@@ -36,6 +36,8 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
  * ```javascript
  * import { TranscribeClient, ListTranscriptionJobsCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListTranscriptionJobsCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // import type { TranscribeClientConfig } from "@aws-sdk/client-transcribe";
+ * const config = {}; // type is TranscribeClientConfig
  * const client = new TranscribeClient(config);
  * const input = { // ListTranscriptionJobsRequest
  *   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",

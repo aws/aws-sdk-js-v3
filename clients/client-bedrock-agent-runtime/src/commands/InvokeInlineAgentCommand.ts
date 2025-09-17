@@ -39,6 +39,8 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * ```javascript
  * import { BedrockAgentRuntimeClient, InvokeInlineAgentCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, InvokeInlineAgentCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // InvokeInlineAgentRequest
  *   customerEncryptionKeyArn: "STRING_VALUE",

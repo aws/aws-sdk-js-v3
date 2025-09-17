@@ -37,6 +37,8 @@ export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, UntagSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // UntagSAMLProviderRequest
  *   SAMLProviderArn: "STRING_VALUE", // required

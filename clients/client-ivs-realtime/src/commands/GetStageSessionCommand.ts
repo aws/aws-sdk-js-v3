@@ -34,6 +34,8 @@ export interface GetStageSessionCommandOutput extends GetStageSessionResponse, _
  * ```javascript
  * import { IVSRealTimeClient, GetStageSessionCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, GetStageSessionCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // GetStageSessionRequest
  *   stageArn: "STRING_VALUE", // required

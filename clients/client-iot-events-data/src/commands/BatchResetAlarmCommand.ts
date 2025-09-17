@@ -35,6 +35,8 @@ export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, _
  * ```javascript
  * import { IoTEventsDataClient, BatchResetAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchResetAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * // import type { IoTEventsDataClientConfig } from "@aws-sdk/client-iot-events-data";
+ * const config = {}; // type is IoTEventsDataClientConfig
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchResetAlarmRequest
  *   resetActionRequests: [ // ResetAlarmActionRequests // required

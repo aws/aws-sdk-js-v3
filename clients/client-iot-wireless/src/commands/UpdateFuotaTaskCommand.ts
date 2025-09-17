@@ -34,6 +34,8 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  * ```javascript
  * import { IoTWirelessClient, UpdateFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateFuotaTaskRequest
  *   Id: "STRING_VALUE", // required

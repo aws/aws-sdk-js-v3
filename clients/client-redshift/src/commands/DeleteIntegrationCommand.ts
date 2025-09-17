@@ -34,6 +34,8 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * ```javascript
  * import { RedshiftClient, DeleteIntegrationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteIntegrationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DeleteIntegrationMessage
  *   IntegrationArn: "STRING_VALUE", // required

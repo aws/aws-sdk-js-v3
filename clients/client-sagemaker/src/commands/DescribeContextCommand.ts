@@ -34,6 +34,8 @@ export interface DescribeContextCommandOutput extends DescribeContextResponse, _
  * ```javascript
  * import { SageMakerClient, DescribeContextCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeContextCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeContextRequest
  *   ContextName: "STRING_VALUE", // required

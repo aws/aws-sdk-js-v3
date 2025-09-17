@@ -38,6 +38,8 @@ export interface ListQuickResponsesCommandOutput extends ListQuickResponsesRespo
  * ```javascript
  * import { WisdomClient, ListQuickResponsesCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListQuickResponsesCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // ListQuickResponsesRequest
  *   nextToken: "STRING_VALUE",

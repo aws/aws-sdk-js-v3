@@ -39,6 +39,8 @@ export interface CreateAccountPoolCommandOutput extends CreateAccountPoolOutput,
  * ```javascript
  * import { DataZoneClient, CreateAccountPoolCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateAccountPoolCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateAccountPoolInput
  *   domainIdentifier: "STRING_VALUE", // required

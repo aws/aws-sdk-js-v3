@@ -42,6 +42,8 @@ export interface CreateDirectConnectGatewayAttachmentCommandOutput
  * ```javascript
  * import { NetworkManagerClient, CreateDirectConnectGatewayAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateDirectConnectGatewayAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateDirectConnectGatewayAttachmentRequest
  *   CoreNetworkId: "STRING_VALUE", // required

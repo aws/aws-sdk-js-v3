@@ -34,6 +34,8 @@ export interface DeleteBackendCommandOutput extends DeleteBackendResponse, __Met
  * ```javascript
  * import { AmplifyBackendClient, DeleteBackendCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, DeleteBackendCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // import type { AmplifyBackendClientConfig } from "@aws-sdk/client-amplifybackend";
+ * const config = {}; // type is AmplifyBackendClientConfig
  * const client = new AmplifyBackendClient(config);
  * const input = { // DeleteBackendRequest
  *   AppId: "STRING_VALUE", // required

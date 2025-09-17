@@ -34,6 +34,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * ```javascript
  * import { AmpClient, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // DeleteLoggingConfigurationRequest
  *   workspaceId: "STRING_VALUE", // required

@@ -37,6 +37,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * ```javascript
  * import { DirectoryServiceClient, CreateSnapshotCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateSnapshotCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // CreateSnapshotRequest
  *   DirectoryId: "STRING_VALUE", // required

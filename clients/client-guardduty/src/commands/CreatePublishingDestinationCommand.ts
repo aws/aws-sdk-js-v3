@@ -40,6 +40,8 @@ export interface CreatePublishingDestinationCommandOutput
  * ```javascript
  * import { GuardDutyClient, CreatePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreatePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // CreatePublishingDestinationRequest
  *   DetectorId: "STRING_VALUE", // required

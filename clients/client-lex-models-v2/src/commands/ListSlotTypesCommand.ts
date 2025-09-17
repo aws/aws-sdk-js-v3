@@ -34,6 +34,8 @@ export interface ListSlotTypesCommandOutput extends ListSlotTypesResponse, __Met
  * ```javascript
  * import { LexModelsV2Client, ListSlotTypesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListSlotTypesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // ListSlotTypesRequest
  *   botId: "STRING_VALUE", // required

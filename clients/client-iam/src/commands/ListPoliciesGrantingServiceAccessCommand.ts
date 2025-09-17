@@ -81,6 +81,8 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * ```javascript
  * import { IAMClient, ListPoliciesGrantingServiceAccessCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListPoliciesGrantingServiceAccessCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ListPoliciesGrantingServiceAccessRequest
  *   Marker: "STRING_VALUE",

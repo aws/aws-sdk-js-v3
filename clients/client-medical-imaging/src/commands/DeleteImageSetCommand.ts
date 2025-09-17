@@ -34,6 +34,8 @@ export interface DeleteImageSetCommandOutput extends DeleteImageSetResponse, __M
  * ```javascript
  * import { MedicalImagingClient, DeleteImageSetCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, DeleteImageSetCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // DeleteImageSetRequest
  *   datastoreId: "STRING_VALUE", // required

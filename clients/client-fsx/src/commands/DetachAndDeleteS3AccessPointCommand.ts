@@ -52,6 +52,8 @@ export interface DetachAndDeleteS3AccessPointCommandOutput
  * ```javascript
  * import { FSxClient, DetachAndDeleteS3AccessPointCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DetachAndDeleteS3AccessPointCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // DetachAndDeleteS3AccessPointRequest
  *   ClientRequestToken: "STRING_VALUE",

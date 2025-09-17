@@ -38,6 +38,8 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * ```javascript
  * import { NeptuneClient, DeleteDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // DeleteDBClusterParameterGroupMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required

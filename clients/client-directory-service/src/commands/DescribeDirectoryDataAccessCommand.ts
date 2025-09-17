@@ -35,6 +35,8 @@ export interface DescribeDirectoryDataAccessCommandOutput extends DescribeDirect
  * ```javascript
  * import { DirectoryServiceClient, DescribeDirectoryDataAccessCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeDirectoryDataAccessCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeDirectoryDataAccessRequest
  *   DirectoryId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTAnalyticsClient, UpdatePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdatePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // import type { IoTAnalyticsClientConfig } from "@aws-sdk/client-iotanalytics";
+ * const config = {}; // type is IoTAnalyticsClientConfig
  * const client = new IoTAnalyticsClient(config);
  * const input = { // UpdatePipelineRequest
  *   pipelineName: "STRING_VALUE", // required

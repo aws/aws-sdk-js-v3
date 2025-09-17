@@ -36,6 +36,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * ```javascript
  * import { OrganizationsClient, DescribeResourcePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeResourcePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = {};
  * const command = new DescribeResourcePolicyCommand(input);

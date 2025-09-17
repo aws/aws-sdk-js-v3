@@ -34,6 +34,8 @@ export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCert
  * ```javascript
  * import { WorkSpacesWebClient, GetTrustStoreCertificateCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetTrustStoreCertificateCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // GetTrustStoreCertificateRequest
  *   trustStoreArn: "STRING_VALUE", // required

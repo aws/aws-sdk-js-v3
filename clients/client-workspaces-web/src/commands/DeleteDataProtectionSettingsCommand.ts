@@ -39,6 +39,8 @@ export interface DeleteDataProtectionSettingsCommandOutput
  * ```javascript
  * import { WorkSpacesWebClient, DeleteDataProtectionSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteDataProtectionSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DeleteDataProtectionSettingsRequest
  *   dataProtectionSettingsArn: "STRING_VALUE", // required

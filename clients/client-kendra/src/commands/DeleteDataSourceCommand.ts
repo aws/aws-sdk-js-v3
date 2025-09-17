@@ -40,6 +40,8 @@ export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KendraClient, DeleteDataSourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteDataSourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // DeleteDataSourceRequest
  *   Id: "STRING_VALUE", // required

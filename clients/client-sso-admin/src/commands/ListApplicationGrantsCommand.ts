@@ -34,6 +34,8 @@ export interface ListApplicationGrantsCommandOutput extends ListApplicationGrant
  * ```javascript
  * import { SSOAdminClient, ListApplicationGrantsCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListApplicationGrantsCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // ListApplicationGrantsRequest
  *   ApplicationArn: "STRING_VALUE", // required

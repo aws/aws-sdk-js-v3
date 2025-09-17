@@ -36,6 +36,8 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * ```javascript
  * import { NeptuneClient, DescribeDBSubnetGroupsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBSubnetGroupsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBSubnetGroupsMessage
  *   DBSubnetGroupName: "STRING_VALUE",

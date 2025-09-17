@@ -34,6 +34,8 @@ export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDef
  * ```javascript
  * import { GreengrassClient, CreateFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // CreateFunctionDefinitionRequest
  *   AmznClientToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { AmpClient, TagResourceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, TagResourceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

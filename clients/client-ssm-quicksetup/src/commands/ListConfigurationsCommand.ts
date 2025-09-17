@@ -34,6 +34,8 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsOutpu
  * ```javascript
  * import { SSMQuickSetupClient, ListConfigurationsCommand } from "@aws-sdk/client-ssm-quicksetup"; // ES Modules import
  * // const { SSMQuickSetupClient, ListConfigurationsCommand } = require("@aws-sdk/client-ssm-quicksetup"); // CommonJS import
+ * // import type { SSMQuickSetupClientConfig } from "@aws-sdk/client-ssm-quicksetup";
+ * const config = {}; // type is SSMQuickSetupClientConfig
  * const client = new SSMQuickSetupClient(config);
  * const input = { // ListConfigurationsInput
  *   StartingToken: "STRING_VALUE",

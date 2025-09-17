@@ -45,6 +45,8 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * ```javascript
  * import { Cloud9Client, CreateEnvironmentEC2Command } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, CreateEnvironmentEC2Command } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * // import type { Cloud9ClientConfig } from "@aws-sdk/client-cloud9";
+ * const config = {}; // type is Cloud9ClientConfig
  * const client = new Cloud9Client(config);
  * const input = { // CreateEnvironmentEC2Request
  *   name: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * ```javascript
  * import { TransferClient, CreateWorkflowCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateWorkflowCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // CreateWorkflowRequest
  *   Description: "STRING_VALUE",

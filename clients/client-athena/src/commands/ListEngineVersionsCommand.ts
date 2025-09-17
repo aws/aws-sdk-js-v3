@@ -35,6 +35,8 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  * ```javascript
  * import { AthenaClient, ListEngineVersionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListEngineVersionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // ListEngineVersionsInput
  *   NextToken: "STRING_VALUE",

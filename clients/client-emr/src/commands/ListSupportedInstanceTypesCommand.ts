@@ -35,6 +35,8 @@ export interface ListSupportedInstanceTypesCommandOutput extends ListSupportedIn
  * ```javascript
  * import { EMRClient, ListSupportedInstanceTypesCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListSupportedInstanceTypesCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // ListSupportedInstanceTypesInput
  *   ReleaseLabel: "STRING_VALUE", // required

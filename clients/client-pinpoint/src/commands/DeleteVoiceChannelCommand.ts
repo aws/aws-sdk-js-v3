@@ -34,6 +34,8 @@ export interface DeleteVoiceChannelCommandOutput extends DeleteVoiceChannelRespo
  * ```javascript
  * import { PinpointClient, DeleteVoiceChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteVoiceChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // import type { PinpointClientConfig } from "@aws-sdk/client-pinpoint";
+ * const config = {}; // type is PinpointClientConfig
  * const client = new PinpointClient(config);
  * const input = { // DeleteVoiceChannelRequest
  *   ApplicationId: "STRING_VALUE", // required

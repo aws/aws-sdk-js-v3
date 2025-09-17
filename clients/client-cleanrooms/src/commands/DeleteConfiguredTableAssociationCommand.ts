@@ -39,6 +39,8 @@ export interface DeleteConfiguredTableAssociationCommandOutput
  * ```javascript
  * import { CleanRoomsClient, DeleteConfiguredTableAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeleteConfiguredTableAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // DeleteConfiguredTableAssociationInput
  *   configuredTableAssociationIdentifier: "STRING_VALUE", // required

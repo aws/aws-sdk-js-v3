@@ -125,6 +125,8 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * ```javascript
  * import { PersonalizeClient, CreateSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // CreateSolutionRequest
  *   name: "STRING_VALUE", // required

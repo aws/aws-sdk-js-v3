@@ -35,6 +35,8 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
  * ```javascript
  * import { LookoutEquipmentClient, ListDataIngestionJobsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListDataIngestionJobsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // import type { LookoutEquipmentClientConfig } from "@aws-sdk/client-lookoutequipment";
+ * const config = {}; // type is LookoutEquipmentClientConfig
  * const client = new LookoutEquipmentClient(config);
  * const input = { // ListDataIngestionJobsRequest
  *   DatasetName: "STRING_VALUE",

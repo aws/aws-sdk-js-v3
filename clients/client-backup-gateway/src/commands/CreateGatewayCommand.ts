@@ -35,6 +35,8 @@ export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __Metad
  * ```javascript
  * import { BackupGatewayClient, CreateGatewayCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, CreateGatewayCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * // import type { BackupGatewayClientConfig } from "@aws-sdk/client-backup-gateway";
+ * const config = {}; // type is BackupGatewayClientConfig
  * const client = new BackupGatewayClient(config);
  * const input = { // CreateGatewayInput
  *   ActivationKey: "STRING_VALUE", // required

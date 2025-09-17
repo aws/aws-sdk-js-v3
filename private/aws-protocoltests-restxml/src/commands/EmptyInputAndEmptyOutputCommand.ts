@@ -37,6 +37,8 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * ```javascript
  * import { RestXmlProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = {};
  * const command = new EmptyInputAndEmptyOutputCommand(input);

@@ -36,6 +36,8 @@ export interface ListRuleTypesCommandOutput extends ListRuleTypesOutput, __Metad
  * ```javascript
  * import { CodePipelineClient, ListRuleTypesCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListRuleTypesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // ListRuleTypesInput
  *   ruleOwnerFilter: "AWS",

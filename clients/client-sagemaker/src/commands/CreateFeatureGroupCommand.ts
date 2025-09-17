@@ -34,6 +34,8 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  * ```javascript
  * import { SageMakerClient, CreateFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateFeatureGroupRequest
  *   FeatureGroupName: "STRING_VALUE", // required

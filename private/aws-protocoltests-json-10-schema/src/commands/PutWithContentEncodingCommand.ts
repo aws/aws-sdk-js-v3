@@ -35,6 +35,8 @@ export interface PutWithContentEncodingCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { JSONRPC10Client, PutWithContentEncodingCommand } from "@aws-sdk/aws-protocoltests-json-10-schema"; // ES Modules import
  * // const { JSONRPC10Client, PutWithContentEncodingCommand } = require("@aws-sdk/aws-protocoltests-json-10-schema"); // CommonJS import
+ * // import type { JSONRPC10ClientConfig } from "@aws-sdk/aws-protocoltests-json-10-schema";
+ * const config = {}; // type is JSONRPC10ClientConfig
  * const client = new JSONRPC10Client(config);
  * const input = { // PutWithContentEncodingInput
  *   encoding: "STRING_VALUE",

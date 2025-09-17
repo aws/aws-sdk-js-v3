@@ -38,6 +38,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * ```javascript
  * import { IoTFleetHubClient, CreateApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, CreateApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * // import type { IoTFleetHubClientConfig } from "@aws-sdk/client-iotfleethub";
+ * const config = {}; // type is IoTFleetHubClientConfig
  * const client = new IoTFleetHubClient(config);
  * const input = { // CreateApplicationRequest
  *   applicationName: "STRING_VALUE", // required

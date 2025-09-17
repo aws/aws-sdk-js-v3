@@ -34,6 +34,8 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
  * ```javascript
  * import { GreengrassClient, ListBulkDeploymentsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListBulkDeploymentsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // ListBulkDeploymentsRequest
  *   MaxResults: "STRING_VALUE",

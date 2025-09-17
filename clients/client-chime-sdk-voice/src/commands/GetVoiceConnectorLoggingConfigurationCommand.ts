@@ -44,6 +44,8 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
  * ```javascript
  * import { ChimeSDKVoiceClient, GetVoiceConnectorLoggingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetVoiceConnectorLoggingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceConnectorLoggingConfigurationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required

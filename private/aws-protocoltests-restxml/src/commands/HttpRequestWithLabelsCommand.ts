@@ -35,6 +35,8 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RestXmlProtocolClient, HttpRequestWithLabelsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpRequestWithLabelsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // HttpRequestWithLabelsInput
  *   string: "STRING_VALUE", // required

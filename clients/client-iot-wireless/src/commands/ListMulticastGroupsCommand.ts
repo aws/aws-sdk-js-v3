@@ -34,6 +34,8 @@ export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsRes
  * ```javascript
  * import { IoTWirelessClient, ListMulticastGroupsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListMulticastGroupsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // ListMulticastGroupsRequest
  *   NextToken: "STRING_VALUE",

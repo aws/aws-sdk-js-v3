@@ -38,6 +38,8 @@ export interface DeleteCommandExecutionCommandOutput extends DeleteCommandExecut
  * ```javascript
  * import { IoTClient, DeleteCommandExecutionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteCommandExecutionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteCommandExecutionRequest
  *   executionId: "STRING_VALUE", // required

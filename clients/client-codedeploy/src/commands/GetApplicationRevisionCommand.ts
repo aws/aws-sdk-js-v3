@@ -34,6 +34,8 @@ export interface GetApplicationRevisionCommandOutput extends GetApplicationRevis
  * ```javascript
  * import { CodeDeployClient, GetApplicationRevisionCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetApplicationRevisionCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // import type { CodeDeployClientConfig } from "@aws-sdk/client-codedeploy";
+ * const config = {}; // type is CodeDeployClientConfig
  * const client = new CodeDeployClient(config);
  * const input = { // GetApplicationRevisionInput
  *   applicationName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface StartApplicationCommandOutput extends StartApplicationOutput, _
  * ```javascript
  * import { SsmSapClient, StartApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, StartApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // StartApplicationInput
  *   ApplicationId: "STRING_VALUE", // required

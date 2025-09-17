@@ -34,6 +34,8 @@ export interface PutGatewayResponseCommandOutput extends GatewayResponse, __Meta
  * ```javascript
  * import { APIGatewayClient, PutGatewayResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, PutGatewayResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // PutGatewayResponseRequest
  *   restApiId: "STRING_VALUE", // required

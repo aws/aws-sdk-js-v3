@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { ImagebuilderClient, TagResourceCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, TagResourceCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

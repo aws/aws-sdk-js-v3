@@ -34,6 +34,8 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * ```javascript
  * import { IvsClient, GetRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * // import type { IvsClientConfig } from "@aws-sdk/client-ivs";
+ * const config = {}; // type is IvsClientConfig
  * const client = new IvsClient(config);
  * const input = { // GetRecordingConfigurationRequest
  *   arn: "STRING_VALUE", // required

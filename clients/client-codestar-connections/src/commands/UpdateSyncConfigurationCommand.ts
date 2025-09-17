@@ -38,6 +38,8 @@ export interface UpdateSyncConfigurationCommandOutput extends UpdateSyncConfigur
  * ```javascript
  * import { CodeStarConnectionsClient, UpdateSyncConfigurationCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, UpdateSyncConfigurationCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * // import type { CodeStarConnectionsClientConfig } from "@aws-sdk/client-codestar-connections";
+ * const config = {}; // type is CodeStarConnectionsClientConfig
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // UpdateSyncConfigurationInput
  *   Branch: "STRING_VALUE",

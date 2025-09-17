@@ -35,6 +35,8 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  * ```javascript
  * import { ECSClient, DescribeContainerInstancesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeContainerInstancesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DescribeContainerInstancesRequest
  *   cluster: "STRING_VALUE",

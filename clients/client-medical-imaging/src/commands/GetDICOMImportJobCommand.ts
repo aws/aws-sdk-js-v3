@@ -34,6 +34,8 @@ export interface GetDICOMImportJobCommandOutput extends GetDICOMImportJobRespons
  * ```javascript
  * import { MedicalImagingClient, GetDICOMImportJobCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, GetDICOMImportJobCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // GetDICOMImportJobRequest
  *   datastoreId: "STRING_VALUE", // required

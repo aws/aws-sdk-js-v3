@@ -36,6 +36,8 @@ export interface ListAutomationRulesCommandOutput extends ListAutomationRulesRes
  * ```javascript
  * import { SecurityHubClient, ListAutomationRulesCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListAutomationRulesCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // ListAutomationRulesRequest
  *   NextToken: "STRING_VALUE",

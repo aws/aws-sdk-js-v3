@@ -34,6 +34,8 @@ export interface ListGeneratedTemplatesCommandOutput extends ListGeneratedTempla
  * ```javascript
  * import { CloudFormationClient, ListGeneratedTemplatesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListGeneratedTemplatesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ListGeneratedTemplatesInput
  *   NextToken: "STRING_VALUE",

@@ -39,6 +39,8 @@ export interface DescribeBrokerInstanceOptionsCommandOutput
  * ```javascript
  * import { MqClient, DescribeBrokerInstanceOptionsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DescribeBrokerInstanceOptionsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // DescribeBrokerInstanceOptionsRequest
  *   EngineType: "STRING_VALUE",

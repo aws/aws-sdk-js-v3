@@ -34,6 +34,8 @@ export interface ListConnectorsV2CommandOutput extends ListConnectorsV2Response,
  * ```javascript
  * import { SecurityHubClient, ListConnectorsV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListConnectorsV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // ListConnectorsV2Request
  *   NextToken: "STRING_VALUE",

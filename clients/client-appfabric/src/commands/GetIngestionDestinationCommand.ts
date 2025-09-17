@@ -34,6 +34,8 @@ export interface GetIngestionDestinationCommandOutput extends GetIngestionDestin
  * ```javascript
  * import { AppFabricClient, GetIngestionDestinationCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, GetIngestionDestinationCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // GetIngestionDestinationRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

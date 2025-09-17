@@ -57,6 +57,8 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * ```javascript
  * import { ElasticLoadBalancingClient, SetLoadBalancerPoliciesForBackendServerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, SetLoadBalancerPoliciesForBackendServerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * // import type { ElasticLoadBalancingClientConfig } from "@aws-sdk/client-elastic-load-balancing";
+ * const config = {}; // type is ElasticLoadBalancingClientConfig
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // SetLoadBalancerPoliciesForBackendServerInput
  *   LoadBalancerName: "STRING_VALUE", // required

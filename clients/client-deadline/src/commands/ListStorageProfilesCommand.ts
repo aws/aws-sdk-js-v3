@@ -34,6 +34,8 @@ export interface ListStorageProfilesCommandOutput extends ListStorageProfilesRes
  * ```javascript
  * import { DeadlineClient, ListStorageProfilesCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListStorageProfilesCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListStorageProfilesRequest
  *   farmId: "STRING_VALUE", // required

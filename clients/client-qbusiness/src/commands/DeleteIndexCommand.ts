@@ -34,6 +34,8 @@ export interface DeleteIndexCommandOutput extends DeleteIndexResponse, __Metadat
  * ```javascript
  * import { QBusinessClient, DeleteIndexCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, DeleteIndexCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // DeleteIndexRequest
  *   applicationId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface AssociateDistributionWebACLCommandOutput extends AssociateDistr
  * ```javascript
  * import { CloudFrontClient, AssociateDistributionWebACLCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, AssociateDistributionWebACLCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // AssociateDistributionWebACLRequest
  *   Id: "STRING_VALUE", // required

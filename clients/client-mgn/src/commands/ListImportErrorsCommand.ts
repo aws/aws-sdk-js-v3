@@ -34,6 +34,8 @@ export interface ListImportErrorsCommandOutput extends ListImportErrorsResponse,
  * ```javascript
  * import { MgnClient, ListImportErrorsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListImportErrorsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // ListImportErrorsRequest
  *   importID: "STRING_VALUE", // required

@@ -51,6 +51,8 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * ```javascript
  * import { RDSClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ResetDBClusterParameterGroupMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required

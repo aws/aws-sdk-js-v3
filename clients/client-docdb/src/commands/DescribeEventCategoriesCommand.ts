@@ -35,6 +35,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * ```javascript
  * import { DocDBClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // DescribeEventCategoriesMessage
  *   SourceType: "STRING_VALUE",

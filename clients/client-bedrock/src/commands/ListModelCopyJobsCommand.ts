@@ -34,6 +34,8 @@ export interface ListModelCopyJobsCommandOutput extends ListModelCopyJobsRespons
  * ```javascript
  * import { BedrockClient, ListModelCopyJobsCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, ListModelCopyJobsCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // ListModelCopyJobsRequest
  *   creationTimeAfter: new Date("TIMESTAMP"),

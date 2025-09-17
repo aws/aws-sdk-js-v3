@@ -37,6 +37,8 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * ```javascript
  * import { IoTFleetWiseClient, ListCampaignsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListCampaignsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListCampaignsRequest
  *   nextToken: "STRING_VALUE",

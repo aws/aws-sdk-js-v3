@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudFrontClient, UntagResourceCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UntagResourceCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // UntagResourceRequest
  *   Resource: "STRING_VALUE", // required

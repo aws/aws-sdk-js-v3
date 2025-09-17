@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { KafkaConnectClient, ListTagsForResourceCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, ListTagsForResourceCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * // import type { KafkaConnectClientConfig } from "@aws-sdk/client-kafkaconnect";
+ * const config = {}; // type is KafkaConnectClientConfig
  * const client = new KafkaConnectClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

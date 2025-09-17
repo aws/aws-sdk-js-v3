@@ -43,6 +43,8 @@ export interface GetManagedEndpointSessionCredentialsCommandOutput
  * ```javascript
  * import { EMRContainersClient, GetManagedEndpointSessionCredentialsCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, GetManagedEndpointSessionCredentialsCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // GetManagedEndpointSessionCredentialsRequest
  *   endpointIdentifier: "STRING_VALUE", // required

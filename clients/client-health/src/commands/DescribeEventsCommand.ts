@@ -56,6 +56,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * ```javascript
  * import { HealthClient, DescribeEventsCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventsCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * // import type { HealthClientConfig } from "@aws-sdk/client-health";
+ * const config = {}; // type is HealthClientConfig
  * const client = new HealthClient(config);
  * const input = { // DescribeEventsRequest
  *   filter: { // EventFilter

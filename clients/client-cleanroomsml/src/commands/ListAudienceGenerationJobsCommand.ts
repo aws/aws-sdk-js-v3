@@ -34,6 +34,8 @@ export interface ListAudienceGenerationJobsCommandOutput extends ListAudienceGen
  * ```javascript
  * import { CleanRoomsMLClient, ListAudienceGenerationJobsCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, ListAudienceGenerationJobsCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // ListAudienceGenerationJobsRequest
  *   nextToken: "STRING_VALUE",

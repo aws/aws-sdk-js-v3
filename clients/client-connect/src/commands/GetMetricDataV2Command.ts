@@ -84,6 +84,8 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * ```javascript
  * import { ConnectClient, GetMetricDataV2Command } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetMetricDataV2Command } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // GetMetricDataV2Request
  *   ResourceArn: "STRING_VALUE", // required

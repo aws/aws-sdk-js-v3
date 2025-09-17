@@ -35,6 +35,8 @@ export interface DescribeMitigationActionCommandOutput extends DescribeMitigatio
  * ```javascript
  * import { IoTClient, DescribeMitigationActionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeMitigationActionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DescribeMitigationActionRequest
  *   actionName: "STRING_VALUE", // required

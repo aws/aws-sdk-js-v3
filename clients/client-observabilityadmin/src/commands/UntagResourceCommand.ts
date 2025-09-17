@@ -40,6 +40,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ObservabilityAdminClient, UntagResourceCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
  * // const { ObservabilityAdminClient, UntagResourceCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
+ * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
  * const input = { // UntagResourceInput
  *   ResourceARN: "STRING_VALUE", // required

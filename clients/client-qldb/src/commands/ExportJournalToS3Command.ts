@@ -43,6 +43,8 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * ```javascript
  * import { QLDBClient, ExportJournalToS3Command } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ExportJournalToS3Command } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * // import type { QLDBClientConfig } from "@aws-sdk/client-qldb";
+ * const config = {}; // type is QLDBClientConfig
  * const client = new QLDBClient(config);
  * const input = { // ExportJournalToS3Request
  *   Name: "STRING_VALUE", // required

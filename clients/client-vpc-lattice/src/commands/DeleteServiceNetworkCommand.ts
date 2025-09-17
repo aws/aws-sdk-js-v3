@@ -38,6 +38,8 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  * ```javascript
  * import { VPCLatticeClient, DeleteServiceNetworkCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteServiceNetworkCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteServiceNetworkRequest
  *   serviceNetworkIdentifier: "STRING_VALUE", // required

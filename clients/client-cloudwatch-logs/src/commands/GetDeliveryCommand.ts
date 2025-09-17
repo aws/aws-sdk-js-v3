@@ -47,6 +47,8 @@ export interface GetDeliveryCommandOutput extends GetDeliveryResponse, __Metadat
  * ```javascript
  * import { CloudWatchLogsClient, GetDeliveryCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetDeliveryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // GetDeliveryRequest
  *   id: "STRING_VALUE", // required

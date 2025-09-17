@@ -36,6 +36,8 @@ export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesRes
  * ```javascript
  * import { IoTSiteWiseClient, ListAssetPropertiesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssetPropertiesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListAssetPropertiesRequest
  *   assetId: "STRING_VALUE", // required

@@ -59,6 +59,8 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  * ```javascript
  * import { EC2Client, ModifyInstancePlacementCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstancePlacementCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // ModifyInstancePlacementRequest
  *   GroupName: "STRING_VALUE",

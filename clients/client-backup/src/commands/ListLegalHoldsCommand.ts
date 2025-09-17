@@ -34,6 +34,8 @@ export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __Met
  * ```javascript
  * import { BackupClient, ListLegalHoldsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListLegalHoldsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListLegalHoldsInput
  *   NextToken: "STRING_VALUE",

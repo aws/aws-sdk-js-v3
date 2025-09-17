@@ -34,6 +34,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * ```javascript
  * import { SsmSapClient, ListApplicationsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListApplicationsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // ListApplicationsInput
  *   NextToken: "STRING_VALUE",

@@ -38,6 +38,8 @@ export interface ListSyncConfigurationsCommandOutput extends ListSyncConfigurati
  * ```javascript
  * import { CodeStarConnectionsClient, ListSyncConfigurationsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, ListSyncConfigurationsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * // import type { CodeStarConnectionsClientConfig } from "@aws-sdk/client-codestar-connections";
+ * const config = {}; // type is CodeStarConnectionsClientConfig
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // ListSyncConfigurationsInput
  *   MaxResults: Number("int"),

@@ -60,6 +60,8 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  * ```javascript
  * import { FirehoseClient, UpdateDestinationCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, UpdateDestinationCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * // import type { FirehoseClientConfig } from "@aws-sdk/client-firehose";
+ * const config = {}; // type is FirehoseClientConfig
  * const client = new FirehoseClient(config);
  * const input = { // UpdateDestinationInput
  *   DeliveryStreamName: "STRING_VALUE", // required

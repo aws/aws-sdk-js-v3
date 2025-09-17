@@ -34,6 +34,8 @@ export interface GetInAppTemplateCommandOutput extends GetInAppTemplateResponse,
  * ```javascript
  * import { PinpointClient, GetInAppTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetInAppTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // import type { PinpointClientConfig } from "@aws-sdk/client-pinpoint";
+ * const config = {}; // type is PinpointClientConfig
  * const client = new PinpointClient(config);
  * const input = { // GetInAppTemplateRequest
  *   TemplateName: "STRING_VALUE", // required

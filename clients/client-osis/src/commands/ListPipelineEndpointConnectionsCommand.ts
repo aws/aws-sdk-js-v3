@@ -39,6 +39,8 @@ export interface ListPipelineEndpointConnectionsCommandOutput
  * ```javascript
  * import { OSISClient, ListPipelineEndpointConnectionsCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, ListPipelineEndpointConnectionsCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // import type { OSISClientConfig } from "@aws-sdk/client-osis";
+ * const config = {}; // type is OSISClientConfig
  * const client = new OSISClient(config);
  * const input = { // ListPipelineEndpointConnectionsRequest
  *   MaxResults: Number("int"),

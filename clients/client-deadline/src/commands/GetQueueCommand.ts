@@ -34,6 +34,8 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * ```javascript
  * import { DeadlineClient, GetQueueCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetQueueCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetQueueRequest
  *   farmId: "STRING_VALUE", // required

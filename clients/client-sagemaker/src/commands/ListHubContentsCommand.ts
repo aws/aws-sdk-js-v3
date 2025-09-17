@@ -34,6 +34,8 @@ export interface ListHubContentsCommandOutput extends ListHubContentsResponse, _
  * ```javascript
  * import { SageMakerClient, ListHubContentsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListHubContentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListHubContentsRequest
  *   HubName: "STRING_VALUE", // required

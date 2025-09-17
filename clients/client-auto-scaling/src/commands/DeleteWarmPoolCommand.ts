@@ -36,6 +36,8 @@ export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __Met
  * ```javascript
  * import { AutoScalingClient, DeleteWarmPoolCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteWarmPoolCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // DeleteWarmPoolType
  *   AutoScalingGroupName: "STRING_VALUE", // required

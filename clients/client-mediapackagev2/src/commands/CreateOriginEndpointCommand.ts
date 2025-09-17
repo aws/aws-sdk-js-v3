@@ -34,6 +34,8 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * ```javascript
  * import { MediaPackageV2Client, CreateOriginEndpointCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, CreateOriginEndpointCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // import type { MediaPackageV2ClientConfig } from "@aws-sdk/client-mediapackagev2";
+ * const config = {}; // type is MediaPackageV2ClientConfig
  * const client = new MediaPackageV2Client(config);
  * const input = { // CreateOriginEndpointRequest
  *   ChannelGroupName: "STRING_VALUE", // required

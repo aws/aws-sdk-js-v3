@@ -39,6 +39,8 @@ export interface DescribeApplicationAssociationsCommandOutput
  * ```javascript
  * import { WorkSpacesClient, DescribeApplicationAssociationsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeApplicationAssociationsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeApplicationAssociationsRequest
  *   MaxResults: Number("int"),

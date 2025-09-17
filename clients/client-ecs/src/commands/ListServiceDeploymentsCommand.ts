@@ -39,6 +39,8 @@ export interface ListServiceDeploymentsCommandOutput extends ListServiceDeployme
  * ```javascript
  * import { ECSClient, ListServiceDeploymentsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListServiceDeploymentsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // ListServiceDeploymentsRequest
  *   service: "STRING_VALUE", // required

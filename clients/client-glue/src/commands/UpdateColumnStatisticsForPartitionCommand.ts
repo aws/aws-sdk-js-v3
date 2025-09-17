@@ -43,6 +43,8 @@ export interface UpdateColumnStatisticsForPartitionCommandOutput
  * ```javascript
  * import { GlueClient, UpdateColumnStatisticsForPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateColumnStatisticsForPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // UpdateColumnStatisticsForPartitionRequest
  *   CatalogId: "STRING_VALUE",

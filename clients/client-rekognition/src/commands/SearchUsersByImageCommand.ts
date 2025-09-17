@@ -42,6 +42,8 @@ export interface SearchUsersByImageCommandOutput extends SearchUsersByImageRespo
  * ```javascript
  * import { RekognitionClient, SearchUsersByImageCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, SearchUsersByImageCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // SearchUsersByImageRequest
  *   CollectionId: "STRING_VALUE", // required

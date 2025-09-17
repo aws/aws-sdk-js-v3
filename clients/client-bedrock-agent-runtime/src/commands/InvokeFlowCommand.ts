@@ -43,6 +43,8 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  * ```javascript
  * import { BedrockAgentRuntimeClient, InvokeFlowCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, InvokeFlowCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // InvokeFlowRequest
  *   flowIdentifier: "STRING_VALUE", // required

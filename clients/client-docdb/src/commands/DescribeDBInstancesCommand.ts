@@ -34,6 +34,8 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * ```javascript
  * import { DocDBClient, DescribeDBInstancesCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // DescribeDBInstancesMessage
  *   DBInstanceIdentifier: "STRING_VALUE",

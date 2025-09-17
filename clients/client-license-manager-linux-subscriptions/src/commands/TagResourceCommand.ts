@@ -38,6 +38,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { LicenseManagerLinuxSubscriptionsClient, TagResourceCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
  * // const { LicenseManagerLinuxSubscriptionsClient, TagResourceCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerLinuxSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-linux-subscriptions";
+ * const config = {}; // type is LicenseManagerLinuxSubscriptionsClientConfig
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  * ```javascript
  * import { TransferClient, DescribeSecurityPolicyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeSecurityPolicyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // DescribeSecurityPolicyRequest
  *   SecurityPolicyName: "STRING_VALUE", // required

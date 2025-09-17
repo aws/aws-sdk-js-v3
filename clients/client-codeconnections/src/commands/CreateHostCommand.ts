@@ -41,6 +41,8 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * ```javascript
  * import { CodeConnectionsClient, CreateHostCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, CreateHostCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // CreateHostInput
  *   Name: "STRING_VALUE", // required

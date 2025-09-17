@@ -38,6 +38,8 @@ export interface DeleteIngestionDestinationCommandOutput extends DeleteIngestion
  * ```javascript
  * import { AppFabricClient, DeleteIngestionDestinationCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, DeleteIngestionDestinationCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // DeleteIngestionDestinationRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

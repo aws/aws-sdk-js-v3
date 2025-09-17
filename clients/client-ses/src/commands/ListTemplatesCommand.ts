@@ -36,6 +36,8 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * ```javascript
  * import { SESClient, ListTemplatesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListTemplatesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // ListTemplatesRequest
  *   NextToken: "STRING_VALUE",

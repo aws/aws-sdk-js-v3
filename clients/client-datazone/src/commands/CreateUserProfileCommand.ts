@@ -38,6 +38,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileOutput,
  * ```javascript
  * import { DataZoneClient, CreateUserProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateUserProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateUserProfileInput
  *   domainIdentifier: "STRING_VALUE", // required

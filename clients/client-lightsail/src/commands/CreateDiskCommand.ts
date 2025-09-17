@@ -37,6 +37,8 @@ export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBea
  * ```javascript
  * import { LightsailClient, CreateDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // CreateDiskRequest
  *   diskName: "STRING_VALUE", // required

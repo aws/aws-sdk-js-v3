@@ -34,6 +34,8 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  * ```javascript
  * import { WisdomClient, DeleteContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // DeleteContentRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

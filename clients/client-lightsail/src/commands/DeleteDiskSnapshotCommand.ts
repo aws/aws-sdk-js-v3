@@ -42,6 +42,8 @@ export interface DeleteDiskSnapshotCommandOutput extends DeleteDiskSnapshotResul
  * ```javascript
  * import { LightsailClient, DeleteDiskSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteDiskSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // DeleteDiskSnapshotRequest
  *   diskSnapshotName: "STRING_VALUE", // required

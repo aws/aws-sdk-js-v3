@@ -38,6 +38,8 @@ export interface DeleteDeliveryDestinationPolicyCommandOutput extends __Metadata
  * ```javascript
  * import { CloudWatchLogsClient, DeleteDeliveryDestinationPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteDeliveryDestinationPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DeleteDeliveryDestinationPolicyRequest
  *   deliveryDestinationName: "STRING_VALUE", // required

@@ -41,6 +41,8 @@ export interface BatchUpdateRuleCommandOutput extends BatchUpdateRuleResponse, _
  * ```javascript
  * import { VPCLatticeClient, BatchUpdateRuleCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, BatchUpdateRuleCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // BatchUpdateRuleRequest
  *   serviceIdentifier: "STRING_VALUE", // required

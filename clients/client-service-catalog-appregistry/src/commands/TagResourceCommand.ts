@@ -40,6 +40,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { ServiceCatalogAppRegistryClient, TagResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, TagResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * // import type { ServiceCatalogAppRegistryClientConfig } from "@aws-sdk/client-service-catalog-appregistry";
+ * const config = {}; // type is ServiceCatalogAppRegistryClientConfig
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

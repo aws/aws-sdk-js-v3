@@ -34,6 +34,8 @@ export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfig
  * ```javascript
  * import { CodeDeployClient, ListDeploymentConfigsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentConfigsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // import type { CodeDeployClientConfig } from "@aws-sdk/client-codedeploy";
+ * const config = {}; // type is CodeDeployClientConfig
  * const client = new CodeDeployClient(config);
  * const input = { // ListDeploymentConfigsInput
  *   nextToken: "STRING_VALUE",

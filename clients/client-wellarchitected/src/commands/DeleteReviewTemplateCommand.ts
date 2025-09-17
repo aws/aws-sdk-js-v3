@@ -38,6 +38,8 @@ export interface DeleteReviewTemplateCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WellArchitectedClient, DeleteReviewTemplateCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, DeleteReviewTemplateCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // DeleteReviewTemplateInput
  *   TemplateArn: "STRING_VALUE", // required

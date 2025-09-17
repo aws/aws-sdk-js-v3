@@ -35,6 +35,8 @@ export interface HttpPayloadWithXmlNameCommandOutput extends HttpPayloadWithXmlN
  * ```javascript
  * import { RestXmlProtocolClient, HttpPayloadWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // HttpPayloadWithXmlNameInputOutput
  *   nested: { // PayloadWithXmlName

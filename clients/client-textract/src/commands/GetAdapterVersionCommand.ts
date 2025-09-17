@@ -36,6 +36,8 @@ export interface GetAdapterVersionCommandOutput extends GetAdapterVersionRespons
  * ```javascript
  * import { TextractClient, GetAdapterVersionCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetAdapterVersionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // GetAdapterVersionRequest
  *   AdapterId: "STRING_VALUE", // required

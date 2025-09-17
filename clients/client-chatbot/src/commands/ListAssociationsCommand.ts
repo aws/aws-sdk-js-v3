@@ -34,6 +34,8 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * ```javascript
  * import { ChatbotClient, ListAssociationsCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, ListAssociationsCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // ListAssociationsRequest
  *   ChatConfiguration: "STRING_VALUE", // required

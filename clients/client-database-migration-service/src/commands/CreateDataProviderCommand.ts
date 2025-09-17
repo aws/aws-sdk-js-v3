@@ -39,6 +39,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * ```javascript
  * import { DatabaseMigrationServiceClient, CreateDataProviderCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateDataProviderCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // CreateDataProviderMessage
  *   DataProviderName: "STRING_VALUE",

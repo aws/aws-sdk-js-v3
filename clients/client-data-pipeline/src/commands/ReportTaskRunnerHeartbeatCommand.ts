@@ -66,6 +66,8 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  * ```javascript
  * import { DataPipelineClient, ReportTaskRunnerHeartbeatCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ReportTaskRunnerHeartbeatCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * // import type { DataPipelineClientConfig } from "@aws-sdk/client-data-pipeline";
+ * const config = {}; // type is DataPipelineClientConfig
  * const client = new DataPipelineClient(config);
  * const input = { // ReportTaskRunnerHeartbeatInput
  *   taskrunnerId: "STRING_VALUE", // required

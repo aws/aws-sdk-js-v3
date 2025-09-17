@@ -97,6 +97,8 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  * ```javascript
  * import { SWFClient, StartWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, StartWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // StartWorkflowExecutionInput
  *   domain: "STRING_VALUE", // required

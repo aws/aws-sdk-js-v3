@@ -49,6 +49,8 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * ```javascript
  * import { OrganizationsClient, ListCreateAccountStatusCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListCreateAccountStatusCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // ListCreateAccountStatusRequest
  *   States: [ // CreateAccountStates

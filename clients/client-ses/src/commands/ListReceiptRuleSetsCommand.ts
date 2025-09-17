@@ -40,6 +40,8 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * ```javascript
  * import { SESClient, ListReceiptRuleSetsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListReceiptRuleSetsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // ListReceiptRuleSetsRequest
  *   NextToken: "STRING_VALUE",

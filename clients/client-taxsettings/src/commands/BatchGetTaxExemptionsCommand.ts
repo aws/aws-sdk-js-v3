@@ -35,6 +35,8 @@ export interface BatchGetTaxExemptionsCommandOutput extends BatchGetTaxExemption
  * ```javascript
  * import { TaxSettingsClient, BatchGetTaxExemptionsCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, BatchGetTaxExemptionsCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // import type { TaxSettingsClientConfig } from "@aws-sdk/client-taxsettings";
+ * const config = {}; // type is TaxSettingsClientConfig
  * const client = new TaxSettingsClient(config);
  * const input = { // BatchGetTaxExemptionsRequest
  *   accountIds: [ // AccountIds // required

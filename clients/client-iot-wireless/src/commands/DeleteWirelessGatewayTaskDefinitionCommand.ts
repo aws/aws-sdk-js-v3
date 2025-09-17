@@ -43,6 +43,8 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  * ```javascript
  * import { IoTWirelessClient, DeleteWirelessGatewayTaskDefinitionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteWirelessGatewayTaskDefinitionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // DeleteWirelessGatewayTaskDefinitionRequest
  *   Id: "STRING_VALUE", // required

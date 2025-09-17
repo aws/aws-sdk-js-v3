@@ -39,6 +39,8 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  * ```javascript
  * import { StorageGatewayClient, AddUploadBufferCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AddUploadBufferCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // AddUploadBufferInput
  *   GatewayARN: "STRING_VALUE", // required

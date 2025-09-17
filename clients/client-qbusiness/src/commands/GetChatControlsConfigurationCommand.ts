@@ -39,6 +39,8 @@ export interface GetChatControlsConfigurationCommandOutput
  * ```javascript
  * import { QBusinessClient, GetChatControlsConfigurationCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, GetChatControlsConfigurationCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // GetChatControlsConfigurationRequest
  *   applicationId: "STRING_VALUE", // required

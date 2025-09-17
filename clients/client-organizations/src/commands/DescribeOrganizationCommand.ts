@@ -41,6 +41,8 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * ```javascript
  * import { OrganizationsClient, DescribeOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = {};
  * const command = new DescribeOrganizationCommand(input);

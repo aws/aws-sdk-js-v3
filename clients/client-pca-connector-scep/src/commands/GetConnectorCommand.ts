@@ -34,6 +34,8 @@ export interface GetConnectorCommandOutput extends GetConnectorResponse, __Metad
  * ```javascript
  * import { PcaConnectorScepClient, GetConnectorCommand } from "@aws-sdk/client-pca-connector-scep"; // ES Modules import
  * // const { PcaConnectorScepClient, GetConnectorCommand } = require("@aws-sdk/client-pca-connector-scep"); // CommonJS import
+ * // import type { PcaConnectorScepClientConfig } from "@aws-sdk/client-pca-connector-scep";
+ * const config = {}; // type is PcaConnectorScepClientConfig
  * const client = new PcaConnectorScepClient(config);
  * const input = { // GetConnectorRequest
  *   ConnectorArn: "STRING_VALUE", // required

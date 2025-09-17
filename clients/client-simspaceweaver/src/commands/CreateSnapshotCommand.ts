@@ -89,6 +89,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * ```javascript
  * import { SimSpaceWeaverClient, CreateSnapshotCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, CreateSnapshotCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * // import type { SimSpaceWeaverClientConfig } from "@aws-sdk/client-simspaceweaver";
+ * const config = {}; // type is SimSpaceWeaverClientConfig
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // CreateSnapshotInput
  *   Simulation: "STRING_VALUE", // required

@@ -44,6 +44,8 @@ export interface CreateMicrosoftTeamsChannelConfigurationCommandOutput
  * ```javascript
  * import { ChatbotClient, CreateMicrosoftTeamsChannelConfigurationCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, CreateMicrosoftTeamsChannelConfigurationCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // CreateTeamsChannelConfigurationRequest
  *   ChannelId: "STRING_VALUE", // required

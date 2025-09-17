@@ -34,6 +34,8 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * ```javascript
  * import { EventBridgeClient, DescribeArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // DescribeArchiveRequest
  *   ArchiveName: "STRING_VALUE", // required

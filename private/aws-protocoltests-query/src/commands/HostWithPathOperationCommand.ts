@@ -34,6 +34,8 @@ export interface HostWithPathOperationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { QueryProtocolClient, HostWithPathOperationCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, HostWithPathOperationCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = {};
  * const command = new HostWithPathOperationCommand(input);

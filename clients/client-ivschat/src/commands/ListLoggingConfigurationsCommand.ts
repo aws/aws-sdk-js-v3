@@ -35,6 +35,8 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * ```javascript
  * import { IvschatClient, ListLoggingConfigurationsCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, ListLoggingConfigurationsCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // import type { IvschatClientConfig } from "@aws-sdk/client-ivschat";
+ * const config = {}; // type is IvschatClientConfig
  * const client = new IvschatClient(config);
  * const input = { // ListLoggingConfigurationsRequest
  *   nextToken: "STRING_VALUE",

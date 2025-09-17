@@ -34,6 +34,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ACMPCAClient, DeletePolicyCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, DeletePolicyCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * // import type { ACMPCAClientConfig } from "@aws-sdk/client-acm-pca";
+ * const config = {}; // type is ACMPCAClientConfig
  * const client = new ACMPCAClient(config);
  * const input = { // DeletePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

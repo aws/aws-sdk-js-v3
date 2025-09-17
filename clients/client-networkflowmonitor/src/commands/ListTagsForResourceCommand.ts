@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { NetworkFlowMonitorClient, ListTagsForResourceCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, ListTagsForResourceCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // ListTagsForResourceInput
  *   resourceArn: "STRING_VALUE", // required

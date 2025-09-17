@@ -42,6 +42,8 @@ export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOut
  * ```javascript
  * import { SchedulerClient, DeleteScheduleGroupCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, DeleteScheduleGroupCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * // import type { SchedulerClientConfig } from "@aws-sdk/client-scheduler";
+ * const config = {}; // type is SchedulerClientConfig
  * const client = new SchedulerClient(config);
  * const input = { // DeleteScheduleGroupInput
  *   Name: "STRING_VALUE", // required

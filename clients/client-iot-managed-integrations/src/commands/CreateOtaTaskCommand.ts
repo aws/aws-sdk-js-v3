@@ -42,6 +42,8 @@ export interface CreateOtaTaskCommandOutput extends CreateOtaTaskResponse, __Met
  * ```javascript
  * import { IoTManagedIntegrationsClient, CreateOtaTaskCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, CreateOtaTaskCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // CreateOtaTaskRequest
  *   Description: "STRING_VALUE",

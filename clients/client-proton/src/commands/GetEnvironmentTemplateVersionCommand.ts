@@ -43,6 +43,8 @@ export interface GetEnvironmentTemplateVersionCommandOutput
  * ```javascript
  * import { ProtonClient, GetEnvironmentTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetEnvironmentTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // GetEnvironmentTemplateVersionInput
  *   templateName: "STRING_VALUE", // required

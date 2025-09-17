@@ -48,6 +48,8 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * ```javascript
  * import { CloudHSMClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * // import type { CloudHSMClientConfig } from "@aws-sdk/client-cloudhsm";
+ * const config = {}; // type is CloudHSMClientConfig
  * const client = new CloudHSMClient(config);
  * const input = { // RemoveTagsFromResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

@@ -65,6 +65,8 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  * ```javascript
  * import { CloudFormationClient, UpdateStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // UpdateStackInstancesInput
  *   StackSetName: "STRING_VALUE", // required

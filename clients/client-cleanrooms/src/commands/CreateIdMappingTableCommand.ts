@@ -34,6 +34,8 @@ export interface CreateIdMappingTableCommandOutput extends CreateIdMappingTableO
  * ```javascript
  * import { CleanRoomsClient, CreateIdMappingTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateIdMappingTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // CreateIdMappingTableInput
  *   membershipIdentifier: "STRING_VALUE", // required

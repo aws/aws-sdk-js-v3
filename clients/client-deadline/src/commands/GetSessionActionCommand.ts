@@ -38,6 +38,8 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  * ```javascript
  * import { DeadlineClient, GetSessionActionCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetSessionActionCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetSessionActionRequest
  *   farmId: "STRING_VALUE", // required

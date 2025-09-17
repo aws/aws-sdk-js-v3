@@ -34,6 +34,8 @@ export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __Me
  * ```javascript
  * import { JsonProtocolClient, JsonIntEnumsCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, JsonIntEnumsCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * // import type { JsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-json";
+ * const config = {}; // type is JsonProtocolClientConfig
  * const client = new JsonProtocolClient(config);
  * const input = { // JsonIntEnumsInputOutput
  *   intEnum1: 1 || 2 || 3,

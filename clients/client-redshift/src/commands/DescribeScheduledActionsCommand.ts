@@ -35,6 +35,8 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  * ```javascript
  * import { RedshiftClient, DescribeScheduledActionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeScheduledActionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeScheduledActionsMessage
  *   ScheduledActionName: "STRING_VALUE",

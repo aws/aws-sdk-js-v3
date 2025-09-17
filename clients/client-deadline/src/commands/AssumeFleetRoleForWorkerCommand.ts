@@ -38,6 +38,8 @@ export interface AssumeFleetRoleForWorkerCommandOutput extends AssumeFleetRoleFo
  * ```javascript
  * import { DeadlineClient, AssumeFleetRoleForWorkerCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, AssumeFleetRoleForWorkerCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // AssumeFleetRoleForWorkerRequest
  *   farmId: "STRING_VALUE", // required

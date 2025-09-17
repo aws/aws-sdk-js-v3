@@ -34,6 +34,8 @@ export interface DeleteProjectMembershipCommandOutput extends DeleteProjectMembe
  * ```javascript
  * import { DataZoneClient, DeleteProjectMembershipCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteProjectMembershipCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteProjectMembershipInput
  *   domainIdentifier: "STRING_VALUE", // required

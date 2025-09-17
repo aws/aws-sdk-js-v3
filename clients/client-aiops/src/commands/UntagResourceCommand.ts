@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { AIOpsClient, UntagResourceCommand } from "@aws-sdk/client-aiops"; // ES Modules import
  * // const { AIOpsClient, UntagResourceCommand } = require("@aws-sdk/client-aiops"); // CommonJS import
+ * // import type { AIOpsClientConfig } from "@aws-sdk/client-aiops";
+ * const config = {}; // type is AIOpsClientConfig
  * const client = new AIOpsClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

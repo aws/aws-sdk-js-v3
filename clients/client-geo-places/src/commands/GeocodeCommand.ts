@@ -39,6 +39,8 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * ```javascript
  * import { GeoPlacesClient, GeocodeCommand } from "@aws-sdk/client-geo-places"; // ES Modules import
  * // const { GeoPlacesClient, GeocodeCommand } = require("@aws-sdk/client-geo-places"); // CommonJS import
+ * // import type { GeoPlacesClientConfig } from "@aws-sdk/client-geo-places";
+ * const config = {}; // type is GeoPlacesClientConfig
  * const client = new GeoPlacesClient(config);
  * const input = { // GeocodeRequest
  *   QueryText: "STRING_VALUE",

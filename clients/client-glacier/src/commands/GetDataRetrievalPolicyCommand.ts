@@ -36,6 +36,8 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * ```javascript
  * import { GlacierClient, GetDataRetrievalPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetDataRetrievalPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // import type { GlacierClientConfig } from "@aws-sdk/client-glacier";
+ * const config = {}; // type is GlacierClientConfig
  * const client = new GlacierClient(config);
  * const input = { // GetDataRetrievalPolicyInput
  *   accountId: "STRING_VALUE", // required

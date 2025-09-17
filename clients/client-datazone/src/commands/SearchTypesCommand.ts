@@ -34,6 +34,8 @@ export interface SearchTypesCommandOutput extends SearchTypesOutput, __MetadataB
  * ```javascript
  * import { DataZoneClient, SearchTypesCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, SearchTypesCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // SearchTypesInput
  *   domainIdentifier: "STRING_VALUE", // required

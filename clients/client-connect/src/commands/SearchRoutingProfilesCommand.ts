@@ -40,6 +40,8 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * ```javascript
  * import { ConnectClient, SearchRoutingProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchRoutingProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // SearchRoutingProfilesRequest
  *   InstanceId: "STRING_VALUE", // required

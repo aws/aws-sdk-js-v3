@@ -37,6 +37,8 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * ```javascript
  * import { IAMClient, GetAccountSummaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetAccountSummaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = {};
  * const command = new GetAccountSummaryCommand(input);

@@ -41,6 +41,8 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
  * ```javascript
  * import { StorageGatewayClient, DescribeAvailabilityMonitorTestCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeAvailabilityMonitorTestCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeAvailabilityMonitorTestInput
  *   GatewayARN: "STRING_VALUE", // required

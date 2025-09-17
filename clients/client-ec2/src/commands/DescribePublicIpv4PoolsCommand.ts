@@ -34,6 +34,8 @@ export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4
  * ```javascript
  * import { EC2Client, DescribePublicIpv4PoolsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribePublicIpv4PoolsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribePublicIpv4PoolsRequest
  *   PoolIds: [ // PublicIpv4PoolIdStringList

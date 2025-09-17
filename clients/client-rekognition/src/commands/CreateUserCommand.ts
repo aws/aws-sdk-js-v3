@@ -41,6 +41,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * ```javascript
  * import { RekognitionClient, CreateUserCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateUserCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // CreateUserRequest
  *   CollectionId: "STRING_VALUE", // required

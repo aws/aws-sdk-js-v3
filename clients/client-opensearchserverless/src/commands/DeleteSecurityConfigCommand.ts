@@ -38,6 +38,8 @@ export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigR
  * ```javascript
  * import { OpenSearchServerlessClient, DeleteSecurityConfigCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteSecurityConfigCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // DeleteSecurityConfigRequest
  *   id: "STRING_VALUE", // required

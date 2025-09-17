@@ -40,6 +40,8 @@ export interface GetEventPredictionMetadataCommandOutput extends GetEventPredict
  * ```javascript
  * import { FraudDetectorClient, GetEventPredictionMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetEventPredictionMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // GetEventPredictionMetadataRequest
  *   eventId: "STRING_VALUE", // required

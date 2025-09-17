@@ -37,6 +37,8 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * ```javascript
  * import { PersonalizeClient, ListRecommendersCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListRecommendersCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // ListRecommendersRequest
  *   datasetGroupArn: "STRING_VALUE",

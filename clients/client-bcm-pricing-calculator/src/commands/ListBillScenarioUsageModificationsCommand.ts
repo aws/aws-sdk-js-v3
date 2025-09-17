@@ -46,6 +46,8 @@ export interface ListBillScenarioUsageModificationsCommandOutput
  * ```javascript
  * import { BCMPricingCalculatorClient, ListBillScenarioUsageModificationsCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, ListBillScenarioUsageModificationsCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // ListBillScenarioUsageModificationsRequest
  *   billScenarioId: "STRING_VALUE", // required

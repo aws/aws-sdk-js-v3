@@ -34,6 +34,8 @@ export interface ListNotificationHubsCommandOutput extends ListNotificationHubsR
  * ```javascript
  * import { NotificationsClient, ListNotificationHubsCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, ListNotificationHubsCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // ListNotificationHubsRequest
  *   maxResults: Number("int"),

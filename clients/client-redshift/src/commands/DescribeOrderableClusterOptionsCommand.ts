@@ -47,6 +47,8 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  * ```javascript
  * import { RedshiftClient, DescribeOrderableClusterOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeOrderableClusterOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeOrderableClusterOptionsMessage
  *   ClusterVersion: "STRING_VALUE",

@@ -41,6 +41,8 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * ```javascript
  * import { StorageGatewayClient, ActivateGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ActivateGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // ActivateGatewayInput
  *   ActivationKey: "STRING_VALUE", // required

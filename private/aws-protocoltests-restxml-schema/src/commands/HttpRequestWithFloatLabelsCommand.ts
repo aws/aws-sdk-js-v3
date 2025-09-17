@@ -34,6 +34,8 @@ export interface HttpRequestWithFloatLabelsCommandOutput extends __MetadataBeare
  * ```javascript
  * import { RestXmlProtocolClient, HttpRequestWithFloatLabelsCommand } from "@aws-sdk/aws-protocoltests-restxml-schema"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpRequestWithFloatLabelsCommand } = require("@aws-sdk/aws-protocoltests-restxml-schema"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml-schema";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // HttpRequestWithFloatLabelsInput
  *   float: Number("float"), // required

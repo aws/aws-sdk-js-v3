@@ -39,6 +39,8 @@ export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBeare
  * ```javascript
  * import { ManagedBlockchainClient, GetMemberCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, GetMemberCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * // import type { ManagedBlockchainClientConfig } from "@aws-sdk/client-managedblockchain";
+ * const config = {}; // type is ManagedBlockchainClientConfig
  * const client = new ManagedBlockchainClient(config);
  * const input = { // GetMemberInput
  *   NetworkId: "STRING_VALUE", // required

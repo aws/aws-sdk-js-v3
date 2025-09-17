@@ -34,6 +34,8 @@ export interface DeleteFuotaTaskCommandOutput extends DeleteFuotaTaskResponse, _
  * ```javascript
  * import { IoTWirelessClient, DeleteFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // DeleteFuotaTaskRequest
  *   Id: "STRING_VALUE", // required

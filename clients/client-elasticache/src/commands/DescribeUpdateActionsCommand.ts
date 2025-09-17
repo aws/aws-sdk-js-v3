@@ -34,6 +34,8 @@ export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage
  * ```javascript
  * import { ElastiCacheClient, DescribeUpdateActionsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeUpdateActionsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeUpdateActionsMessage
  *   ServiceUpdateName: "STRING_VALUE",

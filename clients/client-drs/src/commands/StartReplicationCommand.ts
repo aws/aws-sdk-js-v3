@@ -38,6 +38,8 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * ```javascript
  * import { DrsClient, StartReplicationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, StartReplicationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // StartReplicationRequest
  *   sourceServerID: "STRING_VALUE", // required

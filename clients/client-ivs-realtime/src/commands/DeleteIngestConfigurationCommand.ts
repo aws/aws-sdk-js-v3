@@ -34,6 +34,8 @@ export interface DeleteIngestConfigurationCommandOutput extends DeleteIngestConf
  * ```javascript
  * import { IVSRealTimeClient, DeleteIngestConfigurationCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, DeleteIngestConfigurationCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // DeleteIngestConfigurationRequest
  *   arn: "STRING_VALUE", // required

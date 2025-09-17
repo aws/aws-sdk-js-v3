@@ -41,6 +41,8 @@ export interface ListUsageForLicenseConfigurationCommandOutput
  * ```javascript
  * import { LicenseManagerClient, ListUsageForLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListUsageForLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // ListUsageForLicenseConfigurationRequest
  *   LicenseConfigurationArn: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DeleteIndexCommandOutput extends DeleteIndexResponse, __Metadat
  * ```javascript
  * import { OpenSearchServerlessClient, DeleteIndexCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteIndexCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // DeleteIndexRequest
  *   id: "STRING_VALUE", // required

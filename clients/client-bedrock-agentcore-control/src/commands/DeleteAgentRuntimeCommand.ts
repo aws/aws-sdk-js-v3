@@ -38,6 +38,8 @@ export interface DeleteAgentRuntimeCommandOutput extends DeleteAgentRuntimeRespo
  * ```javascript
  * import { BedrockAgentCoreControlClient, DeleteAgentRuntimeCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, DeleteAgentRuntimeCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // DeleteAgentRuntimeRequest
  *   agentRuntimeId: "STRING_VALUE", // required

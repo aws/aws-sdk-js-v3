@@ -34,6 +34,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * ```javascript
  * import { CodeCommitClient, CreateRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // CreateRepositoryInput
  *   repositoryName: "STRING_VALUE", // required

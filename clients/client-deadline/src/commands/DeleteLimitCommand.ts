@@ -36,6 +36,8 @@ export interface DeleteLimitCommandOutput extends DeleteLimitResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, DeleteLimitCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteLimitCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteLimitRequest
  *   farmId: "STRING_VALUE", // required

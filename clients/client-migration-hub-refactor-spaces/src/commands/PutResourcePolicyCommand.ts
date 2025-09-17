@@ -42,6 +42,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, PutResourcePolicyCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, PutResourcePolicyCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // import type { MigrationHubRefactorSpacesClientConfig } from "@aws-sdk/client-migration-hub-refactor-spaces";
+ * const config = {}; // type is MigrationHubRefactorSpacesClientConfig
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // PutResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

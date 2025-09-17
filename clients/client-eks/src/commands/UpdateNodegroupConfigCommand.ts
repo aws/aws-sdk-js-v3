@@ -39,6 +39,8 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  * ```javascript
  * import { EKSClient, UpdateNodegroupConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateNodegroupConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // UpdateNodegroupConfigRequest
  *   clusterName: "STRING_VALUE", // required

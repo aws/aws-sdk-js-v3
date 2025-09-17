@@ -34,6 +34,8 @@ export interface DeleteDomainUnitCommandOutput extends DeleteDomainUnitOutput, _
  * ```javascript
  * import { DataZoneClient, DeleteDomainUnitCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteDomainUnitCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteDomainUnitInput
  *   domainIdentifier: "STRING_VALUE", // required

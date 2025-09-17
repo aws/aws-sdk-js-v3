@@ -35,6 +35,8 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  * ```javascript
  * import { SSMIncidentsClient, DeleteReplicationSetCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, DeleteReplicationSetCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // DeleteReplicationSetInput
  *   arn: "STRING_VALUE", // required

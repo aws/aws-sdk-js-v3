@@ -44,6 +44,8 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  * ```javascript
  * import { DeadlineClient, CreateWorkerCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateWorkerCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateWorkerRequest
  *   farmId: "STRING_VALUE", // required

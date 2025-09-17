@@ -49,6 +49,8 @@ export interface StartPersonTrackingCommandOutput extends StartPersonTrackingRes
  * ```javascript
  * import { RekognitionClient, StartPersonTrackingCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartPersonTrackingCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // StartPersonTrackingRequest
  *   Video: { // Video

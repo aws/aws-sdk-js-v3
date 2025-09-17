@@ -47,6 +47,8 @@ export interface BatchDeleteBillScenarioUsageModificationCommandOutput
  * ```javascript
  * import { BCMPricingCalculatorClient, BatchDeleteBillScenarioUsageModificationCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, BatchDeleteBillScenarioUsageModificationCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // BatchDeleteBillScenarioUsageModificationRequest
  *   billScenarioId: "STRING_VALUE", // required

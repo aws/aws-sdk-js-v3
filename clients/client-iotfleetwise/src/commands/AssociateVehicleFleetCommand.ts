@@ -34,6 +34,8 @@ export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFlee
  * ```javascript
  * import { IoTFleetWiseClient, AssociateVehicleFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, AssociateVehicleFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = { // AssociateVehicleFleetRequest
  *   vehicleName: "STRING_VALUE", // required

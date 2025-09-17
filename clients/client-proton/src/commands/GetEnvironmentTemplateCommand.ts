@@ -38,6 +38,8 @@ export interface GetEnvironmentTemplateCommandOutput extends GetEnvironmentTempl
  * ```javascript
  * import { ProtonClient, GetEnvironmentTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetEnvironmentTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // GetEnvironmentTemplateInput
  *   name: "STRING_VALUE", // required

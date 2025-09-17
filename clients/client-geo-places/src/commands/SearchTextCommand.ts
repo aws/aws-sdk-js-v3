@@ -39,6 +39,8 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * ```javascript
  * import { GeoPlacesClient, SearchTextCommand } from "@aws-sdk/client-geo-places"; // ES Modules import
  * // const { GeoPlacesClient, SearchTextCommand } = require("@aws-sdk/client-geo-places"); // CommonJS import
+ * // import type { GeoPlacesClientConfig } from "@aws-sdk/client-geo-places";
+ * const config = {}; // type is GeoPlacesClientConfig
  * const client = new GeoPlacesClient(config);
  * const input = { // SearchTextRequest
  *   QueryText: "STRING_VALUE",

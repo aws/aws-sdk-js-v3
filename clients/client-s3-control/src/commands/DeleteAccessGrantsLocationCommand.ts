@@ -50,6 +50,8 @@ export interface DeleteAccessGrantsLocationCommandOutput extends __MetadataBeare
  * ```javascript
  * import { S3ControlClient, DeleteAccessGrantsLocationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteAccessGrantsLocationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // DeleteAccessGrantsLocationRequest
  *   AccountId: "STRING_VALUE",

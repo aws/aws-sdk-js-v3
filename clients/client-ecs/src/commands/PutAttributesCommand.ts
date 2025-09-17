@@ -36,6 +36,8 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * ```javascript
  * import { ECSClient, PutAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // PutAttributesRequest
  *   cluster: "STRING_VALUE",

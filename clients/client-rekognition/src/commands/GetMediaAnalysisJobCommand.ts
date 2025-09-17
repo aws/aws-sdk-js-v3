@@ -35,6 +35,8 @@ export interface GetMediaAnalysisJobCommandOutput extends GetMediaAnalysisJobRes
  * ```javascript
  * import { RekognitionClient, GetMediaAnalysisJobCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetMediaAnalysisJobCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // GetMediaAnalysisJobRequest
  *   JobId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __Met
  * ```javascript
  * import { IoTEventsDataClient, DescribeAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, DescribeAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * // import type { IoTEventsDataClientConfig } from "@aws-sdk/client-iot-events-data";
+ * const config = {}; // type is IoTEventsDataClientConfig
  * const client = new IoTEventsDataClient(config);
  * const input = { // DescribeAlarmRequest
  *   alarmModelName: "STRING_VALUE", // required

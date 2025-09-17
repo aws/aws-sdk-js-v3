@@ -38,6 +38,8 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * ```javascript
  * import { MediaPackageClient, ConfigureLogsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, ConfigureLogsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * // import type { MediaPackageClientConfig } from "@aws-sdk/client-mediapackage";
+ * const config = {}; // type is MediaPackageClientConfig
  * const client = new MediaPackageClient(config);
  * const input = { // ConfigureLogsRequest
  *   EgressAccessLogs: { // EgressAccessLogs

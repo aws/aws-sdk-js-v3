@@ -44,6 +44,8 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * ```javascript
  * import { ChatbotClient, CreateSlackChannelConfigurationCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, CreateSlackChannelConfigurationCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // CreateSlackChannelConfigurationRequest
  *   SlackTeamId: "STRING_VALUE", // required

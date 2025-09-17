@@ -43,6 +43,8 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  * ```javascript
  * import { SNSClient, ListPlatformApplicationsCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListPlatformApplicationsCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // import type { SNSClientConfig } from "@aws-sdk/client-sns";
+ * const config = {}; // type is SNSClientConfig
  * const client = new SNSClient(config);
  * const input = { // ListPlatformApplicationsInput
  *   NextToken: "STRING_VALUE",

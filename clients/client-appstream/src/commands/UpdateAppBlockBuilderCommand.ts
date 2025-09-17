@@ -38,6 +38,8 @@ export interface UpdateAppBlockBuilderCommandOutput extends UpdateAppBlockBuilde
  * ```javascript
  * import { AppStreamClient, UpdateAppBlockBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateAppBlockBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // UpdateAppBlockBuilderRequest
  *   Name: "STRING_VALUE", // required

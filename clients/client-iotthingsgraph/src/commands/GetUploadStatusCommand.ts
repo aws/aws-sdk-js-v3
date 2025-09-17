@@ -36,6 +36,8 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
  * ```javascript
  * import { IoTThingsGraphClient, GetUploadStatusCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetUploadStatusCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * // import type { IoTThingsGraphClientConfig } from "@aws-sdk/client-iotthingsgraph";
+ * const config = {}; // type is IoTThingsGraphClientConfig
  * const client = new IoTThingsGraphClient(config);
  * const input = { // GetUploadStatusRequest
  *   uploadId: "STRING_VALUE", // required

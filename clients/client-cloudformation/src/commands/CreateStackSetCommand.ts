@@ -34,6 +34,8 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  * ```javascript
  * import { CloudFormationClient, CreateStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // CreateStackSetInput
  *   StackSetName: "STRING_VALUE", // required

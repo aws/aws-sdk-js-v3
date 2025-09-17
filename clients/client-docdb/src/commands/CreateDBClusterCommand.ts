@@ -34,6 +34,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * ```javascript
  * import { DocDBClient, CreateDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // CreateDBClusterMessage
  *   AvailabilityZones: [ // AvailabilityZones

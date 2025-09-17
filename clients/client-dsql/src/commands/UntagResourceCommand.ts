@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { DSQLClient, UntagResourceCommand } from "@aws-sdk/client-dsql"; // ES Modules import
  * // const { DSQLClient, UntagResourceCommand } = require("@aws-sdk/client-dsql"); // CommonJS import
+ * // import type { DSQLClientConfig } from "@aws-sdk/client-dsql";
+ * const config = {}; // type is DSQLClientConfig
  * const client = new DSQLClient(config);
  * const input = { // UntagResourceInput
  *   resourceArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, _
  * ```javascript
  * import { EKSClient, DeleteNodegroupCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DeleteNodegroupCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // DeleteNodegroupRequest
  *   clusterName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetOriginEndpointPolicyCommandOutput extends GetOriginEndpointP
  * ```javascript
  * import { MediaPackageV2Client, GetOriginEndpointPolicyCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, GetOriginEndpointPolicyCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // import type { MediaPackageV2ClientConfig } from "@aws-sdk/client-mediapackagev2";
+ * const config = {}; // type is MediaPackageV2ClientConfig
  * const client = new MediaPackageV2Client(config);
  * const input = { // GetOriginEndpointPolicyRequest
  *   ChannelGroupName: "STRING_VALUE", // required

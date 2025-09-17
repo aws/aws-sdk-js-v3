@@ -52,6 +52,8 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * ```javascript
  * import { RDSClient, FailoverDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, FailoverDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // FailoverDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required

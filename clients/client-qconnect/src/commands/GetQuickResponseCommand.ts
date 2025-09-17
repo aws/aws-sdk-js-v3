@@ -38,6 +38,8 @@ export interface GetQuickResponseCommandOutput extends GetQuickResponseResponse,
  * ```javascript
  * import { QConnectClient, GetQuickResponseCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, GetQuickResponseCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // GetQuickResponseRequest
  *   quickResponseId: "STRING_VALUE", // required

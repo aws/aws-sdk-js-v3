@@ -43,6 +43,8 @@ export interface StartMetadataModelExportToTargetCommandOutput
  * ```javascript
  * import { DatabaseMigrationServiceClient, StartMetadataModelExportToTargetCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StartMetadataModelExportToTargetCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // StartMetadataModelExportToTargetMessage
  *   MigrationProjectIdentifier: "STRING_VALUE", // required

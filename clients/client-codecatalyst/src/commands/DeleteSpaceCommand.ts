@@ -37,6 +37,8 @@ export interface DeleteSpaceCommandOutput extends DeleteSpaceResponse, __Metadat
  * ```javascript
  * import { CodeCatalystClient, DeleteSpaceCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, DeleteSpaceCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // import type { CodeCatalystClientConfig } from "@aws-sdk/client-codecatalyst";
+ * const config = {}; // type is CodeCatalystClientConfig
  * const client = new CodeCatalystClient(config);
  * const input = { // DeleteSpaceRequest
  *   name: "STRING_VALUE", // required

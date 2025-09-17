@@ -42,6 +42,8 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * ```javascript
  * import { IoTManagedIntegrationsClient, GetDestinationCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, GetDestinationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // GetDestinationRequest
  *   Name: "STRING_VALUE", // required

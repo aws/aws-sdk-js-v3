@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { MWAAClient, TagResourceCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, TagResourceCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * // import type { MWAAClientConfig } from "@aws-sdk/client-mwaa";
+ * const config = {}; // type is MWAAClientConfig
  * const client = new MWAAClient(config);
  * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required

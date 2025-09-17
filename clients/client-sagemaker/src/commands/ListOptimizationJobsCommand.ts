@@ -34,6 +34,8 @@ export interface ListOptimizationJobsCommandOutput extends ListOptimizationJobsR
  * ```javascript
  * import { SageMakerClient, ListOptimizationJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListOptimizationJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListOptimizationJobsRequest
  *   NextToken: "STRING_VALUE",

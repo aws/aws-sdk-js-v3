@@ -34,6 +34,8 @@ export interface DeleteBrandCommandOutput extends DeleteBrandResponse, __Metadat
  * ```javascript
  * import { QuickSightClient, DeleteBrandCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteBrandCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteBrandRequest
  *   AwsAccountId: "STRING_VALUE", // required

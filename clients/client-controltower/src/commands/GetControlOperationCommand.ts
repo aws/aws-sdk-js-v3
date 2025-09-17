@@ -34,6 +34,8 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * ```javascript
  * import { ControlTowerClient, GetControlOperationCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, GetControlOperationCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // GetControlOperationInput
  *   operationIdentifier: "STRING_VALUE", // required

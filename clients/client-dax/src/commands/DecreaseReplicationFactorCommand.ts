@@ -37,6 +37,8 @@ export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicat
  * ```javascript
  * import { DAXClient, DecreaseReplicationFactorCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DecreaseReplicationFactorCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // DecreaseReplicationFactorRequest
  *   ClusterName: "STRING_VALUE", // required

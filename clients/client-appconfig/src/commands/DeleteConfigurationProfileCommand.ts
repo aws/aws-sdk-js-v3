@@ -37,6 +37,8 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * ```javascript
  * import { AppConfigClient, DeleteConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // DeleteConfigurationProfileRequest
  *   ApplicationId: "STRING_VALUE", // required

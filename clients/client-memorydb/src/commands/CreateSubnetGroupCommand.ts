@@ -37,6 +37,8 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * ```javascript
  * import { MemoryDBClient, CreateSubnetGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateSubnetGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // CreateSubnetGroupRequest
  *   SubnetGroupName: "STRING_VALUE", // required

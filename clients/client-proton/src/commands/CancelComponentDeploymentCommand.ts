@@ -41,6 +41,8 @@ export interface CancelComponentDeploymentCommandOutput extends CancelComponentD
  * ```javascript
  * import { ProtonClient, CancelComponentDeploymentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CancelComponentDeploymentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // CancelComponentDeploymentInput
  *   componentName: "STRING_VALUE", // required

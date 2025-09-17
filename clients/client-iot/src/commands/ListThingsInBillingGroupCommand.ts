@@ -35,6 +35,8 @@ export interface ListThingsInBillingGroupCommandOutput extends ListThingsInBilli
  * ```javascript
  * import { IoTClient, ListThingsInBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingsInBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListThingsInBillingGroupRequest
  *   billingGroupName: "STRING_VALUE", // required

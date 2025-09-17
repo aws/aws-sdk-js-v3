@@ -39,6 +39,8 @@ export interface DescribeCapacityReservationFleetsCommandOutput
  * ```javascript
  * import { EC2Client, DescribeCapacityReservationFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeCapacityReservationFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeCapacityReservationFleetsRequest
  *   CapacityReservationFleetIds: [ // CapacityReservationFleetIdSet

@@ -35,6 +35,8 @@ export interface GetTaxExemptionTypesCommandOutput extends GetTaxExemptionTypesR
  * ```javascript
  * import { TaxSettingsClient, GetTaxExemptionTypesCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, GetTaxExemptionTypesCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // import type { TaxSettingsClientConfig } from "@aws-sdk/client-taxsettings";
+ * const config = {}; // type is TaxSettingsClientConfig
  * const client = new TaxSettingsClient(config);
  * const input = {};
  * const command = new GetTaxExemptionTypesCommand(input);

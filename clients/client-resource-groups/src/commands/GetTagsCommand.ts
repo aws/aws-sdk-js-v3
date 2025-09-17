@@ -46,6 +46,8 @@ export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
  * ```javascript
  * import { ResourceGroupsClient, GetTagsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetTagsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // import type { ResourceGroupsClientConfig } from "@aws-sdk/client-resource-groups";
+ * const config = {}; // type is ResourceGroupsClientConfig
  * const client = new ResourceGroupsClient(config);
  * const input = { // GetTagsInput
  *   Arn: "STRING_VALUE", // required

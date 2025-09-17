@@ -64,6 +64,8 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  * ```javascript
  * import { MTurkClient, CreateAdditionalAssignmentsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateAdditionalAssignmentsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // CreateAdditionalAssignmentsForHITRequest
  *   HITId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * ```javascript
  * import { CloudFormationClient, CreateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // CreateStackInput
  *   StackName: "STRING_VALUE", // required

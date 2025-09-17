@@ -38,6 +38,8 @@ export interface GetMessageTemplateCommandOutput extends GetMessageTemplateRespo
  * ```javascript
  * import { QConnectClient, GetMessageTemplateCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, GetMessageTemplateCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // GetMessageTemplateRequest
  *   messageTemplateId: "STRING_VALUE", // required

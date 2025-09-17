@@ -34,6 +34,8 @@ export interface UpdateDataLakeDatasetCommandOutput extends UpdateDataLakeDatase
  * ```javascript
  * import { SupplyChainClient, UpdateDataLakeDatasetCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
  * // const { SupplyChainClient, UpdateDataLakeDatasetCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * // import type { SupplyChainClientConfig } from "@aws-sdk/client-supplychain";
+ * const config = {}; // type is SupplyChainClientConfig
  * const client = new SupplyChainClient(config);
  * const input = { // UpdateDataLakeDatasetRequest
  *   instanceId: "STRING_VALUE", // required

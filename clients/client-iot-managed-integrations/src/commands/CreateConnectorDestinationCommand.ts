@@ -38,6 +38,8 @@ export interface CreateConnectorDestinationCommandOutput extends CreateConnector
  * ```javascript
  * import { IoTManagedIntegrationsClient, CreateConnectorDestinationCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, CreateConnectorDestinationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // CreateConnectorDestinationRequest
  *   Name: "STRING_VALUE",

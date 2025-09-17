@@ -39,6 +39,8 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * ```javascript
  * import { ChimeClient, UpdateRoomCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateRoomCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // UpdateRoomRequest
  *   AccountId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListObjectTypeAttributesCommandOutput extends ListObjectTypeAtt
  * ```javascript
  * import { CustomerProfilesClient, ListObjectTypeAttributesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListObjectTypeAttributesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListObjectTypeAttributesRequest
  *   NextToken: "STRING_VALUE",

@@ -39,6 +39,8 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  * ```javascript
  * import { EMRContainersClient, DescribeVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DescribeVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // DescribeVirtualClusterRequest
  *   id: "STRING_VALUE", // required

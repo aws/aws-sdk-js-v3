@@ -43,6 +43,8 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * ```javascript
  * import { ECRClient, BatchCheckLayerAvailabilityCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, BatchCheckLayerAvailabilityCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // BatchCheckLayerAvailabilityRequest
  *   registryId: "STRING_VALUE",

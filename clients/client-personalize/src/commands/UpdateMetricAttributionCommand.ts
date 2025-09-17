@@ -34,6 +34,8 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * ```javascript
  * import { PersonalizeClient, UpdateMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, UpdateMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // UpdateMetricAttributionRequest
  *   addMetrics: [ // MetricAttributes

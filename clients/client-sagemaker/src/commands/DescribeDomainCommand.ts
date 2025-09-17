@@ -34,6 +34,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * ```javascript
  * import { SageMakerClient, DescribeDomainCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeDomainCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeDomainRequest
  *   DomainId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  * ```javascript
  * import { SSOAdminClient, ListAccountAssignmentsCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListAccountAssignmentsCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // ListAccountAssignmentsRequest
  *   InstanceArn: "STRING_VALUE", // required

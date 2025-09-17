@@ -33,6 +33,8 @@ export interface XmlEnumsCommandOutput extends XmlEnumsResponse, __MetadataBeare
  * ```javascript
  * import { RestXmlProtocolClient, XmlEnumsCommand } from "@aws-sdk/aws-protocoltests-restxml-schema"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEnumsCommand } = require("@aws-sdk/aws-protocoltests-restxml-schema"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml-schema";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlEnumsRequest
  *   fooEnum1: "Foo" || "Baz" || "Bar" || "1" || "0",

@@ -35,6 +35,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * ```javascript
  * import { M2Client, CreateDeploymentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CreateDeploymentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * // import type { M2ClientConfig } from "@aws-sdk/client-m2";
+ * const config = {}; // type is M2ClientConfig
  * const client = new M2Client(config);
  * const input = { // CreateDeploymentRequest
  *   environmentId: "STRING_VALUE", // required

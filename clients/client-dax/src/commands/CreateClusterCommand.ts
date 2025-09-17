@@ -34,6 +34,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * ```javascript
  * import { DAXClient, CreateClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, CreateClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // CreateClusterRequest
  *   ClusterName: "STRING_VALUE", // required

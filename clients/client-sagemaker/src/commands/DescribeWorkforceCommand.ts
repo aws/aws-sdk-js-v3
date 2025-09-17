@@ -34,6 +34,8 @@ export interface DescribeWorkforceCommandOutput extends DescribeWorkforceRespons
  * ```javascript
  * import { SageMakerClient, DescribeWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeWorkforceRequest
  *   WorkforceName: "STRING_VALUE", // required

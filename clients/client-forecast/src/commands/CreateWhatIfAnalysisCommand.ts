@@ -50,6 +50,8 @@ export interface CreateWhatIfAnalysisCommandOutput extends CreateWhatIfAnalysisR
  * ```javascript
  * import { ForecastClient, CreateWhatIfAnalysisCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateWhatIfAnalysisCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // CreateWhatIfAnalysisRequest
  *   WhatIfAnalysisName: "STRING_VALUE", // required

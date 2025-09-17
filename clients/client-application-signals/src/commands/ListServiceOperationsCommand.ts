@@ -39,6 +39,8 @@ export interface ListServiceOperationsCommandOutput extends ListServiceOperation
  * ```javascript
  * import { ApplicationSignalsClient, ListServiceOperationsCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, ListServiceOperationsCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // ListServiceOperationsInput
  *   StartTime: new Date("TIMESTAMP"), // required

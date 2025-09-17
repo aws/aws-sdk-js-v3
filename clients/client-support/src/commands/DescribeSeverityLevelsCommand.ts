@@ -50,6 +50,8 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  * ```javascript
  * import { SupportClient, DescribeSeverityLevelsCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeSeverityLevelsCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * // import type { SupportClientConfig } from "@aws-sdk/client-support";
+ * const config = {}; // type is SupportClientConfig
  * const client = new SupportClient(config);
  * const input = { // DescribeSeverityLevelsRequest
  *   language: "STRING_VALUE",

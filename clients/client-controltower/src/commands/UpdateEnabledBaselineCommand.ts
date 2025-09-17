@@ -34,6 +34,8 @@ export interface UpdateEnabledBaselineCommandOutput extends UpdateEnabledBaselin
  * ```javascript
  * import { ControlTowerClient, UpdateEnabledBaselineCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, UpdateEnabledBaselineCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // UpdateEnabledBaselineInput
  *   baselineVersion: "STRING_VALUE", // required

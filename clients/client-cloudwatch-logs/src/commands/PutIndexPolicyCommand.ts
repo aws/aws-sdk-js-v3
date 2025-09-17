@@ -93,6 +93,8 @@ export interface PutIndexPolicyCommandOutput extends PutIndexPolicyResponse, __M
  * ```javascript
  * import { CloudWatchLogsClient, PutIndexPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutIndexPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutIndexPolicyRequest
  *   logGroupIdentifier: "STRING_VALUE", // required

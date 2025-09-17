@@ -34,6 +34,8 @@ export interface DeleteSchemaMappingCommandOutput extends DeleteSchemaMappingOut
  * ```javascript
  * import { EntityResolutionClient, DeleteSchemaMappingCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, DeleteSchemaMappingCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // DeleteSchemaMappingInput
  *   schemaName: "STRING_VALUE", // required

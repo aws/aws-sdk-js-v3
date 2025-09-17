@@ -41,6 +41,8 @@ export interface DescribeConfigurationTemplatesCommandOutput
  * ```javascript
  * import { CloudWatchLogsClient, DescribeConfigurationTemplatesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeConfigurationTemplatesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeConfigurationTemplatesRequest
  *   service: "STRING_VALUE",

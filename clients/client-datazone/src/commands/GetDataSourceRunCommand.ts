@@ -34,6 +34,8 @@ export interface GetDataSourceRunCommandOutput extends GetDataSourceRunOutput, _
  * ```javascript
  * import { DataZoneClient, GetDataSourceRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetDataSourceRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetDataSourceRunInput
  *   domainIdentifier: "STRING_VALUE", // required

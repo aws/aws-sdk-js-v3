@@ -38,6 +38,8 @@ export interface DeleteConfiguredModelAlgorithmAssociationCommandOutput extends 
  * ```javascript
  * import { CleanRoomsMLClient, DeleteConfiguredModelAlgorithmAssociationCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, DeleteConfiguredModelAlgorithmAssociationCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // DeleteConfiguredModelAlgorithmAssociationRequest
  *   configuredModelAlgorithmAssociationArn: "STRING_VALUE", // required

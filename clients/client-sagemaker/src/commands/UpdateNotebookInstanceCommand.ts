@@ -34,6 +34,8 @@ export interface UpdateNotebookInstanceCommandOutput extends UpdateNotebookInsta
  * ```javascript
  * import { SageMakerClient, UpdateNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateNotebookInstanceInput
  *   NotebookInstanceName: "STRING_VALUE", // required

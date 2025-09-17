@@ -34,6 +34,8 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * ```javascript
  * import { MigrationHubClient, ListDiscoveredResourcesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ListDiscoveredResourcesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * // import type { MigrationHubClientConfig } from "@aws-sdk/client-migration-hub";
+ * const config = {}; // type is MigrationHubClientConfig
  * const client = new MigrationHubClient(config);
  * const input = { // ListDiscoveredResourcesRequest
  *   ProgressUpdateStream: "STRING_VALUE", // required

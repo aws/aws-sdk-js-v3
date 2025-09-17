@@ -47,6 +47,8 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * ```javascript
  * import { StorageGatewayClient, UpdateGatewaySoftwareNowCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateGatewaySoftwareNowCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateGatewaySoftwareNowInput
  *   GatewayARN: "STRING_VALUE", // required

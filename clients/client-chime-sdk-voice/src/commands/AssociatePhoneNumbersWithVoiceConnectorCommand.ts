@@ -45,6 +45,8 @@ export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput
  * ```javascript
  * import { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // AssociatePhoneNumbersWithVoiceConnectorRequest
  *   VoiceConnectorId: "STRING_VALUE", // required

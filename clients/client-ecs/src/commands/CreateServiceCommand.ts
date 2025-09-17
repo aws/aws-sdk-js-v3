@@ -190,6 +190,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * ```javascript
  * import { ECSClient, CreateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // CreateServiceRequest
  *   cluster: "STRING_VALUE",

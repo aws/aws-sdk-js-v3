@@ -39,6 +39,8 @@ export interface CreateConfiguredModelAlgorithmCommandOutput
  * ```javascript
  * import { CleanRoomsMLClient, CreateConfiguredModelAlgorithmCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, CreateConfiguredModelAlgorithmCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // CreateConfiguredModelAlgorithmRequest
  *   name: "STRING_VALUE", // required

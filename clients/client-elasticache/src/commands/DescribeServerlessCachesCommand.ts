@@ -36,6 +36,8 @@ export interface DescribeServerlessCachesCommandOutput extends DescribeServerles
  * ```javascript
  * import { ElastiCacheClient, DescribeServerlessCachesCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeServerlessCachesCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeServerlessCachesRequest
  *   ServerlessCacheName: "STRING_VALUE",

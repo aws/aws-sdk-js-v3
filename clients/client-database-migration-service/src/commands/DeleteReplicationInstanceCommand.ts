@@ -43,6 +43,8 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  * ```javascript
  * import { DatabaseMigrationServiceClient, DeleteReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DeleteReplicationInstanceMessage
  *   ReplicationInstanceArn: "STRING_VALUE", // required

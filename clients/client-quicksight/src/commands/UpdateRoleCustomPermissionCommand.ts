@@ -34,6 +34,8 @@ export interface UpdateRoleCustomPermissionCommandOutput extends UpdateRoleCusto
  * ```javascript
  * import { QuickSightClient, UpdateRoleCustomPermissionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateRoleCustomPermissionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateRoleCustomPermissionRequest
  *   CustomPermissionsName: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { InspectorClient, DeleteAssessmentTemplateCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DeleteAssessmentTemplateCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // import type { InspectorClientConfig } from "@aws-sdk/client-inspector";
+ * const config = {}; // type is InspectorClientConfig
  * const client = new InspectorClient(config);
  * const input = { // DeleteAssessmentTemplateRequest
  *   assessmentTemplateArn: "STRING_VALUE", // required

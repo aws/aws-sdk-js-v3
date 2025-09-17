@@ -35,6 +35,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * ```javascript
  * import { ComprehendClient, ListDatasetsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListDatasetsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // ListDatasetsRequest
  *   FlywheelArn: "STRING_VALUE",

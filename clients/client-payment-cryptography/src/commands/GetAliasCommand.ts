@@ -38,6 +38,8 @@ export interface GetAliasCommandOutput extends GetAliasOutput, __MetadataBearer 
  * ```javascript
  * import { PaymentCryptographyClient, GetAliasCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, GetAliasCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
+ * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
  * const input = { // GetAliasInput
  *   AliasName: "STRING_VALUE", // required

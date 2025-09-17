@@ -38,6 +38,8 @@ export interface ListSegmentDefinitionsCommandOutput extends ListSegmentDefiniti
  * ```javascript
  * import { CustomerProfilesClient, ListSegmentDefinitionsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListSegmentDefinitionsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListSegmentDefinitionsRequest
  *   DomainName: "STRING_VALUE", // required

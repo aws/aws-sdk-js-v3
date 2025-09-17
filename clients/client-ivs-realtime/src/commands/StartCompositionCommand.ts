@@ -57,6 +57,8 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  * ```javascript
  * import { IVSRealTimeClient, StartCompositionCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, StartCompositionCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // StartCompositionRequest
  *   stageArn: "STRING_VALUE", // required

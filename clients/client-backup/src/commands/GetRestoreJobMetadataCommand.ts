@@ -38,6 +38,8 @@ export interface GetRestoreJobMetadataCommandOutput extends GetRestoreJobMetadat
  * ```javascript
  * import { BackupClient, GetRestoreJobMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetRestoreJobMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // GetRestoreJobMetadataInput
  *   RestoreJobId: "STRING_VALUE", // required

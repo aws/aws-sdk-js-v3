@@ -34,6 +34,8 @@ export interface RestoreGraphFromSnapshotCommandOutput extends RestoreGraphFromS
  * ```javascript
  * import { NeptuneGraphClient, RestoreGraphFromSnapshotCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, RestoreGraphFromSnapshotCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // RestoreGraphFromSnapshotInput
  *   snapshotIdentifier: "STRING_VALUE", // required

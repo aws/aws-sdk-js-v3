@@ -38,6 +38,8 @@ export interface ListOtaTasksCommandOutput extends ListOtaTasksResponse, __Metad
  * ```javascript
  * import { IoTManagedIntegrationsClient, ListOtaTasksCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, ListOtaTasksCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // ListOtaTasksRequest
  *   NextToken: "STRING_VALUE",

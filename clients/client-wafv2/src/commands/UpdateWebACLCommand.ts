@@ -71,6 +71,8 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * ```javascript
  * import { WAFV2Client, UpdateWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, UpdateWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // import type { WAFV2ClientConfig } from "@aws-sdk/client-wafv2";
+ * const config = {}; // type is WAFV2ClientConfig
  * const client = new WAFV2Client(config);
  * const input = { // UpdateWebACLRequest
  *   Name: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { WorkSpacesThinClientClient, UntagResourceCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, UntagResourceCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

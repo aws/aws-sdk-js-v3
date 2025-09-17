@@ -38,6 +38,8 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * ```javascript
  * import { ServerlessApplicationRepositoryClient, GetApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, GetApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * // import type { ServerlessApplicationRepositoryClientConfig } from "@aws-sdk/client-serverlessapplicationrepository";
+ * const config = {}; // type is ServerlessApplicationRepositoryClientConfig
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const input = { // GetApplicationRequest
  *   ApplicationId: "STRING_VALUE", // required

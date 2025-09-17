@@ -38,6 +38,8 @@ export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, _
  * ```javascript
  * import { SageMakerClient, UpdateModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateModelCardRequest
  *   ModelCardName: "STRING_VALUE", // required

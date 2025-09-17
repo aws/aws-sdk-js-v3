@@ -36,6 +36,8 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * ```javascript
  * import { SecurityHubClient, CreateAutomationRuleCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, CreateAutomationRuleCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // CreateAutomationRuleRequest
  *   Tags: { // TagMap

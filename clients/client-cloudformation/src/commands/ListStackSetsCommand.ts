@@ -56,6 +56,8 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * ```javascript
  * import { CloudFormationClient, ListStackSetsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackSetsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ListStackSetsInput
  *   NextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
  * ```javascript
  * import { AmplifyClient, DeleteBranchCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteBranchCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // DeleteBranchRequest
  *   appId: "STRING_VALUE", // required

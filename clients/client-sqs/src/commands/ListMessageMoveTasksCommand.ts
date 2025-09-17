@@ -49,6 +49,8 @@ export interface ListMessageMoveTasksCommandOutput extends ListMessageMoveTasksR
  * ```javascript
  * import { SQSClient, ListMessageMoveTasksCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ListMessageMoveTasksCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * // import type { SQSClientConfig } from "@aws-sdk/client-sqs";
+ * const config = {}; // type is SQSClientConfig
  * const client = new SQSClient(config);
  * const input = { // ListMessageMoveTasksRequest
  *   SourceArn: "STRING_VALUE", // required

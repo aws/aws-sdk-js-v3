@@ -39,6 +39,8 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * ```javascript
  * import { DataZoneClient, ListProjectsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListProjectsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListProjectsInput
  *   domainIdentifier: "STRING_VALUE", // required

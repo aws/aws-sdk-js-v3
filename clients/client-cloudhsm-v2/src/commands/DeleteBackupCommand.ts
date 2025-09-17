@@ -38,6 +38,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * ```javascript
  * import { CloudHSMV2Client, DeleteBackupCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, DeleteBackupCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * // import type { CloudHSMV2ClientConfig } from "@aws-sdk/client-cloudhsm-v2";
+ * const config = {}; // type is CloudHSMV2ClientConfig
  * const client = new CloudHSMV2Client(config);
  * const input = { // DeleteBackupRequest
  *   BackupId: "STRING_VALUE", // required

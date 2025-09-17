@@ -47,6 +47,8 @@ export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, _
  * ```javascript
  * import { RoboMakerClient, DeregisterRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeregisterRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // DeregisterRobotRequest
  *   fleet: "STRING_VALUE", // required

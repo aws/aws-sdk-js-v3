@@ -34,6 +34,8 @@ export interface CreateModelInvocationJobCommandOutput extends CreateModelInvoca
  * ```javascript
  * import { BedrockClient, CreateModelInvocationJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreateModelInvocationJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // CreateModelInvocationJobRequest
  *   jobName: "STRING_VALUE", // required

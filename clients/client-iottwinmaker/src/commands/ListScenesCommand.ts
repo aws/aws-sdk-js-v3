@@ -34,6 +34,8 @@ export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataB
  * ```javascript
  * import { IoTTwinMakerClient, ListScenesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ListScenesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // import type { IoTTwinMakerClientConfig } from "@aws-sdk/client-iottwinmaker";
+ * const config = {}; // type is IoTTwinMakerClientConfig
  * const client = new IoTTwinMakerClient(config);
  * const input = { // ListScenesRequest
  *   workspaceId: "STRING_VALUE", // required

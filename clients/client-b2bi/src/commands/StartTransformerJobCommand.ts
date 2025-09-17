@@ -34,6 +34,8 @@ export interface StartTransformerJobCommandOutput extends StartTransformerJobRes
  * ```javascript
  * import { B2biClient, StartTransformerJobCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, StartTransformerJobCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // StartTransformerJobRequest
  *   inputFile: { // S3Location

@@ -36,6 +36,8 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * ```javascript
  * import { CodeBuildClient, ListReportsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListReportsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // ListReportsInput
  *   sortOrder: "ASCENDING" || "DESCENDING",

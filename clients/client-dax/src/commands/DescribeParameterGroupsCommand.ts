@@ -35,6 +35,8 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * ```javascript
  * import { DAXClient, DescribeParameterGroupsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeParameterGroupsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // DescribeParameterGroupsRequest
  *   ParameterGroupNames: [ // ParameterGroupNameList

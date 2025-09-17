@@ -38,6 +38,8 @@ export interface CancelDomainConfigChangeCommandOutput extends CancelDomainConfi
  * ```javascript
  * import { ElasticsearchServiceClient, CancelDomainConfigChangeCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, CancelDomainConfigChangeCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // import type { ElasticsearchServiceClientConfig } from "@aws-sdk/client-elasticsearch-service";
+ * const config = {}; // type is ElasticsearchServiceClientConfig
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // CancelDomainConfigChangeRequest
  *   DomainName: "STRING_VALUE", // required

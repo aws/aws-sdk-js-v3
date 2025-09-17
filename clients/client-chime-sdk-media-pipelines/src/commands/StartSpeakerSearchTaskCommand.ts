@@ -46,6 +46,8 @@ export interface StartSpeakerSearchTaskCommandOutput extends StartSpeakerSearchT
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, StartSpeakerSearchTaskCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, StartSpeakerSearchTaskCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // StartSpeakerSearchTaskRequest
  *   Identifier: "STRING_VALUE", // required

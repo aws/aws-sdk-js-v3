@@ -34,6 +34,8 @@ export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __Metad
  * ```javascript
  * import { SageMakerClient, ListEndpointsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListEndpointsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListEndpointsInput
  *   SortBy: "Name" || "CreationTime" || "Status",

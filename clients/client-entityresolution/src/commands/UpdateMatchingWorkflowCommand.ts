@@ -34,6 +34,8 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * ```javascript
  * import { EntityResolutionClient, UpdateMatchingWorkflowCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, UpdateMatchingWorkflowCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // UpdateMatchingWorkflowInput
  *   workflowName: "STRING_VALUE", // required

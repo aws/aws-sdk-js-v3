@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { DLMClient, TagResourceCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, TagResourceCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
+ * // import type { DLMClientConfig } from "@aws-sdk/client-dlm";
+ * const config = {}; // type is DLMClientConfig
  * const client = new DLMClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

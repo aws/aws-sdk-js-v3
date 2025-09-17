@@ -34,6 +34,8 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * ```javascript
  * import { MediaConvertClient, CreateResourceShareCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, CreateResourceShareCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // CreateResourceShareRequest
  *   JobId: "STRING_VALUE", // required

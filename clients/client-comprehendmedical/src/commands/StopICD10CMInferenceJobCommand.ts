@@ -38,6 +38,8 @@ export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferen
  * ```javascript
  * import { ComprehendMedicalClient, StopICD10CMInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StopICD10CMInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // import type { ComprehendMedicalClientConfig } from "@aws-sdk/client-comprehendmedical";
+ * const config = {}; // type is ComprehendMedicalClientConfig
  * const client = new ComprehendMedicalClient(config);
  * const input = { // StopICD10CMInferenceJobRequest
  *   JobId: "STRING_VALUE", // required

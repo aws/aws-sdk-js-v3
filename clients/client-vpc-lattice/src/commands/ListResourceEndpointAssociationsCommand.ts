@@ -39,6 +39,8 @@ export interface ListResourceEndpointAssociationsCommandOutput
  * ```javascript
  * import { VPCLatticeClient, ListResourceEndpointAssociationsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListResourceEndpointAssociationsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // ListResourceEndpointAssociationsRequest
  *   resourceConfigurationIdentifier: "STRING_VALUE", // required

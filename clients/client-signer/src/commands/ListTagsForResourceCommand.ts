@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { SignerClient, ListTagsForResourceCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * // import type { SignerClientConfig } from "@aws-sdk/client-signer";
+ * const config = {}; // type is SignerClientConfig
  * const client = new SignerClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

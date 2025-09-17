@@ -37,6 +37,8 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * ```javascript
  * import { EMRClient, ListSecurityConfigurationsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListSecurityConfigurationsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // ListSecurityConfigurationsInput
  *   Marker: "STRING_VALUE",

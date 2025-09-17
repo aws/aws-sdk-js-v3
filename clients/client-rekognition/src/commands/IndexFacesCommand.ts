@@ -126,6 +126,8 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * ```javascript
  * import { RekognitionClient, IndexFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, IndexFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // IndexFacesRequest
  *   CollectionId: "STRING_VALUE", // required

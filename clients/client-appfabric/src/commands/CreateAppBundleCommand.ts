@@ -34,6 +34,8 @@ export interface CreateAppBundleCommandOutput extends CreateAppBundleResponse, _
  * ```javascript
  * import { AppFabricClient, CreateAppBundleCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, CreateAppBundleCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // CreateAppBundleRequest
  *   clientToken: "STRING_VALUE",

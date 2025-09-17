@@ -34,6 +34,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * ```javascript
  * import { AmplifyClient, ListJobsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListJobsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // ListJobsRequest
  *   appId: "STRING_VALUE", // required

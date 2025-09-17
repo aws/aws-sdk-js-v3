@@ -48,6 +48,8 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * ```javascript
  * import { EBSClient, StartSnapshotCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, StartSnapshotCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
+ * // import type { EBSClientConfig } from "@aws-sdk/client-ebs";
+ * const config = {}; // type is EBSClientConfig
  * const client = new EBSClient(config);
  * const input = { // StartSnapshotRequest
  *   VolumeSize: Number("long"), // required

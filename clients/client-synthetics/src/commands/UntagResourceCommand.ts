@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { SyntheticsClient, UntagResourceCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, UntagResourceCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // import type { SyntheticsClientConfig } from "@aws-sdk/client-synthetics";
+ * const config = {}; // type is SyntheticsClientConfig
  * const client = new SyntheticsClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

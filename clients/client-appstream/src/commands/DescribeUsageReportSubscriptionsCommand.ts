@@ -39,6 +39,8 @@ export interface DescribeUsageReportSubscriptionsCommandOutput
  * ```javascript
  * import { AppStreamClient, DescribeUsageReportSubscriptionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeUsageReportSubscriptionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // DescribeUsageReportSubscriptionsRequest
  *   MaxResults: Number("int"),

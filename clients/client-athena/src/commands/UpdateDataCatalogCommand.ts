@@ -34,6 +34,8 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  * ```javascript
  * import { AthenaClient, UpdateDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // UpdateDataCatalogInput
  *   Name: "STRING_VALUE", // required

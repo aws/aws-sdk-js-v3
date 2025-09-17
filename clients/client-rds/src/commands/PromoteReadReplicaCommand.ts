@@ -51,6 +51,8 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * ```javascript
  * import { RDSClient, PromoteReadReplicaCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, PromoteReadReplicaCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // PromoteReadReplicaMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required

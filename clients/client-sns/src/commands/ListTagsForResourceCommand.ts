@@ -35,6 +35,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { SNSClient, ListTagsForResourceCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListTagsForResourceCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // import type { SNSClientConfig } from "@aws-sdk/client-sns";
+ * const config = {}; // type is SNSClientConfig
  * const client = new SNSClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

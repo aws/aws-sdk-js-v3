@@ -43,6 +43,8 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  * ```javascript
  * import { ACMPCAClient, CreateCertificateAuthorityAuditReportCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, CreateCertificateAuthorityAuditReportCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * // import type { ACMPCAClientConfig } from "@aws-sdk/client-acm-pca";
+ * const config = {}; // type is ACMPCAClientConfig
  * const client = new ACMPCAClient(config);
  * const input = { // CreateCertificateAuthorityAuditReportRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required

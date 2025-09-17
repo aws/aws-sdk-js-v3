@@ -38,6 +38,8 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  * ```javascript
  * import { VoiceIDClient, DescribeFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DescribeFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // import type { VoiceIDClientConfig } from "@aws-sdk/client-voice-id";
+ * const config = {}; // type is VoiceIDClientConfig
  * const client = new VoiceIDClient(config);
  * const input = { // DescribeFraudsterRequest
  *   DomainId: "STRING_VALUE", // required

@@ -40,6 +40,8 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * ```javascript
  * import { DetectiveClient, ListOrganizationAdminAccountsCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListOrganizationAdminAccountsCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * // import type { DetectiveClientConfig } from "@aws-sdk/client-detective";
+ * const config = {}; // type is DetectiveClientConfig
  * const client = new DetectiveClient(config);
  * const input = { // ListOrganizationAdminAccountsRequest
  *   NextToken: "STRING_VALUE",

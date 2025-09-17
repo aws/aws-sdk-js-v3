@@ -34,6 +34,8 @@ export interface ListLoaderJobsCommandOutput extends ListLoaderJobsOutput, __Met
  * ```javascript
  * import { NeptunedataClient, ListLoaderJobsCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, ListLoaderJobsCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // ListLoaderJobsInput
  *   limit: Number("int"),

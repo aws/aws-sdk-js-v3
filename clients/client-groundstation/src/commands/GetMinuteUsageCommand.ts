@@ -34,6 +34,8 @@ export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __M
  * ```javascript
  * import { GroundStationClient, GetMinuteUsageCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, GetMinuteUsageCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // GetMinuteUsageRequest
  *   month: Number("int"), // required

@@ -39,6 +39,8 @@ export interface AssumeFleetRoleForReadCommandOutput extends AssumeFleetRoleForR
  * ```javascript
  * import { DeadlineClient, AssumeFleetRoleForReadCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, AssumeFleetRoleForReadCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // AssumeFleetRoleForReadRequest
  *   farmId: "STRING_VALUE", // required

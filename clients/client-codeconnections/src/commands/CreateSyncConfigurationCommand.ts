@@ -36,6 +36,8 @@ export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigur
  * ```javascript
  * import { CodeConnectionsClient, CreateSyncConfigurationCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, CreateSyncConfigurationCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // CreateSyncConfigurationInput
  *   Branch: "STRING_VALUE", // required

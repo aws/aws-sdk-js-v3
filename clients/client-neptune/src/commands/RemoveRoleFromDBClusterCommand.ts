@@ -34,6 +34,8 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * ```javascript
  * import { NeptuneClient, RemoveRoleFromDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RemoveRoleFromDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // RemoveRoleFromDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required

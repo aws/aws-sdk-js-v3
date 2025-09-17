@@ -45,6 +45,8 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * ```javascript
  * import { CloudFormationClient, ActivateTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ActivateTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ActivateTypeInput
  *   Type: "RESOURCE" || "MODULE" || "HOOK",

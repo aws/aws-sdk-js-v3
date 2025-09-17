@@ -34,6 +34,8 @@ export interface UpdateMlflowTrackingServerCommandOutput extends UpdateMlflowTra
  * ```javascript
  * import { SageMakerClient, UpdateMlflowTrackingServerCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateMlflowTrackingServerCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateMlflowTrackingServerRequest
  *   TrackingServerName: "STRING_VALUE", // required

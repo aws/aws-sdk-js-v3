@@ -35,6 +35,8 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTClient, SetV2LoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SetV2LoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // SetV2LoggingOptionsRequest
  *   roleArn: "STRING_VALUE",

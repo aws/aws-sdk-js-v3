@@ -34,6 +34,8 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
  * ```javascript
  * import { LakeFormationClient, GetDataLakeSettingsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetDataLakeSettingsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // GetDataLakeSettingsRequest
  *   CatalogId: "STRING_VALUE",

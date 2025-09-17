@@ -37,6 +37,8 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  * ```javascript
  * import { SecurityHubClient, BatchUpdateAutomationRulesCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchUpdateAutomationRulesCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // BatchUpdateAutomationRulesRequest
  *   UpdateAutomationRulesRequestItems: [ // UpdateAutomationRulesRequestItemsList // required

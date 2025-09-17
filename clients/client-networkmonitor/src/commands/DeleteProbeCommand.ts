@@ -39,6 +39,8 @@ export interface DeleteProbeCommandOutput extends DeleteProbeOutput, __MetadataB
  * ```javascript
  * import { NetworkMonitorClient, DeleteProbeCommand } from "@aws-sdk/client-networkmonitor"; // ES Modules import
  * // const { NetworkMonitorClient, DeleteProbeCommand } = require("@aws-sdk/client-networkmonitor"); // CommonJS import
+ * // import type { NetworkMonitorClientConfig } from "@aws-sdk/client-networkmonitor";
+ * const config = {}; // type is NetworkMonitorClientConfig
  * const client = new NetworkMonitorClient(config);
  * const input = { // DeleteProbeInput
  *   monitorName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicatio
  * ```javascript
  * import { PanoramaClient, RemoveApplicationInstanceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, RemoveApplicationInstanceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // import type { PanoramaClientConfig } from "@aws-sdk/client-panorama";
+ * const config = {}; // type is PanoramaClientConfig
  * const client = new PanoramaClient(config);
  * const input = { // RemoveApplicationInstanceRequest
  *   ApplicationInstanceId: "STRING_VALUE", // required

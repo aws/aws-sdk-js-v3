@@ -219,7 +219,7 @@ import {
   n2,
 } from "./schemas_0";
 import { Unit } from "./schemas_15_Json";
-import { GreetingStruct } from "./schemas_32_Json";
+import { GreetingStruct_n1 } from "./schemas_32_Json";
 
 /* eslint no-var: 0 */
 
@@ -749,7 +749,7 @@ export var StructureListMember = struct(
   ]
 );
 export var UnionInputOutput = struct(n0, _UIO, 0, [_con], [() => MyUnion]);
-export var GreetingStruct_n2 = struct(n2, _GS, 0, [_sa], [0]);
+export var GreetingStruct = struct(n2, _GS, 0, [_sa], [0]);
 export var StructureList = list(n0, _SLt, 0, [() => StructureListMember, 0]);
 export var TestStringList = 64 | 0;
 
@@ -773,7 +773,7 @@ export var DenseNumberMap = 128 | 1;
 export var DenseSetMap = map(n0, _DSM, 0, 0, 64 | 0);
 export var DenseStringMap = 128 | 0;
 
-export var DenseStructMap = map(n0, _DSMe, 0, 0, () => GreetingStruct);
+export var DenseStructMap = map(n0, _DSMe, 0, 0, () => GreetingStruct_n1);
 export var SparseBooleanMap = map(
   n0,
   _SBM,
@@ -808,7 +808,7 @@ export var SparseStructMap = map(
     [_sp]: 1,
   },
   0,
-  () => GreetingStruct
+  () => GreetingStruct_n1
 );
 export var TestStringMap = 128 | 0;
 
@@ -826,7 +826,7 @@ export var MyUnion = uni(
   _MU,
   0,
   [_sV, _bVo, _nVu, _bVl, _tV, _eV, _lVi, _mV, _sVt, _rSV],
-  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct, () => GreetingStruct_n2]
+  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1, () => GreetingStruct]
 );
 export var AllQueryStringTypes = op(
   n0,

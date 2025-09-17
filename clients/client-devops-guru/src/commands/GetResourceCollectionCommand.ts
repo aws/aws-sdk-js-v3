@@ -37,6 +37,8 @@ export interface GetResourceCollectionCommandOutput extends GetResourceCollectio
  * ```javascript
  * import { DevOpsGuruClient, GetResourceCollectionCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, GetResourceCollectionCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // import type { DevOpsGuruClientConfig } from "@aws-sdk/client-devops-guru";
+ * const config = {}; // type is DevOpsGuruClientConfig
  * const client = new DevOpsGuruClient(config);
  * const input = { // GetResourceCollectionRequest
  *   ResourceCollectionType: "AWS_CLOUD_FORMATION" || "AWS_SERVICE" || "AWS_TAGS", // required

@@ -34,6 +34,8 @@ export interface CreateIdNamespaceCommandOutput extends CreateIdNamespaceOutput,
  * ```javascript
  * import { EntityResolutionClient, CreateIdNamespaceCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, CreateIdNamespaceCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // CreateIdNamespaceInput
  *   idNamespaceName: "STRING_VALUE", // required

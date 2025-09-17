@@ -38,6 +38,8 @@ export interface HttpRequestWithGreedyLabelInPathCommandOutput extends __Metadat
  * ```javascript
  * import { RestXmlProtocolClient, HttpRequestWithGreedyLabelInPathCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpRequestWithGreedyLabelInPathCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // HttpRequestWithGreedyLabelInPathInput
  *   foo: "STRING_VALUE", // required

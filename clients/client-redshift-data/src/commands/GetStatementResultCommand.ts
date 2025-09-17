@@ -40,6 +40,8 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * ```javascript
  * import { RedshiftDataClient, GetStatementResultCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, GetStatementResultCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * // import type { RedshiftDataClientConfig } from "@aws-sdk/client-redshift-data";
+ * const config = {}; // type is RedshiftDataClientConfig
  * const client = new RedshiftDataClient(config);
  * const input = { // GetStatementResultRequest
  *   Id: "STRING_VALUE", // required

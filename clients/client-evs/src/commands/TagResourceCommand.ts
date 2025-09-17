@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { EvsClient, TagResourceCommand } from "@aws-sdk/client-evs"; // ES Modules import
  * // const { EvsClient, TagResourceCommand } = require("@aws-sdk/client-evs"); // CommonJS import
+ * // import type { EvsClientConfig } from "@aws-sdk/client-evs";
+ * const config = {}; // type is EvsClientConfig
  * const client = new EvsClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

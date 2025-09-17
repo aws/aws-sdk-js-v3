@@ -38,6 +38,8 @@ export interface GetArchiveSearchResultsCommandOutput extends GetArchiveSearchRe
  * ```javascript
  * import { MailManagerClient, GetArchiveSearchResultsCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, GetArchiveSearchResultsCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // GetArchiveSearchResultsRequest
  *   SearchId: "STRING_VALUE", // required

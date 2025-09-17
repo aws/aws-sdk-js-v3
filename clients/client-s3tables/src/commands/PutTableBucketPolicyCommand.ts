@@ -34,6 +34,8 @@ export interface PutTableBucketPolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { S3TablesClient, PutTableBucketPolicyCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
  * // const { S3TablesClient, PutTableBucketPolicyCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // import type { S3TablesClientConfig } from "@aws-sdk/client-s3tables";
+ * const config = {}; // type is S3TablesClientConfig
  * const client = new S3TablesClient(config);
  * const input = { // PutTableBucketPolicyRequest
  *   tableBucketARN: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupRespons
  * ```javascript
  * import { VPCLatticeClient, DeleteTargetGroupCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteTargetGroupCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteTargetGroupRequest
  *   targetGroupIdentifier: "STRING_VALUE", // required

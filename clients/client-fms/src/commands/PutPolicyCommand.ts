@@ -90,6 +90,8 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * ```javascript
  * import { FMSClient, PutPolicyCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutPolicyCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // import type { FMSClientConfig } from "@aws-sdk/client-fms";
+ * const config = {}; // type is FMSClientConfig
  * const client = new FMSClient(config);
  * const input = { // PutPolicyRequest
  *   Policy: { // Policy

@@ -35,6 +35,8 @@ export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPol
  * ```javascript
  * import { BatchClient, DeleteSchedulingPolicyCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DeleteSchedulingPolicyCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // DeleteSchedulingPolicyRequest
  *   arn: "STRING_VALUE", // required

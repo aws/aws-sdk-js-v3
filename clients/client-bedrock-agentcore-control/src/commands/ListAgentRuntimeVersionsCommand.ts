@@ -42,6 +42,8 @@ export interface ListAgentRuntimeVersionsCommandOutput extends ListAgentRuntimeV
  * ```javascript
  * import { BedrockAgentCoreControlClient, ListAgentRuntimeVersionsCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, ListAgentRuntimeVersionsCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListAgentRuntimeVersionsRequest
  *   agentRuntimeId: "STRING_VALUE", // required

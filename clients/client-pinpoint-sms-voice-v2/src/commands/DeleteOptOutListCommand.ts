@@ -38,6 +38,8 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  * ```javascript
  * import { PinpointSMSVoiceV2Client, DeleteOptOutListCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteOptOutListCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * // import type { PinpointSMSVoiceV2ClientConfig } from "@aws-sdk/client-pinpoint-sms-voice-v2";
+ * const config = {}; // type is PinpointSMSVoiceV2ClientConfig
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // DeleteOptOutListRequest
  *   OptOutListName: "STRING_VALUE", // required

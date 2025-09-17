@@ -46,6 +46,8 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
  * ```javascript
  * import { CostExplorerClient, GetSavingsPlansPurchaseRecommendationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetSavingsPlansPurchaseRecommendationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // import type { CostExplorerClientConfig } from "@aws-sdk/client-cost-explorer";
+ * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // GetSavingsPlansPurchaseRecommendationRequest
  *   SavingsPlansType: "COMPUTE_SP" || "EC2_INSTANCE_SP" || "SAGEMAKER_SP", // required

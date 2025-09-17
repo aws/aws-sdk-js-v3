@@ -35,6 +35,8 @@ export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __Met
  * ```javascript
  * import { DataBrewClient, CreateRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // CreateRulesetRequest
  *   Name: "STRING_VALUE", // required

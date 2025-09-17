@@ -41,6 +41,8 @@ export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalR
  * ```javascript
  * import { IoTClient, DetachThingPrincipalCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DetachThingPrincipalCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DetachThingPrincipalRequest
  *   thingName: "STRING_VALUE", // required

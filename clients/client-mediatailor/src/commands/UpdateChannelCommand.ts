@@ -34,6 +34,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * ```javascript
  * import { MediaTailorClient, UpdateChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UpdateChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // UpdateChannelRequest
  *   ChannelName: "STRING_VALUE", // required

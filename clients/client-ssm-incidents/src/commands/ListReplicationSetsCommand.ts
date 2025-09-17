@@ -34,6 +34,8 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  * ```javascript
  * import { SSMIncidentsClient, ListReplicationSetsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, ListReplicationSetsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // ListReplicationSetsInput
  *   maxResults: Number("int"),

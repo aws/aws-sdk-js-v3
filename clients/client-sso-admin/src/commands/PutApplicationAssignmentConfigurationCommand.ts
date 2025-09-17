@@ -43,6 +43,8 @@ export interface PutApplicationAssignmentConfigurationCommandOutput
  * ```javascript
  * import { SSOAdminClient, PutApplicationAssignmentConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, PutApplicationAssignmentConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // PutApplicationAssignmentConfigurationRequest
  *   ApplicationArn: "STRING_VALUE", // required

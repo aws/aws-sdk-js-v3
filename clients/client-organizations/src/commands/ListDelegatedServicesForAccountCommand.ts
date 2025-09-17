@@ -42,6 +42,8 @@ export interface ListDelegatedServicesForAccountCommandOutput
  * ```javascript
  * import { OrganizationsClient, ListDelegatedServicesForAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListDelegatedServicesForAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // ListDelegatedServicesForAccountRequest
  *   AccountId: "STRING_VALUE", // required

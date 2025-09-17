@@ -34,6 +34,8 @@ export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunRespons
  * ```javascript
  * import { GlueClient, ResumeWorkflowRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ResumeWorkflowRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // ResumeWorkflowRunRequest
  *   Name: "STRING_VALUE", // required

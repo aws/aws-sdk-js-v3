@@ -34,6 +34,8 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * ```javascript
  * import { MqClient, ListConfigurationsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListConfigurationsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // ListConfigurationsRequest
  *   MaxResults: Number("int"),

@@ -39,6 +39,8 @@ export interface GetFirewallRuleGroupAssociationCommandOutput
  * ```javascript
  * import { Route53ResolverClient, GetFirewallRuleGroupAssociationCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetFirewallRuleGroupAssociationCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
+ * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
  * const input = { // GetFirewallRuleGroupAssociationRequest
  *   FirewallRuleGroupAssociationId: "STRING_VALUE", // required

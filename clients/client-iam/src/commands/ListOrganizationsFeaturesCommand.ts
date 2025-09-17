@@ -35,6 +35,8 @@ export interface ListOrganizationsFeaturesCommandOutput extends ListOrganization
  * ```javascript
  * import { IAMClient, ListOrganizationsFeaturesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListOrganizationsFeaturesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = {};
  * const command = new ListOrganizationsFeaturesCommand(input);

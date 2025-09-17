@@ -49,6 +49,8 @@ export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __Met
  * ```javascript
  * import { IAMClient, GetUserPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetUserPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // GetUserPolicyRequest
  *   UserName: "STRING_VALUE", // required

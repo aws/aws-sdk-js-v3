@@ -38,6 +38,8 @@ export interface CreateBillingViewCommandOutput extends CreateBillingViewRespons
  * ```javascript
  * import { BillingClient, CreateBillingViewCommand } from "@aws-sdk/client-billing"; // ES Modules import
  * // const { BillingClient, CreateBillingViewCommand } = require("@aws-sdk/client-billing"); // CommonJS import
+ * // import type { BillingClientConfig } from "@aws-sdk/client-billing";
+ * const config = {}; // type is BillingClientConfig
  * const client = new BillingClient(config);
  * const input = { // CreateBillingViewRequest
  *   name: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * ```javascript
  * import { QBusinessClient, ListPluginsCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, ListPluginsCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // ListPluginsRequest
  *   applicationId: "STRING_VALUE", // required

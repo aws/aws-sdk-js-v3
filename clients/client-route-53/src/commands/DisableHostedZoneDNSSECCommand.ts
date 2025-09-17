@@ -36,6 +36,8 @@ export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneD
  * ```javascript
  * import { Route53Client, DisableHostedZoneDNSSECCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DisableHostedZoneDNSSECCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // DisableHostedZoneDNSSECRequest
  *   HostedZoneId: "STRING_VALUE", // required

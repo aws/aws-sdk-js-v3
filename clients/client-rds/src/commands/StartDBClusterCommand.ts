@@ -41,6 +41,8 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * ```javascript
  * import { RDSClient, StartDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // StartDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required

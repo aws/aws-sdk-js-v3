@@ -45,6 +45,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * ```javascript
  * import { OrganizationsClient, ListAccountsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListAccountsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // ListAccountsRequest
  *   NextToken: "STRING_VALUE",

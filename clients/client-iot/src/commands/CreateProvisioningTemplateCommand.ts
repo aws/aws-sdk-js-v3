@@ -35,6 +35,8 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  * ```javascript
  * import { IoTClient, CreateProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreateProvisioningTemplateRequest
  *   templateName: "STRING_VALUE", // required

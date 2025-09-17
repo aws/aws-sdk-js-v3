@@ -38,6 +38,8 @@ export interface GetCaseAuditEventsCommandOutput extends GetCaseAuditEventsRespo
  * ```javascript
  * import { ConnectCasesClient, GetCaseAuditEventsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetCaseAuditEventsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // GetCaseAuditEventsRequest
  *   caseId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
  * ```javascript
  * import { CodeBuildClient, ListBuildBatchesForProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListBuildBatchesForProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // ListBuildBatchesForProjectInput
  *   projectName: "STRING_VALUE",

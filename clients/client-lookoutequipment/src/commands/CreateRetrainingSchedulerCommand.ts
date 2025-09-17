@@ -34,6 +34,8 @@ export interface CreateRetrainingSchedulerCommandOutput extends CreateRetraining
  * ```javascript
  * import { LookoutEquipmentClient, CreateRetrainingSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateRetrainingSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // import type { LookoutEquipmentClientConfig } from "@aws-sdk/client-lookoutequipment";
+ * const config = {}; // type is LookoutEquipmentClientConfig
  * const client = new LookoutEquipmentClient(config);
  * const input = { // CreateRetrainingSchedulerRequest
  *   ModelName: "STRING_VALUE", // required

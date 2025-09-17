@@ -34,6 +34,8 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * ```javascript
  * import { OpenSearchClient, CreateVpcEndpointCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, CreateVpcEndpointCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // CreateVpcEndpointRequest
  *   DomainArn: "STRING_VALUE", // required

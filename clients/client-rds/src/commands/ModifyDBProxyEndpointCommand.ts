@@ -34,6 +34,8 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
  * ```javascript
  * import { RDSClient, ModifyDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ModifyDBProxyEndpointRequest
  *   DBProxyEndpointName: "STRING_VALUE", // required

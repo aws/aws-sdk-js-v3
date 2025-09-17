@@ -38,6 +38,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * ```javascript
  * import { DataZoneClient, ListEnvironmentsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListEnvironmentsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListEnvironmentsInput
  *   domainIdentifier: "STRING_VALUE", // required

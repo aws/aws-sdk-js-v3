@@ -34,6 +34,8 @@ export interface GetScanCommandOutput extends GetScanResponse, __MetadataBearer 
  * ```javascript
  * import { CodeGuruSecurityClient, GetScanCommand } from "@aws-sdk/client-codeguru-security"; // ES Modules import
  * // const { CodeGuruSecurityClient, GetScanCommand } = require("@aws-sdk/client-codeguru-security"); // CommonJS import
+ * // import type { CodeGuruSecurityClientConfig } from "@aws-sdk/client-codeguru-security";
+ * const config = {}; // type is CodeGuruSecurityClientConfig
  * const client = new CodeGuruSecurityClient(config);
  * const input = { // GetScanRequest
  *   scanName: "STRING_VALUE", // required

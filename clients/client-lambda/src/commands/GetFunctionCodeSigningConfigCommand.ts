@@ -39,6 +39,8 @@ export interface GetFunctionCodeSigningConfigCommandOutput
  * ```javascript
  * import { LambdaClient, GetFunctionCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetFunctionCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // GetFunctionCodeSigningConfigRequest
  *   FunctionName: "STRING_VALUE", // required

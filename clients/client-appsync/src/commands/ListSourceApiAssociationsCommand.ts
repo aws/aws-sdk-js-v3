@@ -34,6 +34,8 @@ export interface ListSourceApiAssociationsCommandOutput extends ListSourceApiAss
  * ```javascript
  * import { AppSyncClient, ListSourceApiAssociationsCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListSourceApiAssociationsCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // ListSourceApiAssociationsRequest
  *   apiId: "STRING_VALUE", // required

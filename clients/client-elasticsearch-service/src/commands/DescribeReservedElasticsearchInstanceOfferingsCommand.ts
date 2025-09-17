@@ -47,6 +47,8 @@ export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
  * ```javascript
  * import { ElasticsearchServiceClient, DescribeReservedElasticsearchInstanceOfferingsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeReservedElasticsearchInstanceOfferingsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // import type { ElasticsearchServiceClientConfig } from "@aws-sdk/client-elasticsearch-service";
+ * const config = {}; // type is ElasticsearchServiceClientConfig
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // DescribeReservedElasticsearchInstanceOfferingsRequest
  *   ReservedElasticsearchInstanceOfferingId: "STRING_VALUE",

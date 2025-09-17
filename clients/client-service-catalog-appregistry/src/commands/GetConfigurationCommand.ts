@@ -41,6 +41,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * ```javascript
  * import { ServiceCatalogAppRegistryClient, GetConfigurationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, GetConfigurationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * // import type { ServiceCatalogAppRegistryClientConfig } from "@aws-sdk/client-service-catalog-appregistry";
+ * const config = {}; // type is ServiceCatalogAppRegistryClientConfig
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = {};
  * const command = new GetConfigurationCommand(input);

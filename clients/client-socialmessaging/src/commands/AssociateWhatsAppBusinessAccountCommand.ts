@@ -44,6 +44,8 @@ export interface AssociateWhatsAppBusinessAccountCommandOutput
  * ```javascript
  * import { SocialMessagingClient, AssociateWhatsAppBusinessAccountCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
  * // const { SocialMessagingClient, AssociateWhatsAppBusinessAccountCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
+ * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
  * const input = { // AssociateWhatsAppBusinessAccountInput
  *   signupCallback: { // WhatsAppSignupCallback

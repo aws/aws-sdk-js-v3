@@ -38,6 +38,8 @@ export interface UpdateStorageProfileCommandOutput extends UpdateStorageProfileR
  * ```javascript
  * import { DeadlineClient, UpdateStorageProfileCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, UpdateStorageProfileCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateStorageProfileRequest
  *   clientToken: "STRING_VALUE",

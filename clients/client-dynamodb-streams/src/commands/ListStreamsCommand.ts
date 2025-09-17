@@ -39,6 +39,8 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * ```javascript
  * import { DynamoDBStreamsClient, ListStreamsCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
  * // const { DynamoDBStreamsClient, ListStreamsCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
+ * // import type { DynamoDBStreamsClientConfig } from "@aws-sdk/client-dynamodb-streams";
+ * const config = {}; // type is DynamoDBStreamsClientConfig
  * const client = new DynamoDBStreamsClient(config);
  * const input = { // ListStreamsInput
  *   TableName: "STRING_VALUE",

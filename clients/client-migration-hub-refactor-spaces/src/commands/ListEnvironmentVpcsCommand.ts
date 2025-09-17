@@ -39,6 +39,8 @@ export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsRes
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, ListEnvironmentVpcsCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, ListEnvironmentVpcsCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // import type { MigrationHubRefactorSpacesClientConfig } from "@aws-sdk/client-migration-hub-refactor-spaces";
+ * const config = {}; // type is MigrationHubRefactorSpacesClientConfig
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // ListEnvironmentVpcsRequest
  *   EnvironmentIdentifier: "STRING_VALUE", // required

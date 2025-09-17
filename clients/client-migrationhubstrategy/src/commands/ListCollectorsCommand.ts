@@ -38,6 +38,8 @@ export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __M
  * ```javascript
  * import { MigrationHubStrategyClient, ListCollectorsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListCollectorsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * // import type { MigrationHubStrategyClientConfig } from "@aws-sdk/client-migrationhubstrategy";
+ * const config = {}; // type is MigrationHubStrategyClientConfig
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // ListCollectorsRequest
  *   nextToken: "STRING_VALUE",

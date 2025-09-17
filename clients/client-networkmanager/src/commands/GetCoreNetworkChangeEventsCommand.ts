@@ -34,6 +34,8 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  * ```javascript
  * import { NetworkManagerClient, GetCoreNetworkChangeEventsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetCoreNetworkChangeEventsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // GetCoreNetworkChangeEventsRequest
  *   CoreNetworkId: "STRING_VALUE", // required

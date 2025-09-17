@@ -34,6 +34,8 @@ export interface GetLandingZoneOperationCommandOutput extends GetLandingZoneOper
  * ```javascript
  * import { ControlTowerClient, GetLandingZoneOperationCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, GetLandingZoneOperationCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // GetLandingZoneOperationInput
  *   operationIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetInvestigationCommandOutput extends GetInvestigationResponse,
  * ```javascript
  * import { DetectiveClient, GetInvestigationCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, GetInvestigationCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * // import type { DetectiveClientConfig } from "@aws-sdk/client-detective";
+ * const config = {}; // type is DetectiveClientConfig
  * const client = new DetectiveClient(config);
  * const input = { // GetInvestigationRequest
  *   GraphArn: "STRING_VALUE", // required

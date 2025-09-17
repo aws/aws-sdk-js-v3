@@ -104,6 +104,8 @@ export interface CreateParticipantConnectionCommandOutput
  * ```javascript
  * import { ConnectParticipantClient, CreateParticipantConnectionCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, CreateParticipantConnectionCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // import type { ConnectParticipantClientConfig } from "@aws-sdk/client-connectparticipant";
+ * const config = {}; // type is ConnectParticipantClientConfig
  * const client = new ConnectParticipantClient(config);
  * const input = { // CreateParticipantConnectionRequest
  *   Type: [ // ConnectionTypeList

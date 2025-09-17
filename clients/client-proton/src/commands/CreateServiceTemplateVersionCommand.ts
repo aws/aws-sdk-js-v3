@@ -46,6 +46,8 @@ export interface CreateServiceTemplateVersionCommandOutput
  * ```javascript
  * import { ProtonClient, CreateServiceTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateServiceTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // CreateServiceTemplateVersionInput
  *   clientToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListAppBundlesCommandOutput extends ListAppBundlesResponse, __M
  * ```javascript
  * import { AppFabricClient, ListAppBundlesCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, ListAppBundlesCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // ListAppBundlesRequest
  *   maxResults: Number("int"),

@@ -34,6 +34,8 @@ export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SageMakerClient, DeleteNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DeleteNotebookInstanceInput
  *   NotebookInstanceName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * ```javascript
  * import { PinpointClient, GetEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // import type { PinpointClientConfig } from "@aws-sdk/client-pinpoint";
+ * const config = {}; // type is PinpointClientConfig
  * const client = new PinpointClient(config);
  * const input = { // GetEmailTemplateRequest
  *   TemplateName: "STRING_VALUE", // required

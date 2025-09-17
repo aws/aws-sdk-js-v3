@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { VerifiedPermissionsClient, ListTagsForResourceCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // ListTagsForResourceInput
  *   resourceArn: "STRING_VALUE", // required

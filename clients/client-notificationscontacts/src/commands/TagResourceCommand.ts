@@ -38,6 +38,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { NotificationsContactsClient, TagResourceCommand } from "@aws-sdk/client-notificationscontacts"; // ES Modules import
  * // const { NotificationsContactsClient, TagResourceCommand } = require("@aws-sdk/client-notificationscontacts"); // CommonJS import
+ * // import type { NotificationsContactsClientConfig } from "@aws-sdk/client-notificationscontacts";
+ * const config = {}; // type is NotificationsContactsClientConfig
  * const client = new NotificationsContactsClient(config);
  * const input = { // TagResourceRequest
  *   arn: "STRING_VALUE", // required

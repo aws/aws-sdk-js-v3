@@ -34,6 +34,8 @@ export interface ListDistributedGrantsCommandOutput extends ListDistributedGrant
  * ```javascript
  * import { LicenseManagerClient, ListDistributedGrantsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListDistributedGrantsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // ListDistributedGrantsRequest
  *   GrantArns: [ // ArnList

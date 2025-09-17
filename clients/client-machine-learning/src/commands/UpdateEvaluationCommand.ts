@@ -35,6 +35,8 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  * ```javascript
  * import { MachineLearningClient, UpdateEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, UpdateEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * // import type { MachineLearningClientConfig } from "@aws-sdk/client-machine-learning";
+ * const config = {}; // type is MachineLearningClientConfig
  * const client = new MachineLearningClient(config);
  * const input = { // UpdateEvaluationInput
  *   EvaluationId: "STRING_VALUE", // required

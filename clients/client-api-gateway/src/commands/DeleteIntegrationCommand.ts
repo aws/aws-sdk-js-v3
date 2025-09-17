@@ -34,6 +34,8 @@ export interface DeleteIntegrationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { APIGatewayClient, DeleteIntegrationCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteIntegrationCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // DeleteIntegrationRequest
  *   restApiId: "STRING_VALUE", // required

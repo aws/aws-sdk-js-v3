@@ -71,6 +71,8 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * ```javascript
  * import { KMSClient, VerifyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, VerifyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // VerifyRequest
  *   KeyId: "STRING_VALUE", // required

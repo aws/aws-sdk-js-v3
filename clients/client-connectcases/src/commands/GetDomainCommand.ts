@@ -34,6 +34,8 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * ```javascript
  * import { ConnectCasesClient, GetDomainCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetDomainCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // GetDomainRequest
  *   domainId: "STRING_VALUE", // required

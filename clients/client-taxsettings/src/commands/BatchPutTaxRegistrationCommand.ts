@@ -244,6 +244,8 @@ export interface BatchPutTaxRegistrationCommandOutput extends BatchPutTaxRegistr
  * ```javascript
  * import { TaxSettingsClient, BatchPutTaxRegistrationCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, BatchPutTaxRegistrationCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // import type { TaxSettingsClientConfig } from "@aws-sdk/client-taxsettings";
+ * const config = {}; // type is TaxSettingsClientConfig
  * const client = new TaxSettingsClient(config);
  * const input = { // BatchPutTaxRegistrationRequest
  *   accountIds: [ // AccountIds // required

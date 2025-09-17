@@ -111,6 +111,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * ```javascript
  * import { OrganizationsClient, CreateAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreateAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // CreateAccountRequest
  *   Email: "STRING_VALUE", // required

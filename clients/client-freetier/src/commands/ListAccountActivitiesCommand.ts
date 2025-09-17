@@ -34,6 +34,8 @@ export interface ListAccountActivitiesCommandOutput extends ListAccountActivitie
  * ```javascript
  * import { FreeTierClient, ListAccountActivitiesCommand } from "@aws-sdk/client-freetier"; // ES Modules import
  * // const { FreeTierClient, ListAccountActivitiesCommand } = require("@aws-sdk/client-freetier"); // CommonJS import
+ * // import type { FreeTierClientConfig } from "@aws-sdk/client-freetier";
+ * const config = {}; // type is FreeTierClientConfig
  * const client = new FreeTierClient(config);
  * const input = { // ListAccountActivitiesRequest
  *   filterActivityStatuses: [ // FilterActivityStatuses

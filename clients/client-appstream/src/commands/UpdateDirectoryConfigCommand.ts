@@ -39,6 +39,8 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  * ```javascript
  * import { AppStreamClient, UpdateDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // UpdateDirectoryConfigRequest
  *   DirectoryName: "STRING_VALUE", // required

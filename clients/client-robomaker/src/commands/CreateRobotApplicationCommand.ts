@@ -42,6 +42,8 @@ export interface CreateRobotApplicationCommandOutput extends CreateRobotApplicat
  * ```javascript
  * import { RoboMakerClient, CreateRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // CreateRobotApplicationRequest
  *   name: "STRING_VALUE", // required

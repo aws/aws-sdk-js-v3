@@ -38,6 +38,8 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  * ```javascript
  * import { CodeGuruSecurityClient, CreateUploadUrlCommand } from "@aws-sdk/client-codeguru-security"; // ES Modules import
  * // const { CodeGuruSecurityClient, CreateUploadUrlCommand } = require("@aws-sdk/client-codeguru-security"); // CommonJS import
+ * // import type { CodeGuruSecurityClientConfig } from "@aws-sdk/client-codeguru-security";
+ * const config = {}; // type is CodeGuruSecurityClientConfig
  * const client = new CodeGuruSecurityClient(config);
  * const input = { // CreateUploadUrlRequest
  *   scanName: "STRING_VALUE", // required

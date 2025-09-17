@@ -35,6 +35,8 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
  * ```javascript
  * import { AthenaClient, ListApplicationDPUSizesCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListApplicationDPUSizesCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // ListApplicationDPUSizesInput
  *   MaxResults: Number("int"),

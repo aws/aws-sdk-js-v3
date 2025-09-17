@@ -35,6 +35,8 @@ export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorRespo
  * ```javascript
  * import { AppRunnerClient, DeleteVpcConnectorCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteVpcConnectorCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // import type { AppRunnerClientConfig } from "@aws-sdk/client-apprunner";
+ * const config = {}; // type is AppRunnerClientConfig
  * const client = new AppRunnerClient(config);
  * const input = { // DeleteVpcConnectorRequest
  *   VpcConnectorArn: "STRING_VALUE", // required

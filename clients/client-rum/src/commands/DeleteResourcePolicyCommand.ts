@@ -34,6 +34,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * ```javascript
  * import { RUMClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * // import type { RUMClientConfig } from "@aws-sdk/client-rum";
+ * const config = {}; // type is RUMClientConfig
  * const client = new RUMClient(config);
  * const input = { // DeleteResourcePolicyRequest
  *   Name: "STRING_VALUE", // required

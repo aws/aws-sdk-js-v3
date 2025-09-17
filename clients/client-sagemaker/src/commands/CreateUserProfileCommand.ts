@@ -34,6 +34,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  * ```javascript
  * import { SageMakerClient, CreateUserProfileCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateUserProfileCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateUserProfileRequest
  *   DomainId: "STRING_VALUE", // required

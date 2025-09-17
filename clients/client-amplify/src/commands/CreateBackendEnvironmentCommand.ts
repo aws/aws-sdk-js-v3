@@ -39,6 +39,8 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * ```javascript
  * import { AmplifyClient, CreateBackendEnvironmentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateBackendEnvironmentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // CreateBackendEnvironmentRequest
  *   appId: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface DeleteServiceNetworkResourceAssociationCommandOutput
  * ```javascript
  * import { VPCLatticeClient, DeleteServiceNetworkResourceAssociationCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteServiceNetworkResourceAssociationCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteServiceNetworkResourceAssociationRequest
  *   serviceNetworkResourceAssociationIdentifier: "STRING_VALUE", // required

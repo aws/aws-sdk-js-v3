@@ -44,6 +44,8 @@ export interface BatchAssociateAssessmentReportEvidenceCommandOutput
  * ```javascript
  * import { AuditManagerClient, BatchAssociateAssessmentReportEvidenceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, BatchAssociateAssessmentReportEvidenceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // BatchAssociateAssessmentReportEvidenceRequest
  *   assessmentId: "STRING_VALUE", // required

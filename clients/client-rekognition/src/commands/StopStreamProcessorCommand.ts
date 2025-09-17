@@ -34,6 +34,8 @@ export interface StopStreamProcessorCommandOutput extends StopStreamProcessorRes
  * ```javascript
  * import { RekognitionClient, StopStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StopStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // StopStreamProcessorRequest
  *   Name: "STRING_VALUE", // required

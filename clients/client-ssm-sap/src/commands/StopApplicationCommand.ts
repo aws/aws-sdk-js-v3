@@ -34,6 +34,8 @@ export interface StopApplicationCommandOutput extends StopApplicationOutput, __M
  * ```javascript
  * import { SsmSapClient, StopApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, StopApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // StopApplicationInput
  *   ApplicationId: "STRING_VALUE", // required

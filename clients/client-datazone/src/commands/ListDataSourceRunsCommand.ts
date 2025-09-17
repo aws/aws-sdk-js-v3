@@ -34,6 +34,8 @@ export interface ListDataSourceRunsCommandOutput extends ListDataSourceRunsOutpu
  * ```javascript
  * import { DataZoneClient, ListDataSourceRunsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListDataSourceRunsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListDataSourceRunsInput
  *   domainIdentifier: "STRING_VALUE", // required

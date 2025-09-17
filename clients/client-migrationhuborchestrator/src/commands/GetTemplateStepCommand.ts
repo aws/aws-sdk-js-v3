@@ -38,6 +38,8 @@ export interface GetTemplateStepCommandOutput extends GetTemplateStepResponse, _
  * ```javascript
  * import { MigrationHubOrchestratorClient, GetTemplateStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, GetTemplateStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * // import type { MigrationHubOrchestratorClientConfig } from "@aws-sdk/client-migrationhuborchestrator";
+ * const config = {}; // type is MigrationHubOrchestratorClientConfig
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // GetTemplateStepRequest
  *   id: "STRING_VALUE", // required

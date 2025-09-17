@@ -36,6 +36,8 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * ```javascript
  * import { CloudFormationClient, StopStackSetOperationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, StopStackSetOperationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // StopStackSetOperationInput
  *   StackSetName: "STRING_VALUE", // required

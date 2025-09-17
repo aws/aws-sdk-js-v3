@@ -37,6 +37,8 @@ export interface DeleteAccessEntryCommandOutput extends DeleteAccessEntryRespons
  * ```javascript
  * import { EKSClient, DeleteAccessEntryCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DeleteAccessEntryCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // DeleteAccessEntryRequest
  *   clusterName: "STRING_VALUE", // required

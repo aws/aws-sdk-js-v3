@@ -34,6 +34,8 @@ export interface GetCloudAutonomousVmClusterCommandOutput extends GetCloudAutono
  * ```javascript
  * import { OdbClient, GetCloudAutonomousVmClusterCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, GetCloudAutonomousVmClusterCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // GetCloudAutonomousVmClusterInput
  *   cloudAutonomousVmClusterId: "STRING_VALUE", // required

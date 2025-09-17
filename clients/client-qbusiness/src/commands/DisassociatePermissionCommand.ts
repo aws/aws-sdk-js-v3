@@ -34,6 +34,8 @@ export interface DisassociatePermissionCommandOutput extends DisassociatePermiss
  * ```javascript
  * import { QBusinessClient, DisassociatePermissionCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, DisassociatePermissionCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // DisassociatePermissionRequest
  *   applicationId: "STRING_VALUE", // required

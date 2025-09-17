@@ -39,6 +39,8 @@ export interface DeleteMicrosoftTeamsChannelConfigurationCommandOutput
  * ```javascript
  * import { ChatbotClient, DeleteMicrosoftTeamsChannelConfigurationCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, DeleteMicrosoftTeamsChannelConfigurationCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // DeleteTeamsChannelConfigurationRequest
  *   ChatConfigurationArn: "STRING_VALUE", // required

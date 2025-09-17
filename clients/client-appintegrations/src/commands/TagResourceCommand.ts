@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { AppIntegrationsClient, TagResourceCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, TagResourceCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * // import type { AppIntegrationsClientConfig } from "@aws-sdk/client-appintegrations";
+ * const config = {}; // type is AppIntegrationsClientConfig
  * const client = new AppIntegrationsClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

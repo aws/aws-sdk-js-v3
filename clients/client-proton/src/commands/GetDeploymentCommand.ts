@@ -34,6 +34,8 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * ```javascript
  * import { ProtonClient, GetDeploymentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetDeploymentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // GetDeploymentInput
  *   id: "STRING_VALUE", // required

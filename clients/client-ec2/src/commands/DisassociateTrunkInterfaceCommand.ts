@@ -34,6 +34,8 @@ export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTru
  * ```javascript
  * import { EC2Client, DisassociateTrunkInterfaceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateTrunkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DisassociateTrunkInterfaceRequest
  *   AssociationId: "STRING_VALUE", // required

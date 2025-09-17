@@ -34,6 +34,8 @@ export interface GetOperationCommandOutput extends GetOperationOutput, __Metadat
  * ```javascript
  * import { SsmSapClient, GetOperationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, GetOperationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // GetOperationInput
  *   OperationId: "STRING_VALUE", // required

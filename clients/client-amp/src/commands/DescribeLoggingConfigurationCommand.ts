@@ -39,6 +39,8 @@ export interface DescribeLoggingConfigurationCommandOutput
  * ```javascript
  * import { AmpClient, DescribeLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DescribeLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // DescribeLoggingConfigurationRequest
  *   workspaceId: "STRING_VALUE", // required

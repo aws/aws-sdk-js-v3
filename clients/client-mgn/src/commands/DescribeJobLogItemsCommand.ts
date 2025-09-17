@@ -34,6 +34,8 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * ```javascript
  * import { MgnClient, DescribeJobLogItemsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DescribeJobLogItemsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // DescribeJobLogItemsRequest
  *   jobID: "STRING_VALUE", // required

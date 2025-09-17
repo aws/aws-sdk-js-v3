@@ -35,6 +35,8 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * ```javascript
  * import { GroundStationClient, GetConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, GetConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // GetConfigRequest
  *   configId: "STRING_VALUE", // required

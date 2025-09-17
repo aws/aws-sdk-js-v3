@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { ApplicationSignalsClient, ListTagsForResourceCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

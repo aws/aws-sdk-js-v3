@@ -34,6 +34,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * ```javascript
  * import { CodeBuildClient, UpdateProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, UpdateProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // UpdateProjectInput
  *   name: "STRING_VALUE", // required

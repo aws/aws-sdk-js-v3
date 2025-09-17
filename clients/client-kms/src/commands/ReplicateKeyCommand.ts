@@ -115,6 +115,8 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * ```javascript
  * import { KMSClient, ReplicateKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ReplicateKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // ReplicateKeyRequest
  *   KeyId: "STRING_VALUE", // required

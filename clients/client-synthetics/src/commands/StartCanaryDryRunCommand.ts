@@ -34,6 +34,8 @@ export interface StartCanaryDryRunCommandOutput extends StartCanaryDryRunRespons
  * ```javascript
  * import { SyntheticsClient, StartCanaryDryRunCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, StartCanaryDryRunCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // import type { SyntheticsClientConfig } from "@aws-sdk/client-synthetics";
+ * const config = {}; // type is SyntheticsClientConfig
  * const client = new SyntheticsClient(config);
  * const input = { // StartCanaryDryRunRequest
  *   Name: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface GetIdleRecommendationsCommandOutput extends GetIdleRecommendati
  * ```javascript
  * import { ComputeOptimizerClient, GetIdleRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetIdleRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * // import type { ComputeOptimizerClientConfig } from "@aws-sdk/client-compute-optimizer";
+ * const config = {}; // type is ComputeOptimizerClientConfig
  * const client = new ComputeOptimizerClient(config);
  * const input = { // GetIdleRecommendationsRequest
  *   resourceArns: [ // ResourceArns

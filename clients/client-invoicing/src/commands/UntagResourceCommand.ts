@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { InvoicingClient, UntagResourceCommand } from "@aws-sdk/client-invoicing"; // ES Modules import
  * // const { InvoicingClient, UntagResourceCommand } = require("@aws-sdk/client-invoicing"); // CommonJS import
+ * // import type { InvoicingClientConfig } from "@aws-sdk/client-invoicing";
+ * const config = {}; // type is InvoicingClientConfig
  * const client = new InvoicingClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

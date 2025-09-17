@@ -37,6 +37,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * ```javascript
  * import { ChimeClient, CreateAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // CreateAccountRequest
  *   Name: "STRING_VALUE", // required

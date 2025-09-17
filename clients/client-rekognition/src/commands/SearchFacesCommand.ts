@@ -49,6 +49,8 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * ```javascript
  * import { RekognitionClient, SearchFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, SearchFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // SearchFacesRequest
  *   CollectionId: "STRING_VALUE", // required

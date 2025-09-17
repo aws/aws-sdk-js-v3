@@ -38,6 +38,8 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  * ```javascript
  * import { EC2Client, ExportTransitGatewayRoutesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ExportTransitGatewayRoutesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // ExportTransitGatewayRoutesRequest
  *   TransitGatewayRouteTableId: "STRING_VALUE", // required

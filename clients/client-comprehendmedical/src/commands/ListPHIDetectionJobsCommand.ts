@@ -39,6 +39,8 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  * ```javascript
  * import { ComprehendMedicalClient, ListPHIDetectionJobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, ListPHIDetectionJobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // import type { ComprehendMedicalClientConfig } from "@aws-sdk/client-comprehendmedical";
+ * const config = {}; // type is ComprehendMedicalClientConfig
  * const client = new ComprehendMedicalClient(config);
  * const input = { // ListPHIDetectionJobsRequest
  *   Filter: { // ComprehendMedicalAsyncJobFilter

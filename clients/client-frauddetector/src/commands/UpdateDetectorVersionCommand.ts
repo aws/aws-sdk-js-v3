@@ -34,6 +34,8 @@ export interface UpdateDetectorVersionCommandOutput extends UpdateDetectorVersio
  * ```javascript
  * import { FraudDetectorClient, UpdateDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateDetectorVersionRequest
  *   detectorId: "STRING_VALUE", // required

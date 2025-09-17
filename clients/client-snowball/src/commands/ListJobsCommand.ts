@@ -38,6 +38,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * ```javascript
  * import { SnowballClient, ListJobsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListJobsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * // import type { SnowballClientConfig } from "@aws-sdk/client-snowball";
+ * const config = {}; // type is SnowballClientConfig
  * const client = new SnowballClient(config);
  * const input = { // ListJobsRequest
  *   MaxResults: Number("int"),

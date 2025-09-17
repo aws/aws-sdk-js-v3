@@ -37,6 +37,8 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { NeptuneClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // DeleteDBSubnetGroupMessage
  *   DBSubnetGroupName: "STRING_VALUE", // required

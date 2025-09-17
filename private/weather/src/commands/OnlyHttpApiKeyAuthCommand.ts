@@ -33,6 +33,8 @@ export interface OnlyHttpApiKeyAuthCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WeatherClient, OnlyHttpApiKeyAuthCommand } from "@aws-sdk/weather"; // ES Modules import
  * // const { WeatherClient, OnlyHttpApiKeyAuthCommand } = require("@aws-sdk/weather"); // CommonJS import
+ * // import type { WeatherClientConfig } from "@aws-sdk/weather";
+ * const config = {}; // type is WeatherClientConfig
  * const client = new WeatherClient(config);
  * const input = {};
  * const command = new OnlyHttpApiKeyAuthCommand(input);

@@ -35,6 +35,8 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  * ```javascript
  * import { NetworkManagerClient, UpdateGlobalNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateGlobalNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // UpdateGlobalNetworkRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

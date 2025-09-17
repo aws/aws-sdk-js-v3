@@ -36,6 +36,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * ```javascript
  * import { FinspaceDataClient, ListDatasetsCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, ListDatasetsCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // import type { FinspaceDataClientConfig } from "@aws-sdk/client-finspace-data";
+ * const config = {}; // type is FinspaceDataClientConfig
  * const client = new FinspaceDataClient(config);
  * const input = { // ListDatasetsRequest
  *   nextToken: "STRING_VALUE",

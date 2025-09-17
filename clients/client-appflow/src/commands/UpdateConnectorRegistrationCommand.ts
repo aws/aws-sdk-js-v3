@@ -48,6 +48,8 @@ export interface UpdateConnectorRegistrationCommandOutput
  * ```javascript
  * import { AppflowClient, UpdateConnectorRegistrationCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, UpdateConnectorRegistrationCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // import type { AppflowClientConfig } from "@aws-sdk/client-appflow";
+ * const config = {}; // type is AppflowClientConfig
  * const client = new AppflowClient(config);
  * const input = { // UpdateConnectorRegistrationRequest
  *   connectorLabel: "STRING_VALUE", // required

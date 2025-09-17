@@ -43,6 +43,8 @@ export interface GetManagedThingCapabilitiesCommandOutput
  * ```javascript
  * import { IoTManagedIntegrationsClient, GetManagedThingCapabilitiesCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, GetManagedThingCapabilitiesCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // GetManagedThingCapabilitiesRequest
  *   Identifier: "STRING_VALUE", // required

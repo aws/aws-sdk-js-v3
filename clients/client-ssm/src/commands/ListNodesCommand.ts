@@ -34,6 +34,8 @@ export interface ListNodesCommandOutput extends ListNodesResult, __MetadataBeare
  * ```javascript
  * import { SSMClient, ListNodesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListNodesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListNodesRequest
  *   SyncName: "STRING_VALUE",

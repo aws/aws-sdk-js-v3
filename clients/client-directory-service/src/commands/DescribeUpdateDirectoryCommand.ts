@@ -34,6 +34,8 @@ export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDire
  * ```javascript
  * import { DirectoryServiceClient, DescribeUpdateDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeUpdateDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeUpdateDirectoryRequest
  *   DirectoryId: "STRING_VALUE", // required

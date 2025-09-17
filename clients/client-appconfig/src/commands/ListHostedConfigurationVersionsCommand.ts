@@ -38,6 +38,8 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  * ```javascript
  * import { AppConfigClient, ListHostedConfigurationVersionsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListHostedConfigurationVersionsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // ListHostedConfigurationVersionsRequest
  *   ApplicationId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * ```javascript
  * import { OpenSearchClient, CreateDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, CreateDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // CreateDomainRequest
  *   DomainName: "STRING_VALUE", // required

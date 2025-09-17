@@ -58,6 +58,8 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  * ```javascript
  * import { SSMClient, UpdateAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // UpdateAssociationRequest
  *   AssociationId: "STRING_VALUE", // required

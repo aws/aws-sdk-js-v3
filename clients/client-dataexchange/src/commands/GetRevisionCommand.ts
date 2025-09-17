@@ -34,6 +34,8 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * ```javascript
  * import { DataExchangeClient, GetRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, GetRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // import type { DataExchangeClientConfig } from "@aws-sdk/client-dataexchange";
+ * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // GetRevisionRequest
  *   DataSetId: "STRING_VALUE", // required

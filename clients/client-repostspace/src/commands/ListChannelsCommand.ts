@@ -34,6 +34,8 @@ export interface ListChannelsCommandOutput extends ListChannelsOutput, __Metadat
  * ```javascript
  * import { RepostspaceClient, ListChannelsCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, ListChannelsCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // ListChannelsInput
  *   spaceId: "STRING_VALUE", // required

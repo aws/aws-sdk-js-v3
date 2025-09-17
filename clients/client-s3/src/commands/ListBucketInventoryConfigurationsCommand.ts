@@ -78,6 +78,8 @@ export interface ListBucketInventoryConfigurationsCommandOutput
  * ```javascript
  * import { S3Client, ListBucketInventoryConfigurationsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListBucketInventoryConfigurationsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // ListBucketInventoryConfigurationsRequest
  *   Bucket: "STRING_VALUE", // required

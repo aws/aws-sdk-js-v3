@@ -34,6 +34,8 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
  * ```javascript
  * import { GroundStationClient, GetSatelliteCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, GetSatelliteCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // GetSatelliteRequest
  *   satelliteId: "STRING_VALUE", // required

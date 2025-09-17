@@ -43,6 +43,8 @@ export interface UpdateApplicationWithTokenExchangeGrantCommandOutput
  * ```javascript
  * import { QuickSightClient, UpdateApplicationWithTokenExchangeGrantCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateApplicationWithTokenExchangeGrantCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateApplicationWithTokenExchangeGrantRequest
  *   AwsAccountId: "STRING_VALUE", // required

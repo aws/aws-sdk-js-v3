@@ -34,6 +34,8 @@ export interface DocumentTypeAsMapValueCommandOutput extends DocumentTypeAsMapVa
  * ```javascript
  * import { RestJsonProtocolClient, DocumentTypeAsMapValueCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, DocumentTypeAsMapValueCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // DocumentTypeAsMapValueInputOutput
  *   docValuedMap: { // DocumentValuedMap

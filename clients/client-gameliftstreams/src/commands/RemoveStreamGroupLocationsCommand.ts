@@ -34,6 +34,8 @@ export interface RemoveStreamGroupLocationsCommandOutput extends __MetadataBeare
  * ```javascript
  * import { GameLiftStreamsClient, RemoveStreamGroupLocationsCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, RemoveStreamGroupLocationsCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // RemoveStreamGroupLocationsInput
  *   Identifier: "STRING_VALUE", // required

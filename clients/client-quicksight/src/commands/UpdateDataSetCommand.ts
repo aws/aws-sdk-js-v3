@@ -38,6 +38,8 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * ```javascript
  * import { QuickSightClient, UpdateDataSetCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDataSetCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateDataSetRequest
  *   AwsAccountId: "STRING_VALUE", // required

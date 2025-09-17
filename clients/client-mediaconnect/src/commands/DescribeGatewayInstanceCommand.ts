@@ -34,6 +34,8 @@ export interface DescribeGatewayInstanceCommandOutput extends DescribeGatewayIns
  * ```javascript
  * import { MediaConnectClient, DescribeGatewayInstanceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, DescribeGatewayInstanceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // DescribeGatewayInstanceRequest
  *   GatewayInstanceArn: "STRING_VALUE", // required

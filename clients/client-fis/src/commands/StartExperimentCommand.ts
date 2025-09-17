@@ -34,6 +34,8 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * ```javascript
  * import { FisClient, StartExperimentCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, StartExperimentCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // StartExperimentRequest
  *   clientToken: "STRING_VALUE", // required

@@ -64,6 +64,8 @@ export interface CreateMediaPipelineKinesisVideoStreamPoolCommandOutput
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, CreateMediaPipelineKinesisVideoStreamPoolCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaPipelineKinesisVideoStreamPoolCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // CreateMediaPipelineKinesisVideoStreamPoolRequest
  *   StreamConfiguration: { // KinesisVideoStreamConfiguration

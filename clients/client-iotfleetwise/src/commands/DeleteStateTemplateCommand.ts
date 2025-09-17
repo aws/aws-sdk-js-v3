@@ -34,6 +34,8 @@ export interface DeleteStateTemplateCommandOutput extends DeleteStateTemplateRes
  * ```javascript
  * import { IoTFleetWiseClient, DeleteStateTemplateCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DeleteStateTemplateCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = { // DeleteStateTemplateRequest
  *   identifier: "STRING_VALUE", // required

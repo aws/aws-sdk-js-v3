@@ -35,6 +35,8 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  * ```javascript
  * import { IAMClient, GetOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // GetOpenIDConnectProviderRequest
  *   OpenIDConnectProviderArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  * ```javascript
  * import { EMRClient, DescribeStepCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeStepCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // DescribeStepInput
  *   ClusterId: "STRING_VALUE", // required

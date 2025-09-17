@@ -38,6 +38,8 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * ```javascript
  * import { DirectoryServiceClient, CancelSchemaExtensionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CancelSchemaExtensionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // CancelSchemaExtensionRequest
  *   DirectoryId: "STRING_VALUE", // required

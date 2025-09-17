@@ -43,6 +43,8 @@ export interface GetCollaborationConfiguredAudienceModelAssociationCommandOutput
  * ```javascript
  * import { CleanRoomsClient, GetCollaborationConfiguredAudienceModelAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetCollaborationConfiguredAudienceModelAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // GetCollaborationConfiguredAudienceModelAssociationInput
  *   collaborationIdentifier: "STRING_VALUE", // required

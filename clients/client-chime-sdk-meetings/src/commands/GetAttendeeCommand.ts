@@ -38,6 +38,8 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
  * ```javascript
  * import { ChimeSDKMeetingsClient, GetAttendeeCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, GetAttendeeCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * // import type { ChimeSDKMeetingsClientConfig } from "@aws-sdk/client-chime-sdk-meetings";
+ * const config = {}; // type is ChimeSDKMeetingsClientConfig
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // GetAttendeeRequest
  *   MeetingId: "STRING_VALUE", // required

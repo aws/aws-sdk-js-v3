@@ -35,6 +35,8 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  * ```javascript
  * import { CodeartifactClient, DeletePackageCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DeletePackageCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // DeletePackageRequest
  *   domain: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface GenerateCredentialReportCommandOutput extends GenerateCredentia
  * ```javascript
  * import { IAMClient, GenerateCredentialReportCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GenerateCredentialReportCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = {};
  * const command = new GenerateCredentialReportCommand(input);

@@ -35,6 +35,8 @@ export interface DescribeFlywheelCommandOutput extends DescribeFlywheelResponse,
  * ```javascript
  * import { ComprehendClient, DescribeFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // DescribeFlywheelRequest
  *   FlywheelArn: "STRING_VALUE", // required

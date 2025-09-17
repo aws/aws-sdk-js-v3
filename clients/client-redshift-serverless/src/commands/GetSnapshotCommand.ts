@@ -38,6 +38,8 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __Metadat
  * ```javascript
  * import { RedshiftServerlessClient, GetSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // GetSnapshotRequest
  *   snapshotName: "STRING_VALUE",

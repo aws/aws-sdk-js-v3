@@ -34,6 +34,8 @@ export interface GetModelImportJobCommandOutput extends GetModelImportJobRespons
  * ```javascript
  * import { BedrockClient, GetModelImportJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, GetModelImportJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // GetModelImportJobRequest
  *   jobIdentifier: "STRING_VALUE", // required

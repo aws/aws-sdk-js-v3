@@ -45,6 +45,8 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  * ```javascript
  * import { DrsClient, UpdateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, UpdateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // UpdateReplicationConfigurationTemplateRequest
  *   replicationConfigurationTemplateID: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteRoomCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ChimeClient, DeleteRoomCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteRoomCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // DeleteRoomRequest
  *   AccountId: "STRING_VALUE", // required

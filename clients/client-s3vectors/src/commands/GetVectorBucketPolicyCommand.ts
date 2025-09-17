@@ -34,6 +34,8 @@ export interface GetVectorBucketPolicyCommandOutput extends GetVectorBucketPolic
  * ```javascript
  * import { S3VectorsClient, GetVectorBucketPolicyCommand } from "@aws-sdk/client-s3vectors"; // ES Modules import
  * // const { S3VectorsClient, GetVectorBucketPolicyCommand } = require("@aws-sdk/client-s3vectors"); // CommonJS import
+ * // import type { S3VectorsClientConfig } from "@aws-sdk/client-s3vectors";
+ * const config = {}; // type is S3VectorsClientConfig
  * const client = new S3VectorsClient(config);
  * const input = { // GetVectorBucketPolicyInput
  *   vectorBucketName: "STRING_VALUE",

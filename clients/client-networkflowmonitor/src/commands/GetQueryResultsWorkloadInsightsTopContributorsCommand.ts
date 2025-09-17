@@ -47,6 +47,8 @@ export interface GetQueryResultsWorkloadInsightsTopContributorsCommandOutput
  * ```javascript
  * import { NetworkFlowMonitorClient, GetQueryResultsWorkloadInsightsTopContributorsCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, GetQueryResultsWorkloadInsightsTopContributorsCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // GetQueryResultsWorkloadInsightsTopContributorsInput
  *   scopeId: "STRING_VALUE", // required

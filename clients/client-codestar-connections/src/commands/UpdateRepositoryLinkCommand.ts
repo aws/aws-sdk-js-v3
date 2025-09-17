@@ -40,6 +40,8 @@ export interface UpdateRepositoryLinkCommandOutput extends UpdateRepositoryLinkO
  * ```javascript
  * import { CodeStarConnectionsClient, UpdateRepositoryLinkCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, UpdateRepositoryLinkCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * // import type { CodeStarConnectionsClientConfig } from "@aws-sdk/client-codestar-connections";
+ * const config = {}; // type is CodeStarConnectionsClientConfig
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // UpdateRepositoryLinkInput
  *   ConnectionArn: "STRING_VALUE",

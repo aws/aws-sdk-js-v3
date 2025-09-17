@@ -42,6 +42,8 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  * ```javascript
  * import { ChimeSDKVoiceClient, ValidateE911AddressCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, ValidateE911AddressCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // ValidateE911AddressRequest
  *   AwsAccountId: "STRING_VALUE", // required

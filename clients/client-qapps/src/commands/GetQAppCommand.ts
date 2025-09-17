@@ -34,6 +34,8 @@ export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
  * ```javascript
  * import { QAppsClient, GetQAppCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, GetQAppCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // GetQAppInput
  *   instanceId: "STRING_VALUE", // required

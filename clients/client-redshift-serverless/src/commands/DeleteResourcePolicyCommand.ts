@@ -38,6 +38,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * ```javascript
  * import { RedshiftServerlessClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // DeleteResourcePolicyRequest
  *   resourceArn: "STRING_VALUE", // required

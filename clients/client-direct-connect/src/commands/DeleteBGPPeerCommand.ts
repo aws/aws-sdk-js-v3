@@ -35,6 +35,8 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  * ```javascript
  * import { DirectConnectClient, DeleteBGPPeerCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteBGPPeerCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
+ * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
  * const input = { // DeleteBGPPeerRequest
  *   virtualInterfaceId: "STRING_VALUE",

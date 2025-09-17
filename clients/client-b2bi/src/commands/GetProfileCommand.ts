@@ -34,6 +34,8 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * ```javascript
  * import { B2biClient, GetProfileCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, GetProfileCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // GetProfileRequest
  *   profileId: "STRING_VALUE", // required

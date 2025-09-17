@@ -36,6 +36,8 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * ```javascript
  * import { CognitoIdentityClient, GetIdCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetIdCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * // import type { CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
+ * const config = {}; // type is CognitoIdentityClientConfig
  * const client = new CognitoIdentityClient(config);
  * const input = { // GetIdInput
  *   AccountId: "STRING_VALUE",

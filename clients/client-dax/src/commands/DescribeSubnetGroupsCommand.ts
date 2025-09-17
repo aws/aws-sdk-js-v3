@@ -35,6 +35,8 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * ```javascript
  * import { DAXClient, DescribeSubnetGroupsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeSubnetGroupsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // DescribeSubnetGroupsRequest
  *   SubnetGroupNames: [ // SubnetGroupNameList

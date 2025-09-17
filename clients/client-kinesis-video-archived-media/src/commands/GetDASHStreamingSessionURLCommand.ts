@@ -181,6 +181,8 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  * ```javascript
  * import { KinesisVideoArchivedMediaClient, GetDASHStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetDASHStreamingSessionURLCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * // import type { KinesisVideoArchivedMediaClientConfig } from "@aws-sdk/client-kinesis-video-archived-media";
+ * const config = {}; // type is KinesisVideoArchivedMediaClientConfig
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetDASHStreamingSessionURLInput
  *   StreamName: "STRING_VALUE",

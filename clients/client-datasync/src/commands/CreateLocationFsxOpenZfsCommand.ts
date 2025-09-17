@@ -47,6 +47,8 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  * ```javascript
  * import { DataSyncClient, CreateLocationFsxOpenZfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxOpenZfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationFsxOpenZfsRequest
  *   FsxFilesystemArn: "STRING_VALUE", // required

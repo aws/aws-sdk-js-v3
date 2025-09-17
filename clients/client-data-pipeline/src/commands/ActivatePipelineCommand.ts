@@ -64,6 +64,8 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * ```javascript
  * import { DataPipelineClient, ActivatePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ActivatePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * // import type { DataPipelineClientConfig } from "@aws-sdk/client-data-pipeline";
+ * const config = {}; // type is DataPipelineClientConfig
  * const client = new DataPipelineClient(config);
  * const input = { // ActivatePipelineInput
  *   pipelineId: "STRING_VALUE", // required

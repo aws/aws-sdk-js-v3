@@ -43,6 +43,8 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
  * ```javascript
  * import { SSMClient, RegisterTaskWithMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, RegisterTaskWithMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // RegisterTaskWithMaintenanceWindowRequest
  *   WindowId: "STRING_VALUE", // required

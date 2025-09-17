@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { Macie2Client, UntagResourceCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UntagResourceCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * // import type { Macie2ClientConfig } from "@aws-sdk/client-macie2";
+ * const config = {}; // type is Macie2ClientConfig
  * const client = new Macie2Client(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

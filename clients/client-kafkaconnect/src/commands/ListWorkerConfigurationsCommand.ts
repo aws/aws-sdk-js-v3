@@ -34,6 +34,8 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  * ```javascript
  * import { KafkaConnectClient, ListWorkerConfigurationsCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, ListWorkerConfigurationsCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * // import type { KafkaConnectClientConfig } from "@aws-sdk/client-kafkaconnect";
+ * const config = {}; // type is KafkaConnectClientConfig
  * const client = new KafkaConnectClient(config);
  * const input = { // ListWorkerConfigurationsRequest
  *   maxResults: Number("int"),

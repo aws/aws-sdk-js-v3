@@ -36,6 +36,8 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * ```javascript
  * import { EMRClient, DescribeReleaseLabelCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeReleaseLabelCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // DescribeReleaseLabelInput
  *   ReleaseLabel: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface DeleteAddonSubscriptionCommandOutput extends DeleteAddonSubscri
  * ```javascript
  * import { MailManagerClient, DeleteAddonSubscriptionCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, DeleteAddonSubscriptionCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // DeleteAddonSubscriptionRequest
  *   AddonSubscriptionId: "STRING_VALUE", // required

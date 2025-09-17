@@ -34,6 +34,8 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  * ```javascript
  * import { GlueClient, GetDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetDatabaseRequest
  *   CatalogId: "STRING_VALUE",

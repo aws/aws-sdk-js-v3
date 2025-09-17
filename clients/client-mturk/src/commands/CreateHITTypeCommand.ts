@@ -39,6 +39,8 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * ```javascript
  * import { MTurkClient, CreateHITTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // CreateHITTypeRequest
  *   AutoApprovalDelayInSeconds: Number("long"),

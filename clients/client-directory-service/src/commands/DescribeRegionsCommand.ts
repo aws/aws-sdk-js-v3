@@ -35,6 +35,8 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * ```javascript
  * import { DirectoryServiceClient, DescribeRegionsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeRegionsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeRegionsRequest
  *   DirectoryId: "STRING_VALUE", // required

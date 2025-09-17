@@ -43,6 +43,8 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
  * ```javascript
  * import { SSOAdminClient, CreateInstanceAccessControlAttributeConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, CreateInstanceAccessControlAttributeConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // CreateInstanceAccessControlAttributeConfigurationRequest
  *   InstanceArn: "STRING_VALUE", // required

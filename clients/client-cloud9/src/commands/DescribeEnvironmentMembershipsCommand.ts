@@ -45,6 +45,8 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * ```javascript
  * import { Cloud9Client, DescribeEnvironmentMembershipsCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, DescribeEnvironmentMembershipsCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * // import type { Cloud9ClientConfig } from "@aws-sdk/client-cloud9";
+ * const config = {}; // type is Cloud9ClientConfig
  * const client = new Cloud9Client(config);
  * const input = { // DescribeEnvironmentMembershipsRequest
  *   userArn: "STRING_VALUE",

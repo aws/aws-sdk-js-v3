@@ -37,6 +37,8 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTClient, DeletePolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeletePolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeletePolicyVersionRequest
  *   policyName: "STRING_VALUE", // required

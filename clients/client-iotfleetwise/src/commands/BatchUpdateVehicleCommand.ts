@@ -40,6 +40,8 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * ```javascript
  * import { IoTFleetWiseClient, BatchUpdateVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, BatchUpdateVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = { // BatchUpdateVehicleRequest
  *   vehicles: [ // updateVehicleRequestItems // required

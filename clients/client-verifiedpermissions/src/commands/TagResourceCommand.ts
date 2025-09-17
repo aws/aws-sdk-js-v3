@@ -38,6 +38,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { VerifiedPermissionsClient, TagResourceCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, TagResourceCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required

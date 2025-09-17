@@ -34,6 +34,8 @@ export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { BackupClient, DeleteReportPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteReportPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // DeleteReportPlanInput
  *   ReportPlanName: "STRING_VALUE", // required

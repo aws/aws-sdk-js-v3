@@ -34,6 +34,8 @@ export interface GetIngestionCommandOutput extends GetIngestionResponse, __Metad
  * ```javascript
  * import { AppFabricClient, GetIngestionCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, GetIngestionCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // GetIngestionRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

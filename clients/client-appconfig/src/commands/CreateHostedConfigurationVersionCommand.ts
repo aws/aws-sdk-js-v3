@@ -66,6 +66,8 @@ export interface CreateHostedConfigurationVersionCommandOutput
  * ```javascript
  * import { AppConfigClient, CreateHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // CreateHostedConfigurationVersionRequest
  *   ApplicationId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * ```javascript
  * import { CloudFrontClient, UpdateDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateDistributionRequest
  *   DistributionConfig: { // DistributionConfig

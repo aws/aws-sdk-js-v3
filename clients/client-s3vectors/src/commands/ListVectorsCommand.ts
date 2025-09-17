@@ -34,6 +34,8 @@ export interface ListVectorsCommandOutput extends ListVectorsOutput, __MetadataB
  * ```javascript
  * import { S3VectorsClient, ListVectorsCommand } from "@aws-sdk/client-s3vectors"; // ES Modules import
  * // const { S3VectorsClient, ListVectorsCommand } = require("@aws-sdk/client-s3vectors"); // CommonJS import
+ * // import type { S3VectorsClientConfig } from "@aws-sdk/client-s3vectors";
+ * const config = {}; // type is S3VectorsClientConfig
  * const client = new S3VectorsClient(config);
  * const input = { // ListVectorsInput
  *   vectorBucketName: "STRING_VALUE",

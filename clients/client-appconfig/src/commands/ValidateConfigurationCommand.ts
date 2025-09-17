@@ -34,6 +34,8 @@ export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AppConfigClient, ValidateConfigurationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ValidateConfigurationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // ValidateConfigurationRequest
  *   ApplicationId: "STRING_VALUE", // required

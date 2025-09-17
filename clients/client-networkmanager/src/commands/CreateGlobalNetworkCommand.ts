@@ -34,6 +34,8 @@ export interface CreateGlobalNetworkCommandOutput extends CreateGlobalNetworkRes
  * ```javascript
  * import { NetworkManagerClient, CreateGlobalNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateGlobalNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateGlobalNetworkRequest
  *   Description: "STRING_VALUE",

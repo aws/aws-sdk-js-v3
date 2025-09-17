@@ -34,6 +34,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * ```javascript
  * import { PCSClient, CreateQueueCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, CreateQueueCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // CreateQueueRequest
  *   clusterIdentifier: "STRING_VALUE", // required

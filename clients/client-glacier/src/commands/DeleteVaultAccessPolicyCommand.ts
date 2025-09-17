@@ -40,6 +40,8 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  * ```javascript
  * import { GlacierClient, DeleteVaultAccessPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DeleteVaultAccessPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // import type { GlacierClientConfig } from "@aws-sdk/client-glacier";
+ * const config = {}; // type is GlacierClientConfig
  * const client = new GlacierClient(config);
  * const input = { // DeleteVaultAccessPolicyInput
  *   accountId: "STRING_VALUE", // required

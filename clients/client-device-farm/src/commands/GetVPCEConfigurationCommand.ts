@@ -35,6 +35,8 @@ export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationR
  * ```javascript
  * import { DeviceFarmClient, GetVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // GetVPCEConfigurationRequest
  *   arn: "STRING_VALUE", // required

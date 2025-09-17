@@ -34,6 +34,8 @@ export interface GetKxEnvironmentCommandOutput extends GetKxEnvironmentResponse,
  * ```javascript
  * import { FinspaceClient, GetKxEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, GetKxEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // GetKxEnvironmentRequest
  *   environmentId: "STRING_VALUE", // required

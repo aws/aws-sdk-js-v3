@@ -51,6 +51,8 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * ```javascript
  * import { RDSClient, RestoreDBClusterFromS3Command } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBClusterFromS3Command } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // RestoreDBClusterFromS3Message
  *   AvailabilityZones: [ // AvailabilityZones

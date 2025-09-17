@@ -34,6 +34,8 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * ```javascript
  * import { DocDBElasticClient, CreateClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, CreateClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * // import type { DocDBElasticClientConfig } from "@aws-sdk/client-docdb-elastic";
+ * const config = {}; // type is DocDBElasticClientConfig
  * const client = new DocDBElasticClient(config);
  * const input = { // CreateClusterInput
  *   clusterName: "STRING_VALUE", // required

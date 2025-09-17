@@ -34,6 +34,8 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * ```javascript
  * import { MediaConvertClient, ListJobTemplatesCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ListJobTemplatesCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // ListJobTemplatesRequest
  *   Category: "STRING_VALUE",

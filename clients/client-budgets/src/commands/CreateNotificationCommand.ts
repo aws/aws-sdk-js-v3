@@ -38,6 +38,8 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
  * ```javascript
  * import { BudgetsClient, CreateNotificationCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateNotificationCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // import type { BudgetsClientConfig } from "@aws-sdk/client-budgets";
+ * const config = {}; // type is BudgetsClientConfig
  * const client = new BudgetsClient(config);
  * const input = { // CreateNotificationRequest
  *   AccountId: "STRING_VALUE", // required

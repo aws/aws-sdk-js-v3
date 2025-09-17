@@ -34,6 +34,8 @@ export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __M
  * ```javascript
  * import { SimSpaceWeaverClient, ListSimulationsCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, ListSimulationsCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * // import type { SimSpaceWeaverClientConfig } from "@aws-sdk/client-simspaceweaver";
+ * const config = {}; // type is SimSpaceWeaverClientConfig
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // ListSimulationsInput
  *   MaxResults: Number("int"),

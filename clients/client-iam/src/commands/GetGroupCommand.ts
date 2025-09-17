@@ -35,6 +35,8 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * ```javascript
  * import { IAMClient, GetGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // GetGroupRequest
  *   GroupName: "STRING_VALUE", // required

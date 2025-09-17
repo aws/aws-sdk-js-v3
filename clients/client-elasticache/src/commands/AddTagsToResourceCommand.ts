@@ -45,6 +45,8 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * ```javascript
  * import { ElastiCacheClient, AddTagsToResourceCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, AddTagsToResourceCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // AddTagsToResourceMessage
  *   ResourceName: "STRING_VALUE", // required

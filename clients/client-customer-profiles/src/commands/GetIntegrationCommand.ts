@@ -34,6 +34,8 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  * ```javascript
  * import { CustomerProfilesClient, GetIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetIntegrationRequest
  *   DomainName: "STRING_VALUE", // required

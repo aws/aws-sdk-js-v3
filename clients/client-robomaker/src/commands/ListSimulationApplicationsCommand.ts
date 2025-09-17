@@ -43,6 +43,8 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  * ```javascript
  * import { RoboMakerClient, ListSimulationApplicationsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListSimulationApplicationsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // ListSimulationApplicationsRequest
  *   versionQualifier: "STRING_VALUE",

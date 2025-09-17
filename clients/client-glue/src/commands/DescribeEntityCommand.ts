@@ -35,6 +35,8 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * ```javascript
  * import { GlueClient, DescribeEntityCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DescribeEntityCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DescribeEntityRequest
  *   ConnectionName: "STRING_VALUE", // required

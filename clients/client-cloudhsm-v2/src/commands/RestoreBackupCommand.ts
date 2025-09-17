@@ -38,6 +38,8 @@ export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __Met
  * ```javascript
  * import { CloudHSMV2Client, RestoreBackupCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, RestoreBackupCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * // import type { CloudHSMV2ClientConfig } from "@aws-sdk/client-cloudhsm-v2";
+ * const config = {}; // type is CloudHSMV2ClientConfig
  * const client = new CloudHSMV2Client(config);
  * const input = { // RestoreBackupRequest
  *   BackupId: "STRING_VALUE", // required

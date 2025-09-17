@@ -34,6 +34,8 @@ export interface ListPartnershipsCommandOutput extends ListPartnershipsResponse,
  * ```javascript
  * import { B2biClient, ListPartnershipsCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, ListPartnershipsCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // ListPartnershipsRequest
  *   profileId: "STRING_VALUE",

@@ -66,6 +66,8 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  * ```javascript
  * import { CognitoIdentityProviderClient, AdminSetUserMFAPreferenceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminSetUserMFAPreferenceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
+ * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // AdminSetUserMFAPreferenceRequest
  *   SMSMfaSettings: { // SMSMfaSettingsType

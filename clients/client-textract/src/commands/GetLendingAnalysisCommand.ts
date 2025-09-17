@@ -44,6 +44,8 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  * ```javascript
  * import { TextractClient, GetLendingAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetLendingAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // GetLendingAnalysisRequest
  *   JobId: "STRING_VALUE", // required

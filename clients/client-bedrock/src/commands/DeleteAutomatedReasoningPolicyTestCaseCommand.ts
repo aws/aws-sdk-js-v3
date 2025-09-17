@@ -43,6 +43,8 @@ export interface DeleteAutomatedReasoningPolicyTestCaseCommandOutput
  * ```javascript
  * import { BedrockClient, DeleteAutomatedReasoningPolicyTestCaseCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, DeleteAutomatedReasoningPolicyTestCaseCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // DeleteAutomatedReasoningPolicyTestCaseRequest
  *   policyArn: "STRING_VALUE", // required

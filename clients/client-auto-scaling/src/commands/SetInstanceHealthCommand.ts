@@ -37,6 +37,8 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AutoScalingClient, SetInstanceHealthCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SetInstanceHealthCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // SetInstanceHealthQuery
  *   InstanceId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface OnlyHttpApiKeyAndBearerAuthCommandOutput extends __MetadataBear
  * ```javascript
  * import { WeatherClient, OnlyHttpApiKeyAndBearerAuthCommand } from "@aws-sdk/weather-legacy-auth"; // ES Modules import
  * // const { WeatherClient, OnlyHttpApiKeyAndBearerAuthCommand } = require("@aws-sdk/weather-legacy-auth"); // CommonJS import
+ * // import type { WeatherClientConfig } from "@aws-sdk/weather-legacy-auth";
+ * const config = {}; // type is WeatherClientConfig
  * const client = new WeatherClient(config);
  * const input = {};
  * const command = new OnlyHttpApiKeyAndBearerAuthCommand(input);

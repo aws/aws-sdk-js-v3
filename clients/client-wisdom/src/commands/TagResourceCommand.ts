@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { WisdomClient, TagResourceCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, TagResourceCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

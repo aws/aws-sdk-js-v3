@@ -42,6 +42,8 @@ export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConf
  * ```javascript
  * import { KinesisVideoClient, DescribeEdgeConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeEdgeConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * // import type { KinesisVideoClientConfig } from "@aws-sdk/client-kinesis-video";
+ * const config = {}; // type is KinesisVideoClientConfig
  * const client = new KinesisVideoClient(config);
  * const input = { // DescribeEdgeConfigurationInput
  *   StreamName: "STRING_VALUE",

@@ -36,6 +36,8 @@ export interface UpdateRepositoryLinkCommandOutput extends UpdateRepositoryLinkO
  * ```javascript
  * import { CodeConnectionsClient, UpdateRepositoryLinkCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, UpdateRepositoryLinkCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // UpdateRepositoryLinkInput
  *   ConnectionArn: "STRING_VALUE",

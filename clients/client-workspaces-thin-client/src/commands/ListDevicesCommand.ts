@@ -38,6 +38,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * ```javascript
  * import { WorkSpacesThinClientClient, ListDevicesCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, ListDevicesCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // ListDevicesRequest
  *   nextToken: "STRING_VALUE",

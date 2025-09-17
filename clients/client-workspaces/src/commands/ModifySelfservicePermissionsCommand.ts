@@ -41,6 +41,8 @@ export interface ModifySelfservicePermissionsCommandOutput
  * ```javascript
  * import { WorkSpacesClient, ModifySelfservicePermissionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifySelfservicePermissionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifySelfservicePermissionsRequest
  *   ResourceId: "STRING_VALUE", // required

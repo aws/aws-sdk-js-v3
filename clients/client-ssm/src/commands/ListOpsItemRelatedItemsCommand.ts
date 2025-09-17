@@ -35,6 +35,8 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  * ```javascript
  * import { SSMClient, ListOpsItemRelatedItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListOpsItemRelatedItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListOpsItemRelatedItemsRequest
  *   OpsItemId: "STRING_VALUE",

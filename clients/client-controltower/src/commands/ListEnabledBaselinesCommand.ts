@@ -34,6 +34,8 @@ export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesO
  * ```javascript
  * import { ControlTowerClient, ListEnabledBaselinesCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, ListEnabledBaselinesCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // ListEnabledBaselinesInput
  *   filter: { // EnabledBaselineFilter

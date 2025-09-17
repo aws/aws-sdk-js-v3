@@ -43,6 +43,8 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * ```javascript
  * import { RedshiftServerlessClient, CreateNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, CreateNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // CreateNamespaceRequest
  *   namespaceName: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * ```javascript
  * import { TrustedAdvisorClient, GetRecommendationCommand } from "@aws-sdk/client-trustedadvisor"; // ES Modules import
  * // const { TrustedAdvisorClient, GetRecommendationCommand } = require("@aws-sdk/client-trustedadvisor"); // CommonJS import
+ * // import type { TrustedAdvisorClientConfig } from "@aws-sdk/client-trustedadvisor";
+ * const config = {}; // type is TrustedAdvisorClientConfig
  * const client = new TrustedAdvisorClient(config);
  * const input = { // GetRecommendationRequest
  *   recommendationIdentifier: "STRING_VALUE", // required

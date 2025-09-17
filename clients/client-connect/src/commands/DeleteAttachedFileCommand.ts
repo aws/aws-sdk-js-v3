@@ -38,6 +38,8 @@ export interface DeleteAttachedFileCommandOutput extends DeleteAttachedFileRespo
  * ```javascript
  * import { ConnectClient, DeleteAttachedFileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteAttachedFileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DeleteAttachedFileRequest
  *   InstanceId: "STRING_VALUE", // required

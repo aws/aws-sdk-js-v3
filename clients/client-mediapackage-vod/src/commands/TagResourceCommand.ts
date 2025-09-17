@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { MediaPackageVodClient, TagResourceCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, TagResourceCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * // import type { MediaPackageVodClientConfig } from "@aws-sdk/client-mediapackage-vod";
+ * const config = {}; // type is MediaPackageVodClientConfig
  * const client = new MediaPackageVodClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

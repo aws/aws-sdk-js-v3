@@ -34,6 +34,8 @@ export interface ListWirelessGatewaysCommandOutput extends ListWirelessGatewaysR
  * ```javascript
  * import { IoTWirelessClient, ListWirelessGatewaysCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListWirelessGatewaysCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // ListWirelessGatewaysRequest
  *   NextToken: "STRING_VALUE",

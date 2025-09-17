@@ -43,6 +43,8 @@ export interface GetSubscriptionRequestDetailsCommandOutput
  * ```javascript
  * import { DataZoneClient, GetSubscriptionRequestDetailsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetSubscriptionRequestDetailsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetSubscriptionRequestDetailsInput
  *   domainIdentifier: "STRING_VALUE", // required

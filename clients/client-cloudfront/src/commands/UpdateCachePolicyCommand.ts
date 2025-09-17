@@ -34,6 +34,8 @@ export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult,
  * ```javascript
  * import { CloudFrontClient, UpdateCachePolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateCachePolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateCachePolicyRequest
  *   CachePolicyConfig: { // CachePolicyConfig

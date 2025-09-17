@@ -34,6 +34,8 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * ```javascript
  * import { DirectoryServiceClient, ListIpRoutesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListIpRoutesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // ListIpRoutesRequest
  *   DirectoryId: "STRING_VALUE", // required

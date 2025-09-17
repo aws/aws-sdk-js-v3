@@ -38,6 +38,8 @@ export interface AcceptPrimaryEmailUpdateCommandOutput extends AcceptPrimaryEmai
  * ```javascript
  * import { AccountClient, AcceptPrimaryEmailUpdateCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, AcceptPrimaryEmailUpdateCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * // import type { AccountClientConfig } from "@aws-sdk/client-account";
+ * const config = {}; // type is AccountClientConfig
  * const client = new AccountClient(config);
  * const input = { // AcceptPrimaryEmailUpdateRequest
  *   AccountId: "STRING_VALUE", // required

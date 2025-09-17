@@ -39,6 +39,8 @@ export interface DescribeMigrationProjectsCommandOutput extends DescribeMigratio
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeMigrationProjectsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeMigrationProjectsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeMigrationProjectsMessage
  *   Filters: [ // FilterList

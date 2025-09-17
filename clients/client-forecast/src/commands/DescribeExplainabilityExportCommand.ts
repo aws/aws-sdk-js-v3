@@ -39,6 +39,8 @@ export interface DescribeExplainabilityExportCommandOutput
  * ```javascript
  * import { ForecastClient, DescribeExplainabilityExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeExplainabilityExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // DescribeExplainabilityExportRequest
  *   ExplainabilityExportArn: "STRING_VALUE", // required

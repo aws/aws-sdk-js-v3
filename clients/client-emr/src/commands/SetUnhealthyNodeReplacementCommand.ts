@@ -45,6 +45,8 @@ export interface SetUnhealthyNodeReplacementCommandOutput extends __MetadataBear
  * ```javascript
  * import { EMRClient, SetUnhealthyNodeReplacementCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, SetUnhealthyNodeReplacementCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // SetUnhealthyNodeReplacementInput
  *   JobFlowIds: [ // XmlStringList // required

@@ -57,6 +57,8 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
  * ```javascript
  * import { RedshiftClient, AuthorizeClusterSecurityGroupIngressCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AuthorizeClusterSecurityGroupIngressCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // AuthorizeClusterSecurityGroupIngressMessage
  *   ClusterSecurityGroupName: "STRING_VALUE", // required

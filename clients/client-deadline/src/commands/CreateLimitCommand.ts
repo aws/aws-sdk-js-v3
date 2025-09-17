@@ -38,6 +38,8 @@ export interface CreateLimitCommandOutput extends CreateLimitResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, CreateLimitCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateLimitCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateLimitRequest
  *   clientToken: "STRING_VALUE",

@@ -38,6 +38,8 @@ export interface StartImportFileTaskCommandOutput extends StartImportFileTaskRes
  * ```javascript
  * import { MigrationHubStrategyClient, StartImportFileTaskCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, StartImportFileTaskCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * // import type { MigrationHubStrategyClientConfig } from "@aws-sdk/client-migrationhubstrategy";
+ * const config = {}; // type is MigrationHubStrategyClientConfig
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // StartImportFileTaskRequest
  *   name: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { WAFRegionalClient, UntagResourceCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UntagResourceCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

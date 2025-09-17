@@ -35,6 +35,8 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * ```javascript
  * import { RAMClient, GetResourcePoliciesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // GetResourcePoliciesRequest
  *   resourceArns: [ // ResourceArnList // required

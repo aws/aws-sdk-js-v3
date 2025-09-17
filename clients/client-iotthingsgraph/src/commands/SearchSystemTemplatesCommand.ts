@@ -36,6 +36,8 @@ export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplate
  * ```javascript
  * import { IoTThingsGraphClient, SearchSystemTemplatesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchSystemTemplatesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * // import type { IoTThingsGraphClientConfig } from "@aws-sdk/client-iotthingsgraph";
+ * const config = {}; // type is IoTThingsGraphClientConfig
  * const client = new IoTThingsGraphClient(config);
  * const input = { // SearchSystemTemplatesRequest
  *   filters: [ // SystemTemplateFilters

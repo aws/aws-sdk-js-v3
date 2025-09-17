@@ -34,6 +34,8 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
  * ```javascript
  * import { MediaLiveClient, BatchStopCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, BatchStopCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // BatchStopRequest
  *   ChannelIds: [ // __listOf__string

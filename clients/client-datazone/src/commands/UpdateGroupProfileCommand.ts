@@ -38,6 +38,8 @@ export interface UpdateGroupProfileCommandOutput extends UpdateGroupProfileOutpu
  * ```javascript
  * import { DataZoneClient, UpdateGroupProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateGroupProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateGroupProfileInput
  *   domainIdentifier: "STRING_VALUE", // required

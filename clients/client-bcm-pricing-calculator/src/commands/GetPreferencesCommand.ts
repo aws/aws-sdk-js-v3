@@ -38,6 +38,8 @@ export interface GetPreferencesCommandOutput extends GetPreferencesResponse, __M
  * ```javascript
  * import { BCMPricingCalculatorClient, GetPreferencesCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, GetPreferencesCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = {};
  * const command = new GetPreferencesCommand(input);

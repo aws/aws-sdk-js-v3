@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { SnowDeviceManagementClient, ListTagsForResourceCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, ListTagsForResourceCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
+ * // import type { SnowDeviceManagementClientConfig } from "@aws-sdk/client-snow-device-management";
+ * const config = {}; // type is SnowDeviceManagementClientConfig
  * const client = new SnowDeviceManagementClient(config);
  * const input = { // ListTagsForResourceInput
  *   resourceArn: "STRING_VALUE", // required

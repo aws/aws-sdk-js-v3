@@ -35,6 +35,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBea
  * ```javascript
  * import { FraudDetectorClient, DeleteRuleCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteRuleCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteRuleRequest
  *   rule: { // Rule

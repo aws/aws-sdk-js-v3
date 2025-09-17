@@ -41,6 +41,8 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
  * ```javascript
  * import { SSMClient, DisassociateOpsItemRelatedItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DisassociateOpsItemRelatedItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DisassociateOpsItemRelatedItemRequest
  *   OpsItemId: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  * ```javascript
  * import { AutoScalingClient, DescribeScalingActivitiesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeScalingActivitiesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // DescribeScalingActivitiesType
  *   ActivityIds: [ // ActivityIds

@@ -35,6 +35,8 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  * ```javascript
  * import { WorkSpacesClient, DeleteIpGroupCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteIpGroupCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DeleteIpGroupRequest
  *   GroupId: "STRING_VALUE", // required

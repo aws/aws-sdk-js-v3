@@ -40,6 +40,8 @@ export interface ListCrossAccountAttachmentsCommandOutput
  * ```javascript
  * import { GlobalAcceleratorClient, ListCrossAccountAttachmentsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListCrossAccountAttachmentsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // import type { GlobalAcceleratorClientConfig } from "@aws-sdk/client-global-accelerator";
+ * const config = {}; // type is GlobalAcceleratorClientConfig
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ListCrossAccountAttachmentsRequest
  *   MaxResults: Number("int"),

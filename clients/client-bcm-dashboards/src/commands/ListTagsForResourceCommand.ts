@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { BCMDashboardsClient, ListTagsForResourceCommand } from "@aws-sdk/client-bcm-dashboards"; // ES Modules import
  * // const { BCMDashboardsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-bcm-dashboards"); // CommonJS import
+ * // import type { BCMDashboardsClientConfig } from "@aws-sdk/client-bcm-dashboards";
+ * const config = {}; // type is BCMDashboardsClientConfig
  * const client = new BCMDashboardsClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

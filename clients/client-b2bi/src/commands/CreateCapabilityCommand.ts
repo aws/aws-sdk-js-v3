@@ -34,6 +34,8 @@ export interface CreateCapabilityCommandOutput extends CreateCapabilityResponse,
  * ```javascript
  * import { B2biClient, CreateCapabilityCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, CreateCapabilityCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // CreateCapabilityRequest
  *   name: "STRING_VALUE", // required

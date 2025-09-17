@@ -43,6 +43,8 @@ export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichm
  * ```javascript
  * import { SageMakerGeospatialClient, ListVectorEnrichmentJobsCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, ListVectorEnrichmentJobsCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * // import type { SageMakerGeospatialClientConfig } from "@aws-sdk/client-sagemaker-geospatial";
+ * const config = {}; // type is SageMakerGeospatialClientConfig
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // ListVectorEnrichmentJobInput
  *   StatusEquals: "STRING_VALUE",

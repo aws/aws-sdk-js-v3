@@ -34,6 +34,8 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * ```javascript
  * import { KafkaClient, ListConfigurationRevisionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListConfigurationRevisionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // ListConfigurationRevisionsRequest
  *   Arn: "STRING_VALUE", // required

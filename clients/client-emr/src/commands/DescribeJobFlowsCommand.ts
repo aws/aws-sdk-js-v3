@@ -56,6 +56,8 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  * ```javascript
  * import { EMRClient, DescribeJobFlowsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeJobFlowsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // DescribeJobFlowsInput
  *   CreatedAfter: new Date("TIMESTAMP"),

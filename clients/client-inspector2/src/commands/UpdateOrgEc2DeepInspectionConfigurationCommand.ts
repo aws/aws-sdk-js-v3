@@ -44,6 +44,8 @@ export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput
  * ```javascript
  * import { Inspector2Client, UpdateOrgEc2DeepInspectionConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, UpdateOrgEc2DeepInspectionConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // import type { Inspector2ClientConfig } from "@aws-sdk/client-inspector2";
+ * const config = {}; // type is Inspector2ClientConfig
  * const client = new Inspector2Client(config);
  * const input = { // UpdateOrgEc2DeepInspectionConfigurationRequest
  *   orgPackagePaths: [ // PathList // required

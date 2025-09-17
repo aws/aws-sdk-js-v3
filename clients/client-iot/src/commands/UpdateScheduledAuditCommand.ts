@@ -36,6 +36,8 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
  * ```javascript
  * import { IoTClient, UpdateScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // UpdateScheduledAuditRequest
  *   frequency: "DAILY" || "WEEKLY" || "BIWEEKLY" || "MONTHLY",

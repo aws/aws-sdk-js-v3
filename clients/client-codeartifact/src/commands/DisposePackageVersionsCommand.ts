@@ -45,6 +45,8 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  * ```javascript
  * import { CodeartifactClient, DisposePackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DisposePackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // DisposePackageVersionsRequest
  *   domain: "STRING_VALUE", // required

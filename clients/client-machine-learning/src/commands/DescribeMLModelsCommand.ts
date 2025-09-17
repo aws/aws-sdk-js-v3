@@ -34,6 +34,8 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  * ```javascript
  * import { MachineLearningClient, DescribeMLModelsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeMLModelsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * // import type { MachineLearningClientConfig } from "@aws-sdk/client-machine-learning";
+ * const config = {}; // type is MachineLearningClientConfig
  * const client = new MachineLearningClient(config);
  * const input = { // DescribeMLModelsInput
  *   FilterVariable: "CreatedAt" || "LastUpdatedAt" || "Status" || "Name" || "IAMUser" || "TrainingDataSourceId" || "RealtimeEndpointStatus" || "MLModelType" || "Algorithm" || "TrainingDataURI",

@@ -38,6 +38,8 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  * ```javascript
  * import { LightsailClient, GetInstanceAccessDetailsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceAccessDetailsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetInstanceAccessDetailsRequest
  *   instanceName: "STRING_VALUE", // required

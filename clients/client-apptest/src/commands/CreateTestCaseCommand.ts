@@ -34,6 +34,8 @@ export interface CreateTestCaseCommandOutput extends CreateTestCaseResponse, __M
  * ```javascript
  * import { AppTestClient, CreateTestCaseCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, CreateTestCaseCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // CreateTestCaseRequest
  *   name: "STRING_VALUE", // required

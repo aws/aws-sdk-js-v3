@@ -38,6 +38,8 @@ export interface UpdateQueueEnvironmentCommandOutput extends UpdateQueueEnvironm
  * ```javascript
  * import { DeadlineClient, UpdateQueueEnvironmentCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, UpdateQueueEnvironmentCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateQueueEnvironmentRequest
  *   clientToken: "STRING_VALUE",

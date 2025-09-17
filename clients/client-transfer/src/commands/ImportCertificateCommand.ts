@@ -38,6 +38,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * ```javascript
  * import { TransferClient, ImportCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ImportCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // ImportCertificateRequest
  *   Usage: "SIGNING" || "ENCRYPTION" || "TLS", // required

@@ -34,6 +34,8 @@ export interface GetWorkflowStepsCommandOutput extends GetWorkflowStepsResponse,
  * ```javascript
  * import { CustomerProfilesClient, GetWorkflowStepsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetWorkflowStepsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetWorkflowStepsRequest
  *   DomainName: "STRING_VALUE", // required

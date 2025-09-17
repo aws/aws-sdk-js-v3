@@ -41,6 +41,8 @@ export interface ListComponentOutputsCommandOutput extends ListComponentOutputsO
  * ```javascript
  * import { ProtonClient, ListComponentOutputsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListComponentOutputsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // ListComponentOutputsInput
  *   componentName: "STRING_VALUE", // required

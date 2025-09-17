@@ -34,6 +34,8 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * ```javascript
  * import { MPAClient, ListResourcePoliciesCommand } from "@aws-sdk/client-mpa"; // ES Modules import
  * // const { MPAClient, ListResourcePoliciesCommand } = require("@aws-sdk/client-mpa"); // CommonJS import
+ * // import type { MPAClientConfig } from "@aws-sdk/client-mpa";
+ * const config = {}; // type is MPAClientConfig
  * const client = new MPAClient(config);
  * const input = { // ListResourcePoliciesRequest
  *   ResourceArn: "STRING_VALUE", // required

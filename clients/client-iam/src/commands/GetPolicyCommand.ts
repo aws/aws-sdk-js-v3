@@ -43,6 +43,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * ```javascript
  * import { IAMClient, GetPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // GetPolicyRequest
  *   PolicyArn: "STRING_VALUE", // required

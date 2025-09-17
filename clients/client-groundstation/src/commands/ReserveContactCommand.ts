@@ -34,6 +34,8 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * ```javascript
  * import { GroundStationClient, ReserveContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ReserveContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // ReserveContactRequest
  *   missionProfileArn: "STRING_VALUE", // required

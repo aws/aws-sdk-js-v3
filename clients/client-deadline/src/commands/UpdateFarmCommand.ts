@@ -34,6 +34,8 @@ export interface UpdateFarmCommandOutput extends UpdateFarmResponse, __MetadataB
  * ```javascript
  * import { DeadlineClient, UpdateFarmCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, UpdateFarmCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateFarmRequest
  *   farmId: "STRING_VALUE", // required

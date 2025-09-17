@@ -39,6 +39,8 @@ export interface GetInvestigationGroupPolicyCommandOutput
  * ```javascript
  * import { AIOpsClient, GetInvestigationGroupPolicyCommand } from "@aws-sdk/client-aiops"; // ES Modules import
  * // const { AIOpsClient, GetInvestigationGroupPolicyCommand } = require("@aws-sdk/client-aiops"); // CommonJS import
+ * // import type { AIOpsClientConfig } from "@aws-sdk/client-aiops";
+ * const config = {}; // type is AIOpsClientConfig
  * const client = new AIOpsClient(config);
  * const input = { // GetInvestigationGroupPolicyRequest
  *   identifier: "STRING_VALUE", // required

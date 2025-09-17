@@ -34,6 +34,8 @@ export interface DeletePrivateGraphEndpointCommandOutput extends DeletePrivateGr
  * ```javascript
  * import { NeptuneGraphClient, DeletePrivateGraphEndpointCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, DeletePrivateGraphEndpointCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // DeletePrivateGraphEndpointInput
  *   graphIdentifier: "STRING_VALUE", // required

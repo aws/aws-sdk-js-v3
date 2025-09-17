@@ -35,6 +35,8 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  * ```javascript
  * import { FraudDetectorClient, DeleteDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteDetectorVersionRequest
  *   detectorId: "STRING_VALUE", // required

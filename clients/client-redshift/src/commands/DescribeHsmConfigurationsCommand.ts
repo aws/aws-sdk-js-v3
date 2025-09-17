@@ -44,6 +44,8 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  * ```javascript
  * import { RedshiftClient, DescribeHsmConfigurationsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeHsmConfigurationsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeHsmConfigurationsMessage
  *   HsmConfigurationIdentifier: "STRING_VALUE",

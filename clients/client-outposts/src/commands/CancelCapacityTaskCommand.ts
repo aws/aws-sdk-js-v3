@@ -34,6 +34,8 @@ export interface CancelCapacityTaskCommandOutput extends CancelCapacityTaskOutpu
  * ```javascript
  * import { OutpostsClient, CancelCapacityTaskCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CancelCapacityTaskCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // import type { OutpostsClientConfig } from "@aws-sdk/client-outposts";
+ * const config = {}; // type is OutpostsClientConfig
  * const client = new OutpostsClient(config);
  * const input = { // CancelCapacityTaskInput
  *   CapacityTaskId: "STRING_VALUE", // required

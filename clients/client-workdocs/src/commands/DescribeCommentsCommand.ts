@@ -39,6 +39,8 @@ export interface DescribeCommentsCommandOutput extends DescribeCommentsResponse,
  * ```javascript
  * import { WorkDocsClient, DescribeCommentsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeCommentsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DescribeCommentsRequest
  *   AuthenticationToken: "STRING_VALUE",

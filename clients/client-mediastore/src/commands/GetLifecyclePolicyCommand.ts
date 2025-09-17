@@ -34,6 +34,8 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
  * ```javascript
  * import { MediaStoreClient, GetLifecyclePolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, GetLifecyclePolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // import type { MediaStoreClientConfig } from "@aws-sdk/client-mediastore";
+ * const config = {}; // type is MediaStoreClientConfig
  * const client = new MediaStoreClient(config);
  * const input = { // GetLifecyclePolicyInput
  *   ContainerName: "STRING_VALUE", // required

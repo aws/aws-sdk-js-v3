@@ -44,6 +44,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * ```javascript
  * import { GreengrassV2Client, CreateDeploymentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, CreateDeploymentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * // import type { GreengrassV2ClientConfig } from "@aws-sdk/client-greengrassv2";
+ * const config = {}; // type is GreengrassV2ClientConfig
  * const client = new GreengrassV2Client(config);
  * const input = { // CreateDeploymentRequest
  *   targetArn: "STRING_VALUE", // required

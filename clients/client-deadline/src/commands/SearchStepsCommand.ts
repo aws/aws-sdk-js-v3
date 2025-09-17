@@ -34,6 +34,8 @@ export interface SearchStepsCommandOutput extends SearchStepsResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, SearchStepsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, SearchStepsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // SearchStepsRequest
  *   farmId: "STRING_VALUE", // required

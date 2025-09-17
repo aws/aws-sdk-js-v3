@@ -34,6 +34,8 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * ```javascript
  * import { CodeGuruProfilerClient, RemoveNotificationChannelCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, RemoveNotificationChannelCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * // import type { CodeGuruProfilerClientConfig } from "@aws-sdk/client-codeguruprofiler";
+ * const config = {}; // type is CodeGuruProfilerClientConfig
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // RemoveNotificationChannelRequest
  *   profilingGroupName: "STRING_VALUE", // required

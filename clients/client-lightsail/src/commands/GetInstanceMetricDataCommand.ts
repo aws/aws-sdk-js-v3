@@ -38,6 +38,8 @@ export interface GetInstanceMetricDataCommandOutput extends GetInstanceMetricDat
  * ```javascript
  * import { LightsailClient, GetInstanceMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetInstanceMetricDataRequest
  *   instanceName: "STRING_VALUE", // required

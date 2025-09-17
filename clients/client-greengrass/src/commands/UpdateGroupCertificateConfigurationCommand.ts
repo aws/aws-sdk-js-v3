@@ -42,6 +42,8 @@ export interface UpdateGroupCertificateConfigurationCommandOutput
  * ```javascript
  * import { GreengrassClient, UpdateGroupCertificateConfigurationCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateGroupCertificateConfigurationCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // UpdateGroupCertificateConfigurationRequest
  *   CertificateExpiryInMilliseconds: "STRING_VALUE",

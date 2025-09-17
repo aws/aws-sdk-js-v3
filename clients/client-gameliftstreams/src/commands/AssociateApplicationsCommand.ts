@@ -34,6 +34,8 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  * ```javascript
  * import { GameLiftStreamsClient, AssociateApplicationsCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, AssociateApplicationsCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // AssociateApplicationsInput
  *   Identifier: "STRING_VALUE", // required

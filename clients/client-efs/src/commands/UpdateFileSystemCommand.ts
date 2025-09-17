@@ -35,6 +35,8 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  * ```javascript
  * import { EFSClient, UpdateFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, UpdateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // import type { EFSClientConfig } from "@aws-sdk/client-efs";
+ * const config = {}; // type is EFSClientConfig
  * const client = new EFSClient(config);
  * const input = { // UpdateFileSystemRequest
  *   FileSystemId: "STRING_VALUE", // required

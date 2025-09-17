@@ -34,6 +34,8 @@ export interface ListEnvironmentActionsCommandOutput extends ListEnvironmentActi
  * ```javascript
  * import { DataZoneClient, ListEnvironmentActionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListEnvironmentActionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListEnvironmentActionsInput
  *   domainIdentifier: "STRING_VALUE", // required

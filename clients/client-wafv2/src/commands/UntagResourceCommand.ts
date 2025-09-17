@@ -37,6 +37,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { WAFV2Client, UntagResourceCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, UntagResourceCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // import type { WAFV2ClientConfig } from "@aws-sdk/client-wafv2";
+ * const config = {}; // type is WAFV2ClientConfig
  * const client = new WAFV2Client(config);
  * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

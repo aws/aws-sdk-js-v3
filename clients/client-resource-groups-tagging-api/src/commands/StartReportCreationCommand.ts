@@ -46,6 +46,8 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  * ```javascript
  * import { ResourceGroupsTaggingAPIClient, StartReportCreationCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, StartReportCreationCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * // import type { ResourceGroupsTaggingAPIClientConfig } from "@aws-sdk/client-resource-groups-tagging-api";
+ * const config = {}; // type is ResourceGroupsTaggingAPIClientConfig
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const input = { // StartReportCreationInput
  *   S3Bucket: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { IAMClient, DeleteSigningCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteSigningCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // DeleteSigningCertificateRequest
  *   UserName: "STRING_VALUE",

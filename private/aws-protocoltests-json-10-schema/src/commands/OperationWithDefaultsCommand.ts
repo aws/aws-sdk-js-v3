@@ -34,6 +34,8 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  * ```javascript
  * import { JSONRPC10Client, OperationWithDefaultsCommand } from "@aws-sdk/aws-protocoltests-json-10-schema"; // ES Modules import
  * // const { JSONRPC10Client, OperationWithDefaultsCommand } = require("@aws-sdk/aws-protocoltests-json-10-schema"); // CommonJS import
+ * // import type { JSONRPC10ClientConfig } from "@aws-sdk/aws-protocoltests-json-10-schema";
+ * const config = {}; // type is JSONRPC10ClientConfig
  * const client = new JSONRPC10Client(config);
  * const input = { // OperationWithDefaultsInput
  *   defaults: { // Defaults

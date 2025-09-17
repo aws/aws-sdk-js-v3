@@ -34,6 +34,8 @@ export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __Met
  * ```javascript
  * import { ConnectCasesClient, BatchGetFieldCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, BatchGetFieldCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // BatchGetFieldRequest
  *   domainId: "STRING_VALUE", // required

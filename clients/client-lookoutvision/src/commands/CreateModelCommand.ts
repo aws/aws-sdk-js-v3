@@ -47,6 +47,8 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * ```javascript
  * import { LookoutVisionClient, CreateModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, CreateModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * // import type { LookoutVisionClientConfig } from "@aws-sdk/client-lookoutvision";
+ * const config = {}; // type is LookoutVisionClientConfig
  * const client = new LookoutVisionClient(config);
  * const input = { // CreateModelRequest
  *   ProjectName: "STRING_VALUE", // required

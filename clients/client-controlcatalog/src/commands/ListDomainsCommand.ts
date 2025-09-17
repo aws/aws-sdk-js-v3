@@ -34,6 +34,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * ```javascript
  * import { ControlCatalogClient, ListDomainsCommand } from "@aws-sdk/client-controlcatalog"; // ES Modules import
  * // const { ControlCatalogClient, ListDomainsCommand } = require("@aws-sdk/client-controlcatalog"); // CommonJS import
+ * // import type { ControlCatalogClientConfig } from "@aws-sdk/client-controlcatalog";
+ * const config = {}; // type is ControlCatalogClientConfig
  * const client = new ControlCatalogClient(config);
  * const input = { // ListDomainsRequest
  *   MaxResults: Number("int"),

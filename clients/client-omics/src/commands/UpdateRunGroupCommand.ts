@@ -34,6 +34,8 @@ export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OmicsClient, UpdateRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, UpdateRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // UpdateRunGroupRequest
  *   id: "STRING_VALUE", // required

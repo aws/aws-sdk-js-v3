@@ -34,6 +34,8 @@ export interface GetUploadJobCommandOutput extends GetUploadJobResponse, __Metad
  * ```javascript
  * import { CustomerProfilesClient, GetUploadJobCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetUploadJobCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetUploadJobRequest
  *   DomainName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ImportBackendAuthCommandOutput extends ImportBackendAuthRespons
  * ```javascript
  * import { AmplifyBackendClient, ImportBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, ImportBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // import type { AmplifyBackendClientConfig } from "@aws-sdk/client-amplifybackend";
+ * const config = {}; // type is AmplifyBackendClientConfig
  * const client = new AmplifyBackendClient(config);
  * const input = { // ImportBackendAuthRequest
  *   AppId: "STRING_VALUE", // required

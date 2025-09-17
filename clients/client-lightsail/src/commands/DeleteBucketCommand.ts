@@ -38,6 +38,8 @@ export interface DeleteBucketCommandOutput extends DeleteBucketResult, __Metadat
  * ```javascript
  * import { LightsailClient, DeleteBucketCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteBucketCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // DeleteBucketRequest
  *   bucketName: "STRING_VALUE", // required

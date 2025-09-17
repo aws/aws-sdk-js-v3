@@ -42,6 +42,8 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  * ```javascript
  * import { StorageGatewayClient, ListVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // ListVolumesInput
  *   GatewayARN: "STRING_VALUE",

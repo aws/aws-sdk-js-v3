@@ -38,6 +38,8 @@ export interface AssociateVolumeCommandOutput extends AssociateVolumeResponse, _
  * ```javascript
  * import { WorkspacesInstancesClient, AssociateVolumeCommand } from "@aws-sdk/client-workspaces-instances"; // ES Modules import
  * // const { WorkspacesInstancesClient, AssociateVolumeCommand } = require("@aws-sdk/client-workspaces-instances"); // CommonJS import
+ * // import type { WorkspacesInstancesClientConfig } from "@aws-sdk/client-workspaces-instances";
+ * const config = {}; // type is WorkspacesInstancesClientConfig
  * const client = new WorkspacesInstancesClient(config);
  * const input = { // AssociateVolumeRequest
  *   WorkspaceInstanceId: "STRING_VALUE", // required

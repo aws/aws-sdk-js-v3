@@ -92,6 +92,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * ```javascript
  * import { CognitoSyncClient, ListDatasetsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, ListDatasetsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * // import type { CognitoSyncClientConfig } from "@aws-sdk/client-cognito-sync";
+ * const config = {}; // type is CognitoSyncClientConfig
  * const client = new CognitoSyncClient(config);
  * const input = { // ListDatasetsRequest
  *   IdentityPoolId: "STRING_VALUE", // required

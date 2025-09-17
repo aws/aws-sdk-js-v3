@@ -34,6 +34,8 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * ```javascript
  * import { APIGatewayClient, TestInvokeAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, TestInvokeAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // TestInvokeAuthorizerRequest
  *   restApiId: "STRING_VALUE", // required

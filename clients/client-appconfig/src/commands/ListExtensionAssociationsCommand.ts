@@ -36,6 +36,8 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * ```javascript
  * import { AppConfigClient, ListExtensionAssociationsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListExtensionAssociationsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // ListExtensionAssociationsRequest
  *   ResourceIdentifier: "STRING_VALUE",

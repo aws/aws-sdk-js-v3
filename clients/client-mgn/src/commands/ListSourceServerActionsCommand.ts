@@ -34,6 +34,8 @@ export interface ListSourceServerActionsCommandOutput extends ListSourceServerAc
  * ```javascript
  * import { MgnClient, ListSourceServerActionsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListSourceServerActionsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // ListSourceServerActionsRequest
  *   sourceServerID: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface ModifyEndpointAccessCommandOutput extends EndpointAccess, __Met
  * ```javascript
  * import { RedshiftClient, ModifyEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // ModifyEndpointAccessMessage
  *   EndpointName: "STRING_VALUE", // required
