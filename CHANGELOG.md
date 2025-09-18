@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.892.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.891.0...v3.892.0) (2025-09-18)
+
+
+### Features
+
+* **client-bedrock:** Release includes an increase to the maximum policy build document size, an update to DeleteAutomatedReasoningPolicyBuildWorkflow to add ResourceInUseException, and corrections to UpdateAutomatedReasoningPolicyTestCaseRequest. ([b9c1896](https://github.com/aws/aws-sdk-js-v3/commit/b9c1896eca120c454bd8004935c2433539d851eb))
+* **client-budgets:** Added BillingViewHealthStatus Exception which is thrown when a Budget is created or updated with a Billing View that is not in the HEALTHY status ([e3e7974](https://github.com/aws/aws-sdk-js-v3/commit/e3e7974eb1e81f73361955b4ffe695829bbd210f))
+* **client-chime-sdk-messaging:** Amazon Chime SDK Messaging GetMessagingSessionEndpoint API now returns dual-stack WebSocket endpoints supporting IPv4/IPv6. ([eb92132](https://github.com/aws/aws-sdk-js-v3/commit/eb921320074b94d83b277c26083d607eeaaaecb8))
+* **client-ec2:** Allowed AMIs adds support for four new parameters - marketplaceProductCodes, deprecationTimeCondition, creationDateCondition and imageNames ([442403c](https://github.com/aws/aws-sdk-js-v3/commit/442403cd0d148527f1c65db584b99b8239c05c5b))
+
+
+
+
+
 # [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
 
 

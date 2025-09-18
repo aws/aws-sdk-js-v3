@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.892.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.891.0...v3.892.0) (2025-09-18)
+
+
+### Features
+
+* **client-ec2:** Allowed AMIs adds support for four new parameters - marketplaceProductCodes, deprecationTimeCondition, creationDateCondition and imageNames ([442403c](https://github.com/aws/aws-sdk-js-v3/commit/442403cd0d148527f1c65db584b99b8239c05c5b))
+
+
+
+
+
 # [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
 
 

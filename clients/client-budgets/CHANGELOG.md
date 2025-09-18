@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.892.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.891.0...v3.892.0) (2025-09-18)
+
+
+### Features
+
+* **client-budgets:** Added BillingViewHealthStatus Exception which is thrown when a Budget is created or updated with a Billing View that is not in the HEALTHY status ([e3e7974](https://github.com/aws/aws-sdk-js-v3/commit/e3e7974eb1e81f73361955b4ffe695829bbd210f))
+
+
+
+
+
 # [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
 
 **Note:** Version bump only for package @aws-sdk/client-budgets
