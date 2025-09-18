@@ -509,6 +509,34 @@ export interface AutoAdjustData {
 }
 
 /**
+ * <p>
+ *       The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY.
+ *     </p>
+ * @public
+ */
+export class BillingViewHealthStatusException extends __BaseException {
+  readonly name: "BillingViewHealthStatusException" = "BillingViewHealthStatusException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error message the exception carries.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BillingViewHealthStatusException, __BaseException>) {
+    super({
+      name: "BillingViewHealthStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BillingViewHealthStatusException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The amount of cost or usage that's measured for a budget.</p>
  *          <p>
  *             <i>Cost example:</i> A <code>Spend</code> for <code>3 USD</code> of

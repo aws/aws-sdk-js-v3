@@ -85,6 +85,7 @@ import {
   ActionHistoryDetails,
   ActionThreshold,
   AutoAdjustData,
+  BillingViewHealthStatusException,
   Budget,
   BudgetedAndActualAmounts,
   BudgetNotificationsForAccount,
@@ -1029,6 +1030,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.budgets#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BillingViewHealthStatusException":
+    case "com.amazonaws.budgets#BillingViewHealthStatusException":
+      throw await de_BillingViewHealthStatusExceptionRes(parsedOutput, context);
     case "CreationLimitExceededException":
     case "com.amazonaws.budgets#CreationLimitExceededException":
       throw await de_CreationLimitExceededExceptionRes(parsedOutput, context);
@@ -1079,6 +1083,22 @@ const de_AccessDeniedExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1BillingViewHealthStatusExceptionRes
+ */
+const de_BillingViewHealthStatusExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BillingViewHealthStatusException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new BillingViewHealthStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -1707,6 +1727,8 @@ const de_AutoAdjustData = (output: any, context: __SerdeContext): AutoAdjustData
     LastAutoAdjustTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_BillingViewHealthStatusException omitted.
 
 /**
  * deserializeAws_json1_1Budget

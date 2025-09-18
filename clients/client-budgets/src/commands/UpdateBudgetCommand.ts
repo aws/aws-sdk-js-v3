@@ -199,6 +199,11 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You are not authorized to use this operation with the given parameters.</p>
  *
+ * @throws {@link BillingViewHealthStatusException} (client fault)
+ *  <p>
+ *       The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY.
+ *     </p>
+ *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
