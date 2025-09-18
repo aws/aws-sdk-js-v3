@@ -44,7 +44,7 @@
     "directory": "packages/signature-v4a"
   },
   "license": "Apache-2.0",
-  "sideEffects": false,
+  "sideEffects": true,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
