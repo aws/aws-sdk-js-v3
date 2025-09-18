@@ -2437,7 +2437,6 @@ export const se_UpdateAutomatedReasoningPolicyTestCaseCommand = async (
       confidenceThreshold: (_) => __serializeFloat(_),
       expectedAggregatedFindingsResult: [],
       guardContent: [],
-      kmsKeyArn: [],
       lastUpdatedAt: (_) => __serializeDateTime(_),
       queryContent: [],
     })

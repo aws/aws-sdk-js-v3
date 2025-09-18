@@ -55,7 +55,6 @@ export interface UpdateAutomatedReasoningPolicyTestCaseCommandOutput
  *   lastUpdatedAt: new Date("TIMESTAMP"), // required
  *   expectedAggregatedFindingsResult: "VALID" || "INVALID" || "SATISFIABLE" || "IMPOSSIBLE" || "TRANSLATION_AMBIGUOUS" || "TOO_COMPLEX" || "NO_TRANSLATION", // required
  *   confidenceThreshold: Number("double"),
- *   kmsKeyArn: "STRING_VALUE",
  *   clientRequestToken: "STRING_VALUE",
  * };
  * const command = new UpdateAutomatedReasoningPolicyTestCaseCommand(input);
