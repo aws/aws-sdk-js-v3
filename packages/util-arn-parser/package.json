@@ -15,6 +15,7 @@
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

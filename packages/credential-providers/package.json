@@ -6,7 +6,6 @@
   "module": "./dist-es/index.js",
   "browser": "./dist-es/index.browser.js",
   "react-native": "./dist-es/index.browser.js",
-  "sideEffects": false,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline credential-providers",
@@ -25,6 +24,7 @@
     "aws",
     "credentials"
   ],
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

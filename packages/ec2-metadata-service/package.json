@@ -14,6 +14,7 @@
     "test:watch": "yarn g:vitest watch --passWithNoTests",
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
