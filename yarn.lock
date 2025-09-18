@@ -25007,9 +25007,9 @@ __metadata:
   dependencies:
     "@smithy/types": "npm:^4.5.0"
     "@tsconfig/recommended": "npm:1.0.1"
-    "@xmldom/xmldom": "npm:0.8.11"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
+    fast-xml-parser: "npm:5.2.5"
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -30535,13 +30535,6 @@ __metadata:
     webpack-dev-server:
       optional: true
   checksum: 10c0/a2045c6ada073c517820424f97264a99c809e8bfdef866f5af7ceaefff44580351e9713b06d68e326469bd170111e370942825adcdac7eb242b2ee4343458a81
-  languageName: node
-  linkType: hard
-
-"@xmldom/xmldom@npm:0.8.11":
-  version: 0.8.11
-  resolution: "@xmldom/xmldom@npm:0.8.11"
-  checksum: 10c0/e768623de72c95d3dae6b5da8e33dda0d81665047811b5498d23a328d45b13feb5536fe921d0308b96a4a8dd8addf80b1f6ef466508051c0b581e63e0dc74ed5
   languageName: node
   linkType: hard
 

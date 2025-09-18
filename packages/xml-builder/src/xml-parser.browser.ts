@@ -3,7 +3,7 @@ const parser = new DOMParser();
 /**
  * Cases where this differs from fast-xml-parser:
  *
- * 1. mixing text with nested tags
+ * 1. Mixing text with nested tags (does not occur in AWS REST XML).
  * <mixed-text> hello, <bold>world</bold>, how are you?</mixed-text>
  *
  * @internal

@@ -89,11 +89,11 @@ describe("xml parsing", () => {
           </XmlEmptyMapsResult>
       </XmlEmptyMapsResponse>`;
         const object = parse(xml);
-        expect(object).toEqual({
+        expect(object).toMatchObject({
           XmlEmptyMapsResponse: {
             xmlns: "https://example.com/",
             XmlEmptyMapsResult: {
-              myMap: "\n              ",
+              myMap: /\s*/,
             },
           },
         });

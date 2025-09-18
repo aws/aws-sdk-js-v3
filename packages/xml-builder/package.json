@@ -4,7 +4,7 @@
   "description": "XML builder for the AWS SDK",
   "dependencies": {
     "@smithy/types": "^4.5.0",
-    "@xmldom/xmldom": "0.8.11",
+    "fast-xml-parser": "5.2.5",
     "tslib": "^2.6.2"
   },
   "scripts": {
