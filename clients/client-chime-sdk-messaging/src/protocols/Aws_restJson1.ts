@@ -790,8 +790,11 @@ export const se_GetMessagingSessionEndpointCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/endpoints/messaging-session");
+  const query: any = map({
+    [_nt]: [, input[_NT]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -826,7 +829,7 @@ export const se_ListChannelBansCommand = async (
   b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -846,7 +849,7 @@ export const se_ListChannelFlowsCommand = async (
   const query: any = map({
     [_aia]: [, __expectNonNull(input[_AIA]!, `AppInstanceArn`)],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -869,7 +872,7 @@ export const se_ListChannelMembershipsCommand = async (
   const query: any = map({
     [_t]: [, input[_T]!],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
     [_sci]: [, input[_SCI]!],
   });
   let body: any;
@@ -893,7 +896,7 @@ export const se_ListChannelMembershipsForAppInstanceUserCommand = async (
     [_s]: [, "app-instance-user-memberships"],
     [_aiua]: [, input[_AIUA]!],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -918,7 +921,7 @@ export const se_ListChannelMessagesCommand = async (
     [_nb]: [() => input.NotBefore !== void 0, () => __serializeDateTime(input[_NB]!).toString()],
     [_na]: [() => input.NotAfter !== void 0, () => __serializeDateTime(input[_NA]!).toString()],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
     [_sci]: [, input[_SCI]!],
   });
   let body: any;
@@ -941,7 +944,7 @@ export const se_ListChannelModeratorsCommand = async (
   b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -964,7 +967,7 @@ export const se_ListChannelsCommand = async (
     [_aia]: [, __expectNonNull(input[_AIA]!, `AppInstanceArn`)],
     [_p]: [, input[_P]!],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -985,7 +988,7 @@ export const se_ListChannelsAssociatedWithChannelFlowCommand = async (
     [_s]: [, "channel-flow-associations"],
     [_cfa]: [, __expectNonNull(input[_CFA]!, `ChannelFlowArn`)],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1008,7 +1011,7 @@ export const se_ListChannelsModeratedByAppInstanceUserCommand = async (
     [_s]: [, "app-instance-user-moderated-channels"],
     [_aiua]: [, input[_AIUA]!],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1030,7 +1033,7 @@ export const se_ListSubChannelsCommand = async (
   b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1171,7 +1174,7 @@ export const se_SearchChannelsCommand = async (
   const query: any = map({
     [_o]: [, "search"],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_nt]: [, input[_NT]!],
+    [_nt_]: [, input[_NTe]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -3019,7 +3022,8 @@ const _CFA = "ChannelFlowArn";
 const _MR = "MaxResults";
 const _NA = "NotAfter";
 const _NB = "NotBefore";
-const _NT = "NextToken";
+const _NT = "NetworkType";
+const _NTe = "NextToken";
 const _P = "Privacy";
 const _RARN = "ResourceARN";
 const _SCI = "SubChannelId";
@@ -3032,7 +3036,8 @@ const _cfa = "channel-flow-arn";
 const _mr = "max-results";
 const _na = "not-after";
 const _nb = "not-before";
-const _nt = "next-token";
+const _nt = "network-type";
+const _nt_ = "next-token";
 const _o = "operation";
 const _p = "privacy";
 const _s = "scope";

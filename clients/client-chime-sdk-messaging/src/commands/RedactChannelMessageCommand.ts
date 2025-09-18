@@ -32,7 +32,7 @@ export interface RedactChannelMessageCommandInput extends RedactChannelMessageRe
 export interface RedactChannelMessageCommandOutput extends RedactChannelMessageResponse, __MetadataBearer {}
 
 /**
- * <p>Redacts message content, but not metadata. The message exists in the back end, but the
+ * <p>Redacts message content and metadata. The message exists in the back end, but the
  *          action returns null content, and the state shows as redacted.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the

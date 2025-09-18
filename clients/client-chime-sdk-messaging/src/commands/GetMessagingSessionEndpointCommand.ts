@@ -46,7 +46,9 @@ export interface GetMessagingSessionEndpointCommandOutput
  * // import type { ChimeSDKMessagingClientConfig } from "@aws-sdk/client-chime-sdk-messaging";
  * const config = {}; // type is ChimeSDKMessagingClientConfig
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {};
+ * const input = { // GetMessagingSessionEndpointRequest
+ *   NetworkType: "IPV4_ONLY" || "DUAL_STACK",
+ * };
  * const command = new GetMessagingSessionEndpointCommand(input);
  * const response = await client.send(command);
  * // { // GetMessagingSessionEndpointResponse
@@ -108,7 +110,7 @@ export class GetMessagingSessionEndpointCommand extends $Command
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
+      input: GetMessagingSessionEndpointRequest;
       output: GetMessagingSessionEndpointResponse;
     };
     sdk: {

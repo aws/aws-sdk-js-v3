@@ -1567,7 +1567,7 @@ export interface CreateChannelRequest {
   ChimeBearer: string | undefined;
 
   /**
-   * <p>The ID of the channel in the request.</p>
+   * <p>An ID for the channel being created. If you do not specify an ID, a UUID will be created for the channel.</p>
    * @public
    */
   ChannelId?: string | undefined;
@@ -2349,8 +2349,28 @@ export interface GetChannelMessageStatusResponse {
 
 /**
  * @public
+ * @enum
  */
-export interface GetMessagingSessionEndpointRequest {}
+export const NetworkType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4_ONLY: "IPV4_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
+
+/**
+ * @public
+ */
+export interface GetMessagingSessionEndpointRequest {
+  /**
+   * <p>The type of network for the messaging session endpoint. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
+}
 
 /**
  * <p>The websocket endpoint used to connect to Amazon Chime SDK messaging.</p>
@@ -3241,6 +3261,9 @@ export type SearchFieldOperator = (typeof SearchFieldOperator)[keyof typeof Sear
 
 /**
  * <p>A <code>Field</code> of the channel that you want to search.</p>
+ *          <note>
+ *             <p>This operation isn't supported for <code>AppInstanceUsers</code> with a large number of memberships.</p>
+ *          </note>
  * @public
  */
 export interface SearchField {
@@ -3254,7 +3277,7 @@ export interface SearchField {
   /**
    * <p>The values that you want to search for, a list of strings. The values must be <code>AppInstanceUserArns</code> specified as a list of strings.</p>
    *          <note>
-   *             <p>This operation isn't supported for <code>AppInstanceUsers</code> with large number of memberships.</p>
+   *             <p>This operation isn't supported for <code>AppInstanceUsers</code> with a large number of memberships.</p>
    *          </note>
    * @public
    */

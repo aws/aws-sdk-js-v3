@@ -54,7 +54,7 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  *          </ol>
  *          <note>
  *             <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to
- *            <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>
+ *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

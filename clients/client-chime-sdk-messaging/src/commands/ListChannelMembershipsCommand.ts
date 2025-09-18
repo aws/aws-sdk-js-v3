@@ -44,7 +44,7 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  *             the header.</p>
  *          </note>
  *          <p>If you want to list the channels to which a specific app instance user belongs, see the
- *          <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
+ *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
