@@ -16,12 +16,12 @@
     "extract:docs": "api-extractor run --local",
     "test": "jest"
   },
+  "sideEffects": true,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "sideEffects": true,
   "dependencies": {
     "@aws-sdk/crt-loader": "*",
     "@aws-sdk/signature-v4-multi-region": "*",

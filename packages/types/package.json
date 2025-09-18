@@ -16,6 +16,7 @@
     "extract:docs": "api-extractor run --local",
     "test": "tsc -p tsconfig.test.json"
   },
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
