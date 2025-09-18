@@ -2,6 +2,7 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  AccessScopeAnalysisFinding,
   AddedPrincipal,
   AddIpamOperatingRegion,
   AddIpamOrganizationalUnitExclusion,
@@ -147,6 +148,7 @@ import {
 } from "./models_4";
 
 import {
+  AnalysisStatus,
   ArchitectureType,
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
@@ -169,6 +171,54 @@ import {
   UnlimitedSupportedInstanceFamily,
   VpcBlockPublicAccessOptions,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetNetworkInsightsAccessScopeAnalysisFindingsResult {
+  /**
+   * <p>The ID of the Network Access Scope analysis.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeAnalysisId?: string | undefined;
+
+  /**
+   * <p>The status of Network Access Scope Analysis.</p>
+   * @public
+   */
+  AnalysisStatus?: AnalysisStatus | undefined;
+
+  /**
+   * <p>The findings associated with Network Access Scope Analysis.</p>
+   * @public
+   */
+  AnalysisFindings?: AccessScopeAnalysisFinding[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetNetworkInsightsAccessScopeContentRequest {
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -5205,7 +5255,7 @@ export interface ModifyInstanceMetadataDefaultsRequest {
    * <p>Enables or disables access to an instance's tags from the instance metadata. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
    *                 instance tags using the instance metadata</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   InstanceMetadataTags?: DefaultInstanceMetadataTagsState | undefined;
@@ -9654,38 +9704,6 @@ export interface ProvisionIpamByoasnResult {
    */
   Byoasn?: Byoasn | undefined;
 }
-
-/**
- * <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
- * @public
- */
-export interface IpamCidrAuthorizationContext {
-  /**
-   * <p>The plain-text authorization message for the prefix and account.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The signed authorization message for the prefix and account.</p>
-   * @public
-   */
-  Signature?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VerificationMethod = {
-  dns_token: "dns-token",
-  remarks_x509: "remarks-x509",
-} as const;
-
-/**
- * @public
- */
-export type VerificationMethod = (typeof VerificationMethod)[keyof typeof VerificationMethod];
 
 /**
  * @internal

@@ -298,9 +298,9 @@ export interface CopySnapshotRequest {
 
   /**
    * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled,
-   *       enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots
-   *       are encrypted, even if you omit this parameter and encryption by default is not enabled. You
-   *       cannot set this parameter to false. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the
+   *       enable encryption using this parameter. Otherwise, omit this parameter. Copies of encrypted
+   *       snapshots are encrypted, even if you omit this parameter and encryption by default is not
+   *       enabled. You cannot set this parameter to false. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the
    *       <i>Amazon EBS User Guide</i>.</p>
    * @public
    */
@@ -8498,7 +8498,7 @@ export interface CreateImageUsageReportRequest {
 
   /**
    * <p>The tags to apply to the report on creation. The <code>ResourceType</code> must be set to
-   *         <code>image-usage-report</code>; any other value will cause the report creation to
+   *       <code>image-usage-report</code>; any other value will cause the report creation to
    *       fail.</p>
    *          <p>To tag a report after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    * @public

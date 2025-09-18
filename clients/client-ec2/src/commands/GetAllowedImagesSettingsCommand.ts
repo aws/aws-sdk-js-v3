@@ -58,6 +58,18 @@ export interface GetAllowedImagesSettingsCommandOutput extends GetAllowedImagesS
  * //       ImageProviders: [ // ImageProviderList
  * //         "STRING_VALUE",
  * //       ],
+ * //       MarketplaceProductCodes: [ // MarketplaceProductCodeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ImageNames: [ // ImageNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DeprecationTimeCondition: { // DeprecationTimeCondition
+ * //         MaximumDaysSinceDeprecated: Number("int"),
+ * //       },
+ * //       CreationDateCondition: { // CreationDateCondition
+ * //         MaximumDaysSinceCreated: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   ManagedBy: "account" || "declarative-policy",

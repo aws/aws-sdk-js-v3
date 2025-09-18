@@ -3901,8 +3901,10 @@ import {
   ClassicLinkDnsSupport,
   ClientCertificateRevocationListStatus,
   CoipAddressUsage,
+  CreationDateCondition,
   DataQuery,
   DataResponse,
+  DeprecationTimeCondition,
   DescribeVpcAttributeRequest,
   DescribeVpcAttributeResult,
   DescribeVpcBlockPublicAccessExclusionsRequest,
@@ -4134,8 +4136,6 @@ import {
   GetManagedPrefixListEntriesRequest,
   GetManagedPrefixListEntriesResult,
   GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
-  GetNetworkInsightsAccessScopeAnalysisFindingsResult,
-  GetNetworkInsightsAccessScopeContentRequest,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4181,6 +4181,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetNetworkInsightsAccessScopeAnalysisFindingsResult,
+  GetNetworkInsightsAccessScopeContentRequest,
   GetNetworkInsightsAccessScopeContentResult,
   GetPasswordDataRequest,
   GetPasswordDataResult,
@@ -4248,7 +4250,6 @@ import {
   InstanceCreditSpecificationRequest,
   InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
-  IpamCidrAuthorizationContext,
   LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
   ListImagesInRecycleBinResult,
@@ -4459,6 +4460,8 @@ import {
 } from "../models/models_7";
 import {
   CpuOptionsRequest,
+  CreationDateConditionRequest,
+  DeprecationTimeConditionRequest,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
@@ -4468,6 +4471,7 @@ import {
   InstanceMetadataOptionsRequest,
   InstanceNetworkPerformanceOptionsRequest,
   InstanceStateChange,
+  IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
@@ -36786,6 +36790,17 @@ const se_CreateVpnGatewayRequest = (input: CreateVpnGatewayRequest, context: __S
 };
 
 /**
+ * serializeAws_ec2CreationDateConditionRequest
+ */
+const se_CreationDateConditionRequest = (input: CreationDateConditionRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_MDSC] != null) {
+    entries[_MDSC] = input[_MDSC];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2CreditSpecificationRequest
  */
 const se_CreditSpecificationRequest = (input: CreditSpecificationRequest, context: __SerdeContext): any => {
@@ -38267,6 +38282,17 @@ const se_DeleteVpnGatewayRequest = (input: DeleteVpnGatewayRequest, context: __S
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeprecationTimeConditionRequest
+ */
+const se_DeprecationTimeConditionRequest = (input: DeprecationTimeConditionRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_MDSD] != null) {
+    entries[_MDSD] = input[_MDSD];
   }
   return entries;
 };
@@ -47528,6 +47554,34 @@ const se_ImageCriterionRequest = (input: ImageCriterionRequest, context: __Serde
       entries[loc] = value;
     });
   }
+  if (input[_MPC] != null) {
+    const memberEntries = se_MarketplaceProductCodeRequestList(input[_MPC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MarketplaceProductCode.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_INm] != null) {
+    const memberEntries = se_ImageNameRequestList(input[_INm], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ImageName.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DTC] != null) {
+    const memberEntries = se_DeprecationTimeConditionRequest(input[_DTC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DeprecationTimeCondition.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CDC] != null) {
+    const memberEntries = se_CreationDateConditionRequest(input[_CDC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CreationDateCondition.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -47626,6 +47680,22 @@ const se_ImageIdStringList = (input: string[], context: __SerdeContext): any => 
       continue;
     }
     entries[`ImageId.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ImageNameRequestList
+ */
+const se_ImageNameRequestList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
     counter++;
   }
   return entries;
@@ -50614,6 +50684,22 @@ const se_MacSystemIntegrityProtectionConfigurationRequest = (
   }
   if (input[_NP] != null) {
     entries[_NP] = input[_NP];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2MarketplaceProductCodeRequestList
+ */
+const se_MarketplaceProductCodeRequestList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -65547,6 +65633,17 @@ const de_CreateVpnGatewayResult = (output: any, context: __SerdeContext): Create
 };
 
 /**
+ * deserializeAws_ec2CreationDateCondition
+ */
+const de_CreationDateCondition = (output: any, context: __SerdeContext): CreationDateCondition => {
+  const contents: any = {};
+  if (output[_mDSC] != null) {
+    contents[_MDSC] = __strictParseInt32(output[_mDSC]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2CreditSpecification
  */
 const de_CreditSpecification = (output: any, context: __SerdeContext): CreditSpecification => {
@@ -66726,6 +66823,17 @@ const de_DeleteVpcPeeringConnectionResult = (
   const contents: any = {};
   if (output[_r] != null) {
     contents[_Ret] = __parseBoolean(output[_r]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeprecationTimeCondition
+ */
+const de_DeprecationTimeCondition = (output: any, context: __SerdeContext): DeprecationTimeCondition => {
+  const contents: any = {};
+  if (output[_mDSD] != null) {
+    contents[_MDSD] = __strictParseInt32(output[_mDSD]) as number;
   }
   return contents;
 };
@@ -74785,6 +74893,22 @@ const de_ImageCriterion = (output: any, context: __SerdeContext): ImageCriterion
   } else if (output[_iPSm] != null && output[_iPSm][_i] != null) {
     contents[_IPm] = de_ImageProviderList(__getArrayIfSingleItem(output[_iPSm][_i]), context);
   }
+  if (output.marketplaceProductCodeSet === "") {
+    contents[_MPC] = [];
+  } else if (output[_mPCS] != null && output[_mPCS][_i] != null) {
+    contents[_MPC] = de_MarketplaceProductCodeList(__getArrayIfSingleItem(output[_mPCS][_i]), context);
+  }
+  if (output.imageNameSet === "") {
+    contents[_INm] = [];
+  } else if (output[_iNS] != null && output[_iNS][_i] != null) {
+    contents[_INm] = de_ImageNameList(__getArrayIfSingleItem(output[_iNS][_i]), context);
+  }
+  if (output[_dTC] != null) {
+    contents[_DTC] = de_DeprecationTimeCondition(output[_dTC], context);
+  }
+  if (output[_cDC] != null) {
+    contents[_CDC] = de_CreationDateCondition(output[_cDC], context);
+  }
   return contents;
 };
 
@@ -74843,6 +74967,17 @@ const de_ImageMetadata = (output: any, context: __SerdeContext): ImageMetadata =
     contents[_IPs] = __parseBoolean(output[_iPs]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_ec2ImageNameList
+ */
+const de_ImageNameList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 /**
@@ -80256,6 +80391,17 @@ const de_ManagedPrefixListSet = (output: any, context: __SerdeContext): ManagedP
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_ManagedPrefixList(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2MarketplaceProductCodeList
+ */
+const de_MarketplaceProductCodeList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 
@@ -92784,6 +92930,7 @@ const _CCo = "CoipCidr";
 const _CCp = "CpuCredits";
 const _CCu = "CurrencyCode";
 const _CD = "CommitmentDuration";
+const _CDC = "CreationDateCondition";
 const _CDH = "CapacityDurationHours";
 const _CDM = "CompletionDurationMinutes";
 const _CDMVOT = "CreateDelegateMacVolumeOwnershipTask";
@@ -93341,6 +93488,7 @@ const _DSn = "DnsServers";
 const _DSns = "DnsSupport";
 const _DT = "DeleteTags";
 const _DTA = "DpdTimeoutAction";
+const _DTC = "DeprecationTimeCondition";
 const _DTCT = "DefaultTargetCapacityType";
 const _DTG = "DeleteTransitGateway";
 const _DTGA = "DescribeTransitGatewayAttachments";
@@ -93862,6 +94010,7 @@ const _IMn = "InstanceMonitorings";
 const _IN = "Ipv6Native";
 const _INL = "Ipv6NetmaskLength";
 const _INLp = "Ipv4NetmaskLength";
+const _INm = "ImageNames";
 const _IOA = "ImageOwnerAlias";
 const _IOI = "IpOwnerId";
 const _IOIn = "InstanceOwnerId";
@@ -94145,6 +94294,8 @@ const _MDA = "MulticastDomainAssociations";
 const _MDCS = "ModifyDefaultCreditSpecification";
 const _MDDS = "MaxDrainDurationSeconds";
 const _MDK = "MetaDataKey";
+const _MDSC = "MaximumDaysSinceCreated";
+const _MDSD = "MaximumDaysSinceDeprecated";
 const _MDV = "MetaDataValue";
 const _MDa = "MaintenanceDetails";
 const _MDe = "MetaData";
@@ -94203,6 +94354,7 @@ const _MOSLRG = "MemberOfServiceLinkedResourceGroup";
 const _MOSLSV = "MacOSLatestSupportedVersions";
 const _MOa = "MaintenanceOptions";
 const _MP = "MatchPaths";
+const _MPC = "MarketplaceProductCodes";
 const _MPDNO = "ModifyPrivateDnsNameOptions";
 const _MPIDNO = "ModifyPublicIpDnsNameOptions";
 const _MPIOL = "MapPublicIpOnLaunch";
@@ -95576,6 +95728,7 @@ const _cCo = "coreCount";
 const _cCoi = "coipCidr";
 const _cCp = "cpuCredits";
 const _cD = "createDate";
+const _cDC = "creationDateCondition";
 const _cDM = "completionDurationMinutes";
 const _cDr = "creationDate";
 const _cDre = "createdDate";
@@ -95776,6 +95929,7 @@ const _dSeli = "deliveryStream";
 const _dSn = "dnsSupport";
 const _dT = "deletionTime";
 const _dTA = "dpdTimeoutAction";
+const _dTC = "deprecationTimeCondition";
 const _dTCT = "defaultTargetCapacityType";
 const _dTPC = "defaultThreadsPerCore";
 const _dTPS = "deviceTrustProviderSet";
@@ -96080,6 +96234,7 @@ const _iMOn = "instanceMarketOptions";
 const _iMT = "instanceMetadataTags";
 const _iMU = "importManifestUrl";
 const _iN = "ipv6Native";
+const _iNS = "imageNameSet";
 const _iOA = "imageOwnerAlias";
 const _iOI = "imageOwnerId";
 const _iOIn = "instanceOwnerId";
@@ -96322,6 +96477,8 @@ const _mCOIOL = "mapCustomerOwnedIpOnLaunch";
 const _mD = "maintenanceDetails";
 const _mDA = "multicastDomainAssociations";
 const _mDK = "metaDataKey";
+const _mDSC = "maximumDaysSinceCreated";
+const _mDSD = "maximumDaysSinceDeprecated";
 const _mDV = "metaDataValue";
 const _mDe = "metaData";
 const _mE = "maxEntries";
@@ -96347,6 +96504,7 @@ const _mOSLRG = "memberOfServiceLinkedResourceGroup";
 const _mOSLSVS = "macOSLatestSupportedVersionSet";
 const _mOa = "maintenanceOptions";
 const _mP = "maxPrice";
+const _mPCS = "marketplaceProductCodeSet";
 const _mPIOL = "mapPublicIpOnLaunch";
 const _mPL = "maxParallelLaunches";
 const _mPS = "metricPointSet";

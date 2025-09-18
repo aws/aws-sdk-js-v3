@@ -37,10 +37,10 @@ export interface ModifyInstanceMetadataDefaultsCommandOutput
  *             the specified Amazon Web Services  Region.</p>
  *          <note>
  *             <p>To remove a parameter's account-level default setting, specify
- *                     <code>no-preference</code>. If an account-level setting is cleared with
- *                     <code>no-preference</code>, then the instance launch considers the other
+ *                 <code>no-preference</code>. If an account-level setting is cleared with
+ *                 <code>no-preference</code>, then the instance launch considers the other
  *                 instance metadata settings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence">Order of precedence for instance metadata options</a> in the
- *                     <i>Amazon EC2 User Guide</i>.</p>
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

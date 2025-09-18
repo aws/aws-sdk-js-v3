@@ -31,7 +31,7 @@ export interface GetInstanceMetadataDefaultsCommandOutput extends GetInstanceMet
  * <p>Gets the default instance metadata service (IMDS) settings that are set at the account
  *             level in the specified Amazon Web Services  Region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence">Order of precedence for instance metadata options</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ *             <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

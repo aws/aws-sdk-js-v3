@@ -5570,6 +5570,10 @@ export interface Route {
    *                <p>
    *                   <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Advertisement</code> - The route was created dynamically by Amazon VPC Route Server.</p>
+   *             </li>
    *          </ul>
    * @public
    */

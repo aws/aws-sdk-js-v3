@@ -60,6 +60,18 @@ export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput
  *       ImageProviders: [ // ImageProviderRequestList
  *         "STRING_VALUE",
  *       ],
+ *       MarketplaceProductCodes: [ // MarketplaceProductCodeRequestList
+ *         "STRING_VALUE",
+ *       ],
+ *       ImageNames: [ // ImageNameRequestList
+ *         "STRING_VALUE",
+ *       ],
+ *       DeprecationTimeCondition: { // DeprecationTimeConditionRequest
+ *         MaximumDaysSinceDeprecated: Number("int"),
+ *       },
+ *       CreationDateCondition: { // CreationDateConditionRequest
+ *         MaximumDaysSinceCreated: Number("int"),
+ *       },
  *     },
  *   ],
  *   DryRun: true || false,
