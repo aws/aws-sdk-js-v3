@@ -1986,7 +1986,7 @@ export interface DescribeModelResponse {
   DatasetName?: string | undefined;
 
   /**
-   * <p>The Amazon Resouce Name (ARN) of the dataset used to create the machine learning model
+   * <p>The Amazon Resource Name (ARN) of the dataset used to create the machine learning model
    *          being described. </p>
    * @public
    */

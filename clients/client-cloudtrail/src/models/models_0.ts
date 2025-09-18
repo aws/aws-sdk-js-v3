@@ -6816,7 +6816,7 @@ export interface PutResourcePolicyResponse {
 
 /**
  * <p>
- *          This exception is thrown when the resouce-based policy has syntax errors, or contains a principal that is not valid.
+ *          This exception is thrown when the resource-based policy has syntax errors, or contains a principal that is not valid.
  *       </p>
  * @public
  */
