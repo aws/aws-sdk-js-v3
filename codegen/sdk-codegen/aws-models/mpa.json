@@ -1016,7 +1016,7 @@
         "Arn": {
           "target": "com.amazonaws.mpa#ApprovalTeamArn",
           "traits": {
-            "smithy.api#documentation": "<p>Amaazon Resource Name (ARN) for the team.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) for the team.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
