@@ -36,7 +36,7 @@ export interface UpdateAgentRuntimeEndpointCommandInput extends UpdateAgentRunti
 export interface UpdateAgentRuntimeEndpointCommandOutput extends UpdateAgentRuntimeEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing Amazon Secure AgentEndpoint.</p>
+ * <p>Updates an existing Amazon Bedrock AgentCore Runtime endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

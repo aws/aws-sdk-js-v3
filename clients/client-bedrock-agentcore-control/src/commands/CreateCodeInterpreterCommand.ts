@@ -50,9 +50,20 @@ export interface CreateCodeInterpreterCommandOutput extends CreateCodeInterprete
  *   description: "STRING_VALUE",
  *   executionRoleArn: "STRING_VALUE",
  *   networkConfiguration: { // CodeInterpreterNetworkConfiguration
- *     networkMode: "PUBLIC" || "SANDBOX", // required
+ *     networkMode: "PUBLIC" || "SANDBOX" || "VPC", // required
+ *     vpcConfig: { // VpcConfig
+ *       securityGroups: [ // SecurityGroups // required
+ *         "STRING_VALUE",
+ *       ],
+ *       subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   clientToken: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateCodeInterpreterCommand(input);
  * const response = await client.send(command);

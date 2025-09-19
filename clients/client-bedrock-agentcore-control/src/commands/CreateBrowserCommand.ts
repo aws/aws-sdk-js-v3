@@ -50,7 +50,15 @@ export interface CreateBrowserCommandOutput extends CreateBrowserResponse, __Met
  *   description: "STRING_VALUE",
  *   executionRoleArn: "STRING_VALUE",
  *   networkConfiguration: { // BrowserNetworkConfiguration
- *     networkMode: "PUBLIC", // required
+ *     networkMode: "PUBLIC" || "VPC", // required
+ *     vpcConfig: { // VpcConfig
+ *       securityGroups: [ // SecurityGroups // required
+ *         "STRING_VALUE",
+ *       ],
+ *       subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   recording: { // RecordingConfig
  *     enabled: true || false,
@@ -60,6 +68,9 @@ export interface CreateBrowserCommandOutput extends CreateBrowserResponse, __Met
  *     },
  *   },
  *   clientToken: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateBrowserCommand(input);
  * const response = await client.send(command);

@@ -32,7 +32,7 @@ export interface ListMemoriesCommandInput extends ListMemoriesInput {}
 export interface ListMemoriesCommandOutput extends ListMemoriesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the memory present.</p>
+ * <p>Lists the available Amazon Bedrock AgentCore Memory resources in the current Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

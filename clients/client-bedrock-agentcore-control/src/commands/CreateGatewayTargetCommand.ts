@@ -37,7 +37,7 @@ export interface CreateGatewayTargetCommandInput extends CreateGatewayTargetRequ
 export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a target for a gateway. A target defines an endpoint that the gateway can connect to.</p> <p>To create a target, you must specify the gateway identifier and target configuration.</p>
+ * <p>Creates a target for a gateway. A target defines an endpoint that the gateway can connect to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

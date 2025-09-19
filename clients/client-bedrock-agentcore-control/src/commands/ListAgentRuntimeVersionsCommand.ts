@@ -53,8 +53,8 @@ export interface ListAgentRuntimeVersionsCommandOutput extends ListAgentRuntimeV
  * const command = new ListAgentRuntimeVersionsCommand(input);
  * const response = await client.send(command);
  * // { // ListAgentRuntimeVersionsResponse
- * //   agentRuntimes: [ // Agents // required
- * //     { // Agent
+ * //   agentRuntimes: [ // AgentRuntimes // required
+ * //     { // AgentRuntime
  * //       agentRuntimeArn: "STRING_VALUE", // required
  * //       agentRuntimeId: "STRING_VALUE", // required
  * //       agentRuntimeVersion: "STRING_VALUE", // required

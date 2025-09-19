@@ -37,7 +37,7 @@ export interface CreateMemoryCommandInput extends CreateMemoryInput {}
 export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new memory.</p>
+ * <p>Creates a new Amazon Bedrock AgentCore Memory resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

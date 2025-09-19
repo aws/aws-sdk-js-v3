@@ -53,8 +53,8 @@ export interface ListAgentRuntimeEndpointsCommandOutput extends ListAgentRuntime
  * const command = new ListAgentRuntimeEndpointsCommand(input);
  * const response = await client.send(command);
  * // { // ListAgentRuntimeEndpointsResponse
- * //   runtimeEndpoints: [ // AgentEndpoints // required
- * //     { // AgentEndpoint
+ * //   runtimeEndpoints: [ // AgentRuntimeEndpoints // required
+ * //     { // AgentRuntimeEndpoint
  * //       name: "STRING_VALUE", // required
  * //       liveVersion: "STRING_VALUE",
  * //       targetVersion: "STRING_VALUE",

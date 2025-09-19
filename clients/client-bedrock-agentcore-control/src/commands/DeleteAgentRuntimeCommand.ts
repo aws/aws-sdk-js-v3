@@ -32,7 +32,7 @@ export interface DeleteAgentRuntimeCommandInput extends DeleteAgentRuntimeReques
 export interface DeleteAgentRuntimeCommandOutput extends DeleteAgentRuntimeResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Secure Agent.</p>
+ * <p>Deletes an Amazon Bedrock AgentCore Runtime.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

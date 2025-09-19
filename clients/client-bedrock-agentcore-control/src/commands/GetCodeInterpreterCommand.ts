@@ -57,9 +57,18 @@ export interface GetCodeInterpreterCommandOutput extends GetCodeInterpreterRespo
  * //   description: "STRING_VALUE",
  * //   executionRoleArn: "STRING_VALUE",
  * //   networkConfiguration: { // CodeInterpreterNetworkConfiguration
- * //     networkMode: "PUBLIC" || "SANDBOX", // required
+ * //     networkMode: "PUBLIC" || "SANDBOX" || "VPC", // required
+ * //     vpcConfig: { // VpcConfig
+ * //       securityGroups: [ // SecurityGroups // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnets: [ // Subnets // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * //   status: "CREATING" || "CREATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED" || "DELETED", // required
+ * //   failureReason: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * // };

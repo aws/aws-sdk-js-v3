@@ -37,7 +37,7 @@ export interface UpdateGatewayTargetCommandInput extends UpdateGatewayTargetRequ
 export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing Gateway Target.</p>
+ * <p>Updates an existing gateway target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

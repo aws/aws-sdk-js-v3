@@ -52,8 +52,8 @@ export interface ListAgentRuntimesCommandOutput extends ListAgentRuntimesRespons
  * const command = new ListAgentRuntimesCommand(input);
  * const response = await client.send(command);
  * // { // ListAgentRuntimesResponse
- * //   agentRuntimes: [ // Agents // required
- * //     { // Agent
+ * //   agentRuntimes: [ // AgentRuntimes // required
+ * //     { // AgentRuntime
  * //       agentRuntimeArn: "STRING_VALUE", // required
  * //       agentRuntimeId: "STRING_VALUE", // required
  * //       agentRuntimeVersion: "STRING_VALUE", // required

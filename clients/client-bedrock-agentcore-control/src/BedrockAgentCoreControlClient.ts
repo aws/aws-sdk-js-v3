@@ -158,10 +158,16 @@ import {
   ListOauth2CredentialProvidersCommandOutput,
 } from "./commands/ListOauth2CredentialProvidersCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListWorkloadIdentitiesCommandInput,
   ListWorkloadIdentitiesCommandOutput,
 } from "./commands/ListWorkloadIdentitiesCommand";
 import { SetTokenVaultCMKCommandInput, SetTokenVaultCMKCommandOutput } from "./commands/SetTokenVaultCMKCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentRuntimeCommandInput, UpdateAgentRuntimeCommandOutput } from "./commands/UpdateAgentRuntimeCommand";
 import {
   UpdateAgentRuntimeEndpointCommandInput,
@@ -241,8 +247,11 @@ export type ServiceInputTypes =
   | ListGatewaysCommandInput
   | ListMemoriesCommandInput
   | ListOauth2CredentialProvidersCommandInput
+  | ListTagsForResourceCommandInput
   | ListWorkloadIdentitiesCommandInput
   | SetTokenVaultCMKCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateAgentRuntimeCommandInput
   | UpdateAgentRuntimeEndpointCommandInput
   | UpdateApiKeyCredentialProviderCommandInput
@@ -297,8 +306,11 @@ export type ServiceOutputTypes =
   | ListGatewaysCommandOutput
   | ListMemoriesCommandOutput
   | ListOauth2CredentialProvidersCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListWorkloadIdentitiesCommandOutput
   | SetTokenVaultCMKCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateAgentRuntimeCommandOutput
   | UpdateAgentRuntimeEndpointCommandOutput
   | UpdateApiKeyCredentialProviderCommandOutput
@@ -499,7 +511,7 @@ export type BedrockAgentCoreControlClientResolvedConfigType = __SmithyResolvedCo
 export interface BedrockAgentCoreControlClientResolvedConfig extends BedrockAgentCoreControlClientResolvedConfigType {}
 
 /**
- * <note> <p>Amazon Bedrock AgentCore is in preview release and is subject to change.</p> </note> <p>Amazon Bedrock Agent Core Control is a service that enables you to manage memory resources for your Amazon Bedrock agents.</p> <p>Use this API to create, retrieve, update, and delete memory resources and their associated memory strategies. Memory resources enable your agents to store and retrieve information from conversations and interactions.</p>
+ * <note> <p> is in preview release and is subject to change.</p> </note> <p>Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control plane actions configure, create, modify, and monitor Amazon Web Services resources.</p>
  * @public
  */
 export class BedrockAgentCoreControlClient extends __Client<

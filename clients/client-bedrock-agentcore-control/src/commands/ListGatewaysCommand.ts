@@ -32,7 +32,7 @@ export interface ListGatewaysCommandInput extends ListGatewaysRequest {}
 export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all Gateways in the account.</p>
+ * <p>Lists all gateways in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

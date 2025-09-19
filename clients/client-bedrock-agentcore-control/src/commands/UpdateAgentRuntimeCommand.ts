@@ -48,14 +48,22 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  * const input = { // UpdateAgentRuntimeRequest
  *   agentRuntimeId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   agentRuntimeArtifact: { // AgentArtifact Union: only one key present
+ *   agentRuntimeArtifact: { // AgentRuntimeArtifact Union: only one key present
  *     containerConfiguration: { // ContainerConfiguration
  *       containerUri: "STRING_VALUE", // required
  *     },
  *   },
  *   roleArn: "STRING_VALUE", // required
  *   networkConfiguration: { // NetworkConfiguration
- *     networkMode: "PUBLIC", // required
+ *     networkMode: "PUBLIC" || "VPC", // required
+ *     networkModeConfig: { // VpcConfig
+ *       securityGroups: [ // SecurityGroups // required
+ *         "STRING_VALUE",
+ *       ],
+ *       subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   protocolConfiguration: { // ProtocolConfiguration
  *     serverProtocol: "MCP" || "HTTP", // required
@@ -74,6 +82,11 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *         "STRING_VALUE",
  *       ],
  *     },
+ *   },
+ *   requestHeaderConfiguration: { // RequestHeaderConfiguration Union: only one key present
+ *     requestHeaderAllowlist: [ // RequestHeaderAllowlist
+ *       "STRING_VALUE",
+ *     ],
  *   },
  * };
  * const command = new UpdateAgentRuntimeCommand(input);

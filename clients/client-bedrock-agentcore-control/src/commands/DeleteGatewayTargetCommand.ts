@@ -32,7 +32,7 @@ export interface DeleteGatewayTargetCommandInput extends DeleteGatewayTargetRequ
 export interface DeleteGatewayTargetCommandOutput extends DeleteGatewayTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Gateway Target.</p>
+ * <p>Deletes a gateway target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

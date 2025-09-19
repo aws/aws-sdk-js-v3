@@ -53,7 +53,15 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * //   description: "STRING_VALUE",
  * //   executionRoleArn: "STRING_VALUE",
  * //   networkConfiguration: { // BrowserNetworkConfiguration
- * //     networkMode: "PUBLIC", // required
+ * //     networkMode: "PUBLIC" || "VPC", // required
+ * //     vpcConfig: { // VpcConfig
+ * //       securityGroups: [ // SecurityGroups // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnets: [ // Subnets // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * //   recording: { // RecordingConfig
  * //     enabled: true || false,
@@ -63,6 +71,7 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * //     },
  * //   },
  * //   status: "CREATING" || "CREATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED" || "DELETED", // required
+ * //   failureReason: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * // };

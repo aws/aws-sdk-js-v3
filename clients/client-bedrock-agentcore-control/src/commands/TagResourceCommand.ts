@@ -10,8 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteMemoryInput, DeleteMemoryOutput } from "../models/models_0";
-import { de_DeleteMemoryCommand, se_DeleteMemoryCommand } from "../protocols/Aws_restJson1";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,56 +21,58 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteMemoryCommand}.
+ * The input for {@link TagResourceCommand}.
  */
-export interface DeleteMemoryCommandInput extends DeleteMemoryInput {}
+export interface TagResourceCommandInput extends TagResourceRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteMemoryCommand}.
+ * The output of {@link TagResourceCommand}.
  */
-export interface DeleteMemoryCommandOutput extends DeleteMemoryOutput, __MetadataBearer {}
+export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Bedrock AgentCore Memory resource.</p>
+ * <p>Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are also deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, DeleteMemoryCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, DeleteMemoryCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, TagResourceCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, TagResourceCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // DeleteMemoryInput
- *   clientToken: "STRING_VALUE",
- *   memoryId: "STRING_VALUE", // required
+ * const input = { // TagResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // TagsMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new DeleteMemoryCommand(input);
+ * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
- * // { // DeleteMemoryOutput
- * //   memoryId: "STRING_VALUE", // required
- * //   status: "CREATING" || "ACTIVE" || "FAILED" || "DELETING",
- * // };
+ * // {};
  *
  * ```
  *
- * @param DeleteMemoryCommandInput - {@link DeleteMemoryCommandInput}
- * @returns {@link DeleteMemoryCommandOutput}
- * @see {@link DeleteMemoryCommandInput} for command's `input` shape.
- * @see {@link DeleteMemoryCommandOutput} for command's `response` shape.
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>This exception is thrown when a request is denied per access permissions</p>
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
  *
- * @throws {@link ServiceException} (server fault)
- *  <p>An internal error occurred.</p>
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This exception is thrown when a request is made beyond the service quota</p>
  *
- * @throws {@link ThrottledException} (client fault)
- *  <p>API rate limit has been exceeded.</p>
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This exception is thrown when the number of requests exceeds the limit</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
@@ -81,10 +83,10 @@ export interface DeleteMemoryCommandOutput extends DeleteMemoryOutput, __Metadat
  *
  * @public
  */
-export class DeleteMemoryCommand extends $Command
+export class TagResourceCommand extends $Command
   .classBuilder<
-    DeleteMemoryCommandInput,
-    DeleteMemoryCommandOutput,
+    TagResourceCommandInput,
+    TagResourceCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -96,21 +98,21 @@ export class DeleteMemoryCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockAgentCoreControl", "DeleteMemory", {})
-  .n("BedrockAgentCoreControlClient", "DeleteMemoryCommand")
+  .s("AmazonBedrockAgentCoreControl", "TagResource", {})
+  .n("BedrockAgentCoreControlClient", "TagResourceCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteMemoryCommand)
-  .de(de_DeleteMemoryCommand)
+  .ser(se_TagResourceCommand)
+  .de(de_TagResourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteMemoryInput;
-      output: DeleteMemoryOutput;
+      input: TagResourceRequest;
+      output: {};
     };
     sdk: {
-      input: DeleteMemoryCommandInput;
-      output: DeleteMemoryCommandOutput;
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
     };
   };
 }

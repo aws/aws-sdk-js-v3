@@ -36,7 +36,7 @@ export interface GetGatewayTargetCommandInput extends GetGatewayTargetRequest {}
 export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a specific Gateway Target.</p>
+ * <p>Retrieves information about a specific gateway target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,7 +32,7 @@ export interface GetMemoryCommandInput extends GetMemoryInput {}
 export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieve an existing memory.</p>
+ * <p>Retrieve an existing Amazon Bedrock AgentCore Memory resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

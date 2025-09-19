@@ -36,7 +36,7 @@ export interface DeleteAgentRuntimeEndpointCommandInput extends DeleteAgentRunti
 export interface DeleteAgentRuntimeEndpointCommandOutput extends DeleteAgentRuntimeEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Secure AgentEndpoint.</p>
+ * <p>Deletes an AAgentCore Runtime endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,7 +36,7 @@ export interface CreateAgentRuntimeCommandInput extends CreateAgentRuntimeReques
 export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Secure Agent.</p>
+ * <p>Creates an Amazon Bedrock AgentCore Runtime.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +48,22 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  * const input = { // CreateAgentRuntimeRequest
  *   agentRuntimeName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   agentRuntimeArtifact: { // AgentArtifact Union: only one key present
+ *   agentRuntimeArtifact: { // AgentRuntimeArtifact Union: only one key present
  *     containerConfiguration: { // ContainerConfiguration
  *       containerUri: "STRING_VALUE", // required
  *     },
  *   },
  *   roleArn: "STRING_VALUE", // required
  *   networkConfiguration: { // NetworkConfiguration
- *     networkMode: "PUBLIC", // required
+ *     networkMode: "PUBLIC" || "VPC", // required
+ *     networkModeConfig: { // VpcConfig
+ *       securityGroups: [ // SecurityGroups // required
+ *         "STRING_VALUE",
+ *       ],
+ *       subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   protocolConfiguration: { // ProtocolConfiguration
  *     serverProtocol: "MCP" || "HTTP", // required
@@ -74,6 +82,14 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *         "STRING_VALUE",
  *       ],
  *     },
+ *   },
+ *   requestHeaderConfiguration: { // RequestHeaderConfiguration Union: only one key present
+ *     requestHeaderAllowlist: [ // RequestHeaderAllowlist
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
  *   },
  * };
  * const command = new CreateAgentRuntimeCommand(input);
