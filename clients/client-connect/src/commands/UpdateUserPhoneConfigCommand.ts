@@ -43,6 +43,7 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  *     AutoAccept: true || false,
  *     AfterContactWorkTimeLimit: Number("int"),
  *     DeskPhoneNumber: "STRING_VALUE",
+ *     PersistentConnection: true || false,
  *   },
  *   UserId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required

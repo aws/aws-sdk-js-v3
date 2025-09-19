@@ -61,6 +61,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * //       AutoAccept: true || false,
  * //       AfterContactWorkTimeLimit: Number("int"),
  * //       DeskPhoneNumber: "STRING_VALUE",
+ * //       PersistentConnection: true || false,
  * //     },
  * //     DirectoryUserId: "STRING_VALUE",
  * //     SecurityProfileIds: [ // SecurityProfileIds

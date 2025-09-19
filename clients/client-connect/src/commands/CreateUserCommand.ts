@@ -59,6 +59,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *     AutoAccept: true || false,
  *     AfterContactWorkTimeLimit: Number("int"),
  *     DeskPhoneNumber: "STRING_VALUE",
+ *     PersistentConnection: true || false,
  *   },
  *   DirectoryUserId: "STRING_VALUE",
  *   SecurityProfileIds: [ // SecurityProfileIds // required

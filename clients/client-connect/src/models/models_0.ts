@@ -6588,6 +6588,12 @@ export interface UserPhoneConfig {
    * @public
    */
   DeskPhoneNumber?: string | undefined;
+
+  /**
+   * <p>The persistent connection setting for the user.</p>
+   * @public
+   */
+  PersistentConnection?: boolean | undefined;
 }
 
 /**

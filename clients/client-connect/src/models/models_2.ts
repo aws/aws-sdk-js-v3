@@ -7743,7 +7743,7 @@ export interface UpdateHoursOfOperationOverrideRequest {
   EffectiveFrom?: string | undefined;
 
   /**
-   * <p>The date till when the hours of operation override would be effective.</p>
+   * <p>The date until the hours of operation override is effective.</p>
    * @public
    */
   EffectiveTill?: string | undefined;

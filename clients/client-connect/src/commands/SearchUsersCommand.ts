@@ -159,6 +159,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * //         AutoAccept: true || false,
  * //         AfterContactWorkTimeLimit: Number("int"),
  * //         DeskPhoneNumber: "STRING_VALUE",
+ * //         PersistentConnection: true || false,
  * //       },
  * //       RoutingProfileId: "STRING_VALUE",
  * //       SecurityProfileIds: [ // SecurityProfileIds

@@ -44,8 +44,9 @@ export interface CreatePredefinedAttributeCommandOutput extends __MetadataBearer
  *             </li>
  *             <li>
  *                <p>Create an attribute for business unit name that has a list of predefined business unit
- *      names used in your organization. This is a use case where information for a contact varies between transfers or conferences. For more information, see
- *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use contact segment attributes</a>.</p>
+ *      names used in your organization. This is a use case where information for a contact varies
+ *      between transfers or conferences. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use contact segment
+ *       attributes</a>.</p>
  *             </li>
  *          </ul>
  *          <p>
