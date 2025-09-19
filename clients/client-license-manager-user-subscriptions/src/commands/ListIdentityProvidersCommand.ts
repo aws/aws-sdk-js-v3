@@ -77,6 +77,7 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * //             },
  * //           },
  * //           ActiveDirectoryType: "STRING_VALUE",
+ * //           IsSharedActiveDirectory: true || false,
  * //         },
  * //       },
  * //       Settings: { // Settings
@@ -89,6 +90,7 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * //       Status: "STRING_VALUE", // required
  * //       IdentityProviderArn: "STRING_VALUE",
  * //       FailureMessage: "STRING_VALUE",
+ * //       OwnerAccountId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -106,8 +108,7 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (server fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the
- * 			resource.</p>
+ *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>

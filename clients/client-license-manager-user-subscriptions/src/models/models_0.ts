@@ -36,8 +36,7 @@ export interface SecretsManagerCredentialsProvider {
 }
 
 /**
- * <p>Contains information about the credential provider for user
- * 			administration.</p>
+ * <p>Contains information about the credential provider for user administration.</p>
  * @public
  */
 export type CredentialsProvider =
@@ -49,8 +48,7 @@ export type CredentialsProvider =
  */
 export namespace CredentialsProvider {
   /**
-   * <p>Identifies the Secrets Manager secret that contains credentials needed for
-   * 			user administration in the Active Directory.</p>
+   * <p>Identifies the Secrets Manager secret that contains credentials needed for user administration in the Active Directory.</p>
    * @public
    */
   export interface SecretsManagerCredentialsProviderMember {
@@ -91,8 +89,7 @@ export interface DomainNetworkSettings {
 }
 
 /**
- * <p>Contains network access and credential details that are needed for
- * 			user administration in the Active Directory.</p>
+ * <p>Contains network access and credential details that are needed for user administration in the Active Directory.</p>
  * @public
  */
 export interface ActiveDirectorySettings {
@@ -109,15 +106,13 @@ export interface ActiveDirectorySettings {
   DomainIpv4List?: string[] | undefined;
 
   /**
-   * <p>Points to the <code>CredentialsProvider</code> resource that contains
-   * 			information about the credential provider for user administration.</p>
+   * <p>Points to the <code>CredentialsProvider</code> resource that contains information about the credential provider for user administration.</p>
    * @public
    */
   DomainCredentialsProvider?: CredentialsProvider | undefined;
 
   /**
-   * <p>The <code>DomainNetworkSettings</code> resource contains an array of
-   * 			subnets that apply for the Active Directory.</p>
+   * <p>The <code>DomainNetworkSettings</code> resource contains an array of subnets that apply for the Active Directory.</p>
    * @public
    */
   DomainNetworkSettings?: DomainNetworkSettings | undefined;
@@ -155,19 +150,22 @@ export interface ActiveDirectoryIdentityProvider {
   DirectoryId?: string | undefined;
 
   /**
-   * <p>The <code>ActiveDirectorySettings</code> resource contains details about
-   * 			the Active Directory, including network access details such as domain name and IP
-   * 			addresses, and the credential provider for user administration.</p>
+   * <p>The <code>ActiveDirectorySettings</code> resource contains details about the Active Directory, including network access details such as domain name and IP addresses, and the credential provider for user administration.</p>
    * @public
    */
   ActiveDirectorySettings?: ActiveDirectorySettings | undefined;
 
   /**
-   * <p>The type of Active Directory – either a self-managed Active Directory or an
-   * 			Amazon Web Services Managed Active Directory.</p>
+   * <p>The type of Active Directory – either a self-managed Active Directory or an Amazon Web Services Managed Active Directory.</p>
    * @public
    */
   ActiveDirectoryType?: ActiveDirectoryType | undefined;
+
+  /**
+   * <p>Whether this directory is shared from an Amazon Web Services Managed Active Directory. The default value is false.</p>
+   * @public
+   */
+  IsSharedActiveDirectory?: boolean | undefined;
 }
 
 /**
@@ -181,8 +179,7 @@ export type IdentityProvider = IdentityProvider.ActiveDirectoryIdentityProviderM
  */
 export namespace IdentityProvider {
   /**
-   * <p>The <code>ActiveDirectoryIdentityProvider</code> resource contains settings
-   * 			and other details about a specific Active Directory identity provider.</p>
+   * <p>The <code>ActiveDirectoryIdentityProvider</code> resource contains settings and other details about a specific Active Directory identity provider.</p>
    * @public
    */
   export interface ActiveDirectoryIdentityProviderMember {
@@ -233,7 +230,7 @@ export interface AssociateUserRequest {
   IdentityProvider: IdentityProvider | undefined;
 
   /**
-   * <p>The domain name of the  Active Directory that contains information for the user to associate.</p>
+   * <p>The domain name of the Active Directory that contains information for the user to associate.</p>
    * @public
    */
   Domain?: string | undefined;
@@ -263,8 +260,7 @@ export interface InstanceUserSummary {
   InstanceId: string | undefined;
 
   /**
-   * <p>The <code>IdentityProvider</code> resource specifies details
-   * 			about the identity provider.</p>
+   * <p>The <code>IdentityProvider</code> resource specifies details about the identity provider.</p>
    * @public
    */
   IdentityProvider: IdentityProvider | undefined;
@@ -288,7 +284,7 @@ export interface InstanceUserSummary {
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The domain name of the  Active Directory that contains the user information for the product subscription.</p>
+   * <p>The domain name of the Active Directory that contains the user information for the product subscription.</p>
    * @public
    */
   Domain?: string | undefined;
@@ -318,8 +314,7 @@ export interface AssociateUserResponse {
 }
 
 /**
- * <p>The request couldn't be completed because it conflicted with the current state of the
- * 			resource.</p>
+ * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -444,8 +439,7 @@ export class ValidationException extends __BaseException {
  */
 export interface RdsSalSettings {
   /**
-   * <p>The <code>CredentialsProvider</code> resource contains a reference to
-   * 			the credentials provider that's used for RDS license server user administration.</p>
+   * <p>The <code>CredentialsProvider</code> resource contains a reference to the credentials provider that's used for RDS license server user administration.</p>
    * @public
    */
   RdsSalCredentialsProvider: CredentialsProvider | undefined;
@@ -462,8 +456,7 @@ export type ServerSettings = ServerSettings.RdsSalSettingsMember | ServerSetting
  */
 export namespace ServerSettings {
   /**
-   * <p>The <code>RdsSalSettings</code> resource contains settings to configure
-   * 			a specific Remote Desktop Services (RDS) license server.</p>
+   * <p>The <code>RdsSalSettings</code> resource contains settings to configure a specific Remote Desktop Services (RDS) license server.</p>
    * @public
    */
   export interface RdsSalSettingsMember {
@@ -518,8 +511,7 @@ export interface LicenseServerSettings {
   ServerType: ServerType | undefined;
 
   /**
-   * <p>The <code>ServerSettings</code> resource contains the settings for your
-   * 			server.</p>
+   * <p>The <code>ServerSettings</code> resource contains the settings for your server.</p>
    * @public
    */
   ServerSettings: ServerSettings | undefined;
@@ -530,18 +522,13 @@ export interface LicenseServerSettings {
  */
 export interface CreateLicenseServerEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the <code>IdentityProvider</code> resource that contains details
-   * 			about a registered identity provider. In the case of Active Directory, that can be
-   * 			a self-managed Active Directory or an Amazon Web Services Managed Active Directory that contains user identity details.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the <code>IdentityProvider</code> resource that contains details about a registered identity provider. In the case of Active Directory, that can be a self-managed Active Directory or an Amazon Web Services Managed Active Directory that contains user identity details.</p>
    * @public
    */
   IdentityProviderArn: string | undefined;
 
   /**
-   * <p>The <code>LicenseServerSettings</code> resource to create for the endpoint. The
-   * 			settings include the type of license server and the Secrets Manager secret that
-   * 			enables administrators to add or remove users associated with the
-   * 			license server.</p>
+   * <p>The <code>LicenseServerSettings</code> resource to create for the endpoint. The settings include the type of license server and the Secrets Manager secret that enables administrators to add or remove users associated with the license server.</p>
    * @public
    */
   LicenseServerSettings: LicenseServerSettings | undefined;
@@ -575,8 +562,7 @@ export interface CreateLicenseServerEndpointResponse {
  */
 export interface DeleteLicenseServerEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the <code>LicenseServerEndpoint</code>
-   * 			resource to delete.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the <code>LicenseServerEndpoint</code> resource to delete.</p>
    * @public
    */
   LicenseServerEndpointArn: string | undefined;
@@ -655,8 +641,7 @@ export type LicenseServerHealthStatus = (typeof LicenseServerHealthStatus)[keyof
  */
 export interface LicenseServer {
   /**
-   * <p>The current state of the provisioning process for the RDS
-   * 			license server.</p>
+   * <p>The current state of the provisioning process for the RDS license server.</p>
    * @public
    */
   ProvisioningStatus?: LicenseServerEndpointProvisioningStatus | undefined;
@@ -668,8 +653,7 @@ export interface LicenseServer {
   HealthStatus?: LicenseServerHealthStatus | undefined;
 
   /**
-   * <p>A list of domain IPv4 addresses that are used for the RDS
-   * 			license server.</p>
+   * <p>A list of domain IPv4 addresses that are used for the RDS license server.</p>
    * @public
    */
   Ipv4Address?: string | undefined;
@@ -688,14 +672,12 @@ export interface ServerEndpoint {
 }
 
 /**
- * <p>Contains details about a network endpoint for a Remote Desktop Services (RDS)
- * 			license server.</p>
+ * <p>Contains details about a network endpoint for a Remote Desktop Services (RDS) license server.</p>
  * @public
  */
 export interface LicenseServerEndpoint {
   /**
-   * <p>The Amazon Resource Name (ARN) of the identity provider that's associated with
-   * 			the RDS license server endpoint.</p>
+   * <p>The Amazon Resource Name (ARN) of the identity provider that's associated with the RDS license server endpoint.</p>
    * @public
    */
   IdentityProviderArn?: string | undefined;
@@ -707,8 +689,7 @@ export interface LicenseServerEndpoint {
   ServerType?: ServerType | undefined;
 
   /**
-   * <p>The <code>ServerEndpoint</code> resource contains the network
-   * 			address of the RDS license server endpoint.</p>
+   * <p>The <code>ServerEndpoint</code> resource contains the network address of the RDS license server endpoint.</p>
    * @public
    */
   ServerEndpoint?: ServerEndpoint | undefined;
@@ -726,22 +707,19 @@ export interface LicenseServerEndpoint {
   LicenseServerEndpointId?: string | undefined;
 
   /**
-   * <p>The ARN of the <code>ServerEndpoint</code> resource for the RDS
-   * 			license server.</p>
+   * <p>The ARN of the <code>ServerEndpoint</code> resource for the RDS license server.</p>
    * @public
    */
   LicenseServerEndpointArn?: string | undefined;
 
   /**
-   * <p>The current state of the provisioning process for the RDS license
-   * 			server endpoint</p>
+   * <p>The current state of the provisioning process for the RDS license server endpoint</p>
    * @public
    */
   LicenseServerEndpointProvisioningStatus?: LicenseServerEndpointProvisioningStatus | undefined;
 
   /**
-   * <p>An array of <code>LicenseServer</code> resources that represent the
-   * 			license servers that are accessed through this endpoint.</p>
+   * <p>An array of <code>LicenseServer</code> resources that represent the license servers that are accessed through this endpoint.</p>
    * @public
    */
   LicenseServers?: LicenseServer[] | undefined;
@@ -775,10 +753,7 @@ export interface DeregisterIdentityProviderRequest {
   IdentityProvider?: IdentityProvider | undefined;
 
   /**
-   * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
-   * <code>REMOTE_DESKTOP_SERVICES</code>
-   *          </p>
+   * <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
    * @public
    */
   Product?: string | undefined;
@@ -791,10 +766,7 @@ export interface DeregisterIdentityProviderRequest {
 }
 
 /**
- * <p>The registered identity provider’s product related configuration settings such as the
- * 			subnets to provision VPC endpoints, and the security group ID that is associated with the VPC
- * 			endpoints. The security group should permit inbound TCP port 1688 communication from resources
- * 			in the VPC.</p>
+ * <p>The registered identity provider’s product related configuration settings such as the subnets to provision VPC endpoints, and the security group ID that is associated with the VPC endpoints. The security group should permit inbound TCP port 1688 communication from resources in the VPC.</p>
  * @public
  */
 export interface Settings {
@@ -805,8 +777,7 @@ export interface Settings {
   Subnets: string[] | undefined;
 
   /**
-   * <p>A security group ID that allows inbound TCP port 1688 communication between resources in
-   * 			your VPC and the VPC endpoint for activation servers.</p>
+   * <p>A security group ID that allows inbound TCP port 1688 communication between resources in your VPC and the VPC endpoint for activation servers.</p>
    * @public
    */
   SecurityGroupId: string | undefined;
@@ -818,16 +789,13 @@ export interface Settings {
  */
 export interface IdentityProviderSummary {
   /**
-   * <p>The <code>IdentityProvider</code> resource contains information about
-   * 			an identity provider.</p>
+   * <p>The <code>IdentityProvider</code> resource contains information about an identity provider.</p>
    * @public
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
-   * <p>The <code>Settings</code> resource contains details about the registered
-   * 			identity provider’s product related configuration settings, such as the
-   * 			subnets to provision VPC endpoints.</p>
+   * <p>The <code>Settings</code> resource contains details about the registered identity provider’s product related configuration settings, such as the subnets to provision VPC endpoints.</p>
    * @public
    */
   Settings: Settings | undefined;
@@ -855,6 +823,12 @@ export interface IdentityProviderSummary {
    * @public
    */
   FailureMessage?: string | undefined;
+
+  /**
+   * <p>The AWS Account ID of the owner of this resource.</p>
+   * @public
+   */
+  OwnerAccountId?: string | undefined;
 }
 
 /**
@@ -897,7 +871,7 @@ export interface DisassociateUserRequest {
   InstanceUserArn?: string | undefined;
 
   /**
-   * <p>The domain name of the  Active Directory that contains information for the user to disassociate.</p>
+   * <p>The domain name of the Active Directory that contains information for the user to disassociate.</p>
    * @public
    */
   Domain?: string | undefined;
@@ -915,9 +889,7 @@ export interface DisassociateUserResponse {
 }
 
 /**
- * <p>A filter name and value pair that is used to return more specific results from a describe
- * 			or list operation. You can use filters can be used to match a set of resources by specific
- * 			criteria, such as tags, attributes, or IDs.</p>
+ * <p>A filter name and value pair that is used to return more specific results from a describe or list operation. You can use filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.</p>
  * @public
  */
 export interface Filter {
@@ -974,6 +946,18 @@ export interface InstanceSummary {
    * @public
    */
   StatusMessage?: string | undefined;
+
+  /**
+   * <p>The AWS Account ID of the owner of this resource.</p>
+   * @public
+   */
+  OwnerAccountId?: string | undefined;
+
+  /**
+   * <p>The <code>IdentityProvider</code> resource specifies details about the identity provider.</p>
+   * @public
+   */
+  IdentityProvider?: IdentityProvider | undefined;
 }
 
 /**
@@ -987,22 +971,13 @@ export interface ListIdentityProvidersRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>You can use the following filters to streamline results:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Product</p>
-   *             </li>
-   *             <li>
-   *                <p>DirectoryId</p>
-   *             </li>
-   *          </ul>
+   * <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Product</p> </li> <li> <p>DirectoryId</p> </li> </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
-   * 	from a previously truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1013,16 +988,13 @@ export interface ListIdentityProvidersRequest {
  */
 export interface ListIdentityProvidersResponse {
   /**
-   * <p>An array of <code>IdentityProviderSummary</code> resources that contain
-   * 			details about the Active Directory identity providers that meet the request criteria.</p>
+   * <p>An array of <code>IdentityProviderSummary</code> resources that contain details about the Active Directory identity providers that meet the request criteria.</p>
    * @public
    */
   IdentityProviderSummaries: IdentityProviderSummary[] | undefined;
 
   /**
-   * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service hasn't included in this request. Use this token
-   * 		with the next request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty, there are additional elements that the service hasn't included in this request. Use this token with the next request to retrieve additional objects.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1039,22 +1011,13 @@ export interface ListInstancesRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
-   * 	from a previously truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>You can use the following filters to streamline results:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Status</p>
-   *             </li>
-   *             <li>
-   *                <p>InstanceId</p>
-   *             </li>
-   *          </ul>
+   * <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Status</p> </li> <li> <p>InstanceId</p> </li> </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -1065,17 +1028,13 @@ export interface ListInstancesRequest {
  */
 export interface ListInstancesResponse {
   /**
-   * <p>An array of <code>InstanceSummary</code> resources that contain details
-   * 			about the instances that provide user-based subscriptions and also meet the
-   * 			request criteria.</p>
+   * <p>An array of <code>InstanceSummary</code> resources that contain details about the instances that provide user-based subscriptions and also meet the request criteria.</p>
    * @public
    */
   InstanceSummaries?: InstanceSummary[] | undefined;
 
   /**
-   * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service hasn't included in this request. Use this token
-   * 		with the next request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty, there are additional elements that the service hasn't included in this request. Use this token with the next request to retrieve additional objects.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1092,19 +1051,13 @@ export interface ListLicenseServerEndpointsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>You can use the following filters to streamline results:</p>
-   *          <ul>
-   *             <li>
-   *                <p>IdentityProviderArn</p>
-   *             </li>
-   *          </ul>
+   * <p>You can use the following filters to streamline results:</p> <ul> <li> <p>IdentityProviderArn</p> </li> </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
-   * 	from a previously truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1115,17 +1068,13 @@ export interface ListLicenseServerEndpointsRequest {
  */
 export interface ListLicenseServerEndpointsResponse {
   /**
-   * <p>An array of <code>LicenseServerEndpoint</code> resources that
-   * 			contain detailed information about the RDS License Servers that meet
-   * 			the request criteria.</p>
+   * <p>An array of <code>LicenseServerEndpoint</code> resources that contain detailed information about the RDS License Servers that meet the request criteria.</p>
    * @public
    */
   LicenseServerEndpoints?: LicenseServerEndpoint[] | undefined;
 
   /**
-   * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service hasn't included in this request. Use this token
-   * 		with the next request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty, there are additional elements that the service hasn't included in this request. Use this token with the next request to retrieve additional objects.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1136,10 +1085,7 @@ export interface ListLicenseServerEndpointsResponse {
  */
 export interface ListProductSubscriptionsRequest {
   /**
-   * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
-   * <code>REMOTE_DESKTOP_SERVICES</code>
-   *          </p>
+   * <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
    * @public
    */
   Product?: string | undefined;
@@ -1157,25 +1103,13 @@ export interface ListProductSubscriptionsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>You can use the following filters to streamline results:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Status</p>
-   *             </li>
-   *             <li>
-   *                <p>Username</p>
-   *             </li>
-   *             <li>
-   *                <p>Domain</p>
-   *             </li>
-   *          </ul>
+   * <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Status</p> </li> <li> <p>Username</p> </li> <li> <p>Domain</p> </li> </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
-   * 	from a previously truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1223,7 +1157,7 @@ export interface ProductUserSummary {
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The domain name of the  Active Directory that contains the user information for the product subscription.</p>
+   * <p>The domain name of the Active Directory that contains the user information for the product subscription.</p>
    * @public
    */
   Domain?: string | undefined;
@@ -1252,9 +1186,7 @@ export interface ListProductSubscriptionsResponse {
   ProductUserSummaries?: ProductUserSummary[] | undefined;
 
   /**
-   * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service hasn't included in this request. Use this token
-   * 		with the next request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty, there are additional elements that the service hasn't included in this request. Use this token with the next request to retrieve additional objects.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1305,25 +1237,13 @@ export interface ListUserAssociationsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>You can use the following filters to streamline results:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Status</p>
-   *             </li>
-   *             <li>
-   *                <p>Username</p>
-   *             </li>
-   *             <li>
-   *                <p>Domain</p>
-   *             </li>
-   *          </ul>
+   * <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Status</p> </li> <li> <p>Username</p> </li> <li> <p>Domain</p> </li> </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
-   * 	from a previously truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1340,9 +1260,7 @@ export interface ListUserAssociationsResponse {
   InstanceUserSummaries?: InstanceUserSummary[] | undefined;
 
   /**
-   * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service hasn't included in this request. Use this token
-   * 		with the next request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty, there are additional elements that the service hasn't included in this request. Use this token with the next request to retrieve additional objects.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1359,17 +1277,13 @@ export interface RegisterIdentityProviderRequest {
   IdentityProvider: IdentityProvider | undefined;
 
   /**
-   * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
-   * <code>REMOTE_DESKTOP_SERVICES</code>
-   *          </p>
+   * <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
    * @public
    */
   Product: string | undefined;
 
   /**
-   * <p>The registered identity provider’s product related configuration
-   * 			settings such as the subnets to provision VPC endpoints.</p>
+   * <p>The registered identity provider’s product related configuration settings such as the subnets to provision VPC endpoints.</p>
    * @public
    */
   Settings?: Settings | undefined;
@@ -1409,17 +1323,13 @@ export interface StartProductSubscriptionRequest {
   IdentityProvider: IdentityProvider | undefined;
 
   /**
-   * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
-   * <code>REMOTE_DESKTOP_SERVICES</code>
-   *          </p>
+   * <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
    * @public
    */
   Product: string | undefined;
 
   /**
-   * <p>The domain name of the  Active Directory that contains the user for whom to start the product
-   * 			subscription.</p>
+   * <p>The domain name of the Active Directory that contains the user for whom to start the product subscription.</p>
    * @public
    */
   Domain?: string | undefined;
@@ -1459,10 +1369,7 @@ export interface StopProductSubscriptionRequest {
   IdentityProvider?: IdentityProvider | undefined;
 
   /**
-   * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
-   * <code>REMOTE_DESKTOP_SERVICES</code>
-   *          </p>
+   * <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
    * @public
    */
   Product?: string | undefined;
@@ -1474,8 +1381,7 @@ export interface StopProductSubscriptionRequest {
   ProductUserArn?: string | undefined;
 
   /**
-   * <p>The domain name of the  Active Directory that contains the user for whom to stop the product
-   * 			subscription.</p>
+   * <p>The domain name of the Active Directory that contains the user for whom to stop the product subscription.</p>
    * @public
    */
   Domain?: string | undefined;
@@ -1537,14 +1443,12 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>Updates the registered identity provider’s product related configuration settings such as
- * 			the subnets to provision VPC endpoints.</p>
+ * <p>Updates the registered identity provider’s product related configuration settings such as the subnets to provision VPC endpoints.</p>
  * @public
  */
 export interface UpdateSettings {
   /**
-   * <p>The ID of one or more subnets in which License Manager will create a VPC endpoint for products that
-   * 			require connectivity to activation servers.</p>
+   * <p>The ID of one or more subnets in which License Manager will create a VPC endpoint for products that require connectivity to activation servers.</p>
    * @public
    */
   AddSubnets: string[] | undefined;
@@ -1556,8 +1460,7 @@ export interface UpdateSettings {
   RemoveSubnets: string[] | undefined;
 
   /**
-   * <p>A security group ID that allows inbound TCP port 1688 communication between resources in
-   * 			your VPC and the VPC endpoints for activation servers.</p>
+   * <p>A security group ID that allows inbound TCP port 1688 communication between resources in your VPC and the VPC endpoints for activation servers.</p>
    * @public
    */
   SecurityGroupId?: string | undefined;
@@ -1574,10 +1477,7 @@ export interface UpdateIdentityProviderSettingsRequest {
   IdentityProvider?: IdentityProvider | undefined;
 
   /**
-   * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
-   * <code>REMOTE_DESKTOP_SERVICES</code>
-   *          </p>
+   * <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
    * @public
    */
   Product?: string | undefined;
@@ -1589,19 +1489,7 @@ export interface UpdateIdentityProviderSettingsRequest {
   IdentityProviderArn?: string | undefined;
 
   /**
-   * <p>Updates the registered identity provider’s product related configuration settings. You can
-   * 			update any combination of settings in a single operation such as the:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Subnets which you want to add to provision VPC endpoints.</p>
-   *             </li>
-   *             <li>
-   *                <p>Subnets which you want to remove the VPC endpoints from.</p>
-   *             </li>
-   *             <li>
-   *                <p>Security group ID which permits traffic to the VPC endpoints.</p>
-   *             </li>
-   *          </ul>
+   * <p>Updates the registered identity provider’s product related configuration settings. You can update any combination of settings in a single operation such as the:</p> <ul> <li> <p>Subnets which you want to add to provision VPC endpoints.</p> </li> <li> <p>Subnets which you want to remove the VPC endpoints from.</p> </li> <li> <p>Security group ID which permits traffic to the VPC endpoints.</p> </li> </ul>
    * @public
    */
   UpdateSettings: UpdateSettings | undefined;

@@ -36,12 +36,7 @@ export interface StartProductSubscriptionCommandInput extends StartProductSubscr
 export interface StartProductSubscriptionCommandOutput extends StartProductSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a product subscription for a user with the specified identity provider.</p>
- *          <note>
- *             <p>Your estimated bill for charges on the number of users and related costs will take 48
- * 			hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your
- * 				monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>
- *          </note>
+ * <p>Starts a product subscription for a user with the specified identity provider.</p> <note> <p>Your estimated bill for charges on the number of users and related costs will take 48 hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +67,7 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  *         },
  *       },
  *       ActiveDirectoryType: "STRING_VALUE",
+ *       IsSharedActiveDirectory: true || false,
  *     },
  *   },
  *   Product: "STRING_VALUE", // required
@@ -106,6 +102,7 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * //           },
  * //         },
  * //         ActiveDirectoryType: "STRING_VALUE",
+ * //         IsSharedActiveDirectory: true || false,
  * //       },
  * //     },
  * //     Status: "STRING_VALUE", // required
@@ -129,8 +126,7 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (server fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the
- * 			resource.</p>
+ *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>

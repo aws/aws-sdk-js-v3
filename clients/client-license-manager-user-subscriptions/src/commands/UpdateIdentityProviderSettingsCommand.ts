@@ -37,8 +37,7 @@ export interface UpdateIdentityProviderSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates additional product configuration settings for the registered identity
- * 			provider.</p>
+ * <p>Updates additional product configuration settings for the registered identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +67,7 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  *         },
  *       },
  *       ActiveDirectoryType: "STRING_VALUE",
+ *       IsSharedActiveDirectory: true || false,
  *     },
  *   },
  *   Product: "STRING_VALUE",
@@ -106,6 +106,7 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * //           },
  * //         },
  * //         ActiveDirectoryType: "STRING_VALUE",
+ * //         IsSharedActiveDirectory: true || false,
  * //       },
  * //     },
  * //     Settings: { // Settings
@@ -118,6 +119,7 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * //     Status: "STRING_VALUE", // required
  * //     IdentityProviderArn: "STRING_VALUE",
  * //     FailureMessage: "STRING_VALUE",
+ * //     OwnerAccountId: "STRING_VALUE",
  * //   },
  * // };
  *

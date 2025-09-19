@@ -64,6 +64,30 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * //       ],
  * //       LastStatusCheckDate: "STRING_VALUE",
  * //       StatusMessage: "STRING_VALUE",
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       IdentityProvider: { // IdentityProvider Union: only one key present
+ * //         ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ * //           DirectoryId: "STRING_VALUE",
+ * //           ActiveDirectorySettings: { // ActiveDirectorySettings
+ * //             DomainName: "STRING_VALUE",
+ * //             DomainIpv4List: [ // IpV4List
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ * //               SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ * //                 SecretId: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             DomainNetworkSettings: { // DomainNetworkSettings
+ * //               Subnets: [ // Subnets // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //           ActiveDirectoryType: "STRING_VALUE",
+ * //           IsSharedActiveDirectory: true || false,
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -81,8 +105,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (server fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the
- * 			resource.</p>
+ *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
