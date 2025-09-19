@@ -36,7 +36,7 @@ buildscript {
 
 dependencies {
     // Smithy TypeScript
-    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.34.1")
+    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.35.0")
 
     // Smithy generic dependencies
     api("software.amazon.smithy:smithy-model:$smithyVersion")
