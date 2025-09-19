@@ -176,6 +176,7 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
           mergedManifest.scripts[
             "generate:client"
           ] = `node ../../scripts/generate-clients/single-service --solo ${serviceName}`;
+          mergedManifest.scripts["build:cjs"] = `node ../../scripts/compilation/inline client-${serviceName}`;
         }
 
         writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
