@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.893.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.892.0...v3.893.0) (2025-09-19)
+
+
+### Features
+
+* **client-connect:** This release adds a persistent connection field to UserPhoneConfig that maintains agent's softphone media connection for faster call connections. ([59e863b](https://github.com/aws/aws-sdk-js-v3/commit/59e863bab77a388cd0dad547f0d0d56d17eeab67))
+
+
+
+
+
 # [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

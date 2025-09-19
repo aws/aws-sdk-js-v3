@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-resource-explorer-2",
   "description": "AWS SDK for JavaScript Resource Explorer 2 Client for Node.js, Browser and React Native",
-  "version": "3.891.0",
+  "version": "3.893.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-resource-explorer-2",

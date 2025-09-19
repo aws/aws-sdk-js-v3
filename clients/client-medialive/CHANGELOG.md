@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.893.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.892.0...v3.893.0) (2025-09-19)
+
+
+### Features
+
+* **client-medialive:** Add MinBitrate for QVBR mode under H264/H265/AV1 output codec. Add GopBReference, GopNumBFrames, SubGopLength fields under H265 output codec. ([25f22be](https://github.com/aws/aws-sdk-js-v3/commit/25f22be24f9da78e6bdcb984915a527cb64f83c9))
+
+
+
+
+
 # [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.893.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.892.0...v3.893.0) (2025-09-19)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Add tagging and VPC support to AgentCore Runtime, Code Interpreter, and Browser resources. Add support for configuring request headers in Runtime. Fix AgentCore Runtime shape names. ([9ab54a2](https://github.com/aws/aws-sdk-js-v3/commit/9ab54a280aa77ee912897f8fe4d7c9210685d55e))
+
+
+
+
+
 # [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

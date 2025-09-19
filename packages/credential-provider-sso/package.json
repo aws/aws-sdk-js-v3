@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-sso",
-  "version": "3.891.0",
+  "version": "3.893.0",
   "description": "AWS credential provider that exchanges a resolved SSO login token file for temporary AWS credentials",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

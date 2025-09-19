@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.893.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.892.0...v3.893.0) (2025-09-19)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Add tagging and VPC support to AgentCore Runtime, Code Interpreter, and Browser resources. Add support for configuring request headers in Runtime. Fix AgentCore Runtime shape names. ([9ab54a2](https://github.com/aws/aws-sdk-js-v3/commit/9ab54a280aa77ee912897f8fe4d7c9210685d55e))
+* **client-config-service:** Add UNKNOWN state to RemediationExecutionState and add IN_PROGRESS/EXITED/UNKNOWN states to RemediationExecutionStepState. ([9b89d93](https://github.com/aws/aws-sdk-js-v3/commit/9b89d93543f9310d64e4ab9fbd29da35d9f8a835))
+* **client-connect:** This release adds a persistent connection field to UserPhoneConfig that maintains agent's softphone media connection for faster call connections. ([59e863b](https://github.com/aws/aws-sdk-js-v3/commit/59e863bab77a388cd0dad547f0d0d56d17eeab67))
+* **client-license-manager-user-subscriptions:** Added support for cross-account Active Directories. ([22e49d1](https://github.com/aws/aws-sdk-js-v3/commit/22e49d10945f9b91bc46fa0ebf60dc17104e82c2))
+* **client-medialive:** Add MinBitrate for QVBR mode under H264/H265/AV1 output codec. Add GopBReference, GopNumBFrames, SubGopLength fields under H265 output codec. ([25f22be](https://github.com/aws/aws-sdk-js-v3/commit/25f22be24f9da78e6bdcb984915a527cb64f83c9))
+* **clients:** update client endpoints as of 2025-09-19 ([3726908](https://github.com/aws/aws-sdk-js-v3/commit/3726908cc3401fce09a760fcaa51a238aab39cdd))
+
+
+
+
+
 # [3.892.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.891.0...v3.892.0) (2025-09-18)
 
 

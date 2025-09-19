@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.893.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.892.0...v3.893.0) (2025-09-19)
+
+
+### Features
+
+* **client-config-service:** Add UNKNOWN state to RemediationExecutionState and add IN_PROGRESS/EXITED/UNKNOWN states to RemediationExecutionStepState. ([9b89d93](https://github.com/aws/aws-sdk-js-v3/commit/9b89d93543f9310d64e4ab9fbd29da35d9f8a835))
+
+
+
+
+
 # [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
 
 **Note:** Version bump only for package @aws-sdk/client-config-service
