@@ -2369,7 +2369,7 @@ const de_BaseException = (output: any, context: __SerdeContext): BaseException =
  */
 const de_BuildSuggestersResponse = (output: any, context: __SerdeContext): BuildSuggestersResponse => {
   const contents: any = {};
-  if (output.FieldNames === "") {
+  if (String(output.FieldNames).trim() === "") {
     contents[_FN] = [];
   } else if (output[_FN] != null && output[_FN][_m] != null) {
     contents[_FN] = de_FieldNameList(__getArrayIfSingleItem(output[_FN][_m]), context);
@@ -2541,7 +2541,7 @@ const de_DeleteSuggesterResponse = (output: any, context: __SerdeContext): Delet
  */
 const de_DescribeAnalysisSchemesResponse = (output: any, context: __SerdeContext): DescribeAnalysisSchemesResponse => {
   const contents: any = {};
-  if (output.AnalysisSchemes === "") {
+  if (String(output.AnalysisSchemes).trim() === "") {
     contents[_ASna] = [];
   } else if (output[_ASna] != null && output[_ASna][_m] != null) {
     contents[_ASna] = de_AnalysisSchemeStatusList(__getArrayIfSingleItem(output[_ASna][_m]), context);
@@ -2582,7 +2582,7 @@ const de_DescribeDomainEndpointOptionsResponse = (
  */
 const de_DescribeDomainsResponse = (output: any, context: __SerdeContext): DescribeDomainsResponse => {
   const contents: any = {};
-  if (output.DomainStatusList === "") {
+  if (String(output.DomainStatusList).trim() === "") {
     contents[_DSL] = [];
   } else if (output[_DSL] != null && output[_DSL][_m] != null) {
     contents[_DSL] = de_DomainStatusList(__getArrayIfSingleItem(output[_DSL][_m]), context);
@@ -2595,7 +2595,7 @@ const de_DescribeDomainsResponse = (output: any, context: __SerdeContext): Descr
  */
 const de_DescribeExpressionsResponse = (output: any, context: __SerdeContext): DescribeExpressionsResponse => {
   const contents: any = {};
-  if (output.Expressions === "") {
+  if (String(output.Expressions).trim() === "") {
     contents[_Ex] = [];
   } else if (output[_Ex] != null && output[_Ex][_m] != null) {
     contents[_Ex] = de_ExpressionStatusList(__getArrayIfSingleItem(output[_Ex][_m]), context);
@@ -2608,7 +2608,7 @@ const de_DescribeExpressionsResponse = (output: any, context: __SerdeContext): D
  */
 const de_DescribeIndexFieldsResponse = (output: any, context: __SerdeContext): DescribeIndexFieldsResponse => {
   const contents: any = {};
-  if (output.IndexFields === "") {
+  if (String(output.IndexFields).trim() === "") {
     contents[_IFn] = [];
   } else if (output[_IFn] != null && output[_IFn][_m] != null) {
     contents[_IFn] = de_IndexFieldStatusList(__getArrayIfSingleItem(output[_IFn][_m]), context);
@@ -2649,7 +2649,7 @@ const de_DescribeServiceAccessPoliciesResponse = (
  */
 const de_DescribeSuggestersResponse = (output: any, context: __SerdeContext): DescribeSuggestersResponse => {
   const contents: any = {};
-  if (output.Suggesters === "") {
+  if (String(output.Suggesters).trim() === "") {
     contents[_Sug] = [];
   } else if (output[_Sug] != null && output[_Sug][_m] != null) {
     contents[_Sug] = de_SuggesterStatusList(__getArrayIfSingleItem(output[_Sug][_m]), context);
@@ -2891,7 +2891,7 @@ const de_FieldNameList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_IndexDocumentsResponse = (output: any, context: __SerdeContext): IndexDocumentsResponse => {
   const contents: any = {};
-  if (output.FieldNames === "") {
+  if (String(output.FieldNames).trim() === "") {
     contents[_FN] = [];
   } else if (output[_FN] != null && output[_FN][_m] != null) {
     contents[_FN] = de_FieldNameList(__getArrayIfSingleItem(output[_FN][_m]), context);
@@ -3107,7 +3107,7 @@ const de_Limits = (output: any, context: __SerdeContext): Limits => {
  */
 const de_ListDomainNamesResponse = (output: any, context: __SerdeContext): ListDomainNamesResponse => {
   const contents: any = {};
-  if (output.DomainNames === "") {
+  if (String(output.DomainNames).trim() === "") {
     contents[_DNo] = {};
   } else if (output[_DNo] != null && output[_DNo][_e] != null) {
     contents[_DNo] = de_DomainNameMap(__getArrayIfSingleItem(output[_DNo][_e]), context);

@@ -5884,7 +5884,7 @@ const de_Actions = (output: any, context: __SerdeContext): Action[] => {
  */
 const de_AddListenerCertificatesOutput = (output: any, context: __SerdeContext): AddListenerCertificatesOutput => {
   const contents: any = {};
-  if (output.Certificates === "") {
+  if (String(output.Certificates).trim() === "") {
     contents[_C] = [];
   } else if (output[_C] != null && output[_C][_m] != null) {
     contents[_C] = de_CertificateList(__getArrayIfSingleItem(output[_C][_m]), context);
@@ -5905,7 +5905,7 @@ const de_AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput =
  */
 const de_AddTrustStoreRevocationsOutput = (output: any, context: __SerdeContext): AddTrustStoreRevocationsOutput => {
   const contents: any = {};
-  if (output.TrustStoreRevocations === "") {
+  if (String(output.TrustStoreRevocations).trim() === "") {
     contents[_TSR] = [];
   } else if (output[_TSR] != null && output[_TSR][_m] != null) {
     contents[_TSR] = de_TrustStoreRevocations(__getArrayIfSingleItem(output[_TSR][_m]), context);
@@ -6016,7 +6016,7 @@ const de_AuthenticateCognitoActionConfig = (output: any, context: __SerdeContext
   if (output[_ST] != null) {
     contents[_ST] = __strictParseLong(output[_ST]) as number;
   }
-  if (output.AuthenticationRequestExtraParams === "") {
+  if (String(output.AuthenticationRequestExtraParams).trim() === "") {
     contents[_AREP] = {};
   } else if (output[_AREP] != null && output[_AREP][_e] != null) {
     contents[_AREP] = de_AuthenticateCognitoActionAuthenticationRequestExtraParams(
@@ -6078,7 +6078,7 @@ const de_AuthenticateOidcActionConfig = (output: any, context: __SerdeContext): 
   if (output[_ST] != null) {
     contents[_ST] = __strictParseLong(output[_ST]) as number;
   }
-  if (output.AuthenticationRequestExtraParams === "") {
+  if (String(output.AuthenticationRequestExtraParams).trim() === "") {
     contents[_AREP] = {};
   } else if (output[_AREP] != null && output[_AREP][_e] != null) {
     contents[_AREP] = de_AuthenticateOidcActionAuthenticationRequestExtraParams(
@@ -6109,12 +6109,12 @@ const de_AvailabilityZone = (output: any, context: __SerdeContext): Availability
   if (output[_OI] != null) {
     contents[_OI] = __expectString(output[_OI]);
   }
-  if (output.LoadBalancerAddresses === "") {
+  if (String(output.LoadBalancerAddresses).trim() === "") {
     contents[_LBAoa] = [];
   } else if (output[_LBAoa] != null && output[_LBAoa][_m] != null) {
     contents[_LBAoa] = de_LoadBalancerAddresses(__getArrayIfSingleItem(output[_LBAoa][_m]), context);
   }
-  if (output.SourceNatIpv6Prefixes === "") {
+  if (String(output.SourceNatIpv6Prefixes).trim() === "") {
     contents[_SNIPo] = [];
   } else if (output[_SNIPo] != null && output[_SNIPo][_m] != null) {
     contents[_SNIPo] = de_SourceNatIpv6Prefixes(__getArrayIfSingleItem(output[_SNIPo][_m]), context);
@@ -6283,7 +6283,7 @@ const de_Ciphers = (output: any, context: __SerdeContext): Cipher[] => {
  */
 const de_CreateListenerOutput = (output: any, context: __SerdeContext): CreateListenerOutput => {
   const contents: any = {};
-  if (output.Listeners === "") {
+  if (String(output.Listeners).trim() === "") {
     contents[_L] = [];
   } else if (output[_L] != null && output[_L][_m] != null) {
     contents[_L] = de_Listeners(__getArrayIfSingleItem(output[_L][_m]), context);
@@ -6296,7 +6296,7 @@ const de_CreateListenerOutput = (output: any, context: __SerdeContext): CreateLi
  */
 const de_CreateLoadBalancerOutput = (output: any, context: __SerdeContext): CreateLoadBalancerOutput => {
   const contents: any = {};
-  if (output.LoadBalancers === "") {
+  if (String(output.LoadBalancers).trim() === "") {
     contents[_LB] = [];
   } else if (output[_LB] != null && output[_LB][_m] != null) {
     contents[_LB] = de_LoadBalancers(__getArrayIfSingleItem(output[_LB][_m]), context);
@@ -6309,7 +6309,7 @@ const de_CreateLoadBalancerOutput = (output: any, context: __SerdeContext): Crea
  */
 const de_CreateRuleOutput = (output: any, context: __SerdeContext): CreateRuleOutput => {
   const contents: any = {};
-  if (output.Rules === "") {
+  if (String(output.Rules).trim() === "") {
     contents[_Ru] = [];
   } else if (output[_Ru] != null && output[_Ru][_m] != null) {
     contents[_Ru] = de_Rules(__getArrayIfSingleItem(output[_Ru][_m]), context);
@@ -6322,7 +6322,7 @@ const de_CreateRuleOutput = (output: any, context: __SerdeContext): CreateRuleOu
  */
 const de_CreateTargetGroupOutput = (output: any, context: __SerdeContext): CreateTargetGroupOutput => {
   const contents: any = {};
-  if (output.TargetGroups === "") {
+  if (String(output.TargetGroups).trim() === "") {
     contents[_TG] = [];
   } else if (output[_TG] != null && output[_TG][_m] != null) {
     contents[_TG] = de_TargetGroups(__getArrayIfSingleItem(output[_TG][_m]), context);
@@ -6335,7 +6335,7 @@ const de_CreateTargetGroupOutput = (output: any, context: __SerdeContext): Creat
  */
 const de_CreateTrustStoreOutput = (output: any, context: __SerdeContext): CreateTrustStoreOutput => {
   const contents: any = {};
-  if (output.TrustStores === "") {
+  if (String(output.TrustStores).trim() === "") {
     contents[_TS] = [];
   } else if (output[_TS] != null && output[_TS][_m] != null) {
     contents[_TS] = de_TrustStores(__getArrayIfSingleItem(output[_TS][_m]), context);
@@ -6421,7 +6421,7 @@ const de_DeregisterTargetsOutput = (output: any, context: __SerdeContext): Dereg
  */
 const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): DescribeAccountLimitsOutput => {
   const contents: any = {};
-  if (output.Limits === "") {
+  if (String(output.Limits).trim() === "") {
     contents[_Li] = [];
   } else if (output[_Li] != null && output[_Li][_m] != null) {
     contents[_Li] = de_Limits(__getArrayIfSingleItem(output[_Li][_m]), context);
@@ -6449,7 +6449,7 @@ const de_DescribeCapacityReservationOutput = (
   if (output[_MLBC] != null) {
     contents[_MLBC] = de_MinimumLoadBalancerCapacity(output[_MLBC], context);
   }
-  if (output.CapacityReservationState === "") {
+  if (String(output.CapacityReservationState).trim() === "") {
     contents[_CRS] = [];
   } else if (output[_CRS] != null && output[_CRS][_m] != null) {
     contents[_CRS] = de_ZonalCapacityReservationStates(__getArrayIfSingleItem(output[_CRS][_m]), context);
@@ -6465,7 +6465,7 @@ const de_DescribeListenerAttributesOutput = (
   context: __SerdeContext
 ): DescribeListenerAttributesOutput => {
   const contents: any = {};
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = [];
   } else if (output[_At] != null && output[_At][_m] != null) {
     contents[_At] = de_ListenerAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
@@ -6481,7 +6481,7 @@ const de_DescribeListenerCertificatesOutput = (
   context: __SerdeContext
 ): DescribeListenerCertificatesOutput => {
   const contents: any = {};
-  if (output.Certificates === "") {
+  if (String(output.Certificates).trim() === "") {
     contents[_C] = [];
   } else if (output[_C] != null && output[_C][_m] != null) {
     contents[_C] = de_CertificateList(__getArrayIfSingleItem(output[_C][_m]), context);
@@ -6497,7 +6497,7 @@ const de_DescribeListenerCertificatesOutput = (
  */
 const de_DescribeListenersOutput = (output: any, context: __SerdeContext): DescribeListenersOutput => {
   const contents: any = {};
-  if (output.Listeners === "") {
+  if (String(output.Listeners).trim() === "") {
     contents[_L] = [];
   } else if (output[_L] != null && output[_L][_m] != null) {
     contents[_L] = de_Listeners(__getArrayIfSingleItem(output[_L][_m]), context);
@@ -6516,7 +6516,7 @@ const de_DescribeLoadBalancerAttributesOutput = (
   context: __SerdeContext
 ): DescribeLoadBalancerAttributesOutput => {
   const contents: any = {};
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = [];
   } else if (output[_At] != null && output[_At][_m] != null) {
     contents[_At] = de_LoadBalancerAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
@@ -6529,7 +6529,7 @@ const de_DescribeLoadBalancerAttributesOutput = (
  */
 const de_DescribeLoadBalancersOutput = (output: any, context: __SerdeContext): DescribeLoadBalancersOutput => {
   const contents: any = {};
-  if (output.LoadBalancers === "") {
+  if (String(output.LoadBalancers).trim() === "") {
     contents[_LB] = [];
   } else if (output[_LB] != null && output[_LB][_m] != null) {
     contents[_LB] = de_LoadBalancers(__getArrayIfSingleItem(output[_LB][_m]), context);
@@ -6545,7 +6545,7 @@ const de_DescribeLoadBalancersOutput = (output: any, context: __SerdeContext): D
  */
 const de_DescribeRulesOutput = (output: any, context: __SerdeContext): DescribeRulesOutput => {
   const contents: any = {};
-  if (output.Rules === "") {
+  if (String(output.Rules).trim() === "") {
     contents[_Ru] = [];
   } else if (output[_Ru] != null && output[_Ru][_m] != null) {
     contents[_Ru] = de_Rules(__getArrayIfSingleItem(output[_Ru][_m]), context);
@@ -6561,7 +6561,7 @@ const de_DescribeRulesOutput = (output: any, context: __SerdeContext): DescribeR
  */
 const de_DescribeSSLPoliciesOutput = (output: any, context: __SerdeContext): DescribeSSLPoliciesOutput => {
   const contents: any = {};
-  if (output.SslPolicies === "") {
+  if (String(output.SslPolicies).trim() === "") {
     contents[_SPs] = [];
   } else if (output[_SPs] != null && output[_SPs][_m] != null) {
     contents[_SPs] = de_SslPolicies(__getArrayIfSingleItem(output[_SPs][_m]), context);
@@ -6577,7 +6577,7 @@ const de_DescribeSSLPoliciesOutput = (output: any, context: __SerdeContext): Des
  */
 const de_DescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
   const contents: any = {};
-  if (output.TagDescriptions === "") {
+  if (String(output.TagDescriptions).trim() === "") {
     contents[_TD] = [];
   } else if (output[_TD] != null && output[_TD][_m] != null) {
     contents[_TD] = de_TagDescriptions(__getArrayIfSingleItem(output[_TD][_m]), context);
@@ -6593,7 +6593,7 @@ const de_DescribeTargetGroupAttributesOutput = (
   context: __SerdeContext
 ): DescribeTargetGroupAttributesOutput => {
   const contents: any = {};
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = [];
   } else if (output[_At] != null && output[_At][_m] != null) {
     contents[_At] = de_TargetGroupAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
@@ -6606,7 +6606,7 @@ const de_DescribeTargetGroupAttributesOutput = (
  */
 const de_DescribeTargetGroupsOutput = (output: any, context: __SerdeContext): DescribeTargetGroupsOutput => {
   const contents: any = {};
-  if (output.TargetGroups === "") {
+  if (String(output.TargetGroups).trim() === "") {
     contents[_TG] = [];
   } else if (output[_TG] != null && output[_TG][_m] != null) {
     contents[_TG] = de_TargetGroups(__getArrayIfSingleItem(output[_TG][_m]), context);
@@ -6622,7 +6622,7 @@ const de_DescribeTargetGroupsOutput = (output: any, context: __SerdeContext): De
  */
 const de_DescribeTargetHealthOutput = (output: any, context: __SerdeContext): DescribeTargetHealthOutput => {
   const contents: any = {};
-  if (output.TargetHealthDescriptions === "") {
+  if (String(output.TargetHealthDescriptions).trim() === "") {
     contents[_THD] = [];
   } else if (output[_THD] != null && output[_THD][_m] != null) {
     contents[_THD] = de_TargetHealthDescriptions(__getArrayIfSingleItem(output[_THD][_m]), context);
@@ -6638,7 +6638,7 @@ const de_DescribeTrustStoreAssociationsOutput = (
   context: __SerdeContext
 ): DescribeTrustStoreAssociationsOutput => {
   const contents: any = {};
-  if (output.TrustStoreAssociations === "") {
+  if (String(output.TrustStoreAssociations).trim() === "") {
     contents[_TSAru] = [];
   } else if (output[_TSAru] != null && output[_TSAru][_m] != null) {
     contents[_TSAru] = de_TrustStoreAssociations(__getArrayIfSingleItem(output[_TSAru][_m]), context);
@@ -6691,7 +6691,7 @@ const de_DescribeTrustStoreRevocationsOutput = (
   context: __SerdeContext
 ): DescribeTrustStoreRevocationsOutput => {
   const contents: any = {};
-  if (output.TrustStoreRevocations === "") {
+  if (String(output.TrustStoreRevocations).trim() === "") {
     contents[_TSR] = [];
   } else if (output[_TSR] != null && output[_TSR][_m] != null) {
     contents[_TSR] = de_DescribeTrustStoreRevocationResponse(__getArrayIfSingleItem(output[_TSR][_m]), context);
@@ -6707,7 +6707,7 @@ const de_DescribeTrustStoreRevocationsOutput = (
  */
 const de_DescribeTrustStoresOutput = (output: any, context: __SerdeContext): DescribeTrustStoresOutput => {
   const contents: any = {};
-  if (output.TrustStores === "") {
+  if (String(output.TrustStores).trim() === "") {
     contents[_TS] = [];
   } else if (output[_TS] != null && output[_TS][_m] != null) {
     contents[_TS] = de_TrustStores(__getArrayIfSingleItem(output[_TS][_m]), context);
@@ -6804,7 +6804,7 @@ const de_FixedResponseActionConfig = (output: any, context: __SerdeContext): Fix
  */
 const de_ForwardActionConfig = (output: any, context: __SerdeContext): ForwardActionConfig => {
   const contents: any = {};
-  if (output.TargetGroups === "") {
+  if (String(output.TargetGroups).trim() === "") {
     contents[_TG] = [];
   } else if (output[_TG] != null && output[_TG][_m] != null) {
     contents[_TG] = de_TargetGroupList(__getArrayIfSingleItem(output[_TG][_m]), context);
@@ -6870,7 +6870,7 @@ const de_HealthUnavailableException = (output: any, context: __SerdeContext): He
  */
 const de_HostHeaderConditionConfig = (output: any, context: __SerdeContext): HostHeaderConditionConfig => {
   const contents: any = {};
-  if (output.Values === "") {
+  if (String(output.Values).trim() === "") {
     contents[_Va] = [];
   } else if (output[_Va] != null && output[_Va][_m] != null) {
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
@@ -6886,7 +6886,7 @@ const de_HttpHeaderConditionConfig = (output: any, context: __SerdeContext): Htt
   if (output[_HHN] != null) {
     contents[_HHN] = __expectString(output[_HHN]);
   }
-  if (output.Values === "") {
+  if (String(output.Values).trim() === "") {
     contents[_Va] = [];
   } else if (output[_Va] != null && output[_Va][_m] != null) {
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
@@ -6902,7 +6902,7 @@ const de_HttpRequestMethodConditionConfig = (
   context: __SerdeContext
 ): HttpRequestMethodConditionConfig => {
   const contents: any = {};
-  if (output.Values === "") {
+  if (String(output.Values).trim() === "") {
     contents[_Va] = [];
   } else if (output[_Va] != null && output[_Va][_m] != null) {
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
@@ -7085,7 +7085,7 @@ const de_Listener = (output: any, context: __SerdeContext): Listener => {
   if (output[_P] != null) {
     contents[_P] = __expectString(output[_P]);
   }
-  if (output.Certificates === "") {
+  if (String(output.Certificates).trim() === "") {
     contents[_C] = [];
   } else if (output[_C] != null && output[_C][_m] != null) {
     contents[_C] = de_CertificateList(__getArrayIfSingleItem(output[_C][_m]), context);
@@ -7093,12 +7093,12 @@ const de_Listener = (output: any, context: __SerdeContext): Listener => {
   if (output[_SP] != null) {
     contents[_SP] = __expectString(output[_SP]);
   }
-  if (output.DefaultActions === "") {
+  if (String(output.DefaultActions).trim() === "") {
     contents[_DA] = [];
   } else if (output[_DA] != null && output[_DA][_m] != null) {
     contents[_DA] = de_Actions(__getArrayIfSingleItem(output[_DA][_m]), context);
   }
-  if (output.AlpnPolicy === "") {
+  if (String(output.AlpnPolicy).trim() === "") {
     contents[_AP] = [];
   } else if (output[_AP] != null && output[_AP][_m] != null) {
     contents[_AP] = de_AlpnPolicyName(__getArrayIfSingleItem(output[_AP][_m]), context);
@@ -7199,12 +7199,12 @@ const de_LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => 
   if (output[_T] != null) {
     contents[_T] = __expectString(output[_T]);
   }
-  if (output.AvailabilityZones === "") {
+  if (String(output.AvailabilityZones).trim() === "") {
     contents[_AZv] = [];
   } else if (output[_AZv] != null && output[_AZv][_m] != null) {
     contents[_AZv] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZv][_m]), context);
   }
-  if (output.SecurityGroups === "") {
+  if (String(output.SecurityGroups).trim() === "") {
     contents[_SG] = [];
   } else if (output[_SG] != null && output[_SG][_m] != null) {
     contents[_SG] = de_SecurityGroups(__getArrayIfSingleItem(output[_SG][_m]), context);
@@ -7369,7 +7369,7 @@ const de_ModifyCapacityReservationOutput = (output: any, context: __SerdeContext
   if (output[_MLBC] != null) {
     contents[_MLBC] = de_MinimumLoadBalancerCapacity(output[_MLBC], context);
   }
-  if (output.CapacityReservationState === "") {
+  if (String(output.CapacityReservationState).trim() === "") {
     contents[_CRS] = [];
   } else if (output[_CRS] != null && output[_CRS][_m] != null) {
     contents[_CRS] = de_ZonalCapacityReservationStates(__getArrayIfSingleItem(output[_CRS][_m]), context);
@@ -7393,7 +7393,7 @@ const de_ModifyIpPoolsOutput = (output: any, context: __SerdeContext): ModifyIpP
  */
 const de_ModifyListenerAttributesOutput = (output: any, context: __SerdeContext): ModifyListenerAttributesOutput => {
   const contents: any = {};
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = [];
   } else if (output[_At] != null && output[_At][_m] != null) {
     contents[_At] = de_ListenerAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
@@ -7406,7 +7406,7 @@ const de_ModifyListenerAttributesOutput = (output: any, context: __SerdeContext)
  */
 const de_ModifyListenerOutput = (output: any, context: __SerdeContext): ModifyListenerOutput => {
   const contents: any = {};
-  if (output.Listeners === "") {
+  if (String(output.Listeners).trim() === "") {
     contents[_L] = [];
   } else if (output[_L] != null && output[_L][_m] != null) {
     contents[_L] = de_Listeners(__getArrayIfSingleItem(output[_L][_m]), context);
@@ -7422,7 +7422,7 @@ const de_ModifyLoadBalancerAttributesOutput = (
   context: __SerdeContext
 ): ModifyLoadBalancerAttributesOutput => {
   const contents: any = {};
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = [];
   } else if (output[_At] != null && output[_At][_m] != null) {
     contents[_At] = de_LoadBalancerAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
@@ -7435,7 +7435,7 @@ const de_ModifyLoadBalancerAttributesOutput = (
  */
 const de_ModifyRuleOutput = (output: any, context: __SerdeContext): ModifyRuleOutput => {
   const contents: any = {};
-  if (output.Rules === "") {
+  if (String(output.Rules).trim() === "") {
     contents[_Ru] = [];
   } else if (output[_Ru] != null && output[_Ru][_m] != null) {
     contents[_Ru] = de_Rules(__getArrayIfSingleItem(output[_Ru][_m]), context);
@@ -7451,7 +7451,7 @@ const de_ModifyTargetGroupAttributesOutput = (
   context: __SerdeContext
 ): ModifyTargetGroupAttributesOutput => {
   const contents: any = {};
-  if (output.Attributes === "") {
+  if (String(output.Attributes).trim() === "") {
     contents[_At] = [];
   } else if (output[_At] != null && output[_At][_m] != null) {
     contents[_At] = de_TargetGroupAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
@@ -7464,7 +7464,7 @@ const de_ModifyTargetGroupAttributesOutput = (
  */
 const de_ModifyTargetGroupOutput = (output: any, context: __SerdeContext): ModifyTargetGroupOutput => {
   const contents: any = {};
-  if (output.TargetGroups === "") {
+  if (String(output.TargetGroups).trim() === "") {
     contents[_TG] = [];
   } else if (output[_TG] != null && output[_TG][_m] != null) {
     contents[_TG] = de_TargetGroups(__getArrayIfSingleItem(output[_TG][_m]), context);
@@ -7477,7 +7477,7 @@ const de_ModifyTargetGroupOutput = (output: any, context: __SerdeContext): Modif
  */
 const de_ModifyTrustStoreOutput = (output: any, context: __SerdeContext): ModifyTrustStoreOutput => {
   const contents: any = {};
-  if (output.TrustStores === "") {
+  if (String(output.TrustStores).trim() === "") {
     contents[_TS] = [];
   } else if (output[_TS] != null && output[_TS][_m] != null) {
     contents[_TS] = de_TrustStores(__getArrayIfSingleItem(output[_TS][_m]), context);
@@ -7524,7 +7524,7 @@ const de_OperationNotPermittedException = (output: any, context: __SerdeContext)
  */
 const de_PathPatternConditionConfig = (output: any, context: __SerdeContext): PathPatternConditionConfig => {
   const contents: any = {};
-  if (output.Values === "") {
+  if (String(output.Values).trim() === "") {
     contents[_Va] = [];
   } else if (output[_Va] != null && output[_Va][_m] != null) {
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
@@ -7562,7 +7562,7 @@ const de_PriorRequestNotCompleteException = (
  */
 const de_QueryStringConditionConfig = (output: any, context: __SerdeContext): QueryStringConditionConfig => {
   const contents: any = {};
-  if (output.Values === "") {
+  if (String(output.Values).trim() === "") {
     contents[_Va] = [];
   } else if (output[_Va] != null && output[_Va][_m] != null) {
     contents[_Va] = de_QueryStringKeyValuePairList(__getArrayIfSingleItem(output[_Va][_m]), context);
@@ -7717,12 +7717,12 @@ const de_Rule = (output: any, context: __SerdeContext): Rule => {
   if (output[_Pr] != null) {
     contents[_Pr] = __expectString(output[_Pr]);
   }
-  if (output.Conditions === "") {
+  if (String(output.Conditions).trim() === "") {
     contents[_Co] = [];
   } else if (output[_Co] != null && output[_Co][_m] != null) {
     contents[_Co] = de_RuleConditionList(__getArrayIfSingleItem(output[_Co][_m]), context);
   }
-  if (output.Actions === "") {
+  if (String(output.Actions).trim() === "") {
     contents[_Ac] = [];
   } else if (output[_Ac] != null && output[_Ac][_m] != null) {
     contents[_Ac] = de_Actions(__getArrayIfSingleItem(output[_Ac][_m]), context);
@@ -7741,7 +7741,7 @@ const de_RuleCondition = (output: any, context: __SerdeContext): RuleCondition =
   if (output[_F] != null) {
     contents[_F] = __expectString(output[_F]);
   }
-  if (output.Values === "") {
+  if (String(output.Values).trim() === "") {
     contents[_Va] = [];
   } else if (output[_Va] != null && output[_Va][_m] != null) {
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
@@ -7827,7 +7827,7 @@ const de_SetIpAddressTypeOutput = (output: any, context: __SerdeContext): SetIpA
  */
 const de_SetRulePrioritiesOutput = (output: any, context: __SerdeContext): SetRulePrioritiesOutput => {
   const contents: any = {};
-  if (output.Rules === "") {
+  if (String(output.Rules).trim() === "") {
     contents[_Ru] = [];
   } else if (output[_Ru] != null && output[_Ru][_m] != null) {
     contents[_Ru] = de_Rules(__getArrayIfSingleItem(output[_Ru][_m]), context);
@@ -7840,7 +7840,7 @@ const de_SetRulePrioritiesOutput = (output: any, context: __SerdeContext): SetRu
  */
 const de_SetSecurityGroupsOutput = (output: any, context: __SerdeContext): SetSecurityGroupsOutput => {
   const contents: any = {};
-  if (output.SecurityGroupIds === "") {
+  if (String(output.SecurityGroupIds).trim() === "") {
     contents[_SGI] = [];
   } else if (output[_SGI] != null && output[_SGI][_m] != null) {
     contents[_SGI] = de_SecurityGroups(__getArrayIfSingleItem(output[_SGI][_m]), context);
@@ -7856,7 +7856,7 @@ const de_SetSecurityGroupsOutput = (output: any, context: __SerdeContext): SetSe
  */
 const de_SetSubnetsOutput = (output: any, context: __SerdeContext): SetSubnetsOutput => {
   const contents: any = {};
-  if (output.AvailabilityZones === "") {
+  if (String(output.AvailabilityZones).trim() === "") {
     contents[_AZv] = [];
   } else if (output[_AZv] != null && output[_AZv][_m] != null) {
     contents[_AZv] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZv][_m]), context);
@@ -7875,7 +7875,7 @@ const de_SetSubnetsOutput = (output: any, context: __SerdeContext): SetSubnetsOu
  */
 const de_SourceIpConditionConfig = (output: any, context: __SerdeContext): SourceIpConditionConfig => {
   const contents: any = {};
-  if (output.Values === "") {
+  if (String(output.Values).trim() === "") {
     contents[_Va] = [];
   } else if (output[_Va] != null && output[_Va][_m] != null) {
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
@@ -7910,12 +7910,12 @@ const de_SslPolicies = (output: any, context: __SerdeContext): SslPolicy[] => {
  */
 const de_SslPolicy = (output: any, context: __SerdeContext): SslPolicy => {
   const contents: any = {};
-  if (output.SslProtocols === "") {
+  if (String(output.SslProtocols).trim() === "") {
     contents[_SPsl] = [];
   } else if (output[_SPsl] != null && output[_SPsl][_m] != null) {
     contents[_SPsl] = de_SslProtocols(__getArrayIfSingleItem(output[_SPsl][_m]), context);
   }
-  if (output.Ciphers === "") {
+  if (String(output.Ciphers).trim() === "") {
     contents[_Ci] = [];
   } else if (output[_Ci] != null && output[_Ci][_m] != null) {
     contents[_Ci] = de_Ciphers(__getArrayIfSingleItem(output[_Ci][_m]), context);
@@ -7923,7 +7923,7 @@ const de_SslPolicy = (output: any, context: __SerdeContext): SslPolicy => {
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
   }
-  if (output.SupportedLoadBalancerTypes === "") {
+  if (String(output.SupportedLoadBalancerTypes).trim() === "") {
     contents[_SLBT] = [];
   } else if (output[_SLBT] != null && output[_SLBT][_m] != null) {
     contents[_SLBT] = de_ListOfString(__getArrayIfSingleItem(output[_SLBT][_m]), context);
@@ -7986,7 +7986,7 @@ const de_TagDescription = (output: any, context: __SerdeContext): TagDescription
   if (output[_RAe] != null) {
     contents[_RAe] = __expectString(output[_RAe]);
   }
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_Ta] != null && output[_Ta][_m] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_Ta][_m]), context);
@@ -8080,7 +8080,7 @@ const de_TargetGroup = (output: any, context: __SerdeContext): TargetGroup => {
   if (output[_M] != null) {
     contents[_M] = de_Matcher(output[_M], context);
   }
-  if (output.LoadBalancerArns === "") {
+  if (String(output.LoadBalancerArns).trim() === "") {
     contents[_LBAo] = [];
   } else if (output[_LBAo] != null && output[_LBAo][_m] != null) {
     contents[_LBAo] = de_LoadBalancerArns(__getArrayIfSingleItem(output[_LBAo][_m]), context);

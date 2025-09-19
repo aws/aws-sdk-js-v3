@@ -2462,7 +2462,7 @@ export const de_GetCheckerIpRangesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CheckerIpRanges === "") {
+  if (String(data.CheckerIpRanges).trim() === "") {
     contents[_CIR] = [];
   } else if (data[_CIR] != null && data[_CIR][_me] != null) {
     contents[_CIR] = de_CheckerIpRanges(__getArrayIfSingleItem(data[_CIR][_me]), context);
@@ -2484,7 +2484,7 @@ export const de_GetDNSSECCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.KeySigningKeys === "") {
+  if (String(data.KeySigningKeys).trim() === "") {
     contents[_KSKe] = [];
   } else if (data[_KSKe] != null && data[_KSKe][_me] != null) {
     contents[_KSKe] = de_KeySigningKeys(__getArrayIfSingleItem(data[_KSKe][_me]), context);
@@ -2569,7 +2569,7 @@ export const de_GetHealthCheckLastFailureReasonCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HealthCheckObservations === "") {
+  if (String(data.HealthCheckObservations).trim() === "") {
     contents[_HCO] = [];
   } else if (data[_HCO] != null && data[_HCO][_HCOe] != null) {
     contents[_HCO] = de_HealthCheckObservations(__getArrayIfSingleItem(data[_HCO][_HCOe]), context);
@@ -2591,7 +2591,7 @@ export const de_GetHealthCheckStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HealthCheckObservations === "") {
+  if (String(data.HealthCheckObservations).trim() === "") {
     contents[_HCO] = [];
   } else if (data[_HCO] != null && data[_HCO][_HCOe] != null) {
     contents[_HCO] = de_HealthCheckObservations(__getArrayIfSingleItem(data[_HCO][_HCOe]), context);
@@ -2619,7 +2619,7 @@ export const de_GetHostedZoneCommand = async (
   if (data[_HZ] != null) {
     contents[_HZ] = de_HostedZone(data[_HZ], context);
   }
-  if (data.VPCs === "") {
+  if (String(data.VPCs).trim() === "") {
     contents[_VPCs] = [];
   } else if (data[_VPCs] != null && data[_VPCs][_VPC] != null) {
     contents[_VPCs] = de_VPCs(__getArrayIfSingleItem(data[_VPCs][_VPC]), context);
@@ -2807,7 +2807,7 @@ export const de_ListCidrBlocksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CidrBlocks === "") {
+  if (String(data.CidrBlocks).trim() === "") {
     contents[_CBi] = [];
   } else if (data[_CBi] != null && data[_CBi][_me] != null) {
     contents[_CBi] = de_CidrBlockSummaries(__getArrayIfSingleItem(data[_CBi][_me]), context);
@@ -2832,7 +2832,7 @@ export const de_ListCidrCollectionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CidrCollections === "") {
+  if (String(data.CidrCollections).trim() === "") {
     contents[_CCi] = [];
   } else if (data[_CCi] != null && data[_CCi][_me] != null) {
     contents[_CCi] = de_CollectionSummaries(__getArrayIfSingleItem(data[_CCi][_me]), context);
@@ -2857,7 +2857,7 @@ export const de_ListCidrLocationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CidrLocations === "") {
+  if (String(data.CidrLocations).trim() === "") {
     contents[_CL] = [];
   } else if (data[_CL] != null && data[_CL][_me] != null) {
     contents[_CL] = de_LocationSummaries(__getArrayIfSingleItem(data[_CL][_me]), context);
@@ -2882,7 +2882,7 @@ export const de_ListGeoLocationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GeoLocationDetailsList === "") {
+  if (String(data.GeoLocationDetailsList).trim() === "") {
     contents[_GLDL] = [];
   } else if (data[_GLDL] != null && data[_GLDL][_GLD] != null) {
     contents[_GLDL] = de_GeoLocationDetailsList(__getArrayIfSingleItem(data[_GLDL][_GLD]), context);
@@ -2919,7 +2919,7 @@ export const de_ListHealthChecksCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HealthChecks === "") {
+  if (String(data.HealthChecks).trim() === "") {
     contents[_HCe] = [];
   } else if (data[_HCe] != null && data[_HCe][_HC] != null) {
     contents[_HCe] = de_HealthChecks(__getArrayIfSingleItem(data[_HCe][_HC]), context);
@@ -2953,7 +2953,7 @@ export const de_ListHostedZonesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HostedZones === "") {
+  if (String(data.HostedZones).trim() === "") {
     contents[_HZo] = [];
   } else if (data[_HZo] != null && data[_HZo][_HZ] != null) {
     contents[_HZo] = de_HostedZones(__getArrayIfSingleItem(data[_HZo][_HZ]), context);
@@ -2993,7 +2993,7 @@ export const de_ListHostedZonesByNameCommand = async (
   if (data[_HZI] != null) {
     contents[_HZI] = __expectString(data[_HZI]);
   }
-  if (data.HostedZones === "") {
+  if (String(data.HostedZones).trim() === "") {
     contents[_HZo] = [];
   } else if (data[_HZo] != null && data[_HZo][_HZ] != null) {
     contents[_HZo] = de_HostedZones(__getArrayIfSingleItem(data[_HZo][_HZ]), context);
@@ -3027,7 +3027,7 @@ export const de_ListHostedZonesByVPCCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.HostedZoneSummaries === "") {
+  if (String(data.HostedZoneSummaries).trim() === "") {
     contents[_HZS] = [];
   } else if (data[_HZS] != null && data[_HZS][_HZSo] != null) {
     contents[_HZS] = de_HostedZoneSummaries(__getArrayIfSingleItem(data[_HZS][_HZSo]), context);
@@ -3058,7 +3058,7 @@ export const de_ListQueryLoggingConfigsCommand = async (
   if (data[_NT] != null) {
     contents[_NT] = __expectString(data[_NT]);
   }
-  if (data.QueryLoggingConfigs === "") {
+  if (String(data.QueryLoggingConfigs).trim() === "") {
     contents[_QLCu] = [];
   } else if (data[_QLCu] != null && data[_QLCu][_QLC] != null) {
     contents[_QLCu] = de_QueryLoggingConfigs(__getArrayIfSingleItem(data[_QLCu][_QLC]), context);
@@ -3095,7 +3095,7 @@ export const de_ListResourceRecordSetsCommand = async (
   if (data[_NRT] != null) {
     contents[_NRT] = __expectString(data[_NRT]);
   }
-  if (data.ResourceRecordSets === "") {
+  if (String(data.ResourceRecordSets).trim() === "") {
     contents[_RRS] = [];
   } else if (data[_RRS] != null && data[_RRS][_RRSe] != null) {
     contents[_RRS] = de_ResourceRecordSets(__getArrayIfSingleItem(data[_RRS][_RRSe]), context);
@@ -3117,7 +3117,7 @@ export const de_ListReusableDelegationSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DelegationSets === "") {
+  if (String(data.DelegationSets).trim() === "") {
     contents[_DSe] = [];
   } else if (data[_DSe] != null && data[_DSe][_DS] != null) {
     contents[_DSe] = de_DelegationSets(__getArrayIfSingleItem(data[_DSe][_DS]), context);
@@ -3171,7 +3171,7 @@ export const de_ListTagsForResourcesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourceTagSets === "") {
+  if (String(data.ResourceTagSets).trim() === "") {
     contents[_RTSe] = [];
   } else if (data[_RTSe] != null && data[_RTSe][_RTS] != null) {
     contents[_RTSe] = de_ResourceTagSetList(__getArrayIfSingleItem(data[_RTSe][_RTS]), context);
@@ -3202,7 +3202,7 @@ export const de_ListTrafficPoliciesCommand = async (
   if (data[_TPIM] != null) {
     contents[_TPIM] = __expectString(data[_TPIM]);
   }
-  if (data.TrafficPolicySummaries === "") {
+  if (String(data.TrafficPolicySummaries).trim() === "") {
     contents[_TPS] = [];
   } else if (data[_TPS] != null && data[_TPS][_TPSr] != null) {
     contents[_TPS] = de_TrafficPolicySummaries(__getArrayIfSingleItem(data[_TPS][_TPSr]), context);
@@ -3239,7 +3239,7 @@ export const de_ListTrafficPolicyInstancesCommand = async (
   if (data[_TPITM] != null) {
     contents[_TPITM] = __expectString(data[_TPITM]);
   }
-  if (data.TrafficPolicyInstances === "") {
+  if (String(data.TrafficPolicyInstances).trim() === "") {
     contents[_TPIra] = [];
   } else if (data[_TPIra] != null && data[_TPIra][_TPIr] != null) {
     contents[_TPIra] = de_TrafficPolicyInstances(__getArrayIfSingleItem(data[_TPIra][_TPIr]), context);
@@ -3273,7 +3273,7 @@ export const de_ListTrafficPolicyInstancesByHostedZoneCommand = async (
   if (data[_TPITM] != null) {
     contents[_TPITM] = __expectString(data[_TPITM]);
   }
-  if (data.TrafficPolicyInstances === "") {
+  if (String(data.TrafficPolicyInstances).trim() === "") {
     contents[_TPIra] = [];
   } else if (data[_TPIra] != null && data[_TPIra][_TPIr] != null) {
     contents[_TPIra] = de_TrafficPolicyInstances(__getArrayIfSingleItem(data[_TPIra][_TPIr]), context);
@@ -3310,7 +3310,7 @@ export const de_ListTrafficPolicyInstancesByPolicyCommand = async (
   if (data[_TPITM] != null) {
     contents[_TPITM] = __expectString(data[_TPITM]);
   }
-  if (data.TrafficPolicyInstances === "") {
+  if (String(data.TrafficPolicyInstances).trim() === "") {
     contents[_TPIra] = [];
   } else if (data[_TPIra] != null && data[_TPIra][_TPIr] != null) {
     contents[_TPIra] = de_TrafficPolicyInstances(__getArrayIfSingleItem(data[_TPIra][_TPIr]), context);
@@ -3338,7 +3338,7 @@ export const de_ListTrafficPolicyVersionsCommand = async (
   if (data[_MI] != null) {
     contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data.TrafficPolicies === "") {
+  if (String(data.TrafficPolicies).trim() === "") {
     contents[_TPr] = [];
   } else if (data[_TPr] != null && data[_TPr][_TP] != null) {
     contents[_TPr] = de_TrafficPolicies(__getArrayIfSingleItem(data[_TPr][_TP]), context);
@@ -3369,7 +3369,7 @@ export const de_ListVPCAssociationAuthorizationsCommand = async (
   if (data[_NT] != null) {
     contents[_NT] = __expectString(data[_NT]);
   }
-  if (data.VPCs === "") {
+  if (String(data.VPCs).trim() === "") {
     contents[_VPCs] = [];
   } else if (data[_VPCs] != null && data[_VPCs][_VPC] != null) {
     contents[_VPCs] = de_VPCs(__getArrayIfSingleItem(data[_VPCs][_VPC]), context);
@@ -3397,7 +3397,7 @@ export const de_TestDNSAnswerCommand = async (
   if (data[_Pr] != null) {
     contents[_Pr] = __expectString(data[_Pr]);
   }
-  if (data.RecordData === "") {
+  if (String(data.RecordData).trim() === "") {
     contents[_RDe] = [];
   } else if (data[_RDe] != null && data[_RDe][_RDE] != null) {
     contents[_RDe] = de_RecordData(__getArrayIfSingleItem(data[_RDe][_RDE]), context);
@@ -4163,7 +4163,7 @@ const de_InvalidChangeBatchRes = async (parsedOutput: any, context: __SerdeConte
   if (data[_mes] != null) {
     contents[_mes] = __expectString(data[_mes]);
   }
-  if (data.messages === "") {
+  if (String(data.messages).trim() === "") {
     contents[_mess] = [];
   } else if (data[_mess] != null && data[_mess][_Me] != null) {
     contents[_mess] = de_ErrorMessages(__getArrayIfSingleItem(data[_mess][_Me]), context);
@@ -5518,7 +5518,7 @@ const de_CloudWatchAlarmConfiguration = (output: any, context: __SerdeContext): 
   if (output[_St] != null) {
     contents[_St] = __expectString(output[_St]);
   }
-  if (output.Dimensions === "") {
+  if (String(output.Dimensions).trim() === "") {
     contents[_Dim] = [];
   } else if (output[_Dim] != null && output[_Dim][_Dime] != null) {
     contents[_Dim] = de_DimensionList(__getArrayIfSingleItem(output[_Dim][_Dime]), context);
@@ -5582,7 +5582,7 @@ const de_DelegationSet = (output: any, context: __SerdeContext): DelegationSet =
   if (output[_CR] != null) {
     contents[_CR] = __expectString(output[_CR]);
   }
-  if (output.NameServers === "") {
+  if (String(output.NameServers).trim() === "") {
     contents[_NS] = [];
   } else if (output[_NS] != null && output[_NS][_NSa] != null) {
     contents[_NS] = de_DelegationSetNameServers(__getArrayIfSingleItem(output[_NS][_NSa]), context);
@@ -5803,7 +5803,7 @@ const de_HealthCheckConfig = (output: any, context: __SerdeContext): HealthCheck
   if (output[_HT] != null) {
     contents[_HT] = __strictParseInt32(output[_HT]) as number;
   }
-  if (output.ChildHealthChecks === "") {
+  if (String(output.ChildHealthChecks).trim() === "") {
     contents[_CHC] = [];
   } else if (output[_CHC] != null && output[_CHC][_CHCh] != null) {
     contents[_CHC] = de_ChildHealthCheckList(__getArrayIfSingleItem(output[_CHC][_CHCh]), context);
@@ -5811,7 +5811,7 @@ const de_HealthCheckConfig = (output: any, context: __SerdeContext): HealthCheck
   if (output[_ESNI] != null) {
     contents[_ESNI] = __parseBoolean(output[_ESNI]);
   }
-  if (output.Regions === "") {
+  if (String(output.Regions).trim() === "") {
     contents[_R] = [];
   } else if (output[_R] != null && output[_R][_Re] != null) {
     contents[_R] = de_HealthCheckRegionList(__getArrayIfSingleItem(output[_R][_Re]), context);
@@ -6181,7 +6181,7 @@ const de_ResourceRecordSet = (output: any, context: __SerdeContext): ResourceRec
   if (output[_TTL] != null) {
     contents[_TTL] = __strictParseLong(output[_TTL]) as number;
   }
-  if (output.ResourceRecords === "") {
+  if (String(output.ResourceRecords).trim() === "") {
     contents[_RRe] = [];
   } else if (output[_RRe] != null && output[_RRe][_RR] != null) {
     contents[_RRe] = de_ResourceRecords(__getArrayIfSingleItem(output[_RRe][_RR]), context);
@@ -6226,7 +6226,7 @@ const de_ResourceTagSet = (output: any, context: __SerdeContext): ResourceTagSet
   if (output[_RI] != null) {
     contents[_RI] = __expectString(output[_RI]);
   }
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_Tag] = [];
   } else if (output[_Tag] != null && output[_Tag][_Ta] != null) {
     contents[_Tag] = de_TagList(__getArrayIfSingleItem(output[_Tag][_Ta]), context);

@@ -1962,7 +1962,7 @@ export const de_FlattenedXmlMapCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.myMap === "") {
+  if (String(data.myMap).trim() === "") {
     contents[_mM] = {};
   } else if (data[_mM] != null) {
     contents[_mM] = de_FooEnumMap(__getArrayIfSingleItem(data[_mM]), context);
@@ -1984,7 +1984,7 @@ export const de_FlattenedXmlMapWithXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.KVP === "") {
+  if (String(data.KVP).trim() === "") {
     contents[_mM] = {};
   } else if (data[_KVP] != null) {
     contents[_mM] = de_FlattenedXmlMapWithXmlNameInputOutputMap(__getArrayIfSingleItem(data[_KVP]), context);
@@ -2006,7 +2006,7 @@ export const de_FlattenedXmlMapWithXmlNamespaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.KVP === "") {
+  if (String(data.KVP).trim() === "") {
     contents[_mM] = {};
   } else if (data[_KVP] != null) {
     contents[_mM] = de_FlattenedXmlMapWithXmlNamespaceOutputMap(__getArrayIfSingleItem(data[_KVP]), context);
@@ -2466,12 +2466,12 @@ export const de_NestedXmlMapsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.flatNestedMap === "") {
+  if (String(data.flatNestedMap).trim() === "") {
     contents[_fNM] = {};
   } else if (data[_fNM] != null) {
     contents[_fNM] = de_NestedMap(__getArrayIfSingleItem(data[_fNM]), context);
   }
-  if (data.nestedMap === "") {
+  if (String(data.nestedMap).trim() === "") {
     contents[_nM] = {};
   } else if (data[_nM] != null && data[_nM][_en] != null) {
     contents[_nM] = de_NestedMap(__getArrayIfSingleItem(data[_nM][_en]), context);
@@ -2493,7 +2493,7 @@ export const de_NestedXmlMapWithXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nestedXmlMapWithXmlNameMap === "") {
+  if (String(data.nestedXmlMapWithXmlNameMap).trim() === "") {
     contents[_nXMWXNM] = {};
   } else if (data[_nXMWXNM] != null && data[_nXMWXNM][_en] != null) {
     contents[_nXMWXNM] = de_NestedXmlMapWithXmlNameMap(__getArrayIfSingleItem(data[_nXMWXNM][_en]), context);
@@ -2862,77 +2862,77 @@ export const de_XmlEmptyListsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.booleanList === "") {
+  if (String(data.booleanList).trim() === "") {
     contents[_bL] = [];
   } else if (data[_bL] != null && data[_bL][_m] != null) {
     contents[_bL] = de_BooleanList(__getArrayIfSingleItem(data[_bL][_m]), context);
   }
-  if (data.enumList === "") {
+  if (String(data.enumList).trim() === "") {
     contents[_eL] = [];
   } else if (data[_eL] != null && data[_eL][_m] != null) {
     contents[_eL] = de_FooEnumList(__getArrayIfSingleItem(data[_eL][_m]), context);
   }
-  if (data.flattenedList === "") {
+  if (String(data.flattenedList).trim() === "") {
     contents[_fL] = [];
   } else if (data[_fL] != null) {
     contents[_fL] = de_RenamedListMembers(__getArrayIfSingleItem(data[_fL]), context);
   }
-  if (data.customName === "") {
+  if (String(data.customName).trim() === "") {
     contents[_fLl] = [];
   } else if (data[_cN] != null) {
     contents[_fLl] = de_RenamedListMembers(__getArrayIfSingleItem(data[_cN]), context);
   }
-  if (data.flattenedListWithMemberNamespace === "") {
+  if (String(data.flattenedListWithMemberNamespace).trim() === "") {
     contents[_fLWMN] = [];
   } else if (data[_fLWMN] != null) {
     contents[_fLWMN] = de_ListWithMemberNamespace(__getArrayIfSingleItem(data[_fLWMN]), context);
   }
-  if (data.flattenedListWithNamespace === "") {
+  if (String(data.flattenedListWithNamespace).trim() === "") {
     contents[_fLWN] = [];
   } else if (data[_fLWN] != null) {
     contents[_fLWN] = de_ListWithNamespace(__getArrayIfSingleItem(data[_fLWN]), context);
   }
-  if (data.flattenedStructureList === "") {
+  if (String(data.flattenedStructureList).trim() === "") {
     contents[_fSL] = [];
   } else if (data[_fSL] != null) {
     contents[_fSL] = de_StructureList(__getArrayIfSingleItem(data[_fSL]), context);
   }
-  if (data.intEnumList === "") {
+  if (String(data.intEnumList).trim() === "") {
     contents[_iEL] = [];
   } else if (data[_iEL] != null && data[_iEL][_m] != null) {
     contents[_iEL] = de_IntegerEnumList(__getArrayIfSingleItem(data[_iEL][_m]), context);
   }
-  if (data.integerList === "") {
+  if (String(data.integerList).trim() === "") {
     contents[_iL] = [];
   } else if (data[_iL] != null && data[_iL][_m] != null) {
     contents[_iL] = de_IntegerList(__getArrayIfSingleItem(data[_iL][_m]), context);
   }
-  if (data.nestedStringList === "") {
+  if (String(data.nestedStringList).trim() === "") {
     contents[_nSL] = [];
   } else if (data[_nSL] != null && data[_nSL][_m] != null) {
     contents[_nSL] = de_NestedStringList(__getArrayIfSingleItem(data[_nSL][_m]), context);
   }
-  if (data.renamed === "") {
+  if (String(data.renamed).trim() === "") {
     contents[_rLM] = [];
   } else if (data[_r] != null && data[_r][_i] != null) {
     contents[_rLM] = de_RenamedListMembers(__getArrayIfSingleItem(data[_r][_i]), context);
   }
-  if (data.stringList === "") {
+  if (String(data.stringList).trim() === "") {
     contents[_sL] = [];
   } else if (data[_sL] != null && data[_sL][_m] != null) {
     contents[_sL] = de_StringList(__getArrayIfSingleItem(data[_sL][_m]), context);
   }
-  if (data.stringSet === "") {
+  if (String(data.stringSet).trim() === "") {
     contents[_sS] = [];
   } else if (data[_sS] != null && data[_sS][_m] != null) {
     contents[_sS] = de_StringSet(__getArrayIfSingleItem(data[_sS][_m]), context);
   }
-  if (data.myStructureList === "") {
+  if (String(data.myStructureList).trim() === "") {
     contents[_sLt] = [];
   } else if (data[_mSL] != null && data[_mSL][_i] != null) {
     contents[_sLt] = de_StructureList(__getArrayIfSingleItem(data[_mSL][_i]), context);
   }
-  if (data.timestampList === "") {
+  if (String(data.timestampList).trim() === "") {
     contents[_tL] = [];
   } else if (data[_tL] != null && data[_tL][_m] != null) {
     contents[_tL] = de_TimestampList(__getArrayIfSingleItem(data[_tL][_m]), context);
@@ -2954,7 +2954,7 @@ export const de_XmlEmptyMapsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.myMap === "") {
+  if (String(data.myMap).trim() === "") {
     contents[_mM] = {};
   } else if (data[_mM] != null && data[_mM][_en] != null) {
     contents[_mM] = de_XmlMapsInputOutputMap(__getArrayIfSingleItem(data[_mM][_en]), context);
@@ -3005,17 +3005,17 @@ export const de_XmlEnumsCommand = async (
   if (data[_fEoo] != null) {
     contents[_fEoo] = __expectString(data[_fEoo]);
   }
-  if (data.fooEnumList === "") {
+  if (String(data.fooEnumList).trim() === "") {
     contents[_fEL] = [];
   } else if (data[_fEL] != null && data[_fEL][_m] != null) {
     contents[_fEL] = de_FooEnumList(__getArrayIfSingleItem(data[_fEL][_m]), context);
   }
-  if (data.fooEnumMap === "") {
+  if (String(data.fooEnumMap).trim() === "") {
     contents[_fEM] = {};
   } else if (data[_fEM] != null && data[_fEM][_en] != null) {
     contents[_fEM] = de_FooEnumMap(__getArrayIfSingleItem(data[_fEM][_en]), context);
   }
-  if (data.fooEnumSet === "") {
+  if (String(data.fooEnumSet).trim() === "") {
     contents[_fES] = [];
   } else if (data[_fES] != null && data[_fES][_m] != null) {
     contents[_fES] = de_FooEnumSet(__getArrayIfSingleItem(data[_fES][_m]), context);
@@ -3046,17 +3046,17 @@ export const de_XmlIntEnumsCommand = async (
   if (data[_iEnt] != null) {
     contents[_iEnt] = __strictParseInt32(data[_iEnt]) as number;
   }
-  if (data.intEnumList === "") {
+  if (String(data.intEnumList).trim() === "") {
     contents[_iEL] = [];
   } else if (data[_iEL] != null && data[_iEL][_m] != null) {
     contents[_iEL] = de_IntegerEnumList(__getArrayIfSingleItem(data[_iEL][_m]), context);
   }
-  if (data.intEnumMap === "") {
+  if (String(data.intEnumMap).trim() === "") {
     contents[_iEM] = {};
   } else if (data[_iEM] != null && data[_iEM][_en] != null) {
     contents[_iEM] = de_IntegerEnumMap(__getArrayIfSingleItem(data[_iEM][_en]), context);
   }
-  if (data.intEnumSet === "") {
+  if (String(data.intEnumSet).trim() === "") {
     contents[_iES] = [];
   } else if (data[_iES] != null && data[_iES][_m] != null) {
     contents[_iES] = de_IntegerEnumSet(__getArrayIfSingleItem(data[_iES][_m]), context);
@@ -3078,77 +3078,77 @@ export const de_XmlListsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.booleanList === "") {
+  if (String(data.booleanList).trim() === "") {
     contents[_bL] = [];
   } else if (data[_bL] != null && data[_bL][_m] != null) {
     contents[_bL] = de_BooleanList(__getArrayIfSingleItem(data[_bL][_m]), context);
   }
-  if (data.enumList === "") {
+  if (String(data.enumList).trim() === "") {
     contents[_eL] = [];
   } else if (data[_eL] != null && data[_eL][_m] != null) {
     contents[_eL] = de_FooEnumList(__getArrayIfSingleItem(data[_eL][_m]), context);
   }
-  if (data.flattenedList === "") {
+  if (String(data.flattenedList).trim() === "") {
     contents[_fL] = [];
   } else if (data[_fL] != null) {
     contents[_fL] = de_RenamedListMembers(__getArrayIfSingleItem(data[_fL]), context);
   }
-  if (data.customName === "") {
+  if (String(data.customName).trim() === "") {
     contents[_fLl] = [];
   } else if (data[_cN] != null) {
     contents[_fLl] = de_RenamedListMembers(__getArrayIfSingleItem(data[_cN]), context);
   }
-  if (data.flattenedListWithMemberNamespace === "") {
+  if (String(data.flattenedListWithMemberNamespace).trim() === "") {
     contents[_fLWMN] = [];
   } else if (data[_fLWMN] != null) {
     contents[_fLWMN] = de_ListWithMemberNamespace(__getArrayIfSingleItem(data[_fLWMN]), context);
   }
-  if (data.flattenedListWithNamespace === "") {
+  if (String(data.flattenedListWithNamespace).trim() === "") {
     contents[_fLWN] = [];
   } else if (data[_fLWN] != null) {
     contents[_fLWN] = de_ListWithNamespace(__getArrayIfSingleItem(data[_fLWN]), context);
   }
-  if (data.flattenedStructureList === "") {
+  if (String(data.flattenedStructureList).trim() === "") {
     contents[_fSL] = [];
   } else if (data[_fSL] != null) {
     contents[_fSL] = de_StructureList(__getArrayIfSingleItem(data[_fSL]), context);
   }
-  if (data.intEnumList === "") {
+  if (String(data.intEnumList).trim() === "") {
     contents[_iEL] = [];
   } else if (data[_iEL] != null && data[_iEL][_m] != null) {
     contents[_iEL] = de_IntegerEnumList(__getArrayIfSingleItem(data[_iEL][_m]), context);
   }
-  if (data.integerList === "") {
+  if (String(data.integerList).trim() === "") {
     contents[_iL] = [];
   } else if (data[_iL] != null && data[_iL][_m] != null) {
     contents[_iL] = de_IntegerList(__getArrayIfSingleItem(data[_iL][_m]), context);
   }
-  if (data.nestedStringList === "") {
+  if (String(data.nestedStringList).trim() === "") {
     contents[_nSL] = [];
   } else if (data[_nSL] != null && data[_nSL][_m] != null) {
     contents[_nSL] = de_NestedStringList(__getArrayIfSingleItem(data[_nSL][_m]), context);
   }
-  if (data.renamed === "") {
+  if (String(data.renamed).trim() === "") {
     contents[_rLM] = [];
   } else if (data[_r] != null && data[_r][_i] != null) {
     contents[_rLM] = de_RenamedListMembers(__getArrayIfSingleItem(data[_r][_i]), context);
   }
-  if (data.stringList === "") {
+  if (String(data.stringList).trim() === "") {
     contents[_sL] = [];
   } else if (data[_sL] != null && data[_sL][_m] != null) {
     contents[_sL] = de_StringList(__getArrayIfSingleItem(data[_sL][_m]), context);
   }
-  if (data.stringSet === "") {
+  if (String(data.stringSet).trim() === "") {
     contents[_sS] = [];
   } else if (data[_sS] != null && data[_sS][_m] != null) {
     contents[_sS] = de_StringSet(__getArrayIfSingleItem(data[_sS][_m]), context);
   }
-  if (data.myStructureList === "") {
+  if (String(data.myStructureList).trim() === "") {
     contents[_sLt] = [];
   } else if (data[_mSL] != null && data[_mSL][_i] != null) {
     contents[_sLt] = de_StructureList(__getArrayIfSingleItem(data[_mSL][_i]), context);
   }
-  if (data.timestampList === "") {
+  if (String(data.timestampList).trim() === "") {
     contents[_tL] = [];
   } else if (data[_tL] != null && data[_tL][_m] != null) {
     contents[_tL] = de_TimestampList(__getArrayIfSingleItem(data[_tL][_m]), context);
@@ -3170,7 +3170,7 @@ export const de_XmlMapsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.myMap === "") {
+  if (String(data.myMap).trim() === "") {
     contents[_mM] = {};
   } else if (data[_mM] != null && data[_mM][_en] != null) {
     contents[_mM] = de_XmlMapsInputOutputMap(__getArrayIfSingleItem(data[_mM][_en]), context);
@@ -3192,7 +3192,7 @@ export const de_XmlMapsXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.myMap === "") {
+  if (String(data.myMap).trim() === "") {
     contents[_mM] = {};
   } else if (data[_mM] != null && data[_mM][_en] != null) {
     contents[_mM] = de_XmlMapsXmlNameInputOutputMap(__getArrayIfSingleItem(data[_mM][_en]), context);
@@ -3214,7 +3214,7 @@ export const de_XmlMapWithXmlNamespaceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.KVP === "") {
+  if (String(data.KVP).trim() === "") {
     contents[_mM] = {};
   } else if (data[_KVP] != null && data[_KVP][_en] != null) {
     contents[_mM] = de_XmlMapWithXmlNamespaceInputOutputMap(__getArrayIfSingleItem(data[_KVP][_en]), context);
@@ -3294,7 +3294,7 @@ export const de_XmlUnionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.unionValue === "") {
+  if (String(data.unionValue).trim() === "") {
     // Pass empty tags.
   } else if (data[_uV] != null) {
     contents[_uV] = de_XmlUnionShape(__expectUnion(data[_uV]), context);
@@ -4277,7 +4277,7 @@ const de_XmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespa
   if (output[_f] != null) {
     contents[_f] = __expectString(output[_f]);
   }
-  if (output.values === "") {
+  if (String(output.values).trim() === "") {
     contents[_va] = [];
   } else if (output[_va] != null && output[_va][_m] != null) {
     contents[_va] = de_XmlNamespacedList(__getArrayIfSingleItem(output[_va][_m]), context);
@@ -4361,7 +4361,7 @@ const de_XmlUnionShape = (output: any, context: __SerdeContext): XmlUnionShape =
       doubleValue: __strictParseFloat(output[_dV]) as number,
     };
   }
-  if (output.unionValue === "") {
+  if (String(output.unionValue).trim() === "") {
     // Pass empty tags.
   } else if (output[_uV] != null) {
     return {

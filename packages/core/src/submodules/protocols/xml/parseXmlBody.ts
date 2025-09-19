@@ -1,6 +1,6 @@
+import { parseXML } from "@aws-sdk/xml-builder";
 import { getValueFromTextNode } from "@smithy/smithy-client";
 import type { HttpResponse, SerdeContext } from "@smithy/types";
-import { XMLParser } from "fast-xml-parser";
 
 import { collectBodyString } from "../common";
 
@@ -10,21 +10,9 @@ import { collectBodyString } from "../common";
 export const parseXmlBody = (streamBody: any, context: SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parser = new XMLParser({
-        attributeNamePrefix: "",
-        htmlEntities: true,
-        ignoreAttributes: false,
-        ignoreDeclaration: true,
-        parseTagValue: false,
-        trimValues: false,
-        tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
-      });
-      parser.addEntity("#xD", "\r");
-      parser.addEntity("#10", "\n");
-
       let parsedObj;
       try {
-        parsedObj = parser.parse(encoded, true);
+        parsedObj = parseXML(encoded);
       } catch (e: any) {
         if (e && typeof e === "object") {
           Object.defineProperty(e, "$responseBodyText", {

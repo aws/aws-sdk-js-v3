@@ -23538,7 +23538,6 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    fast-xml-parser: "npm:5.2.5"
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -25010,6 +25009,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
+    fast-xml-parser: "npm:5.2.5"
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -31142,6 +31142,7 @@ __metadata:
     vitest: "npm:^3.2.4"
     webpack: "npm:5.101.0"
     webpack-cli: "npm:4.10.0"
+    xmldom: "npm:^0.6.0"
     yargs: "npm:17.5.1"
   languageName: unknown
   linkType: soft
@@ -42536,6 +42537,13 @@ __metadata:
     utf-8-validate:
       optional: true
   checksum: 10c0/bd7d5f4aaf04fae7960c23dcb6c6375d525e00f795dd20b9385902bd008c40a94d3db3ce97d878acc7573df852056ca546328b27b39f47609f80fb22a0a9b61d
+  languageName: node
+  linkType: hard
+
+"xmldom@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "xmldom@npm:0.6.0"
+  checksum: 10c0/93cbb4854f73f431a402e7942baa87a59e8445fd0b4ae6bf6af3a1007809e849da8ac70bbe1509242212bce5d19e30b55ea282cbd9d87281701d1bdc13b74623
   languageName: node
   linkType: hard
 

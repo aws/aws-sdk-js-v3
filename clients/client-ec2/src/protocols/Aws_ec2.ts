@@ -60617,7 +60617,7 @@ const de_AcceptVpcEndpointConnectionsResult = (
   context: __SerdeContext
 ): AcceptVpcEndpointConnectionsResult => {
   const contents: any = {};
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_UnsuccessfulItemSet(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -60653,7 +60653,7 @@ const de_AccessScopeAnalysisFinding = (output: any, context: __SerdeContext): Ac
   if (output[_fI] != null) {
     contents[_FIi] = __expectString(output[_fI]);
   }
-  if (output.findingComponentSet === "") {
+  if (String(output.findingComponentSet).trim() === "") {
     contents[_FCi] = [];
   } else if (output[_fCS] != null && output[_fCS][_i] != null) {
     contents[_FCi] = de_PathComponentList(__getArrayIfSingleItem(output[_fCS][_i]), context);
@@ -60683,7 +60683,7 @@ const de_AccessScopePath = (output: any, context: __SerdeContext): AccessScopePa
   if (output[_d] != null) {
     contents[_D] = de_PathStatement(output[_d], context);
   }
-  if (output.throughResourceSet === "") {
+  if (String(output.throughResourceSet).trim() === "") {
     contents[_TR] = [];
   } else if (output[_tRS] != null && output[_tRS][_i] != null) {
     contents[_TR] = de_ThroughResourcesStatementList(__getArrayIfSingleItem(output[_tRS][_i]), context);
@@ -60710,7 +60710,7 @@ const de_AccountAttribute = (output: any, context: __SerdeContext): AccountAttri
   if (output[_aN] != null) {
     contents[_ANt] = __expectString(output[_aN]);
   }
-  if (output.attributeValueSet === "") {
+  if (String(output.attributeValueSet).trim() === "") {
     contents[_AVt] = [];
   } else if (output[_aVS] != null && output[_aVS][_i] != null) {
     contents[_AVt] = de_AccountAttributeValueList(__getArrayIfSingleItem(output[_aVS][_i]), context);
@@ -60862,17 +60862,17 @@ const de_AdditionalDetail = (output: any, context: __SerdeContext): AdditionalDe
   if (output[_vES] != null) {
     contents[_VESp] = de_AnalysisComponent(output[_vES], context);
   }
-  if (output.ruleOptionSet === "") {
+  if (String(output.ruleOptionSet).trim() === "") {
     contents[_ROu] = [];
   } else if (output[_rOS] != null && output[_rOS][_i] != null) {
     contents[_ROu] = de_RuleOptionList(__getArrayIfSingleItem(output[_rOS][_i]), context);
   }
-  if (output.ruleGroupTypePairSet === "") {
+  if (String(output.ruleGroupTypePairSet).trim() === "") {
     contents[_RGTP] = [];
   } else if (output[_rGTPS] != null && output[_rGTPS][_i] != null) {
     contents[_RGTP] = de_RuleGroupTypePairList(__getArrayIfSingleItem(output[_rGTPS][_i]), context);
   }
-  if (output.ruleGroupRuleOptionsPairSet === "") {
+  if (String(output.ruleGroupRuleOptionsPairSet).trim() === "") {
     contents[_RGROP] = [];
   } else if (output[_rGROPS] != null && output[_rGROPS][_i] != null) {
     contents[_RGROP] = de_RuleGroupRuleOptionsPairList(__getArrayIfSingleItem(output[_rGROPS][_i]), context);
@@ -60880,7 +60880,7 @@ const de_AdditionalDetail = (output: any, context: __SerdeContext): AdditionalDe
   if (output[_sN] != null) {
     contents[_SNe] = __expectString(output[_sN]);
   }
-  if (output.loadBalancerSet === "") {
+  if (String(output.loadBalancerSet).trim() === "") {
     contents[_LB] = [];
   } else if (output[_lBS] != null && output[_lBS][_i] != null) {
     contents[_LB] = de_AnalysisComponentList(__getArrayIfSingleItem(output[_lBS][_i]), context);
@@ -60922,7 +60922,7 @@ const de_Address = (output: any, context: __SerdeContext): Address => {
   if (output[_pIAr] != null) {
     contents[_PIAr] = __expectString(output[_pIAr]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -61084,7 +61084,7 @@ const de_AllocateAddressResult = (output: any, context: __SerdeContext): Allocat
  */
 const de_AllocateHostsResult = (output: any, context: __SerdeContext): AllocateHostsResult => {
   const contents: any = {};
-  if (output.hostIdSet === "") {
+  if (String(output.hostIdSet).trim() === "") {
     contents[_HI] = [];
   } else if (output[_hIS] != null && output[_hIS][_i] != null) {
     contents[_HI] = de_ResponseHostIdList(__getArrayIfSingleItem(output[_hIS][_i]), context);
@@ -61128,7 +61128,7 @@ const de_AllowedPrincipal = (output: any, context: __SerdeContext): AllowedPrinc
   if (output[_sPI] != null) {
     contents[_SPI] = __expectString(output[_sPI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -61271,12 +61271,12 @@ const de_AnalysisLoadBalancerTarget = (output: any, context: __SerdeContext): An
  */
 const de_AnalysisPacketHeader = (output: any, context: __SerdeContext): AnalysisPacketHeader => {
   const contents: any = {};
-  if (output.destinationAddressSet === "") {
+  if (String(output.destinationAddressSet).trim() === "") {
     contents[_DAes] = [];
   } else if (output[_dAS] != null && output[_dAS][_i] != null) {
     contents[_DAes] = de_IpAddressList(__getArrayIfSingleItem(output[_dAS][_i]), context);
   }
-  if (output.destinationPortRangeSet === "") {
+  if (String(output.destinationPortRangeSet).trim() === "") {
     contents[_DPRe] = [];
   } else if (output[_dPRS] != null && output[_dPRS][_i] != null) {
     contents[_DPRe] = de_PortRangeList(__getArrayIfSingleItem(output[_dPRS][_i]), context);
@@ -61284,12 +61284,12 @@ const de_AnalysisPacketHeader = (output: any, context: __SerdeContext): Analysis
   if (output[_pr] != null) {
     contents[_P] = __expectString(output[_pr]);
   }
-  if (output.sourceAddressSet === "") {
+  if (String(output.sourceAddressSet).trim() === "") {
     contents[_SAo] = [];
   } else if (output[_sAS] != null && output[_sAS][_i] != null) {
     contents[_SAo] = de_IpAddressList(__getArrayIfSingleItem(output[_sAS][_i]), context);
   }
-  if (output.sourcePortRangeSet === "") {
+  if (String(output.sourcePortRangeSet).trim() === "") {
     contents[_SPRo] = [];
   } else if (output[_sPRS] != null && output[_sPRS][_i] != null) {
     contents[_SPRo] = de_PortRangeList(__getArrayIfSingleItem(output[_sPRS][_i]), context);
@@ -61381,7 +61381,7 @@ const de_ApplySecurityGroupsToClientVpnTargetNetworkResult = (
   context: __SerdeContext
 ): ApplySecurityGroupsToClientVpnTargetNetworkResult => {
   const contents: any = {};
-  if (output.securityGroupIds === "") {
+  if (String(output.securityGroupIds).trim() === "") {
     contents[_SGI] = [];
   } else if (output[_sGIe] != null && output[_sGIe][_i] != null) {
     contents[_SGI] = de_ClientVpnSecurityGroupIdSet(__getArrayIfSingleItem(output[_sGIe][_i]), context);
@@ -61480,12 +61480,12 @@ const de_AssignedPrivateIpAddressList = (output: any, context: __SerdeContext): 
  */
 const de_AssignIpv6AddressesResult = (output: any, context: __SerdeContext): AssignIpv6AddressesResult => {
   const contents: any = {};
-  if (output.assignedIpv6Addresses === "") {
+  if (String(output.assignedIpv6Addresses).trim() === "") {
     contents[_AIAs] = [];
   } else if (output[_aIA] != null && output[_aIA][_i] != null) {
     contents[_AIAs] = de_Ipv6AddressList(__getArrayIfSingleItem(output[_aIA][_i]), context);
   }
-  if (output.assignedIpv6PrefixSet === "") {
+  if (String(output.assignedIpv6PrefixSet).trim() === "") {
     contents[_AIP] = [];
   } else if (output[_aIPS] != null && output[_aIPS][_i] != null) {
     contents[_AIP] = de_IpPrefixList(__getArrayIfSingleItem(output[_aIPS][_i]), context);
@@ -61504,12 +61504,12 @@ const de_AssignPrivateIpAddressesResult = (output: any, context: __SerdeContext)
   if (output[_nII] != null) {
     contents[_NII] = __expectString(output[_nII]);
   }
-  if (output.assignedPrivateIpAddressesSet === "") {
+  if (String(output.assignedPrivateIpAddressesSet).trim() === "") {
     contents[_APIAss] = [];
   } else if (output[_aPIAS] != null && output[_aPIAS][_i] != null) {
     contents[_APIAss] = de_AssignedPrivateIpAddressList(__getArrayIfSingleItem(output[_aPIAS][_i]), context);
   }
-  if (output.assignedIpv4PrefixSet === "") {
+  if (String(output.assignedIpv4PrefixSet).trim() === "") {
     contents[_AIPs] = [];
   } else if (output[_aIPSs] != null && output[_aIPSs][_i] != null) {
     contents[_AIPs] = de_Ipv4PrefixesList(__getArrayIfSingleItem(output[_aIPSs][_i]), context);
@@ -61528,7 +61528,7 @@ const de_AssignPrivateNatGatewayAddressResult = (
   if (output[_nGI] != null) {
     contents[_NGI] = __expectString(output[_nGI]);
   }
-  if (output.natGatewayAddressSet === "") {
+  if (String(output.natGatewayAddressSet).trim() === "") {
     contents[_NGA] = [];
   } else if (output[_nGAS] != null && output[_nGAS][_i] != null) {
     contents[_NGA] = de_NatGatewayAddressList(__getArrayIfSingleItem(output[_nGAS][_i]), context);
@@ -61729,7 +61729,7 @@ const de_AssociateNatGatewayAddressResult = (
   if (output[_nGI] != null) {
     contents[_NGI] = __expectString(output[_nGI]);
   }
-  if (output.natGatewayAddressSet === "") {
+  if (String(output.natGatewayAddressSet).trim() === "") {
     contents[_NGA] = [];
   } else if (output[_nGAS] != null && output[_nGAS][_i] != null) {
     contents[_NGA] = de_NatGatewayAddressList(__getArrayIfSingleItem(output[_nGAS][_i]), context);
@@ -61983,7 +61983,7 @@ const de_AttributeSummary = (output: any, context: __SerdeContext): AttributeSum
   if (output[_nOUA] != null) {
     contents[_NOUA] = __strictParseInt32(output[_nOUA]) as number;
   }
-  if (output.regionalSummarySet === "") {
+  if (String(output.regionalSummarySet).trim() === "") {
     contents[_RSeg] = [];
   } else if (output[_rSS] != null && output[_rSS][_i] != null) {
     contents[_RSeg] = de_RegionalSummaryList(__getArrayIfSingleItem(output[_rSS][_i]), context);
@@ -62072,7 +62072,7 @@ const de_AuthorizeSecurityGroupEgressResult = (
   if (output[_r] != null) {
     contents[_Ret] = __parseBoolean(output[_r]);
   }
-  if (output.securityGroupRuleSet === "") {
+  if (String(output.securityGroupRuleSet).trim() === "") {
     contents[_SGR] = [];
   } else if (output[_sGRS] != null && output[_sGRS][_i] != null) {
     contents[_SGR] = de_SecurityGroupRuleList(__getArrayIfSingleItem(output[_sGRS][_i]), context);
@@ -62091,7 +62091,7 @@ const de_AuthorizeSecurityGroupIngressResult = (
   if (output[_r] != null) {
     contents[_Ret] = __parseBoolean(output[_r]);
   }
-  if (output.securityGroupRuleSet === "") {
+  if (String(output.securityGroupRuleSet).trim() === "") {
     contents[_SGR] = [];
   } else if (output[_sGRS] != null && output[_sGRS][_i] != null) {
     contents[_SGR] = de_SecurityGroupRuleList(__getArrayIfSingleItem(output[_sGRS][_i]), context);
@@ -62107,7 +62107,7 @@ const de_AvailabilityZone = (output: any, context: __SerdeContext): Availability
   if (output[_oIS] != null) {
     contents[_OIS] = __expectString(output[_oIS]);
   }
-  if (output.messageSet === "") {
+  if (String(output.messageSet).trim() === "") {
     contents[_Mes] = [];
   } else if (output[_mS] != null && output[_mS][_i] != null) {
     contents[_Mes] = de_AvailabilityZoneMessageList(__getArrayIfSingleItem(output[_mS][_i]), context);
@@ -62183,7 +62183,7 @@ const de_AvailabilityZoneMessageList = (output: any, context: __SerdeContext): A
  */
 const de_AvailableCapacity = (output: any, context: __SerdeContext): AvailableCapacity => {
   const contents: any = {};
-  if (output.availableInstanceCapacity === "") {
+  if (String(output.availableInstanceCapacity).trim() === "") {
     contents[_AIC] = [];
   } else if (output[_aIC] != null && output[_aIC][_i] != null) {
     contents[_AIC] = de_AvailableInstanceCapacityList(__getArrayIfSingleItem(output[_aIC][_i]), context);
@@ -62435,7 +62435,7 @@ const de_ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.asnAssociationSet === "") {
+  if (String(output.asnAssociationSet).trim() === "") {
     contents[_AAsns] = [];
   } else if (output[_aAS] != null && output[_aAS][_i] != null) {
     contents[_AAsns] = de_AsnAssociationSet(__getArrayIfSingleItem(output[_aAS][_i]), context);
@@ -62499,7 +62499,7 @@ const de_CancelCapacityReservationFleetsResult = (
   context: __SerdeContext
 ): CancelCapacityReservationFleetsResult => {
   const contents: any = {};
-  if (output.successfulFleetCancellationSet === "") {
+  if (String(output.successfulFleetCancellationSet).trim() === "") {
     contents[_SFC] = [];
   } else if (output[_sFCS] != null && output[_sFCS][_i] != null) {
     contents[_SFC] = de_CapacityReservationFleetCancellationStateSet(
@@ -62507,7 +62507,7 @@ const de_CancelCapacityReservationFleetsResult = (
       context
     );
   }
-  if (output.failedFleetCancellationSet === "") {
+  if (String(output.failedFleetCancellationSet).trim() === "") {
     contents[_FFC] = [];
   } else if (output[_fFCS] != null && output[_fFCS][_i] != null) {
     contents[_FFC] = de_FailedCapacityReservationFleetCancellationResultSet(
@@ -62607,7 +62607,7 @@ const de_CancelReservedInstancesListingResult = (
   context: __SerdeContext
 ): CancelReservedInstancesListingResult => {
   const contents: any = {};
-  if (output.reservedInstancesListingsSet === "") {
+  if (String(output.reservedInstancesListingsSet).trim() === "") {
     contents[_RIL] = [];
   } else if (output[_rILS] != null && output[_rILS][_i] != null) {
     contents[_RIL] = de_ReservedInstancesListingList(__getArrayIfSingleItem(output[_rILS][_i]), context);
@@ -62665,12 +62665,12 @@ const de_CancelSpotFleetRequestsErrorSet = (
  */
 const de_CancelSpotFleetRequestsResponse = (output: any, context: __SerdeContext): CancelSpotFleetRequestsResponse => {
   const contents: any = {};
-  if (output.successfulFleetRequestSet === "") {
+  if (String(output.successfulFleetRequestSet).trim() === "") {
     contents[_SFR] = [];
   } else if (output[_sFRS] != null && output[_sFRS][_i] != null) {
     contents[_SFR] = de_CancelSpotFleetRequestsSuccessSet(__getArrayIfSingleItem(output[_sFRS][_i]), context);
   }
-  if (output.unsuccessfulFleetRequestSet === "") {
+  if (String(output.unsuccessfulFleetRequestSet).trim() === "") {
     contents[_UFR] = [];
   } else if (output[_uFRS] != null && output[_uFRS][_i] != null) {
     contents[_UFR] = de_CancelSpotFleetRequestsErrorSet(__getArrayIfSingleItem(output[_uFRS][_i]), context);
@@ -62720,7 +62720,7 @@ const de_CancelSpotInstanceRequestsResult = (
   context: __SerdeContext
 ): CancelSpotInstanceRequestsResult => {
   const contents: any = {};
-  if (output.spotInstanceRequestSet === "") {
+  if (String(output.spotInstanceRequestSet).trim() === "") {
     contents[_CSIRa] = [];
   } else if (output[_sIRS] != null && output[_sIRS][_i] != null) {
     contents[_CSIRa] = de_CancelledSpotInstanceRequestList(__getArrayIfSingleItem(output[_sIRS][_i]), context);
@@ -62770,7 +62770,7 @@ const de_CapacityBlock = (output: any, context: __SerdeContext): CapacityBlock =
   if (output[_aZI] != null) {
     contents[_AZI] = __expectString(output[_aZI]);
   }
-  if (output.capacityReservationIdSet === "") {
+  if (String(output.capacityReservationIdSet).trim() === "") {
     contents[_CRIa] = [];
   } else if (output[_cRIS] != null && output[_cRIS][_i] != null) {
     contents[_CRIa] = de_CapacityReservationIdSet(__getArrayIfSingleItem(output[_cRIS][_i]), context);
@@ -62787,7 +62787,7 @@ const de_CapacityBlock = (output: any, context: __SerdeContext): CapacityBlock =
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -63000,7 +63000,7 @@ const de_CapacityBlockStatus = (output: any, context: __SerdeContext): CapacityB
   if (output[_tUC] != null) {
     contents[_TUC] = __strictParseInt32(output[_tUC]) as number;
   }
-  if (output.capacityReservationStatusSet === "") {
+  if (String(output.capacityReservationStatusSet).trim() === "") {
     contents[_CRSap] = [];
   } else if (output[_cRSS] != null && output[_cRSS][_i] != null) {
     contents[_CRSap] = de_CapacityReservationStatusSet(__getArrayIfSingleItem(output[_cRSS][_i]), context);
@@ -63078,7 +63078,7 @@ const de_CapacityReservation = (output: any, context: __SerdeContext): CapacityR
   if (output[_cD] != null) {
     contents[_CDr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cD]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -63092,7 +63092,7 @@ const de_CapacityReservation = (output: any, context: __SerdeContext): CapacityR
   if (output[_pGA] != null) {
     contents[_PGA] = __expectString(output[_pGA]);
   }
-  if (output.capacityAllocationSet === "") {
+  if (String(output.capacityAllocationSet).trim() === "") {
     contents[_CAa] = [];
   } else if (output[_cAS] != null && output[_cAS][_i] != null) {
     contents[_CAa] = de_CapacityAllocations(__getArrayIfSingleItem(output[_cAS][_i]), context);
@@ -63213,12 +63213,12 @@ const de_CapacityReservationFleet = (output: any, context: __SerdeContext): Capa
   if (output[_aSl] != null) {
     contents[_AS] = __expectString(output[_aSl]);
   }
-  if (output.instanceTypeSpecificationSet === "") {
+  if (String(output.instanceTypeSpecificationSet).trim() === "") {
     contents[_ITS] = [];
   } else if (output[_iTSS] != null && output[_iTSS][_i] != null) {
     contents[_ITS] = de_FleetCapacityReservationSet(__getArrayIfSingleItem(output[_iTSS][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -63431,7 +63431,7 @@ const de_CarrierGateway = (output: any, context: __SerdeContext): CarrierGateway
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -63513,7 +63513,7 @@ const de_ClassicLinkDnsSupportList = (output: any, context: __SerdeContext): Cla
  */
 const de_ClassicLinkInstance = (output: any, context: __SerdeContext): ClassicLinkInstance => {
   const contents: any = {};
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_G] = [];
   } else if (output[_gS] != null && output[_gS][_i] != null) {
     contents[_G] = de_GroupIdentifierList(__getArrayIfSingleItem(output[_gS][_i]), context);
@@ -63521,7 +63521,7 @@ const de_ClassicLinkInstance = (output: any, context: __SerdeContext): ClassicLi
   if (output[_iI] != null) {
     contents[_IIn] = __expectString(output[_iI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -63570,7 +63570,7 @@ const de_ClassicLoadBalancers = (output: any, context: __SerdeContext): ClassicL
  */
 const de_ClassicLoadBalancersConfig = (output: any, context: __SerdeContext): ClassicLoadBalancersConfig => {
   const contents: any = {};
-  if (output.classicLoadBalancers === "") {
+  if (String(output.classicLoadBalancers).trim() === "") {
     contents[_CLB] = [];
   } else if (output[_cLB] != null && output[_cLB][_i] != null) {
     contents[_CLB] = de_ClassicLoadBalancers(__getArrayIfSingleItem(output[_cLB][_i]), context);
@@ -63738,7 +63738,7 @@ const de_ClientVpnConnection = (output: any, context: __SerdeContext): ClientVpn
   if (output[_cETo] != null) {
     contents[_CETon] = __expectString(output[_cETo]);
   }
-  if (output.postureComplianceStatusSet === "") {
+  if (String(output.postureComplianceStatusSet).trim() === "") {
     contents[_PCS] = [];
   } else if (output[_pCSS] != null && output[_pCSS][_i] != null) {
     contents[_PCS] = de_ValueStringList(__getArrayIfSingleItem(output[_pCSS][_i]), context);
@@ -63797,7 +63797,7 @@ const de_ClientVpnEndpoint = (output: any, context: __SerdeContext): ClientVpnEn
   if (output[_cCB] != null) {
     contents[_CCB] = __expectString(output[_cCB]);
   }
-  if (output.dnsServer === "") {
+  if (String(output.dnsServer).trim() === "") {
     contents[_DSn] = [];
   } else if (output[_dS] != null && output[_dS][_i] != null) {
     contents[_DSn] = de_ValueStringList(__getArrayIfSingleItem(output[_dS][_i]), context);
@@ -63814,7 +63814,7 @@ const de_ClientVpnEndpoint = (output: any, context: __SerdeContext): ClientVpnEn
   if (output[_vPp] != null) {
     contents[_VP] = __strictParseInt32(output[_vPp]) as number;
   }
-  if (output.associatedTargetNetwork === "") {
+  if (String(output.associatedTargetNetwork).trim() === "") {
     contents[_ATN] = [];
   } else if (output[_aTN] != null && output[_aTN][_i] != null) {
     contents[_ATN] = de_AssociatedTargetNetworkSet(__getArrayIfSingleItem(output[_aTN][_i]), context);
@@ -63822,7 +63822,7 @@ const de_ClientVpnEndpoint = (output: any, context: __SerdeContext): ClientVpnEn
   if (output[_sCA] != null) {
     contents[_SCA] = __expectString(output[_sCA]);
   }
-  if (output.authenticationOptions === "") {
+  if (String(output.authenticationOptions).trim() === "") {
     contents[_AO] = [];
   } else if (output[_aO] != null && output[_aO][_i] != null) {
     contents[_AO] = de_ClientVpnAuthenticationList(__getArrayIfSingleItem(output[_aO][_i]), context);
@@ -63830,12 +63830,12 @@ const de_ClientVpnEndpoint = (output: any, context: __SerdeContext): ClientVpnEn
   if (output[_cLO] != null) {
     contents[_CLO] = de_ConnectionLogResponseOptions(output[_cLO], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
-  if (output.securityGroupIdSet === "") {
+  if (String(output.securityGroupIdSet).trim() === "") {
     contents[_SGI] = [];
   } else if (output[_sGIS] != null && output[_sGIS][_i] != null) {
     contents[_SGI] = de_ClientVpnSecurityGroupIdSet(__getArrayIfSingleItem(output[_sGIS][_i]), context);
@@ -64039,7 +64039,7 @@ const de_CoipPool = (output: any, context: __SerdeContext): CoipPool => {
   if (output[_pIo] != null) {
     contents[_PIo] = __expectString(output[_pIo]);
   }
-  if (output.poolCidrSet === "") {
+  if (String(output.poolCidrSet).trim() === "") {
     contents[_PCo] = [];
   } else if (output[_pCS] != null && output[_pCS][_i] != null) {
     contents[_PCo] = de_ValueStringList(__getArrayIfSingleItem(output[_pCS][_i]), context);
@@ -64047,7 +64047,7 @@ const de_CoipPool = (output: any, context: __SerdeContext): CoipPool => {
   if (output[_lGRTI] != null) {
     contents[_LGRTI] = __expectString(output[_lGRTI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -64120,7 +64120,7 @@ const de_ConnectionNotification = (output: any, context: __SerdeContext): Connec
   if (output[_cNAo] != null) {
     contents[_CNAon] = __expectString(output[_cNAo]);
   }
-  if (output.connectionEvents === "") {
+  if (String(output.connectionEvents).trim() === "") {
     contents[_CEo] = [];
   } else if (output[_cE] != null && output[_cE][_i] != null) {
     contents[_CEo] = de_ValueStringList(__getArrayIfSingleItem(output[_cE][_i]), context);
@@ -64242,7 +64242,7 @@ const de_ConversionTask = (output: any, context: __SerdeContext): ConversionTask
   if (output[_sMt] != null) {
     contents[_SMt] = __expectString(output[_sMt]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -64277,7 +64277,7 @@ const de_CopyImageResult = (output: any, context: __SerdeContext): CopyImageResu
  */
 const de_CopySnapshotResult = (output: any, context: __SerdeContext): CopySnapshotResult => {
   const contents: any = {};
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -64332,7 +64332,7 @@ const de_CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
  */
 const de_CpuPerformanceFactor = (output: any, context: __SerdeContext): CpuPerformanceFactor => {
   const contents: any = {};
-  if (output.referenceSet === "") {
+  if (String(output.referenceSet).trim() === "") {
     contents[_R] = [];
   } else if (output[_rS] != null && output[_rS][_i] != null) {
     contents[_R] = de_PerformanceFactorReferenceSet(__getArrayIfSingleItem(output[_rS][_i]), context);
@@ -64395,12 +64395,12 @@ const de_CreateCapacityReservationFleetResult = (
   if (output[_t] != null) {
     contents[_Te] = __expectString(output[_t]);
   }
-  if (output.fleetCapacityReservationSet === "") {
+  if (String(output.fleetCapacityReservationSet).trim() === "") {
     contents[_FCR] = [];
   } else if (output[_fCRS] != null && output[_fCRS][_i] != null) {
     contents[_FCR] = de_FleetCapacityReservationSet(__getArrayIfSingleItem(output[_fCRS][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -64597,7 +64597,7 @@ const de_CreateFleetInstance = (output: any, context: __SerdeContext): CreateFle
   if (output[_l] != null) {
     contents[_Li] = __expectString(output[_l]);
   }
-  if (output.instanceIds === "") {
+  if (String(output.instanceIds).trim() === "") {
     contents[_IIns] = [];
   } else if (output[_iIn] != null && output[_iIn][_i] != null) {
     contents[_IIns] = de_InstanceIdsSet(__getArrayIfSingleItem(output[_iIn][_i]), context);
@@ -64630,12 +64630,12 @@ const de_CreateFleetResult = (output: any, context: __SerdeContext): CreateFleet
   if (output[_fIl] != null) {
     contents[_FIl] = __expectString(output[_fIl]);
   }
-  if (output.errorSet === "") {
+  if (String(output.errorSet).trim() === "") {
     contents[_Err] = [];
   } else if (output[_eSr] != null && output[_eSr][_i] != null) {
     contents[_Err] = de_CreateFleetErrorsSet(__getArrayIfSingleItem(output[_eSr][_i]), context);
   }
-  if (output.fleetInstanceSet === "") {
+  if (String(output.fleetInstanceSet).trim() === "") {
     contents[_In] = [];
   } else if (output[_fIS] != null && output[_fIS][_i] != null) {
     contents[_In] = de_CreateFleetInstancesSet(__getArrayIfSingleItem(output[_fIS][_i]), context);
@@ -64651,12 +64651,12 @@ const de_CreateFlowLogsResult = (output: any, context: __SerdeContext): CreateFl
   if (output[_cT] != null) {
     contents[_CTl] = __expectString(output[_cT]);
   }
-  if (output.flowLogIdSet === "") {
+  if (String(output.flowLogIdSet).trim() === "") {
     contents[_FLI] = [];
   } else if (output[_fLIS] != null && output[_fLIS][_i] != null) {
     contents[_FLI] = de_ValueStringList(__getArrayIfSingleItem(output[_fLIS][_i]), context);
   }
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_UnsuccessfulItemSet(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -65076,7 +65076,7 @@ const de_CreateReservedInstancesListingResult = (
   context: __SerdeContext
 ): CreateReservedInstancesListingResult => {
   const contents: any = {};
-  if (output.reservedInstancesListingsSet === "") {
+  if (String(output.reservedInstancesListingsSet).trim() === "") {
     contents[_RIL] = [];
   } else if (output[_rILS] != null && output[_rILS][_i] != null) {
     contents[_RIL] = de_ReservedInstancesListingList(__getArrayIfSingleItem(output[_rILS][_i]), context);
@@ -65161,7 +65161,7 @@ const de_CreateSecurityGroupResult = (output: any, context: __SerdeContext): Cre
   if (output[_gIr] != null) {
     contents[_GIr] = __expectString(output[_gIr]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -65177,7 +65177,7 @@ const de_CreateSecurityGroupResult = (output: any, context: __SerdeContext): Cre
  */
 const de_CreateSnapshotsResult = (output: any, context: __SerdeContext): CreateSnapshotsResult => {
   const contents: any = {};
-  if (output.snapshotSet === "") {
+  if (String(output.snapshotSet).trim() === "") {
     contents[_Sn] = [];
   } else if (output[_sS] != null && output[_sS][_i] != null) {
     contents[_Sn] = de_SnapshotSet(__getArrayIfSingleItem(output[_sS][_i]), context);
@@ -65665,7 +65665,7 @@ const de_CustomerGateway = (output: any, context: __SerdeContext): CustomerGatew
   if (output[_dN] != null) {
     contents[_DN] = __expectString(output[_dN]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -65725,7 +65725,7 @@ const de_DataResponse = (output: any, context: __SerdeContext): DataResponse => 
   if (output[_pe] != null) {
     contents[_Per] = __expectString(output[_pe]);
   }
-  if (output.metricPointSet === "") {
+  if (String(output.metricPointSet).trim() === "") {
     contents[_MPe] = [];
   } else if (output[_mPS] != null && output[_mPS][_i] != null) {
     contents[_MPe] = de_MetricPoints(__getArrayIfSingleItem(output[_mPS][_i]), context);
@@ -65770,7 +65770,7 @@ const de_DeclarativePoliciesReport = (output: any, context: __SerdeContext): Dec
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -65913,12 +65913,12 @@ const de_DeleteFleetErrorSet = (output: any, context: __SerdeContext): DeleteFle
  */
 const de_DeleteFleetsResult = (output: any, context: __SerdeContext): DeleteFleetsResult => {
   const contents: any = {};
-  if (output.successfulFleetDeletionSet === "") {
+  if (String(output.successfulFleetDeletionSet).trim() === "") {
     contents[_SFD] = [];
   } else if (output[_sFDS] != null && output[_sFDS][_i] != null) {
     contents[_SFD] = de_DeleteFleetSuccessSet(__getArrayIfSingleItem(output[_sFDS][_i]), context);
   }
-  if (output.unsuccessfulFleetDeletionSet === "") {
+  if (String(output.unsuccessfulFleetDeletionSet).trim() === "") {
     contents[_UFD] = [];
   } else if (output[_uFDS] != null && output[_uFDS][_i] != null) {
     contents[_UFD] = de_DeleteFleetErrorSet(__getArrayIfSingleItem(output[_uFDS][_i]), context);
@@ -65959,7 +65959,7 @@ const de_DeleteFleetSuccessSet = (output: any, context: __SerdeContext): DeleteF
  */
 const de_DeleteFlowLogsResult = (output: any, context: __SerdeContext): DeleteFlowLogsResult => {
   const contents: any = {};
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_UnsuccessfulItemSet(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -66179,7 +66179,7 @@ const de_DeleteLaunchTemplateVersionsResult = (
   context: __SerdeContext
 ): DeleteLaunchTemplateVersionsResult => {
   const contents: any = {};
-  if (output.successfullyDeletedLaunchTemplateVersionSet === "") {
+  if (String(output.successfullyDeletedLaunchTemplateVersionSet).trim() === "") {
     contents[_SDLTV] = [];
   } else if (output[_sDLTVS] != null && output[_sDLTVS][_i] != null) {
     contents[_SDLTV] = de_DeleteLaunchTemplateVersionsResponseSuccessSet(
@@ -66187,7 +66187,7 @@ const de_DeleteLaunchTemplateVersionsResult = (
       context
     );
   }
-  if (output.unsuccessfullyDeletedLaunchTemplateVersionSet === "") {
+  if (String(output.unsuccessfullyDeletedLaunchTemplateVersionSet).trim() === "") {
     contents[_UDLTV] = [];
   } else if (output[_uDLTVS] != null && output[_uDLTVS][_i] != null) {
     contents[_UDLTV] = de_DeleteLaunchTemplateVersionsResponseErrorSet(
@@ -66404,12 +66404,12 @@ const de_DeleteQueuedReservedInstancesResult = (
   context: __SerdeContext
 ): DeleteQueuedReservedInstancesResult => {
   const contents: any = {};
-  if (output.successfulQueuedPurchaseDeletionSet === "") {
+  if (String(output.successfulQueuedPurchaseDeletionSet).trim() === "") {
     contents[_SQPD] = [];
   } else if (output[_sQPDS] != null && output[_sQPDS][_i] != null) {
     contents[_SQPD] = de_SuccessfulQueuedPurchaseDeletionSet(__getArrayIfSingleItem(output[_sQPDS][_i]), context);
   }
-  if (output.failedQueuedPurchaseDeletionSet === "") {
+  if (String(output.failedQueuedPurchaseDeletionSet).trim() === "") {
     contents[_FQPD] = [];
   } else if (output[_fQPDS] != null && output[_fQPDS][_i] != null) {
     contents[_FQPD] = de_FailedQueuedPurchaseDeletionSet(__getArrayIfSingleItem(output[_fQPDS][_i]), context);
@@ -66776,7 +66776,7 @@ const de_DeleteVpcEndpointConnectionNotificationsResult = (
   context: __SerdeContext
 ): DeleteVpcEndpointConnectionNotificationsResult => {
   const contents: any = {};
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_UnsuccessfulItemSet(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -66792,7 +66792,7 @@ const de_DeleteVpcEndpointServiceConfigurationsResult = (
   context: __SerdeContext
 ): DeleteVpcEndpointServiceConfigurationsResult => {
   const contents: any = {};
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_UnsuccessfulItemSet(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -66805,7 +66805,7 @@ const de_DeleteVpcEndpointServiceConfigurationsResult = (
  */
 const de_DeleteVpcEndpointsResult = (output: any, context: __SerdeContext): DeleteVpcEndpointsResult => {
   const contents: any = {};
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_UnsuccessfulItemSet(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -66893,7 +66893,7 @@ const de_DeprovisionPublicIpv4PoolCidrResult = (
   if (output[_pIo] != null) {
     contents[_PIo] = __expectString(output[_pIo]);
   }
-  if (output.deprovisionedAddressSet === "") {
+  if (String(output.deprovisionedAddressSet).trim() === "") {
     contents[_DAep] = [];
   } else if (output[_dASe] != null && output[_dASe][_i] != null) {
     contents[_DAep] = de_DeprovisionedAddressSet(__getArrayIfSingleItem(output[_dASe][_i]), context);
@@ -66909,7 +66909,7 @@ const de_DeregisterImageResult = (output: any, context: __SerdeContext): Deregis
   if (output[_r] != null) {
     contents[_Ret] = __parseBoolean(output[_r]);
   }
-  if (output.deleteSnapshotResultSet === "") {
+  if (String(output.deleteSnapshotResultSet).trim() === "") {
     contents[_DSR] = [];
   } else if (output[_dSRS] != null && output[_dSRS][_i] != null) {
     contents[_DSR] = de_DeleteSnapshotResultSet(__getArrayIfSingleItem(output[_dSRS][_i]), context);
@@ -66964,7 +66964,7 @@ const de_DeregisterTransitGatewayMulticastGroupSourcesResult = (
  */
 const de_DescribeAccountAttributesResult = (output: any, context: __SerdeContext): DescribeAccountAttributesResult => {
   const contents: any = {};
-  if (output.accountAttributeSet === "") {
+  if (String(output.accountAttributeSet).trim() === "") {
     contents[_AAcc] = [];
   } else if (output[_aASc] != null && output[_aASc][_i] != null) {
     contents[_AAcc] = de_AccountAttributeList(__getArrayIfSingleItem(output[_aASc][_i]), context);
@@ -66980,7 +66980,7 @@ const de_DescribeAddressesAttributeResult = (
   context: __SerdeContext
 ): DescribeAddressesAttributeResult => {
   const contents: any = {};
-  if (output.addressSet === "") {
+  if (String(output.addressSet).trim() === "") {
     contents[_Addr] = [];
   } else if (output[_aSd] != null && output[_aSd][_i] != null) {
     contents[_Addr] = de_AddressSet(__getArrayIfSingleItem(output[_aSd][_i]), context);
@@ -66996,7 +66996,7 @@ const de_DescribeAddressesAttributeResult = (
  */
 const de_DescribeAddressesResult = (output: any, context: __SerdeContext): DescribeAddressesResult => {
   const contents: any = {};
-  if (output.addressesSet === "") {
+  if (String(output.addressesSet).trim() === "") {
     contents[_Addr] = [];
   } else if (output[_aSdd] != null && output[_aSdd][_i] != null) {
     contents[_Addr] = de_AddressList(__getArrayIfSingleItem(output[_aSdd][_i]), context);
@@ -67009,7 +67009,7 @@ const de_DescribeAddressesResult = (output: any, context: __SerdeContext): Descr
  */
 const de_DescribeAddressTransfersResult = (output: any, context: __SerdeContext): DescribeAddressTransfersResult => {
   const contents: any = {};
-  if (output.addressTransferSet === "") {
+  if (String(output.addressTransferSet).trim() === "") {
     contents[_ATddr] = [];
   } else if (output[_aTSd] != null && output[_aTSd][_i] != null) {
     contents[_ATddr] = de_AddressTransferList(__getArrayIfSingleItem(output[_aTSd][_i]), context);
@@ -67028,7 +67028,7 @@ const de_DescribeAggregateIdFormatResult = (output: any, context: __SerdeContext
   if (output[_uLIA] != null) {
     contents[_ULIA] = __parseBoolean(output[_uLIA]);
   }
-  if (output.statusSet === "") {
+  if (String(output.statusSet).trim() === "") {
     contents[_Status] = [];
   } else if (output[_sSt] != null && output[_sSt][_i] != null) {
     contents[_Status] = de_IdFormatList(__getArrayIfSingleItem(output[_sSt][_i]), context);
@@ -67041,7 +67041,7 @@ const de_DescribeAggregateIdFormatResult = (output: any, context: __SerdeContext
  */
 const de_DescribeAvailabilityZonesResult = (output: any, context: __SerdeContext): DescribeAvailabilityZonesResult => {
   const contents: any = {};
-  if (output.availabilityZoneInfo === "") {
+  if (String(output.availabilityZoneInfo).trim() === "") {
     contents[_AZv] = [];
   } else if (output[_aZIv] != null && output[_aZIv][_i] != null) {
     contents[_AZv] = de_AvailabilityZoneList(__getArrayIfSingleItem(output[_aZIv][_i]), context);
@@ -67060,7 +67060,7 @@ const de_DescribeAwsNetworkPerformanceMetricSubscriptionsResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.subscriptionSet === "") {
+  if (String(output.subscriptionSet).trim() === "") {
     contents[_Sub] = [];
   } else if (output[_sSu] != null && output[_sSu][_i] != null) {
     contents[_Sub] = de_SubscriptionList(__getArrayIfSingleItem(output[_sSu][_i]), context);
@@ -67073,7 +67073,7 @@ const de_DescribeAwsNetworkPerformanceMetricSubscriptionsResult = (
  */
 const de_DescribeBundleTasksResult = (output: any, context: __SerdeContext): DescribeBundleTasksResult => {
   const contents: any = {};
-  if (output.bundleInstanceTasksSet === "") {
+  if (String(output.bundleInstanceTasksSet).trim() === "") {
     contents[_BTun] = [];
   } else if (output[_bITS] != null && output[_bITS][_i] != null) {
     contents[_BTun] = de_BundleTaskList(__getArrayIfSingleItem(output[_bITS][_i]), context);
@@ -67086,7 +67086,7 @@ const de_DescribeBundleTasksResult = (output: any, context: __SerdeContext): Des
  */
 const de_DescribeByoipCidrsResult = (output: any, context: __SerdeContext): DescribeByoipCidrsResult => {
   const contents: any = {};
-  if (output.byoipCidrSet === "") {
+  if (String(output.byoipCidrSet).trim() === "") {
     contents[_BCy] = [];
   } else if (output[_bCS] != null && output[_bCS][_i] != null) {
     contents[_BCy] = de_ByoipCidrSet(__getArrayIfSingleItem(output[_bCS][_i]), context);
@@ -67105,7 +67105,7 @@ const de_DescribeCapacityBlockExtensionHistoryResult = (
   context: __SerdeContext
 ): DescribeCapacityBlockExtensionHistoryResult => {
   const contents: any = {};
-  if (output.capacityBlockExtensionSet === "") {
+  if (String(output.capacityBlockExtensionSet).trim() === "") {
     contents[_CBE] = [];
   } else if (output[_cBESa] != null && output[_cBESa][_i] != null) {
     contents[_CBE] = de_CapacityBlockExtensionSet(__getArrayIfSingleItem(output[_cBESa][_i]), context);
@@ -67124,7 +67124,7 @@ const de_DescribeCapacityBlockExtensionOfferingsResult = (
   context: __SerdeContext
 ): DescribeCapacityBlockExtensionOfferingsResult => {
   const contents: any = {};
-  if (output.capacityBlockExtensionOfferingSet === "") {
+  if (String(output.capacityBlockExtensionOfferingSet).trim() === "") {
     contents[_CBEO] = [];
   } else if (output[_cBEOS] != null && output[_cBEOS][_i] != null) {
     contents[_CBEO] = de_CapacityBlockExtensionOfferingSet(__getArrayIfSingleItem(output[_cBEOS][_i]), context);
@@ -67143,7 +67143,7 @@ const de_DescribeCapacityBlockOfferingsResult = (
   context: __SerdeContext
 ): DescribeCapacityBlockOfferingsResult => {
   const contents: any = {};
-  if (output.capacityBlockOfferingSet === "") {
+  if (String(output.capacityBlockOfferingSet).trim() === "") {
     contents[_CBO] = [];
   } else if (output[_cBOS] != null && output[_cBOS][_i] != null) {
     contents[_CBO] = de_CapacityBlockOfferingSet(__getArrayIfSingleItem(output[_cBOS][_i]), context);
@@ -67159,7 +67159,7 @@ const de_DescribeCapacityBlockOfferingsResult = (
  */
 const de_DescribeCapacityBlocksResult = (output: any, context: __SerdeContext): DescribeCapacityBlocksResult => {
   const contents: any = {};
-  if (output.capacityBlockSet === "") {
+  if (String(output.capacityBlockSet).trim() === "") {
     contents[_CBa] = [];
   } else if (output[_cBS] != null && output[_cBS][_i] != null) {
     contents[_CBa] = de_CapacityBlockSet(__getArrayIfSingleItem(output[_cBS][_i]), context);
@@ -67178,7 +67178,7 @@ const de_DescribeCapacityBlockStatusResult = (
   context: __SerdeContext
 ): DescribeCapacityBlockStatusResult => {
   const contents: any = {};
-  if (output.capacityBlockStatusSet === "") {
+  if (String(output.capacityBlockStatusSet).trim() === "") {
     contents[_CBS] = [];
   } else if (output[_cBSS] != null && output[_cBSS][_i] != null) {
     contents[_CBS] = de_CapacityBlockStatusSet(__getArrayIfSingleItem(output[_cBSS][_i]), context);
@@ -67200,7 +67200,7 @@ const de_DescribeCapacityReservationBillingRequestsResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.capacityReservationBillingRequestSet === "") {
+  if (String(output.capacityReservationBillingRequestSet).trim() === "") {
     contents[_CRBR] = [];
   } else if (output[_cRBRS] != null && output[_cRBRS][_i] != null) {
     contents[_CRBR] = de_CapacityReservationBillingRequestSet(__getArrayIfSingleItem(output[_cRBRS][_i]), context);
@@ -67216,7 +67216,7 @@ const de_DescribeCapacityReservationFleetsResult = (
   context: __SerdeContext
 ): DescribeCapacityReservationFleetsResult => {
   const contents: any = {};
-  if (output.capacityReservationFleetSet === "") {
+  if (String(output.capacityReservationFleetSet).trim() === "") {
     contents[_CRF] = [];
   } else if (output[_cRFS] != null && output[_cRFS][_i] != null) {
     contents[_CRF] = de_CapacityReservationFleetSet(__getArrayIfSingleItem(output[_cRFS][_i]), context);
@@ -67238,7 +67238,7 @@ const de_DescribeCapacityReservationsResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.capacityReservationSet === "") {
+  if (String(output.capacityReservationSet).trim() === "") {
     contents[_CRapac] = [];
   } else if (output[_cRS] != null && output[_cRS][_i] != null) {
     contents[_CRapac] = de_CapacityReservationSet(__getArrayIfSingleItem(output[_cRS][_i]), context);
@@ -67251,7 +67251,7 @@ const de_DescribeCapacityReservationsResult = (
  */
 const de_DescribeCarrierGatewaysResult = (output: any, context: __SerdeContext): DescribeCarrierGatewaysResult => {
   const contents: any = {};
-  if (output.carrierGatewaySet === "") {
+  if (String(output.carrierGatewaySet).trim() === "") {
     contents[_CGa] = [];
   } else if (output[_cGS] != null && output[_cGS][_i] != null) {
     contents[_CGa] = de_CarrierGatewaySet(__getArrayIfSingleItem(output[_cGS][_i]), context);
@@ -67270,7 +67270,7 @@ const de_DescribeClassicLinkInstancesResult = (
   context: __SerdeContext
 ): DescribeClassicLinkInstancesResult => {
   const contents: any = {};
-  if (output.instancesSet === "") {
+  if (String(output.instancesSet).trim() === "") {
     contents[_In] = [];
   } else if (output[_iSn] != null && output[_iSn][_i] != null) {
     contents[_In] = de_ClassicLinkInstanceList(__getArrayIfSingleItem(output[_iSn][_i]), context);
@@ -67289,7 +67289,7 @@ const de_DescribeClientVpnAuthorizationRulesResult = (
   context: __SerdeContext
 ): DescribeClientVpnAuthorizationRulesResult => {
   const contents: any = {};
-  if (output.authorizationRule === "") {
+  if (String(output.authorizationRule).trim() === "") {
     contents[_ARut] = [];
   } else if (output[_aR] != null && output[_aR][_i] != null) {
     contents[_ARut] = de_AuthorizationRuleSet(__getArrayIfSingleItem(output[_aR][_i]), context);
@@ -67308,7 +67308,7 @@ const de_DescribeClientVpnConnectionsResult = (
   context: __SerdeContext
 ): DescribeClientVpnConnectionsResult => {
   const contents: any = {};
-  if (output.connections === "") {
+  if (String(output.connections).trim() === "") {
     contents[_Conn] = [];
   } else if (output[_con] != null && output[_con][_i] != null) {
     contents[_Conn] = de_ClientVpnConnectionSet(__getArrayIfSingleItem(output[_con][_i]), context);
@@ -67327,7 +67327,7 @@ const de_DescribeClientVpnEndpointsResult = (
   context: __SerdeContext
 ): DescribeClientVpnEndpointsResult => {
   const contents: any = {};
-  if (output.clientVpnEndpoint === "") {
+  if (String(output.clientVpnEndpoint).trim() === "") {
     contents[_CVEl] = [];
   } else if (output[_cVE] != null && output[_cVE][_i] != null) {
     contents[_CVEl] = de_EndpointSet(__getArrayIfSingleItem(output[_cVE][_i]), context);
@@ -67343,7 +67343,7 @@ const de_DescribeClientVpnEndpointsResult = (
  */
 const de_DescribeClientVpnRoutesResult = (output: any, context: __SerdeContext): DescribeClientVpnRoutesResult => {
   const contents: any = {};
-  if (output.routes === "") {
+  if (String(output.routes).trim() === "") {
     contents[_Rout] = [];
   } else if (output[_rou] != null && output[_rou][_i] != null) {
     contents[_Rout] = de_ClientVpnRouteSet(__getArrayIfSingleItem(output[_rou][_i]), context);
@@ -67362,7 +67362,7 @@ const de_DescribeClientVpnTargetNetworksResult = (
   context: __SerdeContext
 ): DescribeClientVpnTargetNetworksResult => {
   const contents: any = {};
-  if (output.clientVpnTargetNetworks === "") {
+  if (String(output.clientVpnTargetNetworks).trim() === "") {
     contents[_CVTN] = [];
   } else if (output[_cVTN] != null && output[_cVTN][_i] != null) {
     contents[_CVTN] = de_TargetNetworkSet(__getArrayIfSingleItem(output[_cVTN][_i]), context);
@@ -67378,7 +67378,7 @@ const de_DescribeClientVpnTargetNetworksResult = (
  */
 const de_DescribeCoipPoolsResult = (output: any, context: __SerdeContext): DescribeCoipPoolsResult => {
   const contents: any = {};
-  if (output.coipPoolSet === "") {
+  if (String(output.coipPoolSet).trim() === "") {
     contents[_CPo] = [];
   } else if (output[_cPS] != null && output[_cPS][_i] != null) {
     contents[_CPo] = de_CoipPoolSet(__getArrayIfSingleItem(output[_cPS][_i]), context);
@@ -67405,7 +67405,7 @@ const de_DescribeConversionTaskList = (output: any, context: __SerdeContext): Co
  */
 const de_DescribeConversionTasksResult = (output: any, context: __SerdeContext): DescribeConversionTasksResult => {
   const contents: any = {};
-  if (output.conversionTasks === "") {
+  if (String(output.conversionTasks).trim() === "") {
     contents[_CTon] = [];
   } else if (output[_cTo] != null && output[_cTo][_i] != null) {
     contents[_CTon] = de_DescribeConversionTaskList(__getArrayIfSingleItem(output[_cTo][_i]), context);
@@ -67418,7 +67418,7 @@ const de_DescribeConversionTasksResult = (output: any, context: __SerdeContext):
  */
 const de_DescribeCustomerGatewaysResult = (output: any, context: __SerdeContext): DescribeCustomerGatewaysResult => {
   const contents: any = {};
-  if (output.customerGatewaySet === "") {
+  if (String(output.customerGatewaySet).trim() === "") {
     contents[_CGus] = [];
   } else if (output[_cGSu] != null && output[_cGSu][_i] != null) {
     contents[_CGus] = de_CustomerGatewayList(__getArrayIfSingleItem(output[_cGSu][_i]), context);
@@ -67437,7 +67437,7 @@ const de_DescribeDeclarativePoliciesReportsResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.reportSet === "") {
+  if (String(output.reportSet).trim() === "") {
     contents[_Rep] = [];
   } else if (output[_rSe] != null && output[_rSe][_i] != null) {
     contents[_Rep] = de_DeclarativePoliciesReportList(__getArrayIfSingleItem(output[_rSe][_i]), context);
@@ -67453,7 +67453,7 @@ const de_DescribeDhcpOptionsResult = (output: any, context: __SerdeContext): Des
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.dhcpOptionsSet === "") {
+  if (String(output.dhcpOptionsSet).trim() === "") {
     contents[_DOh] = [];
   } else if (output[_dOS] != null && output[_dOS][_i] != null) {
     contents[_DOh] = de_DhcpOptionsList(__getArrayIfSingleItem(output[_dOS][_i]), context);
@@ -67469,7 +67469,7 @@ const de_DescribeEgressOnlyInternetGatewaysResult = (
   context: __SerdeContext
 ): DescribeEgressOnlyInternetGatewaysResult => {
   const contents: any = {};
-  if (output.egressOnlyInternetGatewaySet === "") {
+  if (String(output.egressOnlyInternetGatewaySet).trim() === "") {
     contents[_EOIGg] = [];
   } else if (output[_eOIGS] != null && output[_eOIGS][_i] != null) {
     contents[_EOIGg] = de_EgressOnlyInternetGatewayList(__getArrayIfSingleItem(output[_eOIGS][_i]), context);
@@ -67485,7 +67485,7 @@ const de_DescribeEgressOnlyInternetGatewaysResult = (
  */
 const de_DescribeElasticGpusResult = (output: any, context: __SerdeContext): DescribeElasticGpusResult => {
   const contents: any = {};
-  if (output.elasticGpuSet === "") {
+  if (String(output.elasticGpuSet).trim() === "") {
     contents[_EGSla] = [];
   } else if (output[_eGS] != null && output[_eGS][_i] != null) {
     contents[_EGSla] = de_ElasticGpuSet(__getArrayIfSingleItem(output[_eGS][_i]), context);
@@ -67504,7 +67504,7 @@ const de_DescribeElasticGpusResult = (output: any, context: __SerdeContext): Des
  */
 const de_DescribeExportImageTasksResult = (output: any, context: __SerdeContext): DescribeExportImageTasksResult => {
   const contents: any = {};
-  if (output.exportImageTaskSet === "") {
+  if (String(output.exportImageTaskSet).trim() === "") {
     contents[_EITx] = [];
   } else if (output[_eITS] != null && output[_eITS][_i] != null) {
     contents[_EITx] = de_ExportImageTaskList(__getArrayIfSingleItem(output[_eITS][_i]), context);
@@ -67520,7 +67520,7 @@ const de_DescribeExportImageTasksResult = (output: any, context: __SerdeContext)
  */
 const de_DescribeExportTasksResult = (output: any, context: __SerdeContext): DescribeExportTasksResult => {
   const contents: any = {};
-  if (output.exportTaskSet === "") {
+  if (String(output.exportTaskSet).trim() === "") {
     contents[_ETxpo] = [];
   } else if (output[_eTS] != null && output[_eTS][_i] != null) {
     contents[_ETxpo] = de_ExportTaskList(__getArrayIfSingleItem(output[_eTS][_i]), context);
@@ -67533,7 +67533,7 @@ const de_DescribeExportTasksResult = (output: any, context: __SerdeContext): Des
  */
 const de_DescribeFastLaunchImagesResult = (output: any, context: __SerdeContext): DescribeFastLaunchImagesResult => {
   const contents: any = {};
-  if (output.fastLaunchImageSet === "") {
+  if (String(output.fastLaunchImageSet).trim() === "") {
     contents[_FLIa] = [];
   } else if (output[_fLISa] != null && output[_fLISa][_i] != null) {
     contents[_FLIa] = de_DescribeFastLaunchImagesSuccessSet(__getArrayIfSingleItem(output[_fLISa][_i]), context);
@@ -67604,7 +67604,7 @@ const de_DescribeFastSnapshotRestoresResult = (
   context: __SerdeContext
 ): DescribeFastSnapshotRestoresResult => {
   const contents: any = {};
-  if (output.fastSnapshotRestoreSet === "") {
+  if (String(output.fastSnapshotRestoreSet).trim() === "") {
     contents[_FSR] = [];
   } else if (output[_fSRS] != null && output[_fSRS][_i] != null) {
     contents[_FSR] = de_DescribeFastSnapshotRestoreSuccessSet(__getArrayIfSingleItem(output[_fSRS][_i]), context);
@@ -67698,7 +67698,7 @@ const de_DescribeFleetError = (output: any, context: __SerdeContext): DescribeFl
  */
 const de_DescribeFleetHistoryResult = (output: any, context: __SerdeContext): DescribeFleetHistoryResult => {
   const contents: any = {};
-  if (output.historyRecordSet === "") {
+  if (String(output.historyRecordSet).trim() === "") {
     contents[_HRi] = [];
   } else if (output[_hRS] != null && output[_hRS][_i] != null) {
     contents[_HRi] = de_HistoryRecordSet(__getArrayIfSingleItem(output[_hRS][_i]), context);
@@ -67723,7 +67723,7 @@ const de_DescribeFleetHistoryResult = (output: any, context: __SerdeContext): De
  */
 const de_DescribeFleetInstancesResult = (output: any, context: __SerdeContext): DescribeFleetInstancesResult => {
   const contents: any = {};
-  if (output.activeInstanceSet === "") {
+  if (String(output.activeInstanceSet).trim() === "") {
     contents[_AIct] = [];
   } else if (output[_aIS] != null && output[_aIS][_i] != null) {
     contents[_AIct] = de_ActiveInstanceSet(__getArrayIfSingleItem(output[_aIS][_i]), context);
@@ -67759,7 +67759,7 @@ const de_DescribeFleetsInstances = (output: any, context: __SerdeContext): Descr
   if (output[_l] != null) {
     contents[_Li] = __expectString(output[_l]);
   }
-  if (output.instanceIds === "") {
+  if (String(output.instanceIds).trim() === "") {
     contents[_IIns] = [];
   } else if (output[_iIn] != null && output[_iIn][_i] != null) {
     contents[_IIns] = de_InstanceIdsSet(__getArrayIfSingleItem(output[_iIn][_i]), context);
@@ -67792,7 +67792,7 @@ const de_DescribeFleetsResult = (output: any, context: __SerdeContext): Describe
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.fleetSet === "") {
+  if (String(output.fleetSet).trim() === "") {
     contents[_Fl] = [];
   } else if (output[_fS] != null && output[_fS][_i] != null) {
     contents[_Fl] = de_FleetSet(__getArrayIfSingleItem(output[_fS][_i]), context);
@@ -67805,7 +67805,7 @@ const de_DescribeFleetsResult = (output: any, context: __SerdeContext): Describe
  */
 const de_DescribeFlowLogsResult = (output: any, context: __SerdeContext): DescribeFlowLogsResult => {
   const contents: any = {};
-  if (output.flowLogSet === "") {
+  if (String(output.flowLogSet).trim() === "") {
     contents[_FL] = [];
   } else if (output[_fLS] != null && output[_fLS][_i] != null) {
     contents[_FL] = de_FlowLogSet(__getArrayIfSingleItem(output[_fLS][_i]), context);
@@ -67835,7 +67835,7 @@ const de_DescribeFpgaImageAttributeResult = (
  */
 const de_DescribeFpgaImagesResult = (output: any, context: __SerdeContext): DescribeFpgaImagesResult => {
   const contents: any = {};
-  if (output.fpgaImageSet === "") {
+  if (String(output.fpgaImageSet).trim() === "") {
     contents[_FIp] = [];
   } else if (output[_fISp] != null && output[_fISp][_i] != null) {
     contents[_FIp] = de_FpgaImageList(__getArrayIfSingleItem(output[_fISp][_i]), context);
@@ -67857,7 +67857,7 @@ const de_DescribeHostReservationOfferingsResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.offeringSet === "") {
+  if (String(output.offeringSet).trim() === "") {
     contents[_OS] = [];
   } else if (output[_oS] != null && output[_oS][_i] != null) {
     contents[_OS] = de_HostOfferingSet(__getArrayIfSingleItem(output[_oS][_i]), context);
@@ -67870,7 +67870,7 @@ const de_DescribeHostReservationOfferingsResult = (
  */
 const de_DescribeHostReservationsResult = (output: any, context: __SerdeContext): DescribeHostReservationsResult => {
   const contents: any = {};
-  if (output.hostReservationSet === "") {
+  if (String(output.hostReservationSet).trim() === "") {
     contents[_HRS] = [];
   } else if (output[_hRSo] != null && output[_hRSo][_i] != null) {
     contents[_HRS] = de_HostReservationSet(__getArrayIfSingleItem(output[_hRSo][_i]), context);
@@ -67886,7 +67886,7 @@ const de_DescribeHostReservationsResult = (output: any, context: __SerdeContext)
  */
 const de_DescribeHostsResult = (output: any, context: __SerdeContext): DescribeHostsResult => {
   const contents: any = {};
-  if (output.hostSet === "") {
+  if (String(output.hostSet).trim() === "") {
     contents[_Ho] = [];
   } else if (output[_hS] != null && output[_hS][_i] != null) {
     contents[_Ho] = de_HostList(__getArrayIfSingleItem(output[_hS][_i]), context);
@@ -67905,7 +67905,7 @@ const de_DescribeIamInstanceProfileAssociationsResult = (
   context: __SerdeContext
 ): DescribeIamInstanceProfileAssociationsResult => {
   const contents: any = {};
-  if (output.iamInstanceProfileAssociationSet === "") {
+  if (String(output.iamInstanceProfileAssociationSet).trim() === "") {
     contents[_IIPAa] = [];
   } else if (output[_iIPAS] != null && output[_iIPAS][_i] != null) {
     contents[_IIPAa] = de_IamInstanceProfileAssociationSet(__getArrayIfSingleItem(output[_iIPAS][_i]), context);
@@ -67921,7 +67921,7 @@ const de_DescribeIamInstanceProfileAssociationsResult = (
  */
 const de_DescribeIdentityIdFormatResult = (output: any, context: __SerdeContext): DescribeIdentityIdFormatResult => {
   const contents: any = {};
-  if (output.statusSet === "") {
+  if (String(output.statusSet).trim() === "") {
     contents[_Status] = [];
   } else if (output[_sSt] != null && output[_sSt][_i] != null) {
     contents[_Status] = de_IdFormatList(__getArrayIfSingleItem(output[_sSt][_i]), context);
@@ -67934,7 +67934,7 @@ const de_DescribeIdentityIdFormatResult = (output: any, context: __SerdeContext)
  */
 const de_DescribeIdFormatResult = (output: any, context: __SerdeContext): DescribeIdFormatResult => {
   const contents: any = {};
-  if (output.statusSet === "") {
+  if (String(output.statusSet).trim() === "") {
     contents[_Status] = [];
   } else if (output[_sSt] != null && output[_sSt][_i] != null) {
     contents[_Status] = de_IdFormatList(__getArrayIfSingleItem(output[_sSt][_i]), context);
@@ -67950,7 +67950,7 @@ const de_DescribeImageReferencesResult = (output: any, context: __SerdeContext):
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.imageReferenceSet === "") {
+  if (String(output.imageReferenceSet).trim() === "") {
     contents[_IRm] = [];
   } else if (output[_iRS] != null && output[_iRS][_i] != null) {
     contents[_IRm] = de_ImageReferenceList(__getArrayIfSingleItem(output[_iRS][_i]), context);
@@ -67966,7 +67966,7 @@ const de_DescribeImagesResult = (output: any, context: __SerdeContext): Describe
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.imagesSet === "") {
+  if (String(output.imagesSet).trim() === "") {
     contents[_Ima] = [];
   } else if (output[_iSm] != null && output[_iSm][_i] != null) {
     contents[_Ima] = de_ImageList(__getArrayIfSingleItem(output[_iSm][_i]), context);
@@ -67985,7 +67985,7 @@ const de_DescribeImageUsageReportEntriesResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.imageUsageReportEntrySet === "") {
+  if (String(output.imageUsageReportEntrySet).trim() === "") {
     contents[_IURE] = [];
   } else if (output[_iURES] != null && output[_iURES][_i] != null) {
     contents[_IURE] = de_ImageUsageReportEntryList(__getArrayIfSingleItem(output[_iURES][_i]), context);
@@ -68001,7 +68001,7 @@ const de_DescribeImageUsageReportsResult = (output: any, context: __SerdeContext
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.imageUsageReportSet === "") {
+  if (String(output.imageUsageReportSet).trim() === "") {
     contents[_IUR] = [];
   } else if (output[_iURS] != null && output[_iURS][_i] != null) {
     contents[_IUR] = de_ImageUsageReportList(__getArrayIfSingleItem(output[_iURS][_i]), context);
@@ -68014,7 +68014,7 @@ const de_DescribeImageUsageReportsResult = (output: any, context: __SerdeContext
  */
 const de_DescribeImportImageTasksResult = (output: any, context: __SerdeContext): DescribeImportImageTasksResult => {
   const contents: any = {};
-  if (output.importImageTaskSet === "") {
+  if (String(output.importImageTaskSet).trim() === "") {
     contents[_IIT] = [];
   } else if (output[_iITS] != null && output[_iITS][_i] != null) {
     contents[_IIT] = de_ImportImageTaskList(__getArrayIfSingleItem(output[_iITS][_i]), context);
@@ -68033,7 +68033,7 @@ const de_DescribeImportSnapshotTasksResult = (
   context: __SerdeContext
 ): DescribeImportSnapshotTasksResult => {
   const contents: any = {};
-  if (output.importSnapshotTaskSet === "") {
+  if (String(output.importSnapshotTaskSet).trim() === "") {
     contents[_IST] = [];
   } else if (output[_iSTS] != null && output[_iSTS][_i] != null) {
     contents[_IST] = de_ImportSnapshotTaskList(__getArrayIfSingleItem(output[_iSTS][_i]), context);
@@ -68052,7 +68052,7 @@ const de_DescribeInstanceConnectEndpointsResult = (
   context: __SerdeContext
 ): DescribeInstanceConnectEndpointsResult => {
   const contents: any = {};
-  if (output.instanceConnectEndpointSet === "") {
+  if (String(output.instanceConnectEndpointSet).trim() === "") {
     contents[_ICEn] = [];
   } else if (output[_iCES] != null && output[_iCES][_i] != null) {
     contents[_ICEn] = de_InstanceConnectEndpointSet(__getArrayIfSingleItem(output[_iCES][_i]), context);
@@ -68071,7 +68071,7 @@ const de_DescribeInstanceCreditSpecificationsResult = (
   context: __SerdeContext
 ): DescribeInstanceCreditSpecificationsResult => {
   const contents: any = {};
-  if (output.instanceCreditSpecificationSet === "") {
+  if (String(output.instanceCreditSpecificationSet).trim() === "") {
     contents[_ICS] = [];
   } else if (output[_iCSS] != null && output[_iCSS][_i] != null) {
     contents[_ICS] = de_InstanceCreditSpecificationList(__getArrayIfSingleItem(output[_iCSS][_i]), context);
@@ -68104,7 +68104,7 @@ const de_DescribeInstanceEventWindowsResult = (
   context: __SerdeContext
 ): DescribeInstanceEventWindowsResult => {
   const contents: any = {};
-  if (output.instanceEventWindowSet === "") {
+  if (String(output.instanceEventWindowSet).trim() === "") {
     contents[_IEWn] = [];
   } else if (output[_iEWSn] != null && output[_iEWSn][_i] != null) {
     contents[_IEWn] = de_InstanceEventWindowSet(__getArrayIfSingleItem(output[_iEWSn][_i]), context);
@@ -68123,7 +68123,7 @@ const de_DescribeInstanceImageMetadataResult = (
   context: __SerdeContext
 ): DescribeInstanceImageMetadataResult => {
   const contents: any = {};
-  if (output.instanceImageMetadataSet === "") {
+  if (String(output.instanceImageMetadataSet).trim() === "") {
     contents[_IIM] = [];
   } else if (output[_iIMS] != null && output[_iIMS][_i] != null) {
     contents[_IIM] = de_InstanceImageMetadataList(__getArrayIfSingleItem(output[_iIMS][_i]), context);
@@ -68142,7 +68142,7 @@ const de_DescribeInstancesResult = (output: any, context: __SerdeContext): Descr
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.reservationSet === "") {
+  if (String(output.reservationSet).trim() === "") {
     contents[_Rese] = [];
   } else if (output[_rSes] != null && output[_rSes][_i] != null) {
     contents[_Rese] = de_ReservationList(__getArrayIfSingleItem(output[_rSes][_i]), context);
@@ -68155,7 +68155,7 @@ const de_DescribeInstancesResult = (output: any, context: __SerdeContext): Descr
  */
 const de_DescribeInstanceStatusResult = (output: any, context: __SerdeContext): DescribeInstanceStatusResult => {
   const contents: any = {};
-  if (output.instanceStatusSet === "") {
+  if (String(output.instanceStatusSet).trim() === "") {
     contents[_ISns] = [];
   } else if (output[_iSS] != null && output[_iSS][_i] != null) {
     contents[_ISns] = de_InstanceStatusList(__getArrayIfSingleItem(output[_iSS][_i]), context);
@@ -68171,7 +68171,7 @@ const de_DescribeInstanceStatusResult = (output: any, context: __SerdeContext): 
  */
 const de_DescribeInstanceTopologyResult = (output: any, context: __SerdeContext): DescribeInstanceTopologyResult => {
   const contents: any = {};
-  if (output.instanceSet === "") {
+  if (String(output.instanceSet).trim() === "") {
     contents[_In] = [];
   } else if (output[_iSns] != null && output[_iSns][_i] != null) {
     contents[_In] = de_InstanceSet(__getArrayIfSingleItem(output[_iSns][_i]), context);
@@ -68190,7 +68190,7 @@ const de_DescribeInstanceTypeOfferingsResult = (
   context: __SerdeContext
 ): DescribeInstanceTypeOfferingsResult => {
   const contents: any = {};
-  if (output.instanceTypeOfferingSet === "") {
+  if (String(output.instanceTypeOfferingSet).trim() === "") {
     contents[_ITO] = [];
   } else if (output[_iTOS] != null && output[_iTOS][_i] != null) {
     contents[_ITO] = de_InstanceTypeOfferingsList(__getArrayIfSingleItem(output[_iTOS][_i]), context);
@@ -68206,7 +68206,7 @@ const de_DescribeInstanceTypeOfferingsResult = (
  */
 const de_DescribeInstanceTypesResult = (output: any, context: __SerdeContext): DescribeInstanceTypesResult => {
   const contents: any = {};
-  if (output.instanceTypeSet === "") {
+  if (String(output.instanceTypeSet).trim() === "") {
     contents[_ITnst] = [];
   } else if (output[_iTS] != null && output[_iTS][_i] != null) {
     contents[_ITnst] = de_InstanceTypeInfoList(__getArrayIfSingleItem(output[_iTS][_i]), context);
@@ -68222,7 +68222,7 @@ const de_DescribeInstanceTypesResult = (output: any, context: __SerdeContext): D
  */
 const de_DescribeInternetGatewaysResult = (output: any, context: __SerdeContext): DescribeInternetGatewaysResult => {
   const contents: any = {};
-  if (output.internetGatewaySet === "") {
+  if (String(output.internetGatewaySet).trim() === "") {
     contents[_IGnt] = [];
   } else if (output[_iGS] != null && output[_iGS][_i] != null) {
     contents[_IGnt] = de_InternetGatewayList(__getArrayIfSingleItem(output[_iGS][_i]), context);
@@ -68238,7 +68238,7 @@ const de_DescribeInternetGatewaysResult = (output: any, context: __SerdeContext)
  */
 const de_DescribeIpamByoasnResult = (output: any, context: __SerdeContext): DescribeIpamByoasnResult => {
   const contents: any = {};
-  if (output.byoasnSet === "") {
+  if (String(output.byoasnSet).trim() === "") {
     contents[_Byoa] = [];
   } else if (output[_bS] != null && output[_bS][_i] != null) {
     contents[_Byoa] = de_ByoasnSet(__getArrayIfSingleItem(output[_bS][_i]), context);
@@ -68260,7 +68260,7 @@ const de_DescribeIpamExternalResourceVerificationTokensResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.ipamExternalResourceVerificationTokenSet === "") {
+  if (String(output.ipamExternalResourceVerificationTokenSet).trim() === "") {
     contents[_IERVTp] = [];
   } else if (output[_iERVTS] != null && output[_iERVTS][_i] != null) {
     contents[_IERVTp] = de_IpamExternalResourceVerificationTokenSet(
@@ -68279,7 +68279,7 @@ const de_DescribeIpamPoolsResult = (output: any, context: __SerdeContext): Descr
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.ipamPoolSet === "") {
+  if (String(output.ipamPoolSet).trim() === "") {
     contents[_IPpam] = [];
   } else if (output[_iPS] != null && output[_iPS][_i] != null) {
     contents[_IPpam] = de_IpamPoolSet(__getArrayIfSingleItem(output[_iPS][_i]), context);
@@ -68295,7 +68295,7 @@ const de_DescribeIpamResourceDiscoveriesResult = (
   context: __SerdeContext
 ): DescribeIpamResourceDiscoveriesResult => {
   const contents: any = {};
-  if (output.ipamResourceDiscoverySet === "") {
+  if (String(output.ipamResourceDiscoverySet).trim() === "") {
     contents[_IRDp] = [];
   } else if (output[_iRDS] != null && output[_iRDS][_i] != null) {
     contents[_IRDp] = de_IpamResourceDiscoverySet(__getArrayIfSingleItem(output[_iRDS][_i]), context);
@@ -68314,7 +68314,7 @@ const de_DescribeIpamResourceDiscoveryAssociationsResult = (
   context: __SerdeContext
 ): DescribeIpamResourceDiscoveryAssociationsResult => {
   const contents: any = {};
-  if (output.ipamResourceDiscoveryAssociationSet === "") {
+  if (String(output.ipamResourceDiscoveryAssociationSet).trim() === "") {
     contents[_IRDAp] = [];
   } else if (output[_iRDAS] != null && output[_iRDAS][_i] != null) {
     contents[_IRDAp] = de_IpamResourceDiscoveryAssociationSet(__getArrayIfSingleItem(output[_iRDAS][_i]), context);
@@ -68333,7 +68333,7 @@ const de_DescribeIpamScopesResult = (output: any, context: __SerdeContext): Desc
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.ipamScopeSet === "") {
+  if (String(output.ipamScopeSet).trim() === "") {
     contents[_ISpam] = [];
   } else if (output[_iSSp] != null && output[_iSSp][_i] != null) {
     contents[_ISpam] = de_IpamScopeSet(__getArrayIfSingleItem(output[_iSSp][_i]), context);
@@ -68349,7 +68349,7 @@ const de_DescribeIpamsResult = (output: any, context: __SerdeContext): DescribeI
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.ipamSet === "") {
+  if (String(output.ipamSet).trim() === "") {
     contents[_Ipam] = [];
   } else if (output[_iSpa] != null && output[_iSpa][_i] != null) {
     contents[_Ipam] = de_IpamSet(__getArrayIfSingleItem(output[_iSpa][_i]), context);
@@ -68362,7 +68362,7 @@ const de_DescribeIpamsResult = (output: any, context: __SerdeContext): DescribeI
  */
 const de_DescribeIpv6PoolsResult = (output: any, context: __SerdeContext): DescribeIpv6PoolsResult => {
   const contents: any = {};
-  if (output.ipv6PoolSet === "") {
+  if (String(output.ipv6PoolSet).trim() === "") {
     contents[_IPpvo] = [];
   } else if (output[_iPSp] != null && output[_iPSp][_i] != null) {
     contents[_IPpvo] = de_Ipv6PoolSet(__getArrayIfSingleItem(output[_iPSp][_i]), context);
@@ -68378,7 +68378,7 @@ const de_DescribeIpv6PoolsResult = (output: any, context: __SerdeContext): Descr
  */
 const de_DescribeKeyPairsResult = (output: any, context: __SerdeContext): DescribeKeyPairsResult => {
   const contents: any = {};
-  if (output.keySet === "") {
+  if (String(output.keySet).trim() === "") {
     contents[_KP] = [];
   } else if (output[_kS] != null && output[_kS][_i] != null) {
     contents[_KP] = de_KeyPairList(__getArrayIfSingleItem(output[_kS][_i]), context);
@@ -68391,7 +68391,7 @@ const de_DescribeKeyPairsResult = (output: any, context: __SerdeContext): Descri
  */
 const de_DescribeLaunchTemplatesResult = (output: any, context: __SerdeContext): DescribeLaunchTemplatesResult => {
   const contents: any = {};
-  if (output.launchTemplates === "") {
+  if (String(output.launchTemplates).trim() === "") {
     contents[_LTau] = [];
   } else if (output[_lTa] != null && output[_lTa][_i] != null) {
     contents[_LTau] = de_LaunchTemplateSet(__getArrayIfSingleItem(output[_lTa][_i]), context);
@@ -68410,7 +68410,7 @@ const de_DescribeLaunchTemplateVersionsResult = (
   context: __SerdeContext
 ): DescribeLaunchTemplateVersionsResult => {
   const contents: any = {};
-  if (output.launchTemplateVersionSet === "") {
+  if (String(output.launchTemplateVersionSet).trim() === "") {
     contents[_LTVa] = [];
   } else if (output[_lTVS] != null && output[_lTVS][_i] != null) {
     contents[_LTVa] = de_LaunchTemplateVersionSet(__getArrayIfSingleItem(output[_lTVS][_i]), context);
@@ -68429,7 +68429,7 @@ const de_DescribeLocalGatewayRouteTablesResult = (
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTablesResult => {
   const contents: any = {};
-  if (output.localGatewayRouteTableSet === "") {
+  if (String(output.localGatewayRouteTableSet).trim() === "") {
     contents[_LGRTo] = [];
   } else if (output[_lGRTS] != null && output[_lGRTS][_i] != null) {
     contents[_LGRTo] = de_LocalGatewayRouteTableSet(__getArrayIfSingleItem(output[_lGRTS][_i]), context);
@@ -68448,7 +68448,7 @@ const de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult =
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult => {
   const contents: any = {};
-  if (output.localGatewayRouteTableVirtualInterfaceGroupAssociationSet === "") {
+  if (String(output.localGatewayRouteTableVirtualInterfaceGroupAssociationSet).trim() === "") {
     contents[_LGRTVIGAo] = [];
   } else if (output[_lGRTVIGAS] != null && output[_lGRTVIGAS][_i] != null) {
     contents[_LGRTVIGAo] = de_LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet(
@@ -68470,7 +68470,7 @@ const de_DescribeLocalGatewayRouteTableVpcAssociationsResult = (
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTableVpcAssociationsResult => {
   const contents: any = {};
-  if (output.localGatewayRouteTableVpcAssociationSet === "") {
+  if (String(output.localGatewayRouteTableVpcAssociationSet).trim() === "") {
     contents[_LGRTVAo] = [];
   } else if (output[_lGRTVAS] != null && output[_lGRTVAS][_i] != null) {
     contents[_LGRTVAo] = de_LocalGatewayRouteTableVpcAssociationSet(
@@ -68489,7 +68489,7 @@ const de_DescribeLocalGatewayRouteTableVpcAssociationsResult = (
  */
 const de_DescribeLocalGatewaysResult = (output: any, context: __SerdeContext): DescribeLocalGatewaysResult => {
   const contents: any = {};
-  if (output.localGatewaySet === "") {
+  if (String(output.localGatewaySet).trim() === "") {
     contents[_LGoc] = [];
   } else if (output[_lGS] != null && output[_lGS][_i] != null) {
     contents[_LGoc] = de_LocalGatewaySet(__getArrayIfSingleItem(output[_lGS][_i]), context);
@@ -68508,7 +68508,7 @@ const de_DescribeLocalGatewayVirtualInterfaceGroupsResult = (
   context: __SerdeContext
 ): DescribeLocalGatewayVirtualInterfaceGroupsResult => {
   const contents: any = {};
-  if (output.localGatewayVirtualInterfaceGroupSet === "") {
+  if (String(output.localGatewayVirtualInterfaceGroupSet).trim() === "") {
     contents[_LGVIGo] = [];
   } else if (output[_lGVIGS] != null && output[_lGVIGS][_i] != null) {
     contents[_LGVIGo] = de_LocalGatewayVirtualInterfaceGroupSet(__getArrayIfSingleItem(output[_lGVIGS][_i]), context);
@@ -68527,7 +68527,7 @@ const de_DescribeLocalGatewayVirtualInterfacesResult = (
   context: __SerdeContext
 ): DescribeLocalGatewayVirtualInterfacesResult => {
   const contents: any = {};
-  if (output.localGatewayVirtualInterfaceSet === "") {
+  if (String(output.localGatewayVirtualInterfaceSet).trim() === "") {
     contents[_LGVIo] = [];
   } else if (output[_lGVIS] != null && output[_lGVIS][_i] != null) {
     contents[_LGVIo] = de_LocalGatewayVirtualInterfaceSet(__getArrayIfSingleItem(output[_lGVIS][_i]), context);
@@ -68543,7 +68543,7 @@ const de_DescribeLocalGatewayVirtualInterfacesResult = (
  */
 const de_DescribeLockedSnapshotsResult = (output: any, context: __SerdeContext): DescribeLockedSnapshotsResult => {
   const contents: any = {};
-  if (output.snapshotSet === "") {
+  if (String(output.snapshotSet).trim() === "") {
     contents[_Sn] = [];
   } else if (output[_sS] != null && output[_sS][_i] != null) {
     contents[_Sn] = de_LockedSnapshotsInfoList(__getArrayIfSingleItem(output[_sS][_i]), context);
@@ -68559,7 +68559,7 @@ const de_DescribeLockedSnapshotsResult = (output: any, context: __SerdeContext):
  */
 const de_DescribeMacHostsResult = (output: any, context: __SerdeContext): DescribeMacHostsResult => {
   const contents: any = {};
-  if (output.macHostSet === "") {
+  if (String(output.macHostSet).trim() === "") {
     contents[_MHa] = [];
   } else if (output[_mHS] != null && output[_mHS][_i] != null) {
     contents[_MHa] = de_MacHostList(__getArrayIfSingleItem(output[_mHS][_i]), context);
@@ -68578,7 +68578,7 @@ const de_DescribeMacModificationTasksResult = (
   context: __SerdeContext
 ): DescribeMacModificationTasksResult => {
   const contents: any = {};
-  if (output.macModificationTaskSet === "") {
+  if (String(output.macModificationTaskSet).trim() === "") {
     contents[_MMTa] = [];
   } else if (output[_mMTS] != null && output[_mMTS][_i] != null) {
     contents[_MMTa] = de_MacModificationTaskList(__getArrayIfSingleItem(output[_mMTS][_i]), context);
@@ -68600,7 +68600,7 @@ const de_DescribeManagedPrefixListsResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.prefixListSet === "") {
+  if (String(output.prefixListSet).trim() === "") {
     contents[_PLre] = [];
   } else if (output[_pLS] != null && output[_pLS][_i] != null) {
     contents[_PLre] = de_ManagedPrefixListSet(__getArrayIfSingleItem(output[_pLS][_i]), context);
@@ -68613,7 +68613,7 @@ const de_DescribeManagedPrefixListsResult = (
  */
 const de_DescribeMovingAddressesResult = (output: any, context: __SerdeContext): DescribeMovingAddressesResult => {
   const contents: any = {};
-  if (output.movingAddressStatusSet === "") {
+  if (String(output.movingAddressStatusSet).trim() === "") {
     contents[_MAS] = [];
   } else if (output[_mASS] != null && output[_mASS][_i] != null) {
     contents[_MAS] = de_MovingAddressStatusSet(__getArrayIfSingleItem(output[_mASS][_i]), context);
@@ -68629,7 +68629,7 @@ const de_DescribeMovingAddressesResult = (output: any, context: __SerdeContext):
  */
 const de_DescribeNatGatewaysResult = (output: any, context: __SerdeContext): DescribeNatGatewaysResult => {
   const contents: any = {};
-  if (output.natGatewaySet === "") {
+  if (String(output.natGatewaySet).trim() === "") {
     contents[_NGa] = [];
   } else if (output[_nGS] != null && output[_nGS][_i] != null) {
     contents[_NGa] = de_NatGatewayList(__getArrayIfSingleItem(output[_nGS][_i]), context);
@@ -68645,7 +68645,7 @@ const de_DescribeNatGatewaysResult = (output: any, context: __SerdeContext): Des
  */
 const de_DescribeNetworkAclsResult = (output: any, context: __SerdeContext): DescribeNetworkAclsResult => {
   const contents: any = {};
-  if (output.networkAclSet === "") {
+  if (String(output.networkAclSet).trim() === "") {
     contents[_NAe] = [];
   } else if (output[_nAS] != null && output[_nAS][_i] != null) {
     contents[_NAe] = de_NetworkAclList(__getArrayIfSingleItem(output[_nAS][_i]), context);
@@ -68664,7 +68664,7 @@ const de_DescribeNetworkInsightsAccessScopeAnalysesResult = (
   context: __SerdeContext
 ): DescribeNetworkInsightsAccessScopeAnalysesResult => {
   const contents: any = {};
-  if (output.networkInsightsAccessScopeAnalysisSet === "") {
+  if (String(output.networkInsightsAccessScopeAnalysisSet).trim() === "") {
     contents[_NIASA] = [];
   } else if (output[_nIASAS] != null && output[_nIASAS][_i] != null) {
     contents[_NIASA] = de_NetworkInsightsAccessScopeAnalysisList(__getArrayIfSingleItem(output[_nIASAS][_i]), context);
@@ -68683,7 +68683,7 @@ const de_DescribeNetworkInsightsAccessScopesResult = (
   context: __SerdeContext
 ): DescribeNetworkInsightsAccessScopesResult => {
   const contents: any = {};
-  if (output.networkInsightsAccessScopeSet === "") {
+  if (String(output.networkInsightsAccessScopeSet).trim() === "") {
     contents[_NIASe] = [];
   } else if (output[_nIASS] != null && output[_nIASS][_i] != null) {
     contents[_NIASe] = de_NetworkInsightsAccessScopeList(__getArrayIfSingleItem(output[_nIASS][_i]), context);
@@ -68702,7 +68702,7 @@ const de_DescribeNetworkInsightsAnalysesResult = (
   context: __SerdeContext
 ): DescribeNetworkInsightsAnalysesResult => {
   const contents: any = {};
-  if (output.networkInsightsAnalysisSet === "") {
+  if (String(output.networkInsightsAnalysisSet).trim() === "") {
     contents[_NIA] = [];
   } else if (output[_nIASe] != null && output[_nIASe][_i] != null) {
     contents[_NIA] = de_NetworkInsightsAnalysisList(__getArrayIfSingleItem(output[_nIASe][_i]), context);
@@ -68721,7 +68721,7 @@ const de_DescribeNetworkInsightsPathsResult = (
   context: __SerdeContext
 ): DescribeNetworkInsightsPathsResult => {
   const contents: any = {};
-  if (output.networkInsightsPathSet === "") {
+  if (String(output.networkInsightsPathSet).trim() === "") {
     contents[_NIPe] = [];
   } else if (output[_nIPS] != null && output[_nIPS][_i] != null) {
     contents[_NIPe] = de_NetworkInsightsPathList(__getArrayIfSingleItem(output[_nIPS][_i]), context);
@@ -68746,7 +68746,7 @@ const de_DescribeNetworkInterfaceAttributeResult = (
   if (output[_de] != null) {
     contents[_De] = de_AttributeValue(output[_de], context);
   }
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_G] = [];
   } else if (output[_gS] != null && output[_gS][_i] != null) {
     contents[_G] = de_GroupIdentifierList(__getArrayIfSingleItem(output[_gS][_i]), context);
@@ -68771,7 +68771,7 @@ const de_DescribeNetworkInterfacePermissionsResult = (
   context: __SerdeContext
 ): DescribeNetworkInterfacePermissionsResult => {
   const contents: any = {};
-  if (output.networkInterfacePermissions === "") {
+  if (String(output.networkInterfacePermissions).trim() === "") {
     contents[_NIPet] = [];
   } else if (output[_nIPe] != null && output[_nIPe][_i] != null) {
     contents[_NIPet] = de_NetworkInterfacePermissionList(__getArrayIfSingleItem(output[_nIPe][_i]), context);
@@ -68787,7 +68787,7 @@ const de_DescribeNetworkInterfacePermissionsResult = (
  */
 const de_DescribeNetworkInterfacesResult = (output: any, context: __SerdeContext): DescribeNetworkInterfacesResult => {
   const contents: any = {};
-  if (output.networkInterfaceSet === "") {
+  if (String(output.networkInterfaceSet).trim() === "") {
     contents[_NI] = [];
   } else if (output[_nIS] != null && output[_nIS][_i] != null) {
     contents[_NI] = de_NetworkInterfaceList(__getArrayIfSingleItem(output[_nIS][_i]), context);
@@ -68803,7 +68803,7 @@ const de_DescribeNetworkInterfacesResult = (output: any, context: __SerdeContext
  */
 const de_DescribeOutpostLagsResult = (output: any, context: __SerdeContext): DescribeOutpostLagsResult => {
   const contents: any = {};
-  if (output.outpostLagSet === "") {
+  if (String(output.outpostLagSet).trim() === "") {
     contents[_OL] = [];
   } else if (output[_oLS] != null && output[_oLS][_i] != null) {
     contents[_OL] = de_OutpostLagSet(__getArrayIfSingleItem(output[_oLS][_i]), context);
@@ -68819,7 +68819,7 @@ const de_DescribeOutpostLagsResult = (output: any, context: __SerdeContext): Des
  */
 const de_DescribePlacementGroupsResult = (output: any, context: __SerdeContext): DescribePlacementGroupsResult => {
   const contents: any = {};
-  if (output.placementGroupSet === "") {
+  if (String(output.placementGroupSet).trim() === "") {
     contents[_PGl] = [];
   } else if (output[_pGS] != null && output[_pGS][_i] != null) {
     contents[_PGl] = de_PlacementGroupList(__getArrayIfSingleItem(output[_pGS][_i]), context);
@@ -68835,7 +68835,7 @@ const de_DescribePrefixListsResult = (output: any, context: __SerdeContext): Des
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.prefixListSet === "") {
+  if (String(output.prefixListSet).trim() === "") {
     contents[_PLre] = [];
   } else if (output[_pLS] != null && output[_pLS][_i] != null) {
     contents[_PLre] = de_PrefixListSet(__getArrayIfSingleItem(output[_pLS][_i]), context);
@@ -68848,7 +68848,7 @@ const de_DescribePrefixListsResult = (output: any, context: __SerdeContext): Des
  */
 const de_DescribePrincipalIdFormatResult = (output: any, context: __SerdeContext): DescribePrincipalIdFormatResult => {
   const contents: any = {};
-  if (output.principalSet === "") {
+  if (String(output.principalSet).trim() === "") {
     contents[_Princ] = [];
   } else if (output[_pSri] != null && output[_pSri][_i] != null) {
     contents[_Princ] = de_PrincipalIdFormatList(__getArrayIfSingleItem(output[_pSri][_i]), context);
@@ -68864,7 +68864,7 @@ const de_DescribePrincipalIdFormatResult = (output: any, context: __SerdeContext
  */
 const de_DescribePublicIpv4PoolsResult = (output: any, context: __SerdeContext): DescribePublicIpv4PoolsResult => {
   const contents: any = {};
-  if (output.publicIpv4PoolSet === "") {
+  if (String(output.publicIpv4PoolSet).trim() === "") {
     contents[_PIPu] = [];
   } else if (output[_pIPS] != null && output[_pIPS][_i] != null) {
     contents[_PIPu] = de_PublicIpv4PoolSet(__getArrayIfSingleItem(output[_pIPS][_i]), context);
@@ -68880,7 +68880,7 @@ const de_DescribePublicIpv4PoolsResult = (output: any, context: __SerdeContext):
  */
 const de_DescribeRegionsResult = (output: any, context: __SerdeContext): DescribeRegionsResult => {
   const contents: any = {};
-  if (output.regionInfo === "") {
+  if (String(output.regionInfo).trim() === "") {
     contents[_Reg] = [];
   } else if (output[_rIe] != null && output[_rIe][_i] != null) {
     contents[_Reg] = de_RegionList(__getArrayIfSingleItem(output[_rIe][_i]), context);
@@ -68896,7 +68896,7 @@ const de_DescribeReplaceRootVolumeTasksResult = (
   context: __SerdeContext
 ): DescribeReplaceRootVolumeTasksResult => {
   const contents: any = {};
-  if (output.replaceRootVolumeTaskSet === "") {
+  if (String(output.replaceRootVolumeTaskSet).trim() === "") {
     contents[_RRVTe] = [];
   } else if (output[_rRVTS] != null && output[_rRVTS][_i] != null) {
     contents[_RRVTe] = de_ReplaceRootVolumeTasks(__getArrayIfSingleItem(output[_rRVTS][_i]), context);
@@ -68915,7 +68915,7 @@ const de_DescribeReservedInstancesListingsResult = (
   context: __SerdeContext
 ): DescribeReservedInstancesListingsResult => {
   const contents: any = {};
-  if (output.reservedInstancesListingsSet === "") {
+  if (String(output.reservedInstancesListingsSet).trim() === "") {
     contents[_RIL] = [];
   } else if (output[_rILS] != null && output[_rILS][_i] != null) {
     contents[_RIL] = de_ReservedInstancesListingList(__getArrayIfSingleItem(output[_rILS][_i]), context);
@@ -68934,7 +68934,7 @@ const de_DescribeReservedInstancesModificationsResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.reservedInstancesModificationsSet === "") {
+  if (String(output.reservedInstancesModificationsSet).trim() === "") {
     contents[_RIM] = [];
   } else if (output[_rIMS] != null && output[_rIMS][_i] != null) {
     contents[_RIM] = de_ReservedInstancesModificationList(__getArrayIfSingleItem(output[_rIMS][_i]), context);
@@ -68953,7 +68953,7 @@ const de_DescribeReservedInstancesOfferingsResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.reservedInstancesOfferingsSet === "") {
+  if (String(output.reservedInstancesOfferingsSet).trim() === "") {
     contents[_RIO] = [];
   } else if (output[_rIOS] != null && output[_rIOS][_i] != null) {
     contents[_RIO] = de_ReservedInstancesOfferingList(__getArrayIfSingleItem(output[_rIOS][_i]), context);
@@ -68966,7 +68966,7 @@ const de_DescribeReservedInstancesOfferingsResult = (
  */
 const de_DescribeReservedInstancesResult = (output: any, context: __SerdeContext): DescribeReservedInstancesResult => {
   const contents: any = {};
-  if (output.reservedInstancesSet === "") {
+  if (String(output.reservedInstancesSet).trim() === "") {
     contents[_RIese] = [];
   } else if (output[_rIS] != null && output[_rIS][_i] != null) {
     contents[_RIese] = de_ReservedInstancesList(__getArrayIfSingleItem(output[_rIS][_i]), context);
@@ -68982,7 +68982,7 @@ const de_DescribeRouteServerEndpointsResult = (
   context: __SerdeContext
 ): DescribeRouteServerEndpointsResult => {
   const contents: any = {};
-  if (output.routeServerEndpointSet === "") {
+  if (String(output.routeServerEndpointSet).trim() === "") {
     contents[_RSEo] = [];
   } else if (output[_rSES] != null && output[_rSES][_i] != null) {
     contents[_RSEo] = de_RouteServerEndpointsList(__getArrayIfSingleItem(output[_rSES][_i]), context);
@@ -68998,7 +68998,7 @@ const de_DescribeRouteServerEndpointsResult = (
  */
 const de_DescribeRouteServerPeersResult = (output: any, context: __SerdeContext): DescribeRouteServerPeersResult => {
   const contents: any = {};
-  if (output.routeServerPeerSet === "") {
+  if (String(output.routeServerPeerSet).trim() === "") {
     contents[_RSPo] = [];
   } else if (output[_rSPS] != null && output[_rSPS][_i] != null) {
     contents[_RSPo] = de_RouteServerPeersList(__getArrayIfSingleItem(output[_rSPS][_i]), context);
@@ -69014,7 +69014,7 @@ const de_DescribeRouteServerPeersResult = (output: any, context: __SerdeContext)
  */
 const de_DescribeRouteServersResult = (output: any, context: __SerdeContext): DescribeRouteServersResult => {
   const contents: any = {};
-  if (output.routeServerSet === "") {
+  if (String(output.routeServerSet).trim() === "") {
     contents[_RSou] = [];
   } else if (output[_rSSo] != null && output[_rSSo][_i] != null) {
     contents[_RSou] = de_RouteServersList(__getArrayIfSingleItem(output[_rSSo][_i]), context);
@@ -69030,7 +69030,7 @@ const de_DescribeRouteServersResult = (output: any, context: __SerdeContext): De
  */
 const de_DescribeRouteTablesResult = (output: any, context: __SerdeContext): DescribeRouteTablesResult => {
   const contents: any = {};
-  if (output.routeTableSet === "") {
+  if (String(output.routeTableSet).trim() === "") {
     contents[_RTou] = [];
   } else if (output[_rTS] != null && output[_rTS][_i] != null) {
     contents[_RTou] = de_RouteTableList(__getArrayIfSingleItem(output[_rTS][_i]), context);
@@ -69052,7 +69052,7 @@ const de_DescribeScheduledInstanceAvailabilityResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.scheduledInstanceAvailabilitySet === "") {
+  if (String(output.scheduledInstanceAvailabilitySet).trim() === "") {
     contents[_SIAS] = [];
   } else if (output[_sIAS] != null && output[_sIAS][_i] != null) {
     contents[_SIAS] = de_ScheduledInstanceAvailabilitySet(__getArrayIfSingleItem(output[_sIAS][_i]), context);
@@ -69071,7 +69071,7 @@ const de_DescribeScheduledInstancesResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.scheduledInstanceSet === "") {
+  if (String(output.scheduledInstanceSet).trim() === "") {
     contents[_SIS] = [];
   } else if (output[_sIS] != null && output[_sIS][_i] != null) {
     contents[_SIS] = de_ScheduledInstanceSet(__getArrayIfSingleItem(output[_sIS][_i]), context);
@@ -69087,7 +69087,7 @@ const de_DescribeSecurityGroupReferencesResult = (
   context: __SerdeContext
 ): DescribeSecurityGroupReferencesResult => {
   const contents: any = {};
-  if (output.securityGroupReferenceSet === "") {
+  if (String(output.securityGroupReferenceSet).trim() === "") {
     contents[_SGRSe] = [];
   } else if (output[_sGRSe] != null && output[_sGRSe][_i] != null) {
     contents[_SGRSe] = de_SecurityGroupReferences(__getArrayIfSingleItem(output[_sGRSe][_i]), context);
@@ -69103,7 +69103,7 @@ const de_DescribeSecurityGroupRulesResult = (
   context: __SerdeContext
 ): DescribeSecurityGroupRulesResult => {
   const contents: any = {};
-  if (output.securityGroupRuleSet === "") {
+  if (String(output.securityGroupRuleSet).trim() === "") {
     contents[_SGR] = [];
   } else if (output[_sGRS] != null && output[_sGRS][_i] != null) {
     contents[_SGR] = de_SecurityGroupRuleList(__getArrayIfSingleItem(output[_sGRS][_i]), context);
@@ -69122,7 +69122,7 @@ const de_DescribeSecurityGroupsResult = (output: any, context: __SerdeContext): 
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.securityGroupInfo === "") {
+  if (String(output.securityGroupInfo).trim() === "") {
     contents[_SG] = [];
   } else if (output[_sGIec] != null && output[_sGIec][_i] != null) {
     contents[_SG] = de_SecurityGroupList(__getArrayIfSingleItem(output[_sGIec][_i]), context);
@@ -69138,7 +69138,7 @@ const de_DescribeSecurityGroupVpcAssociationsResult = (
   context: __SerdeContext
 ): DescribeSecurityGroupVpcAssociationsResult => {
   const contents: any = {};
-  if (output.securityGroupVpcAssociationSet === "") {
+  if (String(output.securityGroupVpcAssociationSet).trim() === "") {
     contents[_SGVA] = [];
   } else if (output[_sGVAS] != null && output[_sGVAS][_i] != null) {
     contents[_SGVA] = de_SecurityGroupVpcAssociationList(__getArrayIfSingleItem(output[_sGVAS][_i]), context);
@@ -69157,7 +69157,7 @@ const de_DescribeServiceLinkVirtualInterfacesResult = (
   context: __SerdeContext
 ): DescribeServiceLinkVirtualInterfacesResult => {
   const contents: any = {};
-  if (output.serviceLinkVirtualInterfaceSet === "") {
+  if (String(output.serviceLinkVirtualInterfaceSet).trim() === "") {
     contents[_SLVI] = [];
   } else if (output[_sLVIS] != null && output[_sLVIS][_i] != null) {
     contents[_SLVI] = de_ServiceLinkVirtualInterfaceSet(__getArrayIfSingleItem(output[_sLVIS][_i]), context);
@@ -69173,7 +69173,7 @@ const de_DescribeServiceLinkVirtualInterfacesResult = (
  */
 const de_DescribeSnapshotAttributeResult = (output: any, context: __SerdeContext): DescribeSnapshotAttributeResult => {
   const contents: any = {};
-  if (output.productCodes === "") {
+  if (String(output.productCodes).trim() === "") {
     contents[_PCr] = [];
   } else if (output[_pC] != null && output[_pC][_i] != null) {
     contents[_PCr] = de_ProductCodeList(__getArrayIfSingleItem(output[_pC][_i]), context);
@@ -69181,7 +69181,7 @@ const de_DescribeSnapshotAttributeResult = (output: any, context: __SerdeContext
   if (output[_sIn] != null) {
     contents[_SIn] = __expectString(output[_sIn]);
   }
-  if (output.createVolumePermission === "") {
+  if (String(output.createVolumePermission).trim() === "") {
     contents[_CVPr] = [];
   } else if (output[_cVP] != null && output[_cVP][_i] != null) {
     contents[_CVPr] = de_CreateVolumePermissionList(__getArrayIfSingleItem(output[_cVP][_i]), context);
@@ -69197,7 +69197,7 @@ const de_DescribeSnapshotsResult = (output: any, context: __SerdeContext): Descr
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.snapshotSet === "") {
+  if (String(output.snapshotSet).trim() === "") {
     contents[_Sn] = [];
   } else if (output[_sS] != null && output[_sS][_i] != null) {
     contents[_Sn] = de_SnapshotList(__getArrayIfSingleItem(output[_sS][_i]), context);
@@ -69213,7 +69213,7 @@ const de_DescribeSnapshotTierStatusResult = (
   context: __SerdeContext
 ): DescribeSnapshotTierStatusResult => {
   const contents: any = {};
-  if (output.snapshotTierStatusSet === "") {
+  if (String(output.snapshotTierStatusSet).trim() === "") {
     contents[_STS] = [];
   } else if (output[_sTSS] != null && output[_sTSS][_i] != null) {
     contents[_STS] = de_snapshotTierStatusSet(__getArrayIfSingleItem(output[_sTSS][_i]), context);
@@ -69246,7 +69246,7 @@ const de_DescribeSpotFleetInstancesResponse = (
   context: __SerdeContext
 ): DescribeSpotFleetInstancesResponse => {
   const contents: any = {};
-  if (output.activeInstanceSet === "") {
+  if (String(output.activeInstanceSet).trim() === "") {
     contents[_AIct] = [];
   } else if (output[_aIS] != null && output[_aIS][_i] != null) {
     contents[_AIct] = de_ActiveInstanceSet(__getArrayIfSingleItem(output[_aIS][_i]), context);
@@ -69268,7 +69268,7 @@ const de_DescribeSpotFleetRequestHistoryResponse = (
   context: __SerdeContext
 ): DescribeSpotFleetRequestHistoryResponse => {
   const contents: any = {};
-  if (output.historyRecordSet === "") {
+  if (String(output.historyRecordSet).trim() === "") {
     contents[_HRi] = [];
   } else if (output[_hRS] != null && output[_hRS][_i] != null) {
     contents[_HRi] = de_HistoryRecords(__getArrayIfSingleItem(output[_hRS][_i]), context);
@@ -69299,7 +69299,7 @@ const de_DescribeSpotFleetRequestsResponse = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.spotFleetRequestConfigSet === "") {
+  if (String(output.spotFleetRequestConfigSet).trim() === "") {
     contents[_SFRCp] = [];
   } else if (output[_sFRCS] != null && output[_sFRCS][_i] != null) {
     contents[_SFRCp] = de_SpotFleetRequestConfigSet(__getArrayIfSingleItem(output[_sFRCS][_i]), context);
@@ -69315,7 +69315,7 @@ const de_DescribeSpotInstanceRequestsResult = (
   context: __SerdeContext
 ): DescribeSpotInstanceRequestsResult => {
   const contents: any = {};
-  if (output.spotInstanceRequestSet === "") {
+  if (String(output.spotInstanceRequestSet).trim() === "") {
     contents[_SIR] = [];
   } else if (output[_sIRS] != null && output[_sIRS][_i] != null) {
     contents[_SIR] = de_SpotInstanceRequestList(__getArrayIfSingleItem(output[_sIRS][_i]), context);
@@ -69334,7 +69334,7 @@ const de_DescribeSpotPriceHistoryResult = (output: any, context: __SerdeContext)
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.spotPriceHistorySet === "") {
+  if (String(output.spotPriceHistorySet).trim() === "") {
     contents[_SPH] = [];
   } else if (output[_sPHS] != null && output[_sPHS][_i] != null) {
     contents[_SPH] = de_SpotPriceHistoryList(__getArrayIfSingleItem(output[_sPHS][_i]), context);
@@ -69353,7 +69353,7 @@ const de_DescribeStaleSecurityGroupsResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.staleSecurityGroupSet === "") {
+  if (String(output.staleSecurityGroupSet).trim() === "") {
     contents[_SSGS] = [];
   } else if (output[_sSGS] != null && output[_sSGS][_i] != null) {
     contents[_SSGS] = de_StaleSecurityGroupSet(__getArrayIfSingleItem(output[_sSGS][_i]), context);
@@ -69366,7 +69366,7 @@ const de_DescribeStaleSecurityGroupsResult = (
  */
 const de_DescribeStoreImageTasksResult = (output: any, context: __SerdeContext): DescribeStoreImageTasksResult => {
   const contents: any = {};
-  if (output.storeImageTaskResultSet === "") {
+  if (String(output.storeImageTaskResultSet).trim() === "") {
     contents[_SITR] = [];
   } else if (output[_sITRS] != null && output[_sITRS][_i] != null) {
     contents[_SITR] = de_StoreImageTaskResultSet(__getArrayIfSingleItem(output[_sITRS][_i]), context);
@@ -69385,7 +69385,7 @@ const de_DescribeSubnetsResult = (output: any, context: __SerdeContext): Describ
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.subnetSet === "") {
+  if (String(output.subnetSet).trim() === "") {
     contents[_Subn] = [];
   } else if (output[_sSub] != null && output[_sSub][_i] != null) {
     contents[_Subn] = de_SubnetList(__getArrayIfSingleItem(output[_sSub][_i]), context);
@@ -69401,7 +69401,7 @@ const de_DescribeTagsResult = (output: any, context: __SerdeContext): DescribeTa
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagDescriptionList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -69417,7 +69417,7 @@ const de_DescribeTrafficMirrorFilterRulesResult = (
   context: __SerdeContext
 ): DescribeTrafficMirrorFilterRulesResult => {
   const contents: any = {};
-  if (output.trafficMirrorFilterRuleSet === "") {
+  if (String(output.trafficMirrorFilterRuleSet).trim() === "") {
     contents[_TMFRr] = [];
   } else if (output[_tMFRS] != null && output[_tMFRS][_i] != null) {
     contents[_TMFRr] = de_TrafficMirrorFilterRuleSet(__getArrayIfSingleItem(output[_tMFRS][_i]), context);
@@ -69436,7 +69436,7 @@ const de_DescribeTrafficMirrorFiltersResult = (
   context: __SerdeContext
 ): DescribeTrafficMirrorFiltersResult => {
   const contents: any = {};
-  if (output.trafficMirrorFilterSet === "") {
+  if (String(output.trafficMirrorFilterSet).trim() === "") {
     contents[_TMFr] = [];
   } else if (output[_tMFS] != null && output[_tMFS][_i] != null) {
     contents[_TMFr] = de_TrafficMirrorFilterSet(__getArrayIfSingleItem(output[_tMFS][_i]), context);
@@ -69455,7 +69455,7 @@ const de_DescribeTrafficMirrorSessionsResult = (
   context: __SerdeContext
 ): DescribeTrafficMirrorSessionsResult => {
   const contents: any = {};
-  if (output.trafficMirrorSessionSet === "") {
+  if (String(output.trafficMirrorSessionSet).trim() === "") {
     contents[_TMSr] = [];
   } else if (output[_tMSS] != null && output[_tMSS][_i] != null) {
     contents[_TMSr] = de_TrafficMirrorSessionSet(__getArrayIfSingleItem(output[_tMSS][_i]), context);
@@ -69474,7 +69474,7 @@ const de_DescribeTrafficMirrorTargetsResult = (
   context: __SerdeContext
 ): DescribeTrafficMirrorTargetsResult => {
   const contents: any = {};
-  if (output.trafficMirrorTargetSet === "") {
+  if (String(output.trafficMirrorTargetSet).trim() === "") {
     contents[_TMTr] = [];
   } else if (output[_tMTS] != null && output[_tMTS][_i] != null) {
     contents[_TMTr] = de_TrafficMirrorTargetSet(__getArrayIfSingleItem(output[_tMTS][_i]), context);
@@ -69493,7 +69493,7 @@ const de_DescribeTransitGatewayAttachmentsResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayAttachmentsResult => {
   const contents: any = {};
-  if (output.transitGatewayAttachments === "") {
+  if (String(output.transitGatewayAttachments).trim() === "") {
     contents[_TGAr] = [];
   } else if (output[_tGA] != null && output[_tGA][_i] != null) {
     contents[_TGAr] = de_TransitGatewayAttachmentList(__getArrayIfSingleItem(output[_tGA][_i]), context);
@@ -69512,7 +69512,7 @@ const de_DescribeTransitGatewayConnectPeersResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayConnectPeersResult => {
   const contents: any = {};
-  if (output.transitGatewayConnectPeerSet === "") {
+  if (String(output.transitGatewayConnectPeerSet).trim() === "") {
     contents[_TGCPr] = [];
   } else if (output[_tGCPS] != null && output[_tGCPS][_i] != null) {
     contents[_TGCPr] = de_TransitGatewayConnectPeerList(__getArrayIfSingleItem(output[_tGCPS][_i]), context);
@@ -69531,7 +69531,7 @@ const de_DescribeTransitGatewayConnectsResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayConnectsResult => {
   const contents: any = {};
-  if (output.transitGatewayConnectSet === "") {
+  if (String(output.transitGatewayConnectSet).trim() === "") {
     contents[_TGCra] = [];
   } else if (output[_tGCS] != null && output[_tGCS][_i] != null) {
     contents[_TGCra] = de_TransitGatewayConnectList(__getArrayIfSingleItem(output[_tGCS][_i]), context);
@@ -69550,7 +69550,7 @@ const de_DescribeTransitGatewayMulticastDomainsResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayMulticastDomainsResult => {
   const contents: any = {};
-  if (output.transitGatewayMulticastDomains === "") {
+  if (String(output.transitGatewayMulticastDomains).trim() === "") {
     contents[_TGMDr] = [];
   } else if (output[_tGMDr] != null && output[_tGMDr][_i] != null) {
     contents[_TGMDr] = de_TransitGatewayMulticastDomainList(__getArrayIfSingleItem(output[_tGMDr][_i]), context);
@@ -69569,7 +69569,7 @@ const de_DescribeTransitGatewayPeeringAttachmentsResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayPeeringAttachmentsResult => {
   const contents: any = {};
-  if (output.transitGatewayPeeringAttachments === "") {
+  if (String(output.transitGatewayPeeringAttachments).trim() === "") {
     contents[_TGPAr] = [];
   } else if (output[_tGPAr] != null && output[_tGPAr][_i] != null) {
     contents[_TGPAr] = de_TransitGatewayPeeringAttachmentList(__getArrayIfSingleItem(output[_tGPAr][_i]), context);
@@ -69588,7 +69588,7 @@ const de_DescribeTransitGatewayPolicyTablesResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayPolicyTablesResult => {
   const contents: any = {};
-  if (output.transitGatewayPolicyTables === "") {
+  if (String(output.transitGatewayPolicyTables).trim() === "") {
     contents[_TGPTr] = [];
   } else if (output[_tGPTr] != null && output[_tGPTr][_i] != null) {
     contents[_TGPTr] = de_TransitGatewayPolicyTableList(__getArrayIfSingleItem(output[_tGPTr][_i]), context);
@@ -69607,7 +69607,7 @@ const de_DescribeTransitGatewayRouteTableAnnouncementsResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayRouteTableAnnouncementsResult => {
   const contents: any = {};
-  if (output.transitGatewayRouteTableAnnouncements === "") {
+  if (String(output.transitGatewayRouteTableAnnouncements).trim() === "") {
     contents[_TGRTAr] = [];
   } else if (output[_tGRTAr] != null && output[_tGRTAr][_i] != null) {
     contents[_TGRTAr] = de_TransitGatewayRouteTableAnnouncementList(
@@ -69629,7 +69629,7 @@ const de_DescribeTransitGatewayRouteTablesResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayRouteTablesResult => {
   const contents: any = {};
-  if (output.transitGatewayRouteTables === "") {
+  if (String(output.transitGatewayRouteTables).trim() === "") {
     contents[_TGRTr] = [];
   } else if (output[_tGRTr] != null && output[_tGRTr][_i] != null) {
     contents[_TGRTr] = de_TransitGatewayRouteTableList(__getArrayIfSingleItem(output[_tGRTr][_i]), context);
@@ -69645,7 +69645,7 @@ const de_DescribeTransitGatewayRouteTablesResult = (
  */
 const de_DescribeTransitGatewaysResult = (output: any, context: __SerdeContext): DescribeTransitGatewaysResult => {
   const contents: any = {};
-  if (output.transitGatewaySet === "") {
+  if (String(output.transitGatewaySet).trim() === "") {
     contents[_TGra] = [];
   } else if (output[_tGS] != null && output[_tGS][_i] != null) {
     contents[_TGra] = de_TransitGatewayList(__getArrayIfSingleItem(output[_tGS][_i]), context);
@@ -69664,7 +69664,7 @@ const de_DescribeTransitGatewayVpcAttachmentsResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayVpcAttachmentsResult => {
   const contents: any = {};
-  if (output.transitGatewayVpcAttachments === "") {
+  if (String(output.transitGatewayVpcAttachments).trim() === "") {
     contents[_TGVAr] = [];
   } else if (output[_tGVAr] != null && output[_tGVAr][_i] != null) {
     contents[_TGVAr] = de_TransitGatewayVpcAttachmentList(__getArrayIfSingleItem(output[_tGVAr][_i]), context);
@@ -69683,7 +69683,7 @@ const de_DescribeTrunkInterfaceAssociationsResult = (
   context: __SerdeContext
 ): DescribeTrunkInterfaceAssociationsResult => {
   const contents: any = {};
-  if (output.interfaceAssociationSet === "") {
+  if (String(output.interfaceAssociationSet).trim() === "") {
     contents[_IAnt] = [];
   } else if (output[_iAS] != null && output[_iAS][_i] != null) {
     contents[_IAnt] = de_TrunkInterfaceAssociationList(__getArrayIfSingleItem(output[_iAS][_i]), context);
@@ -69702,7 +69702,7 @@ const de_DescribeVerifiedAccessEndpointsResult = (
   context: __SerdeContext
 ): DescribeVerifiedAccessEndpointsResult => {
   const contents: any = {};
-  if (output.verifiedAccessEndpointSet === "") {
+  if (String(output.verifiedAccessEndpointSet).trim() === "") {
     contents[_VAEe] = [];
   } else if (output[_vAES] != null && output[_vAES][_i] != null) {
     contents[_VAEe] = de_VerifiedAccessEndpointList(__getArrayIfSingleItem(output[_vAES][_i]), context);
@@ -69721,7 +69721,7 @@ const de_DescribeVerifiedAccessGroupsResult = (
   context: __SerdeContext
 ): DescribeVerifiedAccessGroupsResult => {
   const contents: any = {};
-  if (output.verifiedAccessGroupSet === "") {
+  if (String(output.verifiedAccessGroupSet).trim() === "") {
     contents[_VAGe] = [];
   } else if (output[_vAGS] != null && output[_vAGS][_i] != null) {
     contents[_VAGe] = de_VerifiedAccessGroupList(__getArrayIfSingleItem(output[_vAGS][_i]), context);
@@ -69740,7 +69740,7 @@ const de_DescribeVerifiedAccessInstanceLoggingConfigurationsResult = (
   context: __SerdeContext
 ): DescribeVerifiedAccessInstanceLoggingConfigurationsResult => {
   const contents: any = {};
-  if (output.loggingConfigurationSet === "") {
+  if (String(output.loggingConfigurationSet).trim() === "") {
     contents[_LC] = [];
   } else if (output[_lCS] != null && output[_lCS][_i] != null) {
     contents[_LC] = de_VerifiedAccessInstanceLoggingConfigurationList(
@@ -69762,7 +69762,7 @@ const de_DescribeVerifiedAccessInstancesResult = (
   context: __SerdeContext
 ): DescribeVerifiedAccessInstancesResult => {
   const contents: any = {};
-  if (output.verifiedAccessInstanceSet === "") {
+  if (String(output.verifiedAccessInstanceSet).trim() === "") {
     contents[_VAIe] = [];
   } else if (output[_vAIS] != null && output[_vAIS][_i] != null) {
     contents[_VAIe] = de_VerifiedAccessInstanceList(__getArrayIfSingleItem(output[_vAIS][_i]), context);
@@ -69781,7 +69781,7 @@ const de_DescribeVerifiedAccessTrustProvidersResult = (
   context: __SerdeContext
 ): DescribeVerifiedAccessTrustProvidersResult => {
   const contents: any = {};
-  if (output.verifiedAccessTrustProviderSet === "") {
+  if (String(output.verifiedAccessTrustProviderSet).trim() === "") {
     contents[_VATPe] = [];
   } else if (output[_vATPS] != null && output[_vATPS][_i] != null) {
     contents[_VATPe] = de_VerifiedAccessTrustProviderList(__getArrayIfSingleItem(output[_vATPS][_i]), context);
@@ -69800,7 +69800,7 @@ const de_DescribeVolumeAttributeResult = (output: any, context: __SerdeContext):
   if (output[_aEIO] != null) {
     contents[_AEIO] = de_AttributeBooleanValue(output[_aEIO], context);
   }
-  if (output.productCodes === "") {
+  if (String(output.productCodes).trim() === "") {
     contents[_PCr] = [];
   } else if (output[_pC] != null && output[_pC][_i] != null) {
     contents[_PCr] = de_ProductCodeList(__getArrayIfSingleItem(output[_pC][_i]), context);
@@ -69822,7 +69822,7 @@ const de_DescribeVolumesModificationsResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.volumeModificationSet === "") {
+  if (String(output.volumeModificationSet).trim() === "") {
     contents[_VMo] = [];
   } else if (output[_vMS] != null && output[_vMS][_i] != null) {
     contents[_VMo] = de_VolumeModificationList(__getArrayIfSingleItem(output[_vMS][_i]), context);
@@ -69838,7 +69838,7 @@ const de_DescribeVolumesResult = (output: any, context: __SerdeContext): Describ
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.volumeSet === "") {
+  if (String(output.volumeSet).trim() === "") {
     contents[_Vol] = [];
   } else if (output[_vS] != null && output[_vS][_i] != null) {
     contents[_Vol] = de_VolumeList(__getArrayIfSingleItem(output[_vS][_i]), context);
@@ -69854,7 +69854,7 @@ const de_DescribeVolumeStatusResult = (output: any, context: __SerdeContext): De
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.volumeStatusSet === "") {
+  if (String(output.volumeStatusSet).trim() === "") {
     contents[_VSo] = [];
   } else if (output[_vSS] != null && output[_vSS][_i] != null) {
     contents[_VSo] = de_VolumeStatusList(__getArrayIfSingleItem(output[_vSS][_i]), context);
@@ -69890,7 +69890,7 @@ const de_DescribeVpcBlockPublicAccessExclusionsResult = (
   context: __SerdeContext
 ): DescribeVpcBlockPublicAccessExclusionsResult => {
   const contents: any = {};
-  if (output.vpcBlockPublicAccessExclusionSet === "") {
+  if (String(output.vpcBlockPublicAccessExclusionSet).trim() === "") {
     contents[_VBPAEp] = [];
   } else if (output[_vBPAES] != null && output[_vBPAES][_i] != null) {
     contents[_VBPAEp] = de_VpcBlockPublicAccessExclusionList(__getArrayIfSingleItem(output[_vBPAES][_i]), context);
@@ -69926,7 +69926,7 @@ const de_DescribeVpcClassicLinkDnsSupportResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.vpcs === "") {
+  if (String(output.vpcs).trim() === "") {
     contents[_Vpc] = [];
   } else if (output[_vpc] != null && output[_vpc][_i] != null) {
     contents[_Vpc] = de_ClassicLinkDnsSupportList(__getArrayIfSingleItem(output[_vpc][_i]), context);
@@ -69939,7 +69939,7 @@ const de_DescribeVpcClassicLinkDnsSupportResult = (
  */
 const de_DescribeVpcClassicLinkResult = (output: any, context: __SerdeContext): DescribeVpcClassicLinkResult => {
   const contents: any = {};
-  if (output.vpcSet === "") {
+  if (String(output.vpcSet).trim() === "") {
     contents[_Vpc] = [];
   } else if (output[_vSp] != null && output[_vSp][_i] != null) {
     contents[_Vpc] = de_VpcClassicLinkList(__getArrayIfSingleItem(output[_vSp][_i]), context);
@@ -69955,7 +69955,7 @@ const de_DescribeVpcEndpointAssociationsResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointAssociationsResult => {
   const contents: any = {};
-  if (output.vpcEndpointAssociationSet === "") {
+  if (String(output.vpcEndpointAssociationSet).trim() === "") {
     contents[_VEA] = [];
   } else if (output[_vEAS] != null && output[_vEAS][_i] != null) {
     contents[_VEA] = de_VpcEndpointAssociationSet(__getArrayIfSingleItem(output[_vEAS][_i]), context);
@@ -69974,7 +69974,7 @@ const de_DescribeVpcEndpointConnectionNotificationsResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointConnectionNotificationsResult => {
   const contents: any = {};
-  if (output.connectionNotificationSet === "") {
+  if (String(output.connectionNotificationSet).trim() === "") {
     contents[_CNSo] = [];
   } else if (output[_cNSo] != null && output[_cNSo][_i] != null) {
     contents[_CNSo] = de_ConnectionNotificationSet(__getArrayIfSingleItem(output[_cNSo][_i]), context);
@@ -69993,7 +69993,7 @@ const de_DescribeVpcEndpointConnectionsResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointConnectionsResult => {
   const contents: any = {};
-  if (output.vpcEndpointConnectionSet === "") {
+  if (String(output.vpcEndpointConnectionSet).trim() === "") {
     contents[_VEC] = [];
   } else if (output[_vECS] != null && output[_vECS][_i] != null) {
     contents[_VEC] = de_VpcEndpointConnectionSet(__getArrayIfSingleItem(output[_vECS][_i]), context);
@@ -70012,7 +70012,7 @@ const de_DescribeVpcEndpointServiceConfigurationsResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointServiceConfigurationsResult => {
   const contents: any = {};
-  if (output.serviceConfigurationSet === "") {
+  if (String(output.serviceConfigurationSet).trim() === "") {
     contents[_SCer] = [];
   } else if (output[_sCS] != null && output[_sCS][_i] != null) {
     contents[_SCer] = de_ServiceConfigurationSet(__getArrayIfSingleItem(output[_sCS][_i]), context);
@@ -70031,7 +70031,7 @@ const de_DescribeVpcEndpointServicePermissionsResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointServicePermissionsResult => {
   const contents: any = {};
-  if (output.allowedPrincipals === "") {
+  if (String(output.allowedPrincipals).trim() === "") {
     contents[_APl] = [];
   } else if (output[_aP] != null && output[_aP][_i] != null) {
     contents[_APl] = de_AllowedPrincipalSet(__getArrayIfSingleItem(output[_aP][_i]), context);
@@ -70050,12 +70050,12 @@ const de_DescribeVpcEndpointServicesResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointServicesResult => {
   const contents: any = {};
-  if (output.serviceNameSet === "") {
+  if (String(output.serviceNameSet).trim() === "") {
     contents[_SNer] = [];
   } else if (output[_sNS] != null && output[_sNS][_i] != null) {
     contents[_SNer] = de_ValueStringList(__getArrayIfSingleItem(output[_sNS][_i]), context);
   }
-  if (output.serviceDetailSet === "") {
+  if (String(output.serviceDetailSet).trim() === "") {
     contents[_SDe] = [];
   } else if (output[_sDSe] != null && output[_sDSe][_i] != null) {
     contents[_SDe] = de_ServiceDetailSet(__getArrayIfSingleItem(output[_sDSe][_i]), context);
@@ -70071,7 +70071,7 @@ const de_DescribeVpcEndpointServicesResult = (
  */
 const de_DescribeVpcEndpointsResult = (output: any, context: __SerdeContext): DescribeVpcEndpointsResult => {
   const contents: any = {};
-  if (output.vpcEndpointSet === "") {
+  if (String(output.vpcEndpointSet).trim() === "") {
     contents[_VEp] = [];
   } else if (output[_vESp] != null && output[_vESp][_i] != null) {
     contents[_VEp] = de_VpcEndpointSet(__getArrayIfSingleItem(output[_vESp][_i]), context);
@@ -70090,7 +70090,7 @@ const de_DescribeVpcPeeringConnectionsResult = (
   context: __SerdeContext
 ): DescribeVpcPeeringConnectionsResult => {
   const contents: any = {};
-  if (output.vpcPeeringConnectionSet === "") {
+  if (String(output.vpcPeeringConnectionSet).trim() === "") {
     contents[_VPCp] = [];
   } else if (output[_vPCS] != null && output[_vPCS][_i] != null) {
     contents[_VPCp] = de_VpcPeeringConnectionList(__getArrayIfSingleItem(output[_vPCS][_i]), context);
@@ -70109,7 +70109,7 @@ const de_DescribeVpcsResult = (output: any, context: __SerdeContext): DescribeVp
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.vpcSet === "") {
+  if (String(output.vpcSet).trim() === "") {
     contents[_Vpc] = [];
   } else if (output[_vSp] != null && output[_vSp][_i] != null) {
     contents[_Vpc] = de_VpcList(__getArrayIfSingleItem(output[_vSp][_i]), context);
@@ -70122,7 +70122,7 @@ const de_DescribeVpcsResult = (output: any, context: __SerdeContext): DescribeVp
  */
 const de_DescribeVpnConnectionsResult = (output: any, context: __SerdeContext): DescribeVpnConnectionsResult => {
   const contents: any = {};
-  if (output.vpnConnectionSet === "") {
+  if (String(output.vpnConnectionSet).trim() === "") {
     contents[_VCp] = [];
   } else if (output[_vCS] != null && output[_vCS][_i] != null) {
     contents[_VCp] = de_VpnConnectionList(__getArrayIfSingleItem(output[_vCS][_i]), context);
@@ -70135,7 +70135,7 @@ const de_DescribeVpnConnectionsResult = (output: any, context: __SerdeContext): 
  */
 const de_DescribeVpnGatewaysResult = (output: any, context: __SerdeContext): DescribeVpnGatewaysResult => {
   const contents: any = {};
-  if (output.vpnGatewaySet === "") {
+  if (String(output.vpnGatewaySet).trim() === "") {
     contents[_VGp] = [];
   } else if (output[_vGS] != null && output[_vGS][_i] != null) {
     contents[_VGp] = de_VpnGatewayList(__getArrayIfSingleItem(output[_vGS][_i]), context);
@@ -70221,7 +70221,7 @@ const de_DhcpConfiguration = (output: any, context: __SerdeContext): DhcpConfigu
   if (output[_k] != null) {
     contents[_Ke] = __expectString(output[_k]);
   }
-  if (output.valueSet === "") {
+  if (String(output.valueSet).trim() === "") {
     contents[_Val] = [];
   } else if (output[_vSa] != null && output[_vSa][_i] != null) {
     contents[_Val] = de_DhcpConfigurationValueList(__getArrayIfSingleItem(output[_vSa][_i]), context);
@@ -70259,7 +70259,7 @@ const de_DhcpOptions = (output: any, context: __SerdeContext): DhcpOptions => {
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -70267,7 +70267,7 @@ const de_DhcpOptions = (output: any, context: __SerdeContext): DhcpOptions => {
   if (output[_dOI] != null) {
     contents[_DOI] = __expectString(output[_dOI]);
   }
-  if (output.dhcpConfigurationSet === "") {
+  if (String(output.dhcpConfigurationSet).trim() === "") {
     contents[_DCh] = [];
   } else if (output[_dCS] != null && output[_dCS][_i] != null) {
     contents[_DCh] = de_DhcpConfigurationList(__getArrayIfSingleItem(output[_dCS][_i]), context);
@@ -70396,7 +70396,7 @@ const de_DisableFastSnapshotRestoreErrorItem = (
   if (output[_sIn] != null) {
     contents[_SIn] = __expectString(output[_sIn]);
   }
-  if (output.fastSnapshotRestoreStateErrorSet === "") {
+  if (String(output.fastSnapshotRestoreStateErrorSet).trim() === "") {
     contents[_FSRSE] = [];
   } else if (output[_fSRSES] != null && output[_fSRSES][_i] != null) {
     contents[_FSRSE] = de_DisableFastSnapshotRestoreStateErrorSet(__getArrayIfSingleItem(output[_fSRSES][_i]), context);
@@ -70426,12 +70426,12 @@ const de_DisableFastSnapshotRestoresResult = (
   context: __SerdeContext
 ): DisableFastSnapshotRestoresResult => {
   const contents: any = {};
-  if (output.successful === "") {
+  if (String(output.successful).trim() === "") {
     contents[_Suc] = [];
   } else if (output[_suc] != null && output[_suc][_i] != null) {
     contents[_Suc] = de_DisableFastSnapshotRestoreSuccessSet(__getArrayIfSingleItem(output[_suc][_i]), context);
   }
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_DisableFastSnapshotRestoreErrorSet(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -70799,7 +70799,7 @@ const de_DisassociateNatGatewayAddressResult = (
   if (output[_nGI] != null) {
     contents[_NGI] = __expectString(output[_nGI]);
   }
-  if (output.natGatewayAddressSet === "") {
+  if (String(output.natGatewayAddressSet).trim() === "") {
     contents[_NGA] = [];
   } else if (output[_nGAS] != null && output[_nGAS][_i] != null) {
     contents[_NGA] = de_NatGatewayAddressList(__getArrayIfSingleItem(output[_nGAS][_i]), context);
@@ -71216,7 +71216,7 @@ const de_EbsStatusDetailsList = (output: any, context: __SerdeContext): EbsStatu
  */
 const de_EbsStatusSummary = (output: any, context: __SerdeContext): EbsStatusSummary => {
   const contents: any = {};
-  if (output.details === "") {
+  if (String(output.details).trim() === "") {
     contents[_Det] = [];
   } else if (output[_det] != null && output[_det][_i] != null) {
     contents[_Det] = de_EbsStatusDetailsList(__getArrayIfSingleItem(output[_det][_i]), context);
@@ -71253,7 +71253,7 @@ const de_Ec2InstanceConnectEndpoint = (output: any, context: __SerdeContext): Ec
   if (output[_fDN] != null) {
     contents[_FDN] = __expectString(output[_fDN]);
   }
-  if (output.networkInterfaceIdSet === "") {
+  if (String(output.networkInterfaceIdSet).trim() === "") {
     contents[_NIIe] = [];
   } else if (output[_nIIS] != null && output[_nIIS][_i] != null) {
     contents[_NIIe] = de_NetworkInterfaceIdSet(__getArrayIfSingleItem(output[_nIIS][_i]), context);
@@ -71273,12 +71273,12 @@ const de_Ec2InstanceConnectEndpoint = (output: any, context: __SerdeContext): Ec
   if (output[_pCI] != null) {
     contents[_PCI] = __parseBoolean(output[_pCI]);
   }
-  if (output.securityGroupIdSet === "") {
+  if (String(output.securityGroupIdSet).trim() === "") {
     contents[_SGI] = [];
   } else if (output[_sGIS] != null && output[_sGIS][_i] != null) {
     contents[_SGI] = de_SecurityGroupIdSet(__getArrayIfSingleItem(output[_sGIS][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -71308,7 +71308,7 @@ const de_EfaInfo = (output: any, context: __SerdeContext): EfaInfo => {
  */
 const de_EgressOnlyInternetGateway = (output: any, context: __SerdeContext): EgressOnlyInternetGateway => {
   const contents: any = {};
-  if (output.attachmentSet === "") {
+  if (String(output.attachmentSet).trim() === "") {
     contents[_Atta] = [];
   } else if (output[_aSt] != null && output[_aSt][_i] != null) {
     contents[_Atta] = de_InternetGatewayAttachmentList(__getArrayIfSingleItem(output[_aSt][_i]), context);
@@ -71316,7 +71316,7 @@ const de_EgressOnlyInternetGateway = (output: any, context: __SerdeContext): Egr
   if (output[_eOIGI] != null) {
     contents[_EOIGI] = __expectString(output[_eOIGI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -71400,7 +71400,7 @@ const de_ElasticGpus = (output: any, context: __SerdeContext): ElasticGpus => {
   if (output[_iI] != null) {
     contents[_IIn] = __expectString(output[_iI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -71580,7 +71580,7 @@ const de_EnableFastSnapshotRestoreErrorItem = (
   if (output[_sIn] != null) {
     contents[_SIn] = __expectString(output[_sIn]);
   }
-  if (output.fastSnapshotRestoreStateErrorSet === "") {
+  if (String(output.fastSnapshotRestoreStateErrorSet).trim() === "") {
     contents[_FSRSE] = [];
   } else if (output[_fSRSES] != null && output[_fSRSES][_i] != null) {
     contents[_FSRSE] = de_EnableFastSnapshotRestoreStateErrorSet(__getArrayIfSingleItem(output[_fSRSES][_i]), context);
@@ -71610,12 +71610,12 @@ const de_EnableFastSnapshotRestoresResult = (
   context: __SerdeContext
 ): EnableFastSnapshotRestoresResult => {
   const contents: any = {};
-  if (output.successful === "") {
+  if (String(output.successful).trim() === "") {
     contents[_Suc] = [];
   } else if (output[_suc] != null && output[_suc][_i] != null) {
     contents[_Suc] = de_EnableFastSnapshotRestoreSuccessSet(__getArrayIfSingleItem(output[_suc][_i]), context);
   }
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_EnableFastSnapshotRestoreErrorSet(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -71985,7 +71985,7 @@ const de_Explanation = (output: any, context: __SerdeContext): Explanation => {
   if (output[_ad] != null) {
     contents[_Ad] = __expectString(output[_ad]);
   }
-  if (output.addressSet === "") {
+  if (String(output.addressSet).trim() === "") {
     contents[_Addr] = [];
   } else if (output[_aSd] != null && output[_aSd][_i] != null) {
     contents[_Addr] = de_IpAddressList(__getArrayIfSingleItem(output[_aSd][_i]), context);
@@ -71993,17 +71993,17 @@ const de_Explanation = (output: any, context: __SerdeContext): Explanation => {
   if (output[_aTtt] != null) {
     contents[_ATtta] = de_AnalysisComponent(output[_aTtt], context);
   }
-  if (output.availabilityZoneSet === "") {
+  if (String(output.availabilityZoneSet).trim() === "") {
     contents[_AZv] = [];
   } else if (output[_aZS] != null && output[_aZS][_i] != null) {
     contents[_AZv] = de_ValueStringList(__getArrayIfSingleItem(output[_aZS][_i]), context);
   }
-  if (output.availabilityZoneIdSet === "") {
+  if (String(output.availabilityZoneIdSet).trim() === "") {
     contents[_AZIv] = [];
   } else if (output[_aZIS] != null && output[_aZIS][_i] != null) {
     contents[_AZIv] = de_ValueStringList(__getArrayIfSingleItem(output[_aZIS][_i]), context);
   }
-  if (output.cidrSet === "") {
+  if (String(output.cidrSet).trim() === "") {
     contents[_Ci] = [];
   } else if (output[_cS] != null && output[_cS][_i] != null) {
     contents[_Ci] = de_ValueStringList(__getArrayIfSingleItem(output[_cS][_i]), context);
@@ -72047,7 +72047,7 @@ const de_Explanation = (output: any, context: __SerdeContext): Explanation => {
   if (output[_lBTG] != null) {
     contents[_LBTG] = de_AnalysisComponent(output[_lBTG], context);
   }
-  if (output.loadBalancerTargetGroupSet === "") {
+  if (String(output.loadBalancerTargetGroupSet).trim() === "") {
     contents[_LBTGo] = [];
   } else if (output[_lBTGS] != null && output[_lBTGS][_i] != null) {
     contents[_LBTGo] = de_AnalysisComponentList(__getArrayIfSingleItem(output[_lBTGS][_i]), context);
@@ -72076,7 +72076,7 @@ const de_Explanation = (output: any, context: __SerdeContext): Explanation => {
   if (output[_po] != null) {
     contents[_Po] = __strictParseInt32(output[_po]) as number;
   }
-  if (output.portRangeSet === "") {
+  if (String(output.portRangeSet).trim() === "") {
     contents[_PRo] = [];
   } else if (output[_pRS] != null && output[_pRS][_i] != null) {
     contents[_PRo] = de_PortRangeList(__getArrayIfSingleItem(output[_pRS][_i]), context);
@@ -72084,7 +72084,7 @@ const de_Explanation = (output: any, context: __SerdeContext): Explanation => {
   if (output[_pL] != null) {
     contents[_PLr] = de_AnalysisComponent(output[_pL], context);
   }
-  if (output.protocolSet === "") {
+  if (String(output.protocolSet).trim() === "") {
     contents[_Pro] = [];
   } else if (output[_pSro] != null && output[_pSro][_i] != null) {
     contents[_Pro] = de_StringList(__getArrayIfSingleItem(output[_pSro][_i]), context);
@@ -72101,7 +72101,7 @@ const de_Explanation = (output: any, context: __SerdeContext): Explanation => {
   if (output[_sGR] != null) {
     contents[_SGRe] = de_AnalysisSecurityGroupRule(output[_sGR], context);
   }
-  if (output.securityGroupSet === "") {
+  if (String(output.securityGroupSet).trim() === "") {
     contents[_SG] = [];
   } else if (output[_sGS] != null && output[_sGS][_i] != null) {
     contents[_SG] = de_AnalysisComponentList(__getArrayIfSingleItem(output[_sGS][_i]), context);
@@ -72231,7 +72231,7 @@ const de_ExportImageResult = (output: any, context: __SerdeContext): ExportImage
   if (output[_sMt] != null) {
     contents[_SMt] = __expectString(output[_sMt]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -72265,7 +72265,7 @@ const de_ExportImageTask = (output: any, context: __SerdeContext): ExportImageTa
   if (output[_sMt] != null) {
     contents[_SMt] = __expectString(output[_sMt]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -72307,7 +72307,7 @@ const de_ExportTask = (output: any, context: __SerdeContext): ExportTask => {
   if (output[_sMt] != null) {
     contents[_SMt] = __expectString(output[_sMt]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -72391,7 +72391,7 @@ const de_ExportVerifiedAccessInstanceClientConfigurationResult = (
   if (output[_re] != null) {
     contents[_Regi] = __expectString(output[_re]);
   }
-  if (output.deviceTrustProviderSet === "") {
+  if (String(output.deviceTrustProviderSet).trim() === "") {
     contents[_DTP] = [];
   } else if (output[_dTPS] != null && output[_dTPS][_i] != null) {
     contents[_DTP] = de_DeviceTrustProviderTypeList(__getArrayIfSingleItem(output[_dTPS][_i]), context);
@@ -72399,7 +72399,7 @@ const de_ExportVerifiedAccessInstanceClientConfigurationResult = (
   if (output[_uTP] != null) {
     contents[_UTP] = de_VerifiedAccessInstanceUserTrustProviderClientConfiguration(output[_uTP], context);
   }
-  if (output.openVpnConfigurationSet === "") {
+  if (String(output.openVpnConfigurationSet).trim() === "") {
     contents[_OVC] = [];
   } else if (output[_oVCS] != null && output[_oVCS][_i] != null) {
     contents[_OVC] = de_VerifiedAccessInstanceOpenVpnClientConfigurationList(
@@ -72536,22 +72536,22 @@ const de_FirewallStatefulRule = (output: any, context: __SerdeContext): Firewall
   if (output[_rGA] != null) {
     contents[_RGA] = __expectString(output[_rGA]);
   }
-  if (output.sourceSet === "") {
+  if (String(output.sourceSet).trim() === "") {
     contents[_So] = [];
   } else if (output[_sSo] != null && output[_sSo][_i] != null) {
     contents[_So] = de_ValueStringList(__getArrayIfSingleItem(output[_sSo][_i]), context);
   }
-  if (output.destinationSet === "") {
+  if (String(output.destinationSet).trim() === "") {
     contents[_Des] = [];
   } else if (output[_dSe] != null && output[_dSe][_i] != null) {
     contents[_Des] = de_ValueStringList(__getArrayIfSingleItem(output[_dSe][_i]), context);
   }
-  if (output.sourcePortSet === "") {
+  if (String(output.sourcePortSet).trim() === "") {
     contents[_SPo] = [];
   } else if (output[_sPS] != null && output[_sPS][_i] != null) {
     contents[_SPo] = de_PortRangeList(__getArrayIfSingleItem(output[_sPS][_i]), context);
   }
-  if (output.destinationPortSet === "") {
+  if (String(output.destinationPortSet).trim() === "") {
     contents[_DPes] = [];
   } else if (output[_dPS] != null && output[_dPS][_i] != null) {
     contents[_DPes] = de_PortRangeList(__getArrayIfSingleItem(output[_dPS][_i]), context);
@@ -72576,27 +72576,27 @@ const de_FirewallStatelessRule = (output: any, context: __SerdeContext): Firewal
   if (output[_rGA] != null) {
     contents[_RGA] = __expectString(output[_rGA]);
   }
-  if (output.sourceSet === "") {
+  if (String(output.sourceSet).trim() === "") {
     contents[_So] = [];
   } else if (output[_sSo] != null && output[_sSo][_i] != null) {
     contents[_So] = de_ValueStringList(__getArrayIfSingleItem(output[_sSo][_i]), context);
   }
-  if (output.destinationSet === "") {
+  if (String(output.destinationSet).trim() === "") {
     contents[_Des] = [];
   } else if (output[_dSe] != null && output[_dSe][_i] != null) {
     contents[_Des] = de_ValueStringList(__getArrayIfSingleItem(output[_dSe][_i]), context);
   }
-  if (output.sourcePortSet === "") {
+  if (String(output.sourcePortSet).trim() === "") {
     contents[_SPo] = [];
   } else if (output[_sPS] != null && output[_sPS][_i] != null) {
     contents[_SPo] = de_PortRangeList(__getArrayIfSingleItem(output[_sPS][_i]), context);
   }
-  if (output.destinationPortSet === "") {
+  if (String(output.destinationPortSet).trim() === "") {
     contents[_DPes] = [];
   } else if (output[_dPS] != null && output[_dPS][_i] != null) {
     contents[_DPes] = de_PortRangeList(__getArrayIfSingleItem(output[_dPS][_i]), context);
   }
-  if (output.protocolSet === "") {
+  if (String(output.protocolSet).trim() === "") {
     contents[_Pro] = [];
   } else if (output[_pSro] != null && output[_pSro][_i] != null) {
     contents[_Pro] = de_ProtocolIntList(__getArrayIfSingleItem(output[_pSro][_i]), context);
@@ -72691,7 +72691,7 @@ const de_FleetData = (output: any, context: __SerdeContext): FleetData => {
   if (output[_fODC] != null) {
     contents[_FODC] = __strictParseFloat(output[_fODC]) as number;
   }
-  if (output.launchTemplateConfigs === "") {
+  if (String(output.launchTemplateConfigs).trim() === "") {
     contents[_LTC] = [];
   } else if (output[_lTC] != null && output[_lTC][_i] != null) {
     contents[_LTC] = de_FleetLaunchTemplateConfigList(__getArrayIfSingleItem(output[_lTC][_i]), context);
@@ -72720,17 +72720,17 @@ const de_FleetData = (output: any, context: __SerdeContext): FleetData => {
   if (output[_oDO] != null) {
     contents[_ODO] = de_OnDemandOptions(output[_oDO], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
-  if (output.errorSet === "") {
+  if (String(output.errorSet).trim() === "") {
     contents[_Err] = [];
   } else if (output[_eSr] != null && output[_eSr][_i] != null) {
     contents[_Err] = de_DescribeFleetsErrorSet(__getArrayIfSingleItem(output[_eSr][_i]), context);
   }
-  if (output.fleetInstanceSet === "") {
+  if (String(output.fleetInstanceSet).trim() === "") {
     contents[_In] = [];
   } else if (output[_fIS] != null && output[_fIS][_i] != null) {
     contents[_In] = de_DescribeFleetsInstancesSet(__getArrayIfSingleItem(output[_fIS][_i]), context);
@@ -72749,7 +72749,7 @@ const de_FleetLaunchTemplateConfig = (output: any, context: __SerdeContext): Fle
   if (output[_lTS] != null) {
     contents[_LTS] = de_FleetLaunchTemplateSpecification(output[_lTS], context);
   }
-  if (output.overrides === "") {
+  if (String(output.overrides).trim() === "") {
     contents[_Ov] = [];
   } else if (output[_ov] != null && output[_ov][_i] != null) {
     contents[_Ov] = de_FleetLaunchTemplateOverridesList(__getArrayIfSingleItem(output[_ov][_i]), context);
@@ -72800,7 +72800,7 @@ const de_FleetLaunchTemplateOverrides = (output: any, context: __SerdeContext): 
   if (output[_iIma] != null) {
     contents[_IIma] = __expectString(output[_iIma]);
   }
-  if (output.blockDeviceMappingSet === "") {
+  if (String(output.blockDeviceMappingSet).trim() === "") {
     contents[_BDM] = [];
   } else if (output[_bDMS] != null && output[_bDMS][_i] != null) {
     contents[_BDM] = de_BlockDeviceMappingResponseList(__getArrayIfSingleItem(output[_bDMS][_i]), context);
@@ -72919,7 +72919,7 @@ const de_FlowLog = (output: any, context: __SerdeContext): FlowLog => {
   if (output[_lF] != null) {
     contents[_LF] = __expectString(output[_lF]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -73024,12 +73024,12 @@ const de_FpgaImage = (output: any, context: __SerdeContext): FpgaImage => {
   if (output[_oAw] != null) {
     contents[_OAw] = __expectString(output[_oAw]);
   }
-  if (output.productCodes === "") {
+  if (String(output.productCodes).trim() === "") {
     contents[_PCr] = [];
   } else if (output[_pC] != null && output[_pC][_i] != null) {
     contents[_PCr] = de_ProductCodeList(__getArrayIfSingleItem(output[_pC][_i]), context);
   }
-  if (output.tags === "") {
+  if (String(output.tags).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_ta] != null && output[_ta][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_ta][_i]), context);
@@ -73040,7 +73040,7 @@ const de_FpgaImage = (output: any, context: __SerdeContext): FpgaImage => {
   if (output[_dRS] != null) {
     contents[_DRSa] = __parseBoolean(output[_dRS]);
   }
-  if (output.instanceTypes === "") {
+  if (String(output.instanceTypes).trim() === "") {
     contents[_ITnst] = [];
   } else if (output[_iTn] != null && output[_iTn][_i] != null) {
     contents[_ITnst] = de_InstanceTypesList(__getArrayIfSingleItem(output[_iTn][_i]), context);
@@ -73062,12 +73062,12 @@ const de_FpgaImageAttribute = (output: any, context: __SerdeContext): FpgaImageA
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.loadPermissions === "") {
+  if (String(output.loadPermissions).trim() === "") {
     contents[_LPo] = [];
   } else if (output[_lP] != null && output[_lP][_i] != null) {
     contents[_LPo] = de_LoadPermissionList(__getArrayIfSingleItem(output[_lP][_i]), context);
   }
-  if (output.productCodes === "") {
+  if (String(output.productCodes).trim() === "") {
     contents[_PCr] = [];
   } else if (output[_pC] != null && output[_pC][_i] != null) {
     contents[_PCr] = de_ProductCodeList(__getArrayIfSingleItem(output[_pC][_i]), context);
@@ -73105,7 +73105,7 @@ const de_FpgaImageState = (output: any, context: __SerdeContext): FpgaImageState
  */
 const de_FpgaInfo = (output: any, context: __SerdeContext): FpgaInfo => {
   const contents: any = {};
-  if (output.fpgas === "") {
+  if (String(output.fpgas).trim() === "") {
     contents[_Fp] = [];
   } else if (output[_fp] != null && output[_fp][_i] != null) {
     contents[_Fp] = de_FpgaDeviceInfoList(__getArrayIfSingleItem(output[_fp][_i]), context);
@@ -73135,7 +73135,7 @@ const de_GetAllowedImagesSettingsResult = (output: any, context: __SerdeContext)
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.imageCriterionSet === "") {
+  if (String(output.imageCriterionSet).trim() === "") {
     contents[_ICm] = [];
   } else if (output[_iCS] != null && output[_iCS][_i] != null) {
     contents[_ICm] = de_ImageCriterionList(__getArrayIfSingleItem(output[_iCS][_i]), context);
@@ -73154,7 +73154,7 @@ const de_GetAssociatedEnclaveCertificateIamRolesResult = (
   context: __SerdeContext
 ): GetAssociatedEnclaveCertificateIamRolesResult => {
   const contents: any = {};
-  if (output.associatedRoleSet === "") {
+  if (String(output.associatedRoleSet).trim() === "") {
     contents[_ARss] = [];
   } else if (output[_aRS] != null && output[_aRS][_i] != null) {
     contents[_ARss] = de_AssociatedRolesList(__getArrayIfSingleItem(output[_aRS][_i]), context);
@@ -73170,7 +73170,7 @@ const de_GetAssociatedIpv6PoolCidrsResult = (
   context: __SerdeContext
 ): GetAssociatedIpv6PoolCidrsResult => {
   const contents: any = {};
-  if (output.ipv6CidrAssociationSet === "") {
+  if (String(output.ipv6CidrAssociationSet).trim() === "") {
     contents[_ICA] = [];
   } else if (output[_iCAS] != null && output[_iCAS][_i] != null) {
     contents[_ICA] = de_Ipv6CidrAssociationSet(__getArrayIfSingleItem(output[_iCAS][_i]), context);
@@ -73189,7 +73189,7 @@ const de_GetAwsNetworkPerformanceDataResult = (
   context: __SerdeContext
 ): GetAwsNetworkPerformanceDataResult => {
   const contents: any = {};
-  if (output.dataResponseSet === "") {
+  if (String(output.dataResponseSet).trim() === "") {
     contents[_DRa] = [];
   } else if (output[_dRSa] != null && output[_dRSa][_i] != null) {
     contents[_DRa] = de_DataResponses(__getArrayIfSingleItem(output[_dRSa][_i]), context);
@@ -73226,7 +73226,7 @@ const de_GetCapacityReservationUsageResult = (
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.instanceUsageSet === "") {
+  if (String(output.instanceUsageSet).trim() === "") {
     contents[_IU] = [];
   } else if (output[_iUS] != null && output[_iUS][_i] != null) {
     contents[_IU] = de_InstanceUsageSet(__getArrayIfSingleItem(output[_iUS][_i]), context);
@@ -73242,7 +73242,7 @@ const de_GetCoipPoolUsageResult = (output: any, context: __SerdeContext): GetCoi
   if (output[_cPI] != null) {
     contents[_CPIo] = __expectString(output[_cPI]);
   }
-  if (output.coipAddressUsageSet === "") {
+  if (String(output.coipAddressUsageSet).trim() === "") {
     contents[_CAU] = [];
   } else if (output[_cAUS] != null && output[_cAUS][_i] != null) {
     contents[_CAU] = de_CoipAddressUsageSet(__getArrayIfSingleItem(output[_cAUS][_i]), context);
@@ -73319,7 +73319,7 @@ const de_GetDeclarativePoliciesReportSummaryResult = (
   if (output[_nOFA] != null) {
     contents[_NOFA] = __strictParseInt32(output[_nOFA]) as number;
   }
-  if (output.attributeSummarySet === "") {
+  if (String(output.attributeSummarySet).trim() === "") {
     contents[_ASt] = [];
   } else if (output[_aSSt] != null && output[_aSSt][_i] != null) {
     contents[_ASt] = de_AttributeSummaryList(__getArrayIfSingleItem(output[_aSSt][_i]), context);
@@ -73391,7 +73391,7 @@ const de_GetGroupsForCapacityReservationResult = (
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.capacityReservationGroupSet === "") {
+  if (String(output.capacityReservationGroupSet).trim() === "") {
     contents[_CRG] = [];
   } else if (output[_cRGS] != null && output[_cRGS][_i] != null) {
     contents[_CRG] = de_CapacityReservationGroupSet(__getArrayIfSingleItem(output[_cRGS][_i]), context);
@@ -73410,7 +73410,7 @@ const de_GetHostReservationPurchasePreviewResult = (
   if (output[_cC] != null) {
     contents[_CCu] = __expectString(output[_cC]);
   }
-  if (output.purchase === "") {
+  if (String(output.purchase).trim() === "") {
     contents[_Pur] = [];
   } else if (output[_pur] != null && output[_pur][_i] != null) {
     contents[_Pur] = de_PurchaseSet(__getArrayIfSingleItem(output[_pur][_i]), context);
@@ -73483,7 +73483,7 @@ const de_GetInstanceTypesFromInstanceRequirementsResult = (
   context: __SerdeContext
 ): GetInstanceTypesFromInstanceRequirementsResult => {
   const contents: any = {};
-  if (output.instanceTypeSet === "") {
+  if (String(output.instanceTypeSet).trim() === "") {
     contents[_ITnst] = [];
   } else if (output[_iTS] != null && output[_iTS][_i] != null) {
     contents[_ITnst] = de_InstanceTypeInfoFromInstanceRequirementsSet(
@@ -73516,7 +73516,7 @@ const de_GetInstanceUefiDataResult = (output: any, context: __SerdeContext): Get
  */
 const de_GetIpamAddressHistoryResult = (output: any, context: __SerdeContext): GetIpamAddressHistoryResult => {
   const contents: any = {};
-  if (output.historyRecordSet === "") {
+  if (String(output.historyRecordSet).trim() === "") {
     contents[_HRi] = [];
   } else if (output[_hRS] != null && output[_hRS][_i] != null) {
     contents[_HRi] = de_IpamAddressHistoryRecordSet(__getArrayIfSingleItem(output[_hRS][_i]), context);
@@ -73532,7 +73532,7 @@ const de_GetIpamAddressHistoryResult = (output: any, context: __SerdeContext): G
  */
 const de_GetIpamDiscoveredAccountsResult = (output: any, context: __SerdeContext): GetIpamDiscoveredAccountsResult => {
   const contents: any = {};
-  if (output.ipamDiscoveredAccountSet === "") {
+  if (String(output.ipamDiscoveredAccountSet).trim() === "") {
     contents[_IDA] = [];
   } else if (output[_iDAS] != null && output[_iDAS][_i] != null) {
     contents[_IDA] = de_IpamDiscoveredAccountSet(__getArrayIfSingleItem(output[_iDAS][_i]), context);
@@ -73551,7 +73551,7 @@ const de_GetIpamDiscoveredPublicAddressesResult = (
   context: __SerdeContext
 ): GetIpamDiscoveredPublicAddressesResult => {
   const contents: any = {};
-  if (output.ipamDiscoveredPublicAddressSet === "") {
+  if (String(output.ipamDiscoveredPublicAddressSet).trim() === "") {
     contents[_IDPA] = [];
   } else if (output[_iDPAS] != null && output[_iDPAS][_i] != null) {
     contents[_IDPA] = de_IpamDiscoveredPublicAddressSet(__getArrayIfSingleItem(output[_iDPAS][_i]), context);
@@ -73573,7 +73573,7 @@ const de_GetIpamDiscoveredResourceCidrsResult = (
   context: __SerdeContext
 ): GetIpamDiscoveredResourceCidrsResult => {
   const contents: any = {};
-  if (output.ipamDiscoveredResourceCidrSet === "") {
+  if (String(output.ipamDiscoveredResourceCidrSet).trim() === "") {
     contents[_IDRC] = [];
   } else if (output[_iDRCS] != null && output[_iDRCS][_i] != null) {
     contents[_IDRC] = de_IpamDiscoveredResourceCidrSet(__getArrayIfSingleItem(output[_iDRCS][_i]), context);
@@ -73589,7 +73589,7 @@ const de_GetIpamDiscoveredResourceCidrsResult = (
  */
 const de_GetIpamPoolAllocationsResult = (output: any, context: __SerdeContext): GetIpamPoolAllocationsResult => {
   const contents: any = {};
-  if (output.ipamPoolAllocationSet === "") {
+  if (String(output.ipamPoolAllocationSet).trim() === "") {
     contents[_IPAp] = [];
   } else if (output[_iPAS] != null && output[_iPAS][_i] != null) {
     contents[_IPAp] = de_IpamPoolAllocationSet(__getArrayIfSingleItem(output[_iPAS][_i]), context);
@@ -73605,7 +73605,7 @@ const de_GetIpamPoolAllocationsResult = (output: any, context: __SerdeContext): 
  */
 const de_GetIpamPoolCidrsResult = (output: any, context: __SerdeContext): GetIpamPoolCidrsResult => {
   const contents: any = {};
-  if (output.ipamPoolCidrSet === "") {
+  if (String(output.ipamPoolCidrSet).trim() === "") {
     contents[_IPCpam] = [];
   } else if (output[_iPCS] != null && output[_iPCS][_i] != null) {
     contents[_IPCpam] = de_IpamPoolCidrSet(__getArrayIfSingleItem(output[_iPCS][_i]), context);
@@ -73624,7 +73624,7 @@ const de_GetIpamResourceCidrsResult = (output: any, context: __SerdeContext): Ge
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.ipamResourceCidrSet === "") {
+  if (String(output.ipamResourceCidrSet).trim() === "") {
     contents[_IRC] = [];
   } else if (output[_iRCS] != null && output[_iRCS][_i] != null) {
     contents[_IRC] = de_IpamResourceCidrSet(__getArrayIfSingleItem(output[_iRCS][_i]), context);
@@ -73651,7 +73651,7 @@ const de_GetManagedPrefixListAssociationsResult = (
   context: __SerdeContext
 ): GetManagedPrefixListAssociationsResult => {
   const contents: any = {};
-  if (output.prefixListAssociationSet === "") {
+  if (String(output.prefixListAssociationSet).trim() === "") {
     contents[_PLA] = [];
   } else if (output[_pLAS] != null && output[_pLAS][_i] != null) {
     contents[_PLA] = de_PrefixListAssociationSet(__getArrayIfSingleItem(output[_pLAS][_i]), context);
@@ -73670,7 +73670,7 @@ const de_GetManagedPrefixListEntriesResult = (
   context: __SerdeContext
 ): GetManagedPrefixListEntriesResult => {
   const contents: any = {};
-  if (output.entrySet === "") {
+  if (String(output.entrySet).trim() === "") {
     contents[_Ent] = [];
   } else if (output[_eSnt] != null && output[_eSnt][_i] != null) {
     contents[_Ent] = de_PrefixListEntrySet(__getArrayIfSingleItem(output[_eSnt][_i]), context);
@@ -73695,7 +73695,7 @@ const de_GetNetworkInsightsAccessScopeAnalysisFindingsResult = (
   if (output[_aSn] != null) {
     contents[_ASn] = __expectString(output[_aSn]);
   }
-  if (output.analysisFindingSet === "") {
+  if (String(output.analysisFindingSet).trim() === "") {
     contents[_AFn] = [];
   } else if (output[_aFS] != null && output[_aFS][_i] != null) {
     contents[_AFn] = de_AccessScopeAnalysisFindingList(__getArrayIfSingleItem(output[_aFS][_i]), context);
@@ -73760,7 +73760,7 @@ const de_GetReservedInstancesExchangeQuoteResult = (
   if (output[_rIVR] != null) {
     contents[_RIVR] = de_ReservationValue(output[_rIVR], context);
   }
-  if (output.reservedInstanceValueSet === "") {
+  if (String(output.reservedInstanceValueSet).trim() === "") {
     contents[_RIVS] = [];
   } else if (output[_rIVS] != null && output[_rIVS][_i] != null) {
     contents[_RIVS] = de_ReservedInstanceReservationValueSet(__getArrayIfSingleItem(output[_rIVS][_i]), context);
@@ -73768,7 +73768,7 @@ const de_GetReservedInstancesExchangeQuoteResult = (
   if (output[_tCVR] != null) {
     contents[_TCVR] = de_ReservationValue(output[_tCVR], context);
   }
-  if (output.targetConfigurationValueSet === "") {
+  if (String(output.targetConfigurationValueSet).trim() === "") {
     contents[_TCVS] = [];
   } else if (output[_tCVS] != null && output[_tCVS][_i] != null) {
     contents[_TCVS] = de_TargetReservationValueSet(__getArrayIfSingleItem(output[_tCVS][_i]), context);
@@ -73787,7 +73787,7 @@ const de_GetRouteServerAssociationsResult = (
   context: __SerdeContext
 ): GetRouteServerAssociationsResult => {
   const contents: any = {};
-  if (output.routeServerAssociationSet === "") {
+  if (String(output.routeServerAssociationSet).trim() === "") {
     contents[_RSAou] = [];
   } else if (output[_rSAS] != null && output[_rSAS][_i] != null) {
     contents[_RSAou] = de_RouteServerAssociationsList(__getArrayIfSingleItem(output[_rSAS][_i]), context);
@@ -73803,7 +73803,7 @@ const de_GetRouteServerPropagationsResult = (
   context: __SerdeContext
 ): GetRouteServerPropagationsResult => {
   const contents: any = {};
-  if (output.routeServerPropagationSet === "") {
+  if (String(output.routeServerPropagationSet).trim() === "") {
     contents[_RSPout] = [];
   } else if (output[_rSPSo] != null && output[_rSPSo][_i] != null) {
     contents[_RSPout] = de_RouteServerPropagationsList(__getArrayIfSingleItem(output[_rSPSo][_i]), context);
@@ -73822,7 +73822,7 @@ const de_GetRouteServerRoutingDatabaseResult = (
   if (output[_aRP] != null) {
     contents[_ARP] = __parseBoolean(output[_aRP]);
   }
-  if (output.routeSet === "") {
+  if (String(output.routeSet).trim() === "") {
     contents[_Rout] = [];
   } else if (output[_rSou] != null && output[_rSou][_i] != null) {
     contents[_Rout] = de_RouteServerRouteList(__getArrayIfSingleItem(output[_rSou][_i]), context);
@@ -73841,7 +73841,7 @@ const de_GetSecurityGroupsForVpcResult = (output: any, context: __SerdeContext):
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
   }
-  if (output.securityGroupForVpcSet === "") {
+  if (String(output.securityGroupForVpcSet).trim() === "") {
     contents[_SGFV] = [];
   } else if (output[_sGFVS] != null && output[_sGFVS][_i] != null) {
     contents[_SGFV] = de_SecurityGroupForVpcList(__getArrayIfSingleItem(output[_sGFVS][_i]), context);
@@ -73888,7 +73888,7 @@ const de_GetSnapshotBlockPublicAccessStateResult = (
  */
 const de_GetSpotPlacementScoresResult = (output: any, context: __SerdeContext): GetSpotPlacementScoresResult => {
   const contents: any = {};
-  if (output.spotPlacementScoreSet === "") {
+  if (String(output.spotPlacementScoreSet).trim() === "") {
     contents[_SPS] = [];
   } else if (output[_sPSS] != null && output[_sPSS][_i] != null) {
     contents[_SPS] = de_SpotPlacementScores(__getArrayIfSingleItem(output[_sPSS][_i]), context);
@@ -73904,12 +73904,12 @@ const de_GetSpotPlacementScoresResult = (output: any, context: __SerdeContext): 
  */
 const de_GetSubnetCidrReservationsResult = (output: any, context: __SerdeContext): GetSubnetCidrReservationsResult => {
   const contents: any = {};
-  if (output.subnetIpv4CidrReservationSet === "") {
+  if (String(output.subnetIpv4CidrReservationSet).trim() === "") {
     contents[_SICR] = [];
   } else if (output[_sICRS] != null && output[_sICRS][_i] != null) {
     contents[_SICR] = de_SubnetCidrReservationList(__getArrayIfSingleItem(output[_sICRS][_i]), context);
   }
-  if (output.subnetIpv6CidrReservationSet === "") {
+  if (String(output.subnetIpv6CidrReservationSet).trim() === "") {
     contents[_SICRu] = [];
   } else if (output[_sICRSu] != null && output[_sICRSu][_i] != null) {
     contents[_SICRu] = de_SubnetCidrReservationList(__getArrayIfSingleItem(output[_sICRSu][_i]), context);
@@ -73928,7 +73928,7 @@ const de_GetTransitGatewayAttachmentPropagationsResult = (
   context: __SerdeContext
 ): GetTransitGatewayAttachmentPropagationsResult => {
   const contents: any = {};
-  if (output.transitGatewayAttachmentPropagations === "") {
+  if (String(output.transitGatewayAttachmentPropagations).trim() === "") {
     contents[_TGAP] = [];
   } else if (output[_tGAP] != null && output[_tGAP][_i] != null) {
     contents[_TGAP] = de_TransitGatewayAttachmentPropagationList(__getArrayIfSingleItem(output[_tGAP][_i]), context);
@@ -73947,7 +73947,7 @@ const de_GetTransitGatewayMulticastDomainAssociationsResult = (
   context: __SerdeContext
 ): GetTransitGatewayMulticastDomainAssociationsResult => {
   const contents: any = {};
-  if (output.multicastDomainAssociations === "") {
+  if (String(output.multicastDomainAssociations).trim() === "") {
     contents[_MDA] = [];
   } else if (output[_mDA] != null && output[_mDA][_i] != null) {
     contents[_MDA] = de_TransitGatewayMulticastDomainAssociationList(__getArrayIfSingleItem(output[_mDA][_i]), context);
@@ -73966,7 +73966,7 @@ const de_GetTransitGatewayPolicyTableAssociationsResult = (
   context: __SerdeContext
 ): GetTransitGatewayPolicyTableAssociationsResult => {
   const contents: any = {};
-  if (output.associations === "") {
+  if (String(output.associations).trim() === "") {
     contents[_Ass] = [];
   } else if (output[_a] != null && output[_a][_i] != null) {
     contents[_Ass] = de_TransitGatewayPolicyTableAssociationList(__getArrayIfSingleItem(output[_a][_i]), context);
@@ -73985,7 +73985,7 @@ const de_GetTransitGatewayPolicyTableEntriesResult = (
   context: __SerdeContext
 ): GetTransitGatewayPolicyTableEntriesResult => {
   const contents: any = {};
-  if (output.transitGatewayPolicyTableEntries === "") {
+  if (String(output.transitGatewayPolicyTableEntries).trim() === "") {
     contents[_TGPTE] = [];
   } else if (output[_tGPTE] != null && output[_tGPTE][_i] != null) {
     contents[_TGPTE] = de_TransitGatewayPolicyTableEntryList(__getArrayIfSingleItem(output[_tGPTE][_i]), context);
@@ -74001,7 +74001,7 @@ const de_GetTransitGatewayPrefixListReferencesResult = (
   context: __SerdeContext
 ): GetTransitGatewayPrefixListReferencesResult => {
   const contents: any = {};
-  if (output.transitGatewayPrefixListReferenceSet === "") {
+  if (String(output.transitGatewayPrefixListReferenceSet).trim() === "") {
     contents[_TGPLRr] = [];
   } else if (output[_tGPLRS] != null && output[_tGPLRS][_i] != null) {
     contents[_TGPLRr] = de_TransitGatewayPrefixListReferenceSet(__getArrayIfSingleItem(output[_tGPLRS][_i]), context);
@@ -74020,7 +74020,7 @@ const de_GetTransitGatewayRouteTableAssociationsResult = (
   context: __SerdeContext
 ): GetTransitGatewayRouteTableAssociationsResult => {
   const contents: any = {};
-  if (output.associations === "") {
+  if (String(output.associations).trim() === "") {
     contents[_Ass] = [];
   } else if (output[_a] != null && output[_a][_i] != null) {
     contents[_Ass] = de_TransitGatewayRouteTableAssociationList(__getArrayIfSingleItem(output[_a][_i]), context);
@@ -74039,7 +74039,7 @@ const de_GetTransitGatewayRouteTablePropagationsResult = (
   context: __SerdeContext
 ): GetTransitGatewayRouteTablePropagationsResult => {
   const contents: any = {};
-  if (output.transitGatewayRouteTablePropagations === "") {
+  if (String(output.transitGatewayRouteTablePropagations).trim() === "") {
     contents[_TGRTP] = [];
   } else if (output[_tGRTP] != null && output[_tGRTP][_i] != null) {
     contents[_TGRTP] = de_TransitGatewayRouteTablePropagationList(__getArrayIfSingleItem(output[_tGRTP][_i]), context);
@@ -74075,7 +74075,7 @@ const de_GetVerifiedAccessEndpointTargetsResult = (
   context: __SerdeContext
 ): GetVerifiedAccessEndpointTargetsResult => {
   const contents: any = {};
-  if (output.verifiedAccessEndpointTargetSet === "") {
+  if (String(output.verifiedAccessEndpointTargetSet).trim() === "") {
     contents[_VAET] = [];
   } else if (output[_vAETS] != null && output[_vAETS][_i] != null) {
     contents[_VAET] = de_VerifiedAccessEndpointTargetList(__getArrayIfSingleItem(output[_vAETS][_i]), context);
@@ -74125,7 +74125,7 @@ const de_GetVpnConnectionDeviceTypesResult = (
   context: __SerdeContext
 ): GetVpnConnectionDeviceTypesResult => {
   const contents: any = {};
-  if (output.vpnConnectionDeviceTypeSet === "") {
+  if (String(output.vpnConnectionDeviceTypeSet).trim() === "") {
     contents[_VCDT] = [];
   } else if (output[_vCDTS] != null && output[_vCDTS][_i] != null) {
     contents[_VCDT] = de_VpnConnectionDeviceTypeList(__getArrayIfSingleItem(output[_vCDTS][_i]), context);
@@ -74212,7 +74212,7 @@ const de_GpuDeviceMemoryInfo = (output: any, context: __SerdeContext): GpuDevice
  */
 const de_GpuInfo = (output: any, context: __SerdeContext): GpuInfo => {
   const contents: any = {};
-  if (output.gpus === "") {
+  if (String(output.gpus).trim() === "") {
     contents[_Gp] = [];
   } else if (output[_gp] != null && output[_gp][_i] != null) {
     contents[_Gp] = de_GpuDeviceInfoList(__getArrayIfSingleItem(output[_gp][_i]), context);
@@ -74363,7 +74363,7 @@ const de_Host = (output: any, context: __SerdeContext): Host => {
   if (output[_hRI] != null) {
     contents[_HRI] = __expectString(output[_hRI]);
   }
-  if (output.instances === "") {
+  if (String(output.instances).trim() === "") {
     contents[_In] = [];
   } else if (output[_ins] != null && output[_ins][_i] != null) {
     contents[_In] = de_HostInstanceList(__getArrayIfSingleItem(output[_ins][_i]), context);
@@ -74377,7 +74377,7 @@ const de_Host = (output: any, context: __SerdeContext): Host => {
   if (output[_rTel] != null) {
     contents[_RTel] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rTel]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -74528,7 +74528,7 @@ const de_HostReservation = (output: any, context: __SerdeContext): HostReservati
   if (output[_end] != null) {
     contents[_End] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_end]));
   }
-  if (output.hostIdSet === "") {
+  if (String(output.hostIdSet).trim() === "") {
     contents[_HIS] = [];
   } else if (output[_hIS] != null && output[_hIS][_i] != null) {
     contents[_HIS] = de_ResponseHostIdSet(__getArrayIfSingleItem(output[_hIS][_i]), context);
@@ -74557,7 +74557,7 @@ const de_HostReservation = (output: any, context: __SerdeContext): HostReservati
   if (output[_uP] != null) {
     contents[_UPp] = __expectString(output[_uP]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -74713,7 +74713,7 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
   if (output[_uO] != null) {
     contents[_UO] = __expectString(output[_uO]);
   }
-  if (output.blockDeviceMapping === "") {
+  if (String(output.blockDeviceMapping).trim() === "") {
     contents[_BDM] = [];
   } else if (output[_bDM] != null && output[_bDM][_i] != null) {
     contents[_BDM] = de_BlockDeviceMappingList(__getArrayIfSingleItem(output[_bDM][_i]), context);
@@ -74745,7 +74745,7 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
   if (output[_sRt] != null) {
     contents[_SRt] = de_StateReason(output[_sRt], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -74804,7 +74804,7 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
   if (output[_iPs] != null) {
     contents[_Pu] = __parseBoolean(output[_iPs]);
   }
-  if (output.productCodes === "") {
+  if (String(output.productCodes).trim() === "") {
     contents[_PCr] = [];
   } else if (output[_pC] != null && output[_pC][_i] != null) {
     contents[_PCr] = de_ProductCodeList(__getArrayIfSingleItem(output[_pC][_i]), context);
@@ -74865,17 +74865,17 @@ const de_ImageAttribute = (output: any, context: __SerdeContext): ImageAttribute
   if (output[_iIma] != null) {
     contents[_IIma] = __expectString(output[_iIma]);
   }
-  if (output.launchPermission === "") {
+  if (String(output.launchPermission).trim() === "") {
     contents[_LPau] = [];
   } else if (output[_lPa] != null && output[_lPa][_i] != null) {
     contents[_LPau] = de_LaunchPermissionList(__getArrayIfSingleItem(output[_lPa][_i]), context);
   }
-  if (output.productCodes === "") {
+  if (String(output.productCodes).trim() === "") {
     contents[_PCr] = [];
   } else if (output[_pC] != null && output[_pC][_i] != null) {
     contents[_PCr] = de_ProductCodeList(__getArrayIfSingleItem(output[_pC][_i]), context);
   }
-  if (output.blockDeviceMapping === "") {
+  if (String(output.blockDeviceMapping).trim() === "") {
     contents[_BDM] = [];
   } else if (output[_bDM] != null && output[_bDM][_i] != null) {
     contents[_BDM] = de_BlockDeviceMappingList(__getArrayIfSingleItem(output[_bDM][_i]), context);
@@ -74888,7 +74888,7 @@ const de_ImageAttribute = (output: any, context: __SerdeContext): ImageAttribute
  */
 const de_ImageCriterion = (output: any, context: __SerdeContext): ImageCriterion => {
   const contents: any = {};
-  if (output.imageProviderSet === "") {
+  if (String(output.imageProviderSet).trim() === "") {
     contents[_IPm] = [];
   } else if (output[_iPSm] != null && output[_iPSm][_i] != null) {
     contents[_IPm] = de_ImageProviderList(__getArrayIfSingleItem(output[_iPSm][_i]), context);
@@ -75064,12 +75064,12 @@ const de_ImageUsageReport = (output: any, context: __SerdeContext): ImageUsageRe
   if (output[_rI] != null) {
     contents[_RIep] = __expectString(output[_rI]);
   }
-  if (output.resourceTypeSet === "") {
+  if (String(output.resourceTypeSet).trim() === "") {
     contents[_RTe] = [];
   } else if (output[_rTSe] != null && output[_rTSe][_i] != null) {
     contents[_RTe] = de_ImageUsageResourceTypeList(__getArrayIfSingleItem(output[_rTSe][_i]), context);
   }
-  if (output.accountIdSet === "") {
+  if (String(output.accountIdSet).trim() === "") {
     contents[_AIc] = [];
   } else if (output[_aISc] != null && output[_aISc][_i] != null) {
     contents[_AIc] = de_UserIdList(__getArrayIfSingleItem(output[_aISc][_i]), context);
@@ -75086,7 +75086,7 @@ const de_ImageUsageReport = (output: any, context: __SerdeContext): ImageUsageRe
   if (output[_eT] != null) {
     contents[_ETx] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_eT]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -75150,7 +75150,7 @@ const de_ImageUsageResourceType = (output: any, context: __SerdeContext): ImageU
   if (output[_rTe] != null) {
     contents[_RT] = __expectString(output[_rTe]);
   }
-  if (output.resourceTypeOptionSet === "") {
+  if (String(output.resourceTypeOptionSet).trim() === "") {
     contents[_RTO] = [];
   } else if (output[_rTOS] != null && output[_rTOS][_i] != null) {
     contents[_RTO] = de_ImageUsageResourceTypeOptionList(__getArrayIfSingleItem(output[_rTOS][_i]), context);
@@ -75177,7 +75177,7 @@ const de_ImageUsageResourceTypeOption = (output: any, context: __SerdeContext): 
   if (output[_oN] != null) {
     contents[_ON] = __expectString(output[_oN]);
   }
-  if (output.optionValueSet === "") {
+  if (String(output.optionValueSet).trim() === "") {
     contents[_OV] = [];
   } else if (output[_oVS] != null && output[_oVS][_i] != null) {
     contents[_OV] = de_ImageUsageResourceTypeOptionValuesList(__getArrayIfSingleItem(output[_oVS][_i]), context);
@@ -75284,7 +75284,7 @@ const de_ImportImageResult = (output: any, context: __SerdeContext): ImportImage
   if (output[_pro] != null) {
     contents[_Prog] = __expectString(output[_pro]);
   }
-  if (output.snapshotDetailSet === "") {
+  if (String(output.snapshotDetailSet).trim() === "") {
     contents[_SDn] = [];
   } else if (output[_sDSn] != null && output[_sDSn][_i] != null) {
     contents[_SDn] = de_SnapshotDetailList(__getArrayIfSingleItem(output[_sDSn][_i]), context);
@@ -75295,12 +75295,12 @@ const de_ImportImageResult = (output: any, context: __SerdeContext): ImportImage
   if (output[_sMt] != null) {
     contents[_SMt] = __expectString(output[_sMt]);
   }
-  if (output.licenseSpecifications === "") {
+  if (String(output.licenseSpecifications).trim() === "") {
     contents[_LSi] = [];
   } else if (output[_lS] != null && output[_lS][_i] != null) {
     contents[_LSi] = de_ImportImageLicenseSpecificationListResponse(__getArrayIfSingleItem(output[_lS][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -75346,7 +75346,7 @@ const de_ImportImageTask = (output: any, context: __SerdeContext): ImportImageTa
   if (output[_pro] != null) {
     contents[_Prog] = __expectString(output[_pro]);
   }
-  if (output.snapshotDetailSet === "") {
+  if (String(output.snapshotDetailSet).trim() === "") {
     contents[_SDn] = [];
   } else if (output[_sDSn] != null && output[_sDSn][_i] != null) {
     contents[_SDn] = de_SnapshotDetailList(__getArrayIfSingleItem(output[_sDSn][_i]), context);
@@ -75357,12 +75357,12 @@ const de_ImportImageTask = (output: any, context: __SerdeContext): ImportImageTa
   if (output[_sMt] != null) {
     contents[_SMt] = __expectString(output[_sMt]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
-  if (output.licenseSpecifications === "") {
+  if (String(output.licenseSpecifications).trim() === "") {
     contents[_LSi] = [];
   } else if (output[_lS] != null && output[_lS][_i] != null) {
     contents[_LSi] = de_ImportImageLicenseSpecificationListResponse(__getArrayIfSingleItem(output[_lS][_i]), context);
@@ -75412,7 +75412,7 @@ const de_ImportInstanceTaskDetails = (output: any, context: __SerdeContext): Imp
   if (output[_pl] != null) {
     contents[_Pla] = __expectString(output[_pl]);
   }
-  if (output.volumes === "") {
+  if (String(output.volumes).trim() === "") {
     contents[_Vol] = [];
   } else if (output[_vo] != null && output[_vo][_i] != null) {
     contents[_Vol] = de_ImportInstanceVolumeDetailSet(__getArrayIfSingleItem(output[_vo][_i]), context);
@@ -75477,7 +75477,7 @@ const de_ImportKeyPairResult = (output: any, context: __SerdeContext): ImportKey
   if (output[_kPI] != null) {
     contents[_KPI] = __expectString(output[_kPI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -75499,7 +75499,7 @@ const de_ImportSnapshotResult = (output: any, context: __SerdeContext): ImportSn
   if (output[_sTD] != null) {
     contents[_STD] = de_SnapshotTaskDetail(output[_sTD], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -75521,7 +75521,7 @@ const de_ImportSnapshotTask = (output: any, context: __SerdeContext): ImportSnap
   if (output[_sTD] != null) {
     contents[_STD] = de_SnapshotTaskDetail(output[_sTD], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -75582,7 +75582,7 @@ const de_ImportVolumeTaskDetails = (output: any, context: __SerdeContext): Impor
  */
 const de_InferenceAcceleratorInfo = (output: any, context: __SerdeContext): InferenceAcceleratorInfo => {
   const contents: any = {};
-  if (output.accelerators === "") {
+  if (String(output.accelerators).trim() === "") {
     contents[_Acc] = [];
   } else if (output[_acc] != null && output[_acc][_mem] != null) {
     contents[_Acc] = de_InferenceDeviceInfoList(__getArrayIfSingleItem(output[_acc][_mem]), context);
@@ -75671,7 +75671,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_arc] != null) {
     contents[_Arc] = __expectString(output[_arc]);
   }
-  if (output.blockDeviceMapping === "") {
+  if (String(output.blockDeviceMapping).trim() === "") {
     contents[_BDM] = [];
   } else if (output[_bDM] != null && output[_bDM][_i] != null) {
     contents[_BDM] = de_InstanceBlockDeviceMappingList(__getArrayIfSingleItem(output[_bDM][_i]), context);
@@ -75694,12 +75694,12 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_iLn] != null) {
     contents[_ILn] = __expectString(output[_iLn]);
   }
-  if (output.elasticGpuAssociationSet === "") {
+  if (String(output.elasticGpuAssociationSet).trim() === "") {
     contents[_EGA] = [];
   } else if (output[_eGASl] != null && output[_eGASl][_i] != null) {
     contents[_EGA] = de_ElasticGpuAssociationList(__getArrayIfSingleItem(output[_eGASl][_i]), context);
   }
-  if (output.elasticInferenceAcceleratorAssociationSet === "") {
+  if (String(output.elasticInferenceAcceleratorAssociationSet).trim() === "") {
     contents[_EIAAl] = [];
   } else if (output[_eIAASl] != null && output[_eIAASl][_i] != null) {
     contents[_EIAAl] = de_ElasticInferenceAcceleratorAssociationList(
@@ -75707,7 +75707,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
       context
     );
   }
-  if (output.networkInterfaceSet === "") {
+  if (String(output.networkInterfaceSet).trim() === "") {
     contents[_NI] = [];
   } else if (output[_nIS] != null && output[_nIS][_i] != null) {
     contents[_NI] = de_InstanceNetworkInterfaceList(__getArrayIfSingleItem(output[_nIS][_i]), context);
@@ -75721,7 +75721,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_rDT] != null) {
     contents[_RDT] = __expectString(output[_rDT]);
   }
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_SG] = [];
   } else if (output[_gS] != null && output[_gS][_i] != null) {
     contents[_SG] = de_GroupIdentifierList(__getArrayIfSingleItem(output[_gS][_i]), context);
@@ -75738,7 +75738,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_sRt] != null) {
     contents[_SRt] = de_StateReason(output[_sRt], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -75761,7 +75761,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_hO] != null) {
     contents[_HO] = de_HibernationOptions(output[_hO], context);
   }
-  if (output.licenseSet === "") {
+  if (String(output.licenseSet).trim() === "") {
     contents[_Lic] = [];
   } else if (output[_lSi] != null && output[_lSi][_i] != null) {
     contents[_Lic] = de_LicenseList(__getArrayIfSingleItem(output[_lSi][_i]), context);
@@ -75829,7 +75829,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_aLI] != null) {
     contents[_ALI] = __strictParseInt32(output[_aLI]) as number;
   }
-  if (output.productCodes === "") {
+  if (String(output.productCodes).trim() === "") {
     contents[_PCr] = [];
   } else if (output[_pC] != null && output[_pC][_i] != null) {
     contents[_PCr] = de_ProductCodeList(__getArrayIfSingleItem(output[_pC][_i]), context);
@@ -75906,7 +75906,7 @@ const de_InstanceAttachmentEnaSrdUdpSpecification = (
  */
 const de_InstanceAttribute = (output: any, context: __SerdeContext): InstanceAttribute => {
   const contents: any = {};
-  if (output.blockDeviceMapping === "") {
+  if (String(output.blockDeviceMapping).trim() === "") {
     contents[_BDM] = [];
   } else if (output[_bDM] != null && output[_bDM][_i] != null) {
     contents[_BDM] = de_InstanceBlockDeviceMappingList(__getArrayIfSingleItem(output[_bDM][_i]), context);
@@ -75935,7 +75935,7 @@ const de_InstanceAttribute = (output: any, context: __SerdeContext): InstanceAtt
   if (output[_ke] != null) {
     contents[_KI] = de_AttributeValue(output[_ke], context);
   }
-  if (output.productCodes === "") {
+  if (String(output.productCodes).trim() === "") {
     contents[_PCr] = [];
   } else if (output[_pC] != null && output[_pC][_i] != null) {
     contents[_PCr] = de_ProductCodeList(__getArrayIfSingleItem(output[_pC][_i]), context);
@@ -75958,7 +75958,7 @@ const de_InstanceAttribute = (output: any, context: __SerdeContext): InstanceAtt
   if (output[_dASi] != null) {
     contents[_DASi] = de_AttributeBooleanValue(output[_dASi], context);
   }
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_G] = [];
   } else if (output[_gS] != null && output[_gS][_i] != null) {
     contents[_G] = de_GroupIdentifierList(__getArrayIfSingleItem(output[_gS][_i]), context);
@@ -76108,7 +76108,7 @@ const de_InstanceEventWindow = (output: any, context: __SerdeContext): InstanceE
   if (output[_iEWI] != null) {
     contents[_IEWI] = __expectString(output[_iEWI]);
   }
-  if (output.timeRangeSet === "") {
+  if (String(output.timeRangeSet).trim() === "") {
     contents[_TRi] = [];
   } else if (output[_tRSi] != null && output[_tRSi][_i] != null) {
     contents[_TRi] = de_InstanceEventWindowTimeRangeList(__getArrayIfSingleItem(output[_tRSi][_i]), context);
@@ -76125,7 +76125,7 @@ const de_InstanceEventWindow = (output: any, context: __SerdeContext): InstanceE
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -76141,17 +76141,17 @@ const de_InstanceEventWindowAssociationTarget = (
   context: __SerdeContext
 ): InstanceEventWindowAssociationTarget => {
   const contents: any = {};
-  if (output.instanceIdSet === "") {
+  if (String(output.instanceIdSet).trim() === "") {
     contents[_IIns] = [];
   } else if (output[_iIS] != null && output[_iIS][_i] != null) {
     contents[_IIns] = de_InstanceIdList(__getArrayIfSingleItem(output[_iIS][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
-  if (output.dedicatedHostIdSet === "") {
+  if (String(output.dedicatedHostIdSet).trim() === "") {
     contents[_DHI] = [];
   } else if (output[_dHIS] != null && output[_dHIS][_i] != null) {
     contents[_DHI] = de_DedicatedHostIdList(__getArrayIfSingleItem(output[_dHIS][_i]), context);
@@ -76316,7 +76316,7 @@ const de_InstanceImageMetadata = (output: any, context: __SerdeContext): Instanc
   if (output[_iOIn] != null) {
     contents[_OIwn] = __expectString(output[_iOIn]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -76529,12 +76529,12 @@ const de_InstanceNetworkInterface = (output: any, context: __SerdeContext): Inst
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_G] = [];
   } else if (output[_gS] != null && output[_gS][_i] != null) {
     contents[_G] = de_GroupIdentifierList(__getArrayIfSingleItem(output[_gS][_i]), context);
   }
-  if (output.ipv6AddressesSet === "") {
+  if (String(output.ipv6AddressesSet).trim() === "") {
     contents[_IA] = [];
   } else if (output[_iASp] != null && output[_iASp][_i] != null) {
     contents[_IA] = de_InstanceIpv6AddressList(__getArrayIfSingleItem(output[_iASp][_i]), context);
@@ -76554,7 +76554,7 @@ const de_InstanceNetworkInterface = (output: any, context: __SerdeContext): Inst
   if (output[_pIAr] != null) {
     contents[_PIAr] = __expectString(output[_pIAr]);
   }
-  if (output.privateIpAddressesSet === "") {
+  if (String(output.privateIpAddressesSet).trim() === "") {
     contents[_PIA] = [];
   } else if (output[_pIAS] != null && output[_pIAS][_i] != null) {
     contents[_PIA] = de_InstancePrivateIpAddressList(__getArrayIfSingleItem(output[_pIAS][_i]), context);
@@ -76574,12 +76574,12 @@ const de_InstanceNetworkInterface = (output: any, context: __SerdeContext): Inst
   if (output[_iTnt] != null) {
     contents[_ITn] = __expectString(output[_iTnt]);
   }
-  if (output.ipv4PrefixSet === "") {
+  if (String(output.ipv4PrefixSet).trim() === "") {
     contents[_IPp] = [];
   } else if (output[_iPSpv] != null && output[_iPSpv][_i] != null) {
     contents[_IPp] = de_InstanceIpv4PrefixList(__getArrayIfSingleItem(output[_iPSpv][_i]), context);
   }
-  if (output.ipv6PrefixSet === "") {
+  if (String(output.ipv6PrefixSet).trim() === "") {
     contents[_IP] = [];
   } else if (output[_iPSpvr] != null && output[_iPSpvr][_i] != null) {
     contents[_IP] = de_InstanceIpv6PrefixList(__getArrayIfSingleItem(output[_iPSpvr][_i]), context);
@@ -76685,7 +76685,7 @@ const de_InstanceNetworkInterfaceSpecification = (
   if (output[_dIe] != null) {
     contents[_DIev] = __strictParseInt32(output[_dIe]) as number;
   }
-  if (output.SecurityGroupId === "") {
+  if (String(output.SecurityGroupId).trim() === "") {
     contents[_G] = [];
   } else if (output[_SGIe] != null && output[_SGIe][_SGIe] != null) {
     contents[_G] = de_SecurityGroupIdStringList(__getArrayIfSingleItem(output[_SGIe][_SGIe]), context);
@@ -76693,7 +76693,7 @@ const de_InstanceNetworkInterfaceSpecification = (
   if (output[_iAC] != null) {
     contents[_IAC] = __strictParseInt32(output[_iAC]) as number;
   }
-  if (output.ipv6AddressesSet === "") {
+  if (String(output.ipv6AddressesSet).trim() === "") {
     contents[_IA] = [];
   } else if (output[_iASp] != null && output[_iASp][_i] != null) {
     contents[_IA] = de_InstanceIpv6AddressList(__getArrayIfSingleItem(output[_iASp][_i]), context);
@@ -76704,7 +76704,7 @@ const de_InstanceNetworkInterfaceSpecification = (
   if (output[_pIAr] != null) {
     contents[_PIAr] = __expectString(output[_pIAr]);
   }
-  if (output.privateIpAddressesSet === "") {
+  if (String(output.privateIpAddressesSet).trim() === "") {
     contents[_PIA] = [];
   } else if (output[_pIAS] != null && output[_pIAS][_i] != null) {
     contents[_PIA] = de_PrivateIpAddressSpecificationList(__getArrayIfSingleItem(output[_pIAS][_i]), context);
@@ -76724,7 +76724,7 @@ const de_InstanceNetworkInterfaceSpecification = (
   if (output[_NCI] != null) {
     contents[_NCI] = __strictParseInt32(output[_NCI]) as number;
   }
-  if (output.Ipv4Prefix === "") {
+  if (String(output.Ipv4Prefix).trim() === "") {
     contents[_IPp] = [];
   } else if (output[_IPpvr] != null && output[_IPpvr][_i] != null) {
     contents[_IPp] = de_Ipv4PrefixList(__getArrayIfSingleItem(output[_IPpvr][_i]), context);
@@ -76732,7 +76732,7 @@ const de_InstanceNetworkInterfaceSpecification = (
   if (output[_IPCp] != null) {
     contents[_IPCp] = __strictParseInt32(output[_IPCp]) as number;
   }
-  if (output.Ipv6Prefix === "") {
+  if (String(output.Ipv6Prefix).trim() === "") {
     contents[_IP] = [];
   } else if (output[_IPpvre] != null && output[_IPpvre][_i] != null) {
     contents[_IP] = de_Ipv6PrefixList(__getArrayIfSingleItem(output[_IPpvre][_i]), context);
@@ -76825,7 +76825,7 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_mMB] != null) {
     contents[_MMB] = de_MemoryMiB(output[_mMB], context);
   }
-  if (output.cpuManufacturerSet === "") {
+  if (String(output.cpuManufacturerSet).trim() === "") {
     contents[_CM] = [];
   } else if (output[_cMS] != null && output[_cMS][_i] != null) {
     contents[_CM] = de_CpuManufacturerSet(__getArrayIfSingleItem(output[_cMS][_i]), context);
@@ -76833,12 +76833,12 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_mGBPVC] != null) {
     contents[_MGBPVC] = de_MemoryGiBPerVCpu(output[_mGBPVC], context);
   }
-  if (output.excludedInstanceTypeSet === "") {
+  if (String(output.excludedInstanceTypeSet).trim() === "") {
     contents[_EIT] = [];
   } else if (output[_eITSx] != null && output[_eITSx][_i] != null) {
     contents[_EIT] = de_ExcludedInstanceTypeSet(__getArrayIfSingleItem(output[_eITSx][_i]), context);
   }
-  if (output.instanceGenerationSet === "") {
+  if (String(output.instanceGenerationSet).trim() === "") {
     contents[_IG] = [];
   } else if (output[_iGSn] != null && output[_iGSn][_i] != null) {
     contents[_IG] = de_InstanceGenerationSet(__getArrayIfSingleItem(output[_iGSn][_i]), context);
@@ -76864,7 +76864,7 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_lSo] != null) {
     contents[_LSo] = __expectString(output[_lSo]);
   }
-  if (output.localStorageTypeSet === "") {
+  if (String(output.localStorageTypeSet).trim() === "") {
     contents[_LST] = [];
   } else if (output[_lSTS] != null && output[_lSTS][_i] != null) {
     contents[_LST] = de_LocalStorageTypeSet(__getArrayIfSingleItem(output[_lSTS][_i]), context);
@@ -76875,7 +76875,7 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_bEBM] != null) {
     contents[_BEBM] = de_BaselineEbsBandwidthMbps(output[_bEBM], context);
   }
-  if (output.acceleratorTypeSet === "") {
+  if (String(output.acceleratorTypeSet).trim() === "") {
     contents[_ATc] = [];
   } else if (output[_aTSc] != null && output[_aTSc][_i] != null) {
     contents[_ATc] = de_AcceleratorTypeSet(__getArrayIfSingleItem(output[_aTSc][_i]), context);
@@ -76883,12 +76883,12 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_aCc] != null) {
     contents[_ACc] = de_AcceleratorCount(output[_aCc], context);
   }
-  if (output.acceleratorManufacturerSet === "") {
+  if (String(output.acceleratorManufacturerSet).trim() === "") {
     contents[_AM] = [];
   } else if (output[_aMS] != null && output[_aMS][_i] != null) {
     contents[_AM] = de_AcceleratorManufacturerSet(__getArrayIfSingleItem(output[_aMS][_i]), context);
   }
-  if (output.acceleratorNameSet === "") {
+  if (String(output.acceleratorNameSet).trim() === "") {
     contents[_ANc] = [];
   } else if (output[_aNS] != null && output[_aNS][_i] != null) {
     contents[_ANc] = de_AcceleratorNameSet(__getArrayIfSingleItem(output[_aNS][_i]), context);
@@ -76899,7 +76899,7 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_nBGe] != null) {
     contents[_NBGe] = de_NetworkBandwidthGbps(output[_nBGe], context);
   }
-  if (output.allowedInstanceTypeSet === "") {
+  if (String(output.allowedInstanceTypeSet).trim() === "") {
     contents[_AIT] = [];
   } else if (output[_aITS] != null && output[_aITS][_i] != null) {
     contents[_AIT] = de_AllowedInstanceTypeSet(__getArrayIfSingleItem(output[_aITS][_i]), context);
@@ -76983,7 +76983,7 @@ const de_InstanceStatus = (output: any, context: __SerdeContext): InstanceStatus
   if (output[_op] != null) {
     contents[_O] = de_OperatorResponse(output[_op], context);
   }
-  if (output.eventsSet === "") {
+  if (String(output.eventsSet).trim() === "") {
     contents[_Ev] = [];
   } else if (output[_eSv] != null && output[_eSv][_i] != null) {
     contents[_Ev] = de_InstanceStatusEventList(__getArrayIfSingleItem(output[_eSv][_i]), context);
@@ -77087,7 +77087,7 @@ const de_InstanceStatusList = (output: any, context: __SerdeContext): InstanceSt
  */
 const de_InstanceStatusSummary = (output: any, context: __SerdeContext): InstanceStatusSummary => {
   const contents: any = {};
-  if (output.details === "") {
+  if (String(output.details).trim() === "") {
     contents[_Det] = [];
   } else if (output[_det] != null && output[_det][_i] != null) {
     contents[_Det] = de_InstanceStatusDetailsList(__getArrayIfSingleItem(output[_det][_i]), context);
@@ -77106,7 +77106,7 @@ const de_InstanceStorageInfo = (output: any, context: __SerdeContext): InstanceS
   if (output[_tSIGB] != null) {
     contents[_TSIGB] = __strictParseLong(output[_tSIGB]) as number;
   }
-  if (output.disks === "") {
+  if (String(output.disks).trim() === "") {
     contents[_Dis] = [];
   } else if (output[_dis] != null && output[_dis][_i] != null) {
     contents[_Dis] = de_DiskInfoList(__getArrayIfSingleItem(output[_dis][_i]), context);
@@ -77139,7 +77139,7 @@ const de_InstanceTagNotificationAttribute = (
   context: __SerdeContext
 ): InstanceTagNotificationAttribute => {
   const contents: any = {};
-  if (output.instanceTagKeySet === "") {
+  if (String(output.instanceTagKeySet).trim() === "") {
     contents[_ITK] = [];
   } else if (output[_iTKS] != null && output[_iTKS][_i] != null) {
     contents[_ITK] = de_InstanceTagKeySet(__getArrayIfSingleItem(output[_iTKS][_i]), context);
@@ -77164,7 +77164,7 @@ const de_InstanceTopology = (output: any, context: __SerdeContext): InstanceTopo
   if (output[_gN] != null) {
     contents[_GN] = __expectString(output[_gN]);
   }
-  if (output.networkNodeSet === "") {
+  if (String(output.networkNodeSet).trim() === "") {
     contents[_NN] = [];
   } else if (output[_nNS] != null && output[_nNS][_i] != null) {
     contents[_NN] = de_NetworkNodesList(__getArrayIfSingleItem(output[_nNS][_i]), context);
@@ -77195,17 +77195,17 @@ const de_InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceType
   if (output[_fTE] != null) {
     contents[_FTE] = __parseBoolean(output[_fTE]);
   }
-  if (output.supportedUsageClasses === "") {
+  if (String(output.supportedUsageClasses).trim() === "") {
     contents[_SUC] = [];
   } else if (output[_sUC] != null && output[_sUC][_i] != null) {
     contents[_SUC] = de_UsageClassTypeList(__getArrayIfSingleItem(output[_sUC][_i]), context);
   }
-  if (output.supportedRootDeviceTypes === "") {
+  if (String(output.supportedRootDeviceTypes).trim() === "") {
     contents[_SRDT] = [];
   } else if (output[_sRDT] != null && output[_sRDT][_i] != null) {
     contents[_SRDT] = de_RootDeviceTypeList(__getArrayIfSingleItem(output[_sRDT][_i]), context);
   }
-  if (output.supportedVirtualizationTypes === "") {
+  if (String(output.supportedVirtualizationTypes).trim() === "") {
     contents[_SVT] = [];
   } else if (output[_sVT] != null && output[_sVT][_i] != null) {
     contents[_SVT] = de_VirtualizationTypeList(__getArrayIfSingleItem(output[_sVT][_i]), context);
@@ -77261,7 +77261,7 @@ const de_InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceType
   if (output[_aRSu] != null) {
     contents[_ARSu] = __parseBoolean(output[_aRSu]);
   }
-  if (output.supportedBootModes === "") {
+  if (String(output.supportedBootModes).trim() === "") {
     contents[_SBM] = [];
   } else if (output[_sBM] != null && output[_sBM][_i] != null) {
     contents[_SBM] = de_BootModeTypeList(__getArrayIfSingleItem(output[_sBM][_i]), context);
@@ -77398,7 +77398,7 @@ const de_InstanceUsageSet = (output: any, context: __SerdeContext): InstanceUsag
  */
 const de_InternetGateway = (output: any, context: __SerdeContext): InternetGateway => {
   const contents: any = {};
-  if (output.attachmentSet === "") {
+  if (String(output.attachmentSet).trim() === "") {
     contents[_Atta] = [];
   } else if (output[_aSt] != null && output[_aSt][_i] != null) {
     contents[_Atta] = de_InternetGatewayAttachmentList(__getArrayIfSingleItem(output[_aSt][_i]), context);
@@ -77409,7 +77409,7 @@ const de_InternetGateway = (output: any, context: __SerdeContext): InternetGatew
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -77493,7 +77493,7 @@ const de_Ipam = (output: any, context: __SerdeContext): Ipam => {
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.operatingRegionSet === "") {
+  if (String(output.operatingRegionSet).trim() === "") {
     contents[_OR] = [];
   } else if (output[_oRS] != null && output[_oRS][_i] != null) {
     contents[_OR] = de_IpamOperatingRegionSet(__getArrayIfSingleItem(output[_oRS][_i]), context);
@@ -77501,7 +77501,7 @@ const de_Ipam = (output: any, context: __SerdeContext): Ipam => {
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -77675,7 +77675,7 @@ const de_IpamDiscoveredPublicAddress = (output: any, context: __SerdeContext): I
   if (output[_nBG] != null) {
     contents[_NBG] = __expectString(output[_nBG]);
   }
-  if (output.securityGroupSet === "") {
+  if (String(output.securityGroupSet).trim() === "") {
     contents[_SG] = [];
   } else if (output[_sGS] != null && output[_sGS][_i] != null) {
     contents[_SG] = de_IpamPublicAddressSecurityGroupList(__getArrayIfSingleItem(output[_sGS][_i]), context);
@@ -77723,7 +77723,7 @@ const de_IpamDiscoveredResourceCidr = (output: any, context: __SerdeContext): Ip
   if (output[_rTe] != null) {
     contents[_RT] = __expectString(output[_rTe]);
   }
-  if (output.resourceTagSet === "") {
+  if (String(output.resourceTagSet).trim() === "") {
     contents[_RTesou] = [];
   } else if (output[_rTSes] != null && output[_rTSes][_i] != null) {
     contents[_RTesou] = de_IpamResourceTagList(__getArrayIfSingleItem(output[_rTSes][_i]), context);
@@ -77809,7 +77809,7 @@ const de_IpamExternalResourceVerificationToken = (
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -77943,12 +77943,12 @@ const de_IpamPool = (output: any, context: __SerdeContext): IpamPool => {
   if (output[_aDNL] != null) {
     contents[_ADNL] = __strictParseInt32(output[_aDNL]) as number;
   }
-  if (output.allocationResourceTagSet === "") {
+  if (String(output.allocationResourceTagSet).trim() === "") {
     contents[_ARTl] = [];
   } else if (output[_aRTS] != null && output[_aRTS][_i] != null) {
     contents[_ARTl] = de_IpamResourceTagList(__getArrayIfSingleItem(output[_aRTS][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -78142,7 +78142,7 @@ const de_IpamPublicAddressTagList = (output: any, context: __SerdeContext): Ipam
  */
 const de_IpamPublicAddressTags = (output: any, context: __SerdeContext): IpamPublicAddressTags => {
   const contents: any = {};
-  if (output.eipTagSet === "") {
+  if (String(output.eipTagSet).trim() === "") {
     contents[_ETi] = [];
   } else if (output[_eTSi] != null && output[_eTSi][_i] != null) {
     contents[_ETi] = de_IpamPublicAddressTagList(__getArrayIfSingleItem(output[_eTSi][_i]), context);
@@ -78182,7 +78182,7 @@ const de_IpamResourceCidr = (output: any, context: __SerdeContext): IpamResource
   if (output[_rTe] != null) {
     contents[_RT] = __expectString(output[_rTe]);
   }
-  if (output.resourceTagSet === "") {
+  if (String(output.resourceTagSet).trim() === "") {
     contents[_RTesou] = [];
   } else if (output[_rTSes] != null && output[_rTSes][_i] != null) {
     contents[_RTesou] = de_IpamResourceTagList(__getArrayIfSingleItem(output[_rTSes][_i]), context);
@@ -78239,7 +78239,7 @@ const de_IpamResourceDiscovery = (output: any, context: __SerdeContext): IpamRes
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.operatingRegionSet === "") {
+  if (String(output.operatingRegionSet).trim() === "") {
     contents[_OR] = [];
   } else if (output[_oRS] != null && output[_oRS][_i] != null) {
     contents[_OR] = de_IpamOperatingRegionSet(__getArrayIfSingleItem(output[_oRS][_i]), context);
@@ -78250,12 +78250,12 @@ const de_IpamResourceDiscovery = (output: any, context: __SerdeContext): IpamRes
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
-  if (output.organizationalUnitExclusionSet === "") {
+  if (String(output.organizationalUnitExclusionSet).trim() === "") {
     contents[_OUE] = [];
   } else if (output[_oUES] != null && output[_oUES][_i] != null) {
     contents[_OUE] = de_IpamOrganizationalUnitExclusionSet(__getArrayIfSingleItem(output[_oUES][_i]), context);
@@ -78301,7 +78301,7 @@ const de_IpamResourceDiscoveryAssociation = (
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -78394,7 +78394,7 @@ const de_IpamScope = (output: any, context: __SerdeContext): IpamScope => {
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -78438,22 +78438,22 @@ const de_IpPermission = (output: any, context: __SerdeContext): IpPermission => 
   if (output[_tPo] != null) {
     contents[_TP] = __strictParseInt32(output[_tPo]) as number;
   }
-  if (output.groups === "") {
+  if (String(output.groups).trim() === "") {
     contents[_UIGP] = [];
   } else if (output[_gr] != null && output[_gr][_i] != null) {
     contents[_UIGP] = de_UserIdGroupPairList(__getArrayIfSingleItem(output[_gr][_i]), context);
   }
-  if (output.ipRanges === "") {
+  if (String(output.ipRanges).trim() === "") {
     contents[_IRp] = [];
   } else if (output[_iRpa] != null && output[_iRpa][_i] != null) {
     contents[_IRp] = de_IpRangeList(__getArrayIfSingleItem(output[_iRpa][_i]), context);
   }
-  if (output.ipv6Ranges === "") {
+  if (String(output.ipv6Ranges).trim() === "") {
     contents[_IRpv] = [];
   } else if (output[_iRpv] != null && output[_iRpv][_i] != null) {
     contents[_IRpv] = de_Ipv6RangeList(__getArrayIfSingleItem(output[_iRpv][_i]), context);
   }
-  if (output.prefixListIds === "") {
+  if (String(output.prefixListIds).trim() === "") {
     contents[_PLIr] = [];
   } else if (output[_pLIr] != null && output[_pLIr][_i] != null) {
     contents[_PLIr] = de_PrefixListIdList(__getArrayIfSingleItem(output[_pLIr][_i]), context);
@@ -78654,12 +78654,12 @@ const de_Ipv6Pool = (output: any, context: __SerdeContext): Ipv6Pool => {
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.poolCidrBlockSet === "") {
+  if (String(output.poolCidrBlockSet).trim() === "") {
     contents[_PCBo] = [];
   } else if (output[_pCBS] != null && output[_pCBS][_i] != null) {
     contents[_PCBo] = de_PoolCidrBlocksSet(__getArrayIfSingleItem(output[_pCBS][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -78777,7 +78777,7 @@ const de_KeyPair = (output: any, context: __SerdeContext): KeyPair => {
   if (output[_kPI] != null) {
     contents[_KPI] = __expectString(output[_kPI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -78805,7 +78805,7 @@ const de_KeyPairInfo = (output: any, context: __SerdeContext): KeyPairInfo => {
   if (output[_kT] != null) {
     contents[_KT] = __expectString(output[_kT]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -78892,7 +78892,7 @@ const de_LaunchSpecification = (output: any, context: __SerdeContext): LaunchSpe
   if (output[_aTdd] != null) {
     contents[_ATd] = __expectString(output[_aTdd]);
   }
-  if (output.blockDeviceMapping === "") {
+  if (String(output.blockDeviceMapping).trim() === "") {
     contents[_BDM] = [];
   } else if (output[_bDM] != null && output[_bDM][_i] != null) {
     contents[_BDM] = de_BlockDeviceMappingList(__getArrayIfSingleItem(output[_bDM][_i]), context);
@@ -78915,7 +78915,7 @@ const de_LaunchSpecification = (output: any, context: __SerdeContext): LaunchSpe
   if (output[_kN] != null) {
     contents[_KN] = __expectString(output[_kN]);
   }
-  if (output.networkInterfaceSet === "") {
+  if (String(output.networkInterfaceSet).trim() === "") {
     contents[_NI] = [];
   } else if (output[_nIS] != null && output[_nIS][_i] != null) {
     contents[_NI] = de_InstanceNetworkInterfaceSpecificationList(__getArrayIfSingleItem(output[_nIS][_i]), context);
@@ -78929,7 +78929,7 @@ const de_LaunchSpecification = (output: any, context: __SerdeContext): LaunchSpe
   if (output[_sIu] != null) {
     contents[_SIub] = __expectString(output[_sIu]);
   }
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_SG] = [];
   } else if (output[_gS] != null && output[_gS][_i] != null) {
     contents[_SG] = de_GroupIdentifierList(__getArrayIfSingleItem(output[_gS][_i]), context);
@@ -78974,7 +78974,7 @@ const de_LaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate
   if (output[_lVN] != null) {
     contents[_LVN] = __strictParseLong(output[_lVN]) as number;
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -79064,7 +79064,7 @@ const de_LaunchTemplateConfig = (output: any, context: __SerdeContext): LaunchTe
   if (output[_lTS] != null) {
     contents[_LTS] = de_FleetLaunchTemplateSpecification(output[_lTS], context);
   }
-  if (output.overrides === "") {
+  if (String(output.overrides).trim() === "") {
     contents[_Ov] = [];
   } else if (output[_ov] != null && output[_ov][_i] != null) {
     contents[_Ov] = de_LaunchTemplateOverridesList(__getArrayIfSingleItem(output[_ov][_i]), context);
@@ -79322,7 +79322,7 @@ const de_LaunchTemplateInstanceNetworkInterfaceSpecification = (
   if (output[_dIe] != null) {
     contents[_DIev] = __strictParseInt32(output[_dIe]) as number;
   }
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_G] = [];
   } else if (output[_gS] != null && output[_gS][_gIr] != null) {
     contents[_G] = de_GroupIdStringList(__getArrayIfSingleItem(output[_gS][_gIr]), context);
@@ -79333,7 +79333,7 @@ const de_LaunchTemplateInstanceNetworkInterfaceSpecification = (
   if (output[_iAC] != null) {
     contents[_IAC] = __strictParseInt32(output[_iAC]) as number;
   }
-  if (output.ipv6AddressesSet === "") {
+  if (String(output.ipv6AddressesSet).trim() === "") {
     contents[_IA] = [];
   } else if (output[_iASp] != null && output[_iASp][_i] != null) {
     contents[_IA] = de_InstanceIpv6AddressList(__getArrayIfSingleItem(output[_iASp][_i]), context);
@@ -79344,7 +79344,7 @@ const de_LaunchTemplateInstanceNetworkInterfaceSpecification = (
   if (output[_pIAr] != null) {
     contents[_PIAr] = __expectString(output[_pIAr]);
   }
-  if (output.privateIpAddressesSet === "") {
+  if (String(output.privateIpAddressesSet).trim() === "") {
     contents[_PIA] = [];
   } else if (output[_pIAS] != null && output[_pIAS][_i] != null) {
     contents[_PIA] = de_PrivateIpAddressSpecificationList(__getArrayIfSingleItem(output[_pIAS][_i]), context);
@@ -79358,7 +79358,7 @@ const de_LaunchTemplateInstanceNetworkInterfaceSpecification = (
   if (output[_nCI] != null) {
     contents[_NCI] = __strictParseInt32(output[_nCI]) as number;
   }
-  if (output.ipv4PrefixSet === "") {
+  if (String(output.ipv4PrefixSet).trim() === "") {
     contents[_IPp] = [];
   } else if (output[_iPSpv] != null && output[_iPSpv][_i] != null) {
     contents[_IPp] = de_Ipv4PrefixListResponse(__getArrayIfSingleItem(output[_iPSpv][_i]), context);
@@ -79366,7 +79366,7 @@ const de_LaunchTemplateInstanceNetworkInterfaceSpecification = (
   if (output[_iPCp] != null) {
     contents[_IPCp] = __strictParseInt32(output[_iPCp]) as number;
   }
-  if (output.ipv6PrefixSet === "") {
+  if (String(output.ipv6PrefixSet).trim() === "") {
     contents[_IP] = [];
   } else if (output[_iPSpvr] != null && output[_iPSpvr][_i] != null) {
     contents[_IP] = de_Ipv6PrefixListResponse(__getArrayIfSingleItem(output[_iPSpvr][_i]), context);
@@ -79593,7 +79593,7 @@ const de_LaunchTemplateTagSpecification = (output: any, context: __SerdeContext)
   if (output[_rTe] != null) {
     contents[_RT] = __expectString(output[_rTe]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -79688,7 +79688,7 @@ const de_LicenseList = (output: any, context: __SerdeContext): LicenseConfigurat
  */
 const de_ListImagesInRecycleBinResult = (output: any, context: __SerdeContext): ListImagesInRecycleBinResult => {
   const contents: any = {};
-  if (output.imageSet === "") {
+  if (String(output.imageSet).trim() === "") {
     contents[_Ima] = [];
   } else if (output[_iSmag] != null && output[_iSmag][_i] != null) {
     contents[_Ima] = de_ImageRecycleBinInfoList(__getArrayIfSingleItem(output[_iSmag][_i]), context);
@@ -79704,7 +79704,7 @@ const de_ListImagesInRecycleBinResult = (output: any, context: __SerdeContext): 
  */
 const de_ListSnapshotsInRecycleBinResult = (output: any, context: __SerdeContext): ListSnapshotsInRecycleBinResult => {
   const contents: any = {};
-  if (output.snapshotSet === "") {
+  if (String(output.snapshotSet).trim() === "") {
     contents[_Sn] = [];
   } else if (output[_sS] != null && output[_sS][_i] != null) {
     contents[_Sn] = de_SnapshotRecycleBinInfoList(__getArrayIfSingleItem(output[_sS][_i]), context);
@@ -79771,7 +79771,7 @@ const de_LocalGateway = (output: any, context: __SerdeContext): LocalGateway => 
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -79854,7 +79854,7 @@ const de_LocalGatewayRouteTable = (output: any, context: __SerdeContext): LocalG
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -79908,7 +79908,7 @@ const de_LocalGatewayRouteTableVirtualInterfaceGroupAssociation = (
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -79959,7 +79959,7 @@ const de_LocalGatewayRouteTableVpcAssociation = (
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -80033,7 +80033,7 @@ const de_LocalGatewayVirtualInterface = (output: any, context: __SerdeContext): 
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -80055,7 +80055,7 @@ const de_LocalGatewayVirtualInterfaceGroup = (
   if (output[_lGVIGI] != null) {
     contents[_LGVIGI] = __expectString(output[_lGVIGI]);
   }
-  if (output.localGatewayVirtualInterfaceIdSet === "") {
+  if (String(output.localGatewayVirtualInterfaceIdSet).trim() === "") {
     contents[_LGVIIo] = [];
   } else if (output[_lGVIIS] != null && output[_lGVIIS][_i] != null) {
     contents[_LGVIIo] = de_LocalGatewayVirtualInterfaceIdSet(__getArrayIfSingleItem(output[_lGVIIS][_i]), context);
@@ -80075,7 +80075,7 @@ const de_LocalGatewayVirtualInterfaceGroup = (
   if (output[_lGVIGA] != null) {
     contents[_LGVIGA] = __expectString(output[_lGVIGA]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -80219,7 +80219,7 @@ const de_MacHost = (output: any, context: __SerdeContext): MacHost => {
   if (output[_hI] != null) {
     contents[_HIo] = __expectString(output[_hI]);
   }
-  if (output.macOSLatestSupportedVersionSet === "") {
+  if (String(output.macOSLatestSupportedVersionSet).trim() === "") {
     contents[_MOSLSV] = [];
   } else if (output[_mOSLSVS] != null && output[_mOSLSVS][_i] != null) {
     contents[_MOSLSV] = de_MacOSVersionStringList(__getArrayIfSingleItem(output[_mOSLSVS][_i]), context);
@@ -80255,7 +80255,7 @@ const de_MacModificationTask = (output: any, context: __SerdeContext): MacModifi
   if (output[_sT] != null) {
     contents[_STt] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_sT]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -80372,7 +80372,7 @@ const de_ManagedPrefixList = (output: any, context: __SerdeContext): ManagedPref
   if (output[_ve] != null) {
     contents[_V] = __strictParseLong(output[_ve]) as number;
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -80410,7 +80410,7 @@ const de_MarketplaceProductCodeList = (output: any, context: __SerdeContext): st
  */
 const de_MediaAcceleratorInfo = (output: any, context: __SerdeContext): MediaAcceleratorInfo => {
   const contents: any = {};
-  if (output.accelerators === "") {
+  if (String(output.accelerators).trim() === "") {
     contents[_Acc] = [];
   } else if (output[_acc] != null && output[_acc][_i] != null) {
     contents[_Acc] = de_MediaDeviceInfoList(__getArrayIfSingleItem(output[_acc][_i]), context);
@@ -80646,12 +80646,12 @@ const de_ModifyFpgaImageAttributeResult = (output: any, context: __SerdeContext)
  */
 const de_ModifyHostsResult = (output: any, context: __SerdeContext): ModifyHostsResult => {
   const contents: any = {};
-  if (output.successful === "") {
+  if (String(output.successful).trim() === "") {
     contents[_Suc] = [];
   } else if (output[_suc] != null && output[_suc][_i] != null) {
     contents[_Suc] = de_ResponseHostIdList(__getArrayIfSingleItem(output[_suc][_i]), context);
   }
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_UnsuccessfulItemList(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -80712,12 +80712,12 @@ const de_ModifyInstanceCreditSpecificationResult = (
   context: __SerdeContext
 ): ModifyInstanceCreditSpecificationResult => {
   const contents: any = {};
-  if (output.successfulInstanceCreditSpecificationSet === "") {
+  if (String(output.successfulInstanceCreditSpecificationSet).trim() === "") {
     contents[_SICS] = [];
   } else if (output[_sICSS] != null && output[_sICSS][_i] != null) {
     contents[_SICS] = de_SuccessfulInstanceCreditSpecificationSet(__getArrayIfSingleItem(output[_sICSS][_i]), context);
   }
-  if (output.unsuccessfulInstanceCreditSpecificationSet === "") {
+  if (String(output.unsuccessfulInstanceCreditSpecificationSet).trim() === "") {
     contents[_UICS] = [];
   } else if (output[_uICSS] != null && output[_uICSS][_i] != null) {
     contents[_UICS] = de_UnsuccessfulInstanceCreditSpecificationSet(
@@ -81297,7 +81297,7 @@ const de_ModifyVpcEndpointServicePermissionsResult = (
   context: __SerdeContext
 ): ModifyVpcEndpointServicePermissionsResult => {
   const contents: any = {};
-  if (output.addedPrincipalSet === "") {
+  if (String(output.addedPrincipalSet).trim() === "") {
     contents[_APd] = [];
   } else if (output[_aPS] != null && output[_aPS][_i] != null) {
     contents[_APd] = de_AddedPrincipalSet(__getArrayIfSingleItem(output[_aPS][_i]), context);
@@ -81402,7 +81402,7 @@ const de_Monitoring = (output: any, context: __SerdeContext): Monitoring => {
  */
 const de_MonitorInstancesResult = (output: any, context: __SerdeContext): MonitorInstancesResult => {
   const contents: any = {};
-  if (output.instancesSet === "") {
+  if (String(output.instancesSet).trim() === "") {
     contents[_IMn] = [];
   } else if (output[_iSn] != null && output[_iSn][_i] != null) {
     contents[_IMn] = de_InstanceMonitoringList(__getArrayIfSingleItem(output[_iSn][_i]), context);
@@ -81497,7 +81497,7 @@ const de_NatGateway = (output: any, context: __SerdeContext): NatGateway => {
   if (output[_fM] != null) {
     contents[_FM] = __expectString(output[_fM]);
   }
-  if (output.natGatewayAddressSet === "") {
+  if (String(output.natGatewayAddressSet).trim() === "") {
     contents[_NGA] = [];
   } else if (output[_nGAS] != null && output[_nGAS][_i] != null) {
     contents[_NGA] = de_NatGatewayAddressList(__getArrayIfSingleItem(output[_nGAS][_i]), context);
@@ -81517,7 +81517,7 @@ const de_NatGateway = (output: any, context: __SerdeContext): NatGateway => {
   if (output[_vI] != null) {
     contents[_VI] = __expectString(output[_vI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -81616,12 +81616,12 @@ const de_NativeApplicationOidcOptions = (output: any, context: __SerdeContext): 
  */
 const de_NetworkAcl = (output: any, context: __SerdeContext): NetworkAcl => {
   const contents: any = {};
-  if (output.associationSet === "") {
+  if (String(output.associationSet).trim() === "") {
     contents[_Ass] = [];
   } else if (output[_aSss] != null && output[_aSss][_i] != null) {
     contents[_Ass] = de_NetworkAclAssociationList(__getArrayIfSingleItem(output[_aSss][_i]), context);
   }
-  if (output.entrySet === "") {
+  if (String(output.entrySet).trim() === "") {
     contents[_Ent] = [];
   } else if (output[_eSnt] != null && output[_eSnt][_i] != null) {
     contents[_Ent] = de_NetworkAclEntryList(__getArrayIfSingleItem(output[_eSnt][_i]), context);
@@ -81632,7 +81632,7 @@ const de_NetworkAcl = (output: any, context: __SerdeContext): NetworkAcl => {
   if (output[_nAI] != null) {
     contents[_NAI] = __expectString(output[_nAI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -81802,7 +81802,7 @@ const de_NetworkInfo = (output: any, context: __SerdeContext): NetworkInfo => {
   if (output[_dNCI] != null) {
     contents[_DNCI] = __strictParseInt32(output[_dNCI]) as number;
   }
-  if (output.networkCards === "") {
+  if (String(output.networkCards).trim() === "") {
     contents[_NC] = [];
   } else if (output[_nC] != null && output[_nC][_i] != null) {
     contents[_NC] = de_NetworkCardInfoList(__getArrayIfSingleItem(output[_nC][_i]), context);
@@ -81831,7 +81831,7 @@ const de_NetworkInfo = (output: any, context: __SerdeContext): NetworkInfo => {
   if (output[_eSSn] != null) {
     contents[_ESSn] = __parseBoolean(output[_eSSn]);
   }
-  if (output.bandwidthWeightings === "") {
+  if (String(output.bandwidthWeightings).trim() === "") {
     contents[_BWa] = [];
   } else if (output[_bWa] != null && output[_bWa][_i] != null) {
     contents[_BWa] = de_BandwidthWeightingTypeList(__getArrayIfSingleItem(output[_bWa][_i]), context);
@@ -81859,7 +81859,7 @@ const de_NetworkInsightsAccessScope = (output: any, context: __SerdeContext): Ne
   if (output[_uDp] != null) {
     contents[_UDp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_uDp]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -81905,7 +81905,7 @@ const de_NetworkInsightsAccessScopeAnalysis = (
   if (output[_aEC] != null) {
     contents[_AEC] = __strictParseInt32(output[_aEC]) as number;
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -81938,12 +81938,12 @@ const de_NetworkInsightsAccessScopeContent = (
   if (output[_nIASI] != null) {
     contents[_NIASI] = __expectString(output[_nIASI]);
   }
-  if (output.matchPathSet === "") {
+  if (String(output.matchPathSet).trim() === "") {
     contents[_MP] = [];
   } else if (output[_mPSa] != null && output[_mPSa][_i] != null) {
     contents[_MP] = de_AccessScopePathList(__getArrayIfSingleItem(output[_mPSa][_i]), context);
   }
-  if (output.excludePathSet === "") {
+  if (String(output.excludePathSet).trim() === "") {
     contents[_EP] = [];
   } else if (output[_ePS] != null && output[_ePS][_i] != null) {
     contents[_EP] = de_AccessScopePathList(__getArrayIfSingleItem(output[_ePS][_i]), context);
@@ -81976,17 +81976,17 @@ const de_NetworkInsightsAnalysis = (output: any, context: __SerdeContext): Netwo
   if (output[_nIPI] != null) {
     contents[_NIPI] = __expectString(output[_nIPI]);
   }
-  if (output.additionalAccountSet === "") {
+  if (String(output.additionalAccountSet).trim() === "") {
     contents[_AAd] = [];
   } else if (output[_aASd] != null && output[_aASd][_i] != null) {
     contents[_AAd] = de_ValueStringList(__getArrayIfSingleItem(output[_aASd][_i]), context);
   }
-  if (output.filterInArnSet === "") {
+  if (String(output.filterInArnSet).trim() === "") {
     contents[_FIA] = [];
   } else if (output[_fIAS] != null && output[_fIAS][_i] != null) {
     contents[_FIA] = de_ArnList(__getArrayIfSingleItem(output[_fIAS][_i]), context);
   }
-  if (output.filterOutArnSet === "") {
+  if (String(output.filterOutArnSet).trim() === "") {
     contents[_FOA] = [];
   } else if (output[_fOAS] != null && output[_fOAS][_i] != null) {
     contents[_FOA] = de_ArnList(__getArrayIfSingleItem(output[_fOAS][_i]), context);
@@ -82006,32 +82006,32 @@ const de_NetworkInsightsAnalysis = (output: any, context: __SerdeContext): Netwo
   if (output[_nPF] != null) {
     contents[_NPF] = __parseBoolean(output[_nPF]);
   }
-  if (output.forwardPathComponentSet === "") {
+  if (String(output.forwardPathComponentSet).trim() === "") {
     contents[_FPC] = [];
   } else if (output[_fPCS] != null && output[_fPCS][_i] != null) {
     contents[_FPC] = de_PathComponentList(__getArrayIfSingleItem(output[_fPCS][_i]), context);
   }
-  if (output.returnPathComponentSet === "") {
+  if (String(output.returnPathComponentSet).trim() === "") {
     contents[_RPC] = [];
   } else if (output[_rPCS] != null && output[_rPCS][_i] != null) {
     contents[_RPC] = de_PathComponentList(__getArrayIfSingleItem(output[_rPCS][_i]), context);
   }
-  if (output.explanationSet === "") {
+  if (String(output.explanationSet).trim() === "") {
     contents[_Ex] = [];
   } else if (output[_eSx] != null && output[_eSx][_i] != null) {
     contents[_Ex] = de_ExplanationList(__getArrayIfSingleItem(output[_eSx][_i]), context);
   }
-  if (output.alternatePathHintSet === "") {
+  if (String(output.alternatePathHintSet).trim() === "") {
     contents[_APH] = [];
   } else if (output[_aPHS] != null && output[_aPHS][_i] != null) {
     contents[_APH] = de_AlternatePathHintList(__getArrayIfSingleItem(output[_aPHS][_i]), context);
   }
-  if (output.suggestedAccountSet === "") {
+  if (String(output.suggestedAccountSet).trim() === "") {
     contents[_SAu] = [];
   } else if (output[_sASu] != null && output[_sASu][_i] != null) {
     contents[_SAu] = de_ValueStringList(__getArrayIfSingleItem(output[_sASu][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -82088,7 +82088,7 @@ const de_NetworkInsightsPath = (output: any, context: __SerdeContext): NetworkIn
   if (output[_dPes] != null) {
     contents[_DPe] = __strictParseInt32(output[_dPes]) as number;
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -82133,7 +82133,7 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_G] = [];
   } else if (output[_gS] != null && output[_gS][_i] != null) {
     contents[_G] = de_GroupIdentifierList(__getArrayIfSingleItem(output[_gS][_i]), context);
@@ -82141,7 +82141,7 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_iTnt] != null) {
     contents[_ITn] = __expectString(output[_iTnt]);
   }
-  if (output.ipv6AddressesSet === "") {
+  if (String(output.ipv6AddressesSet).trim() === "") {
     contents[_IA] = [];
   } else if (output[_iASp] != null && output[_iASp][_i] != null) {
     contents[_IA] = de_NetworkInterfaceIpv6AddressesList(__getArrayIfSingleItem(output[_iASp][_i]), context);
@@ -82170,17 +82170,17 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_pIAr] != null) {
     contents[_PIAr] = __expectString(output[_pIAr]);
   }
-  if (output.privateIpAddressesSet === "") {
+  if (String(output.privateIpAddressesSet).trim() === "") {
     contents[_PIA] = [];
   } else if (output[_pIAS] != null && output[_pIAS][_i] != null) {
     contents[_PIA] = de_NetworkInterfacePrivateIpAddressList(__getArrayIfSingleItem(output[_pIAS][_i]), context);
   }
-  if (output.ipv4PrefixSet === "") {
+  if (String(output.ipv4PrefixSet).trim() === "") {
     contents[_IPp] = [];
   } else if (output[_iPSpv] != null && output[_iPSpv][_i] != null) {
     contents[_IPp] = de_Ipv4PrefixesList(__getArrayIfSingleItem(output[_iPSpv][_i]), context);
   }
-  if (output.ipv6PrefixSet === "") {
+  if (String(output.ipv6PrefixSet).trim() === "") {
     contents[_IP] = [];
   } else if (output[_iPSpvr] != null && output[_iPSpvr][_i] != null) {
     contents[_IP] = de_Ipv6PrefixesList(__getArrayIfSingleItem(output[_iPSpvr][_i]), context);
@@ -82200,7 +82200,7 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_sIu] != null) {
     contents[_SIub] = __expectString(output[_sIu]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_TSag] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_TSag] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -82220,7 +82220,7 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_op] != null) {
     contents[_O] = de_OperatorResponse(output[_op], context);
   }
-  if (output.associatedSubnetSet === "") {
+  if (String(output.associatedSubnetSet).trim() === "") {
     contents[_ASsso] = [];
   } else if (output[_aSSs] != null && output[_aSSs][_i] != null) {
     contents[_ASsso] = de_AssociatedSubnetList(__getArrayIfSingleItem(output[_aSSs][_i]), context);
@@ -82519,7 +82519,7 @@ const de_NeuronDeviceMemoryInfo = (output: any, context: __SerdeContext): Neuron
  */
 const de_NeuronInfo = (output: any, context: __SerdeContext): NeuronInfo => {
   const contents: any = {};
-  if (output.neuronDevices === "") {
+  if (String(output.neuronDevices).trim() === "") {
     contents[_NDe] = [];
   } else if (output[_nDe] != null && output[_nDe][_i] != null) {
     contents[_NDe] = de_NeuronDeviceInfoList(__getArrayIfSingleItem(output[_nDe][_i]), context);
@@ -82535,7 +82535,7 @@ const de_NeuronInfo = (output: any, context: __SerdeContext): NeuronInfo => {
  */
 const de_NitroTpmInfo = (output: any, context: __SerdeContext): NitroTpmInfo => {
   const contents: any = {};
-  if (output.supportedVersions === "") {
+  if (String(output.supportedVersions).trim() === "") {
     contents[_SVu] = [];
   } else if (output[_sVu] != null && output[_sVu][_i] != null) {
     contents[_SVu] = de_NitroTpmSupportedVersionsList(__getArrayIfSingleItem(output[_sVu][_i]), context);
@@ -82651,17 +82651,17 @@ const de_OutpostLag = (output: any, context: __SerdeContext): OutpostLag => {
   if (output[_oLI] != null) {
     contents[_OLI] = __expectString(output[_oLI]);
   }
-  if (output.localGatewayVirtualInterfaceIdSet === "") {
+  if (String(output.localGatewayVirtualInterfaceIdSet).trim() === "") {
     contents[_LGVIIo] = [];
   } else if (output[_lGVIIS] != null && output[_lGVIIS][_i] != null) {
     contents[_LGVIIo] = de_LocalGatewayVirtualInterfaceIdSet(__getArrayIfSingleItem(output[_lGVIIS][_i]), context);
   }
-  if (output.serviceLinkVirtualInterfaceIdSet === "") {
+  if (String(output.serviceLinkVirtualInterfaceIdSet).trim() === "") {
     contents[_SLVII] = [];
   } else if (output[_sLVIIS] != null && output[_sLVIIS][_i] != null) {
     contents[_SLVII] = de_ServiceLinkVirtualInterfaceIdSet(__getArrayIfSingleItem(output[_sLVIIS][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -82685,37 +82685,37 @@ const de_OutpostLagSet = (output: any, context: __SerdeContext): OutpostLag[] =>
  */
 const de_PacketHeaderStatement = (output: any, context: __SerdeContext): PacketHeaderStatement => {
   const contents: any = {};
-  if (output.sourceAddressSet === "") {
+  if (String(output.sourceAddressSet).trim() === "") {
     contents[_SAo] = [];
   } else if (output[_sAS] != null && output[_sAS][_i] != null) {
     contents[_SAo] = de_ValueStringList(__getArrayIfSingleItem(output[_sAS][_i]), context);
   }
-  if (output.destinationAddressSet === "") {
+  if (String(output.destinationAddressSet).trim() === "") {
     contents[_DAes] = [];
   } else if (output[_dAS] != null && output[_dAS][_i] != null) {
     contents[_DAes] = de_ValueStringList(__getArrayIfSingleItem(output[_dAS][_i]), context);
   }
-  if (output.sourcePortSet === "") {
+  if (String(output.sourcePortSet).trim() === "") {
     contents[_SPo] = [];
   } else if (output[_sPS] != null && output[_sPS][_i] != null) {
     contents[_SPo] = de_ValueStringList(__getArrayIfSingleItem(output[_sPS][_i]), context);
   }
-  if (output.destinationPortSet === "") {
+  if (String(output.destinationPortSet).trim() === "") {
     contents[_DPes] = [];
   } else if (output[_dPS] != null && output[_dPS][_i] != null) {
     contents[_DPes] = de_ValueStringList(__getArrayIfSingleItem(output[_dPS][_i]), context);
   }
-  if (output.sourcePrefixListSet === "") {
+  if (String(output.sourcePrefixListSet).trim() === "") {
     contents[_SPL] = [];
   } else if (output[_sPLS] != null && output[_sPLS][_i] != null) {
     contents[_SPL] = de_ValueStringList(__getArrayIfSingleItem(output[_sPLS][_i]), context);
   }
-  if (output.destinationPrefixListSet === "") {
+  if (String(output.destinationPrefixListSet).trim() === "") {
     contents[_DPLe] = [];
   } else if (output[_dPLS] != null && output[_dPLS][_i] != null) {
     contents[_DPLe] = de_ValueStringList(__getArrayIfSingleItem(output[_dPLS][_i]), context);
   }
-  if (output.protocolSet === "") {
+  if (String(output.protocolSet).trim() === "") {
     contents[_Pro] = [];
   } else if (output[_pSro] != null && output[_pSro][_i] != null) {
     contents[_Pro] = de_ProtocolList(__getArrayIfSingleItem(output[_pSro][_i]), context);
@@ -82764,7 +82764,7 @@ const de_PathComponent = (output: any, context: __SerdeContext): PathComponent =
   if (output[_vp] != null) {
     contents[_Vp] = de_AnalysisComponent(output[_vp], context);
   }
-  if (output.additionalDetailSet === "") {
+  if (String(output.additionalDetailSet).trim() === "") {
     contents[_ADd] = [];
   } else if (output[_aDS] != null && output[_aDS][_i] != null) {
     contents[_ADd] = de_AdditionalDetailList(__getArrayIfSingleItem(output[_aDS][_i]), context);
@@ -82775,7 +82775,7 @@ const de_PathComponent = (output: any, context: __SerdeContext): PathComponent =
   if (output[_tGRTR] != null) {
     contents[_TGRTR] = de_TransitGatewayRouteTableRoute(output[_tGRTR], context);
   }
-  if (output.explanationSet === "") {
+  if (String(output.explanationSet).trim() === "") {
     contents[_Ex] = [];
   } else if (output[_eSx] != null && output[_eSx][_i] != null) {
     contents[_Ex] = de_ExplanationList(__getArrayIfSingleItem(output[_eSx][_i]), context);
@@ -83147,7 +83147,7 @@ const de_PlacementGroup = (output: any, context: __SerdeContext): PlacementGroup
   if (output[_gIr] != null) {
     contents[_GIr] = __expectString(output[_gIr]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -83166,7 +83166,7 @@ const de_PlacementGroup = (output: any, context: __SerdeContext): PlacementGroup
  */
 const de_PlacementGroupInfo = (output: any, context: __SerdeContext): PlacementGroupInfo => {
   const contents: any = {};
-  if (output.supportedStrategies === "") {
+  if (String(output.supportedStrategies).trim() === "") {
     contents[_SSu] = [];
   } else if (output[_sSup] != null && output[_sSup][_i] != null) {
     contents[_SSu] = de_PlacementGroupStrategyList(__getArrayIfSingleItem(output[_sSup][_i]), context);
@@ -83259,7 +83259,7 @@ const de_PortRangeList = (output: any, context: __SerdeContext): PortRange[] => 
  */
 const de_PrefixList = (output: any, context: __SerdeContext): PrefixList => {
   const contents: any = {};
-  if (output.cidrSet === "") {
+  if (String(output.cidrSet).trim() === "") {
     contents[_Ci] = [];
   } else if (output[_cS] != null && output[_cS][_i] != null) {
     contents[_Ci] = de_ValueStringList(__getArrayIfSingleItem(output[_cS][_i]), context);
@@ -83434,7 +83434,7 @@ const de_PrincipalIdFormat = (output: any, context: __SerdeContext): PrincipalId
   if (output[_ar] != null) {
     contents[_Ar] = __expectString(output[_ar]);
   }
-  if (output.statusSet === "") {
+  if (String(output.statusSet).trim() === "") {
     contents[_Status] = [];
   } else if (output[_sSt] != null && output[_sSt][_i] != null) {
     contents[_Status] = de_IdFormatList(__getArrayIfSingleItem(output[_sSt][_i]), context);
@@ -83562,7 +83562,7 @@ const de_PrivateIpAddressSpecificationList = (
  */
 const de_ProcessorInfo = (output: any, context: __SerdeContext): ProcessorInfo => {
   const contents: any = {};
-  if (output.supportedArchitectures === "") {
+  if (String(output.supportedArchitectures).trim() === "") {
     contents[_SAup] = [];
   } else if (output[_sAu] != null && output[_sAu][_i] != null) {
     contents[_SAup] = de_ArchitectureTypeList(__getArrayIfSingleItem(output[_sAu][_i]), context);
@@ -83570,7 +83570,7 @@ const de_ProcessorInfo = (output: any, context: __SerdeContext): ProcessorInfo =
   if (output[_sCSIG] != null) {
     contents[_SCSIG] = __strictParseFloat(output[_sCSIG]) as number;
   }
-  if (output.supportedFeatures === "") {
+  if (String(output.supportedFeatures).trim() === "") {
     contents[_SF] = [];
   } else if (output[_sF] != null && output[_sF][_i] != null) {
     contents[_SF] = de_SupportedAdditionalProcessorFeatureList(__getArrayIfSingleItem(output[_sF][_i]), context);
@@ -83771,7 +83771,7 @@ const de_PublicIpv4Pool = (output: any, context: __SerdeContext): PublicIpv4Pool
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.poolAddressRangeSet === "") {
+  if (String(output.poolAddressRangeSet).trim() === "") {
     contents[_PARo] = [];
   } else if (output[_pARS] != null && output[_pARS][_i] != null) {
     contents[_PARo] = de_PublicIpv4PoolRangeSet(__getArrayIfSingleItem(output[_pARS][_i]), context);
@@ -83785,7 +83785,7 @@ const de_PublicIpv4Pool = (output: any, context: __SerdeContext): PublicIpv4Pool
   if (output[_nBG] != null) {
     contents[_NBG] = __expectString(output[_nBG]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -83846,7 +83846,7 @@ const de_Purchase = (output: any, context: __SerdeContext): Purchase => {
   if (output[_du] != null) {
     contents[_Du] = __strictParseInt32(output[_du]) as number;
   }
-  if (output.hostIdSet === "") {
+  if (String(output.hostIdSet).trim() === "") {
     contents[_HIS] = [];
   } else if (output[_hIS] != null && output[_hIS][_i] != null) {
     contents[_HIS] = de_ResponseHostIdSet(__getArrayIfSingleItem(output[_hIS][_i]), context);
@@ -83877,7 +83877,7 @@ const de_PurchaseCapacityBlockExtensionResult = (
   context: __SerdeContext
 ): PurchaseCapacityBlockExtensionResult => {
   const contents: any = {};
-  if (output.capacityBlockExtensionSet === "") {
+  if (String(output.capacityBlockExtensionSet).trim() === "") {
     contents[_CBE] = [];
   } else if (output[_cBESa] != null && output[_cBESa][_i] != null) {
     contents[_CBE] = de_CapacityBlockExtensionSet(__getArrayIfSingleItem(output[_cBESa][_i]), context);
@@ -83893,7 +83893,7 @@ const de_PurchaseCapacityBlockResult = (output: any, context: __SerdeContext): P
   if (output[_cR] != null) {
     contents[_CRapa] = de_CapacityReservation(output[_cR], context);
   }
-  if (output.capacityBlockSet === "") {
+  if (String(output.capacityBlockSet).trim() === "") {
     contents[_CBa] = [];
   } else if (output[_cBS] != null && output[_cBS][_i] != null) {
     contents[_CBa] = de_CapacityBlockSet(__getArrayIfSingleItem(output[_cBS][_i]), context);
@@ -83923,7 +83923,7 @@ const de_PurchaseHostReservationResult = (output: any, context: __SerdeContext):
   if (output[_cC] != null) {
     contents[_CCu] = __expectString(output[_cC]);
   }
-  if (output.purchase === "") {
+  if (String(output.purchase).trim() === "") {
     contents[_Pur] = [];
   } else if (output[_pur] != null && output[_pur][_i] != null) {
     contents[_Pur] = de_PurchaseSet(__getArrayIfSingleItem(output[_pur][_i]), context);
@@ -83959,7 +83959,7 @@ const de_PurchaseScheduledInstancesResult = (
   context: __SerdeContext
 ): PurchaseScheduledInstancesResult => {
   const contents: any = {};
-  if (output.scheduledInstanceSet === "") {
+  if (String(output.scheduledInstanceSet).trim() === "") {
     contents[_SIS] = [];
   } else if (output[_sIS] != null && output[_sIS][_i] != null) {
     contents[_SIS] = de_PurchasedScheduledInstanceSet(__getArrayIfSingleItem(output[_sIS][_i]), context);
@@ -84199,7 +84199,7 @@ const de_RejectVpcEndpointConnectionsResult = (
   context: __SerdeContext
 ): RejectVpcEndpointConnectionsResult => {
   const contents: any = {};
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_UnsuccessfulItemSet(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -84226,12 +84226,12 @@ const de_RejectVpcPeeringConnectionResult = (
  */
 const de_ReleaseHostsResult = (output: any, context: __SerdeContext): ReleaseHostsResult => {
   const contents: any = {};
-  if (output.successful === "") {
+  if (String(output.successful).trim() === "") {
     contents[_Suc] = [];
   } else if (output[_suc] != null && output[_suc][_i] != null) {
     contents[_Suc] = de_ResponseHostIdList(__getArrayIfSingleItem(output[_suc][_i]), context);
   }
-  if (output.unsuccessful === "") {
+  if (String(output.unsuccessful).trim() === "") {
     contents[_Un] = [];
   } else if (output[_u] != null && output[_u][_i] != null) {
     contents[_Un] = de_UnsuccessfulItemList(__getArrayIfSingleItem(output[_u][_i]), context);
@@ -84312,7 +84312,7 @@ const de_ReplaceRootVolumeTask = (output: any, context: __SerdeContext): Replace
   if (output[_cTom] != null) {
     contents[_CTom] = __expectString(output[_cTom]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -84398,7 +84398,7 @@ const de_RequestSpotFleetResponse = (output: any, context: __SerdeContext): Requ
  */
 const de_RequestSpotInstancesResult = (output: any, context: __SerdeContext): RequestSpotInstancesResult => {
   const contents: any = {};
-  if (output.spotInstanceRequestSet === "") {
+  if (String(output.spotInstanceRequestSet).trim() === "") {
     contents[_SIR] = [];
   } else if (output[_sIRS] != null && output[_sIRS][_i] != null) {
     contents[_SIR] = de_SpotInstanceRequestList(__getArrayIfSingleItem(output[_sIRS][_i]), context);
@@ -84420,12 +84420,12 @@ const de_Reservation = (output: any, context: __SerdeContext): Reservation => {
   if (output[_rIeq] != null) {
     contents[_RIeq] = __expectString(output[_rIeq]);
   }
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_G] = [];
   } else if (output[_gS] != null && output[_gS][_i] != null) {
     contents[_G] = de_GroupIdentifierList(__getArrayIfSingleItem(output[_gS][_i]), context);
   }
-  if (output.instancesSet === "") {
+  if (String(output.instancesSet).trim() === "") {
     contents[_In] = [];
   } else if (output[_iSn] != null && output[_iSn][_i] != null) {
     contents[_In] = de_InstanceList(__getArrayIfSingleItem(output[_iSn][_i]), context);
@@ -84509,7 +84509,7 @@ const de_ReservedInstances = (output: any, context: __SerdeContext): ReservedIns
   if (output[_oTf] != null) {
     contents[_OT] = __expectString(output[_oTf]);
   }
-  if (output.recurringCharges === "") {
+  if (String(output.recurringCharges).trim() === "") {
     contents[_RCec] = [];
   } else if (output[_rCec] != null && output[_rCec][_i] != null) {
     contents[_RCec] = de_RecurringChargesList(__getArrayIfSingleItem(output[_rCec][_i]), context);
@@ -84517,7 +84517,7 @@ const de_ReservedInstances = (output: any, context: __SerdeContext): ReservedIns
   if (output[_sc] != null) {
     contents[_Sc] = __expectString(output[_sc]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -84620,12 +84620,12 @@ const de_ReservedInstancesListing = (output: any, context: __SerdeContext): Rese
   if (output[_cD] != null) {
     contents[_CDr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cD]));
   }
-  if (output.instanceCounts === "") {
+  if (String(output.instanceCounts).trim() === "") {
     contents[_ICn] = [];
   } else if (output[_iCn] != null && output[_iCn][_i] != null) {
     contents[_ICn] = de_InstanceCountList(__getArrayIfSingleItem(output[_iCn][_i]), context);
   }
-  if (output.priceSchedules === "") {
+  if (String(output.priceSchedules).trim() === "") {
     contents[_PS] = [];
   } else if (output[_pSric] != null && output[_pSric][_i] != null) {
     contents[_PS] = de_PriceScheduleList(__getArrayIfSingleItem(output[_pSric][_i]), context);
@@ -84642,7 +84642,7 @@ const de_ReservedInstancesListing = (output: any, context: __SerdeContext): Rese
   if (output[_sMt] != null) {
     contents[_SMt] = __expectString(output[_sMt]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -84678,12 +84678,12 @@ const de_ReservedInstancesModification = (output: any, context: __SerdeContext):
   if (output[_eDf] != null) {
     contents[_EDf] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_eDf]));
   }
-  if (output.modificationResultSet === "") {
+  if (String(output.modificationResultSet).trim() === "") {
     contents[_MRo] = [];
   } else if (output[_mRS] != null && output[_mRS][_i] != null) {
     contents[_MRo] = de_ReservedInstancesModificationResultList(__getArrayIfSingleItem(output[_mRS][_i]), context);
   }
-  if (output.reservedInstancesSet === "") {
+  if (String(output.reservedInstancesSet).trim() === "") {
     contents[_RIIes] = [];
   } else if (output[_rIS] != null && output[_rIS][_i] != null) {
     contents[_RIIes] = de_ReservedIntancesIds(__getArrayIfSingleItem(output[_rIS][_i]), context);
@@ -84768,12 +84768,12 @@ const de_ReservedInstancesOffering = (output: any, context: __SerdeContext): Res
   if (output[_oTf] != null) {
     contents[_OT] = __expectString(output[_oTf]);
   }
-  if (output.pricingDetailsSet === "") {
+  if (String(output.pricingDetailsSet).trim() === "") {
     contents[_PDri] = [];
   } else if (output[_pDS] != null && output[_pDS][_i] != null) {
     contents[_PDri] = de_PricingDetailsList(__getArrayIfSingleItem(output[_pDS][_i]), context);
   }
-  if (output.recurringCharges === "") {
+  if (String(output.recurringCharges).trim() === "") {
     contents[_RCec] = [];
   } else if (output[_rCec] != null && output[_rCec][_i] != null) {
     contents[_RCec] = de_RecurringChargesList(__getArrayIfSingleItem(output[_rCec][_i]), context);
@@ -84868,12 +84868,12 @@ const de_ResetFpgaImageAttributeResult = (output: any, context: __SerdeContext):
  */
 const de_ResourceStatement = (output: any, context: __SerdeContext): ResourceStatement => {
   const contents: any = {};
-  if (output.resourceSet === "") {
+  if (String(output.resourceSet).trim() === "") {
     contents[_Re] = [];
   } else if (output[_rSesou] != null && output[_rSesou][_i] != null) {
     contents[_Re] = de_ValueStringList(__getArrayIfSingleItem(output[_rSesou][_i]), context);
   }
-  if (output.resourceTypeSet === "") {
+  if (String(output.resourceTypeSet).trim() === "") {
     contents[_RTe] = [];
   } else if (output[_rTSe] != null && output[_rTSe][_i] != null) {
     contents[_RTe] = de_ValueStringList(__getArrayIfSingleItem(output[_rTSe][_i]), context);
@@ -84931,12 +84931,12 @@ const de_ResponseLaunchTemplateData = (output: any, context: __SerdeContext): Re
   if (output[_iIP] != null) {
     contents[_IIP] = de_LaunchTemplateIamInstanceProfileSpecification(output[_iIP], context);
   }
-  if (output.blockDeviceMappingSet === "") {
+  if (String(output.blockDeviceMappingSet).trim() === "") {
     contents[_BDM] = [];
   } else if (output[_bDMS] != null && output[_bDMS][_i] != null) {
     contents[_BDM] = de_LaunchTemplateBlockDeviceMappingList(__getArrayIfSingleItem(output[_bDMS][_i]), context);
   }
-  if (output.networkInterfaceSet === "") {
+  if (String(output.networkInterfaceSet).trim() === "") {
     contents[_NI] = [];
   } else if (output[_nIS] != null && output[_nIS][_i] != null) {
     contents[_NI] = de_LaunchTemplateInstanceNetworkInterfaceSpecificationList(
@@ -84971,17 +84971,17 @@ const de_ResponseLaunchTemplateData = (output: any, context: __SerdeContext): Re
   if (output[_uDs] != null) {
     contents[_UD] = __expectString(output[_uDs]);
   }
-  if (output.tagSpecificationSet === "") {
+  if (String(output.tagSpecificationSet).trim() === "") {
     contents[_TS] = [];
   } else if (output[_tSS] != null && output[_tSS][_i] != null) {
     contents[_TS] = de_LaunchTemplateTagSpecificationList(__getArrayIfSingleItem(output[_tSS][_i]), context);
   }
-  if (output.elasticGpuSpecificationSet === "") {
+  if (String(output.elasticGpuSpecificationSet).trim() === "") {
     contents[_EGS] = [];
   } else if (output[_eGSS] != null && output[_eGSS][_i] != null) {
     contents[_EGS] = de_ElasticGpuSpecificationResponseList(__getArrayIfSingleItem(output[_eGSS][_i]), context);
   }
-  if (output.elasticInferenceAcceleratorSet === "") {
+  if (String(output.elasticInferenceAcceleratorSet).trim() === "") {
     contents[_EIA] = [];
   } else if (output[_eIAS] != null && output[_eIAS][_i] != null) {
     contents[_EIA] = de_LaunchTemplateElasticInferenceAcceleratorResponseList(
@@ -84989,12 +84989,12 @@ const de_ResponseLaunchTemplateData = (output: any, context: __SerdeContext): Re
       context
     );
   }
-  if (output.securityGroupIdSet === "") {
+  if (String(output.securityGroupIdSet).trim() === "") {
     contents[_SGI] = [];
   } else if (output[_sGIS] != null && output[_sGIS][_i] != null) {
     contents[_SGI] = de_ValueStringList(__getArrayIfSingleItem(output[_sGIS][_i]), context);
   }
-  if (output.securityGroupSet === "") {
+  if (String(output.securityGroupSet).trim() === "") {
     contents[_SG] = [];
   } else if (output[_sGS] != null && output[_sGS][_i] != null) {
     contents[_SG] = de_ValueStringList(__getArrayIfSingleItem(output[_sGS][_i]), context);
@@ -85011,7 +85011,7 @@ const de_ResponseLaunchTemplateData = (output: any, context: __SerdeContext): Re
   if (output[_cRSa] != null) {
     contents[_CRSa] = de_LaunchTemplateCapacityReservationSpecificationResponse(output[_cRSa], context);
   }
-  if (output.licenseSet === "") {
+  if (String(output.licenseSet).trim() === "") {
     contents[_LSi] = [];
   } else if (output[_lSi] != null && output[_lSi][_i] != null) {
     contents[_LSi] = de_LaunchTemplateLicenseList(__getArrayIfSingleItem(output[_lSi][_i]), context);
@@ -85223,12 +85223,12 @@ const de_RevokeSecurityGroupEgressResult = (output: any, context: __SerdeContext
   if (output[_r] != null) {
     contents[_Ret] = __parseBoolean(output[_r]);
   }
-  if (output.unknownIpPermissionSet === "") {
+  if (String(output.unknownIpPermissionSet).trim() === "") {
     contents[_UIP] = [];
   } else if (output[_uIPS] != null && output[_uIPS][_i] != null) {
     contents[_UIP] = de_IpPermissionList(__getArrayIfSingleItem(output[_uIPS][_i]), context);
   }
-  if (output.revokedSecurityGroupRuleSet === "") {
+  if (String(output.revokedSecurityGroupRuleSet).trim() === "") {
     contents[_RSGR] = [];
   } else if (output[_rSGRS] != null && output[_rSGRS][_i] != null) {
     contents[_RSGR] = de_RevokedSecurityGroupRuleList(__getArrayIfSingleItem(output[_rSGRS][_i]), context);
@@ -85247,12 +85247,12 @@ const de_RevokeSecurityGroupIngressResult = (
   if (output[_r] != null) {
     contents[_Ret] = __parseBoolean(output[_r]);
   }
-  if (output.unknownIpPermissionSet === "") {
+  if (String(output.unknownIpPermissionSet).trim() === "") {
     contents[_UIP] = [];
   } else if (output[_uIPS] != null && output[_uIPS][_i] != null) {
     contents[_UIP] = de_IpPermissionList(__getArrayIfSingleItem(output[_uIPS][_i]), context);
   }
-  if (output.revokedSecurityGroupRuleSet === "") {
+  if (String(output.revokedSecurityGroupRuleSet).trim() === "") {
     contents[_RSGR] = [];
   } else if (output[_rSGRS] != null && output[_rSGRS][_i] != null) {
     contents[_RSGR] = de_RevokedSecurityGroupRuleList(__getArrayIfSingleItem(output[_rSGRS][_i]), context);
@@ -85358,7 +85358,7 @@ const de_RouteServer = (output: any, context: __SerdeContext): RouteServer => {
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -85471,7 +85471,7 @@ const de_RouteServerEndpoint = (output: any, context: __SerdeContext): RouteServ
   if (output[_fR] != null) {
     contents[_FR] = __expectString(output[_fR]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -85534,7 +85534,7 @@ const de_RouteServerPeer = (output: any, context: __SerdeContext): RouteServerPe
   if (output[_bSf] != null) {
     contents[_BSf] = de_RouteServerBfdStatus(output[_bSf], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -85592,7 +85592,7 @@ const de_RouteServerRoute = (output: any, context: __SerdeContext): RouteServerR
   if (output[_rSPI] != null) {
     contents[_RSPI] = __expectString(output[_rSPI]);
   }
-  if (output.routeInstallationDetailSet === "") {
+  if (String(output.routeInstallationDetailSet).trim() === "") {
     contents[_RID] = [];
   } else if (output[_rIDS] != null && output[_rIDS][_i] != null) {
     contents[_RID] = de_RouteServerRouteInstallationDetails(__getArrayIfSingleItem(output[_rIDS][_i]), context);
@@ -85603,7 +85603,7 @@ const de_RouteServerRoute = (output: any, context: __SerdeContext): RouteServerR
   if (output[_pre] != null) {
     contents[_Pr] = __expectString(output[_pre]);
   }
-  if (output.asPathSet === "") {
+  if (String(output.asPathSet).trim() === "") {
     contents[_APs] = [];
   } else if (output[_aPSs] != null && output[_aPSs][_i] != null) {
     contents[_APs] = de_AsPath(__getArrayIfSingleItem(output[_aPSs][_i]), context);
@@ -85678,12 +85678,12 @@ const de_RouteServersList = (output: any, context: __SerdeContext): RouteServer[
  */
 const de_RouteTable = (output: any, context: __SerdeContext): RouteTable => {
   const contents: any = {};
-  if (output.associationSet === "") {
+  if (String(output.associationSet).trim() === "") {
     contents[_Ass] = [];
   } else if (output[_aSss] != null && output[_aSss][_i] != null) {
     contents[_Ass] = de_RouteTableAssociationList(__getArrayIfSingleItem(output[_aSss][_i]), context);
   }
-  if (output.propagatingVgwSet === "") {
+  if (String(output.propagatingVgwSet).trim() === "") {
     contents[_PVr] = [];
   } else if (output[_pVS] != null && output[_pVS][_i] != null) {
     contents[_PVr] = de_PropagatingVgwList(__getArrayIfSingleItem(output[_pVS][_i]), context);
@@ -85691,12 +85691,12 @@ const de_RouteTable = (output: any, context: __SerdeContext): RouteTable => {
   if (output[_rTI] != null) {
     contents[_RTI] = __expectString(output[_rTI]);
   }
-  if (output.routeSet === "") {
+  if (String(output.routeSet).trim() === "") {
     contents[_Rout] = [];
   } else if (output[_rSou] != null && output[_rSou][_i] != null) {
     contents[_Rout] = de_RouteList(__getArrayIfSingleItem(output[_rSou][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -85783,7 +85783,7 @@ const de_RuleGroupRuleOptionsPair = (output: any, context: __SerdeContext): Rule
   if (output[_rGA] != null) {
     contents[_RGA] = __expectString(output[_rGA]);
   }
-  if (output.ruleOptionSet === "") {
+  if (String(output.ruleOptionSet).trim() === "") {
     contents[_ROu] = [];
   } else if (output[_rOS] != null && output[_rOS][_i] != null) {
     contents[_ROu] = de_RuleOptionList(__getArrayIfSingleItem(output[_rOS][_i]), context);
@@ -85835,7 +85835,7 @@ const de_RuleOption = (output: any, context: __SerdeContext): RuleOption => {
   if (output[_key] != null) {
     contents[_Key] = __expectString(output[_key]);
   }
-  if (output.settingSet === "") {
+  if (String(output.settingSet).trim() === "") {
     contents[_Set] = [];
   } else if (output[_sSe] != null && output[_sSe][_i] != null) {
     contents[_Set] = de_StringList(__getArrayIfSingleItem(output[_sSe][_i]), context);
@@ -85870,7 +85870,7 @@ const de_RunInstancesMonitoringEnabled = (output: any, context: __SerdeContext):
  */
 const de_RunScheduledInstancesResult = (output: any, context: __SerdeContext): RunScheduledInstancesResult => {
   const contents: any = {};
-  if (output.instanceIdSet === "") {
+  if (String(output.instanceIdSet).trim() === "") {
     contents[_IIS] = [];
   } else if (output[_iIS] != null && output[_iIS][_i] != null) {
     contents[_IIS] = de_InstanceIdSet(__getArrayIfSingleItem(output[_iIS][_i]), context);
@@ -86023,7 +86023,7 @@ const de_ScheduledInstanceRecurrence = (output: any, context: __SerdeContext): S
   if (output[_int] != null) {
     contents[_Int] = __strictParseInt32(output[_int]) as number;
   }
-  if (output.occurrenceDaySet === "") {
+  if (String(output.occurrenceDaySet).trim() === "") {
     contents[_ODS] = [];
   } else if (output[_oDS] != null && output[_oDS][_i] != null) {
     contents[_ODS] = de_OccurrenceDaySet(__getArrayIfSingleItem(output[_oDS][_i]), context);
@@ -86053,7 +86053,7 @@ const de_ScheduledInstanceSet = (output: any, context: __SerdeContext): Schedule
  */
 const de_SearchLocalGatewayRoutesResult = (output: any, context: __SerdeContext): SearchLocalGatewayRoutesResult => {
   const contents: any = {};
-  if (output.routeSet === "") {
+  if (String(output.routeSet).trim() === "") {
     contents[_Rout] = [];
   } else if (output[_rSou] != null && output[_rSou][_i] != null) {
     contents[_Rout] = de_LocalGatewayRouteList(__getArrayIfSingleItem(output[_rSou][_i]), context);
@@ -86072,7 +86072,7 @@ const de_SearchTransitGatewayMulticastGroupsResult = (
   context: __SerdeContext
 ): SearchTransitGatewayMulticastGroupsResult => {
   const contents: any = {};
-  if (output.multicastGroups === "") {
+  if (String(output.multicastGroups).trim() === "") {
     contents[_MG] = [];
   } else if (output[_mG] != null && output[_mG][_i] != null) {
     contents[_MG] = de_TransitGatewayMulticastGroupList(__getArrayIfSingleItem(output[_mG][_i]), context);
@@ -86091,7 +86091,7 @@ const de_SearchTransitGatewayRoutesResult = (
   context: __SerdeContext
 ): SearchTransitGatewayRoutesResult => {
   const contents: any = {};
-  if (output.routeSet === "") {
+  if (String(output.routeSet).trim() === "") {
     contents[_Rout] = [];
   } else if (output[_rSou] != null && output[_rSou][_i] != null) {
     contents[_Rout] = de_TransitGatewayRouteList(__getArrayIfSingleItem(output[_rSou][_i]), context);
@@ -86110,12 +86110,12 @@ const de_SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup =
   if (output[_gIr] != null) {
     contents[_GIr] = __expectString(output[_gIr]);
   }
-  if (output.ipPermissionsEgress === "") {
+  if (String(output.ipPermissionsEgress).trim() === "") {
     contents[_IPE] = [];
   } else if (output[_iPE] != null && output[_iPE][_i] != null) {
     contents[_IPE] = de_IpPermissionList(__getArrayIfSingleItem(output[_iPE][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -86135,7 +86135,7 @@ const de_SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup =
   if (output[_gD] != null) {
     contents[_De] = __expectString(output[_gD]);
   }
-  if (output.ipPermissions === "") {
+  if (String(output.ipPermissions).trim() === "") {
     contents[_IPpe] = [];
   } else if (output[_iPpe] != null && output[_iPpe][_i] != null) {
     contents[_IPpe] = de_IpPermissionList(__getArrayIfSingleItem(output[_iPpe][_i]), context);
@@ -86160,7 +86160,7 @@ const de_SecurityGroupForVpc = (output: any, context: __SerdeContext): SecurityG
   if (output[_gIr] != null) {
     contents[_GIr] = __expectString(output[_gIr]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -86312,7 +86312,7 @@ const de_SecurityGroupRule = (output: any, context: __SerdeContext): SecurityGro
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -86376,7 +86376,7 @@ const de_SecurityGroupVpcAssociationList = (output: any, context: __SerdeContext
  */
 const de_ServiceConfiguration = (output: any, context: __SerdeContext): ServiceConfiguration => {
   const contents: any = {};
-  if (output.serviceType === "") {
+  if (String(output.serviceType).trim() === "") {
     contents[_STe] = [];
   } else if (output[_sTe] != null && output[_sTe][_i] != null) {
     contents[_STe] = de_ServiceTypeDetailSet(__getArrayIfSingleItem(output[_sTe][_i]), context);
@@ -86390,12 +86390,12 @@ const de_ServiceConfiguration = (output: any, context: __SerdeContext): ServiceC
   if (output[_sSer] != null) {
     contents[_SSe] = __expectString(output[_sSer]);
   }
-  if (output.availabilityZoneIdSet === "") {
+  if (String(output.availabilityZoneIdSet).trim() === "") {
     contents[_AZIv] = [];
   } else if (output[_aZIS] != null && output[_aZIS][_i] != null) {
     contents[_AZIv] = de_ValueStringList(__getArrayIfSingleItem(output[_aZIS][_i]), context);
   }
-  if (output.availabilityZoneSet === "") {
+  if (String(output.availabilityZoneSet).trim() === "") {
     contents[_AZv] = [];
   } else if (output[_aZS] != null && output[_aZS][_i] != null) {
     contents[_AZv] = de_ValueStringList(__getArrayIfSingleItem(output[_aZS][_i]), context);
@@ -86406,22 +86406,22 @@ const de_ServiceConfiguration = (output: any, context: __SerdeContext): ServiceC
   if (output[_mVE] != null) {
     contents[_MVEa] = __parseBoolean(output[_mVE]);
   }
-  if (output.networkLoadBalancerArnSet === "") {
+  if (String(output.networkLoadBalancerArnSet).trim() === "") {
     contents[_NLBAe] = [];
   } else if (output[_nLBAS] != null && output[_nLBAS][_i] != null) {
     contents[_NLBAe] = de_ValueStringList(__getArrayIfSingleItem(output[_nLBAS][_i]), context);
   }
-  if (output.gatewayLoadBalancerArnSet === "") {
+  if (String(output.gatewayLoadBalancerArnSet).trim() === "") {
     contents[_GLBA] = [];
   } else if (output[_gLBAS] != null && output[_gLBAS][_i] != null) {
     contents[_GLBA] = de_ValueStringList(__getArrayIfSingleItem(output[_gLBAS][_i]), context);
   }
-  if (output.supportedIpAddressTypeSet === "") {
+  if (String(output.supportedIpAddressTypeSet).trim() === "") {
     contents[_SIAT] = [];
   } else if (output[_sIATS] != null && output[_sIATS][_i] != null) {
     contents[_SIAT] = de_SupportedIpAddressTypes(__getArrayIfSingleItem(output[_sIATS][_i]), context);
   }
-  if (output.baseEndpointDnsNameSet === "") {
+  if (String(output.baseEndpointDnsNameSet).trim() === "") {
     contents[_BEDN] = [];
   } else if (output[_bEDNS] != null && output[_bEDNS][_i] != null) {
     contents[_BEDN] = de_ValueStringList(__getArrayIfSingleItem(output[_bEDNS][_i]), context);
@@ -86435,12 +86435,12 @@ const de_ServiceConfiguration = (output: any, context: __SerdeContext): ServiceC
   if (output[_pRa] != null) {
     contents[_PRa] = __expectString(output[_pRa]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
-  if (output.supportedRegionSet === "") {
+  if (String(output.supportedRegionSet).trim() === "") {
     contents[_SRu] = [];
   } else if (output[_sRS] != null && output[_sRS][_i] != null) {
     contents[_SRu] = de_SupportedRegionSet(__getArrayIfSingleItem(output[_sRS][_i]), context);
@@ -86473,7 +86473,7 @@ const de_ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail =
   if (output[_sI] != null) {
     contents[_SIe] = __expectString(output[_sI]);
   }
-  if (output.serviceType === "") {
+  if (String(output.serviceType).trim() === "") {
     contents[_STe] = [];
   } else if (output[_sTe] != null && output[_sTe][_i] != null) {
     contents[_STe] = de_ServiceTypeDetailSet(__getArrayIfSingleItem(output[_sTe][_i]), context);
@@ -86481,12 +86481,12 @@ const de_ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail =
   if (output[_sR] != null) {
     contents[_SRe] = __expectString(output[_sR]);
   }
-  if (output.availabilityZoneIdSet === "") {
+  if (String(output.availabilityZoneIdSet).trim() === "") {
     contents[_AZIv] = [];
   } else if (output[_aZIS] != null && output[_aZIS][_i] != null) {
     contents[_AZIv] = de_ValueStringList(__getArrayIfSingleItem(output[_aZIS][_i]), context);
   }
-  if (output.availabilityZoneSet === "") {
+  if (String(output.availabilityZoneSet).trim() === "") {
     contents[_AZv] = [];
   } else if (output[_aZS] != null && output[_aZS][_i] != null) {
     contents[_AZv] = de_ValueStringList(__getArrayIfSingleItem(output[_aZS][_i]), context);
@@ -86494,7 +86494,7 @@ const de_ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail =
   if (output[_ow] != null) {
     contents[_Own] = __expectString(output[_ow]);
   }
-  if (output.baseEndpointDnsNameSet === "") {
+  if (String(output.baseEndpointDnsNameSet).trim() === "") {
     contents[_BEDN] = [];
   } else if (output[_bEDNS] != null && output[_bEDNS][_i] != null) {
     contents[_BEDN] = de_ValueStringList(__getArrayIfSingleItem(output[_bEDNS][_i]), context);
@@ -86502,7 +86502,7 @@ const de_ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail =
   if (output[_pDNr] != null) {
     contents[_PDN] = __expectString(output[_pDNr]);
   }
-  if (output.privateDnsNameSet === "") {
+  if (String(output.privateDnsNameSet).trim() === "") {
     contents[_PDNr] = [];
   } else if (output[_pDNS] != null && output[_pDNS][_i] != null) {
     contents[_PDNr] = de_PrivateDnsDetailsSet(__getArrayIfSingleItem(output[_pDNS][_i]), context);
@@ -86519,7 +86519,7 @@ const de_ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail =
   if (output[_pRa] != null) {
     contents[_PRa] = __expectString(output[_pRa]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -86527,7 +86527,7 @@ const de_ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail =
   if (output[_pDNVS] != null) {
     contents[_PDNVS] = __expectString(output[_pDNVS]);
   }
-  if (output.supportedIpAddressTypeSet === "") {
+  if (String(output.supportedIpAddressTypeSet).trim() === "") {
     contents[_SIAT] = [];
   } else if (output[_sIATS] != null && output[_sIATS][_i] != null) {
     contents[_SIAT] = de_SupportedIpAddressTypes(__getArrayIfSingleItem(output[_sIATS][_i]), context);
@@ -86581,7 +86581,7 @@ const de_ServiceLinkVirtualInterface = (output: any, context: __SerdeContext): S
   if (output[_oLI] != null) {
     contents[_OLI] = __expectString(output[_oLI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -86647,7 +86647,7 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   if (output[_oA] != null) {
     contents[_OA] = __expectString(output[_oA]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -86772,7 +86772,7 @@ const de_SnapshotInfo = (output: any, context: __SerdeContext): SnapshotInfo => 
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -86927,7 +86927,7 @@ const de_SnapshotTierStatus = (output: any, context: __SerdeContext): SnapshotTi
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -87012,7 +87012,7 @@ const de_SpotFleetLaunchSpecification = (output: any, context: __SerdeContext): 
   if (output[_aTdd] != null) {
     contents[_ATd] = __expectString(output[_aTdd]);
   }
-  if (output.blockDeviceMapping === "") {
+  if (String(output.blockDeviceMapping).trim() === "") {
     contents[_BDM] = [];
   } else if (output[_bDM] != null && output[_bDM][_i] != null) {
     contents[_BDM] = de_BlockDeviceMappingList(__getArrayIfSingleItem(output[_bDM][_i]), context);
@@ -87038,7 +87038,7 @@ const de_SpotFleetLaunchSpecification = (output: any, context: __SerdeContext): 
   if (output[_mo] != null) {
     contents[_Mon] = de_SpotFleetMonitoring(output[_mo], context);
   }
-  if (output.networkInterfaceSet === "") {
+  if (String(output.networkInterfaceSet).trim() === "") {
     contents[_NI] = [];
   } else if (output[_nIS] != null && output[_nIS][_i] != null) {
     contents[_NI] = de_InstanceNetworkInterfaceSpecificationList(__getArrayIfSingleItem(output[_nIS][_i]), context);
@@ -87061,7 +87061,7 @@ const de_SpotFleetLaunchSpecification = (output: any, context: __SerdeContext): 
   if (output[_wC] != null) {
     contents[_WCe] = __strictParseFloat(output[_wC]) as number;
   }
-  if (output.tagSpecificationSet === "") {
+  if (String(output.tagSpecificationSet).trim() === "") {
     contents[_TS] = [];
   } else if (output[_tSS] != null && output[_tSS][_i] != null) {
     contents[_TS] = de_SpotFleetTagSpecificationList(__getArrayIfSingleItem(output[_tSS][_i]), context);
@@ -87069,7 +87069,7 @@ const de_SpotFleetLaunchSpecification = (output: any, context: __SerdeContext): 
   if (output[_iR] != null) {
     contents[_IR] = de_InstanceRequirements(output[_iR], context);
   }
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_SG] = [];
   } else if (output[_gS] != null && output[_gS][_i] != null) {
     contents[_SG] = de_GroupIdentifierList(__getArrayIfSingleItem(output[_gS][_i]), context);
@@ -87108,7 +87108,7 @@ const de_SpotFleetRequestConfig = (output: any, context: __SerdeContext): SpotFl
   if (output[_sFRSp] != null) {
     contents[_SFRS] = __expectString(output[_sFRSp]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -87145,12 +87145,12 @@ const de_SpotFleetRequestConfigData = (output: any, context: __SerdeContext): Sp
   if (output[_iFR] != null) {
     contents[_IFR] = __expectString(output[_iFR]);
   }
-  if (output.launchSpecifications === "") {
+  if (String(output.launchSpecifications).trim() === "") {
     contents[_LSau] = [];
   } else if (output[_lSa] != null && output[_lSa][_i] != null) {
     contents[_LSau] = de_LaunchSpecsList(__getArrayIfSingleItem(output[_lSa][_i]), context);
   }
-  if (output.launchTemplateConfigs === "") {
+  if (String(output.launchTemplateConfigs).trim() === "") {
     contents[_LTC] = [];
   } else if (output[_lTC] != null && output[_lTC][_i] != null) {
     contents[_LTC] = de_LaunchTemplateConfigList(__getArrayIfSingleItem(output[_lTC][_i]), context);
@@ -87200,7 +87200,7 @@ const de_SpotFleetRequestConfigData = (output: any, context: __SerdeContext): Sp
   if (output[_tCUT] != null) {
     contents[_TCUT] = __expectString(output[_tCUT]);
   }
-  if (output.TagSpecification === "") {
+  if (String(output.TagSpecification).trim() === "") {
     contents[_TS] = [];
   } else if (output[_TSagp] != null && output[_TSagp][_i] != null) {
     contents[_TS] = de_TagSpecificationList(__getArrayIfSingleItem(output[_TSagp][_i]), context);
@@ -87227,7 +87227,7 @@ const de_SpotFleetTagSpecification = (output: any, context: __SerdeContext): Spo
   if (output[_rTe] != null) {
     contents[_RT] = __expectString(output[_rTe]);
   }
-  if (output.tag === "") {
+  if (String(output.tag).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tag] != null && output[_tag][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tag][_i]), context);
@@ -87296,7 +87296,7 @@ const de_SpotInstanceRequest = (output: any, context: __SerdeContext): SpotInsta
   if (output[_sta] != null) {
     contents[_Statu] = de_SpotInstanceStatus(output[_sta], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -87494,12 +87494,12 @@ const de_StaleIpPermission = (output: any, context: __SerdeContext): StaleIpPerm
   if (output[_iPpr] != null) {
     contents[_IPpr] = __expectString(output[_iPpr]);
   }
-  if (output.ipRanges === "") {
+  if (String(output.ipRanges).trim() === "") {
     contents[_IRp] = [];
   } else if (output[_iRpa] != null && output[_iRpa][_i] != null) {
     contents[_IRp] = de_IpRanges(__getArrayIfSingleItem(output[_iRpa][_i]), context);
   }
-  if (output.prefixListIds === "") {
+  if (String(output.prefixListIds).trim() === "") {
     contents[_PLIr] = [];
   } else if (output[_pLIr] != null && output[_pLIr][_i] != null) {
     contents[_PLIr] = de_PrefixListIdSet(__getArrayIfSingleItem(output[_pLIr][_i]), context);
@@ -87507,7 +87507,7 @@ const de_StaleIpPermission = (output: any, context: __SerdeContext): StaleIpPerm
   if (output[_tPo] != null) {
     contents[_TP] = __strictParseInt32(output[_tPo]) as number;
   }
-  if (output.groups === "") {
+  if (String(output.groups).trim() === "") {
     contents[_UIGP] = [];
   } else if (output[_gr] != null && output[_gr][_i] != null) {
     contents[_UIGP] = de_UserIdGroupPairSet(__getArrayIfSingleItem(output[_gr][_i]), context);
@@ -87540,12 +87540,12 @@ const de_StaleSecurityGroup = (output: any, context: __SerdeContext): StaleSecur
   if (output[_gN] != null) {
     contents[_GN] = __expectString(output[_gN]);
   }
-  if (output.staleIpPermissions === "") {
+  if (String(output.staleIpPermissions).trim() === "") {
     contents[_SIP] = [];
   } else if (output[_sIP] != null && output[_sIP][_i] != null) {
     contents[_SIP] = de_StaleIpPermissionSet(__getArrayIfSingleItem(output[_sIP][_i]), context);
   }
-  if (output.staleIpPermissionsEgress === "") {
+  if (String(output.staleIpPermissionsEgress).trim() === "") {
     contents[_SIPE] = [];
   } else if (output[_sIPE] != null && output[_sIPE][_i] != null) {
     contents[_SIPE] = de_StaleIpPermissionSet(__getArrayIfSingleItem(output[_sIPE][_i]), context);
@@ -87586,7 +87586,7 @@ const de_StartDeclarativePoliciesReportResult = (
  */
 const de_StartInstancesResult = (output: any, context: __SerdeContext): StartInstancesResult => {
   const contents: any = {};
-  if (output.instancesSet === "") {
+  if (String(output.instancesSet).trim() === "") {
     contents[_SIta] = [];
   } else if (output[_iSn] != null && output[_iSn][_i] != null) {
     contents[_SIta] = de_InstanceStateChangeList(__getArrayIfSingleItem(output[_iSn][_i]), context);
@@ -87655,7 +87655,7 @@ const de_StateReason = (output: any, context: __SerdeContext): StateReason => {
  */
 const de_StopInstancesResult = (output: any, context: __SerdeContext): StopInstancesResult => {
   const contents: any = {};
-  if (output.instancesSet === "") {
+  if (String(output.instancesSet).trim() === "") {
     contents[_SIto] = [];
   } else if (output[_iSn] != null && output[_iSn][_i] != null) {
     contents[_SIto] = de_InstanceStateChangeList(__getArrayIfSingleItem(output[_iSn][_i]), context);
@@ -87748,12 +87748,12 @@ const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
   if (output[_aIAOC] != null) {
     contents[_AIAOC] = __parseBoolean(output[_aIAOC]);
   }
-  if (output.ipv6CidrBlockAssociationSet === "") {
+  if (String(output.ipv6CidrBlockAssociationSet).trim() === "") {
     contents[_ICBAS] = [];
   } else if (output[_iCBAS] != null && output[_iCBAS][_i] != null) {
     contents[_ICBAS] = de_SubnetIpv6CidrBlockAssociationSet(__getArrayIfSingleItem(output[_iCBAS][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -87868,7 +87868,7 @@ const de_SubnetCidrReservation = (output: any, context: __SerdeContext): SubnetC
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -87895,7 +87895,7 @@ const de_SubnetIpPrefixes = (output: any, context: __SerdeContext): SubnetIpPref
   if (output[_sIu] != null) {
     contents[_SIub] = __expectString(output[_sIu]);
   }
-  if (output.ipPrefixSet === "") {
+  if (String(output.ipPrefixSet).trim() === "") {
     contents[_IPpre] = [];
   } else if (output[_iPSpr] != null && output[_iPSpr][_i] != null) {
     contents[_IPpre] = de_ValueStringList(__getArrayIfSingleItem(output[_iPSpr][_i]), context);
@@ -88166,7 +88166,7 @@ const de_TagSpecification = (output: any, context: __SerdeContext): TagSpecifica
   if (output[_rTe] != null) {
     contents[_RT] = __expectString(output[_rTe]);
   }
-  if (output.Tag === "") {
+  if (String(output.Tag).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_Tag] != null && output[_Tag][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_Tag][_i]), context);
@@ -88249,7 +88249,7 @@ const de_TargetGroups = (output: any, context: __SerdeContext): TargetGroup[] =>
  */
 const de_TargetGroupsConfig = (output: any, context: __SerdeContext): TargetGroupsConfig => {
   const contents: any = {};
-  if (output.targetGroups === "") {
+  if (String(output.targetGroups).trim() === "") {
     contents[_TG] = [];
   } else if (output[_tGa] != null && output[_tGa][_i] != null) {
     contents[_TG] = de_TargetGroups(__getArrayIfSingleItem(output[_tGa][_i]), context);
@@ -88277,7 +88277,7 @@ const de_TargetNetwork = (output: any, context: __SerdeContext): TargetNetwork =
   if (output[_sta] != null) {
     contents[_Statu] = de_AssociationStatus(output[_sta], context);
   }
-  if (output.securityGroups === "") {
+  if (String(output.securityGroups).trim() === "") {
     contents[_SG] = [];
   } else if (output[_sGe] != null && output[_sGe][_i] != null) {
     contents[_SG] = de_ValueStringList(__getArrayIfSingleItem(output[_sGe][_i]), context);
@@ -88335,7 +88335,7 @@ const de_TerminateClientVpnConnectionsResult = (
   if (output[_us] != null) {
     contents[_Us] = __expectString(output[_us]);
   }
-  if (output.connectionStatuses === "") {
+  if (String(output.connectionStatuses).trim() === "") {
     contents[_CSonn] = [];
   } else if (output[_cSonn] != null && output[_cSonn][_i] != null) {
     contents[_CSonn] = de_TerminateConnectionStatusSet(__getArrayIfSingleItem(output[_cSonn][_i]), context);
@@ -88376,7 +88376,7 @@ const de_TerminateConnectionStatusSet = (output: any, context: __SerdeContext): 
  */
 const de_TerminateInstancesResult = (output: any, context: __SerdeContext): TerminateInstancesResult => {
   const contents: any = {};
-  if (output.instancesSet === "") {
+  if (String(output.instancesSet).trim() === "") {
     contents[_TIer] = [];
   } else if (output[_iSn] != null && output[_iSn][_i] != null) {
     contents[_TIer] = de_InstanceStateChangeList(__getArrayIfSingleItem(output[_iSn][_i]), context);
@@ -88439,17 +88439,17 @@ const de_TrafficMirrorFilter = (output: any, context: __SerdeContext): TrafficMi
   if (output[_tMFI] != null) {
     contents[_TMFI] = __expectString(output[_tMFI]);
   }
-  if (output.ingressFilterRuleSet === "") {
+  if (String(output.ingressFilterRuleSet).trim() === "") {
     contents[_IFRn] = [];
   } else if (output[_iFRS] != null && output[_iFRS][_i] != null) {
     contents[_IFRn] = de_TrafficMirrorFilterRuleList(__getArrayIfSingleItem(output[_iFRS][_i]), context);
   }
-  if (output.egressFilterRuleSet === "") {
+  if (String(output.egressFilterRuleSet).trim() === "") {
     contents[_EFR] = [];
   } else if (output[_eFRS] != null && output[_eFRS][_i] != null) {
     contents[_EFR] = de_TrafficMirrorFilterRuleList(__getArrayIfSingleItem(output[_eFRS][_i]), context);
   }
-  if (output.networkServiceSet === "") {
+  if (String(output.networkServiceSet).trim() === "") {
     contents[_NSe] = [];
   } else if (output[_nSS] != null && output[_nSS][_i] != null) {
     contents[_NSe] = de_TrafficMirrorNetworkServiceList(__getArrayIfSingleItem(output[_nSS][_i]), context);
@@ -88457,7 +88457,7 @@ const de_TrafficMirrorFilter = (output: any, context: __SerdeContext): TrafficMi
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -88503,7 +88503,7 @@ const de_TrafficMirrorFilterRule = (output: any, context: __SerdeContext): Traff
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -88601,7 +88601,7 @@ const de_TrafficMirrorSession = (output: any, context: __SerdeContext): TrafficM
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -88643,7 +88643,7 @@ const de_TrafficMirrorTarget = (output: any, context: __SerdeContext): TrafficMi
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -88691,7 +88691,7 @@ const de_TransitGateway = (output: any, context: __SerdeContext): TransitGateway
   if (output[_opt] != null) {
     contents[_Op] = de_TransitGatewayOptions(output[_opt], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -88754,7 +88754,7 @@ const de_TransitGatewayAttachment = (output: any, context: __SerdeContext): Tran
   if (output[_cTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTre]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -88884,7 +88884,7 @@ const de_TransitGatewayConnect = (output: any, context: __SerdeContext): Transit
   if (output[_opt] != null) {
     contents[_Op] = de_TransitGatewayConnectOptions(output[_opt], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -88934,7 +88934,7 @@ const de_TransitGatewayConnectPeer = (output: any, context: __SerdeContext): Tra
   if (output[_cPC] != null) {
     contents[_CPC] = de_TransitGatewayConnectPeerConfiguration(output[_cPC], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -88956,7 +88956,7 @@ const de_TransitGatewayConnectPeerConfiguration = (
   if (output[_pAe] != null) {
     contents[_PAe] = __expectString(output[_pAe]);
   }
-  if (output.insideCidrBlocks === "") {
+  if (String(output.insideCidrBlocks).trim() === "") {
     contents[_ICBn] = [];
   } else if (output[_iCBn] != null && output[_iCBn][_i] != null) {
     contents[_ICBn] = de_InsideCidrBlocksStringList(__getArrayIfSingleItem(output[_iCBn][_i]), context);
@@ -88964,7 +88964,7 @@ const de_TransitGatewayConnectPeerConfiguration = (
   if (output[_pr] != null) {
     contents[_P] = __expectString(output[_pr]);
   }
-  if (output.bgpConfigurations === "") {
+  if (String(output.bgpConfigurations).trim() === "") {
     contents[_BCg] = [];
   } else if (output[_bCg] != null && output[_bCg][_i] != null) {
     contents[_BCg] = de_TransitGatewayAttachmentBgpConfigurationList(__getArrayIfSingleItem(output[_bCg][_i]), context);
@@ -89005,7 +89005,7 @@ const de_TransitGatewayMulticastDeregisteredGroupMembers = (
   if (output[_tGMDI] != null) {
     contents[_TGMDI] = __expectString(output[_tGMDI]);
   }
-  if (output.deregisteredNetworkInterfaceIds === "") {
+  if (String(output.deregisteredNetworkInterfaceIds).trim() === "") {
     contents[_DNII] = [];
   } else if (output[_dNII] != null && output[_dNII][_i] != null) {
     contents[_DNII] = de_ValueStringList(__getArrayIfSingleItem(output[_dNII][_i]), context);
@@ -89027,7 +89027,7 @@ const de_TransitGatewayMulticastDeregisteredGroupSources = (
   if (output[_tGMDI] != null) {
     contents[_TGMDI] = __expectString(output[_tGMDI]);
   }
-  if (output.deregisteredNetworkInterfaceIds === "") {
+  if (String(output.deregisteredNetworkInterfaceIds).trim() === "") {
     contents[_DNII] = [];
   } else if (output[_dNII] != null && output[_dNII][_i] != null) {
     contents[_DNII] = de_ValueStringList(__getArrayIfSingleItem(output[_dNII][_i]), context);
@@ -89064,7 +89064,7 @@ const de_TransitGatewayMulticastDomain = (output: any, context: __SerdeContext):
   if (output[_cTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTre]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -89135,7 +89135,7 @@ const de_TransitGatewayMulticastDomainAssociations = (
   if (output[_rOI] != null) {
     contents[_ROI] = __expectString(output[_rOI]);
   }
-  if (output.subnets === "") {
+  if (String(output.subnets).trim() === "") {
     contents[_Subn] = [];
   } else if (output[_sub] != null && output[_sub][_i] != null) {
     contents[_Subn] = de_SubnetAssociationList(__getArrayIfSingleItem(output[_sub][_i]), context);
@@ -89240,7 +89240,7 @@ const de_TransitGatewayMulticastRegisteredGroupMembers = (
   if (output[_tGMDI] != null) {
     contents[_TGMDI] = __expectString(output[_tGMDI]);
   }
-  if (output.registeredNetworkInterfaceIds === "") {
+  if (String(output.registeredNetworkInterfaceIds).trim() === "") {
     contents[_RNII] = [];
   } else if (output[_rNII] != null && output[_rNII][_i] != null) {
     contents[_RNII] = de_ValueStringList(__getArrayIfSingleItem(output[_rNII][_i]), context);
@@ -89262,7 +89262,7 @@ const de_TransitGatewayMulticastRegisteredGroupSources = (
   if (output[_tGMDI] != null) {
     contents[_TGMDI] = __expectString(output[_tGMDI]);
   }
-  if (output.registeredNetworkInterfaceIds === "") {
+  if (String(output.registeredNetworkInterfaceIds).trim() === "") {
     contents[_RNII] = [];
   } else if (output[_rNII] != null && output[_rNII][_i] != null) {
     contents[_RNII] = de_ValueStringList(__getArrayIfSingleItem(output[_rNII][_i]), context);
@@ -89281,7 +89281,7 @@ const de_TransitGatewayOptions = (output: any, context: __SerdeContext): Transit
   if (output[_aSA] != null) {
     contents[_ASA] = __strictParseLong(output[_aSA]) as number;
   }
-  if (output.transitGatewayCidrBlocks === "") {
+  if (String(output.transitGatewayCidrBlocks).trim() === "") {
     contents[_TGCB] = [];
   } else if (output[_tGCB] != null && output[_tGCB][_i] != null) {
     contents[_TGCB] = de_ValueStringList(__getArrayIfSingleItem(output[_tGCB][_i]), context);
@@ -89345,7 +89345,7 @@ const de_TransitGatewayPeeringAttachment = (output: any, context: __SerdeContext
   if (output[_cTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTre]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -89441,7 +89441,7 @@ const de_TransitGatewayPolicyTable = (output: any, context: __SerdeContext): Tra
   if (output[_cTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTre]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -89634,7 +89634,7 @@ const de_TransitGatewayRoute = (output: any, context: __SerdeContext): TransitGa
   if (output[_tGRTAI] != null) {
     contents[_TGRTAI] = __expectString(output[_tGRTAI]);
   }
-  if (output.transitGatewayAttachments === "") {
+  if (String(output.transitGatewayAttachments).trim() === "") {
     contents[_TGAr] = [];
   } else if (output[_tGA] != null && output[_tGA][_i] != null) {
     contents[_TGAr] = de_TransitGatewayRouteAttachmentList(__getArrayIfSingleItem(output[_tGA][_i]), context);
@@ -89713,7 +89713,7 @@ const de_TransitGatewayRouteTable = (output: any, context: __SerdeContext): Tran
   if (output[_cTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTre]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -89759,7 +89759,7 @@ const de_TransitGatewayRouteTableAnnouncement = (
   if (output[_cTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTre]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -89918,7 +89918,7 @@ const de_TransitGatewayVpcAttachment = (output: any, context: __SerdeContext): T
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output.subnetIds === "") {
+  if (String(output.subnetIds).trim() === "") {
     contents[_SIu] = [];
   } else if (output[_sIub] != null && output[_sIub][_i] != null) {
     contents[_SIu] = de_ValueStringList(__getArrayIfSingleItem(output[_sIub][_i]), context);
@@ -89929,7 +89929,7 @@ const de_TransitGatewayVpcAttachment = (output: any, context: __SerdeContext): T
   if (output[_opt] != null) {
     contents[_Op] = de_TransitGatewayVpcAttachmentOptions(output[_opt], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -89994,7 +89994,7 @@ const de_TrunkInterfaceAssociation = (output: any, context: __SerdeContext): Tru
   if (output[_gK] != null) {
     contents[_GK] = __strictParseInt32(output[_gK]) as number;
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -90051,37 +90051,37 @@ const de_TunnelOption = (output: any, context: __SerdeContext): TunnelOption => 
   if (output[_dTA] != null) {
     contents[_DTA] = __expectString(output[_dTA]);
   }
-  if (output.phase1EncryptionAlgorithmSet === "") {
+  if (String(output.phase1EncryptionAlgorithmSet).trim() === "") {
     contents[_PEA] = [];
   } else if (output[_pEAS] != null && output[_pEAS][_i] != null) {
     contents[_PEA] = de_Phase1EncryptionAlgorithmsList(__getArrayIfSingleItem(output[_pEAS][_i]), context);
   }
-  if (output.phase2EncryptionAlgorithmSet === "") {
+  if (String(output.phase2EncryptionAlgorithmSet).trim() === "") {
     contents[_PEAh] = [];
   } else if (output[_pEASh] != null && output[_pEASh][_i] != null) {
     contents[_PEAh] = de_Phase2EncryptionAlgorithmsList(__getArrayIfSingleItem(output[_pEASh][_i]), context);
   }
-  if (output.phase1IntegrityAlgorithmSet === "") {
+  if (String(output.phase1IntegrityAlgorithmSet).trim() === "") {
     contents[_PIAh] = [];
   } else if (output[_pIASh] != null && output[_pIASh][_i] != null) {
     contents[_PIAh] = de_Phase1IntegrityAlgorithmsList(__getArrayIfSingleItem(output[_pIASh][_i]), context);
   }
-  if (output.phase2IntegrityAlgorithmSet === "") {
+  if (String(output.phase2IntegrityAlgorithmSet).trim() === "") {
     contents[_PIAha] = [];
   } else if (output[_pIASha] != null && output[_pIASha][_i] != null) {
     contents[_PIAha] = de_Phase2IntegrityAlgorithmsList(__getArrayIfSingleItem(output[_pIASha][_i]), context);
   }
-  if (output.phase1DHGroupNumberSet === "") {
+  if (String(output.phase1DHGroupNumberSet).trim() === "") {
     contents[_PDHGN] = [];
   } else if (output[_pDHGNS] != null && output[_pDHGNS][_i] != null) {
     contents[_PDHGN] = de_Phase1DHGroupNumbersList(__getArrayIfSingleItem(output[_pDHGNS][_i]), context);
   }
-  if (output.phase2DHGroupNumberSet === "") {
+  if (String(output.phase2DHGroupNumberSet).trim() === "") {
     contents[_PDHGNh] = [];
   } else if (output[_pDHGNSh] != null && output[_pDHGNSh][_i] != null) {
     contents[_PDHGNh] = de_Phase2DHGroupNumbersList(__getArrayIfSingleItem(output[_pDHGNSh][_i]), context);
   }
-  if (output.ikeVersionSet === "") {
+  if (String(output.ikeVersionSet).trim() === "") {
     contents[_IVke] = [];
   } else if (output[_iVS] != null && output[_iVS][_i] != null) {
     contents[_IVke] = de_IKEVersionsList(__getArrayIfSingleItem(output[_iVS][_i]), context);
@@ -90117,12 +90117,12 @@ const de_UnassignIpv6AddressesResult = (output: any, context: __SerdeContext): U
   if (output[_nII] != null) {
     contents[_NII] = __expectString(output[_nII]);
   }
-  if (output.unassignedIpv6Addresses === "") {
+  if (String(output.unassignedIpv6Addresses).trim() === "") {
     contents[_UIAn] = [];
   } else if (output[_uIA] != null && output[_uIA][_i] != null) {
     contents[_UIAn] = de_Ipv6AddressList(__getArrayIfSingleItem(output[_uIA][_i]), context);
   }
-  if (output.unassignedIpv6PrefixSet === "") {
+  if (String(output.unassignedIpv6PrefixSet).trim() === "") {
     contents[_UIPn] = [];
   } else if (output[_uIPSn] != null && output[_uIPSn][_i] != null) {
     contents[_UIPn] = de_IpPrefixList(__getArrayIfSingleItem(output[_uIPSn][_i]), context);
@@ -90141,7 +90141,7 @@ const de_UnassignPrivateNatGatewayAddressResult = (
   if (output[_nGI] != null) {
     contents[_NGI] = __expectString(output[_nGI]);
   }
-  if (output.natGatewayAddressSet === "") {
+  if (String(output.natGatewayAddressSet).trim() === "") {
     contents[_NGA] = [];
   } else if (output[_nGAS] != null && output[_nGAS][_i] != null) {
     contents[_NGA] = de_NatGatewayAddressList(__getArrayIfSingleItem(output[_nGAS][_i]), context);
@@ -90165,7 +90165,7 @@ const de_UnlockSnapshotResult = (output: any, context: __SerdeContext): UnlockSn
  */
 const de_UnmonitorInstancesResult = (output: any, context: __SerdeContext): UnmonitorInstancesResult => {
   const contents: any = {};
-  if (output.instancesSet === "") {
+  if (String(output.instancesSet).trim() === "") {
     contents[_IMn] = [];
   } else if (output[_iSn] != null && output[_iSn][_i] != null) {
     contents[_IMn] = de_InstanceMonitoringList(__getArrayIfSingleItem(output[_iSn][_i]), context);
@@ -90405,7 +90405,7 @@ const de_ValidationError = (output: any, context: __SerdeContext): ValidationErr
  */
 const de_ValidationWarning = (output: any, context: __SerdeContext): ValidationWarning => {
   const contents: any = {};
-  if (output.errorSet === "") {
+  if (String(output.errorSet).trim() === "") {
     contents[_Err] = [];
   } else if (output[_eSr] != null && output[_eSr][_i] != null) {
     contents[_Err] = de_ErrorSet(__getArrayIfSingleItem(output[_eSr][_i]), context);
@@ -90452,12 +90452,12 @@ const de_VCpuInfo = (output: any, context: __SerdeContext): VCpuInfo => {
   if (output[_dTPC] != null) {
     contents[_DTPC] = __strictParseInt32(output[_dTPC]) as number;
   }
-  if (output.validCores === "") {
+  if (String(output.validCores).trim() === "") {
     contents[_VCa] = [];
   } else if (output[_vCa] != null && output[_vCa][_i] != null) {
     contents[_VCa] = de_CoreCountList(__getArrayIfSingleItem(output[_vCa][_i]), context);
   }
-  if (output.validThreadsPerCore === "") {
+  if (String(output.validThreadsPerCore).trim() === "") {
     contents[_VTPC] = [];
   } else if (output[_vTPC] != null && output[_vTPC][_i] != null) {
     contents[_VTPC] = de_ThreadsPerCoreList(__getArrayIfSingleItem(output[_vTPC][_i]), context);
@@ -90497,7 +90497,7 @@ const de_VerifiedAccessEndpoint = (output: any, context: __SerdeContext): Verifi
   if (output[_dVD] != null) {
     contents[_DVD] = __expectString(output[_dVD]);
   }
-  if (output.securityGroupIdSet === "") {
+  if (String(output.securityGroupIdSet).trim() === "") {
     contents[_SGI] = [];
   } else if (output[_sGIS] != null && output[_sGIS][_i] != null) {
     contents[_SGI] = de_SecurityGroupIdList(__getArrayIfSingleItem(output[_sGIS][_i]), context);
@@ -90523,7 +90523,7 @@ const de_VerifiedAccessEndpoint = (output: any, context: __SerdeContext): Verifi
   if (output[_dT] != null) {
     contents[_DTel] = __expectString(output[_dT]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -90551,7 +90551,7 @@ const de_VerifiedAccessEndpointCidrOptions = (
   if (output[_ci] != null) {
     contents[_C] = __expectString(output[_ci]);
   }
-  if (output.portRangeSet === "") {
+  if (String(output.portRangeSet).trim() === "") {
     contents[_PRo] = [];
   } else if (output[_pRS] != null && output[_pRS][_i] != null) {
     contents[_PRo] = de_VerifiedAccessEndpointPortRangeList(__getArrayIfSingleItem(output[_pRS][_i]), context);
@@ -90559,7 +90559,7 @@ const de_VerifiedAccessEndpointCidrOptions = (
   if (output[_pr] != null) {
     contents[_P] = __expectString(output[_pr]);
   }
-  if (output.subnetIdSet === "") {
+  if (String(output.subnetIdSet).trim() === "") {
     contents[_SIu] = [];
   } else if (output[_sISu] != null && output[_sISu][_i] != null) {
     contents[_SIu] = de_VerifiedAccessEndpointSubnetIdList(__getArrayIfSingleItem(output[_sISu][_i]), context);
@@ -90584,7 +90584,7 @@ const de_VerifiedAccessEndpointEniOptions = (
   if (output[_po] != null) {
     contents[_Po] = __strictParseInt32(output[_po]) as number;
   }
-  if (output.portRangeSet === "") {
+  if (String(output.portRangeSet).trim() === "") {
     contents[_PRo] = [];
   } else if (output[_pRS] != null && output[_pRS][_i] != null) {
     contents[_PRo] = de_VerifiedAccessEndpointPortRangeList(__getArrayIfSingleItem(output[_pRS][_i]), context);
@@ -90620,12 +90620,12 @@ const de_VerifiedAccessEndpointLoadBalancerOptions = (
   if (output[_lBA] != null) {
     contents[_LBAo] = __expectString(output[_lBA]);
   }
-  if (output.subnetIdSet === "") {
+  if (String(output.subnetIdSet).trim() === "") {
     contents[_SIu] = [];
   } else if (output[_sISu] != null && output[_sISu][_i] != null) {
     contents[_SIu] = de_VerifiedAccessEndpointSubnetIdList(__getArrayIfSingleItem(output[_sISu][_i]), context);
   }
-  if (output.portRangeSet === "") {
+  if (String(output.portRangeSet).trim() === "") {
     contents[_PRo] = [];
   } else if (output[_pRS] != null && output[_pRS][_i] != null) {
     contents[_PRo] = de_VerifiedAccessEndpointPortRangeList(__getArrayIfSingleItem(output[_pRS][_i]), context);
@@ -90687,7 +90687,7 @@ const de_VerifiedAccessEndpointRdsOptions = (
   if (output[_rEd] != null) {
     contents[_RE] = __expectString(output[_rEd]);
   }
-  if (output.subnetIdSet === "") {
+  if (String(output.subnetIdSet).trim() === "") {
     contents[_SIu] = [];
   } else if (output[_sISu] != null && output[_sISu][_i] != null) {
     contents[_SIu] = de_VerifiedAccessEndpointSubnetIdList(__getArrayIfSingleItem(output[_sISu][_i]), context);
@@ -90777,7 +90777,7 @@ const de_VerifiedAccessGroup = (output: any, context: __SerdeContext): VerifiedA
   if (output[_dT] != null) {
     contents[_DTel] = __expectString(output[_dT]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -90810,7 +90810,7 @@ const de_VerifiedAccessInstance = (output: any, context: __SerdeContext): Verifi
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
-  if (output.verifiedAccessTrustProviderSet === "") {
+  if (String(output.verifiedAccessTrustProviderSet).trim() === "") {
     contents[_VATPe] = [];
   } else if (output[_vATPS] != null && output[_vATPS][_i] != null) {
     contents[_VATPe] = de_VerifiedAccessTrustProviderCondensedList(__getArrayIfSingleItem(output[_vATPS][_i]), context);
@@ -90821,7 +90821,7 @@ const de_VerifiedAccessInstance = (output: any, context: __SerdeContext): Verifi
   if (output[_lUTa] != null) {
     contents[_LUTa] = __expectString(output[_lUTa]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -90846,7 +90846,7 @@ const de_VerifiedAccessInstanceCustomSubDomain = (
   if (output[_sDu] != null) {
     contents[_SDu] = __expectString(output[_sDu]);
   }
-  if (output.nameserverSet === "") {
+  if (String(output.nameserverSet).trim() === "") {
     contents[_Na] = [];
   } else if (output[_nSa] != null && output[_nSa][_i] != null) {
     contents[_Na] = de_ValueStringList(__getArrayIfSingleItem(output[_nSa][_i]), context);
@@ -90907,7 +90907,7 @@ const de_VerifiedAccessInstanceOpenVpnClientConfiguration = (
   if (output[_confi] != null) {
     contents[_Confi] = __expectString(output[_confi]);
   }
-  if (output.routeSet === "") {
+  if (String(output.routeSet).trim() === "") {
     contents[_Rout] = [];
   } else if (output[_rSou] != null && output[_rSou][_i] != null) {
     contents[_Rout] = de_VerifiedAccessInstanceOpenVpnClientConfigurationRouteList(
@@ -91153,7 +91153,7 @@ const de_VerifiedAccessTrustProvider = (output: any, context: __SerdeContext): V
   if (output[_lUTa] != null) {
     contents[_LUTa] = __expectString(output[_lUTa]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -91280,7 +91280,7 @@ const de_Volume = (output: any, context: __SerdeContext): Volume => {
   if (output[_io] != null) {
     contents[_Io] = __strictParseInt32(output[_io]) as number;
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -91324,7 +91324,7 @@ const de_Volume = (output: any, context: __SerdeContext): Volume => {
   if (output[_cTr] != null) {
     contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTr]));
   }
-  if (output.attachmentSet === "") {
+  if (String(output.attachmentSet).trim() === "") {
     contents[_Atta] = [];
   } else if (output[_aSt] != null && output[_aSt][_i] != null) {
     contents[_Atta] = de_VolumeAttachmentList(__getArrayIfSingleItem(output[_aSt][_i]), context);
@@ -91582,7 +91582,7 @@ const de_VolumeStatusEventsList = (output: any, context: __SerdeContext): Volume
  */
 const de_VolumeStatusInfo = (output: any, context: __SerdeContext): VolumeStatusInfo => {
   const contents: any = {};
-  if (output.details === "") {
+  if (String(output.details).trim() === "") {
     contents[_Det] = [];
   } else if (output[_det] != null && output[_det][_i] != null) {
     contents[_Det] = de_VolumeStatusDetailsList(__getArrayIfSingleItem(output[_det][_i]), context);
@@ -91598,7 +91598,7 @@ const de_VolumeStatusInfo = (output: any, context: __SerdeContext): VolumeStatus
  */
 const de_VolumeStatusItem = (output: any, context: __SerdeContext): VolumeStatusItem => {
   const contents: any = {};
-  if (output.actionsSet === "") {
+  if (String(output.actionsSet).trim() === "") {
     contents[_Acti] = [];
   } else if (output[_aSct] != null && output[_aSct][_i] != null) {
     contents[_Acti] = de_VolumeStatusActionsList(__getArrayIfSingleItem(output[_aSct][_i]), context);
@@ -91609,7 +91609,7 @@ const de_VolumeStatusItem = (output: any, context: __SerdeContext): VolumeStatus
   if (output[_oA] != null) {
     contents[_OA] = __expectString(output[_oA]);
   }
-  if (output.eventsSet === "") {
+  if (String(output.eventsSet).trim() === "") {
     contents[_Ev] = [];
   } else if (output[_eSv] != null && output[_eSv][_i] != null) {
     contents[_Ev] = de_VolumeStatusEventsList(__getArrayIfSingleItem(output[_eSv][_i]), context);
@@ -91620,7 +91620,7 @@ const de_VolumeStatusItem = (output: any, context: __SerdeContext): VolumeStatus
   if (output[_vSol] != null) {
     contents[_VSol] = de_VolumeStatusInfo(output[_vSol], context);
   }
-  if (output.attachmentStatuses === "") {
+  if (String(output.attachmentStatuses).trim() === "") {
     contents[_AStt] = [];
   } else if (output[_aStt] != null && output[_aStt][_i] != null) {
     contents[_AStt] = de_VolumeStatusAttachmentStatusList(__getArrayIfSingleItem(output[_aStt][_i]), context);
@@ -91656,12 +91656,12 @@ const de_Vpc = (output: any, context: __SerdeContext): Vpc => {
   if (output[_iTns] != null) {
     contents[_ITns] = __expectString(output[_iTns]);
   }
-  if (output.ipv6CidrBlockAssociationSet === "") {
+  if (String(output.ipv6CidrBlockAssociationSet).trim() === "") {
     contents[_ICBAS] = [];
   } else if (output[_iCBAS] != null && output[_iCBAS][_i] != null) {
     contents[_ICBAS] = de_VpcIpv6CidrBlockAssociationSet(__getArrayIfSingleItem(output[_iCBAS][_i]), context);
   }
-  if (output.cidrBlockAssociationSet === "") {
+  if (String(output.cidrBlockAssociationSet).trim() === "") {
     contents[_CBAS] = [];
   } else if (output[_cBAS] != null && output[_cBAS][_i] != null) {
     contents[_CBAS] = de_VpcCidrBlockAssociationSet(__getArrayIfSingleItem(output[_cBAS][_i]), context);
@@ -91672,7 +91672,7 @@ const de_Vpc = (output: any, context: __SerdeContext): Vpc => {
   if (output[_eCn] != null) {
     contents[_ECn] = de_VpcEncryptionControl(output[_eCn], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -91749,7 +91749,7 @@ const de_VpcBlockPublicAccessExclusion = (output: any, context: __SerdeContext):
   if (output[_dTele] != null) {
     contents[_DTelet] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_dTele]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -91853,7 +91853,7 @@ const de_VpcClassicLink = (output: any, context: __SerdeContext): VpcClassicLink
   if (output[_cLE] != null) {
     contents[_CLE] = __parseBoolean(output[_cLE]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -91898,7 +91898,7 @@ const de_VpcEncryptionControl = (output: any, context: __SerdeContext): VpcEncry
   if (output[_rEes] != null) {
     contents[_REeso] = de_VpcEncryptionControlExclusions(output[_rEes], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -91966,17 +91966,17 @@ const de_VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
   if (output[_pDo] != null) {
     contents[_PD] = __expectString(output[_pDo]);
   }
-  if (output.routeTableIdSet === "") {
+  if (String(output.routeTableIdSet).trim() === "") {
     contents[_RTIo] = [];
   } else if (output[_rTIS] != null && output[_rTIS][_i] != null) {
     contents[_RTIo] = de_ValueStringList(__getArrayIfSingleItem(output[_rTIS][_i]), context);
   }
-  if (output.subnetIdSet === "") {
+  if (String(output.subnetIdSet).trim() === "") {
     contents[_SIu] = [];
   } else if (output[_sISu] != null && output[_sISu][_i] != null) {
     contents[_SIu] = de_ValueStringList(__getArrayIfSingleItem(output[_sISu][_i]), context);
   }
-  if (output.groupSet === "") {
+  if (String(output.groupSet).trim() === "") {
     contents[_G] = [];
   } else if (output[_gS] != null && output[_gS][_i] != null) {
     contents[_G] = de_GroupIdentifierSet(__getArrayIfSingleItem(output[_gS][_i]), context);
@@ -91993,12 +91993,12 @@ const de_VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
   if (output[_rMe] != null) {
     contents[_RMeq] = __parseBoolean(output[_rMe]);
   }
-  if (output.networkInterfaceIdSet === "") {
+  if (String(output.networkInterfaceIdSet).trim() === "") {
     contents[_NIIe] = [];
   } else if (output[_nIIS] != null && output[_nIIS][_i] != null) {
     contents[_NIIe] = de_ValueStringList(__getArrayIfSingleItem(output[_nIIS][_i]), context);
   }
-  if (output.dnsEntrySet === "") {
+  if (String(output.dnsEntrySet).trim() === "") {
     contents[_DE] = [];
   } else if (output[_dES] != null && output[_dES][_i] != null) {
     contents[_DE] = de_DnsEntrySet(__getArrayIfSingleItem(output[_dES][_i]), context);
@@ -92006,7 +92006,7 @@ const de_VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
   if (output[_cTrea] != null) {
     contents[_CTrea] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTrea]));
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -92017,12 +92017,12 @@ const de_VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
   if (output[_lEa] != null) {
     contents[_LEa] = de_LastError(output[_lEa], context);
   }
-  if (output.ipv4PrefixSet === "") {
+  if (String(output.ipv4PrefixSet).trim() === "") {
     contents[_IPp] = [];
   } else if (output[_iPSpv] != null && output[_iPSpv][_i] != null) {
     contents[_IPp] = de_SubnetIpPrefixesList(__getArrayIfSingleItem(output[_iPSpv][_i]), context);
   }
-  if (output.ipv6PrefixSet === "") {
+  if (String(output.ipv6PrefixSet).trim() === "") {
     contents[_IP] = [];
   } else if (output[_iPSpvr] != null && output[_iPSpvr][_i] != null) {
     contents[_IP] = de_SubnetIpPrefixesList(__getArrayIfSingleItem(output[_iPSpvr][_i]), context);
@@ -92080,7 +92080,7 @@ const de_VpcEndpointAssociation = (output: any, context: __SerdeContext): VpcEnd
   if (output[_rCGA] != null) {
     contents[_RCGA] = __expectString(output[_rCGA]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -92119,17 +92119,17 @@ const de_VpcEndpointConnection = (output: any, context: __SerdeContext): VpcEndp
   if (output[_cTrea] != null) {
     contents[_CTrea] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTrea]));
   }
-  if (output.dnsEntrySet === "") {
+  if (String(output.dnsEntrySet).trim() === "") {
     contents[_DE] = [];
   } else if (output[_dES] != null && output[_dES][_i] != null) {
     contents[_DE] = de_DnsEntrySet(__getArrayIfSingleItem(output[_dES][_i]), context);
   }
-  if (output.networkLoadBalancerArnSet === "") {
+  if (String(output.networkLoadBalancerArnSet).trim() === "") {
     contents[_NLBAe] = [];
   } else if (output[_nLBAS] != null && output[_nLBAS][_i] != null) {
     contents[_NLBAe] = de_ValueStringList(__getArrayIfSingleItem(output[_nLBAS][_i]), context);
   }
-  if (output.gatewayLoadBalancerArnSet === "") {
+  if (String(output.gatewayLoadBalancerArnSet).trim() === "") {
     contents[_GLBA] = [];
   } else if (output[_gLBAS] != null && output[_gLBAS][_i] != null) {
     contents[_GLBA] = de_ValueStringList(__getArrayIfSingleItem(output[_gLBAS][_i]), context);
@@ -92140,7 +92140,7 @@ const de_VpcEndpointConnection = (output: any, context: __SerdeContext): VpcEndp
   if (output[_vECIp] != null) {
     contents[_VECIp] = __expectString(output[_vECIp]);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -92241,7 +92241,7 @@ const de_VpcPeeringConnection = (output: any, context: __SerdeContext): VpcPeeri
   if (output[_sta] != null) {
     contents[_Statu] = de_VpcPeeringConnectionStateReason(output[_sta], context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -92305,12 +92305,12 @@ const de_VpcPeeringConnectionVpcInfo = (output: any, context: __SerdeContext): V
   if (output[_cB] != null) {
     contents[_CB] = __expectString(output[_cB]);
   }
-  if (output.ipv6CidrBlockSet === "") {
+  if (String(output.ipv6CidrBlockSet).trim() === "") {
     contents[_ICBSp] = [];
   } else if (output[_iCBSp] != null && output[_iCBSp][_i] != null) {
     contents[_ICBSp] = de_Ipv6CidrBlockSet(__getArrayIfSingleItem(output[_iCBSp][_i]), context);
   }
-  if (output.cidrBlockSet === "") {
+  if (String(output.cidrBlockSet).trim() === "") {
     contents[_CBSid] = [];
   } else if (output[_cBSid] != null && output[_cBSid][_i] != null) {
     contents[_CBSid] = de_CidrBlockSet(__getArrayIfSingleItem(output[_cBSid][_i]), context);
@@ -92353,17 +92353,17 @@ const de_VpnConnection = (output: any, context: __SerdeContext): VpnConnection =
   if (output[_opt] != null) {
     contents[_Op] = de_VpnConnectionOptions(output[_opt], context);
   }
-  if (output.routes === "") {
+  if (String(output.routes).trim() === "") {
     contents[_Rout] = [];
   } else if (output[_rou] != null && output[_rou][_i] != null) {
     contents[_Rout] = de_VpnStaticRouteList(__getArrayIfSingleItem(output[_rou][_i]), context);
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
-  if (output.vgwTelemetry === "") {
+  if (String(output.vgwTelemetry).trim() === "") {
     contents[_VTg] = [];
   } else if (output[_vTg] != null && output[_vTg][_i] != null) {
     contents[_VTg] = de_VgwTelemetryList(__getArrayIfSingleItem(output[_vTg][_i]), context);
@@ -92466,7 +92466,7 @@ const de_VpnConnectionOptions = (output: any, context: __SerdeContext): VpnConne
   if (output[_tIIV] != null) {
     contents[_TIIV] = __expectString(output[_tIIV]);
   }
-  if (output.tunnelOptionSet === "") {
+  if (String(output.tunnelOptionSet).trim() === "") {
     contents[_TO] = [];
   } else if (output[_tOS] != null && output[_tOS][_i] != null) {
     contents[_TO] = de_TunnelOptionsList(__getArrayIfSingleItem(output[_tOS][_i]), context);
@@ -92482,7 +92482,7 @@ const de_VpnGateway = (output: any, context: __SerdeContext): VpnGateway => {
   if (output[_aSA] != null) {
     contents[_ASA] = __strictParseLong(output[_aSA]) as number;
   }
-  if (output.tagSet === "") {
+  if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
@@ -92499,7 +92499,7 @@ const de_VpnGateway = (output: any, context: __SerdeContext): VpnGateway => {
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
   }
-  if (output.attachments === "") {
+  if (String(output.attachments).trim() === "") {
     contents[_VAp] = [];
   } else if (output[_att] != null && output[_att][_i] != null) {
     contents[_VAp] = de_VpcAttachmentList(__getArrayIfSingleItem(output[_att][_i]), context);
