@@ -953,6 +953,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *               Prefix: "STRING_VALUE",
  *             },
  *             MinQp: Number("int"),
+ *             MinBitrate: Number("int"),
  *           },
  *           H265Settings: { // H265Settings
  *             AdaptiveQuantization: "AUTO" || "HIGH" || "HIGHER" || "LOW" || "MAX" || "MEDIUM" || "OFF",
@@ -1015,6 +1016,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             TreeblockSize: "AUTO" || "TREE_SIZE_32X32",
  *             MinQp: Number("int"),
  *             Deblocking: "DISABLED" || "ENABLED",
+ *             GopBReference: "DISABLED" || "ENABLED",
+ *             GopNumBFrames: Number("int"),
+ *             MinBitrate: Number("int"),
+ *             SubgopLength: "DYNAMIC" || "FIXED",
  *           },
  *           Mpeg2Settings: { // Mpeg2Settings
  *             AdaptiveQuantization: "AUTO" || "HIGH" || "LOW" || "MEDIUM" || "OFF",
@@ -1076,6 +1081,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             },
  *             Bitrate: Number("int"),
  *             RateControlMode: "CBR" || "QVBR",
+ *             MinBitrate: Number("int"),
  *           },
  *         },
  *         Height: Number("int"),
@@ -2193,6 +2199,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //                 Prefix: "STRING_VALUE",
  * //               },
  * //               MinQp: Number("int"),
+ * //               MinBitrate: Number("int"),
  * //             },
  * //             H265Settings: { // H265Settings
  * //               AdaptiveQuantization: "AUTO" || "HIGH" || "HIGHER" || "LOW" || "MAX" || "MEDIUM" || "OFF",
@@ -2255,6 +2262,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //               TreeblockSize: "AUTO" || "TREE_SIZE_32X32",
  * //               MinQp: Number("int"),
  * //               Deblocking: "DISABLED" || "ENABLED",
+ * //               GopBReference: "DISABLED" || "ENABLED",
+ * //               GopNumBFrames: Number("int"),
+ * //               MinBitrate: Number("int"),
+ * //               SubgopLength: "DYNAMIC" || "FIXED",
  * //             },
  * //             Mpeg2Settings: { // Mpeg2Settings
  * //               AdaptiveQuantization: "AUTO" || "HIGH" || "LOW" || "MEDIUM" || "OFF",
@@ -2316,6 +2327,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //               },
  * //               Bitrate: Number("int"),
  * //               RateControlMode: "CBR" || "QVBR",
+ * //               MinBitrate: Number("int"),
  * //             },
  * //           },
  * //           Height: Number("int"),

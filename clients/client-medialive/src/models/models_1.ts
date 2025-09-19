@@ -5139,6 +5139,14 @@ export interface Av1Settings {
    * @public
    */
   RateControlMode?: Av1RateControlMode | undefined;
+
+  /**
+   * Used for QVBR rate control mode only.
+   * Optional.
+   * Enter a minimum bitrate if you want to keep the output bitrate about a threshold, in order to prevent the downstream system from de-allocating network bandwidth for this output.
+   * @public
+   */
+  MinBitrate?: number | undefined;
 }
 
 /**
@@ -5967,6 +5975,14 @@ export interface H264Settings {
    * @public
    */
   MinQp?: number | undefined;
+
+  /**
+   * Used for QVBR rate control mode only.
+   * Optional.
+   * Enter a minimum bitrate if you want to keep the output bitrate about a threshold, in order to prevent the downstream system from de-allocating network bandwidth for this output.
+   * @public
+   */
+  MinBitrate?: number | undefined;
 }
 
 /**
@@ -6109,6 +6125,20 @@ export type H265FlickerAq = (typeof H265FlickerAq)[keyof typeof H265FlickerAq];
  * @public
  * @enum
  */
+export const H265GopBReference = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265GopBReference = (typeof H265GopBReference)[keyof typeof H265GopBReference];
+
+/**
+ * @public
+ * @enum
+ */
 export const H265GopSizeUnits = {
   FRAMES: "FRAMES",
   SECONDS: "SECONDS",
@@ -6245,6 +6275,20 @@ export const H265SceneChangeDetect = {
  * @public
  */
 export type H265SceneChangeDetect = (typeof H265SceneChangeDetect)[keyof typeof H265SceneChangeDetect];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265SubGopLength = {
+  DYNAMIC: "DYNAMIC",
+  FIXED: "FIXED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265SubGopLength = (typeof H265SubGopLength)[keyof typeof H265SubGopLength];
 
 /**
  * @public
@@ -6570,6 +6614,39 @@ export interface H265Settings {
    * @public
    */
   Deblocking?: H265Deblocking | undefined;
+
+  /**
+   * Allows the encoder to use a B-Frame as a reference frame as well.
+   * ENABLED: B-frames will also serve as reference frames.
+   * DISABLED: B-frames won't be reference frames.
+   * Must be DISABLED if resolution is greater than 1080p or when using tiled hevc encoding.
+   * @public
+   */
+  GopBReference?: H265GopBReference | undefined;
+
+  /**
+   * Sets the number of B-frames between reference frames.
+   * Set to 2 if resolution is greater than 1080p or when using tiled hevc encoding.
+   * @public
+   */
+  GopNumBFrames?: number | undefined;
+
+  /**
+   * Used for QVBR rate control mode only.
+   * Optional.
+   * Enter a minimum bitrate if you want to keep the output bitrate about a threshold, in order to prevent the downstream system from de-allocating network bandwidth for this output.
+   * @public
+   */
+  MinBitrate?: number | undefined;
+
+  /**
+   * Sets the number of B-frames in each sub-GOP.
+   * FIXED: Use the value in Num B-frames.
+   * DYNAMIC: Optimizes the number of B-frames in each sub-GOP to improve visual quality.
+   * Must be FIXED if resolution is greater than 1080p or when using tiled hevc encoding.
+   * @public
+   */
+  SubgopLength?: H265SubGopLength | undefined;
 }
 
 /**
@@ -7528,28 +7605,4 @@ export interface BatchDeleteResponse {
    * @public
    */
   Successful?: BatchSuccessfulResultModel[] | undefined;
-}
-
-/**
- * A list of schedule actions to create (in a request) or that have been created (in a response).
- * @public
- */
-export interface BatchScheduleActionCreateRequest {
-  /**
-   * A list of schedule actions to create.
-   * @public
-   */
-  ScheduleActions: ScheduleAction[] | undefined;
-}
-
-/**
- * List of actions that have been created in the schedule.
- * @public
- */
-export interface BatchScheduleActionCreateResult {
-  /**
-   * List of actions that have been created in the schedule.
-   * @public
-   */
-  ScheduleActions: ScheduleAction[] | undefined;
 }
