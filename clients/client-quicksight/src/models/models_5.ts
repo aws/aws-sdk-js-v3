@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import { AccountCustomization, ResourceStatus } from "./models_0";
 
 import {
@@ -15,7 +13,6 @@ import {
   AssetBundleImportJobOverrideTags,
   AssetBundleImportJobOverrideValidationStrategy,
   AssetBundleImportSource,
-  AssetBundleImportSourceFilterSensitiveLog,
   AssignmentStatus,
   BrandDefinition,
   DataSourceParameters,
@@ -23,7 +20,6 @@ import {
   SslProperties,
   Tag,
   TopicIR,
-  TopicIRFilterSensitiveLog,
   TopicTemplate,
   VisualRole,
   VpcConnectionProperties,
@@ -31,13 +27,11 @@ import {
 
 import {
   _Parameters,
-  _ParametersFilterSensitiveLog,
   BrandDetail,
   Capabilities,
   ColumnGroup,
   ColumnLevelPermissionRule,
   CustomInstructions,
-  CustomInstructionsFilterSensitiveLog,
   DashboardPublishOptions,
   DashboardSourceEntity,
   DashboardsQAStatus,
@@ -54,7 +48,6 @@ import {
   Group,
   LinkSharingConfiguration,
   LogicalTable,
-  LogicalTableFilterSensitiveLog,
   PerformanceConfiguration,
   PhysicalTable,
   RefreshSchedule,
@@ -62,7 +55,6 @@ import {
   Role,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
-  RowLevelPermissionTagConfigurationFilterSensitiveLog,
   TemplateAlias,
   TemplateSourceEntity,
   TemplateVersionDefinition,
@@ -86,7 +78,6 @@ import {
   QSearchStatus,
   RegisteredCustomerManagedKey,
   SessionTag,
-  SessionTagFilterSensitiveLog,
   SnapshotConfiguration,
   TopicSummary,
   User,
@@ -3973,143 +3964,3 @@ export interface ListTopicReviewedAnswersResponse {
    */
   RequestId?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const StartAssetBundleImportJobRequestFilterSensitiveLog = (obj: StartAssetBundleImportJobRequest): any => ({
-  ...obj,
-  ...(obj.AssetBundleImportSource && {
-    AssetBundleImportSource: AssetBundleImportSourceFilterSensitiveLog(obj.AssetBundleImportSource),
-  }),
-});
-
-/**
- * @internal
- */
-export const SnapshotAnonymousUserFilterSensitiveLog = (obj: SnapshotAnonymousUser): any => ({
-  ...obj,
-  ...(obj.RowLevelPermissionTags && {
-    RowLevelPermissionTags: obj.RowLevelPermissionTags.map((item) => SessionTagFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const SnapshotUserConfigurationFilterSensitiveLog = (obj: SnapshotUserConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDashboardSnapshotJobRequestFilterSensitiveLog = (obj: StartDashboardSnapshotJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAnalysisRequestFilterSensitiveLog = (obj: UpdateAnalysisRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDashboardRequestFilterSensitiveLog = (obj: UpdateDashboardRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDataSetRequestFilterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
-  ...obj,
-  ...(obj.PhysicalTableMap && {
-    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = value), acc),
-      {}
-    ),
-  }),
-  ...(obj.LogicalTableMap && {
-    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.RowLevelPermissionTagConfiguration && {
-    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
-      obj.RowLevelPermissionTagConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateDataSourceRequestFilterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
-  ...obj,
-  ...(obj.DataSourceParameters && { DataSourceParameters: obj.DataSourceParameters }),
-  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateTemplateRequestFilterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTopicRequestFilterSensitiveLog = (obj: UpdateTopicRequest): any => ({
-  ...obj,
-  ...(obj.CustomInstructions && { CustomInstructions: CustomInstructionsFilterSensitiveLog(obj.CustomInstructions) }),
-});
-
-/**
- * @internal
- */
-export const TopicVisualFilterSensitiveLog = (obj: TopicVisual): any => ({
-  ...obj,
-  ...(obj.Ir && { Ir: TopicIRFilterSensitiveLog(obj.Ir) }),
-});
-
-/**
- * @internal
- */
-export const CreateTopicReviewedAnswerFilterSensitiveLog = (obj: CreateTopicReviewedAnswer): any => ({
-  ...obj,
-  ...(obj.Mir && { Mir: TopicIRFilterSensitiveLog(obj.Mir) }),
-  ...(obj.PrimaryVisual && { PrimaryVisual: TopicVisualFilterSensitiveLog(obj.PrimaryVisual) }),
-});
-
-/**
- * @internal
- */
-export const TopicReviewedAnswerFilterSensitiveLog = (obj: TopicReviewedAnswer): any => ({
-  ...obj,
-  ...(obj.Mir && { Mir: TopicIRFilterSensitiveLog(obj.Mir) }),
-  ...(obj.PrimaryVisual && { PrimaryVisual: TopicVisualFilterSensitiveLog(obj.PrimaryVisual) }),
-});
-
-/**
- * @internal
- */
-export const BatchCreateTopicReviewedAnswerRequestFilterSensitiveLog = (
-  obj: BatchCreateTopicReviewedAnswerRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTopicReviewedAnswersResponseFilterSensitiveLog = (obj: ListTopicReviewedAnswersResponse): any => ({
-  ...obj,
-});

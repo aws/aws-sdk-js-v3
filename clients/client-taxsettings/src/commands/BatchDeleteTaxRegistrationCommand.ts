@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchDeleteTaxRegistrationRequest,
-  BatchDeleteTaxRegistrationResponse,
-  BatchDeleteTaxRegistrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchDeleteTaxRegistrationCommand, se_BatchDeleteTaxRegistrationCommand } from "../protocols/Aws_restJson1";
+import { BatchDeleteTaxRegistrationRequest, BatchDeleteTaxRegistrationResponse } from "../models/models_0";
+import { BatchDeleteTaxRegistration } from "../schemas/schemas_5_Tax";
 import { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -96,16 +91,11 @@ export class BatchDeleteTaxRegistrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TaxSettings", "BatchDeleteTaxRegistration", {})
   .n("TaxSettingsClient", "BatchDeleteTaxRegistrationCommand")
-  .f(void 0, BatchDeleteTaxRegistrationResponseFilterSensitiveLog)
-  .ser(se_BatchDeleteTaxRegistrationCommand)
-  .de(de_BatchDeleteTaxRegistrationCommand)
+  .sc(BatchDeleteTaxRegistration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

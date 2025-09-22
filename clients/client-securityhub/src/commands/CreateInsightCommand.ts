@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateInsightRequest, CreateInsightResponse } from "../models/models_2";
-import { de_CreateInsightCommand, se_CreateInsightCommand } from "../protocols/Aws_restJson1";
+import { CreateInsight } from "../schemas/schemas_6_Get";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -389,16 +388,11 @@ export class CreateInsightCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "CreateInsight", {})
   .n("SecurityHubClient", "CreateInsightCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateInsightCommand)
-  .de(de_CreateInsightCommand)
+  .sc(CreateInsight)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

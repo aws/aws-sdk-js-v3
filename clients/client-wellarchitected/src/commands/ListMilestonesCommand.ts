@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListMilestonesInput, ListMilestonesOutput } from "../models/models_0";
-import { de_ListMilestonesCommand, se_ListMilestonesCommand } from "../protocols/Aws_restJson1";
+import { ListMilestones } from "../schemas/schemas_4_List";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -118,16 +117,11 @@ export class ListMilestonesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WellArchitectedApiServiceLambda", "ListMilestones", {})
   .n("WellArchitectedClient", "ListMilestonesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListMilestonesCommand)
-  .de(de_ListMilestonesCommand)
+  .sc(ListMilestones)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

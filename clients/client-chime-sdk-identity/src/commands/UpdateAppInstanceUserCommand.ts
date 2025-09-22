@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateAppInstanceUserRequest,
-  UpdateAppInstanceUserRequestFilterSensitiveLog,
-  UpdateAppInstanceUserResponse,
-} from "../models/models_0";
-import { de_UpdateAppInstanceUserCommand, se_UpdateAppInstanceUserCommand } from "../protocols/Aws_restJson1";
+import { UpdateAppInstanceUserRequest, UpdateAppInstanceUserResponse } from "../models/models_0";
+import { UpdateAppInstanceUser } from "../schemas/schemas_11_App";
 
 /**
  * @public
@@ -102,16 +97,11 @@ export class UpdateAppInstanceUserCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeIdentityService", "UpdateAppInstanceUser", {})
   .n("ChimeSDKIdentityClient", "UpdateAppInstanceUserCommand")
-  .f(UpdateAppInstanceUserRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateAppInstanceUserCommand)
-  .de(de_UpdateAppInstanceUserCommand)
+  .sc(UpdateAppInstanceUser)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

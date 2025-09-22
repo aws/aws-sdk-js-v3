@@ -59,6 +59,7 @@ import {
 } from "@aws-sdk/middleware-user-agent";
 import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import {
   EndpointInputConfig,
@@ -77,6 +78,9 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  ClientProtocol,
+  HttpRequest,
+  HttpResponse,
   Provider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
@@ -261,6 +265,16 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
+   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
+   * may be overridden. A default will always be set by the client.
+   * Available options depend on the service's supported protocols and will not be validated by
+   * the client.
+   * @alpha
+   *
+   */
+  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
+
+  /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
@@ -341,6 +355,7 @@ export class WeatherClient extends __Client<
     let _config_10 = resolveHttpApiKeyAuthConfig(_config_9);
     let _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
     this.config = _config_11;
+    this.middlewareStack.use(getSchemaSerdePlugin(this.config));
     this.middlewareStack.use(getTokenPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

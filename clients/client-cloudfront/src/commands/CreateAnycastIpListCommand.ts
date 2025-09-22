@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAnycastIpListRequest, CreateAnycastIpListResult } from "../models/models_0";
-import { de_CreateAnycastIpListCommand, se_CreateAnycastIpListCommand } from "../protocols/Aws_restXml";
+import { CreateAnycastIpList } from "../schemas/schemas_5_Create";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class CreateAnycastIpListCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "CreateAnycastIpList", {})
   .n("CloudFrontClient", "CreateAnycastIpListCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAnycastIpListCommand)
-  .de(de_CreateAnycastIpListCommand)
+  .sc(CreateAnycastIpList)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

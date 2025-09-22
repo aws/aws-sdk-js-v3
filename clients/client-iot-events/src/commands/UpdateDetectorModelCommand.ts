@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { UpdateDetectorModelRequest, UpdateDetectorModelResponse } from "../models/models_0";
-import { de_UpdateDetectorModelCommand, se_UpdateDetectorModelCommand } from "../protocols/Aws_restJson1";
+import { UpdateDetectorModel } from "../schemas/schemas_1_Model";
 
 /**
  * @public
@@ -477,16 +476,11 @@ export class UpdateDetectorModelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotColumboService", "UpdateDetectorModel", {})
   .n("IoTEventsClient", "UpdateDetectorModelCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateDetectorModelCommand)
-  .de(de_UpdateDetectorModelCommand)
+  .sc(UpdateDetectorModel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

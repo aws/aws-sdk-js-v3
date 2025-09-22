@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAccountHealthRequest, DescribeAccountHealthResponse } from "../models/models_0";
-import { de_DescribeAccountHealthCommand, se_DescribeAccountHealthCommand } from "../protocols/Aws_restJson1";
+import { DescribeAccountHealth } from "../schemas/schemas_7_Describe";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class DescribeAccountHealthCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CapstoneControlPlaneService", "DescribeAccountHealth", {})
   .n("DevOpsGuruClient", "DescribeAccountHealthCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAccountHealthCommand)
-  .de(de_DescribeAccountHealthCommand)
+  .sc(DescribeAccountHealth)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

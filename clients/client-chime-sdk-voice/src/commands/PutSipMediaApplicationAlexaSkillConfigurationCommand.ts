@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,14 +7,9 @@ import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutSipMediaApplicationAlexaSkillConfigurationRequest,
-  PutSipMediaApplicationAlexaSkillConfigurationRequestFilterSensitiveLog,
   PutSipMediaApplicationAlexaSkillConfigurationResponse,
-  PutSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_PutSipMediaApplicationAlexaSkillConfigurationCommand,
-  se_PutSipMediaApplicationAlexaSkillConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutSipMediaApplicationAlexaSkillConfiguration } from "../schemas/schemas_5_SipMediaApplicationAlexa";
 
 /**
  * @public
@@ -119,19 +113,11 @@ export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "PutSipMediaApplicationAlexaSkillConfiguration", {})
   .n("ChimeSDKVoiceClient", "PutSipMediaApplicationAlexaSkillConfigurationCommand")
-  .f(
-    PutSipMediaApplicationAlexaSkillConfigurationRequestFilterSensitiveLog,
-    PutSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog
-  )
-  .ser(se_PutSipMediaApplicationAlexaSkillConfigurationCommand)
-  .de(de_PutSipMediaApplicationAlexaSkillConfigurationCommand)
+  .sc(PutSipMediaApplicationAlexaSkillConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteTeamsConfiguredTeamRequest, DeleteTeamsConfiguredTeamResult } from "../models/models_0";
-import {
-  de_DeleteMicrosoftTeamsConfiguredTeamCommand,
-  se_DeleteMicrosoftTeamsConfiguredTeamCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMicrosoftTeamsConfiguredTeam } from "../schemas/schemas_6_Teams";
 
 /**
  * @public
@@ -80,16 +76,11 @@ export class DeleteMicrosoftTeamsConfiguredTeamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WheatleyOrchestration_20171011", "DeleteMicrosoftTeamsConfiguredTeam", {})
   .n("ChatbotClient", "DeleteMicrosoftTeamsConfiguredTeamCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteMicrosoftTeamsConfiguredTeamCommand)
-  .de(de_DeleteMicrosoftTeamsConfiguredTeamCommand)
+  .sc(DeleteMicrosoftTeamsConfiguredTeam)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -3,18 +3,12 @@ import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getTranscribeStreamingPlugin } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartMedicalScribeStreamRequest,
-  StartMedicalScribeStreamRequestFilterSensitiveLog,
-  StartMedicalScribeStreamResponse,
-  StartMedicalScribeStreamResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartMedicalScribeStreamCommand, se_StartMedicalScribeStreamCommand } from "../protocols/Aws_restJson1";
+import { StartMedicalScribeStreamRequest, StartMedicalScribeStreamResponse } from "../models/models_0";
+import { StartMedicalScribeStream } from "../schemas/schemas_1_Stream";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -223,7 +217,6 @@ export class StartMedicalScribeStreamCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeStreamingClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
@@ -242,9 +235,7 @@ export class StartMedicalScribeStreamCommand extends $Command
     },
   })
   .n("TranscribeStreamingClient", "StartMedicalScribeStreamCommand")
-  .f(StartMedicalScribeStreamRequestFilterSensitiveLog, StartMedicalScribeStreamResponseFilterSensitiveLog)
-  .ser(se_StartMedicalScribeStreamCommand)
-  .de(de_StartMedicalScribeStreamCommand)
+  .sc(StartMedicalScribeStream)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

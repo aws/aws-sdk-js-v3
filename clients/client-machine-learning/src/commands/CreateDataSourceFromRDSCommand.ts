@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  CreateDataSourceFromRDSInput,
-  CreateDataSourceFromRDSInputFilterSensitiveLog,
-  CreateDataSourceFromRDSOutput,
-} from "../models/models_0";
-import { de_CreateDataSourceFromRDSCommand, se_CreateDataSourceFromRDSCommand } from "../protocols/Aws_json1_1";
+import { CreateDataSourceFromRDSInput, CreateDataSourceFromRDSOutput } from "../models/models_0";
+import { CreateDataSourceFromRDS } from "../schemas/schemas_2_Create";
 
 /**
  * @public
@@ -118,16 +113,11 @@ export class CreateDataSourceFromRDSCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonML_20141212", "CreateDataSourceFromRDS", {})
   .n("MachineLearningClient", "CreateDataSourceFromRDSCommand")
-  .f(CreateDataSourceFromRDSInputFilterSensitiveLog, void 0)
-  .ser(se_CreateDataSourceFromRDSCommand)
-  .de(de_CreateDataSourceFromRDSCommand)
+  .sc(CreateDataSourceFromRDS)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

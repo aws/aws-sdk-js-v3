@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { DeleteSceneRequest, DeleteSceneResponse } from "../models/models_0";
-import { de_DeleteSceneCommand, se_DeleteSceneCommand } from "../protocols/Aws_restJson1";
+import { DeleteScene } from "../schemas/schemas_3_DeleteScene";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class DeleteSceneCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTTwinMaker", "DeleteScene", {})
   .n("IoTTwinMakerClient", "DeleteSceneCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteSceneCommand)
-  .de(de_DeleteSceneCommand)
+  .sc(DeleteScene)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

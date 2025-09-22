@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import { CreateGroupRequest, CreateGroupRequestFilterSensitiveLog, CreateGroupResponse } from "../models/models_0";
-import { de_CreateGroupCommand, se_CreateGroupCommand } from "../protocols/Aws_json1_1";
+import { CreateGroupRequest, CreateGroupResponse } from "../models/models_0";
+import { CreateGroup } from "../schemas/schemas_2_Group";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class CreateGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IdentitystoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityStore", "CreateGroup", {})
   .n("IdentitystoreClient", "CreateGroupCommand")
-  .f(CreateGroupRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateGroupCommand)
-  .de(de_CreateGroupCommand)
+  .sc(CreateGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

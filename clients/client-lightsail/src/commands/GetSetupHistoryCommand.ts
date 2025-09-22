@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetSetupHistoryRequest, GetSetupHistoryResult } from "../models/models_1";
-import { de_GetSetupHistoryCommand, se_GetSetupHistoryCommand } from "../protocols/Aws_json1_1";
+import { GetSetupHistory } from "../schemas/schemas_26_Setup";
 
 /**
  * @public
@@ -133,16 +132,11 @@ export class GetSetupHistoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "GetSetupHistory", {})
   .n("LightsailClient", "GetSetupHistoryCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSetupHistoryCommand)
-  .de(de_GetSetupHistoryCommand)
+  .sc(GetSetupHistory)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

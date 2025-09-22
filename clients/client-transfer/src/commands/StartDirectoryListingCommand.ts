@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartDirectoryListingRequest, StartDirectoryListingResponse } from "../models/models_0";
-import { de_StartDirectoryListingCommand, se_StartDirectoryListingCommand } from "../protocols/Aws_json1_1";
+import { StartDirectoryListing } from "../schemas/schemas_6_Connector";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -89,16 +88,11 @@ export class StartDirectoryListingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TransferService", "StartDirectoryListing", {})
   .n("TransferClient", "StartDirectoryListingCommand")
-  .f(void 0, void 0)
-  .ser(se_StartDirectoryListingCommand)
-  .de(de_StartDirectoryListingCommand)
+  .sc(StartDirectoryListing)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

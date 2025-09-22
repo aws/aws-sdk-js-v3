@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteTapeArchiveInput, DeleteTapeArchiveOutput } from "../models/models_0";
-import { de_DeleteTapeArchiveCommand, se_DeleteTapeArchiveCommand } from "../protocols/Aws_json1_1";
+import { DeleteTapeArchive } from "../schemas/schemas_9_DeleteTapeArchive";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -95,16 +94,11 @@ export class DeleteTapeArchiveCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "DeleteTapeArchive", {})
   .n("StorageGatewayClient", "DeleteTapeArchiveCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteTapeArchiveCommand)
-  .de(de_DeleteTapeArchiveCommand)
+  .sc(DeleteTapeArchive)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

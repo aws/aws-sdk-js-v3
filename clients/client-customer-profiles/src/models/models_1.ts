@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AdditionalSearchKey,
   AttributeDetails,
@@ -16,7 +14,6 @@ import {
   ObjectTypeKey,
   PartyType,
   Profile,
-  ProfileFilterSensitiveLog,
   ProfileType,
   Readiness,
   ReadinessStatus,
@@ -1140,130 +1137,3 @@ export interface UpdateProfileResponse {
    */
   ProfileId: string | undefined;
 }
-
-/**
- * @internal
- */
-export const PutProfileObjectTypeRequestFilterSensitiveLog = (obj: PutProfileObjectTypeRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Fields && { Fields: SENSITIVE_STRING }),
-  ...(obj.Keys && { Keys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutProfileObjectTypeResponseFilterSensitiveLog = (obj: PutProfileObjectTypeResponse): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Fields && { Fields: SENSITIVE_STRING }),
-  ...(obj.Keys && { Keys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SearchProfilesResponseFilterSensitiveLog = (obj: SearchProfilesResponse): any => ({
-  ...obj,
-  ...(obj.Items && { Items: obj.Items.map((item) => ProfileFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateCalculatedAttributeDefinitionRequestFilterSensitiveLog = (
-  obj: UpdateCalculatedAttributeDefinitionRequest
-): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
-  obj: UpdateCalculatedAttributeDefinitionResponse
-): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
-  ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
-  ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateDomainLayoutRequestFilterSensitiveLog = (obj: UpdateDomainLayoutRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Layout && { Layout: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateDomainLayoutResponseFilterSensitiveLog = (obj: UpdateDomainLayoutResponse): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Layout && { Layout: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateEventTriggerRequestFilterSensitiveLog = (obj: UpdateEventTriggerRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.EventTriggerConditions && { EventTriggerConditions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateEventTriggerResponseFilterSensitiveLog = (obj: UpdateEventTriggerResponse): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.EventTriggerConditions && { EventTriggerConditions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAddressFilterSensitiveLog = (obj: UpdateAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProfileRequestFilterSensitiveLog = (obj: UpdateProfileRequest): any => ({
-  ...obj,
-  ...(obj.AdditionalInformation && { AdditionalInformation: SENSITIVE_STRING }),
-  ...(obj.AccountNumber && { AccountNumber: SENSITIVE_STRING }),
-  ...(obj.PartyType && { PartyType: SENSITIVE_STRING }),
-  ...(obj.BusinessName && { BusinessName: SENSITIVE_STRING }),
-  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
-  ...(obj.MiddleName && { MiddleName: SENSITIVE_STRING }),
-  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-  ...(obj.BirthDate && { BirthDate: SENSITIVE_STRING }),
-  ...(obj.Gender && { Gender: SENSITIVE_STRING }),
-  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-  ...(obj.MobilePhoneNumber && { MobilePhoneNumber: SENSITIVE_STRING }),
-  ...(obj.HomePhoneNumber && { HomePhoneNumber: SENSITIVE_STRING }),
-  ...(obj.BusinessPhoneNumber && { BusinessPhoneNumber: SENSITIVE_STRING }),
-  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
-  ...(obj.PersonalEmailAddress && { PersonalEmailAddress: SENSITIVE_STRING }),
-  ...(obj.BusinessEmailAddress && { BusinessEmailAddress: SENSITIVE_STRING }),
-  ...(obj.Address && { Address: SENSITIVE_STRING }),
-  ...(obj.ShippingAddress && { ShippingAddress: SENSITIVE_STRING }),
-  ...(obj.MailingAddress && { MailingAddress: SENSITIVE_STRING }),
-  ...(obj.BillingAddress && { BillingAddress: SENSITIVE_STRING }),
-  ...(obj.Attributes && { Attributes: SENSITIVE_STRING }),
-  ...(obj.PartyTypeString && { PartyTypeString: SENSITIVE_STRING }),
-  ...(obj.GenderString && { GenderString: SENSITIVE_STRING }),
-  ...(obj.ProfileType && { ProfileType: SENSITIVE_STRING }),
-  ...(obj.EngagementPreferences && { EngagementPreferences: SENSITIVE_STRING }),
-});

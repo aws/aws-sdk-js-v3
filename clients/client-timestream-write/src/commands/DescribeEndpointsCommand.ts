@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_0";
-import { de_DescribeEndpointsCommand, se_DescribeEndpointsCommand } from "../protocols/Aws_json1_0";
+import { DescribeEndpoints } from "../schemas/schemas_6_Table";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -105,16 +104,11 @@ export class DescribeEndpointsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Timestream_20181101", "DescribeEndpoints", {})
   .n("TimestreamWriteClient", "DescribeEndpointsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeEndpointsCommand)
-  .de(de_DescribeEndpointsCommand)
+  .sc(DescribeEndpoints)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LaunchWizardClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LaunchWizardClient";
 import { GetWorkloadDeploymentPatternInput, GetWorkloadDeploymentPatternOutput } from "../models/models_0";
-import {
-  de_GetWorkloadDeploymentPatternCommand,
-  se_GetWorkloadDeploymentPatternCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWorkloadDeploymentPattern } from "../schemas/schemas_1_Deployment";
 
 /**
  * @public
@@ -154,16 +150,11 @@ export class GetWorkloadDeploymentPatternCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LaunchWizard", "GetWorkloadDeploymentPattern", {})
   .n("LaunchWizardClient", "GetWorkloadDeploymentPatternCommand")
-  .f(void 0, void 0)
-  .ser(se_GetWorkloadDeploymentPatternCommand)
-  .de(de_GetWorkloadDeploymentPatternCommand)
+  .sc(GetWorkloadDeploymentPattern)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

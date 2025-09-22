@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeConnectorProfilesRequest, DescribeConnectorProfilesResponse } from "../models/models_0";
-import { de_DescribeConnectorProfilesCommand, se_DescribeConnectorProfilesCommand } from "../protocols/Aws_restJson1";
+import { DescribeConnectorProfiles } from "../schemas/schemas_1_Connector";
 
 /**
  * @public
@@ -193,16 +192,11 @@ export class DescribeConnectorProfilesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SandstoneConfigurationServiceLambda", "DescribeConnectorProfiles", {})
   .n("AppflowClient", "DescribeConnectorProfilesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeConnectorProfilesCommand)
-  .de(de_DescribeConnectorProfilesCommand)
+  .sc(DescribeConnectorProfiles)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

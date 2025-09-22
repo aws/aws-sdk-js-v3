@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DeleteServiceTemplateInput,
-  DeleteServiceTemplateOutput,
-  DeleteServiceTemplateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DeleteServiceTemplateCommand, se_DeleteServiceTemplateCommand } from "../protocols/Aws_json1_0";
+import { DeleteServiceTemplateInput, DeleteServiceTemplateOutput } from "../models/models_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { DeleteServiceTemplate } from "../schemas/schemas_8_Template";
 
 /**
  * @public
@@ -103,16 +98,11 @@ export class DeleteServiceTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "DeleteServiceTemplate", {})
   .n("ProtonClient", "DeleteServiceTemplateCommand")
-  .f(void 0, DeleteServiceTemplateOutputFilterSensitiveLog)
-  .ser(se_DeleteServiceTemplateCommand)
-  .de(de_DeleteServiceTemplateCommand)
+  .sc(DeleteServiceTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PauseClusterMessage } from "../models/models_0";
-import { PauseClusterResult, PauseClusterResultFilterSensitiveLog } from "../models/models_1";
-import { de_PauseClusterCommand, se_PauseClusterCommand } from "../protocols/Aws_query";
+import { PauseClusterResult } from "../models/models_1";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { PauseCluster } from "../schemas/schemas_30_Scheduled";
 
 /**
  * @public
@@ -269,16 +268,11 @@ export class PauseClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "PauseCluster", {})
   .n("RedshiftClient", "PauseClusterCommand")
-  .f(void 0, PauseClusterResultFilterSensitiveLog)
-  .ser(se_PauseClusterCommand)
-  .de(de_PauseClusterCommand)
+  .sc(PauseCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

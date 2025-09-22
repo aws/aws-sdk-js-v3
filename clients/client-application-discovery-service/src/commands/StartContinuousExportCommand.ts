@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ApplicationDiscoveryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartContinuousExportRequest, StartContinuousExportResponse } from "../models/models_0";
-import { de_StartContinuousExportCommand, se_StartContinuousExportCommand } from "../protocols/Aws_json1_1";
+import { StartContinuousExport } from "../schemas/schemas_1_Describe";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class StartContinuousExportCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSPoseidonService_V2015_11_01", "StartContinuousExport", {})
   .n("ApplicationDiscoveryServiceClient", "StartContinuousExportCommand")
-  .f(void 0, void 0)
-  .ser(se_StartContinuousExportCommand)
-  .de(de_StartContinuousExportCommand)
+  .sc(StartContinuousExport)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

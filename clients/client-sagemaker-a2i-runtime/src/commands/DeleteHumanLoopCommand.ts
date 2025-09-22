@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteHumanLoopRequest, DeleteHumanLoopResponse } from "../models/models_0";
-import { de_DeleteHumanLoopCommand, se_DeleteHumanLoopCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient";
+import { DeleteHumanLoop } from "../schemas/schemas_1_Human";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class DeleteHumanLoopCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerA2IRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSageMakerA2IRuntime", "DeleteHumanLoop", {})
   .n("SageMakerA2IRuntimeClient", "DeleteHumanLoopCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteHumanLoopCommand)
-  .de(de_DeleteHumanLoopCommand)
+  .sc(DeleteHumanLoop)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

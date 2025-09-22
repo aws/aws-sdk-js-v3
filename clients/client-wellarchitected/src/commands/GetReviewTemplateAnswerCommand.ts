@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetReviewTemplateAnswerInput, GetReviewTemplateAnswerOutput } from "../models/models_0";
-import { de_GetReviewTemplateAnswerCommand, se_GetReviewTemplateAnswerCommand } from "../protocols/Aws_restJson1";
+import { GetReviewTemplateAnswer } from "../schemas/schemas_1_Answer";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -138,16 +137,11 @@ export class GetReviewTemplateAnswerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WellArchitectedApiServiceLambda", "GetReviewTemplateAnswer", {})
   .n("WellArchitectedClient", "GetReviewTemplateAnswerCommand")
-  .f(void 0, void 0)
-  .ser(se_GetReviewTemplateAnswerCommand)
-  .de(de_GetReviewTemplateAnswerCommand)
+  .sc(GetReviewTemplateAnswer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

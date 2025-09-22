@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { ListCisScanConfigurationsRequest, ListCisScanConfigurationsResponse } from "../models/models_1";
-import { de_ListCisScanConfigurationsCommand, se_ListCisScanConfigurationsCommand } from "../protocols/Aws_restJson1";
+import { ListCisScanConfigurations } from "../schemas/schemas_12_Cis";
 
 /**
  * @public
@@ -193,16 +192,11 @@ export class ListCisScanConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Inspector2", "ListCisScanConfigurations", {})
   .n("Inspector2Client", "ListCisScanConfigurationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCisScanConfigurationsCommand)
-  .de(de_ListCisScanConfigurationsCommand)
+  .sc(ListCisScanConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

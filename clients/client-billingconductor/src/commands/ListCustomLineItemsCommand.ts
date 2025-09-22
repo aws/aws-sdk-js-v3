@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListCustomLineItemsInput,
-  ListCustomLineItemsInputFilterSensitiveLog,
-  ListCustomLineItemsOutput,
-  ListCustomLineItemsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListCustomLineItemsCommand, se_ListCustomLineItemsCommand } from "../protocols/Aws_restJson1";
+import { ListCustomLineItemsInput, ListCustomLineItemsOutput } from "../models/models_0";
+import { ListCustomLineItems } from "../schemas/schemas_5_List";
 
 /**
  * @public
@@ -144,16 +138,11 @@ export class ListCustomLineItemsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBillingConductor", "ListCustomLineItems", {})
   .n("BillingconductorClient", "ListCustomLineItemsCommand")
-  .f(ListCustomLineItemsInputFilterSensitiveLog, ListCustomLineItemsOutputFilterSensitiveLog)
-  .ser(se_ListCustomLineItemsCommand)
-  .de(de_ListCustomLineItemsCommand)
+  .sc(ListCustomLineItems)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

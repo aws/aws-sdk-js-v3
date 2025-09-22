@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { de_EndpointOperationCommand, se_EndpointOperationCommand } from "../protocols/Aws_json1_0";
+import { EndpointOperation } from "../schemas/schemas_9_EndpointOperation";
 
 /**
  * @public
@@ -65,16 +64,11 @@ export class EndpointOperationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("JsonRpc10", "EndpointOperation", {})
   .n("JSONRPC10Client", "EndpointOperationCommand")
-  .f(void 0, void 0)
-  .ser(se_EndpointOperationCommand)
-  .de(de_EndpointOperationCommand)
+  .sc(EndpointOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

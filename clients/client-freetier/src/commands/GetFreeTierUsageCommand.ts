@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FreeTierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FreeTierClient";
 import { GetFreeTierUsageRequest, GetFreeTierUsageResponse } from "../models/models_0";
-import { de_GetFreeTierUsageCommand, se_GetFreeTierUsageCommand } from "../protocols/Aws_json1_0";
+import { GetFreeTierUsage } from "../schemas/schemas_1_Account";
 
 /**
  * @public
@@ -129,16 +128,11 @@ export class GetFreeTierUsageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FreeTierClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFreeTierService", "GetFreeTierUsage", {})
   .n("FreeTierClient", "GetFreeTierUsageCommand")
-  .f(void 0, void 0)
-  .ser(se_GetFreeTierUsageCommand)
-  .de(de_GetFreeTierUsageCommand)
+  .sc(GetFreeTierUsage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

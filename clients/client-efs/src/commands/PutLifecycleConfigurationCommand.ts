@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LifecycleConfigurationDescription, PutLifecycleConfigurationRequest } from "../models/models_0";
-import { de_PutLifecycleConfigurationCommand, se_PutLifecycleConfigurationCommand } from "../protocols/Aws_restJson1";
+import { PutLifecycleConfiguration } from "../schemas/schemas_5_FileSystem";
 
 /**
  * @public
@@ -184,16 +183,11 @@ export class PutLifecycleConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MagnolioAPIService_v20150201", "PutLifecycleConfiguration", {})
   .n("EFSClient", "PutLifecycleConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_PutLifecycleConfigurationCommand)
-  .de(de_PutLifecycleConfigurationCommand)
+  .sc(PutLifecycleConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutAccountSettingRequest, PutAccountSettingResponse } from "../models/models_0";
-import { de_PutAccountSettingCommand, se_PutAccountSettingCommand } from "../protocols/Aws_json1_1";
+import { PutAccountSetting } from "../schemas/schemas_1_Create";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class PutAccountSettingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "PutAccountSetting", {})
   .n("ECRClient", "PutAccountSettingCommand")
-  .f(void 0, void 0)
-  .ser(se_PutAccountSettingCommand)
-  .de(de_PutAccountSettingCommand)
+  .sc(PutAccountSetting)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

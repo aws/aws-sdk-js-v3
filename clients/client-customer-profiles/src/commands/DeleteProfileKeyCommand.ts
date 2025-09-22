@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteProfileKeyRequest, DeleteProfileKeyResponse } from "../models/models_0";
-import { de_DeleteProfileKeyCommand, se_DeleteProfileKeyCommand } from "../protocols/Aws_restJson1";
+import { DeleteProfileKey } from "../schemas/schemas_11_Profile";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class DeleteProfileKeyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "DeleteProfileKey", {})
   .n("CustomerProfilesClient", "DeleteProfileKeyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteProfileKeyCommand)
-  .de(de_DeleteProfileKeyCommand)
+  .sc(DeleteProfileKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

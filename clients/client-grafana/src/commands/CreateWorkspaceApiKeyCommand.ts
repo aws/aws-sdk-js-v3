@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import {
-  CreateWorkspaceApiKeyRequest,
-  CreateWorkspaceApiKeyResponse,
-  CreateWorkspaceApiKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateWorkspaceApiKeyCommand, se_CreateWorkspaceApiKeyCommand } from "../protocols/Aws_restJson1";
+import { CreateWorkspaceApiKeyRequest, CreateWorkspaceApiKeyResponse } from "../models/models_0";
+import { CreateWorkspaceApiKey } from "../schemas/schemas_6_Create";
 
 /**
  * @public
@@ -106,16 +101,11 @@ export class CreateWorkspaceApiKeyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGrafanaControlPlane", "CreateWorkspaceApiKey", {})
   .n("GrafanaClient", "CreateWorkspaceApiKeyCommand")
-  .f(void 0, CreateWorkspaceApiKeyResponseFilterSensitiveLog)
-  .ser(se_CreateWorkspaceApiKeyCommand)
-  .de(de_CreateWorkspaceApiKeyCommand)
+  .sc(CreateWorkspaceApiKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

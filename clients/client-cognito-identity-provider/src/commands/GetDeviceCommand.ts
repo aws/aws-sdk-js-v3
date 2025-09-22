@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetDeviceRequest,
-  GetDeviceRequestFilterSensitiveLog,
-  GetDeviceResponse,
-  GetDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetDeviceCommand, se_GetDeviceCommand } from "../protocols/Aws_json1_1";
+import { GetDeviceRequest, GetDeviceResponse } from "../models/models_0";
+import { GetDevice } from "../schemas/schemas_32_Device";
 
 /**
  * @public
@@ -133,16 +127,11 @@ export class GetDeviceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "GetDevice", {})
   .n("CognitoIdentityProviderClient", "GetDeviceCommand")
-  .f(GetDeviceRequestFilterSensitiveLog, GetDeviceResponseFilterSensitiveLog)
-  .ser(se_GetDeviceCommand)
-  .de(de_GetDeviceCommand)
+  .sc(GetDevice)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

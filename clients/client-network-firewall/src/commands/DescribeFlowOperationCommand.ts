@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeFlowOperationRequest, DescribeFlowOperationResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import { de_DescribeFlowOperationCommand, se_DescribeFlowOperationCommand } from "../protocols/Aws_json1_0";
+import { DescribeFlowOperation } from "../schemas/schemas_3_Flow";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class DescribeFlowOperationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkFirewall_20201112", "DescribeFlowOperation", {})
   .n("NetworkFirewallClient", "DescribeFlowOperationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeFlowOperationCommand)
-  .de(de_DescribeFlowOperationCommand)
+  .sc(DescribeFlowOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

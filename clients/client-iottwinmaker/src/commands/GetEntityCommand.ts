@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { GetEntityRequest, GetEntityResponse } from "../models/models_0";
-import { de_GetEntityCommand, se_GetEntityCommand } from "../protocols/Aws_restJson1";
+import { GetEntity } from "../schemas/schemas_7_Component";
 
 /**
  * @public
@@ -223,16 +222,11 @@ export class GetEntityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTTwinMaker", "GetEntity", {})
   .n("IoTTwinMakerClient", "GetEntityCommand")
-  .f(void 0, void 0)
-  .ser(se_GetEntityCommand)
-  .de(de_GetEntityCommand)
+  .sc(GetEntity)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

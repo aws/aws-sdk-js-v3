@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ClusterCredentials, ClusterCredentialsFilterSensitiveLog } from "../models/models_0";
+import { ClusterCredentials } from "../models/models_0";
 import { GetClusterCredentialsMessage } from "../models/models_1";
-import { de_GetClusterCredentialsCommand, se_GetClusterCredentialsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { GetClusterCredentials } from "../schemas/schemas_52_GetClusterCredentials";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class GetClusterCredentialsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "GetClusterCredentials", {})
   .n("RedshiftClient", "GetClusterCredentialsCommand")
-  .f(void 0, ClusterCredentialsFilterSensitiveLog)
-  .ser(se_GetClusterCredentialsCommand)
-  .de(de_GetClusterCredentialsCommand)
+  .sc(GetClusterCredentials)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

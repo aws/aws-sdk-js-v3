@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateEnvironmentProfileInput,
-  UpdateEnvironmentProfileInputFilterSensitiveLog,
-  UpdateEnvironmentProfileOutput,
-  UpdateEnvironmentProfileOutputFilterSensitiveLog,
-} from "../models/models_2";
-import { de_UpdateEnvironmentProfileCommand, se_UpdateEnvironmentProfileCommand } from "../protocols/Aws_restJson1";
+import { UpdateEnvironmentProfileInput, UpdateEnvironmentProfileOutput } from "../models/models_2";
+import { UpdateEnvironmentProfile } from "../schemas/schemas_15_Environment";
 
 /**
  * @public
@@ -131,16 +125,11 @@ export class UpdateEnvironmentProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "UpdateEnvironmentProfile", {})
   .n("DataZoneClient", "UpdateEnvironmentProfileCommand")
-  .f(UpdateEnvironmentProfileInputFilterSensitiveLog, UpdateEnvironmentProfileOutputFilterSensitiveLog)
-  .ser(se_UpdateEnvironmentProfileCommand)
-  .de(de_UpdateEnvironmentProfileCommand)
+  .sc(UpdateEnvironmentProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

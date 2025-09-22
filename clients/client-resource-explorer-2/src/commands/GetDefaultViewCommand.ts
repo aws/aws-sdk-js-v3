@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDefaultViewOutput } from "../models/models_0";
-import { de_GetDefaultViewCommand, se_GetDefaultViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
+import { GetDefaultView } from "../schemas/schemas_2_GetDefaultView";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class GetDefaultViewCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ResourceExplorer", "GetDefaultView", {})
   .n("ResourceExplorer2Client", "GetDefaultViewCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDefaultViewCommand)
-  .de(de_GetDefaultViewCommand)
+  .sc(GetDefaultView)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateChannelRequest,
-  CreateChannelRequestFilterSensitiveLog,
-  CreateChannelResponse,
-} from "../models/models_0";
-import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/Aws_restJson1";
+import { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
+import { CreateChannel } from "../schemas/schemas_4_Channel";
 
 /**
  * @public
@@ -139,16 +134,11 @@ export class CreateChannelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMessagingService", "CreateChannel", {})
   .n("ChimeSDKMessagingClient", "CreateChannelCommand")
-  .f(CreateChannelRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateChannelCommand)
-  .de(de_CreateChannelCommand)
+  .sc(CreateChannel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

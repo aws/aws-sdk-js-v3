@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeTermsRequest,
-  DescribeTermsResponse,
-  DescribeTermsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeTermsCommand, se_DescribeTermsCommand } from "../protocols/Aws_json1_1";
+import { DescribeTermsRequest, DescribeTermsResponse } from "../models/models_0";
+import { DescribeTerms } from "../schemas/schemas_2_Terms";
 
 /**
  * @public
@@ -129,16 +124,11 @@ export class DescribeTermsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "DescribeTerms", {})
   .n("CognitoIdentityProviderClient", "DescribeTermsCommand")
-  .f(void 0, DescribeTermsResponseFilterSensitiveLog)
-  .ser(se_DescribeTermsCommand)
-  .de(de_DescribeTermsCommand)
+  .sc(DescribeTerms)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

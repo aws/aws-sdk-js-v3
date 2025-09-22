@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import { CreateStorageConfigurationRequest, CreateStorageConfigurationResponse } from "../models/models_0";
-import { de_CreateStorageConfigurationCommand, se_CreateStorageConfigurationCommand } from "../protocols/Aws_restJson1";
+import { CreateStorageConfiguration } from "../schemas/schemas_1_Storage";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class CreateStorageConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoServiceRealTime", "CreateStorageConfiguration", {})
   .n("IVSRealTimeClient", "CreateStorageConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateStorageConfigurationCommand)
-  .de(de_CreateStorageConfigurationCommand)
+  .sc(CreateStorageConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

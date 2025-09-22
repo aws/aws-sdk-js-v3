@@ -9443,12 +9443,3 @@ export interface UpdateSdiSourceResponse {
    */
   SdiSource?: SdiSource | undefined;
 }
-
-/**
- * @internal
- */
-export const DescribeInputDeviceThumbnailResponseFilterSensitiveLog = (
-  obj: DescribeInputDeviceThumbnailResponse
-): any => ({
-  ...obj,
-});

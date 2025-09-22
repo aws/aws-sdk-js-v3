@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DeleteIntentRequest } from "../models/models_0";
-import { de_DeleteIntentCommand, se_DeleteIntentCommand } from "../protocols/Aws_restJson1";
+import { DeleteIntent } from "../schemas/schemas_33_DeleteIntent";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class DeleteIntentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LexModelBuildingServiceV2", "DeleteIntent", {})
   .n("LexModelsV2Client", "DeleteIntentCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteIntentCommand)
-  .de(de_DeleteIntentCommand)
+  .sc(DeleteIntent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

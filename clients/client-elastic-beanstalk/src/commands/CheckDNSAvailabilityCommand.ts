@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage } from "../models/models_0";
-import { de_CheckDNSAvailabilityCommand, se_CheckDNSAvailabilityCommand } from "../protocols/Aws_query";
+import { CheckDNSAvailability } from "../schemas/schemas_17_Environment";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class CheckDNSAvailabilityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSElasticBeanstalkService", "CheckDNSAvailability", {})
   .n("ElasticBeanstalkClient", "CheckDNSAvailabilityCommand")
-  .f(void 0, void 0)
-  .ser(se_CheckDNSAvailabilityCommand)
-  .de(de_CheckDNSAvailabilityCommand)
+  .sc(CheckDNSAvailability)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateIntegrationInput } from "../models/models_0";
-import { de_UpdateIntegrationCommand, se_UpdateIntegrationCommand } from "../protocols/Aws_restJson1";
+import { UpdateIntegration } from "../schemas/schemas_18_UpdateIntegration";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -88,16 +87,11 @@ export class UpdateIntegrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WellArchitectedApiServiceLambda", "UpdateIntegration", {})
   .n("WellArchitectedClient", "UpdateIntegrationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateIntegrationCommand)
-  .de(de_UpdateIntegrationCommand)
+  .sc(UpdateIntegration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

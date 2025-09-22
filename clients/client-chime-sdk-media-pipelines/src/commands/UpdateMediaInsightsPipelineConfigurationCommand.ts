@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -12,14 +11,9 @@ import {
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateMediaInsightsPipelineConfigurationRequest,
-  UpdateMediaInsightsPipelineConfigurationRequestFilterSensitiveLog,
   UpdateMediaInsightsPipelineConfigurationResponse,
-  UpdateMediaInsightsPipelineConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_UpdateMediaInsightsPipelineConfigurationCommand,
-  se_UpdateMediaInsightsPipelineConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateMediaInsightsPipelineConfiguration } from "../schemas/schemas_7_Media";
 
 /**
  * @public
@@ -304,19 +298,11 @@ export class UpdateMediaInsightsPipelineConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKMediaPipelinesService", "UpdateMediaInsightsPipelineConfiguration", {})
   .n("ChimeSDKMediaPipelinesClient", "UpdateMediaInsightsPipelineConfigurationCommand")
-  .f(
-    UpdateMediaInsightsPipelineConfigurationRequestFilterSensitiveLog,
-    UpdateMediaInsightsPipelineConfigurationResponseFilterSensitiveLog
-  )
-  .ser(se_UpdateMediaInsightsPipelineConfigurationCommand)
-  .de(de_UpdateMediaInsightsPipelineConfigurationCommand)
+  .sc(UpdateMediaInsightsPipelineConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

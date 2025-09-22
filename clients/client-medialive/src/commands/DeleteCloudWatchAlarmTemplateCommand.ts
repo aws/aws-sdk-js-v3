@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DeleteCloudWatchAlarmTemplateRequest } from "../models/models_2";
-import {
-  de_DeleteCloudWatchAlarmTemplateCommand,
-  se_DeleteCloudWatchAlarmTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteCloudWatchAlarmTemplate } from "../schemas/schemas_21_DeleteCloudWatchAlarmTemplate";
 
 /**
  * @public
@@ -89,16 +85,11 @@ export class DeleteCloudWatchAlarmTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "DeleteCloudWatchAlarmTemplate", {})
   .n("MediaLiveClient", "DeleteCloudWatchAlarmTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCloudWatchAlarmTemplateCommand)
-  .de(de_DeleteCloudWatchAlarmTemplateCommand)
+  .sc(DeleteCloudWatchAlarmTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

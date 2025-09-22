@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAnalyzerRequest, CreateAnalyzerResponse } from "../models/models_0";
-import { de_CreateAnalyzerCommand, se_CreateAnalyzerCommand } from "../protocols/Aws_restJson1";
+import { CreateAnalyzer } from "../schemas/schemas_5_Archive";
 
 /**
  * @public
@@ -148,16 +147,11 @@ export class CreateAnalyzerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AccessAnalyzer", "CreateAnalyzer", {})
   .n("AccessAnalyzerClient", "CreateAnalyzerCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAnalyzerCommand)
-  .de(de_CreateAnalyzerCommand)
+  .sc(CreateAnalyzer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListDistributionsByConnectionModeRequest,
-  ListDistributionsByConnectionModeResult,
-  ListDistributionsByConnectionModeResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  de_ListDistributionsByConnectionModeCommand,
-  se_ListDistributionsByConnectionModeCommand,
-} from "../protocols/Aws_restXml";
+import { ListDistributionsByConnectionModeRequest, ListDistributionsByConnectionModeResult } from "../models/models_1";
+import { ListDistributionsByConnectionMode } from "../schemas/schemas_14_Distribution";
 
 /**
  * @public
@@ -402,16 +394,11 @@ export class ListDistributionsByConnectionModeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByConnectionMode", {})
   .n("CloudFrontClient", "ListDistributionsByConnectionModeCommand")
-  .f(void 0, ListDistributionsByConnectionModeResultFilterSensitiveLog)
-  .ser(se_ListDistributionsByConnectionModeCommand)
-  .de(de_ListDistributionsByConnectionModeCommand)
+  .sc(ListDistributionsByConnectionMode)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

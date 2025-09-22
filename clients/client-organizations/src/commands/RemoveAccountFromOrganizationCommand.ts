@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RemoveAccountFromOrganizationRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  de_RemoveAccountFromOrganizationCommand,
-  se_RemoveAccountFromOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveAccountFromOrganization } from "../schemas/schemas_12_Account";
 
 /**
  * @public
@@ -476,16 +472,11 @@ export class RemoveAccountFromOrganizationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "RemoveAccountFromOrganization", {})
   .n("OrganizationsClient", "RemoveAccountFromOrganizationCommand")
-  .f(void 0, void 0)
-  .ser(se_RemoveAccountFromOrganizationCommand)
-  .de(de_RemoveAccountFromOrganizationCommand)
+  .sc(RemoveAccountFromOrganization)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

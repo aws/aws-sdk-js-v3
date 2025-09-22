@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdatePipelineVersionRequest, UpdatePipelineVersionResponse } from "../models/models_5";
-import { de_UpdatePipelineVersionCommand, se_UpdatePipelineVersionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { UpdatePipelineVersion } from "../schemas/schemas_59_Pipeline";
 
 /**
  * @public
@@ -80,16 +79,11 @@ export class UpdatePipelineVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "UpdatePipelineVersion", {})
   .n("SageMakerClient", "UpdatePipelineVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdatePipelineVersionCommand)
-  .de(de_UpdatePipelineVersionCommand)
+  .sc(UpdatePipelineVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

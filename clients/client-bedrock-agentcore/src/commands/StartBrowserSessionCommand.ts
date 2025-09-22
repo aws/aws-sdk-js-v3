@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartBrowserSessionRequest, StartBrowserSessionResponse } from "../models/models_0";
-import { de_StartBrowserSessionCommand, se_StartBrowserSessionCommand } from "../protocols/Aws_restJson1";
+import { StartBrowserSession } from "../schemas/schemas_3_Session";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class StartBrowserSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCore", "StartBrowserSession", {})
   .n("BedrockAgentCoreClient", "StartBrowserSessionCommand")
-  .f(void 0, void 0)
-  .ser(se_StartBrowserSessionCommand)
-  .de(de_StartBrowserSessionCommand)
+  .sc(StartBrowserSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

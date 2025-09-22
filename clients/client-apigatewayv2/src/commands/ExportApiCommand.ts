@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
@@ -8,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ExportApiRequest, ExportApiResponse } from "../models/models_0";
-import { de_ExportApiCommand, se_ExportApiCommand } from "../protocols/Aws_restJson1";
+import { ExportApi } from "../schemas/schemas_22_ExportApi";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class ExportApiCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApiGatewayV2", "ExportApi", {})
   .n("ApiGatewayV2Client", "ExportApiCommand")
-  .f(void 0, void 0)
-  .ser(se_ExportApiCommand)
-  .de(de_ExportApiCommand)
+  .sc(ExportApi)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

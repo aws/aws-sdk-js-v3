@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { DisassociateVehicleFleetRequest, DisassociateVehicleFleetResponse } from "../models/models_0";
-import { de_DisassociateVehicleFleetCommand, se_DisassociateVehicleFleetCommand } from "../protocols/Aws_json1_0";
+import { DisassociateVehicleFleet } from "../schemas/schemas_4_Fleet";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class DisassociateVehicleFleetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IoTAutobahnControlPlane", "DisassociateVehicleFleet", {})
   .n("IoTFleetWiseClient", "DisassociateVehicleFleetCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateVehicleFleetCommand)
-  .de(de_DisassociateVehicleFleetCommand)
+  .sc(DisassociateVehicleFleet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

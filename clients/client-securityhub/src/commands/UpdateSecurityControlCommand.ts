@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateSecurityControlRequest, UpdateSecurityControlResponse } from "../models/models_3";
-import { de_UpdateSecurityControlCommand, se_UpdateSecurityControlCommand } from "../protocols/Aws_restJson1";
+import { UpdateSecurityControl } from "../schemas/schemas_2_Security";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -140,16 +139,11 @@ export class UpdateSecurityControlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "UpdateSecurityControl", {})
   .n("SecurityHubClient", "UpdateSecurityControlCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSecurityControlCommand)
-  .de(de_UpdateSecurityControlCommand)
+  .sc(UpdateSecurityControl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

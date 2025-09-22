@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartOutboundEmailContactRequest,
-  StartOutboundEmailContactRequestFilterSensitiveLog,
-  StartOutboundEmailContactResponse,
-} from "../models/models_2";
-import { de_StartOutboundEmailContactCommand, se_StartOutboundEmailContactCommand } from "../protocols/Aws_restJson1";
+import { StartOutboundEmailContactRequest, StartOutboundEmailContactResponse } from "../models/models_2";
+import { StartOutboundEmailContact } from "../schemas/schemas_73_Email";
 
 /**
  * @public
@@ -132,16 +127,11 @@ export class StartOutboundEmailContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "StartOutboundEmailContact", {})
   .n("ConnectClient", "StartOutboundEmailContactCommand")
-  .f(StartOutboundEmailContactRequestFilterSensitiveLog, void 0)
-  .ser(se_StartOutboundEmailContactCommand)
-  .de(de_StartOutboundEmailContactCommand)
+  .sc(StartOutboundEmailContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

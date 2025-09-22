@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartExecutionInput, StartExecutionInputFilterSensitiveLog, StartExecutionOutput } from "../models/models_0";
-import { de_StartExecutionCommand, se_StartExecutionCommand } from "../protocols/Aws_json1_0";
+import { StartExecutionInput, StartExecutionOutput } from "../models/models_0";
+import { StartExecution } from "../schemas/schemas_1_Execution";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -154,16 +153,11 @@ export class StartExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "StartExecution", {})
   .n("SFNClient", "StartExecutionCommand")
-  .f(StartExecutionInputFilterSensitiveLog, void 0)
-  .ser(se_StartExecutionCommand)
-  .de(de_StartExecutionCommand)
+  .sc(StartExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

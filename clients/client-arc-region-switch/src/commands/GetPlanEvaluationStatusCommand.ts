@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ARCRegionSwitchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCRegionSwitchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetPlanEvaluationStatusRequest, GetPlanEvaluationStatusResponse } from "../models/models_0";
-import { de_GetPlanEvaluationStatusCommand, se_GetPlanEvaluationStatusCommand } from "../protocols/Aws_json1_0";
+import { GetPlanEvaluationStatus } from "../schemas/schemas_1_Plan";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class GetPlanEvaluationStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCRegionSwitchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ArcRegionSwitch", "GetPlanEvaluationStatus", {})
   .n("ARCRegionSwitchClient", "GetPlanEvaluationStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_GetPlanEvaluationStatusCommand)
-  .de(de_GetPlanEvaluationStatusCommand)
+  .sc(GetPlanEvaluationStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

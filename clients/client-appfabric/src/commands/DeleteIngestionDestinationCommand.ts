@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteIngestionDestinationRequest, DeleteIngestionDestinationResponse } from "../models/models_0";
-import { de_DeleteIngestionDestinationCommand, se_DeleteIngestionDestinationCommand } from "../protocols/Aws_restJson1";
+import { DeleteIngestionDestination } from "../schemas/schemas_8_DeleteIngestionDestination";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class DeleteIngestionDestinationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FabricFrontEndService", "DeleteIngestionDestination", {})
   .n("AppFabricClient", "DeleteIngestionDestinationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteIngestionDestinationCommand)
-  .de(de_DeleteIngestionDestinationCommand)
+  .sc(DeleteIngestionDestination)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

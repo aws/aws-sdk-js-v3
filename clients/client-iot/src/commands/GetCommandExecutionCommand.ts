@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetCommandExecutionRequest, GetCommandExecutionResponse } from "../models/models_1";
-import { de_GetCommandExecutionCommand, se_GetCommandExecutionCommand } from "../protocols/Aws_restJson1";
+import { GetCommandExecution } from "../schemas/schemas_18_Describe";
 
 /**
  * @public
@@ -116,16 +115,11 @@ export class GetCommandExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "GetCommandExecution", {})
   .n("IoTClient", "GetCommandExecutionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetCommandExecutionCommand)
-  .de(de_GetCommandExecutionCommand)
+  .sc(GetCommandExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetContextKeysForPolicyResponse, GetContextKeysForPrincipalPolicyRequest } from "../models/models_0";
-import {
-  de_GetContextKeysForPrincipalPolicyCommand,
-  se_GetContextKeysForPrincipalPolicyCommand,
-} from "../protocols/Aws_query";
+import { GetContextKeysForPrincipalPolicy } from "../schemas/schemas_11_Policy";
 
 /**
  * @public
@@ -102,16 +98,11 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "GetContextKeysForPrincipalPolicy", {})
   .n("IAMClient", "GetContextKeysForPrincipalPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetContextKeysForPrincipalPolicyCommand)
-  .de(de_GetContextKeysForPrincipalPolicyCommand)
+  .sc(GetContextKeysForPrincipalPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

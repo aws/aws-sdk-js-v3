@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListCostAllocationTagBackfillHistoryRequest,
   ListCostAllocationTagBackfillHistoryResponse,
 } from "../models/models_0";
-import {
-  de_ListCostAllocationTagBackfillHistoryCommand,
-  se_ListCostAllocationTagBackfillHistoryCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCostAllocationTagBackfillHistory } from "../schemas/schemas_14_TagBackfill";
 
 /**
  * @public
@@ -96,16 +92,11 @@ export class ListCostAllocationTagBackfillHistoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSInsightsIndexService", "ListCostAllocationTagBackfillHistory", {})
   .n("CostExplorerClient", "ListCostAllocationTagBackfillHistoryCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCostAllocationTagBackfillHistoryCommand)
-  .de(de_ListCostAllocationTagBackfillHistoryCommand)
+  .sc(ListCostAllocationTagBackfillHistory)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

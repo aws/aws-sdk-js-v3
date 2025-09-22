@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { AssociateCreatedArtifactRequest, AssociateCreatedArtifactResult } from "../models/models_0";
-import { de_AssociateCreatedArtifactCommand, se_AssociateCreatedArtifactCommand } from "../protocols/Aws_json1_1";
+import { AssociateCreatedArtifact } from "../schemas/schemas_2_Created";
 
 /**
  * @public
@@ -125,16 +124,11 @@ export class AssociateCreatedArtifactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHub", "AssociateCreatedArtifact", {})
   .n("MigrationHubClient", "AssociateCreatedArtifactCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateCreatedArtifactCommand)
-  .de(de_AssociateCreatedArtifactCommand)
+  .sc(AssociateCreatedArtifact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateServiceIntegrationRequest, UpdateServiceIntegrationResponse } from "../models/models_0";
-import { de_UpdateServiceIntegrationCommand, se_UpdateServiceIntegrationCommand } from "../protocols/Aws_restJson1";
+import { UpdateServiceIntegration } from "../schemas/schemas_4_NotificationChannel";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class UpdateServiceIntegrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CapstoneControlPlaneService", "UpdateServiceIntegration", {})
   .n("DevOpsGuruClient", "UpdateServiceIntegrationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateServiceIntegrationCommand)
-  .de(de_UpdateServiceIntegrationCommand)
+  .sc(UpdateServiceIntegration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

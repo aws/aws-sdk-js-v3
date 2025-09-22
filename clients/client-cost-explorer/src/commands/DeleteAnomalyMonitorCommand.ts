@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAnomalyMonitorRequest, DeleteAnomalyMonitorResponse } from "../models/models_0";
-import { de_DeleteAnomalyMonitorCommand, se_DeleteAnomalyMonitorCommand } from "../protocols/Aws_json1_1";
+import { DeleteAnomalyMonitor } from "../schemas/schemas_8_Anomaly";
 
 /**
  * @public
@@ -74,16 +73,11 @@ export class DeleteAnomalyMonitorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSInsightsIndexService", "DeleteAnomalyMonitor", {})
   .n("CostExplorerClient", "DeleteAnomalyMonitorCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAnomalyMonitorCommand)
-  .de(de_DeleteAnomalyMonitorCommand)
+  .sc(DeleteAnomalyMonitor)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

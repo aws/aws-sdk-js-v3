@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { DatetimeOffsetsOutput } from "../models/models_0";
-import { de_DatetimeOffsetsCommand, se_DatetimeOffsetsCommand } from "../protocols/Aws_json1_1";
+import { DatetimeOffsets } from "../schemas/schemas_5_";
 
 /**
  * @public
@@ -68,16 +67,11 @@ export class DatetimeOffsetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("JsonProtocol", "DatetimeOffsets", {})
   .n("JsonProtocolClient", "DatetimeOffsetsCommand")
-  .f(void 0, void 0)
-  .ser(se_DatetimeOffsetsCommand)
-  .de(de_DatetimeOffsetsCommand)
+  .sc(DatetimeOffsets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   EnableReachabilityAnalyzerOrganizationSharingRequest,
   EnableReachabilityAnalyzerOrganizationSharingResult,
 } from "../models/models_6";
-import {
-  de_EnableReachabilityAnalyzerOrganizationSharingCommand,
-  se_EnableReachabilityAnalyzerOrganizationSharingCommand,
-} from "../protocols/Aws_ec2";
+import { EnableReachabilityAnalyzerOrganizationSharing } from "../schemas/schemas_170_EnableReachabilityAnalyzerOrganizationSharing";
 
 /**
  * @public
@@ -83,16 +79,11 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "EnableReachabilityAnalyzerOrganizationSharing", {})
   .n("EC2Client", "EnableReachabilityAnalyzerOrganizationSharingCommand")
-  .f(void 0, void 0)
-  .ser(se_EnableReachabilityAnalyzerOrganizationSharingCommand)
-  .de(de_EnableReachabilityAnalyzerOrganizationSharingCommand)
+  .sc(EnableReachabilityAnalyzerOrganizationSharing)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

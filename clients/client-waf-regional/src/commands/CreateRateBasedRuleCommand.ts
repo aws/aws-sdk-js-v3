@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateRateBasedRuleRequest, CreateRateBasedRuleResponse } from "../models/models_0";
-import { de_CreateRateBasedRuleCommand, se_CreateRateBasedRuleCommand } from "../protocols/Aws_json1_1";
+import { CreateRateBasedRule } from "../schemas/schemas_6_Rule";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -250,16 +249,11 @@ export class CreateRateBasedRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_Regional_20161128", "CreateRateBasedRule", {})
   .n("WAFRegionalClient", "CreateRateBasedRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateRateBasedRuleCommand)
-  .de(de_CreateRateBasedRuleCommand)
+  .sc(CreateRateBasedRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

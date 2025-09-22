@@ -2263,10 +2263,3 @@ export interface UpdateDatasetEntriesResponse {
    */
   Status?: DatasetStatus | undefined;
 }
-
-/**
- * @internal
- */
-export const DetectAnomaliesRequestFilterSensitiveLog = (obj: DetectAnomaliesRequest): any => ({
-  ...obj,
-});

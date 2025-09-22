@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ApplicationCostProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutReportDefinitionRequest, PutReportDefinitionResult } from "../models/models_0";
-import { de_PutReportDefinitionCommand, se_PutReportDefinitionCommand } from "../protocols/Aws_restJson1";
+import { PutReportDefinition } from "../schemas/schemas_1_Report";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class PutReportDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationCostProfilerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSApplicationCostProfiler", "PutReportDefinition", {})
   .n("ApplicationCostProfilerClient", "PutReportDefinitionCommand")
-  .f(void 0, void 0)
-  .ser(se_PutReportDefinitionCommand)
-  .de(de_PutReportDefinitionCommand)
+  .sc(PutReportDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

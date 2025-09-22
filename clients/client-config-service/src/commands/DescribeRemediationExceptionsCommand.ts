@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeRemediationExceptionsRequest, DescribeRemediationExceptionsResponse } from "../models/models_0";
-import {
-  de_DescribeRemediationExceptionsCommand,
-  se_DescribeRemediationExceptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRemediationExceptions } from "../schemas/schemas_9_Remediation";
 
 /**
  * @public
@@ -108,16 +104,11 @@ export class DescribeRemediationExceptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StarlingDoveService", "DescribeRemediationExceptions", {})
   .n("ConfigServiceClient", "DescribeRemediationExceptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeRemediationExceptionsCommand)
-  .de(de_DescribeRemediationExceptionsCommand)
+  .sc(DescribeRemediationExceptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { QueryAssistantRequest, QueryAssistantRequestFilterSensitiveLog } from "../models/models_0";
-import { QueryAssistantResponse, QueryAssistantResponseFilterSensitiveLog } from "../models/models_1";
-import { de_QueryAssistantCommand, se_QueryAssistantCommand } from "../protocols/Aws_restJson1";
+import { QueryAssistantRequest } from "../models/models_0";
+import { QueryAssistantResponse } from "../models/models_1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { QueryAssistant } from "../schemas/schemas_30_Agent";
 
 /**
  * @public
@@ -277,16 +276,11 @@ export class QueryAssistantCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "QueryAssistant", {})
   .n("QConnectClient", "QueryAssistantCommand")
-  .f(QueryAssistantRequestFilterSensitiveLog, QueryAssistantResponseFilterSensitiveLog)
-  .ser(se_QueryAssistantCommand)
-  .de(de_QueryAssistantCommand)
+  .sc(QueryAssistant)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

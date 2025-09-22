@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PutRetentionPolicyRequest,
-  PutRetentionPolicyRequestFilterSensitiveLog,
-  PutRetentionPolicyResponse,
-} from "../models/models_0";
-import { de_PutRetentionPolicyCommand, se_PutRetentionPolicyCommand } from "../protocols/Aws_json1_1";
+import { PutRetentionPolicyRequest, PutRetentionPolicyResponse } from "../models/models_0";
+import { PutRetentionPolicy } from "../schemas/schemas_9_Create";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -96,16 +91,11 @@ export class PutRetentionPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkMailService", "PutRetentionPolicy", {})
   .n("WorkMailClient", "PutRetentionPolicyCommand")
-  .f(PutRetentionPolicyRequestFilterSensitiveLog, void 0)
-  .ser(se_PutRetentionPolicyCommand)
-  .de(de_PutRetentionPolicyCommand)
+  .sc(PutRetentionPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

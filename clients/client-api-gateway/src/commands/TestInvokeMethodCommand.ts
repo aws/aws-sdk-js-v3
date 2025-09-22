@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { TestInvokeMethodRequest, TestInvokeMethodResponse } from "../models/models_0";
-import { de_TestInvokeMethodCommand, se_TestInvokeMethodCommand } from "../protocols/Aws_restJson1";
+import { TestInvokeMethod } from "../schemas/schemas_25_TestInvoke";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class TestInvokeMethodCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackplaneControlService", "TestInvokeMethod", {})
   .n("APIGatewayClient", "TestInvokeMethodCommand")
-  .f(void 0, void 0)
-  .ser(se_TestInvokeMethodCommand)
-  .de(de_TestInvokeMethodCommand)
+  .sc(TestInvokeMethod)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ConnectDirectoryRequest,
-  ConnectDirectoryRequestFilterSensitiveLog,
-  ConnectDirectoryResult,
-} from "../models/models_0";
-import { de_ConnectDirectoryCommand, se_ConnectDirectoryCommand } from "../protocols/Aws_json1_1";
+import { ConnectDirectoryRequest, ConnectDirectoryResult } from "../models/models_0";
+import { ConnectDirectory } from "../schemas/schemas_6_Describe";
 
 /**
  * @public
@@ -141,16 +136,11 @@ export class ConnectDirectoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "ConnectDirectory", {})
   .n("DirectoryServiceClient", "ConnectDirectoryCommand")
-  .f(ConnectDirectoryRequestFilterSensitiveLog, void 0)
-  .ser(se_ConnectDirectoryCommand)
-  .de(de_ConnectDirectoryCommand)
+  .sc(ConnectDirectory)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

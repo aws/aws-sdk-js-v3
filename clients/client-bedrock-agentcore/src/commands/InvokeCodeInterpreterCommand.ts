@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  InvokeCodeInterpreterRequest,
-  InvokeCodeInterpreterRequestFilterSensitiveLog,
-  InvokeCodeInterpreterResponse,
-  InvokeCodeInterpreterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_InvokeCodeInterpreterCommand, se_InvokeCodeInterpreterCommand } from "../protocols/Aws_restJson1";
+import { InvokeCodeInterpreterRequest, InvokeCodeInterpreterResponse } from "../models/models_0";
+import { InvokeCodeInterpreter } from "../schemas/schemas_4_Session";
 
 /**
  * @public
@@ -177,10 +171,7 @@ export class InvokeCodeInterpreterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCore", "InvokeCodeInterpreter", {
     /**
@@ -191,9 +182,7 @@ export class InvokeCodeInterpreterCommand extends $Command
     },
   })
   .n("BedrockAgentCoreClient", "InvokeCodeInterpreterCommand")
-  .f(InvokeCodeInterpreterRequestFilterSensitiveLog, InvokeCodeInterpreterResponseFilterSensitiveLog)
-  .ser(se_InvokeCodeInterpreterCommand)
-  .de(de_InvokeCodeInterpreterCommand)
+  .sc(InvokeCodeInterpreter)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

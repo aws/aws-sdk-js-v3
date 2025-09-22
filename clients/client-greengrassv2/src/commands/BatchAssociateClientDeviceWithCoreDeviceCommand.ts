@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   BatchAssociateClientDeviceWithCoreDeviceRequest,
   BatchAssociateClientDeviceWithCoreDeviceResponse,
 } from "../models/models_0";
-import {
-  de_BatchAssociateClientDeviceWithCoreDeviceCommand,
-  se_BatchAssociateClientDeviceWithCoreDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchAssociateClientDeviceWithCoreDevice } from "../schemas/schemas_10_CoreDevice";
 
 /**
  * @public
@@ -118,16 +114,11 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GreengrassV2", "BatchAssociateClientDeviceWithCoreDevice", {})
   .n("GreengrassV2Client", "BatchAssociateClientDeviceWithCoreDeviceCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchAssociateClientDeviceWithCoreDeviceCommand)
-  .de(de_BatchAssociateClientDeviceWithCoreDeviceCommand)
+  .sc(BatchAssociateClientDeviceWithCoreDevice)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

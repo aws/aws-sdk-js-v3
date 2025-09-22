@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteNamedQueryInput, DeleteNamedQueryOutput } from "../models/models_0";
-import { de_DeleteNamedQueryCommand, se_DeleteNamedQueryCommand } from "../protocols/Aws_json1_1";
+import { DeleteNamedQuery } from "../schemas/schemas_10_Named";
 
 /**
  * @public
@@ -77,16 +76,11 @@ export class DeleteNamedQueryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAthena", "DeleteNamedQuery", {})
   .n("AthenaClient", "DeleteNamedQueryCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteNamedQueryCommand)
-  .de(de_DeleteNamedQueryCommand)
+  .sc(DeleteNamedQuery)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

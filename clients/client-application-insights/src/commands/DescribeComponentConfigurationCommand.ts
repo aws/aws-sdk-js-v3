@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeComponentConfigurationRequest, DescribeComponentConfigurationResponse } from "../models/models_0";
-import {
-  de_DescribeComponentConfigurationCommand,
-  se_DescribeComponentConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeComponentConfiguration } from "../schemas/schemas_2_Component";
 
 /**
  * @public
@@ -92,16 +88,11 @@ export class DescribeComponentConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("EC2WindowsBarleyService", "DescribeComponentConfiguration", {})
   .n("ApplicationInsightsClient", "DescribeComponentConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeComponentConfigurationCommand)
-  .de(de_DescribeComponentConfigurationCommand)
+  .sc(DescribeComponentConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

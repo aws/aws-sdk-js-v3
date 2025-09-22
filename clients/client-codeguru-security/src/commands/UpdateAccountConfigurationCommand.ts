@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeGuruSecurityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruSecurityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateAccountConfigurationRequest, UpdateAccountConfigurationResponse } from "../models/models_0";
-import { de_UpdateAccountConfigurationCommand, se_UpdateAccountConfigurationCommand } from "../protocols/Aws_restJson1";
+import { UpdateAccountConfiguration } from "../schemas/schemas_1_Resource";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class UpdateAccountConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruSecurityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsCodeGuruSecurity", "UpdateAccountConfiguration", {})
   .n("CodeGuruSecurityClient", "UpdateAccountConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateAccountConfigurationCommand)
-  .de(de_UpdateAccountConfigurationCommand)
+  .sc(UpdateAccountConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

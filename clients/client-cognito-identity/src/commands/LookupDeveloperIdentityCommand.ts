@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LookupDeveloperIdentityInput, LookupDeveloperIdentityResponse } from "../models/models_0";
-import { de_LookupDeveloperIdentityCommand, se_LookupDeveloperIdentityCommand } from "../protocols/Aws_json1_1";
+import { LookupDeveloperIdentity } from "../schemas/schemas_2_Identity";
 
 /**
  * @public
@@ -115,16 +114,11 @@ export class LookupDeveloperIdentityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityService", "LookupDeveloperIdentity", {})
   .n("CognitoIdentityClient", "LookupDeveloperIdentityCommand")
-  .f(void 0, void 0)
-  .ser(se_LookupDeveloperIdentityCommand)
-  .de(de_LookupDeveloperIdentityCommand)
+  .sc(LookupDeveloperIdentity)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeMatchmakingRuleSetsInput, DescribeMatchmakingRuleSetsOutput } from "../models/models_0";
-import { de_DescribeMatchmakingRuleSetsCommand, se_DescribeMatchmakingRuleSetsCommand } from "../protocols/Aws_json1_1";
+import { DescribeMatchmakingRuleSets } from "../schemas/schemas_6_Matchmaking";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class DescribeMatchmakingRuleSetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "DescribeMatchmakingRuleSets", {})
   .n("GameLiftClient", "DescribeMatchmakingRuleSetsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeMatchmakingRuleSetsCommand)
-  .de(de_DescribeMatchmakingRuleSetsCommand)
+  .sc(DescribeMatchmakingRuleSets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

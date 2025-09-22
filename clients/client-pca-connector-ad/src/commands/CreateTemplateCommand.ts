@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTemplateRequest, CreateTemplateResponse } from "../models/models_0";
 import { PcaConnectorAdClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PcaConnectorAdClient";
-import { de_CreateTemplateCommand, se_CreateTemplateCommand } from "../protocols/Aws_restJson1";
+import { CreateTemplate } from "../schemas/schemas_3_ServicePrincipal";
 
 /**
  * @public
@@ -341,16 +340,11 @@ export class CreateTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PcaConnectorAd", "CreateTemplate", {})
   .n("PcaConnectorAdClient", "CreateTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateTemplateCommand)
-  .de(de_CreateTemplateCommand)
+  .sc(CreateTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

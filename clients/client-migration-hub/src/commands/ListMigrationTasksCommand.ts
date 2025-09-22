@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { ListMigrationTasksRequest, ListMigrationTasksResult } from "../models/models_0";
-import { de_ListMigrationTasksCommand, se_ListMigrationTasksCommand } from "../protocols/Aws_json1_1";
+import { ListMigrationTasks } from "../schemas/schemas_4_Migration";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class ListMigrationTasksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHub", "ListMigrationTasks", {})
   .n("MigrationHubClient", "ListMigrationTasksCommand")
-  .f(void 0, void 0)
-  .ser(se_ListMigrationTasksCommand)
-  .de(de_ListMigrationTasksCommand)
+  .sc(ListMigrationTasks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

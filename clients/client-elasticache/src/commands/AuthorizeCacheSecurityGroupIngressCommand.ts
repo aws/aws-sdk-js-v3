@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   AuthorizeCacheSecurityGroupIngressMessage,
   AuthorizeCacheSecurityGroupIngressResult,
 } from "../models/models_0";
-import {
-  de_AuthorizeCacheSecurityGroupIngressCommand,
-  se_AuthorizeCacheSecurityGroupIngressCommand,
-} from "../protocols/Aws_query";
+import { AuthorizeCacheSecurityGroupIngress } from "../schemas/schemas_1_Cache";
 
 /**
  * @public
@@ -130,16 +126,11 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElastiCacheV9", "AuthorizeCacheSecurityGroupIngress", {})
   .n("ElastiCacheClient", "AuthorizeCacheSecurityGroupIngressCommand")
-  .f(void 0, void 0)
-  .ser(se_AuthorizeCacheSecurityGroupIngressCommand)
-  .de(de_AuthorizeCacheSecurityGroupIngressCommand)
+  .sc(AuthorizeCacheSecurityGroupIngress)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

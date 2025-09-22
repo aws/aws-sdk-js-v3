@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateMemberFromQueueRequest, DisassociateMemberFromQueueResponse } from "../models/models_0";
-import {
-  de_DisassociateMemberFromQueueCommand,
-  se_DisassociateMemberFromQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateMemberFromQueue } from "../schemas/schemas_44_DisassociateMemberFromQueue";
 
 /**
  * @public
@@ -95,16 +91,11 @@ export class DisassociateMemberFromQueueCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "DisassociateMemberFromQueue", {})
   .n("DeadlineClient", "DisassociateMemberFromQueueCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateMemberFromQueueCommand)
-  .de(de_DisassociateMemberFromQueueCommand)
+  .sc(DisassociateMemberFromQueue)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

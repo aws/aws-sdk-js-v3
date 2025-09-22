@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateConfiguredTableAnalysisRuleInput, UpdateConfiguredTableAnalysisRuleOutput } from "../models/models_0";
-import {
-  de_UpdateConfiguredTableAnalysisRuleCommand,
-  se_UpdateConfiguredTableAnalysisRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateConfiguredTableAnalysisRule } from "../schemas/schemas_8_Configured";
 
 /**
  * @public
@@ -232,16 +228,11 @@ export class UpdateConfiguredTableAnalysisRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBastionControlPlaneServiceLambda", "UpdateConfiguredTableAnalysisRule", {})
   .n("CleanRoomsClient", "UpdateConfiguredTableAnalysisRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateConfiguredTableAnalysisRuleCommand)
-  .de(de_UpdateConfiguredTableAnalysisRuleCommand)
+  .sc(UpdateConfiguredTableAnalysisRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

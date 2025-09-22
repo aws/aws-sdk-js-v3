@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAttendeesRequest,
-  ListAttendeesResponse,
-  ListAttendeesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListAttendeesCommand, se_ListAttendeesCommand } from "../protocols/Aws_restJson1";
+import { ListAttendeesRequest, ListAttendeesResponse } from "../models/models_0";
+import { ListAttendees } from "../schemas/schemas_2_Attendee";
 
 /**
  * @public
@@ -113,16 +108,11 @@ export class ListAttendeesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMeetingsSDKService", "ListAttendees", {})
   .n("ChimeSDKMeetingsClient", "ListAttendeesCommand")
-  .f(void 0, ListAttendeesResponseFilterSensitiveLog)
-  .ser(se_ListAttendeesCommand)
-  .de(de_ListAttendeesCommand)
+  .sc(ListAttendees)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

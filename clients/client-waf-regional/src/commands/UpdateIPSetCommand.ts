@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/models_0";
-import { de_UpdateIPSetCommand, se_UpdateIPSetCommand } from "../protocols/Aws_json1_1";
+import { UpdateIPSet } from "../schemas/schemas_23_IPSet";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -287,16 +286,11 @@ export class UpdateIPSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_Regional_20161128", "UpdateIPSet", {})
   .n("WAFRegionalClient", "UpdateIPSetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateIPSetCommand)
-  .de(de_UpdateIPSetCommand)
+  .sc(UpdateIPSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteTableBucketEncryptionRequest } from "../models/models_0";
-import {
-  de_DeleteTableBucketEncryptionCommand,
-  se_DeleteTableBucketEncryptionCommand,
-} from "../protocols/Aws_restJson1";
 import { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
+import { DeleteTableBucketEncryption } from "../schemas/schemas_11_DeleteTableBucketEncryption";
 
 /**
  * @public
@@ -89,16 +85,11 @@ export class DeleteTableBucketEncryptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("S3TableBuckets", "DeleteTableBucketEncryption", {})
   .n("S3TablesClient", "DeleteTableBucketEncryptionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteTableBucketEncryptionCommand)
-  .de(de_DeleteTableBucketEncryptionCommand)
+  .sc(DeleteTableBucketEncryption)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

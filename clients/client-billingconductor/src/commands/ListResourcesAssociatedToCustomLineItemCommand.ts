@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListResourcesAssociatedToCustomLineItemInput,
   ListResourcesAssociatedToCustomLineItemOutput,
 } from "../models/models_0";
-import {
-  de_ListResourcesAssociatedToCustomLineItemCommand,
-  se_ListResourcesAssociatedToCustomLineItemCommand,
-} from "../protocols/Aws_restJson1";
+import { ListResourcesAssociatedToCustomLineItem } from "../schemas/schemas_5_List";
 
 /**
  * @public
@@ -114,16 +110,11 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBillingConductor", "ListResourcesAssociatedToCustomLineItem", {})
   .n("BillingconductorClient", "ListResourcesAssociatedToCustomLineItemCommand")
-  .f(void 0, void 0)
-  .ser(se_ListResourcesAssociatedToCustomLineItemCommand)
-  .de(de_ListResourcesAssociatedToCustomLineItemCommand)
+  .sc(ListResourcesAssociatedToCustomLineItem)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

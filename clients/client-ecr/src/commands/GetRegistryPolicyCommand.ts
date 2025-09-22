@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetRegistryPolicyRequest, GetRegistryPolicyResponse } from "../models/models_0";
-import { de_GetRegistryPolicyCommand, se_GetRegistryPolicyCommand } from "../protocols/Aws_json1_1";
+import { GetRegistryPolicy } from "../schemas/schemas_7_Policy";
 
 /**
  * @public
@@ -82,16 +81,11 @@ export class GetRegistryPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "GetRegistryPolicy", {})
   .n("ECRClient", "GetRegistryPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetRegistryPolicyCommand)
-  .de(de_GetRegistryPolicyCommand)
+  .sc(GetRegistryPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

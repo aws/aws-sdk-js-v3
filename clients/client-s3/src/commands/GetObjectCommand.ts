@@ -3,19 +3,13 @@ import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksu
 import { getS3ExpiresMiddlewarePlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetObjectOutput,
-  GetObjectOutputFilterSensitiveLog,
-  GetObjectRequest,
-  GetObjectRequestFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetObjectCommand, se_GetObjectCommand } from "../protocols/Aws_restXml";
+import { GetObjectOutput, GetObjectRequest } from "../models/models_0";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetObject } from "../schemas/schemas_8_Object";
 
 /**
  * @public
@@ -380,7 +374,6 @@ export class GetObjectCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
         requestChecksumRequired: false,
@@ -393,9 +386,7 @@ export class GetObjectCommand extends $Command
   })
   .s("AmazonS3", "GetObject", {})
   .n("S3Client", "GetObjectCommand")
-  .f(GetObjectRequestFilterSensitiveLog, GetObjectOutputFilterSensitiveLog)
-  .ser(se_GetObjectCommand)
-  .de(de_GetObjectCommand)
+  .sc(GetObject)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RegisterTargetsInput, RegisterTargetsOutput } from "../models/models_0";
-import { de_RegisterTargetsCommand, se_RegisterTargetsCommand } from "../protocols/Aws_query";
+import { RegisterTargets } from "../schemas/schemas_1_Target";
 
 /**
  * @public
@@ -164,16 +163,11 @@ export class RegisterTargetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticLoadBalancing_v10", "RegisterTargets", {})
   .n("ElasticLoadBalancingV2Client", "RegisterTargetsCommand")
-  .f(void 0, void 0)
-  .ser(se_RegisterTargetsCommand)
-  .de(de_RegisterTargetsCommand)
+  .sc(RegisterTargets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

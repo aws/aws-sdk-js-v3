@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { DeleteEvaluationInput, DeleteEvaluationOutput } from "../models/models_0";
-import { de_DeleteEvaluationCommand, se_DeleteEvaluationCommand } from "../protocols/Aws_json1_1";
+import { DeleteEvaluation } from "../schemas/schemas_4_DeleteEvaluation";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class DeleteEvaluationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonML_20141212", "DeleteEvaluation", {})
   .n("MachineLearningClient", "DeleteEvaluationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteEvaluationCommand)
-  .de(de_DeleteEvaluationCommand)
+  .sc(DeleteEvaluation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

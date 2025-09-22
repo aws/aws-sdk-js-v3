@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateMessageTemplateRequest,
-  UpdateMessageTemplateRequestFilterSensitiveLog,
-  UpdateMessageTemplateResponse,
-  UpdateMessageTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_UpdateMessageTemplateCommand, se_UpdateMessageTemplateCommand } from "../protocols/Aws_restJson1";
+import { UpdateMessageTemplateRequest, UpdateMessageTemplateResponse } from "../models/models_1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { UpdateMessageTemplate } from "../schemas/schemas_19_Message";
 
 /**
  * @public
@@ -329,16 +323,11 @@ export class UpdateMessageTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "UpdateMessageTemplate", {})
   .n("QConnectClient", "UpdateMessageTemplateCommand")
-  .f(UpdateMessageTemplateRequestFilterSensitiveLog, UpdateMessageTemplateResponseFilterSensitiveLog)
-  .ser(se_UpdateMessageTemplateCommand)
-  .de(de_UpdateMessageTemplateCommand)
+  .sc(UpdateMessageTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

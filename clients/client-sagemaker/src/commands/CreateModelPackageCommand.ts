@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateModelPackageInput,
-  CreateModelPackageInputFilterSensitiveLog,
-  CreateModelPackageOutput,
-} from "../models/models_2";
-import { de_CreateModelPackageCommand, se_CreateModelPackageCommand } from "../protocols/Aws_json1_1";
+import { CreateModelPackageInput, CreateModelPackageOutput } from "../models/models_2";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { CreateModelPackage } from "../schemas/schemas_9_Model";
 
 /**
  * @public
@@ -360,16 +355,11 @@ export class CreateModelPackageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "CreateModelPackage", {})
   .n("SageMakerClient", "CreateModelPackageCommand")
-  .f(CreateModelPackageInputFilterSensitiveLog, void 0)
-  .ser(se_CreateModelPackageCommand)
-  .de(de_CreateModelPackageCommand)
+  .sc(CreateModelPackage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

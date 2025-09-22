@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DecisionTask, PollForDecisionTaskInput } from "../models/models_0";
-import { de_PollForDecisionTaskCommand, se_PollForDecisionTaskCommand } from "../protocols/Aws_json1_0";
+import { PollForDecisionTask } from "../schemas/schemas_4_Task";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -525,16 +524,11 @@ export class PollForDecisionTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleWorkflowService", "PollForDecisionTask", {})
   .n("SWFClient", "PollForDecisionTaskCommand")
-  .f(void 0, void 0)
-  .ser(se_PollForDecisionTaskCommand)
-  .de(de_PollForDecisionTaskCommand)
+  .sc(PollForDecisionTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

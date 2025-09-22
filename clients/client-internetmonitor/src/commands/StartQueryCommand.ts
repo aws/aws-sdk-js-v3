@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
 import { StartQueryInput, StartQueryOutput } from "../models/models_0";
-import { de_StartQueryCommand, se_StartQueryCommand } from "../protocols/Aws_restJson1";
+import { StartQuery } from "../schemas/schemas_2_Monitor";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class StartQueryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("InternetMonitor20210603", "StartQuery", {})
   .n("InternetMonitorClient", "StartQueryCommand")
-  .f(void 0, void 0)
-  .ser(se_StartQueryCommand)
-  .de(de_StartQueryCommand)
+  .sc(StartQuery)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

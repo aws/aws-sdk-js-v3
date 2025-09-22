@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListTrustStoresRequest, ListTrustStoresResponse } from "../models/models_0";
-import { de_ListTrustStoresCommand, se_ListTrustStoresCommand } from "../protocols/Aws_restJson1";
+import { ListTrustStores } from "../schemas/schemas_6_ListTrustStores";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -88,16 +87,11 @@ export class ListTrustStoresCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "ListTrustStores", {})
   .n("WorkSpacesWebClient", "ListTrustStoresCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTrustStoresCommand)
-  .de(de_ListTrustStoresCommand)
+  .sc(ListTrustStores)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateEnvironmentInput,
-  UpdateEnvironmentInputFilterSensitiveLog,
-  UpdateEnvironmentOutput,
-  UpdateEnvironmentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_json1_0";
+import { UpdateEnvironmentInput, UpdateEnvironmentOutput } from "../models/models_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { UpdateEnvironment } from "../schemas/schemas_2_Environment";
 
 /**
  * @public
@@ -182,16 +176,11 @@ export class UpdateEnvironmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "UpdateEnvironment", {})
   .n("ProtonClient", "UpdateEnvironmentCommand")
-  .f(UpdateEnvironmentInputFilterSensitiveLog, UpdateEnvironmentOutputFilterSensitiveLog)
-  .ser(se_UpdateEnvironmentCommand)
-  .de(de_UpdateEnvironmentCommand)
+  .sc(UpdateEnvironment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

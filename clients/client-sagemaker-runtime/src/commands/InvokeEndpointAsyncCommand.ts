@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  InvokeEndpointAsyncInput,
-  InvokeEndpointAsyncInputFilterSensitiveLog,
-  InvokeEndpointAsyncOutput,
-} from "../models/models_0";
-import { de_InvokeEndpointAsyncCommand, se_InvokeEndpointAsyncCommand } from "../protocols/Aws_restJson1";
+import { InvokeEndpointAsyncInput, InvokeEndpointAsyncOutput } from "../models/models_0";
 import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerRuntimeClient";
+import { InvokeEndpointAsync } from "../schemas/schemas_1_Endpoint";
 
 /**
  * @public
@@ -103,16 +98,11 @@ export class InvokeEndpointAsyncCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSageMakerRuntime", "InvokeEndpointAsync", {})
   .n("SageMakerRuntimeClient", "InvokeEndpointAsyncCommand")
-  .f(InvokeEndpointAsyncInputFilterSensitiveLog, void 0)
-  .ser(se_InvokeEndpointAsyncCommand)
-  .de(de_InvokeEndpointAsyncCommand)
+  .sc(InvokeEndpointAsync)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { GetDatasetRequest, GetDatasetResponse } from "../models/models_0";
-import { de_GetDatasetCommand, se_GetDatasetCommand } from "../protocols/Aws_restJson1";
+import { GetDataset } from "../schemas/schemas_6_Dataset";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class GetDatasetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroPublicAPI", "GetDataset", {})
   .n("FinspaceDataClient", "GetDatasetCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDatasetCommand)
-  .de(de_GetDatasetCommand)
+  .sc(GetDataset)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

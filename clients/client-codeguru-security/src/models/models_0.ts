@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CodeGuruSecurityServiceException as __BaseException } from "./CodeGuruSecurityServiceException";
 
@@ -1381,12 +1381,3 @@ export interface UpdateAccountConfigurationResponse {
    */
   encryptionConfig: EncryptionConfig | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateUploadUrlResponseFilterSensitiveLog = (obj: CreateUploadUrlResponse): any => ({
-  ...obj,
-  ...(obj.s3Url && { s3Url: SENSITIVE_STRING }),
-  ...(obj.requestHeaders && { requestHeaders: SENSITIVE_STRING }),
-});

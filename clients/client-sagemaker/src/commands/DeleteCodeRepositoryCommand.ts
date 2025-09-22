@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteCodeRepositoryInput } from "../models/models_2";
-import { de_DeleteCodeRepositoryCommand, se_DeleteCodeRepositoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DeleteCodeRepository } from "../schemas/schemas_127_DeleteCodeRepository";
 
 /**
  * @public
@@ -68,16 +67,11 @@ export class DeleteCodeRepositoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "DeleteCodeRepository", {})
   .n("SageMakerClient", "DeleteCodeRepositoryCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCodeRepositoryCommand)
-  .de(de_DeleteCodeRepositoryCommand)
+  .sc(DeleteCodeRepository)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

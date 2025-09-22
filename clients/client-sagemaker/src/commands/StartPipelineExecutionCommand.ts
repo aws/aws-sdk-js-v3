@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartPipelineExecutionRequest, StartPipelineExecutionResponse } from "../models/models_5";
-import { de_StartPipelineExecutionCommand, se_StartPipelineExecutionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { StartPipelineExecution } from "../schemas/schemas_45_Pipeline";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class StartPipelineExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "StartPipelineExecution", {})
   .n("SageMakerClient", "StartPipelineExecutionCommand")
-  .f(void 0, void 0)
-  .ser(se_StartPipelineExecutionCommand)
-  .de(de_StartPipelineExecutionCommand)
+  .sc(StartPipelineExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

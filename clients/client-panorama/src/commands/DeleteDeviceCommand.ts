@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { de_DeleteDeviceCommand, se_DeleteDeviceCommand } from "../protocols/Aws_restJson1";
+import { DeleteDevice } from "../schemas/schemas_3_Device";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class DeleteDeviceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OmniCloudServiceLambda", "DeleteDevice", {})
   .n("PanoramaClient", "DeleteDeviceCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDeviceCommand)
-  .de(de_DeleteDeviceCommand)
+  .sc(DeleteDevice)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

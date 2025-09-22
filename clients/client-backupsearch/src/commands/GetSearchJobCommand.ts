@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSearchJobInput, GetSearchJobOutput } from "../models/models_0";
-import { de_GetSearchJobCommand, se_GetSearchJobCommand } from "../protocols/Aws_restJson1";
+import { GetSearchJob } from "../schemas/schemas_1_Search";
 
 /**
  * @public
@@ -183,16 +182,11 @@ export class GetSearchJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoBackupSearchService", "GetSearchJob", {})
   .n("BackupSearchClient", "GetSearchJobCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSearchJobCommand)
-  .de(de_GetSearchJobCommand)
+  .sc(GetSearchJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

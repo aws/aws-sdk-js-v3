@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AdminResetUserPasswordRequest,
-  AdminResetUserPasswordRequestFilterSensitiveLog,
-  AdminResetUserPasswordResponse,
-} from "../models/models_0";
-import { de_AdminResetUserPasswordCommand, se_AdminResetUserPasswordCommand } from "../protocols/Aws_json1_1";
+import { AdminResetUserPasswordRequest, AdminResetUserPasswordResponse } from "../models/models_0";
+import { AdminResetUserPassword } from "../schemas/schemas_52_AdminResetUserPassword";
 
 /**
  * @public
@@ -174,16 +169,11 @@ export class AdminResetUserPasswordCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "AdminResetUserPassword", {})
   .n("CognitoIdentityProviderClient", "AdminResetUserPasswordCommand")
-  .f(AdminResetUserPasswordRequestFilterSensitiveLog, void 0)
-  .ser(se_AdminResetUserPasswordCommand)
-  .de(de_AdminResetUserPasswordCommand)
+  .sc(AdminResetUserPassword)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

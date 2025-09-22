@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SimSpaceWeaverServiceException as __BaseException } from "./SimSpaceWeaverServiceException";
 
@@ -1259,19 +1259,3 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const StartAppInputFilterSensitiveLog = (obj: StartAppInput): any => ({
-  ...obj,
-  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartSimulationInputFilterSensitiveLog = (obj: StartSimulationInput): any => ({
-  ...obj,
-  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-});

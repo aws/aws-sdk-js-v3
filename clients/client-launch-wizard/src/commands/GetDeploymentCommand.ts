@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LaunchWizardClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LaunchWizardClient";
-import { GetDeploymentInput, GetDeploymentOutput, GetDeploymentOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetDeploymentCommand, se_GetDeploymentCommand } from "../protocols/Aws_restJson1";
+import { GetDeploymentInput, GetDeploymentOutput } from "../models/models_0";
+import { GetDeployment } from "../schemas/schemas_1_Deployment";
 
 /**
  * @public
@@ -134,16 +133,11 @@ export class GetDeploymentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LaunchWizard", "GetDeployment", {})
   .n("LaunchWizardClient", "GetDeploymentCommand")
-  .f(void 0, GetDeploymentOutputFilterSensitiveLog)
-  .ser(se_GetDeploymentCommand)
-  .de(de_GetDeploymentCommand)
+  .sc(GetDeployment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

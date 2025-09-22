@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/models_0";
-import { de_DescribeSMBSettingsCommand, se_DescribeSMBSettingsCommand } from "../protocols/Aws_json1_1";
+import { DescribeSMBSettings } from "../schemas/schemas_36_SMB";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -89,16 +88,11 @@ export class DescribeSMBSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "DescribeSMBSettings", {})
   .n("StorageGatewayClient", "DescribeSMBSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeSMBSettingsCommand)
-  .de(de_DescribeSMBSettingsCommand)
+  .sc(DescribeSMBSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeletePermissionPolicyRequest, DeletePermissionPolicyResponse } from "../models/models_0";
-import { de_DeletePermissionPolicyCommand, se_DeletePermissionPolicyCommand } from "../protocols/Aws_json1_1";
+import { DeletePermissionPolicy } from "../schemas/schemas_17_DeletePermissionPolicy";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -100,16 +99,11 @@ export class DeletePermissionPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20190729", "DeletePermissionPolicy", {})
   .n("WAFV2Client", "DeletePermissionPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePermissionPolicyCommand)
-  .de(de_DeletePermissionPolicyCommand)
+  .sc(DeletePermissionPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

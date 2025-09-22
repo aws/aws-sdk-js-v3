@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FileSystemPolicyDescription, PutFileSystemPolicyRequest } from "../models/models_0";
-import { de_PutFileSystemPolicyCommand, se_PutFileSystemPolicyCommand } from "../protocols/Aws_restJson1";
+import { PutFileSystemPolicy } from "../schemas/schemas_5_FileSystem";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class PutFileSystemPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MagnolioAPIService_v20150201", "PutFileSystemPolicy", {})
   .n("EFSClient", "PutFileSystemPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_PutFileSystemPolicyCommand)
-  .de(de_PutFileSystemPolicyCommand)
+  .sc(PutFileSystemPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

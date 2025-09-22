@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRulesRequest, ListRulesResponse } from "../models/models_0";
-import { de_ListRulesCommand, se_ListRulesCommand } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
+import { ListRules } from "../schemas/schemas_1_Rule";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class ListRulesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RbinClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRecycleBin", "ListRules", {})
   .n("RbinClient", "ListRulesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRulesCommand)
-  .de(de_ListRulesCommand)
+  .sc(ListRules)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

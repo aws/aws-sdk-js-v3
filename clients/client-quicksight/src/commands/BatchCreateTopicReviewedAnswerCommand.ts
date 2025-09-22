@@ -1,20 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchCreateTopicReviewedAnswerResponse } from "../models/models_2";
-import {
-  BatchCreateTopicReviewedAnswerRequest,
-  BatchCreateTopicReviewedAnswerRequestFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  de_BatchCreateTopicReviewedAnswerCommand,
-  se_BatchCreateTopicReviewedAnswerCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchCreateTopicReviewedAnswerRequest } from "../models/models_5";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { BatchCreateTopicReviewedAnswer } from "../schemas/schemas_1_Topic";
 
 /**
  * @public
@@ -585,16 +578,11 @@ export class BatchCreateTopicReviewedAnswerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "BatchCreateTopicReviewedAnswer", {})
   .n("QuickSightClient", "BatchCreateTopicReviewedAnswerCommand")
-  .f(BatchCreateTopicReviewedAnswerRequestFilterSensitiveLog, void 0)
-  .ser(se_BatchCreateTopicReviewedAnswerCommand)
-  .de(de_BatchCreateTopicReviewedAnswerCommand)
+  .sc(BatchCreateTopicReviewedAnswer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

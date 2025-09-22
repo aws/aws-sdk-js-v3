@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDeviceRequest, GetDeviceResponse } from "../models/models_0";
-import { de_GetDeviceCommand, se_GetDeviceCommand } from "../protocols/Aws_restJson1";
+import { GetDevice } from "../schemas/schemas_1_Quantum";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class GetDeviceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BraketClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Braket", "GetDevice", {})
   .n("BraketClient", "GetDeviceCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDeviceCommand)
-  .de(de_GetDeviceCommand)
+  .sc(GetDevice)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  CreateDatasetImportJobRequest,
-  CreateDatasetImportJobRequestFilterSensitiveLog,
-  CreateDatasetImportJobResponse,
-} from "../models/models_0";
-import { de_CreateDatasetImportJobCommand, se_CreateDatasetImportJobCommand } from "../protocols/Aws_json1_1";
+import { CreateDatasetImportJobRequest, CreateDatasetImportJobResponse } from "../models/models_0";
+import { CreateDatasetImportJob } from "../schemas/schemas_28_Describe";
 
 /**
  * @public
@@ -127,16 +122,11 @@ export class CreateDatasetImportJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecast", "CreateDatasetImportJob", {})
   .n("ForecastClient", "CreateDatasetImportJobCommand")
-  .f(CreateDatasetImportJobRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateDatasetImportJobCommand)
-  .de(de_CreateDatasetImportJobCommand)
+  .sc(CreateDatasetImportJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

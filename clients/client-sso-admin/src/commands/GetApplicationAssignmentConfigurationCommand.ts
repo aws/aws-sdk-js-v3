@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   GetApplicationAssignmentConfigurationRequest,
   GetApplicationAssignmentConfigurationResponse,
 } from "../models/models_0";
-import {
-  de_GetApplicationAssignmentConfigurationCommand,
-  se_GetApplicationAssignmentConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetApplicationAssignmentConfiguration } from "../schemas/schemas_14_Assignment";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -94,16 +90,11 @@ export class GetApplicationAssignmentConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SWBExternalService", "GetApplicationAssignmentConfiguration", {})
   .n("SSOAdminClient", "GetApplicationAssignmentConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetApplicationAssignmentConfigurationCommand)
-  .de(de_GetApplicationAssignmentConfigurationCommand)
+  .sc(GetApplicationAssignmentConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

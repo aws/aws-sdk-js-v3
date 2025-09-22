@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSimulationsInput, ListSimulationsOutput } from "../models/models_0";
-import { de_ListSimulationsCommand, se_ListSimulationsCommand } from "../protocols/Aws_restJson1";
+import { ListSimulations } from "../schemas/schemas_1_Resource";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -89,16 +88,11 @@ export class ListSimulationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SimSpaceWeaverClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimSpaceWeaver", "ListSimulations", {})
   .n("SimSpaceWeaverClient", "ListSimulationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSimulationsCommand)
-  .de(de_ListSimulationsCommand)
+  .sc(ListSimulations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

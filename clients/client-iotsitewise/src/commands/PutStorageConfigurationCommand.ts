@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { PutStorageConfigurationRequest, PutStorageConfigurationResponse } from "../models/models_1";
-import { de_PutStorageConfigurationCommand, se_PutStorageConfigurationCommand } from "../protocols/Aws_restJson1";
+import { PutStorageConfiguration } from "../schemas/schemas_8_Configuration";
 
 /**
  * @public
@@ -140,16 +139,11 @@ export class PutStorageConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "PutStorageConfiguration", {})
   .n("IoTSiteWiseClient", "PutStorageConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_PutStorageConfigurationCommand)
-  .de(de_PutStorageConfigurationCommand)
+  .sc(PutStorageConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

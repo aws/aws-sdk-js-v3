@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   UpdateEventConfigurationByResourceTypesRequest,
   UpdateEventConfigurationByResourceTypesResponse,
 } from "../models/models_1";
-import {
-  de_UpdateEventConfigurationByResourceTypesCommand,
-  se_UpdateEventConfigurationByResourceTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateEventConfigurationByResourceTypes } from "../schemas/schemas_5_Event";
 
 /**
  * @public
@@ -113,16 +109,11 @@ export class UpdateEventConfigurationByResourceTypesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "UpdateEventConfigurationByResourceTypes", {})
   .n("IoTWirelessClient", "UpdateEventConfigurationByResourceTypesCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateEventConfigurationByResourceTypesCommand)
-  .de(de_UpdateEventConfigurationByResourceTypesCommand)
+  .sc(UpdateEventConfigurationByResourceTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

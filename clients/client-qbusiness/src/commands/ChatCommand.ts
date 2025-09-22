@@ -1,15 +1,14 @@
 // smithy-typescript generated code
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ChatOutput, ChatOutputFilterSensitiveLog } from "../models/models_0";
-import { ChatInput, ChatInputFilterSensitiveLog } from "../models/models_1";
-import { de_ChatCommand, se_ChatCommand } from "../protocols/Aws_restJson1";
+import { ChatOutput } from "../models/models_0";
+import { ChatInput } from "../models/models_1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import { Chat } from "../schemas/schemas_3_Plugin";
 
 /**
  * @public
@@ -325,11 +324,7 @@ export class ChatCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getEventStreamPlugin(config)];
   })
   .s("ExpertQ", "Chat", {
     /**
@@ -341,9 +336,7 @@ export class ChatCommand extends $Command
     },
   })
   .n("QBusinessClient", "ChatCommand")
-  .f(ChatInputFilterSensitiveLog, ChatOutputFilterSensitiveLog)
-  .ser(se_ChatCommand)
-  .de(de_ChatCommand)
+  .sc(Chat)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

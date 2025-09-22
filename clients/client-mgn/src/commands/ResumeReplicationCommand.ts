@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { ResumeReplicationRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import { de_ResumeReplicationCommand, se_ResumeReplicationCommand } from "../protocols/Aws_restJson1";
+import { ResumeReplicationRequest, SourceServer } from "../models/models_0";
+import { ResumeReplication } from "../schemas/schemas_34_ResumeReplication";
 
 /**
  * @public
@@ -201,16 +200,11 @@ export class ResumeReplicationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationMigrationService", "ResumeReplication", {})
   .n("MgnClient", "ResumeReplicationCommand")
-  .f(void 0, SourceServerFilterSensitiveLog)
-  .ser(se_ResumeReplicationCommand)
-  .de(de_ResumeReplicationCommand)
+  .sc(ResumeReplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

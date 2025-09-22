@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateSolNetworkPackageInput, UpdateSolNetworkPackageOutput } from "../models/models_0";
-import { de_UpdateSolNetworkPackageCommand, se_UpdateSolNetworkPackageCommand } from "../protocols/Aws_restJson1";
+import { UpdateSolNetworkPackage } from "../schemas/schemas_9_Sol";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -121,16 +120,11 @@ export class UpdateSolNetworkPackageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TNB", "UpdateSolNetworkPackage", {})
   .n("TnbClient", "UpdateSolNetworkPackageCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSolNetworkPackageCommand)
-  .de(de_UpdateSolNetworkPackageCommand)
+  .sc(UpdateSolNetworkPackage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { InvokeAssistantRequest, InvokeAssistantRequestFilterSensitiveLog } from "../models/models_0";
-import { InvokeAssistantResponse, InvokeAssistantResponseFilterSensitiveLog } from "../models/models_1";
-import { de_InvokeAssistantCommand, se_InvokeAssistantCommand } from "../protocols/Aws_restJson1";
+import { InvokeAssistantRequest } from "../models/models_0";
+import { InvokeAssistantResponse } from "../models/models_1";
+import { InvokeAssistant } from "../schemas/schemas_15_BulkImport";
 
 /**
  * @public
@@ -151,10 +150,7 @@ export class InvokeAssistantCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "InvokeAssistant", {
     /**
@@ -165,9 +161,7 @@ export class InvokeAssistantCommand extends $Command
     },
   })
   .n("IoTSiteWiseClient", "InvokeAssistantCommand")
-  .f(InvokeAssistantRequestFilterSensitiveLog, InvokeAssistantResponseFilterSensitiveLog)
-  .ser(se_InvokeAssistantCommand)
-  .de(de_InvokeAssistantCommand)
+  .sc(InvokeAssistant)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

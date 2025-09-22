@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteRepositoryCreationTemplateRequest, DeleteRepositoryCreationTemplateResponse } from "../models/models_0";
-import {
-  de_DeleteRepositoryCreationTemplateCommand,
-  se_DeleteRepositoryCreationTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRepositoryCreationTemplate } from "../schemas/schemas_5_Pull";
 
 /**
  * @public
@@ -118,16 +114,11 @@ export class DeleteRepositoryCreationTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "DeleteRepositoryCreationTemplate", {})
   .n("ECRClient", "DeleteRepositoryCreationTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteRepositoryCreationTemplateCommand)
-  .de(de_DeleteRepositoryCreationTemplateCommand)
+  .sc(DeleteRepositoryCreationTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

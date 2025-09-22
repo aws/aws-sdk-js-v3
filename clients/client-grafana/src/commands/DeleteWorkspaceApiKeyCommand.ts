@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import { DeleteWorkspaceApiKeyRequest, DeleteWorkspaceApiKeyResponse } from "../models/models_0";
-import { de_DeleteWorkspaceApiKeyCommand, se_DeleteWorkspaceApiKeyCommand } from "../protocols/Aws_restJson1";
+import { DeleteWorkspaceApiKey } from "../schemas/schemas_3_ApiKey";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class DeleteWorkspaceApiKeyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGrafanaControlPlane", "DeleteWorkspaceApiKey", {})
   .n("GrafanaClient", "DeleteWorkspaceApiKeyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteWorkspaceApiKeyCommand)
-  .de(de_DeleteWorkspaceApiKeyCommand)
+  .sc(DeleteWorkspaceApiKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

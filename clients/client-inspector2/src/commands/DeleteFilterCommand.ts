@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { DeleteFilterRequest, DeleteFilterResponse } from "../models/models_0";
-import { de_DeleteFilterCommand, se_DeleteFilterCommand } from "../protocols/Aws_restJson1";
+import { DeleteFilter } from "../schemas/schemas_9_Filter";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class DeleteFilterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Inspector2", "DeleteFilter", {})
   .n("Inspector2Client", "DeleteFilterCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteFilterCommand)
-  .de(de_DeleteFilterCommand)
+  .sc(DeleteFilter)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

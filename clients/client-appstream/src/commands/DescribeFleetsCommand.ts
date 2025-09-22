@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_0";
-import { de_DescribeFleetsCommand, se_DescribeFleetsCommand } from "../protocols/Aws_json1_1";
+import { DescribeFleets } from "../schemas/schemas_12_Image";
 
 /**
  * @public
@@ -134,16 +133,11 @@ export class DescribeFleetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "DescribeFleets", {})
   .n("AppStreamClient", "DescribeFleetsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeFleetsCommand)
-  .de(de_DescribeFleetsCommand)
+  .sc(DescribeFleets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

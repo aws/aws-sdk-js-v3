@@ -1472,13 +1472,6 @@ export interface StreamingTraitsInputOutput {
 }
 
 /**
- * @internal
- */
-export const StreamingTraitsInputOutputFilterSensitiveLog = (obj: StreamingTraitsInputOutput): any => ({
-  ...obj,
-});
-
-/**
  * @public
  */
 export interface StreamingTraitsRequireLengthInput {
@@ -1487,28 +1480,12 @@ export interface StreamingTraitsRequireLengthInput {
 }
 
 /**
- * @internal
- */
-export const StreamingTraitsRequireLengthInputFilterSensitiveLog = (obj: StreamingTraitsRequireLengthInput): any => ({
-  ...obj,
-});
-
-/**
  * @public
  */
 export interface StreamingTraitsWithMediaTypeInputOutput {
   foo?: string | undefined;
   blob?: StreamingBlobTypes | undefined;
 }
-
-/**
- * @internal
- */
-export const StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog = (
-  obj: StreamingTraitsWithMediaTypeInputOutput
-): any => ({
-  ...obj,
-});
 
 /**
  * @public

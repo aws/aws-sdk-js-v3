@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateContactResponse } from "../models/models_0";
-import { CreateContactRequest, CreateContactRequestFilterSensitiveLog } from "../models/models_3";
-import { de_CreateContactCommand, se_CreateContactCommand } from "../protocols/Aws_restJson1";
+import { CreateContactRequest } from "../models/models_3";
+import { CreateContact } from "../schemas/schemas_15_Contact";
 
 /**
  * @public
@@ -169,16 +168,11 @@ export class CreateContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "CreateContact", {})
   .n("ConnectClient", "CreateContactCommand")
-  .f(CreateContactRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateContactCommand)
-  .de(de_CreateContactCommand)
+  .sc(CreateContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

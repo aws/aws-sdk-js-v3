@@ -1,45 +1,32 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
 import {
   AccessDeniedException,
   AgentActionGroup,
-  AgentActionGroupFilterSensitiveLog,
   AgentCollaboration,
   BadGatewayException,
   BedrockModelConfigurations,
   CitationEvent,
-  CitationEventFilterSensitiveLog,
   CollaboratorConfiguration,
-  CollaboratorConfigurationFilterSensitiveLog,
   ConflictException,
   ConversationHistory,
-  ConversationHistoryFilterSensitiveLog,
   CustomOrchestration,
   DependencyFailedException,
   ExternalSourcesRetrieveAndGenerateConfiguration,
-  ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog,
   FilterAttribute,
   GenerationConfiguration,
-  GenerationConfigurationFilterSensitiveLog,
   GuadrailAction,
   GuardrailConfiguration,
   GuardrailConfigurationWithArn,
   GuardrailEvent,
   ImplicitFilterConfiguration,
-  ImplicitFilterConfigurationFilterSensitiveLog,
   InlineBedrockModelConfigurations,
   InlineSessionState,
-  InlineSessionStateFilterSensitiveLog,
   InputFile,
-  InputFileFilterSensitiveLog,
   InternalServerException,
   InvocationResultMember,
-  InvocationResultMemberFilterSensitiveLog,
   OrchestrationConfiguration,
-  OrchestrationConfigurationFilterSensitiveLog,
   OrchestrationType,
   PromptCreationConfigurations,
   PromptOverrideConfiguration,
@@ -55,7 +42,6 @@ import {
   ThrottlingException,
   ValidationException,
   VectorSearchRerankingConfiguration,
-  VectorSearchRerankingConfigurationFilterSensitiveLog,
 } from "./models_0";
 
 /**
@@ -2255,319 +2241,3 @@ export interface InvokeInlineAgentRequest {
    */
   customOrchestration?: CustomOrchestration | undefined;
 }
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateOutputEventFilterSensitiveLog = (obj: RetrieveAndGenerateOutputEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateStreamResponseOutputFilterSensitiveLog = (
-  obj: RetrieveAndGenerateStreamResponseOutput
-): any => {
-  if (obj.output !== undefined) return { output: SENSITIVE_STRING };
-  if (obj.citation !== undefined) return { citation: CitationEventFilterSensitiveLog(obj.citation) };
-  if (obj.guardrail !== undefined) return { guardrail: obj.guardrail };
-  if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
-  if (obj.validationException !== undefined) return { validationException: obj.validationException };
-  if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };
-  if (obj.serviceQuotaExceededException !== undefined)
-    return { serviceQuotaExceededException: obj.serviceQuotaExceededException };
-  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
-  if (obj.accessDeniedException !== undefined) return { accessDeniedException: obj.accessDeniedException };
-  if (obj.conflictException !== undefined) return { conflictException: obj.conflictException };
-  if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
-  if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateStreamResponseFilterSensitiveLog = (obj: RetrieveAndGenerateStreamResponse): any => ({
-  ...obj,
-  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseQueryFilterSensitiveLog = (obj: KnowledgeBaseQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseRetrievalResultFilterSensitiveLog = (obj: KnowledgeBaseRetrievalResult): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-  ...(obj.location && { location: SENSITIVE_STRING }),
-  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RetrieveResponseFilterSensitiveLog = (obj: RetrieveResponse): any => ({
-  ...obj,
-  ...(obj.retrievalResults && { retrievalResults: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BedrockSessionContentBlockFilterSensitiveLog = (obj: BedrockSessionContentBlock): any => {
-  if (obj.text !== undefined) return { text: obj.text };
-  if (obj.image !== undefined) return { image: obj.image };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const InvocationStepPayloadFilterSensitiveLog = (obj: InvocationStepPayload): any => {
-  if (obj.contentBlocks !== undefined) return { contentBlocks: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const InvocationStepFilterSensitiveLog = (obj: InvocationStep): any => ({
-  ...obj,
-  ...(obj.payload && { payload: InvocationStepPayloadFilterSensitiveLog(obj.payload) }),
-});
-
-/**
- * @internal
- */
-export const GetInvocationStepResponseFilterSensitiveLog = (obj: GetInvocationStepResponse): any => ({
-  ...obj,
-  ...(obj.invocationStep && { invocationStep: InvocationStepFilterSensitiveLog(obj.invocationStep) }),
-});
-
-/**
- * @internal
- */
-export const PutInvocationStepRequestFilterSensitiveLog = (obj: PutInvocationStepRequest): any => ({
-  ...obj,
-  ...(obj.payload && { payload: InvocationStepPayloadFilterSensitiveLog(obj.payload) }),
-});
-
-/**
- * @internal
- */
-export const RetrievalFilterFilterSensitiveLog = (obj: RetrievalFilter): any => {
-  if (obj.equals !== undefined) return { equals: obj.equals };
-  if (obj.notEquals !== undefined) return { notEquals: obj.notEquals };
-  if (obj.greaterThan !== undefined) return { greaterThan: obj.greaterThan };
-  if (obj.greaterThanOrEquals !== undefined) return { greaterThanOrEquals: obj.greaterThanOrEquals };
-  if (obj.lessThan !== undefined) return { lessThan: obj.lessThan };
-  if (obj.lessThanOrEquals !== undefined) return { lessThanOrEquals: obj.lessThanOrEquals };
-  if (obj.in !== undefined) return { in: obj.in };
-  if (obj.notIn !== undefined) return { notIn: obj.notIn };
-  if (obj.startsWith !== undefined) return { startsWith: obj.startsWith };
-  if (obj.listContains !== undefined) return { listContains: obj.listContains };
-  if (obj.stringContains !== undefined) return { stringContains: obj.stringContains };
-  if (obj.andAll !== undefined) return { andAll: SENSITIVE_STRING };
-  if (obj.orAll !== undefined) return { orAll: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog = (
-  obj: KnowledgeBaseVectorSearchConfiguration
-): any => ({
-  ...obj,
-  ...(obj.filter && { filter: SENSITIVE_STRING }),
-  ...(obj.rerankingConfiguration && {
-    rerankingConfiguration: VectorSearchRerankingConfigurationFilterSensitiveLog(obj.rerankingConfiguration),
-  }),
-  ...(obj.implicitFilterConfiguration && {
-    implicitFilterConfiguration: ImplicitFilterConfigurationFilterSensitiveLog(obj.implicitFilterConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseRetrievalConfigurationFilterSensitiveLog = (
-  obj: KnowledgeBaseRetrievalConfiguration
-): any => ({
-  ...obj,
-  ...(obj.vectorSearchConfiguration && {
-    vectorSearchConfiguration: KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog(obj.vectorSearchConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseFilterSensitiveLog = (obj: KnowledgeBase): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.retrievalConfiguration && {
-    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseConfigurationFilterSensitiveLog = (obj: KnowledgeBaseConfiguration): any => ({
-  ...obj,
-  ...(obj.retrievalConfiguration && {
-    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog = (
-  obj: KnowledgeBaseRetrieveAndGenerateConfiguration
-): any => ({
-  ...obj,
-  ...(obj.retrievalConfiguration && {
-    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
-  }),
-  ...(obj.generationConfiguration && {
-    generationConfiguration: GenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
-  }),
-  ...(obj.orchestrationConfiguration && {
-    orchestrationConfiguration: OrchestrationConfigurationFilterSensitiveLog(obj.orchestrationConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const RetrieveRequestFilterSensitiveLog = (obj: RetrieveRequest): any => ({
-  ...obj,
-  ...(obj.retrievalQuery && { retrievalQuery: SENSITIVE_STRING }),
-  ...(obj.retrievalConfiguration && {
-    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateConfigurationFilterSensitiveLog = (obj: RetrieveAndGenerateConfiguration): any => ({
-  ...obj,
-  ...(obj.knowledgeBaseConfiguration && {
-    knowledgeBaseConfiguration: KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog(
-      obj.knowledgeBaseConfiguration
-    ),
-  }),
-  ...(obj.externalSourcesConfiguration && {
-    externalSourcesConfiguration: ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog(
-      obj.externalSourcesConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const CollaboratorFilterSensitiveLog = (obj: Collaborator): any => ({
-  ...obj,
-  ...(obj.instruction && { instruction: SENSITIVE_STRING }),
-  ...(obj.actionGroups && { actionGroups: obj.actionGroups.map((item) => AgentActionGroupFilterSensitiveLog(item)) }),
-  ...(obj.knowledgeBases && {
-    knowledgeBases: obj.knowledgeBases.map((item) => KnowledgeBaseFilterSensitiveLog(item)),
-  }),
-  ...(obj.promptOverrideConfiguration && { promptOverrideConfiguration: SENSITIVE_STRING }),
-  ...(obj.collaboratorConfigurations && {
-    collaboratorConfigurations: obj.collaboratorConfigurations.map((item) =>
-      CollaboratorConfigurationFilterSensitiveLog(item)
-    ),
-  }),
-  ...(obj.agentName && { agentName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateRequestFilterSensitiveLog = (obj: RetrieveAndGenerateRequest): any => ({
-  ...obj,
-  ...(obj.input && { input: SENSITIVE_STRING }),
-  ...(obj.retrieveAndGenerateConfiguration && {
-    retrieveAndGenerateConfiguration: RetrieveAndGenerateConfigurationFilterSensitiveLog(
-      obj.retrieveAndGenerateConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateStreamRequestFilterSensitiveLog = (obj: RetrieveAndGenerateStreamRequest): any => ({
-  ...obj,
-  ...(obj.input && { input: SENSITIVE_STRING }),
-  ...(obj.retrieveAndGenerateConfiguration && {
-    retrieveAndGenerateConfiguration: RetrieveAndGenerateConfigurationFilterSensitiveLog(
-      obj.retrieveAndGenerateConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const SessionStateFilterSensitiveLog = (obj: SessionState): any => ({
-  ...obj,
-  ...(obj.returnControlInvocationResults && {
-    returnControlInvocationResults: obj.returnControlInvocationResults.map((item) =>
-      InvocationResultMemberFilterSensitiveLog(item)
-    ),
-  }),
-  ...(obj.files && { files: obj.files.map((item) => InputFileFilterSensitiveLog(item)) }),
-  ...(obj.knowledgeBaseConfigurations && {
-    knowledgeBaseConfigurations: obj.knowledgeBaseConfigurations.map((item) =>
-      KnowledgeBaseConfigurationFilterSensitiveLog(item)
-    ),
-  }),
-  ...(obj.conversationHistory && {
-    conversationHistory: ConversationHistoryFilterSensitiveLog(obj.conversationHistory),
-  }),
-});
-
-/**
- * @internal
- */
-export const InvokeAgentRequestFilterSensitiveLog = (obj: InvokeAgentRequest): any => ({
-  ...obj,
-  ...(obj.sessionState && { sessionState: SessionStateFilterSensitiveLog(obj.sessionState) }),
-  ...(obj.inputText && { inputText: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InvokeInlineAgentRequestFilterSensitiveLog = (obj: InvokeInlineAgentRequest): any => ({
-  ...obj,
-  ...(obj.instruction && { instruction: SENSITIVE_STRING }),
-  ...(obj.actionGroups && { actionGroups: obj.actionGroups.map((item) => AgentActionGroupFilterSensitiveLog(item)) }),
-  ...(obj.knowledgeBases && {
-    knowledgeBases: obj.knowledgeBases.map((item) => KnowledgeBaseFilterSensitiveLog(item)),
-  }),
-  ...(obj.promptOverrideConfiguration && { promptOverrideConfiguration: SENSITIVE_STRING }),
-  ...(obj.collaboratorConfigurations && {
-    collaboratorConfigurations: obj.collaboratorConfigurations.map((item) =>
-      CollaboratorConfigurationFilterSensitiveLog(item)
-    ),
-  }),
-  ...(obj.agentName && { agentName: SENSITIVE_STRING }),
-  ...(obj.inputText && { inputText: SENSITIVE_STRING }),
-  ...(obj.inlineSessionState && { inlineSessionState: InlineSessionStateFilterSensitiveLog(obj.inlineSessionState) }),
-  ...(obj.collaborators && { collaborators: obj.collaborators.map((item) => CollaboratorFilterSensitiveLog(item)) }),
-  ...(obj.customOrchestration && { customOrchestration: obj.customOrchestration }),
-});

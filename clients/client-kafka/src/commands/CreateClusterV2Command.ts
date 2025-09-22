@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { CreateClusterV2Request, CreateClusterV2Response } from "../models/models_0";
-import { de_CreateClusterV2Command, se_CreateClusterV2Command } from "../protocols/Aws_restJson1";
+import { CreateClusterV2 } from "../schemas/schemas_1_Cluster";
 
 /**
  * @public
@@ -221,16 +220,11 @@ export class CreateClusterV2Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Kafka", "CreateClusterV2", {})
   .n("KafkaClient", "CreateClusterV2Command")
-  .f(void 0, void 0)
-  .ser(se_CreateClusterV2Command)
-  .de(de_CreateClusterV2Command)
+  .sc(CreateClusterV2)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

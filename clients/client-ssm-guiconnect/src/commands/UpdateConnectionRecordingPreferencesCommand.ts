@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   UpdateConnectionRecordingPreferencesRequest,
   UpdateConnectionRecordingPreferencesResponse,
 } from "../models/models_0";
-import {
-  de_UpdateConnectionRecordingPreferencesCommand,
-  se_UpdateConnectionRecordingPreferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateConnectionRecordingPreferences } from "../schemas/schemas_1_ConnectionRecordingPreferences";
 import { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
 
 /**
@@ -157,16 +153,11 @@ export class UpdateConnectionRecordingPreferencesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMGuiConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SSMGuiConnect", "UpdateConnectionRecordingPreferences", {})
   .n("SSMGuiConnectClient", "UpdateConnectionRecordingPreferencesCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateConnectionRecordingPreferencesCommand)
-  .de(de_UpdateConnectionRecordingPreferencesCommand)
+  .sc(UpdateConnectionRecordingPreferences)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

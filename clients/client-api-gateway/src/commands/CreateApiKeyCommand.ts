@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ApiKey, CreateApiKeyRequest } from "../models/models_0";
-import { de_CreateApiKeyCommand, se_CreateApiKeyCommand } from "../protocols/Aws_restJson1";
+import { CreateApiKey } from "../schemas/schemas_13_Api";
 
 /**
  * @public
@@ -115,16 +114,11 @@ export class CreateApiKeyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackplaneControlService", "CreateApiKey", {})
   .n("APIGatewayClient", "CreateApiKeyCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateApiKeyCommand)
-  .de(de_CreateApiKeyCommand)
+  .sc(CreateApiKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

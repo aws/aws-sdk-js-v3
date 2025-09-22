@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
   DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
 } from "../models/models_5";
-import {
-  de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
-  se_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVerifiedAccessInstanceLoggingConfigurations } from "../schemas/schemas_84_Logging";
 
 /**
  * @public
@@ -127,16 +123,11 @@ export class DescribeVerifiedAccessInstanceLoggingConfigurationsCommand extends 
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeVerifiedAccessInstanceLoggingConfigurations", {})
   .n("EC2Client", "DescribeVerifiedAccessInstanceLoggingConfigurationsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand)
-  .de(de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand)
+  .sc(DescribeVerifiedAccessInstanceLoggingConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

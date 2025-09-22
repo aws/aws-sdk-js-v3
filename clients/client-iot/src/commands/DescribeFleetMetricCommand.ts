@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeFleetMetricRequest, DescribeFleetMetricResponse } from "../models/models_1";
-import { de_DescribeFleetMetricCommand, se_DescribeFleetMetricCommand } from "../protocols/Aws_restJson1";
+import { DescribeFleetMetric } from "../schemas/schemas_2_Get";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class DescribeFleetMetricCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "DescribeFleetMetric", {})
   .n("IoTClient", "DescribeFleetMetricCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeFleetMetricCommand)
-  .de(de_DescribeFleetMetricCommand)
+  .sc(DescribeFleetMetric)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

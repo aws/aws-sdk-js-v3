@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DetachInstancesAnswer, DetachInstancesQuery } from "../models/models_0";
-import { de_DetachInstancesCommand, se_DetachInstancesCommand } from "../protocols/Aws_query";
+import { DetachInstances } from "../schemas/schemas_3_Scaling";
 
 /**
  * @public
@@ -132,16 +131,11 @@ export class DetachInstancesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AutoScaling_2011_01_01", "DetachInstances", {})
   .n("AutoScalingClient", "DetachInstancesCommand")
-  .f(void 0, void 0)
-  .ser(se_DetachInstancesCommand)
-  .de(de_DetachInstancesCommand)
+  .sc(DetachInstances)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

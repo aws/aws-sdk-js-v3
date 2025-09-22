@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeregisterRobotRequest, DeregisterRobotResponse } from "../models/models_0";
-import { de_DeregisterRobotCommand, se_DeregisterRobotCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
+import { DeregisterRobot } from "../schemas/schemas_13_DeregisterRobot";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class DeregisterRobotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("robomaker", "DeregisterRobot", {})
   .n("RoboMakerClient", "DeregisterRobotCommand")
-  .f(void 0, void 0)
-  .ser(se_DeregisterRobotCommand)
-  .de(de_DeregisterRobotCommand)
+  .sc(DeregisterRobot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

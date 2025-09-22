@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   PutEmailIdentityFeedbackAttributesRequest,
   PutEmailIdentityFeedbackAttributesResponse,
 } from "../models/models_1";
-import {
-  de_PutEmailIdentityFeedbackAttributesCommand,
-  se_PutEmailIdentityFeedbackAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { PutEmailIdentityFeedbackAttributes } from "../schemas/schemas_47_PutEmailIdentityFeedbackAttributes";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -95,16 +91,11 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "PutEmailIdentityFeedbackAttributes", {})
   .n("SESv2Client", "PutEmailIdentityFeedbackAttributesCommand")
-  .f(void 0, void 0)
-  .ser(se_PutEmailIdentityFeedbackAttributesCommand)
-  .de(de_PutEmailIdentityFeedbackAttributesCommand)
+  .sc(PutEmailIdentityFeedbackAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

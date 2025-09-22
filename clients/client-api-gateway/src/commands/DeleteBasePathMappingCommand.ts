@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteBasePathMappingRequest } from "../models/models_0";
-import { de_DeleteBasePathMappingCommand, se_DeleteBasePathMappingCommand } from "../protocols/Aws_restJson1";
+import { DeleteBasePathMapping } from "../schemas/schemas_27_DeleteBasePathMapping";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class DeleteBasePathMappingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackplaneControlService", "DeleteBasePathMapping", {})
   .n("APIGatewayClient", "DeleteBasePathMappingCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteBasePathMappingCommand)
-  .de(de_DeleteBasePathMappingCommand)
+  .sc(DeleteBasePathMapping)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,13 +7,9 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateDelegateMacVolumeOwnershipTaskRequest,
-  CreateDelegateMacVolumeOwnershipTaskRequestFilterSensitiveLog,
   CreateDelegateMacVolumeOwnershipTaskResult,
 } from "../models/models_1";
-import {
-  de_CreateDelegateMacVolumeOwnershipTaskCommand,
-  se_CreateDelegateMacVolumeOwnershipTaskCommand,
-} from "../protocols/Aws_ec2";
+import { CreateDelegateMacVolumeOwnershipTask } from "../schemas/schemas_82_Mac";
 
 /**
  * @public
@@ -116,16 +111,11 @@ export class CreateDelegateMacVolumeOwnershipTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "CreateDelegateMacVolumeOwnershipTask", {})
   .n("EC2Client", "CreateDelegateMacVolumeOwnershipTaskCommand")
-  .f(CreateDelegateMacVolumeOwnershipTaskRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateDelegateMacVolumeOwnershipTaskCommand)
-  .de(de_CreateDelegateMacVolumeOwnershipTaskCommand)
+  .sc(CreateDelegateMacVolumeOwnershipTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

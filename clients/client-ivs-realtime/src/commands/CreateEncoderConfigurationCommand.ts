@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import { CreateEncoderConfigurationRequest, CreateEncoderConfigurationResponse } from "../models/models_0";
-import { de_CreateEncoderConfigurationCommand, se_CreateEncoderConfigurationCommand } from "../protocols/Aws_restJson1";
+import { CreateEncoderConfiguration } from "../schemas/schemas_8_Encoder";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class CreateEncoderConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoServiceRealTime", "CreateEncoderConfiguration", {})
   .n("IVSRealTimeClient", "CreateEncoderConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateEncoderConfigurationCommand)
-  .de(de_CreateEncoderConfigurationCommand)
+  .sc(CreateEncoderConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

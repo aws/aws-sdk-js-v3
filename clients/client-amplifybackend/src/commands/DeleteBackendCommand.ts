@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteBackendRequest, DeleteBackendResponse } from "../models/models_0";
-import { de_DeleteBackendCommand, se_DeleteBackendCommand } from "../protocols/Aws_restJson1";
+import { DeleteBackend } from "../schemas/schemas_8_DeleteBackend";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class DeleteBackendCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmplifyBackend", "DeleteBackend", {})
   .n("AmplifyBackendClient", "DeleteBackendCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteBackendCommand)
-  .de(de_DeleteBackendCommand)
+  .sc(DeleteBackend)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

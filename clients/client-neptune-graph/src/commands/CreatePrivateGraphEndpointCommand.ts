@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreatePrivateGraphEndpointInput, CreatePrivateGraphEndpointOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_CreatePrivateGraphEndpointCommand, se_CreatePrivateGraphEndpointCommand } from "../protocols/Aws_restJson1";
+import { CreatePrivateGraphEndpoint } from "../schemas/schemas_11_Graph";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class CreatePrivateGraphEndpointCommand extends $Command
     ApiType: { type: "staticContextParams", value: `ControlPlane` },
   })
   .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneGraph", "CreatePrivateGraphEndpoint", {})
   .n("NeptuneGraphClient", "CreatePrivateGraphEndpointCommand")
-  .f(void 0, void 0)
-  .ser(se_CreatePrivateGraphEndpointCommand)
-  .de(de_CreatePrivateGraphEndpointCommand)
+  .sc(CreatePrivateGraphEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetMembersRequest, GetMembersResponse, GetMembersResponseFilterSensitiveLog } from "../models/models_0";
-import { de_GetMembersCommand, se_GetMembersCommand } from "../protocols/Aws_restJson1";
+import { GetMembersRequest, GetMembersResponse } from "../models/models_0";
+import { GetMembers } from "../schemas/schemas_2_Members";
 
 /**
  * @public
@@ -119,16 +118,11 @@ export class GetMembersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDetective", "GetMembers", {})
   .n("DetectiveClient", "GetMembersCommand")
-  .f(void 0, GetMembersResponseFilterSensitiveLog)
-  .ser(se_GetMembersCommand)
-  .de(de_GetMembersCommand)
+  .sc(GetMembers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

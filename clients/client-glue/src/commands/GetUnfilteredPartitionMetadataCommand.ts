@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetUnfilteredPartitionMetadataRequest, GetUnfilteredPartitionMetadataResponse } from "../models/models_2";
-import {
-  de_GetUnfilteredPartitionMetadataCommand,
-  se_GetUnfilteredPartitionMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetUnfilteredPartitionMetadata } from "../schemas/schemas_18_Get";
 
 /**
  * @public
@@ -197,16 +193,11 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "GetUnfilteredPartitionMetadata", {})
   .n("GlueClient", "GetUnfilteredPartitionMetadataCommand")
-  .f(void 0, void 0)
-  .ser(se_GetUnfilteredPartitionMetadataCommand)
-  .de(de_GetUnfilteredPartitionMetadataCommand)
+  .sc(GetUnfilteredPartitionMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribePackageImportJobRequest, DescribePackageImportJobResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { de_DescribePackageImportJobCommand, se_DescribePackageImportJobCommand } from "../protocols/Aws_restJson1";
+import { DescribePackageImportJob } from "../schemas/schemas_4_Package";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class DescribePackageImportJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OmniCloudServiceLambda", "DescribePackageImportJob", {})
   .n("PanoramaClient", "DescribePackageImportJobCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribePackageImportJobCommand)
-  .de(de_DescribePackageImportJobCommand)
+  .sc(DescribePackageImportJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

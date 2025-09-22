@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/models_0";
-import { de_CopyDBClusterSnapshotCommand, se_CopyDBClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CopyDBClusterSnapshot } from "../schemas/schemas_13_Cluster";
 
 /**
  * @public
@@ -213,16 +212,13 @@ export class CopyDBClusterSnapshotCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getCrossRegionPresignedUrlPlugin(config),
     ];
   })
   .s("AmazonRDSv19", "CopyDBClusterSnapshot", {})
   .n("RDSClient", "CopyDBClusterSnapshotCommand")
-  .f(void 0, void 0)
-  .ser(se_CopyDBClusterSnapshotCommand)
-  .de(de_CopyDBClusterSnapshotCommand)
+  .sc(CopyDBClusterSnapshot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

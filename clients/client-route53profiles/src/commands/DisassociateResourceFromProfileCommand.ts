@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateResourceFromProfileRequest, DisassociateResourceFromProfileResponse } from "../models/models_0";
-import {
-  de_DisassociateResourceFromProfileCommand,
-  se_DisassociateResourceFromProfileCommand,
-} from "../protocols/Aws_restJson1";
 import { Route53ProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ProfilesClient";
+import { DisassociateResourceFromProfile } from "../schemas/schemas_3_Profile";
 
 /**
  * @public
@@ -130,16 +126,11 @@ export class DisassociateResourceFromProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Profiles", "DisassociateResourceFromProfile", {})
   .n("Route53ProfilesClient", "DisassociateResourceFromProfileCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateResourceFromProfileCommand)
-  .de(de_DisassociateResourceFromProfileCommand)
+  .sc(DisassociateResourceFromProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

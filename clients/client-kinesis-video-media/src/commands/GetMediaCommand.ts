@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoMediaClient";
-import { GetMediaInput, GetMediaOutput, GetMediaOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetMediaCommand, se_GetMediaCommand } from "../protocols/Aws_restJson1";
+import { GetMediaInput, GetMediaOutput } from "../models/models_0";
+import { GetMedia } from "../schemas/schemas_1_GetMedia";
 
 /**
  * @public
@@ -158,16 +157,11 @@ export class GetMediaCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoMediaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSAcuityInletService", "GetMedia", {})
   .n("KinesisVideoMediaClient", "GetMediaCommand")
-  .f(void 0, GetMediaOutputFilterSensitiveLog)
-  .ser(se_GetMediaCommand)
-  .de(de_GetMediaCommand)
+  .sc(GetMedia)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

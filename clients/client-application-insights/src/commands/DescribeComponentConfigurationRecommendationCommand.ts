@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   DescribeComponentConfigurationRecommendationRequest,
   DescribeComponentConfigurationRecommendationResponse,
 } from "../models/models_0";
-import {
-  de_DescribeComponentConfigurationRecommendationCommand,
-  se_DescribeComponentConfigurationRecommendationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeComponentConfigurationRecommendation } from "../schemas/schemas_2_Component";
 
 /**
  * @public
@@ -96,16 +92,11 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("EC2WindowsBarleyService", "DescribeComponentConfigurationRecommendation", {})
   .n("ApplicationInsightsClient", "DescribeComponentConfigurationRecommendationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeComponentConfigurationRecommendationCommand)
-  .de(de_DescribeComponentConfigurationRecommendationCommand)
+  .sc(DescribeComponentConfigurationRecommendation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

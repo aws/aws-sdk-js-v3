@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateCustomModelDeploymentRequest, CreateCustomModelDeploymentResponse } from "../models/models_0";
-import {
-  de_CreateCustomModelDeploymentCommand,
-  se_CreateCustomModelDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateCustomModelDeployment } from "../schemas/schemas_9_Model";
 
 /**
  * @public
@@ -105,16 +101,11 @@ export class CreateCustomModelDeploymentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "CreateCustomModelDeployment", {})
   .n("BedrockClient", "CreateCustomModelDeploymentCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateCustomModelDeploymentCommand)
-  .de(de_CreateCustomModelDeploymentCommand)
+  .sc(CreateCustomModelDeployment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteCloudFrontOriginAccessIdentityRequest } from "../models/models_1";
-import {
-  de_DeleteCloudFrontOriginAccessIdentityCommand,
-  se_DeleteCloudFrontOriginAccessIdentityCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteCloudFrontOriginAccessIdentity } from "../schemas/schemas_56_Origin";
 
 /**
  * @public
@@ -87,16 +83,11 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "DeleteCloudFrontOriginAccessIdentity", {})
   .n("CloudFrontClient", "DeleteCloudFrontOriginAccessIdentityCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCloudFrontOriginAccessIdentityCommand)
-  .de(de_DeleteCloudFrontOriginAccessIdentityCommand)
+  .sc(DeleteCloudFrontOriginAccessIdentity)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

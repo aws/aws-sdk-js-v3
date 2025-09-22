@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { ListClusterOperationsRequest, ListClusterOperationsResponse } from "../models/models_0";
-import { de_ListClusterOperationsCommand, se_ListClusterOperationsCommand } from "../protocols/Aws_restJson1";
+import { ListClusterOperations } from "../schemas/schemas_1_Cluster";
 
 /**
  * @public
@@ -324,16 +323,11 @@ export class ListClusterOperationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Kafka", "ListClusterOperations", {})
   .n("KafkaClient", "ListClusterOperationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListClusterOperationsCommand)
-  .de(de_ListClusterOperationsCommand)
+  .sc(ListClusterOperations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

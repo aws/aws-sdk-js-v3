@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchDeleteRumMetricDefinitionsRequest, BatchDeleteRumMetricDefinitionsResponse } from "../models/models_0";
-import {
-  de_BatchDeleteRumMetricDefinitionsCommand,
-  se_BatchDeleteRumMetricDefinitionsCommand,
-} from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
+import { BatchDeleteRumMetricDefinitions } from "../schemas/schemas_1_Rum";
 
 /**
  * @public
@@ -112,16 +108,11 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RUM", "BatchDeleteRumMetricDefinitions", {})
   .n("RUMClient", "BatchDeleteRumMetricDefinitionsCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchDeleteRumMetricDefinitionsCommand)
-  .de(de_BatchDeleteRumMetricDefinitionsCommand)
+  .sc(BatchDeleteRumMetricDefinitions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateVoiceConnectorGroupRequest, UpdateVoiceConnectorGroupResponse } from "../models/models_0";
-import { de_UpdateVoiceConnectorGroupCommand, se_UpdateVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
+import { UpdateVoiceConnectorGroup } from "../schemas/schemas_7_Connector";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class UpdateVoiceConnectorGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "UpdateVoiceConnectorGroup", {})
   .n("ChimeSDKVoiceClient", "UpdateVoiceConnectorGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateVoiceConnectorGroupCommand)
-  .de(de_UpdateVoiceConnectorGroupCommand)
+  .sc(UpdateVoiceConnectorGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListInstanceStorageConfigsRequest } from "../models/models_1";
 import { ListInstanceStorageConfigsResponse } from "../models/models_2";
-import { de_ListInstanceStorageConfigsCommand, se_ListInstanceStorageConfigsCommand } from "../protocols/Aws_restJson1";
+import { ListInstanceStorageConfigs } from "../schemas/schemas_34_Storage";
 
 /**
  * @public
@@ -119,16 +118,11 @@ export class ListInstanceStorageConfigsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "ListInstanceStorageConfigs", {})
   .n("ConnectClient", "ListInstanceStorageConfigsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListInstanceStorageConfigsCommand)
-  .de(de_ListInstanceStorageConfigsCommand)
+  .sc(ListInstanceStorageConfigs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

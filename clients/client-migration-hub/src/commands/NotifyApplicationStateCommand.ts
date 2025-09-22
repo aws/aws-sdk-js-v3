@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { NotifyApplicationStateRequest, NotifyApplicationStateResult } from "../models/models_0";
-import { de_NotifyApplicationStateCommand, se_NotifyApplicationStateCommand } from "../protocols/Aws_json1_1";
+import { NotifyApplicationState } from "../schemas/schemas_4_Migration";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class NotifyApplicationStateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHub", "NotifyApplicationState", {})
   .n("MigrationHubClient", "NotifyApplicationStateCommand")
-  .f(void 0, void 0)
-  .ser(se_NotifyApplicationStateCommand)
-  .de(de_NotifyApplicationStateCommand)
+  .sc(NotifyApplicationState)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

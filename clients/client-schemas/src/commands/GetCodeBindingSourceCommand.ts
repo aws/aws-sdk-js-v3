@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetCodeBindingSourceRequest, GetCodeBindingSourceResponse } from "../models/models_0";
-import { de_GetCodeBindingSourceCommand, se_GetCodeBindingSourceCommand } from "../protocols/Aws_restJson1";
+import { GetCodeBindingSource } from "../schemas/schemas_2_Binding";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -93,16 +92,11 @@ export class GetCodeBindingSourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("schemas", "GetCodeBindingSource", {})
   .n("SchemasClient", "GetCodeBindingSourceCommand")
-  .f(void 0, void 0)
-  .ser(se_GetCodeBindingSourceCommand)
-  .de(de_GetCodeBindingSourceCommand)
+  .sc(GetCodeBindingSource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

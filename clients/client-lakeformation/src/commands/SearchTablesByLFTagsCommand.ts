@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { SearchTablesByLFTagsRequest, SearchTablesByLFTagsResponse } from "../models/models_0";
-import { de_SearchTablesByLFTagsCommand, se_SearchTablesByLFTagsCommand } from "../protocols/Aws_restJson1";
+import { SearchTablesByLFTags } from "../schemas/schemas_9_List";
 
 /**
  * @public
@@ -140,16 +139,11 @@ export class SearchTablesByLFTagsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLakeFormation", "SearchTablesByLFTags", {})
   .n("LakeFormationClient", "SearchTablesByLFTagsCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchTablesByLFTagsCommand)
-  .de(de_SearchTablesByLFTagsCommand)
+  .sc(SearchTablesByLFTags)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DBSecurityGroupMessage, DescribeDBSecurityGroupsMessage } from "../models/models_1";
-import { de_DescribeDBSecurityGroupsCommand, se_DescribeDBSecurityGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeDBSecurityGroups } from "../schemas/schemas_35_Instance";
 
 /**
  * @public
@@ -128,16 +127,11 @@ export class DescribeDBSecurityGroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "DescribeDBSecurityGroups", {})
   .n("RDSClient", "DescribeDBSecurityGroupsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDBSecurityGroupsCommand)
-  .de(de_DescribeDBSecurityGroupsCommand)
+  .sc(DescribeDBSecurityGroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

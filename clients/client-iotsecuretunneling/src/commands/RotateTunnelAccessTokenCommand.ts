@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
-import {
-  RotateTunnelAccessTokenRequest,
-  RotateTunnelAccessTokenResponse,
-  RotateTunnelAccessTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RotateTunnelAccessTokenCommand, se_RotateTunnelAccessTokenCommand } from "../protocols/Aws_json1_1";
+import { RotateTunnelAccessTokenRequest, RotateTunnelAccessTokenResponse } from "../models/models_0";
+import { RotateTunnelAccessToken } from "../schemas/schemas_1_Tunnel";
 
 /**
  * @public
@@ -98,16 +93,11 @@ export class RotateTunnelAccessTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSecureTunnelingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IoTSecuredTunneling", "RotateTunnelAccessToken", {})
   .n("IoTSecureTunnelingClient", "RotateTunnelAccessTokenCommand")
-  .f(void 0, RotateTunnelAccessTokenResponseFilterSensitiveLog)
-  .ser(se_RotateTunnelAccessTokenCommand)
-  .de(de_RotateTunnelAccessTokenCommand)
+  .sc(RotateTunnelAccessToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

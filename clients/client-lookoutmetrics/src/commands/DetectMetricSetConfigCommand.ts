@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { DetectMetricSetConfigRequest, DetectMetricSetConfigResponse } from "../models/models_0";
-import { de_DetectMetricSetConfigCommand, se_DetectMetricSetConfigCommand } from "../protocols/Aws_restJson1";
+import { DetectMetricSetConfig } from "../schemas/schemas_5_Set";
 
 /**
  * @public
@@ -202,16 +201,11 @@ export class DetectMetricSetConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LookoutMetrics", "DetectMetricSetConfig", {})
   .n("LookoutMetricsClient", "DetectMetricSetConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_DetectMetricSetConfigCommand)
-  .de(de_DetectMetricSetConfigCommand)
+  .sc(DetectMetricSetConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { ListCrossAccountAttachmentsRequest, ListCrossAccountAttachmentsResponse } from "../models/models_0";
-import { de_ListCrossAccountAttachmentsCommand, se_ListCrossAccountAttachmentsCommand } from "../protocols/Aws_json1_1";
+import { ListCrossAccountAttachments } from "../schemas/schemas_11_List";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class ListCrossAccountAttachmentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GlobalAccelerator_V20180706", "ListCrossAccountAttachments", {})
   .n("GlobalAcceleratorClient", "ListCrossAccountAttachmentsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCrossAccountAttachmentsCommand)
-  .de(de_ListCrossAccountAttachmentsCommand)
+  .sc(ListCrossAccountAttachments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

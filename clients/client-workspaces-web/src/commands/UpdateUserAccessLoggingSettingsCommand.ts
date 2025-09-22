@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateUserAccessLoggingSettingsRequest, UpdateUserAccessLoggingSettingsResponse } from "../models/models_0";
-import {
-  de_UpdateUserAccessLoggingSettingsCommand,
-  se_UpdateUserAccessLoggingSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateUserAccessLoggingSettings } from "../schemas/schemas_1_Logging";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -98,16 +94,11 @@ export class UpdateUserAccessLoggingSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "UpdateUserAccessLoggingSettings", {})
   .n("WorkSpacesWebClient", "UpdateUserAccessLoggingSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateUserAccessLoggingSettingsCommand)
-  .de(de_UpdateUserAccessLoggingSettingsCommand)
+  .sc(UpdateUserAccessLoggingSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateVpnConnectionRequest,
-  CreateVpnConnectionRequestFilterSensitiveLog,
-  CreateVpnConnectionResult,
-  CreateVpnConnectionResultFilterSensitiveLog,
-} from "../models/models_3";
-import { de_CreateVpnConnectionCommand, se_CreateVpnConnectionCommand } from "../protocols/Aws_ec2";
+import { CreateVpnConnectionRequest, CreateVpnConnectionResult } from "../models/models_3";
+import { CreateVpnConnection } from "../schemas/schemas_90_Vpn";
 
 /**
  * @public
@@ -282,16 +276,11 @@ export class CreateVpnConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "CreateVpnConnection", {})
   .n("EC2Client", "CreateVpnConnectionCommand")
-  .f(CreateVpnConnectionRequestFilterSensitiveLog, CreateVpnConnectionResultFilterSensitiveLog)
-  .ser(se_CreateVpnConnectionCommand)
-  .de(de_CreateVpnConnectionCommand)
+  .sc(CreateVpnConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

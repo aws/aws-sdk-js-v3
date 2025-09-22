@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDatabaseRequest, CreateDatabaseResponse } from "../models/models_0";
-import { de_CreateDatabaseCommand, se_CreateDatabaseCommand } from "../protocols/Aws_json1_0";
+import { CreateDatabase } from "../schemas/schemas_1_Table";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -114,7 +113,6 @@ export class CreateDatabaseCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEndpointDiscoveryPlugin(config, {
         clientStack: cs,
@@ -125,9 +123,7 @@ export class CreateDatabaseCommand extends $Command
   })
   .s("Timestream_20181101", "CreateDatabase", {})
   .n("TimestreamWriteClient", "CreateDatabaseCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDatabaseCommand)
-  .de(de_CreateDatabaseCommand)
+  .sc(CreateDatabase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

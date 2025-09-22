@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonBlobsInputOutput } from "../models/models_0";
-import { de_JsonBlobsCommand, se_JsonBlobsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { JsonBlobs } from "../schemas/schemas_3_Blob";
 
 /**
  * @public
@@ -70,16 +69,11 @@ export class JsonBlobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "JsonBlobs", {})
   .n("RestJsonProtocolClient", "JsonBlobsCommand")
-  .f(void 0, void 0)
-  .ser(se_JsonBlobsCommand)
-  .de(de_JsonBlobsCommand)
+  .sc(JsonBlobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

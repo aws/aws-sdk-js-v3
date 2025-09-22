@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   StartAutomatedReasoningPolicyTestWorkflowRequest,
   StartAutomatedReasoningPolicyTestWorkflowResponse,
 } from "../models/models_0";
-import {
-  de_StartAutomatedReasoningPolicyTestWorkflowCommand,
-  se_StartAutomatedReasoningPolicyTestWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { StartAutomatedReasoningPolicyTestWorkflow } from "../schemas/schemas_11_Policy";
 
 /**
  * @public
@@ -102,16 +98,11 @@ export class StartAutomatedReasoningPolicyTestWorkflowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "StartAutomatedReasoningPolicyTestWorkflow", {})
   .n("BedrockClient", "StartAutomatedReasoningPolicyTestWorkflowCommand")
-  .f(void 0, void 0)
-  .ser(se_StartAutomatedReasoningPolicyTestWorkflowCommand)
-  .de(de_StartAutomatedReasoningPolicyTestWorkflowCommand)
+  .sc(StartAutomatedReasoningPolicyTestWorkflow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetPolicyStoreInput, GetPolicyStoreOutput, GetPolicyStoreOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetPolicyStoreCommand, se_GetPolicyStoreCommand } from "../protocols/Aws_json1_0";
+import { GetPolicyStoreInput, GetPolicyStoreOutput } from "../models/models_0";
+import { GetPolicyStore } from "../schemas/schemas_1_Resource";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -123,16 +122,11 @@ export class GetPolicyStoreCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VerifiedPermissions", "GetPolicyStore", {})
   .n("VerifiedPermissionsClient", "GetPolicyStoreCommand")
-  .f(void 0, GetPolicyStoreOutputFilterSensitiveLog)
-  .ser(se_GetPolicyStoreCommand)
-  .de(de_GetPolicyStoreCommand)
+  .sc(GetPolicyStore)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

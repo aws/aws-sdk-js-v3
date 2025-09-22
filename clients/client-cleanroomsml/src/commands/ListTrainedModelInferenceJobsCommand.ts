@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListTrainedModelInferenceJobsRequest, ListTrainedModelInferenceJobsResponse } from "../models/models_0";
-import {
-  de_ListTrainedModelInferenceJobsCommand,
-  se_ListTrainedModelInferenceJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTrainedModelInferenceJobs } from "../schemas/schemas_9_TrainedModel";
 
 /**
  * @public
@@ -115,16 +111,11 @@ export class ListTrainedModelInferenceJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStarkControlService", "ListTrainedModelInferenceJobs", {})
   .n("CleanRoomsMLClient", "ListTrainedModelInferenceJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTrainedModelInferenceJobsCommand)
-  .de(de_ListTrainedModelInferenceJobsCommand)
+  .sc(ListTrainedModelInferenceJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

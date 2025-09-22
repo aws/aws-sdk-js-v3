@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ExecuteStatementInput, ExecuteStatementOutput } from "../models/models_0";
-import { de_ExecuteStatementCommand, se_ExecuteStatementCommand } from "../protocols/Aws_json1_0";
+import { ExecuteStatement } from "../schemas/schemas_9_Item";
 
 /**
  * @public
@@ -247,16 +246,11 @@ export class ExecuteStatementCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DynamoDB_20120810", "ExecuteStatement", {})
   .n("DynamoDBClient", "ExecuteStatementCommand")
-  .f(void 0, void 0)
-  .ser(se_ExecuteStatementCommand)
-  .de(de_ExecuteStatementCommand)
+  .sc(ExecuteStatement)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

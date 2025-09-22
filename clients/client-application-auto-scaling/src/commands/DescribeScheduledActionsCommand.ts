@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ApplicationAutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeScheduledActionsRequest, DescribeScheduledActionsResponse } from "../models/models_0";
-import { de_DescribeScheduledActionsCommand, se_DescribeScheduledActionsCommand } from "../protocols/Aws_json1_1";
+import { DescribeScheduledActions } from "../schemas/schemas_1_Scaling";
 
 /**
  * @public
@@ -158,16 +157,11 @@ export class DescribeScheduledActionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AnyScaleFrontendService", "DescribeScheduledActions", {})
   .n("ApplicationAutoScalingClient", "DescribeScheduledActionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeScheduledActionsCommand)
-  .de(de_DescribeScheduledActionsCommand)
+  .sc(DescribeScheduledActions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

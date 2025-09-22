@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTFleetHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetHubClient";
 import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
-import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../protocols/Aws_restJson1";
+import { UpdateApplication } from "../schemas/schemas_1_Application";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class UpdateApplicationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTFleetHub", "UpdateApplication", {})
   .n("IoTFleetHubClient", "UpdateApplicationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateApplicationCommand)
-  .de(de_UpdateApplicationCommand)
+  .sc(UpdateApplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

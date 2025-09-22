@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateActionTargetRequest, UpdateActionTargetResponse } from "../models/models_3";
-import { de_UpdateActionTargetCommand, se_UpdateActionTargetCommand } from "../protocols/Aws_restJson1";
+import { UpdateActionTarget } from "../schemas/schemas_42_UpdateActionTarget";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -98,16 +97,11 @@ export class UpdateActionTargetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "UpdateActionTarget", {})
   .n("SecurityHubClient", "UpdateActionTargetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateActionTargetCommand)
-  .de(de_UpdateActionTargetCommand)
+  .sc(UpdateActionTarget)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   RegisterTransitGatewayMulticastGroupSourcesRequest,
   RegisterTransitGatewayMulticastGroupSourcesResult,
 } from "../models/models_8";
-import {
-  de_RegisterTransitGatewayMulticastGroupSourcesCommand,
-  se_RegisterTransitGatewayMulticastGroupSourcesCommand,
-} from "../protocols/Aws_ec2";
+import { RegisterTransitGatewayMulticastGroupSources } from "../schemas/schemas_146_Group";
 
 /**
  * @public
@@ -95,16 +91,11 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "RegisterTransitGatewayMulticastGroupSources", {})
   .n("EC2Client", "RegisterTransitGatewayMulticastGroupSourcesCommand")
-  .f(void 0, void 0)
-  .ser(se_RegisterTransitGatewayMulticastGroupSourcesCommand)
-  .de(de_RegisterTransitGatewayMulticastGroupSourcesCommand)
+  .sc(RegisterTransitGatewayMulticastGroupSources)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9232,17 +9232,3 @@ export interface StartReadSetImportJobSourceItem {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @internal
- */
-export const GetReadSetResponseFilterSensitiveLog = (obj: GetReadSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReferenceResponseFilterSensitiveLog = (obj: GetReferenceResponse): any => ({
-  ...obj,
-});

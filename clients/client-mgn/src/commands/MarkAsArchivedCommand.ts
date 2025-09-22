@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { MarkAsArchivedRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import { de_MarkAsArchivedCommand, se_MarkAsArchivedCommand } from "../protocols/Aws_restJson1";
+import { MarkAsArchivedRequest, SourceServer } from "../models/models_0";
+import { MarkAsArchived } from "../schemas/schemas_31_MarkAsArchived";
 
 /**
  * @public
@@ -195,16 +194,11 @@ export class MarkAsArchivedCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationMigrationService", "MarkAsArchived", {})
   .n("MgnClient", "MarkAsArchivedCommand")
-  .f(void 0, SourceServerFilterSensitiveLog)
-  .ser(se_MarkAsArchivedCommand)
-  .de(de_MarkAsArchivedCommand)
+  .sc(MarkAsArchived)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartLendingAnalysisRequest, StartLendingAnalysisResponse } from "../models/models_0";
-import { de_StartLendingAnalysisCommand, se_StartLendingAnalysisCommand } from "../protocols/Aws_json1_1";
+import { StartLendingAnalysis } from "../schemas/schemas_2_Start";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -173,16 +172,11 @@ export class StartLendingAnalysisCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Textract", "StartLendingAnalysis", {})
   .n("TextractClient", "StartLendingAnalysisCommand")
-  .f(void 0, void 0)
-  .ser(se_StartLendingAnalysisCommand)
-  .de(de_StartLendingAnalysisCommand)
+  .sc(StartLendingAnalysis)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

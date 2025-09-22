@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteInboundConnectionRequest, DeleteInboundConnectionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { de_DeleteInboundConnectionCommand, se_DeleteInboundConnectionCommand } from "../protocols/Aws_restJson1";
+import { DeleteInboundConnection } from "../schemas/schemas_5_Connection";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class DeleteInboundConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchService", "DeleteInboundConnection", {})
   .n("OpenSearchClient", "DeleteInboundConnectionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteInboundConnectionCommand)
-  .de(de_DeleteInboundConnectionCommand)
+  .sc(DeleteInboundConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

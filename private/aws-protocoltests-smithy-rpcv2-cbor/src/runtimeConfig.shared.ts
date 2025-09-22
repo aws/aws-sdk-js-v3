@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { AwsSmithyRpcV2CborProtocol } from "@aws-sdk/core/protocols";
 import { NoAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
@@ -31,6 +32,12 @@ export const getRuntimeConfig = (config: RpcV2ProtocolClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsSmithyRpcV2CborProtocol({
+        defaultNamespace: "smithy.protocoltests.rpcv2Cbor",
+        awsQueryCompatible: false,
+      }),
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,

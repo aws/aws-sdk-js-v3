@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchAgentStatusesResponse } from "../models/models_2";
 import { SearchAgentStatusesRequest } from "../models/models_3";
-import { de_SearchAgentStatusesCommand, se_SearchAgentStatusesCommand } from "../protocols/Aws_restJson1";
+import { SearchAgentStatuses } from "../schemas/schemas_8_Status";
 
 /**
  * @public
@@ -153,16 +152,11 @@ export class SearchAgentStatusesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "SearchAgentStatuses", {})
   .n("ConnectClient", "SearchAgentStatusesCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchAgentStatusesCommand)
-  .de(de_SearchAgentStatusesCommand)
+  .sc(SearchAgentStatuses)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

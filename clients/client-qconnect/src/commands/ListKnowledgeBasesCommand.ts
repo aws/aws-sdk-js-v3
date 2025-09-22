@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListKnowledgeBasesRequest,
-  ListKnowledgeBasesResponse,
-  ListKnowledgeBasesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ListKnowledgeBasesCommand, se_ListKnowledgeBasesCommand } from "../protocols/Aws_restJson1";
+import { ListKnowledgeBasesRequest, ListKnowledgeBasesResponse } from "../models/models_1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { ListKnowledgeBases } from "../schemas/schemas_6_Knowledge";
 
 /**
  * @public
@@ -160,16 +155,11 @@ export class ListKnowledgeBasesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "ListKnowledgeBases", {})
   .n("QConnectClient", "ListKnowledgeBasesCommand")
-  .f(void 0, ListKnowledgeBasesResponseFilterSensitiveLog)
-  .ser(se_ListKnowledgeBasesCommand)
-  .de(de_ListKnowledgeBasesCommand)
+  .sc(ListKnowledgeBases)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

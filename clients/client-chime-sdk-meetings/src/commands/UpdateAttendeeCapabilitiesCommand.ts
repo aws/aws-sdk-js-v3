@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateAttendeeCapabilitiesRequest,
-  UpdateAttendeeCapabilitiesResponse,
-  UpdateAttendeeCapabilitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateAttendeeCapabilitiesCommand, se_UpdateAttendeeCapabilitiesCommand } from "../protocols/Aws_restJson1";
+import { UpdateAttendeeCapabilitiesRequest, UpdateAttendeeCapabilitiesResponse } from "../models/models_0";
+import { UpdateAttendeeCapabilities } from "../schemas/schemas_2_Attendee";
 
 /**
  * @public
@@ -141,16 +136,11 @@ export class UpdateAttendeeCapabilitiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMeetingsSDKService", "UpdateAttendeeCapabilities", {})
   .n("ChimeSDKMeetingsClient", "UpdateAttendeeCapabilitiesCommand")
-  .f(void 0, UpdateAttendeeCapabilitiesResponseFilterSensitiveLog)
-  .ser(se_UpdateAttendeeCapabilitiesCommand)
-  .de(de_UpdateAttendeeCapabilitiesCommand)
+  .sc(UpdateAttendeeCapabilities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

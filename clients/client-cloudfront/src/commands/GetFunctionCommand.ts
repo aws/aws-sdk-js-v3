@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetFunctionRequest, GetFunctionResult, GetFunctionResultFilterSensitiveLog } from "../models/models_1";
-import { de_GetFunctionCommand, se_GetFunctionCommand } from "../protocols/Aws_restXml";
+import { GetFunctionRequest, GetFunctionResult } from "../models/models_1";
+import { GetFunction } from "../schemas/schemas_4_Function";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class GetFunctionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "GetFunction", {})
   .n("CloudFrontClient", "GetFunctionCommand")
-  .f(void 0, GetFunctionResultFilterSensitiveLog)
-  .ser(se_GetFunctionCommand)
-  .de(de_GetFunctionCommand)
+  .sc(GetFunction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

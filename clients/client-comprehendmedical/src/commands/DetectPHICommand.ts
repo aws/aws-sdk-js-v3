@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DetectPHIRequest, DetectPHIResponse } from "../models/models_0";
-import { de_DetectPHICommand, se_DetectPHICommand } from "../protocols/Aws_json1_1";
+import { DetectPHI } from "../schemas/schemas_1_Infer";
 
 /**
  * @public
@@ -137,16 +136,11 @@ export class DetectPHICommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ComprehendMedical_20181030", "DetectPHI", {})
   .n("ComprehendMedicalClient", "DetectPHICommand")
-  .f(void 0, void 0)
-  .ser(se_DetectPHICommand)
-  .de(de_DetectPHICommand)
+  .sc(DetectPHI)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

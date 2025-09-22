@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeploymentStrategy, UpdateDeploymentStrategyRequest } from "../models/models_0";
-import { de_UpdateDeploymentStrategyCommand, se_UpdateDeploymentStrategyCommand } from "../protocols/Aws_restJson1";
+import { UpdateDeploymentStrategy } from "../schemas/schemas_3_Deployment";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class UpdateDeploymentStrategyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAppConfig", "UpdateDeploymentStrategy", {})
   .n("AppConfigClient", "UpdateDeploymentStrategyCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateDeploymentStrategyCommand)
-  .de(de_UpdateDeploymentStrategyCommand)
+  .sc(UpdateDeploymentStrategy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

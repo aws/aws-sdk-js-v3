@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateLoggingConfigurationRequest, UpdateLoggingConfigurationResponse } from "../models/models_0";
-import { de_UpdateLoggingConfigurationCommand, se_UpdateLoggingConfigurationCommand } from "../protocols/Aws_restJson1";
+import { UpdateLoggingConfiguration } from "../schemas/schemas_2_Logging";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class UpdateLoggingConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPrometheusService", "UpdateLoggingConfiguration", {})
   .n("AmpClient", "UpdateLoggingConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateLoggingConfigurationCommand)
-  .de(de_UpdateLoggingConfigurationCommand)
+  .sc(UpdateLoggingConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

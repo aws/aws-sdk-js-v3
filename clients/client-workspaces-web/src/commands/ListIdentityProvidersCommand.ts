@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListIdentityProvidersRequest,
-  ListIdentityProvidersResponse,
-  ListIdentityProvidersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListIdentityProvidersCommand, se_ListIdentityProvidersCommand } from "../protocols/Aws_restJson1";
+import { ListIdentityProvidersRequest, ListIdentityProvidersResponse } from "../models/models_0";
+import { ListIdentityProviders } from "../schemas/schemas_26_Identity";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -95,16 +90,11 @@ export class ListIdentityProvidersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "ListIdentityProviders", {})
   .n("WorkSpacesWebClient", "ListIdentityProvidersCommand")
-  .f(void 0, ListIdentityProvidersResponseFilterSensitiveLog)
-  .ser(se_ListIdentityProvidersCommand)
-  .de(de_ListIdentityProvidersCommand)
+  .sc(ListIdentityProviders)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

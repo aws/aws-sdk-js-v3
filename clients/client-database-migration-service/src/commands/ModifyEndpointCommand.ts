@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ModifyEndpointMessage,
-  ModifyEndpointMessageFilterSensitiveLog,
-  ModifyEndpointResponse,
-  ModifyEndpointResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ModifyEndpointCommand, se_ModifyEndpointCommand } from "../protocols/Aws_json1_1";
+import { ModifyEndpointMessage, ModifyEndpointResponse } from "../models/models_1";
+import { ModifyEndpoint } from "../schemas/schemas_3_Data";
 
 /**
  * @public
@@ -843,16 +837,11 @@ export class ModifyEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "ModifyEndpoint", {})
   .n("DatabaseMigrationServiceClient", "ModifyEndpointCommand")
-  .f(ModifyEndpointMessageFilterSensitiveLog, ModifyEndpointResponseFilterSensitiveLog)
-  .ser(se_ModifyEndpointCommand)
-  .de(de_ModifyEndpointCommand)
+  .sc(ModifyEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

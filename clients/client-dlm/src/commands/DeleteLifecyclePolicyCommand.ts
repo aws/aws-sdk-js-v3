@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse } from "../models/models_0";
-import { de_DeleteLifecyclePolicyCommand, se_DeleteLifecyclePolicyCommand } from "../protocols/Aws_restJson1";
+import { DeleteLifecyclePolicy } from "../schemas/schemas_1_Lifecycle";
 
 /**
  * @public
@@ -80,16 +79,11 @@ export class DeleteLifecyclePolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DLMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("dlm_20180112", "DeleteLifecyclePolicy", {})
   .n("DLMClient", "DeleteLifecyclePolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteLifecyclePolicyCommand)
-  .de(de_DeleteLifecyclePolicyCommand)
+  .sc(DeleteLifecyclePolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

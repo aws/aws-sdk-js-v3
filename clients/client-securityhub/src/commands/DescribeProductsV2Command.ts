@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeProductsV2Request, DescribeProductsV2Response } from "../models/models_2";
-import { de_DescribeProductsV2Command, se_DescribeProductsV2Command } from "../protocols/Aws_restJson1";
+import { DescribeProductsV2 } from "../schemas/schemas_8_Describe";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -105,16 +104,11 @@ export class DescribeProductsV2Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "DescribeProductsV2", {})
   .n("SecurityHubClient", "DescribeProductsV2Command")
-  .f(void 0, void 0)
-  .ser(se_DescribeProductsV2Command)
-  .de(de_DescribeProductsV2Command)
+  .sc(DescribeProductsV2)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

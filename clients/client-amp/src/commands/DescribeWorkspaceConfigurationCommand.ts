@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeWorkspaceConfigurationRequest, DescribeWorkspaceConfigurationResponse } from "../models/models_0";
-import {
-  de_DescribeWorkspaceConfigurationCommand,
-  se_DescribeWorkspaceConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeWorkspaceConfiguration } from "../schemas/schemas_6_Configuration";
 
 /**
  * @public
@@ -106,16 +102,11 @@ export class DescribeWorkspaceConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPrometheusService", "DescribeWorkspaceConfiguration", {})
   .n("AmpClient", "DescribeWorkspaceConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeWorkspaceConfigurationCommand)
-  .de(de_DescribeWorkspaceConfigurationCommand)
+  .sc(DescribeWorkspaceConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

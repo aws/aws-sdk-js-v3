@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetCredentialsRequest,
-  GetCredentialsResponse,
-  GetCredentialsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetCredentialsCommand, se_GetCredentialsCommand } from "../protocols/Aws_json1_1";
+import { GetCredentialsRequest, GetCredentialsResponse } from "../models/models_0";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
+import { GetCredentials } from "../schemas/schemas_4_CustomDomain";
 
 /**
  * @public
@@ -101,16 +96,11 @@ export class GetCredentialsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServerless", "GetCredentials", {})
   .n("RedshiftServerlessClient", "GetCredentialsCommand")
-  .f(void 0, GetCredentialsResponseFilterSensitiveLog)
-  .ser(se_GetCredentialsCommand)
-  .de(de_GetCredentialsCommand)
+  .sc(GetCredentials)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

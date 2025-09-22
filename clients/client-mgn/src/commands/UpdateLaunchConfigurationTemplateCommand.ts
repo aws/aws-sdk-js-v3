@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  LaunchConfigurationTemplate,
-  LaunchConfigurationTemplateFilterSensitiveLog,
-  UpdateLaunchConfigurationTemplateRequest,
-} from "../models/models_0";
-import {
-  de_UpdateLaunchConfigurationTemplateCommand,
-  se_UpdateLaunchConfigurationTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { LaunchConfigurationTemplate, UpdateLaunchConfigurationTemplateRequest } from "../models/models_0";
+import { UpdateLaunchConfigurationTemplate } from "../schemas/schemas_22_Configuration";
 
 /**
  * @public
@@ -192,16 +184,11 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationMigrationService", "UpdateLaunchConfigurationTemplate", {})
   .n("MgnClient", "UpdateLaunchConfigurationTemplateCommand")
-  .f(void 0, LaunchConfigurationTemplateFilterSensitiveLog)
-  .ser(se_UpdateLaunchConfigurationTemplateCommand)
-  .de(de_UpdateLaunchConfigurationTemplateCommand)
+  .sc(UpdateLaunchConfigurationTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

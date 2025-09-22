@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import {
-  PutSessionRequest,
-  PutSessionRequestFilterSensitiveLog,
-  PutSessionResponse,
-  PutSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_PutSessionCommand, se_PutSessionCommand } from "../protocols/Aws_restJson1";
+import { PutSessionRequest, PutSessionResponse } from "../models/models_0";
+import { PutSession } from "../schemas/schemas_1_Session";
 
 /**
  * @public
@@ -186,16 +180,11 @@ export class PutSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepSenseRunTimeService", "PutSession", {})
   .n("LexRuntimeServiceClient", "PutSessionCommand")
-  .f(PutSessionRequestFilterSensitiveLog, PutSessionResponseFilterSensitiveLog)
-  .ser(se_PutSessionCommand)
-  .de(de_PutSessionCommand)
+  .sc(PutSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

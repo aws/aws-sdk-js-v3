@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAccountAssociationsInput,
-  ListAccountAssociationsOutput,
-  ListAccountAssociationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListAccountAssociationsCommand, se_ListAccountAssociationsCommand } from "../protocols/Aws_restJson1";
+import { ListAccountAssociationsInput, ListAccountAssociationsOutput } from "../models/models_0";
+import { ListAccountAssociations } from "../schemas/schemas_5_List";
 
 /**
  * @public
@@ -112,16 +107,11 @@ export class ListAccountAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBillingConductor", "ListAccountAssociations", {})
   .n("BillingconductorClient", "ListAccountAssociationsCommand")
-  .f(void 0, ListAccountAssociationsOutputFilterSensitiveLog)
-  .ser(se_ListAccountAssociationsCommand)
-  .de(de_ListAccountAssociationsCommand)
+  .sc(ListAccountAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

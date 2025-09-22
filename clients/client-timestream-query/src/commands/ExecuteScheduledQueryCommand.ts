@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ExecuteScheduledQueryRequest, ExecuteScheduledQueryRequestFilterSensitiveLog } from "../models/models_0";
-import { de_ExecuteScheduledQueryCommand, se_ExecuteScheduledQueryCommand } from "../protocols/Aws_json1_0";
+import { ExecuteScheduledQueryRequest } from "../models/models_0";
+import { ExecuteScheduledQuery } from "../schemas/schemas_1_Query";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
@@ -94,7 +93,6 @@ export class ExecuteScheduledQueryCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEndpointDiscoveryPlugin(config, {
         clientStack: cs,
@@ -105,9 +103,7 @@ export class ExecuteScheduledQueryCommand extends $Command
   })
   .s("Timestream_20181101", "ExecuteScheduledQuery", {})
   .n("TimestreamQueryClient", "ExecuteScheduledQueryCommand")
-  .f(ExecuteScheduledQueryRequestFilterSensitiveLog, void 0)
-  .ser(se_ExecuteScheduledQueryCommand)
-  .de(de_ExecuteScheduledQueryCommand)
+  .sc(ExecuteScheduledQuery)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

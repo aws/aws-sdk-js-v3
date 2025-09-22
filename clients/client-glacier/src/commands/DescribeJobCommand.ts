@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { DescribeJobInput, GlacierJobDescription } from "../models/models_0";
-import { de_DescribeJobCommand, se_DescribeJobCommand } from "../protocols/Aws_restJson1";
+import { DescribeJob } from "../schemas/schemas_2_Job";
 
 /**
  * @public
@@ -211,16 +210,11 @@ export class DescribeJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Glacier", "DescribeJob", {})
   .n("GlacierClient", "DescribeJobCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeJobCommand)
-  .de(de_DescribeJobCommand)
+  .sc(DescribeJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

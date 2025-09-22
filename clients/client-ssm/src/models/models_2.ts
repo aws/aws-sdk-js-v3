@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import {
   AlarmConfiguration,
   AssociationComplianceSeverity,
   AssociationDescription,
-  AssociationDescriptionFilterSensitiveLog,
   AssociationStatus,
   AssociationSyncCompliance,
   AttachmentsSource,
@@ -25,7 +24,6 @@ import {
   PatchFilterGroup,
   PatchRuleGroup,
   PatchSource,
-  PatchSourceFilterSensitiveLog,
   RelatedOpsItem,
   ResourceDataSyncSource,
   ResourceTypeForTagging,
@@ -38,7 +36,6 @@ import {
 import {
   CloudWatchOutputConfig,
   Command,
-  CommandFilterSensitiveLog,
   DocumentReviewCommentSource,
   InventoryFilter,
   InventoryGroup,
@@ -46,7 +43,6 @@ import {
   MaintenanceWindowResourceType,
   MaintenanceWindowTaskCutoffBehavior,
   MaintenanceWindowTaskInvocationParameters,
-  MaintenanceWindowTaskInvocationParametersFilterSensitiveLog,
   MaintenanceWindowTaskParameterValueExpression,
   NodeAggregatorType,
   NodeAttributeName,
@@ -3854,150 +3850,3 @@ export interface ListNodesSummaryRequest {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @internal
- */
-export const RegisterTargetWithMaintenanceWindowRequestFilterSensitiveLog = (
-  obj: RegisterTargetWithMaintenanceWindowRequest
-): any => ({
-  ...obj,
-  ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RegisterTaskWithMaintenanceWindowRequestFilterSensitiveLog = (
-  obj: RegisterTaskWithMaintenanceWindowRequest
-): any => ({
-  ...obj,
-  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-  ...(obj.TaskInvocationParameters && {
-    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
-  }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SendCommandRequestFilterSensitiveLog = (obj: SendCommandRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SendCommandResultFilterSensitiveLog = (obj: SendCommandResult): any => ({
-  ...obj,
-  ...(obj.Command && { Command: CommandFilterSensitiveLog(obj.Command) }),
-});
-
-/**
- * @internal
- */
-export const UpdateAssociationRequestFilterSensitiveLog = (obj: UpdateAssociationRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAssociationResultFilterSensitiveLog = (obj: UpdateAssociationResult): any => ({
-  ...obj,
-  ...(obj.AssociationDescription && {
-    AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateAssociationStatusResultFilterSensitiveLog = (obj: UpdateAssociationStatusResult): any => ({
-  ...obj,
-  ...(obj.AssociationDescription && {
-    AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateMaintenanceWindowRequestFilterSensitiveLog = (obj: UpdateMaintenanceWindowRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateMaintenanceWindowResultFilterSensitiveLog = (obj: UpdateMaintenanceWindowResult): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateMaintenanceWindowTargetRequestFilterSensitiveLog = (
-  obj: UpdateMaintenanceWindowTargetRequest
-): any => ({
-  ...obj,
-  ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateMaintenanceWindowTargetResultFilterSensitiveLog = (
-  obj: UpdateMaintenanceWindowTargetResult
-): any => ({
-  ...obj,
-  ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateMaintenanceWindowTaskRequestFilterSensitiveLog = (obj: UpdateMaintenanceWindowTaskRequest): any => ({
-  ...obj,
-  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-  ...(obj.TaskInvocationParameters && {
-    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
-  }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateMaintenanceWindowTaskResultFilterSensitiveLog = (obj: UpdateMaintenanceWindowTaskResult): any => ({
-  ...obj,
-  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-  ...(obj.TaskInvocationParameters && {
-    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
-  }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdatePatchBaselineRequestFilterSensitiveLog = (obj: UpdatePatchBaselineRequest): any => ({
-  ...obj,
-  ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdatePatchBaselineResultFilterSensitiveLog = (obj: UpdatePatchBaselineResult): any => ({
-  ...obj,
-  ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
-});

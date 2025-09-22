@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListUserPoolClientsRequest,
-  ListUserPoolClientsResponse,
-  ListUserPoolClientsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ListUserPoolClientsCommand, se_ListUserPoolClientsCommand } from "../protocols/Aws_json1_1";
+import { ListUserPoolClientsRequest, ListUserPoolClientsResponse } from "../models/models_1";
+import { ListUserPoolClients } from "../schemas/schemas_6_List";
 
 /**
  * @public
@@ -126,16 +121,11 @@ export class ListUserPoolClientsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "ListUserPoolClients", {})
   .n("CognitoIdentityProviderClient", "ListUserPoolClientsCommand")
-  .f(void 0, ListUserPoolClientsResponseFilterSensitiveLog)
-  .ser(se_ListUserPoolClientsCommand)
-  .de(de_ListUserPoolClientsCommand)
+  .sc(ListUserPoolClients)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

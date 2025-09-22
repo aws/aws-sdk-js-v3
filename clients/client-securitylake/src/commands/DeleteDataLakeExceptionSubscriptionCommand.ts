@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   DeleteDataLakeExceptionSubscriptionRequest,
   DeleteDataLakeExceptionSubscriptionResponse,
 } from "../models/models_0";
-import {
-  de_DeleteDataLakeExceptionSubscriptionCommand,
-  se_DeleteDataLakeExceptionSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDataLakeExceptionSubscription } from "../schemas/schemas_6_DeleteDataLakeExceptionSubscription";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -100,16 +96,11 @@ export class DeleteDataLakeExceptionSubscriptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityLake", "DeleteDataLakeExceptionSubscription", {})
   .n("SecurityLakeClient", "DeleteDataLakeExceptionSubscriptionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDataLakeExceptionSubscriptionCommand)
-  .de(de_DeleteDataLakeExceptionSubscriptionCommand)
+  .sc(DeleteDataLakeExceptionSubscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { OpenSearchServiceException as __BaseException } from "./OpenSearchServiceException";
 
@@ -7796,39 +7796,3 @@ export interface DomainInfo {
    */
   EngineType?: EngineType | undefined;
 }
-
-/**
- * @internal
- */
-export const MasterUserOptionsFilterSensitiveLog = (obj: MasterUserOptions): any => ({
-  ...obj,
-  ...(obj.MasterUserName && { MasterUserName: SENSITIVE_STRING }),
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SAMLOptionsInputFilterSensitiveLog = (obj: SAMLOptionsInput): any => ({
-  ...obj,
-  ...(obj.MasterUserName && { MasterUserName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AdvancedSecurityOptionsInputFilterSensitiveLog = (obj: AdvancedSecurityOptionsInput): any => ({
-  ...obj,
-  ...(obj.MasterUserOptions && { MasterUserOptions: MasterUserOptionsFilterSensitiveLog(obj.MasterUserOptions) }),
-  ...(obj.SAMLOptions && { SAMLOptions: SAMLOptionsInputFilterSensitiveLog(obj.SAMLOptions) }),
-});
-
-/**
- * @internal
- */
-export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest): any => ({
-  ...obj,
-  ...(obj.AdvancedSecurityOptions && {
-    AdvancedSecurityOptions: AdvancedSecurityOptionsInputFilterSensitiveLog(obj.AdvancedSecurityOptions),
-  }),
-});

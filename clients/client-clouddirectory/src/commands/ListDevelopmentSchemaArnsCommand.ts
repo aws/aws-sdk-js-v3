@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDevelopmentSchemaArnsRequest, ListDevelopmentSchemaArnsResponse } from "../models/models_0";
-import { de_ListDevelopmentSchemaArnsCommand, se_ListDevelopmentSchemaArnsCommand } from "../protocols/Aws_restJson1";
+import { ListDevelopmentSchemaArns } from "../schemas/schemas_7_Schema";
 
 /**
  * @public
@@ -120,16 +119,11 @@ export class ListDevelopmentSchemaArnsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonCloudDirectory_20170111", "ListDevelopmentSchemaArns", {})
   .n("CloudDirectoryClient", "ListDevelopmentSchemaArnsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDevelopmentSchemaArnsCommand)
-  .de(de_ListDevelopmentSchemaArnsCommand)
+  .sc(ListDevelopmentSchemaArns)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

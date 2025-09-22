@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateRepositoryCreationTemplateRequest, CreateRepositoryCreationTemplateResponse } from "../models/models_0";
-import {
-  de_CreateRepositoryCreationTemplateCommand,
-  se_CreateRepositoryCreationTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateRepositoryCreationTemplate } from "../schemas/schemas_5_Pull";
 
 /**
  * @public
@@ -151,16 +147,11 @@ export class CreateRepositoryCreationTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "CreateRepositoryCreationTemplate", {})
   .n("ECRClient", "CreateRepositoryCreationTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateRepositoryCreationTemplateCommand)
-  .de(de_CreateRepositoryCreationTemplateCommand)
+  .sc(CreateRepositoryCreationTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

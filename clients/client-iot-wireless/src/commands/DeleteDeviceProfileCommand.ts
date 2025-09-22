@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { DeleteDeviceProfileRequest, DeleteDeviceProfileResponse } from "../models/models_0";
-import { de_DeleteDeviceProfileCommand, se_DeleteDeviceProfileCommand } from "../protocols/Aws_restJson1";
+import { DeleteDeviceProfile } from "../schemas/schemas_15_Device";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class DeleteDeviceProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "DeleteDeviceProfile", {})
   .n("IoTWirelessClient", "DeleteDeviceProfileCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDeviceProfileCommand)
-  .de(de_DeleteDeviceProfileCommand)
+  .sc(DeleteDeviceProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

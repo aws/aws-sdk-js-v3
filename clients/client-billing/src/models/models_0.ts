@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BillingServiceException as __BaseException } from "./BillingServiceException";
 
@@ -794,57 +794,3 @@ export interface UpdateBillingViewResponse {
    */
   updatedAt?: Date | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateBillingViewRequestFilterSensitiveLog = (obj: CreateBillingViewRequest): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BillingViewElementFilterSensitiveLog = (obj: BillingViewElement): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetBillingViewResponseFilterSensitiveLog = (obj: GetBillingViewResponse): any => ({
-  ...obj,
-  ...(obj.billingView && { billingView: BillingViewElementFilterSensitiveLog(obj.billingView) }),
-});
-
-/**
- * @internal
- */
-export const BillingViewListElementFilterSensitiveLog = (obj: BillingViewListElement): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListBillingViewsResponseFilterSensitiveLog = (obj: ListBillingViewsResponse): any => ({
-  ...obj,
-  ...(obj.billingViews && {
-    billingViews: obj.billingViews.map((item) => BillingViewListElementFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateBillingViewRequestFilterSensitiveLog = (obj: UpdateBillingViewRequest): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});

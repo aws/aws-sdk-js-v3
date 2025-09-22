@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { GetDetectorModelAnalysisResultsRequest, GetDetectorModelAnalysisResultsResponse } from "../models/models_0";
-import {
-  de_GetDetectorModelAnalysisResultsCommand,
-  se_GetDetectorModelAnalysisResultsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDetectorModelAnalysisResults } from "../schemas/schemas_2_List";
 
 /**
  * @public
@@ -107,16 +103,11 @@ export class GetDetectorModelAnalysisResultsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotColumboService", "GetDetectorModelAnalysisResults", {})
   .n("IoTEventsClient", "GetDetectorModelAnalysisResultsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDetectorModelAnalysisResultsCommand)
-  .de(de_GetDetectorModelAnalysisResultsCommand)
+  .sc(GetDetectorModelAnalysisResults)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

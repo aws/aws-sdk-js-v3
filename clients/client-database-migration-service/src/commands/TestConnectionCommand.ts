@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { TestConnectionMessage, TestConnectionResponse } from "../models/models_1";
-import { de_TestConnectionCommand, se_TestConnectionCommand } from "../protocols/Aws_json1_1";
+import { TestConnection } from "../schemas/schemas_40_Connection";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class TestConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "TestConnection", {})
   .n("DatabaseMigrationServiceClient", "TestConnectionCommand")
-  .f(void 0, void 0)
-  .ser(se_TestConnectionCommand)
-  .de(de_TestConnectionCommand)
+  .sc(TestConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

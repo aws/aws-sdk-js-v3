@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeInstanceCreditSpecificationsRequest,
   DescribeInstanceCreditSpecificationsResult,
 } from "../models/models_4";
-import {
-  de_DescribeInstanceCreditSpecificationsCommand,
-  se_DescribeInstanceCreditSpecificationsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeInstanceCreditSpecifications } from "../schemas/schemas_228_DescribeInstanceCreditSpecifications";
 
 /**
  * @public
@@ -116,16 +112,11 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeInstanceCreditSpecifications", {})
   .n("EC2Client", "DescribeInstanceCreditSpecificationsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeInstanceCreditSpecificationsCommand)
-  .de(de_DescribeInstanceCreditSpecificationsCommand)
+  .sc(DescribeInstanceCreditSpecifications)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

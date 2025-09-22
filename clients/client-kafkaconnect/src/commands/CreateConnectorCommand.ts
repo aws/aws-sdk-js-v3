@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  CreateConnectorRequest,
-  CreateConnectorRequestFilterSensitiveLog,
-  CreateConnectorResponse,
-} from "../models/models_0";
-import { de_CreateConnectorCommand, se_CreateConnectorCommand } from "../protocols/Aws_restJson1";
+import { CreateConnectorRequest, CreateConnectorResponse } from "../models/models_0";
+import { CreateConnector } from "../schemas/schemas_3_Create";
 
 /**
  * @public
@@ -181,16 +176,11 @@ export class CreateConnectorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KafkaConnect", "CreateConnector", {})
   .n("KafkaConnectClient", "CreateConnectorCommand")
-  .f(CreateConnectorRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateConnectorCommand)
-  .de(de_CreateConnectorCommand)
+  .sc(CreateConnector)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

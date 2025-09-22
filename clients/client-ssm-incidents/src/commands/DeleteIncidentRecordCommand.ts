@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteIncidentRecordInput, DeleteIncidentRecordOutput } from "../models/models_0";
-import { de_DeleteIncidentRecordCommand, se_DeleteIncidentRecordCommand } from "../protocols/Aws_restJson1";
+import { DeleteIncidentRecord } from "../schemas/schemas_11_DeleteIncidentRecord";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -82,16 +81,11 @@ export class DeleteIncidentRecordCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SSMIncidents", "DeleteIncidentRecord", {})
   .n("SSMIncidentsClient", "DeleteIncidentRecordCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteIncidentRecordCommand)
-  .de(de_DeleteIncidentRecordCommand)
+  .sc(DeleteIncidentRecord)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

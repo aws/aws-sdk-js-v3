@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteVpcConnectorRequest, DeleteVpcConnectorResponse } from "../models/models_0";
-import { de_DeleteVpcConnectorCommand, se_DeleteVpcConnectorCommand } from "../protocols/Aws_json1_0";
+import { DeleteVpcConnector } from "../schemas/schemas_7_Vpc";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class DeleteVpcConnectorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AppRunner", "DeleteVpcConnector", {})
   .n("AppRunnerClient", "DeleteVpcConnectorCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteVpcConnectorCommand)
-  .de(de_DeleteVpcConnectorCommand)
+  .sc(DeleteVpcConnector)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

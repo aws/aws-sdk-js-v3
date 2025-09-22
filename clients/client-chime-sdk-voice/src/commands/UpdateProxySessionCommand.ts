@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateProxySessionRequest,
-  UpdateProxySessionResponse,
-  UpdateProxySessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateProxySessionCommand, se_UpdateProxySessionCommand } from "../protocols/Aws_restJson1";
+import { UpdateProxySessionRequest, UpdateProxySessionResponse } from "../models/models_0";
+import { UpdateProxySession } from "../schemas/schemas_6_Proxy";
 
 /**
  * @public
@@ -124,16 +119,11 @@ export class UpdateProxySessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "UpdateProxySession", {})
   .n("ChimeSDKVoiceClient", "UpdateProxySessionCommand")
-  .f(void 0, UpdateProxySessionResponseFilterSensitiveLog)
-  .ser(se_UpdateProxySessionCommand)
-  .de(de_UpdateProxySessionCommand)
+  .sc(UpdateProxySession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

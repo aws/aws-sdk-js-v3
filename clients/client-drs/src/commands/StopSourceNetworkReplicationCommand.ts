@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StopSourceNetworkReplicationRequest,
-  StopSourceNetworkReplicationResponse,
-  StopSourceNetworkReplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_StopSourceNetworkReplicationCommand,
-  se_StopSourceNetworkReplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { StopSourceNetworkReplicationRequest, StopSourceNetworkReplicationResponse } from "../models/models_0";
+import { StopSourceNetworkReplication } from "../schemas/schemas_8_Source";
 
 /**
  * @public
@@ -115,16 +107,11 @@ export class StopSourceNetworkReplicationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticDisasterRecoveryService", "StopSourceNetworkReplication", {})
   .n("DrsClient", "StopSourceNetworkReplicationCommand")
-  .f(void 0, StopSourceNetworkReplicationResponseFilterSensitiveLog)
-  .ser(se_StopSourceNetworkReplicationCommand)
-  .de(de_StopSourceNetworkReplicationCommand)
+  .sc(StopSourceNetworkReplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

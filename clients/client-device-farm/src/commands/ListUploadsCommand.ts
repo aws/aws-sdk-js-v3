@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUploadsRequest, ListUploadsResult, ListUploadsResultFilterSensitiveLog } from "../models/models_0";
-import { de_ListUploadsCommand, se_ListUploadsCommand } from "../protocols/Aws_json1_1";
+import { ListUploadsRequest, ListUploadsResult } from "../models/models_0";
+import { ListUploads } from "../schemas/schemas_13_Upload";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class ListUploadsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "ListUploads", {})
   .n("DeviceFarmClient", "ListUploadsCommand")
-  .f(void 0, ListUploadsResultFilterSensitiveLog)
-  .ser(se_ListUploadsCommand)
-  .de(de_ListUploadsCommand)
+  .sc(ListUploads)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

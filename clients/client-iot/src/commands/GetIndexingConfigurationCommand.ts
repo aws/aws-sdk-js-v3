@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetIndexingConfigurationRequest, GetIndexingConfigurationResponse } from "../models/models_1";
-import { de_GetIndexingConfigurationCommand, se_GetIndexingConfigurationCommand } from "../protocols/Aws_restJson1";
+import { GetIndexingConfiguration } from "../schemas/schemas_3_Configuration";
 
 /**
  * @public
@@ -127,16 +126,11 @@ export class GetIndexingConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "GetIndexingConfiguration", {})
   .n("IoTClient", "GetIndexingConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIndexingConfigurationCommand)
-  .de(de_GetIndexingConfigurationCommand)
+  .sc(GetIndexingConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

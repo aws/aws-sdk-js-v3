@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteCustomModelRequest, DeleteCustomModelResponse } from "../models/models_0";
-import { de_DeleteCustomModelCommand, se_DeleteCustomModelCommand } from "../protocols/Aws_restJson1";
+import { DeleteCustomModel } from "../schemas/schemas_4_Model";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class DeleteCustomModelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "DeleteCustomModel", {})
   .n("BedrockClient", "DeleteCustomModelCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCustomModelCommand)
-  .de(de_DeleteCustomModelCommand)
+  .sc(DeleteCustomModel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

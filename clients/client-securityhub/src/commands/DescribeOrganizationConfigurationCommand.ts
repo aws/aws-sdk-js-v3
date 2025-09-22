@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   DescribeOrganizationConfigurationRequest,
   DescribeOrganizationConfigurationResponse,
 } from "../models/models_2";
-import {
-  de_DescribeOrganizationConfigurationCommand,
-  se_DescribeOrganizationConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeOrganizationConfiguration } from "../schemas/schemas_44_Organization";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -117,16 +113,11 @@ export class DescribeOrganizationConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "DescribeOrganizationConfiguration", {})
   .n("SecurityHubClient", "DescribeOrganizationConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeOrganizationConfigurationCommand)
-  .de(de_DescribeOrganizationConfigurationCommand)
+  .sc(DescribeOrganizationConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

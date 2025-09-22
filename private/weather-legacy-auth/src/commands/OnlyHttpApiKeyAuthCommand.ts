@@ -2,10 +2,9 @@
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { getHttpApiKeyAuthPlugin } from "../middleware/HttpApiKeyAuth";
-import { de_OnlyHttpApiKeyAuthCommand, se_OnlyHttpApiKeyAuthCommand } from "../protocols/Aws_restJson1";
+import { OnlyHttpApiKeyAuth } from "../schemas/schemas_10_OnlyHttpApiKeyAuth";
 import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -67,7 +66,6 @@ export class OnlyHttpApiKeyAuthCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getSigV4AuthPlugin(config),
       getHttpApiKeyAuthPlugin(config, {
@@ -78,9 +76,7 @@ export class OnlyHttpApiKeyAuthCommand extends $Command
   })
   .s("Weather", "OnlyHttpApiKeyAuth", {})
   .n("WeatherClient", "OnlyHttpApiKeyAuthCommand")
-  .f(void 0, void 0)
-  .ser(se_OnlyHttpApiKeyAuthCommand)
-  .de(de_OnlyHttpApiKeyAuthCommand)
+  .sc(OnlyHttpApiKeyAuth)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

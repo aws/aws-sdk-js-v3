@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,14 +7,9 @@ import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateCalculatedAttributeDefinitionRequest,
-  CreateCalculatedAttributeDefinitionRequestFilterSensitiveLog,
   CreateCalculatedAttributeDefinitionResponse,
-  CreateCalculatedAttributeDefinitionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_CreateCalculatedAttributeDefinitionCommand,
-  se_CreateCalculatedAttributeDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateCalculatedAttributeDefinition } from "../schemas/schemas_1_Calculated";
 
 /**
  * @public
@@ -212,19 +206,11 @@ export class CreateCalculatedAttributeDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "CreateCalculatedAttributeDefinition", {})
   .n("CustomerProfilesClient", "CreateCalculatedAttributeDefinitionCommand")
-  .f(
-    CreateCalculatedAttributeDefinitionRequestFilterSensitiveLog,
-    CreateCalculatedAttributeDefinitionResponseFilterSensitiveLog
-  )
-  .ser(se_CreateCalculatedAttributeDefinitionCommand)
-  .de(de_CreateCalculatedAttributeDefinitionCommand)
+  .sc(CreateCalculatedAttributeDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

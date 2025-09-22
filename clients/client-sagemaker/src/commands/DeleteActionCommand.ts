@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteActionRequest, DeleteActionResponse } from "../models/models_2";
-import { de_DeleteActionCommand, se_DeleteActionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DeleteAction } from "../schemas/schemas_149_Action";
 
 /**
  * @public
@@ -73,16 +72,11 @@ export class DeleteActionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "DeleteAction", {})
   .n("SageMakerClient", "DeleteActionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteActionCommand)
-  .de(de_DeleteActionCommand)
+  .sc(DeleteAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

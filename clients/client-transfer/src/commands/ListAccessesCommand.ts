@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAccessesRequest, ListAccessesResponse } from "../models/models_0";
-import { de_ListAccessesCommand, se_ListAccessesCommand } from "../protocols/Aws_json1_1";
+import { ListAccesses } from "../schemas/schemas_7_User";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -96,16 +95,11 @@ export class ListAccessesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TransferService", "ListAccesses", {})
   .n("TransferClient", "ListAccessesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAccessesCommand)
-  .de(de_ListAccessesCommand)
+  .sc(ListAccesses)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

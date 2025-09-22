@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
 import { GetIceServerConfigRequest, GetIceServerConfigResponse } from "../models/models_0";
-import { de_GetIceServerConfigCommand, se_GetIceServerConfigCommand } from "../protocols/Aws_restJson1";
+import { GetIceServerConfig } from "../schemas/schemas_1_";
 
 /**
  * @public
@@ -120,16 +119,11 @@ export class GetIceServerConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoSignalingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSAcuitySignalingService", "GetIceServerConfig", {})
   .n("KinesisVideoSignalingClient", "GetIceServerConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIceServerConfigCommand)
-  .de(de_GetIceServerConfigCommand)
+  .sc(GetIceServerConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateConnectPeerRequest, CreateConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { de_CreateConnectPeerCommand, se_CreateConnectPeerCommand } from "../protocols/Aws_restJson1";
+import { CreateConnectPeer } from "../schemas/schemas_13_Connect";
 
 /**
  * @public
@@ -144,16 +143,11 @@ export class CreateConnectPeerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkManager", "CreateConnectPeer", {})
   .n("NetworkManagerClient", "CreateConnectPeerCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateConnectPeerCommand)
-  .de(de_CreateConnectPeerCommand)
+  .sc(CreateConnectPeer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

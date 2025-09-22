@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAccountAssignmentsRequest, ListAccountAssignmentsResponse } from "../models/models_0";
-import { de_ListAccountAssignmentsCommand, se_ListAccountAssignmentsCommand } from "../protocols/Aws_json1_1";
+import { ListAccountAssignments } from "../schemas/schemas_5_Assignment";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -97,16 +96,11 @@ export class ListAccountAssignmentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SWBExternalService", "ListAccountAssignments", {})
   .n("SSOAdminClient", "ListAccountAssignmentsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAccountAssignmentsCommand)
-  .de(de_ListAccountAssignmentsCommand)
+  .sc(ListAccountAssignments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

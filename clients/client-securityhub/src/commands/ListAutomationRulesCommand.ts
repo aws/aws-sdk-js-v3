@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAutomationRulesRequest, ListAutomationRulesResponse } from "../models/models_3";
-import { de_ListAutomationRulesCommand, se_ListAutomationRulesCommand } from "../protocols/Aws_restJson1";
+import { ListAutomationRules } from "../schemas/schemas_40_Automation";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -141,16 +140,11 @@ export class ListAutomationRulesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "ListAutomationRules", {})
   .n("SecurityHubClient", "ListAutomationRulesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAutomationRulesCommand)
-  .de(de_ListAutomationRulesCommand)
+  .sc(ListAutomationRules)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

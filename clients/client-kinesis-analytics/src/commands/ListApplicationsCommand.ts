@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import { ListApplicationsRequest, ListApplicationsResponse } from "../models/models_0";
-import { de_ListApplicationsCommand, se_ListApplicationsCommand } from "../protocols/Aws_json1_1";
+import { ListApplications } from "../schemas/schemas_1_Application";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class ListApplicationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KinesisAnalytics_20150814", "ListApplications", {})
   .n("KinesisAnalyticsClient", "ListApplicationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListApplicationsCommand)
-  .de(de_ListApplicationsCommand)
+  .sc(ListApplications)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ChangePasswordRequest,
-  ChangePasswordRequestFilterSensitiveLog,
-  ChangePasswordResponse,
-} from "../models/models_0";
-import { de_ChangePasswordCommand, se_ChangePasswordCommand } from "../protocols/Aws_json1_1";
+import { ChangePasswordRequest, ChangePasswordResponse } from "../models/models_0";
+import { ChangePassword } from "../schemas/schemas_28_Admin";
 
 /**
  * @public
@@ -127,16 +122,11 @@ export class ChangePasswordCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "ChangePassword", {})
   .n("CognitoIdentityProviderClient", "ChangePasswordCommand")
-  .f(ChangePasswordRequestFilterSensitiveLog, void 0)
-  .ser(se_ChangePasswordCommand)
-  .de(de_ChangePasswordCommand)
+  .sc(ChangePassword)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

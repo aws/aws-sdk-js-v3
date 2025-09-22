@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateBatchLoadTaskRequest,
-  CreateBatchLoadTaskRequestFilterSensitiveLog,
-  CreateBatchLoadTaskResponse,
-} from "../models/models_0";
-import { de_CreateBatchLoadTaskCommand, se_CreateBatchLoadTaskCommand } from "../protocols/Aws_json1_0";
+import { CreateBatchLoadTaskRequest, CreateBatchLoadTaskResponse } from "../models/models_0";
+import { CreateBatchLoadTask } from "../schemas/schemas_1_Table";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -180,7 +175,6 @@ export class CreateBatchLoadTaskCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEndpointDiscoveryPlugin(config, {
         clientStack: cs,
@@ -191,9 +185,7 @@ export class CreateBatchLoadTaskCommand extends $Command
   })
   .s("Timestream_20181101", "CreateBatchLoadTask", {})
   .n("TimestreamWriteClient", "CreateBatchLoadTaskCommand")
-  .f(CreateBatchLoadTaskRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateBatchLoadTaskCommand)
-  .de(de_CreateBatchLoadTaskCommand)
+  .sc(CreateBatchLoadTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

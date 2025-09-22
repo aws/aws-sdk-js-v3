@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DeleteVpcBlockPublicAccessExclusionRequest,
   DeleteVpcBlockPublicAccessExclusionResult,
 } from "../models/models_3";
-import {
-  de_DeleteVpcBlockPublicAccessExclusionCommand,
-  se_DeleteVpcBlockPublicAccessExclusionCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteVpcBlockPublicAccessExclusion } from "../schemas/schemas_195_VpcBlock";
 
 /**
  * @public
@@ -94,16 +90,11 @@ export class DeleteVpcBlockPublicAccessExclusionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DeleteVpcBlockPublicAccessExclusion", {})
   .n("EC2Client", "DeleteVpcBlockPublicAccessExclusionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteVpcBlockPublicAccessExclusionCommand)
-  .de(de_DeleteVpcBlockPublicAccessExclusionCommand)
+  .sc(DeleteVpcBlockPublicAccessExclusion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

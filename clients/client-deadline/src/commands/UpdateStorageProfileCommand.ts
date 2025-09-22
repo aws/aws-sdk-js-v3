@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateStorageProfileRequest,
-  UpdateStorageProfileRequestFilterSensitiveLog,
-  UpdateStorageProfileResponse,
-} from "../models/models_1";
-import { de_UpdateStorageProfileCommand, se_UpdateStorageProfileCommand } from "../protocols/Aws_restJson1";
+import { UpdateStorageProfileRequest, UpdateStorageProfileResponse } from "../models/models_1";
+import { UpdateStorageProfile } from "../schemas/schemas_15_Get";
 
 /**
  * @public
@@ -106,16 +101,11 @@ export class UpdateStorageProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "UpdateStorageProfile", {})
   .n("DeadlineClient", "UpdateStorageProfileCommand")
-  .f(UpdateStorageProfileRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateStorageProfileCommand)
-  .de(de_UpdateStorageProfileCommand)
+  .sc(UpdateStorageProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

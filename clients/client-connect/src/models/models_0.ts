@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 
@@ -7455,92 +7455,3 @@ export interface DeleteInstanceRequest {
    */
   ClientToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateEmailAddressRequestFilterSensitiveLog = (obj: CreateEmailAddressRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
-  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateInstanceRequestFilterSensitiveLog = (obj: CreateInstanceRequest): any => ({
-  ...obj,
-  ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UserIdentityInfoFilterSensitiveLog = (obj: UserIdentityInfo): any => ({
-  ...obj,
-  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
-  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-  ...(obj.Email && { Email: SENSITIVE_STRING }),
-  ...(obj.SecondaryEmail && { SecondaryEmail: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-  ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
-});
-
-/**
- * @internal
- */
-export const ViewInputContentFilterSensitiveLog = (obj: ViewInputContent): any => ({
-  ...obj,
-  ...(obj.Actions && { Actions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateViewRequestFilterSensitiveLog = (obj: CreateViewRequest): any => ({
-  ...obj,
-  ...(obj.Content && { Content: ViewInputContentFilterSensitiveLog(obj.Content) }),
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ViewContentFilterSensitiveLog = (obj: ViewContent): any => ({
-  ...obj,
-  ...(obj.InputSchema && { InputSchema: SENSITIVE_STRING }),
-  ...(obj.Actions && { Actions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ViewFilterSensitiveLog = (obj: View): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Content && { Content: ViewContentFilterSensitiveLog(obj.Content) }),
-});
-
-/**
- * @internal
- */
-export const CreateViewResponseFilterSensitiveLog = (obj: CreateViewResponse): any => ({
-  ...obj,
-  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-
-/**
- * @internal
- */
-export const CreateViewVersionResponseFilterSensitiveLog = (obj: CreateViewVersionResponse): any => ({
-  ...obj,
-  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});

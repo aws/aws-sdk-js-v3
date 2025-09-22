@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetPermissionPolicyRequest, GetPermissionPolicyResponse } from "../models/models_0";
-import { de_GetPermissionPolicyCommand, se_GetPermissionPolicyCommand } from "../protocols/Aws_json1_1";
+import { GetPermissionPolicy } from "../schemas/schemas_15_Policy";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -102,16 +101,11 @@ export class GetPermissionPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20190729", "GetPermissionPolicy", {})
   .n("WAFV2Client", "GetPermissionPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetPermissionPolicyCommand)
-  .de(de_GetPermissionPolicyCommand)
+  .sc(GetPermissionPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

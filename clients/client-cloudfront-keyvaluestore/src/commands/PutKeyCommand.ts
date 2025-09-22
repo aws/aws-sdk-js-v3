@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CloudFrontKeyValueStoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutKeyRequest, PutKeyRequestFilterSensitiveLog, PutKeyResponse } from "../models/models_0";
-import { de_PutKeyCommand, se_PutKeyCommand } from "../protocols/Aws_restJson1";
+import { PutKeyRequest, PutKeyResponse } from "../models/models_0";
+import { PutKey } from "../schemas/schemas_1_Key";
 
 /**
  * @public
@@ -120,16 +119,11 @@ export class PutKeyCommand extends $Command
     KvsARN: { type: "contextParams", name: "KvsARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: CloudFrontKeyValueStoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudFrontKeyValueStore", "PutKey", {})
   .n("CloudFrontKeyValueStoreClient", "PutKeyCommand")
-  .f(PutKeyRequestFilterSensitiveLog, void 0)
-  .ser(se_PutKeyCommand)
-  .de(de_PutKeyCommand)
+  .sc(PutKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

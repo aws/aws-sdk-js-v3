@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  ListEdgeAgentConfigurationsInput,
-  ListEdgeAgentConfigurationsOutput,
-  ListEdgeAgentConfigurationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_ListEdgeAgentConfigurationsCommand,
-  se_ListEdgeAgentConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEdgeAgentConfigurationsInput, ListEdgeAgentConfigurationsOutput } from "../models/models_0";
+import { ListEdgeAgentConfigurations } from "../schemas/schemas_3_Stream";
 
 /**
  * @public
@@ -127,16 +119,11 @@ export class ListEdgeAgentConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KinesisVideo_20170930", "ListEdgeAgentConfigurations", {})
   .n("KinesisVideoClient", "ListEdgeAgentConfigurationsCommand")
-  .f(void 0, ListEdgeAgentConfigurationsOutputFilterSensitiveLog)
-  .ser(se_ListEdgeAgentConfigurationsCommand)
-  .de(de_ListEdgeAgentConfigurationsCommand)
+  .sc(ListEdgeAgentConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

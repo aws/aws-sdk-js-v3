@@ -1,0 +1,141 @@
+export const _ADE = "AccessDeniedException";
+export const _ARLS = "AccountRecommendationLifecycleSummary";
+export const _ARLSL = "AccountRecommendationLifecycleSummaryList";
+export const _BURRE = "BatchUpdateRecommendationResourceExclusion";
+export const _BURRER = "BatchUpdateRecommendationResourceExclusionRequest";
+export const _BURRERa = "BatchUpdateRecommendationResourceExclusionResponse";
+export const _CE = "ConflictException";
+export const _CS = "CheckSummary";
+export const _CSL = "CheckSummaryList";
+export const _GOR = "GetOrganizationRecommendation";
+export const _GORR = "GetOrganizationRecommendationRequest";
+export const _GORRe = "GetOrganizationRecommendationResponse";
+export const _GR = "GetRecommendation";
+export const _GRR = "GetRecommendationRequest";
+export const _GRRe = "GetRecommendationResponse";
+export const _ISE = "InternalServerException";
+export const _LC = "ListChecks";
+export const _LCR = "ListChecksRequest";
+export const _LCRi = "ListChecksResponse";
+export const _LOR = "ListOrganizationRecommendations";
+export const _LORA = "ListOrganizationRecommendationAccounts";
+export const _LORAR = "ListOrganizationRecommendationAccountsRequest";
+export const _LORARi = "ListOrganizationRecommendationAccountsResponse";
+export const _LORR = "ListOrganizationRecommendationsRequest";
+export const _LORRR = "ListOrganizationRecommendationResourcesRequest";
+export const _LORRRi = "ListOrganizationRecommendationResourcesResponse";
+export const _LORRi = "ListOrganizationRecommendationsResponse";
+export const _LORRis = "ListOrganizationRecommendationResources";
+export const _LR = "ListRecommendations";
+export const _LRR = "ListRecommendationsRequest";
+export const _LRRR = "ListRecommendationResourcesRequest";
+export const _LRRRi = "ListRecommendationResourcesResponse";
+export const _LRRi = "ListRecommendationsResponse";
+export const _LRRis = "ListRecommendationResources";
+export const _OR = "OrganizationRecommendation";
+export const _ORRS = "OrganizationRecommendationResourceSummary";
+export const _ORRSL = "OrganizationRecommendationResourceSummaryList";
+export const _ORS = "OrganizationRecommendationSummary";
+export const _ORSL = "OrganizationRecommendationSummaryList";
+export const _R = "Recommendation";
+export const _RCOA = "RecommendationCostOptimizingAggregates";
+export const _RNFE = "ResourceNotFoundException";
+export const _RPSA = "RecommendationPillarSpecificAggregates";
+export const _RRA = "RecommendationResourcesAggregates";
+export const _RRE = "RecommendationResourceExclusion";
+export const _RREL = "RecommendationResourceExclusionList";
+export const _RRS = "RecommendationResourceSummary";
+export const _RRSL = "RecommendationResourceSummaryList";
+export const _RS = "RecommendationSummary";
+export const _RSL = "RecommendationSummaryList";
+export const _RUR = "RecommendationUpdateReason";
+export const _TE = "ThrottlingException";
+export const _UORL = "UpdateOrganizationRecommendationLifecycle";
+export const _UORLR = "UpdateOrganizationRecommendationLifecycleRequest";
+export const _URL = "UpdateRecommendationLifecycle";
+export const _URLR = "UpdateRecommendationLifecycleRequest";
+export const _URREE = "UpdateRecommendationResourceExclusionError";
+export const _URREEL = "UpdateRecommendationResourceExclusionErrorList";
+export const _VE = "ValidationException";
+export const _a = "arn";
+export const _aAI = "affectedAccountId";
+export const _aI = "accountId";
+export const _aLUA = "afterLastUpdatedAt";
+export const _aRA = "accountRecommendationArn";
+export const _aRI = "awsResourceId";
+export const _aRLS = "accountRecommendationLifecycleSummaries";
+export const _aS = "awsServices";
+export const _aSw = "awsService";
+export const _bLUA = "beforeLastUpdatedAt";
+export const _bURREE = "batchUpdateRecommendationResourceExclusionErrors";
+export const _c = "client";
+export const _cA = "checkArn";
+export const _cAr = "createdAt";
+export const _cB = "createdBy";
+export const _cI = "checkIdentifier";
+export const _cO = "costOptimizing";
+export const _cS = "checkSummaries";
+export const _d = "description";
+export const _e = "error";
+export const _eC = "errorCount";
+export const _eCr = "errorCode";
+export const _eM = "errorMessage";
+export const _eMS = "estimatedMonthlySavings";
+export const _ePMS = "estimatedPercentMonthlySavings";
+export const _eS = "exclusionStatus";
+export const _h = "http";
+export const _hE = "httpError";
+export const _hQ = "httpQuery";
+export const _i = "id";
+export const _iE = "isExcluded";
+export const _l = "language";
+export const _lS = "lifecycleStage";
+export const _lUA = "lastUpdatedAt";
+export const _m = "message";
+export const _mR = "maxResults";
+export const _me = "metadata";
+export const _n = "name";
+export const _nT = "nextToken";
+export const _oC = "okCount";
+export const _oR = "organizationRecommendation";
+export const _oRI = "organizationRecommendationIdentifier";
+export const _oRRS = "organizationRecommendationResourceSummaries";
+export const _oRS = "organizationRecommendationSummaries";
+export const _p = "pillars";
+export const _pSA = "pillarSpecificAggregates";
+export const _pi = "pillar";
+export const _r = "recommendation";
+export const _rA = "resourcesAggregates";
+export const _rAe = "resolvedAt";
+export const _rAec = "recommendationArn";
+export const _rC = "regionCode";
+export const _rI = "recommendationIdentifier";
+export const _rRE = "recommendationResourceExclusions";
+export const _rRS = "recommendationResourceSummaries";
+export const _rS = "recommendationSummaries";
+export const _s = "source";
+export const _se = "server";
+export const _st = "status";
+export const _t = "type";
+export const _uOBO = "updatedOnBehalfOf";
+export const _uOBOJT = "updatedOnBehalfOfJobTitle";
+export const _uR = "updateReason";
+export const _uRC = "updateReasonCode";
+export const _wC = "warningCount";
+export const n0 = "com.amazonaws.trustedadvisor";
+
+// smithy-typescript generated code
+import { error } from "@smithy/core/schema";
+
+import { TrustedAdvisorServiceException as __TrustedAdvisorServiceException } from "../models/TrustedAdvisorServiceException";
+
+/* eslint no-var: 0 */
+
+export var TrustedAdvisorServiceException = error(
+  "smithy.ts.sdk.synthetic.com.amazonaws.trustedadvisor",
+  "TrustedAdvisorServiceException",
+  0,
+  [],
+  [],
+  __TrustedAdvisorServiceException
+);

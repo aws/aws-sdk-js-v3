@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateLocationFsxOpenZfsRequest,
-  UpdateLocationFsxOpenZfsRequestFilterSensitiveLog,
-  UpdateLocationFsxOpenZfsResponse,
-} from "../models/models_0";
-import { de_UpdateLocationFsxOpenZfsCommand, se_UpdateLocationFsxOpenZfsCommand } from "../protocols/Aws_json1_1";
+import { UpdateLocationFsxOpenZfsRequest, UpdateLocationFsxOpenZfsResponse } from "../models/models_0";
+import { UpdateLocationFsxOpenZfs } from "../schemas/schemas_17_Location";
 
 /**
  * @public
@@ -102,16 +97,11 @@ export class UpdateLocationFsxOpenZfsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FmrsService", "UpdateLocationFsxOpenZfs", {})
   .n("DataSyncClient", "UpdateLocationFsxOpenZfsCommand")
-  .f(UpdateLocationFsxOpenZfsRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateLocationFsxOpenZfsCommand)
-  .de(de_UpdateLocationFsxOpenZfsCommand)
+  .sc(UpdateLocationFsxOpenZfs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

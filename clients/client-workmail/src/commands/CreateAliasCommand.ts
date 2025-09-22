@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAliasRequest, CreateAliasResponse } from "../models/models_0";
-import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_json1_1";
+import { CreateAlias } from "../schemas/schemas_9_Create";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -103,16 +102,11 @@ export class CreateAliasCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkMailService", "CreateAlias", {})
   .n("WorkMailClient", "CreateAliasCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAliasCommand)
-  .de(de_CreateAliasCommand)
+  .sc(CreateAlias)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

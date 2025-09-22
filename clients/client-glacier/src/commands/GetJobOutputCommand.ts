@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { GetJobOutputInput, GetJobOutputOutput, GetJobOutputOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetJobOutputCommand, se_GetJobOutputCommand } from "../protocols/Aws_restJson1";
+import { GetJobOutputInput, GetJobOutputOutput } from "../models/models_0";
+import { GetJobOutput } from "../schemas/schemas_9_Upload";
 
 /**
  * @public
@@ -161,16 +160,11 @@ export class GetJobOutputCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Glacier", "GetJobOutput", {})
   .n("GlacierClient", "GetJobOutputCommand")
-  .f(void 0, GetJobOutputOutputFilterSensitiveLog)
-  .ser(se_GetJobOutputCommand)
-  .de(de_GetJobOutputCommand)
+  .sc(GetJobOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

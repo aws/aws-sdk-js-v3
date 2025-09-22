@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteFormRequest } from "../models/models_0";
-import { de_DeleteFormCommand, se_DeleteFormCommand } from "../protocols/Aws_restJson1";
+import { DeleteForm } from "../schemas/schemas_5_Get";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class DeleteFormCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmplifyUIBuilder", "DeleteForm", {})
   .n("AmplifyUIBuilderClient", "DeleteFormCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteFormCommand)
-  .de(de_DeleteFormCommand)
+  .sc(DeleteForm)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

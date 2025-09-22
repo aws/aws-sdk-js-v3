@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../DirectoryServiceDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AddGroupMemberRequest, AddGroupMemberResult } from "../models/models_0";
-import { de_AddGroupMemberCommand, se_AddGroupMemberCommand } from "../protocols/Aws_restJson1";
+import { AddGroupMember } from "../schemas/schemas_1_Group";
 
 /**
  * @public
@@ -127,16 +126,11 @@ export class AddGroupMemberCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryServiceData", "AddGroupMember", {})
   .n("DirectoryServiceDataClient", "AddGroupMemberCommand")
-  .f(void 0, void 0)
-  .ser(se_AddGroupMemberCommand)
-  .de(de_AddGroupMemberCommand)
+  .sc(AddGroupMember)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

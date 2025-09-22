@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { OperationWithNestedStructureInput, OperationWithNestedStructureOutput } from "../models/models_0";
-import {
-  de_OperationWithNestedStructureCommand,
-  se_OperationWithNestedStructureCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { OperationWithNestedStructure } from "../schemas/schemas_9_OperationWithNestedStructure";
 
 /**
  * @public
@@ -125,16 +121,11 @@ export class OperationWithNestedStructureCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "OperationWithNestedStructure", {})
   .n("RestJsonProtocolClient", "OperationWithNestedStructureCommand")
-  .f(void 0, void 0)
-  .ser(se_OperationWithNestedStructureCommand)
-  .de(de_OperationWithNestedStructureCommand)
+  .sc(OperationWithNestedStructure)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

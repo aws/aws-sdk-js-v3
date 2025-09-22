@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdatePromptRequest,
-  UpdatePromptRequestFilterSensitiveLog,
-  UpdatePromptResponse,
-  UpdatePromptResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_UpdatePromptCommand, se_UpdatePromptCommand } from "../protocols/Aws_restJson1";
+import { UpdatePromptRequest, UpdatePromptResponse } from "../models/models_1";
+import { UpdatePrompt } from "../schemas/schemas_5_Agent";
 
 /**
  * @public
@@ -286,16 +280,11 @@ export class UpdatePromptCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "UpdatePrompt", {})
   .n("BedrockAgentClient", "UpdatePromptCommand")
-  .f(UpdatePromptRequestFilterSensitiveLog, UpdatePromptResponseFilterSensitiveLog)
-  .ser(se_UpdatePromptCommand)
-  .de(de_UpdatePromptCommand)
+  .sc(UpdatePrompt)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

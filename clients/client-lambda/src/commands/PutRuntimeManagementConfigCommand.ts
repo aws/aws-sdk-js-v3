@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { PutRuntimeManagementConfigRequest, PutRuntimeManagementConfigResponse } from "../models/models_0";
-import { de_PutRuntimeManagementConfigCommand, se_PutRuntimeManagementConfigCommand } from "../protocols/Aws_restJson1";
+import { PutRuntimeManagementConfig } from "../schemas/schemas_2_Function";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class PutRuntimeManagementConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGirApiService", "PutRuntimeManagementConfig", {})
   .n("LambdaClient", "PutRuntimeManagementConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_PutRuntimeManagementConfigCommand)
-  .de(de_PutRuntimeManagementConfigCommand)
+  .sc(PutRuntimeManagementConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

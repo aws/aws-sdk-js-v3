@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteRetentionPolicyRequest } from "../models/models_0";
-import { de_DeleteRetentionPolicyCommand, se_DeleteRetentionPolicyCommand } from "../protocols/Aws_json1_1";
+import { DeleteRetentionPolicy } from "../schemas/schemas_39_DeleteRetentionPolicy";
 
 /**
  * @public
@@ -82,16 +81,11 @@ export class DeleteRetentionPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Logs_20140328", "DeleteRetentionPolicy", {})
   .n("CloudWatchLogsClient", "DeleteRetentionPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteRetentionPolicyCommand)
-  .de(de_DeleteRetentionPolicyCommand)
+  .sc(DeleteRetentionPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

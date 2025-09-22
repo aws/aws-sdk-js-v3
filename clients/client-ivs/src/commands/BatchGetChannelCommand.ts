@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  BatchGetChannelRequest,
-  BatchGetChannelResponse,
-  BatchGetChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchGetChannelCommand, se_BatchGetChannelCommand } from "../protocols/Aws_restJson1";
+import { BatchGetChannelRequest, BatchGetChannelResponse } from "../models/models_0";
+import { BatchGetChannel } from "../schemas/schemas_4_Channel";
 
 /**
  * @public
@@ -110,16 +105,11 @@ export class BatchGetChannelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoService", "BatchGetChannel", {})
   .n("IvsClient", "BatchGetChannelCommand")
-  .f(void 0, BatchGetChannelResponseFilterSensitiveLog)
-  .ser(se_BatchGetChannelCommand)
-  .de(de_BatchGetChannelCommand)
+  .sc(BatchGetChannel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

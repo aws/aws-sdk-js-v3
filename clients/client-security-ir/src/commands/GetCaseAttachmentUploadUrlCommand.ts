@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetCaseAttachmentUploadUrlRequest,
-  GetCaseAttachmentUploadUrlRequestFilterSensitiveLog,
-  GetCaseAttachmentUploadUrlResponse,
-  GetCaseAttachmentUploadUrlResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetCaseAttachmentUploadUrlCommand, se_GetCaseAttachmentUploadUrlCommand } from "../protocols/Aws_restJson1";
+import { GetCaseAttachmentUploadUrlRequest, GetCaseAttachmentUploadUrlResponse } from "../models/models_0";
+import { GetCaseAttachmentUploadUrl } from "../schemas/schemas_1_GetCase";
 import { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
@@ -122,16 +116,11 @@ export class GetCaseAttachmentUploadUrlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityIncidentResponse", "GetCaseAttachmentUploadUrl", {})
   .n("SecurityIRClient", "GetCaseAttachmentUploadUrlCommand")
-  .f(GetCaseAttachmentUploadUrlRequestFilterSensitiveLog, GetCaseAttachmentUploadUrlResponseFilterSensitiveLog)
-  .ser(se_GetCaseAttachmentUploadUrlCommand)
-  .de(de_GetCaseAttachmentUploadUrlCommand)
+  .sc(GetCaseAttachmentUploadUrl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

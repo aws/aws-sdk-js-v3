@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDefaultVocabulariesRequest, ListDefaultVocabulariesResponse } from "../models/models_1";
-import { de_ListDefaultVocabulariesCommand, se_ListDefaultVocabulariesCommand } from "../protocols/Aws_restJson1";
+import { ListDefaultVocabularies } from "../schemas/schemas_45_Vocabulary";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class ListDefaultVocabulariesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "ListDefaultVocabularies", {})
   .n("ConnectClient", "ListDefaultVocabulariesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDefaultVocabulariesCommand)
-  .de(de_ListDefaultVocabulariesCommand)
+  .sc(ListDefaultVocabularies)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

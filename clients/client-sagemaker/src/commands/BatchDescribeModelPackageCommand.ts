@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchDescribeModelPackageInput, BatchDescribeModelPackageOutput } from "../models/models_0";
-import { de_BatchDescribeModelPackageCommand, se_BatchDescribeModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { BatchDescribeModelPackage } from "../schemas/schemas_9_Model";
 
 /**
  * @public
@@ -143,16 +142,11 @@ export class BatchDescribeModelPackageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "BatchDescribeModelPackage", {})
   .n("SageMakerClient", "BatchDescribeModelPackageCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchDescribeModelPackageCommand)
-  .de(de_BatchDescribeModelPackageCommand)
+  .sc(BatchDescribeModelPackage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

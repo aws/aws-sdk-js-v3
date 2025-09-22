@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeApplicationProviderRequest, DescribeApplicationProviderResponse } from "../models/models_0";
-import { de_DescribeApplicationProviderCommand, se_DescribeApplicationProviderCommand } from "../protocols/Aws_json1_1";
+import { DescribeApplicationProvider } from "../schemas/schemas_16_Application";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -101,16 +100,11 @@ export class DescribeApplicationProviderCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SWBExternalService", "DescribeApplicationProvider", {})
   .n("SSOAdminClient", "DescribeApplicationProviderCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeApplicationProviderCommand)
-  .de(de_DescribeApplicationProviderCommand)
+  .sc(DescribeApplicationProvider)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

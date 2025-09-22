@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import { GetUserIdRequest, GetUserIdRequestFilterSensitiveLog, GetUserIdResponse } from "../models/models_0";
-import { de_GetUserIdCommand, se_GetUserIdCommand } from "../protocols/Aws_json1_1";
+import { GetUserIdRequest, GetUserIdResponse } from "../models/models_0";
+import { GetUserId } from "../schemas/schemas_1_Group";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class GetUserIdCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IdentitystoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityStore", "GetUserId", {})
   .n("IdentitystoreClient", "GetUserIdCommand")
-  .f(GetUserIdRequestFilterSensitiveLog, void 0)
-  .ser(se_GetUserIdCommand)
-  .de(de_GetUserIdCommand)
+  .sc(GetUserId)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

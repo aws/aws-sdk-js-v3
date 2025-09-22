@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetKeyPairRequest, GetKeyPairResult } from "../models/models_1";
-import { de_GetKeyPairCommand, se_GetKeyPairCommand } from "../protocols/Aws_json1_1";
+import { GetKeyPair } from "../schemas/schemas_31_Key";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class GetKeyPairCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "GetKeyPair", {})
   .n("LightsailClient", "GetKeyPairCommand")
-  .f(void 0, void 0)
-  .ser(se_GetKeyPairCommand)
-  .de(de_GetKeyPairCommand)
+  .sc(GetKeyPair)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

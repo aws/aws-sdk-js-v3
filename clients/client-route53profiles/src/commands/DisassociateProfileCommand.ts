@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateProfileRequest, DisassociateProfileResponse } from "../models/models_0";
-import { de_DisassociateProfileCommand, se_DisassociateProfileCommand } from "../protocols/Aws_restJson1";
 import { Route53ProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ProfilesClient";
+import { DisassociateProfile } from "../schemas/schemas_3_Profile";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class DisassociateProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Profiles", "DisassociateProfile", {})
   .n("Route53ProfilesClient", "DisassociateProfileCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateProfileCommand)
-  .de(de_DisassociateProfileCommand)
+  .sc(DisassociateProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListReferencesRequest, ListReferencesResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_ListReferencesCommand, se_ListReferencesCommand } from "../protocols/Aws_restJson1";
+import { ListReferences } from "../schemas/schemas_6_Reference";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class ListReferencesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Omics", "ListReferences", {})
   .n("OmicsClient", "ListReferencesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListReferencesCommand)
-  .de(de_ListReferencesCommand)
+  .sc(ListReferences)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

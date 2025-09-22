@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   GetDataQualityRulesetEvaluationRunRequest,
   GetDataQualityRulesetEvaluationRunResponse,
 } from "../models/models_2";
-import {
-  de_GetDataQualityRulesetEvaluationRunCommand,
-  se_GetDataQualityRulesetEvaluationRunCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDataQualityRulesetEvaluationRun } from "../schemas/schemas_47_Get";
 
 /**
  * @public
@@ -154,16 +150,11 @@ export class GetDataQualityRulesetEvaluationRunCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "GetDataQualityRulesetEvaluationRun", {})
   .n("GlueClient", "GetDataQualityRulesetEvaluationRunCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDataQualityRulesetEvaluationRunCommand)
-  .de(de_GetDataQualityRulesetEvaluationRunCommand)
+  .sc(GetDataQualityRulesetEvaluationRun)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

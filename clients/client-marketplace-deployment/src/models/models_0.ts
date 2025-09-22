@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { MarketplaceDeploymentServiceException as __BaseException } from "./MarketplaceDeploymentServiceException";
 
@@ -330,21 +330,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const DeploymentParameterInputFilterSensitiveLog = (obj: DeploymentParameterInput): any => ({
-  ...obj,
-  ...(obj.secretString && { secretString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutDeploymentParameterRequestFilterSensitiveLog = (obj: PutDeploymentParameterRequest): any => ({
-  ...obj,
-  ...(obj.deploymentParameter && {
-    deploymentParameter: DeploymentParameterInputFilterSensitiveLog(obj.deploymentParameter),
-  }),
-});

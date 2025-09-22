@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartTaskExecutionRequest, StartTaskExecutionResponse } from "../models/models_0";
-import { de_StartTaskExecutionCommand, se_StartTaskExecutionCommand } from "../protocols/Aws_json1_1";
+import { StartTaskExecution } from "../schemas/schemas_2_Task";
 
 /**
  * @public
@@ -158,16 +157,11 @@ export class StartTaskExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FmrsService", "StartTaskExecution", {})
   .n("DataSyncClient", "StartTaskExecutionCommand")
-  .f(void 0, void 0)
-  .ser(se_StartTaskExecutionCommand)
-  .de(de_StartTaskExecutionCommand)
+  .sc(StartTaskExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

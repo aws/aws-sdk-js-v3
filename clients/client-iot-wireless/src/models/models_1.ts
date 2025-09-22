@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IoTWirelessServiceException as __BaseException } from "./IoTWirelessServiceException";
 
@@ -38,7 +38,6 @@ import {
   ProximityEventConfiguration,
   ProximityResourceTypeEventConfiguration,
   SidewalkAccountInfoWithFingerprint,
-  SidewalkAccountInfoWithFingerprintFilterSensitiveLog,
   SidewalkGetStartImportInfo,
   SummaryMetricConfiguration,
   Tag,
@@ -2194,29 +2193,3 @@ export interface UpdateWirelessGatewayRequest {
  * @public
  */
 export interface UpdateWirelessGatewayResponse {}
-
-/**
- * @internal
- */
-export const ListPartnerAccountsResponseFilterSensitiveLog = (obj: ListPartnerAccountsResponse): any => ({
-  ...obj,
-  ...(obj.Sidewalk && {
-    Sidewalk: obj.Sidewalk.map((item) => SidewalkAccountInfoWithFingerprintFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const SidewalkUpdateAccountFilterSensitiveLog = (obj: SidewalkUpdateAccount): any => ({
-  ...obj,
-  ...(obj.AppServerPrivateKey && { AppServerPrivateKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdatePartnerAccountRequestFilterSensitiveLog = (obj: UpdatePartnerAccountRequest): any => ({
-  ...obj,
-  ...(obj.Sidewalk && { Sidewalk: SidewalkUpdateAccountFilterSensitiveLog(obj.Sidewalk) }),
-});

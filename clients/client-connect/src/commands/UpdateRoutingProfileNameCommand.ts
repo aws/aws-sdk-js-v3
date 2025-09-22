@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateRoutingProfileNameRequest } from "../models/models_3";
-import { de_UpdateRoutingProfileNameCommand, se_UpdateRoutingProfileNameCommand } from "../protocols/Aws_restJson1";
+import { UpdateRoutingProfileName } from "../schemas/schemas_74_Routing";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class UpdateRoutingProfileNameCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "UpdateRoutingProfileName", {})
   .n("ConnectClient", "UpdateRoutingProfileNameCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateRoutingProfileNameCommand)
-  .de(de_UpdateRoutingProfileNameCommand)
+  .sc(UpdateRoutingProfileName)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

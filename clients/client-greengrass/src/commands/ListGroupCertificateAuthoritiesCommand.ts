@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { ListGroupCertificateAuthoritiesRequest, ListGroupCertificateAuthoritiesResponse } from "../models/models_0";
-import {
-  de_ListGroupCertificateAuthoritiesCommand,
-  se_ListGroupCertificateAuthoritiesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListGroupCertificateAuthorities } from "../schemas/schemas_34_ListGroupCertificateAuthorities";
 
 /**
  * @public
@@ -86,16 +82,11 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Greengrass", "ListGroupCertificateAuthorities", {})
   .n("GreengrassClient", "ListGroupCertificateAuthoritiesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListGroupCertificateAuthoritiesCommand)
-  .de(de_ListGroupCertificateAuthoritiesCommand)
+  .sc(ListGroupCertificateAuthorities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

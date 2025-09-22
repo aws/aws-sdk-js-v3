@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRegionalBucketsRequest, ListRegionalBucketsResult } from "../models/models_1";
-import { de_ListRegionalBucketsCommand, se_ListRegionalBucketsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { ListRegionalBuckets } from "../schemas/schemas_19_List";
 
 /**
  * @public
@@ -98,17 +97,11 @@ export class ListRegionalBucketsCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getRedirectFromPostIdPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getRedirectFromPostIdPlugin(config)];
   })
   .s("AWSS3ControlServiceV20180820", "ListRegionalBuckets", {})
   .n("S3ControlClient", "ListRegionalBucketsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRegionalBucketsCommand)
-  .de(de_ListRegionalBucketsCommand)
+  .sc(ListRegionalBuckets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

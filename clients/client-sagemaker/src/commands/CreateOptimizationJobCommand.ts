@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateOptimizationJobRequest, CreateOptimizationJobResponse } from "../models/models_2";
-import { de_CreateOptimizationJobCommand, se_CreateOptimizationJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { CreateOptimizationJob } from "../schemas/schemas_28_Job";
 
 /**
  * @public
@@ -134,16 +133,11 @@ export class CreateOptimizationJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "CreateOptimizationJob", {})
   .n("SageMakerClient", "CreateOptimizationJobCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateOptimizationJobCommand)
-  .de(de_CreateOptimizationJobCommand)
+  .sc(CreateOptimizationJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

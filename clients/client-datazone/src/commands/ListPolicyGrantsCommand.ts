@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPolicyGrantsInput, ListPolicyGrantsOutput } from "../models/models_1";
-import { de_ListPolicyGrantsCommand, se_ListPolicyGrantsCommand } from "../protocols/Aws_restJson1";
+import { ListPolicyGrants } from "../schemas/schemas_11_Policy";
 
 /**
  * @public
@@ -164,16 +163,11 @@ export class ListPolicyGrantsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "ListPolicyGrants", {})
   .n("DataZoneClient", "ListPolicyGrantsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPolicyGrantsCommand)
-  .de(de_ListPolicyGrantsCommand)
+  .sc(ListPolicyGrants)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

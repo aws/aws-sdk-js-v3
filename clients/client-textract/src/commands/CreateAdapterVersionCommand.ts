@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAdapterVersionRequest, CreateAdapterVersionResponse } from "../models/models_0";
-import { de_CreateAdapterVersionCommand, se_CreateAdapterVersionCommand } from "../protocols/Aws_json1_1";
+import { CreateAdapterVersion } from "../schemas/schemas_3_Adapter";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -145,16 +144,11 @@ export class CreateAdapterVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Textract", "CreateAdapterVersion", {})
   .n("TextractClient", "CreateAdapterVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAdapterVersionCommand)
-  .de(de_CreateAdapterVersionCommand)
+  .sc(CreateAdapterVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

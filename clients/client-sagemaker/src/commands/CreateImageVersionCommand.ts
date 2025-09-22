@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateImageVersionRequest, CreateImageVersionResponse } from "../models/models_1";
-import { de_CreateImageVersionCommand, se_CreateImageVersionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { CreateImageVersion } from "../schemas/schemas_145_App";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class CreateImageVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "CreateImageVersion", {})
   .n("SageMakerClient", "CreateImageVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateImageVersionCommand)
-  .de(de_CreateImageVersionCommand)
+  .sc(CreateImageVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { ListCustomRoutingPortMappingsRequest, ListCustomRoutingPortMappingsResponse } from "../models/models_0";
-import {
-  de_ListCustomRoutingPortMappingsCommand,
-  se_ListCustomRoutingPortMappingsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCustomRoutingPortMappings } from "../schemas/schemas_11_List";
 
 /**
  * @public
@@ -120,16 +116,11 @@ export class ListCustomRoutingPortMappingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GlobalAccelerator_V20180706", "ListCustomRoutingPortMappings", {})
   .n("GlobalAcceleratorClient", "ListCustomRoutingPortMappingsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCustomRoutingPortMappingsCommand)
-  .de(de_ListCustomRoutingPortMappingsCommand)
+  .sc(ListCustomRoutingPortMappings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

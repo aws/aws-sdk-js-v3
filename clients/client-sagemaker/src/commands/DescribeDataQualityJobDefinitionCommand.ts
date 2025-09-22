@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeDataQualityJobDefinitionRequest, DescribeDataQualityJobDefinitionResponse } from "../models/models_3";
-import {
-  de_DescribeDataQualityJobDefinitionCommand,
-  se_DescribeDataQualityJobDefinitionCommand,
-} from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DescribeDataQualityJobDefinition } from "../schemas/schemas_21_Job";
 
 /**
  * @public
@@ -176,16 +172,11 @@ export class DescribeDataQualityJobDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "DescribeDataQualityJobDefinition", {})
   .n("SageMakerClient", "DescribeDataQualityJobDefinitionCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDataQualityJobDefinitionCommand)
-  .de(de_DescribeDataQualityJobDefinitionCommand)
+  .sc(DescribeDataQualityJobDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

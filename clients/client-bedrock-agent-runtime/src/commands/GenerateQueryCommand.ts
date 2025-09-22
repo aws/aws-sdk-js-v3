@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GenerateQueryRequest,
-  GenerateQueryRequestFilterSensitiveLog,
-  GenerateQueryResponse,
-  GenerateQueryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GenerateQueryCommand, se_GenerateQueryCommand } from "../protocols/Aws_restJson1";
+import { GenerateQueryRequest, GenerateQueryResponse } from "../models/models_0";
+import { GenerateQuery } from "../schemas/schemas_3_GenerateQuery";
 
 /**
  * @public
@@ -123,16 +117,11 @@ export class GenerateQueryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentRunTimeService", "GenerateQuery", {})
   .n("BedrockAgentRuntimeClient", "GenerateQueryCommand")
-  .f(GenerateQueryRequestFilterSensitiveLog, GenerateQueryResponseFilterSensitiveLog)
-  .ser(se_GenerateQueryCommand)
-  .de(de_GenerateQueryCommand)
+  .sc(GenerateQuery)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

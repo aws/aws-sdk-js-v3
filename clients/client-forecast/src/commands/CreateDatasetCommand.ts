@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  CreateDatasetRequest,
-  CreateDatasetRequestFilterSensitiveLog,
-  CreateDatasetResponse,
-} from "../models/models_0";
-import { de_CreateDatasetCommand, se_CreateDatasetCommand } from "../protocols/Aws_json1_1";
+import { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
+import { CreateDataset } from "../schemas/schemas_8_Describe";
 
 /**
  * @public
@@ -146,16 +141,11 @@ export class CreateDatasetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecast", "CreateDataset", {})
   .n("ForecastClient", "CreateDatasetCommand")
-  .f(CreateDatasetRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateDatasetCommand)
-  .de(de_CreateDatasetCommand)
+  .sc(CreateDataset)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

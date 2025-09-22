@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartFlowExecutionRequest,
-  StartFlowExecutionRequestFilterSensitiveLog,
-  StartFlowExecutionResponse,
-} from "../models/models_0";
-import { de_StartFlowExecutionCommand, se_StartFlowExecutionCommand } from "../protocols/Aws_restJson1";
+import { StartFlowExecutionRequest, StartFlowExecutionResponse } from "../models/models_0";
+import { StartFlowExecution } from "../schemas/schemas_4_Flow";
 
 /**
  * @public
@@ -122,16 +117,11 @@ export class StartFlowExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentRunTimeService", "StartFlowExecution", {})
   .n("BedrockAgentRuntimeClient", "StartFlowExecutionCommand")
-  .f(StartFlowExecutionRequestFilterSensitiveLog, void 0)
-  .ser(se_StartFlowExecutionCommand)
-  .de(de_StartFlowExecutionCommand)
+  .sc(StartFlowExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

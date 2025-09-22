@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAutoScalingConfigurationRequest, DeleteAutoScalingConfigurationResponse } from "../models/models_0";
-import {
-  de_DeleteAutoScalingConfigurationCommand,
-  se_DeleteAutoScalingConfigurationCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteAutoScalingConfiguration } from "../schemas/schemas_2_Service";
 
 /**
  * @public
@@ -100,16 +96,11 @@ export class DeleteAutoScalingConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AppRunner", "DeleteAutoScalingConfiguration", {})
   .n("AppRunnerClient", "DeleteAutoScalingConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAutoScalingConfigurationCommand)
-  .de(de_DeleteAutoScalingConfigurationCommand)
+  .sc(DeleteAutoScalingConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AssumeFleetRoleForWorkerRequest,
-  AssumeFleetRoleForWorkerResponse,
-  AssumeFleetRoleForWorkerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_AssumeFleetRoleForWorkerCommand, se_AssumeFleetRoleForWorkerCommand } from "../protocols/Aws_restJson1";
+import { AssumeFleetRoleForWorkerRequest, AssumeFleetRoleForWorkerResponse } from "../models/models_0";
+import { AssumeFleetRoleForWorker } from "../schemas/schemas_25_For";
 
 /**
  * @public
@@ -101,16 +96,11 @@ export class AssumeFleetRoleForWorkerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "AssumeFleetRoleForWorker", {})
   .n("DeadlineClient", "AssumeFleetRoleForWorkerCommand")
-  .f(void 0, AssumeFleetRoleForWorkerResponseFilterSensitiveLog)
-  .ser(se_AssumeFleetRoleForWorkerCommand)
-  .de(de_AssumeFleetRoleForWorkerCommand)
+  .sc(AssumeFleetRoleForWorker)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

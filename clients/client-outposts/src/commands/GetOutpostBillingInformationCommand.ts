@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetOutpostBillingInformationInput, GetOutpostBillingInformationOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  de_GetOutpostBillingInformationCommand,
-  se_GetOutpostBillingInformationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetOutpostBillingInformation } from "../schemas/schemas_1_List";
 
 /**
  * @public
@@ -101,16 +97,11 @@ export class GetOutpostBillingInformationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OutpostsOlafService", "GetOutpostBillingInformation", {})
   .n("OutpostsClient", "GetOutpostBillingInformationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetOutpostBillingInformationCommand)
-  .de(de_GetOutpostBillingInformationCommand)
+  .sc(GetOutpostBillingInformation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

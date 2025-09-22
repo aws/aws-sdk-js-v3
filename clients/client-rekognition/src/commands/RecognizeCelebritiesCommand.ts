@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RecognizeCelebritiesRequest, RecognizeCelebritiesResponse } from "../models/models_1";
-import { de_RecognizeCelebritiesCommand, se_RecognizeCelebritiesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { RecognizeCelebrities } from "../schemas/schemas_3_Detect";
 
 /**
  * @public
@@ -217,16 +216,11 @@ export class RecognizeCelebritiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RekognitionService", "RecognizeCelebrities", {})
   .n("RekognitionClient", "RecognizeCelebritiesCommand")
-  .f(void 0, void 0)
-  .ser(se_RecognizeCelebritiesCommand)
-  .de(de_RecognizeCelebritiesCommand)
+  .sc(RecognizeCelebrities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { StorageGatewayServiceException as __BaseException } from "./StorageGatewayServiceException";
 
@@ -8455,84 +8455,3 @@ export interface UpdateVTLDeviceTypeOutput {
    */
   VTLDeviceARN?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const AssociateFileSystemInputFilterSensitiveLog = (obj: AssociateFileSystemInput): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ChapInfoFilterSensitiveLog = (obj: ChapInfo): any => ({
-  ...obj,
-  ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
-  ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeChapCredentialsOutputFilterSensitiveLog = (obj: DescribeChapCredentialsOutput): any => ({
-  ...obj,
-  ...(obj.ChapCredentials && { ChapCredentials: obj.ChapCredentials.map((item) => ChapInfoFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGatewayInformationOutputFilterSensitiveLog = (obj: DescribeGatewayInformationOutput): any => ({
-  ...obj,
-  ...(obj.GatewayNetworkInterfaces && { GatewayNetworkInterfaces: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const JoinDomainInputFilterSensitiveLog = (obj: JoinDomainInput): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetLocalConsolePasswordInputFilterSensitiveLog = (obj: SetLocalConsolePasswordInput): any => ({
-  ...obj,
-  ...(obj.LocalConsolePassword && { LocalConsolePassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetSMBGuestPasswordInputFilterSensitiveLog = (obj: SetSMBGuestPasswordInput): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateChapCredentialsInputFilterSensitiveLog = (obj: UpdateChapCredentialsInput): any => ({
-  ...obj,
-  ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
-  ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateFileSystemAssociationInputFilterSensitiveLog = (obj: UpdateFileSystemAssociationInput): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});

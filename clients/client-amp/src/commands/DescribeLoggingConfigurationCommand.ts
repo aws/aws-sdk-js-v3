@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeLoggingConfigurationRequest, DescribeLoggingConfigurationResponse } from "../models/models_0";
-import {
-  de_DescribeLoggingConfigurationCommand,
-  se_DescribeLoggingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeLoggingConfiguration } from "../schemas/schemas_5_Describe";
 
 /**
  * @public
@@ -96,16 +92,11 @@ export class DescribeLoggingConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPrometheusService", "DescribeLoggingConfiguration", {})
   .n("AmpClient", "DescribeLoggingConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeLoggingConfigurationCommand)
-  .de(de_DescribeLoggingConfigurationCommand)
+  .sc(DescribeLoggingConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchDeleteConnectionRequest, BatchDeleteConnectionResponse } from "../models/models_0";
-import { de_BatchDeleteConnectionCommand, se_BatchDeleteConnectionCommand } from "../protocols/Aws_json1_1";
+import { BatchDeleteConnection } from "../schemas/schemas_84_BatchDeleteConnection";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class BatchDeleteConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "BatchDeleteConnection", {})
   .n("GlueClient", "BatchDeleteConnectionCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchDeleteConnectionCommand)
-  .de(de_BatchDeleteConnectionCommand)
+  .sc(BatchDeleteConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

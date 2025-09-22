@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeDataProvidersMessage, DescribeDataProvidersResponse } from "../models/models_0";
-import { de_DescribeDataProvidersCommand, se_DescribeDataProvidersCommand } from "../protocols/Aws_json1_1";
+import { DescribeDataProviders } from "../schemas/schemas_3_Data";
 
 /**
  * @public
@@ -236,16 +235,11 @@ export class DescribeDataProvidersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "DescribeDataProviders", {})
   .n("DatabaseMigrationServiceClient", "DescribeDataProvidersCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDataProvidersCommand)
-  .de(de_DescribeDataProvidersCommand)
+  .sc(DescribeDataProviders)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

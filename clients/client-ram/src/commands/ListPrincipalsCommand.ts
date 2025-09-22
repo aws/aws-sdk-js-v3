@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPrincipalsRequest, ListPrincipalsResponse } from "../models/models_0";
-import { de_ListPrincipalsCommand, se_ListPrincipalsCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
+import { ListPrincipals } from "../schemas/schemas_6_Resource";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class ListPrincipalsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonResourceSharing", "ListPrincipals", {})
   .n("RAMClient", "ListPrincipalsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPrincipalsCommand)
-  .de(de_ListPrincipalsCommand)
+  .sc(ListPrincipals)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

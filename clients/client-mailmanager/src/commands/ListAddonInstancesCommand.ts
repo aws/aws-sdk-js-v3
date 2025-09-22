@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import { ListAddonInstancesRequest, ListAddonInstancesResponse } from "../models/models_0";
-import { de_ListAddonInstancesCommand, se_ListAddonInstancesCommand } from "../protocols/Aws_json1_0";
+import { ListAddonInstances } from "../schemas/schemas_8_List";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class ListAddonInstancesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "ListAddonInstances", {})
   .n("MailManagerClient", "ListAddonInstancesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAddonInstancesCommand)
-  .de(de_ListAddonInstancesCommand)
+  .sc(ListAddonInstances)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

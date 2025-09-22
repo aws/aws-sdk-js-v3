@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { PutOutcomeRequest, PutOutcomeResult } from "../models/models_0";
-import { de_PutOutcomeCommand, se_PutOutcomeCommand } from "../protocols/Aws_json1_1";
+import { PutOutcome } from "../schemas/schemas_30_PutOutcome";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class PutOutcomeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHawksNestServiceFacade", "PutOutcome", {})
   .n("FraudDetectorClient", "PutOutcomeCommand")
-  .f(void 0, void 0)
-  .ser(se_PutOutcomeCommand)
-  .de(de_PutOutcomeCommand)
+  .sc(PutOutcome)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

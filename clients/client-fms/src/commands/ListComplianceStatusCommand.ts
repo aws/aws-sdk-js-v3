@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { ListComplianceStatusRequest, ListComplianceStatusResponse } from "../models/models_0";
-import { de_ListComplianceStatusCommand, se_ListComplianceStatusCommand } from "../protocols/Aws_json1_1";
+import { ListComplianceStatus } from "../schemas/schemas_1_List";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class ListComplianceStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFMS_20180101", "ListComplianceStatus", {})
   .n("FMSClient", "ListComplianceStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_ListComplianceStatusCommand)
-  .de(de_ListComplianceStatusCommand)
+  .sc(ListComplianceStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

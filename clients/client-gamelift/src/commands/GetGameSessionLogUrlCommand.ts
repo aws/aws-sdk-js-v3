@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { GetGameSessionLogUrlInput, GetGameSessionLogUrlOutput } from "../models/models_0";
-import { de_GetGameSessionLogUrlCommand, se_GetGameSessionLogUrlCommand } from "../protocols/Aws_json1_1";
+import { GetGameSessionLogUrl } from "../schemas/schemas_34_GetGameSessionLogUrl";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class GetGameSessionLogUrlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "GetGameSessionLogUrl", {})
   .n("GameLiftClient", "GetGameSessionLogUrlCommand")
-  .f(void 0, void 0)
-  .ser(se_GetGameSessionLogUrlCommand)
-  .de(de_GetGameSessionLogUrlCommand)
+  .sc(GetGameSessionLogUrl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

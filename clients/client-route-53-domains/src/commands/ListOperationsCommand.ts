@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListOperationsRequest, ListOperationsResponse } from "../models/models_0";
-import { de_ListOperationsCommand, se_ListOperationsCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
+import { ListOperations } from "../schemas/schemas_2_Domain";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class ListOperationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Domains_v20140515", "ListOperations", {})
   .n("Route53DomainsClient", "ListOperationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListOperationsCommand)
-  .de(de_ListOperationsCommand)
+  .sc(ListOperations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

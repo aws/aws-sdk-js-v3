@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopJobRequest, StopJobResult } from "../models/models_0";
-import { de_StopJobCommand, se_StopJobCommand } from "../protocols/Aws_restJson1";
+import { StopJob } from "../schemas/schemas_1_Job";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class StopJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Amplify", "StopJob", {})
   .n("AmplifyClient", "StopJobCommand")
-  .f(void 0, void 0)
-  .ser(se_StopJobCommand)
-  .de(de_StopJobCommand)
+  .sc(StopJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

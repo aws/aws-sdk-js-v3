@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListEventsInput, ListEventsOutput, ListEventsOutputFilterSensitiveLog } from "../models/models_0";
-import { de_ListEventsCommand, se_ListEventsCommand } from "../protocols/Aws_restJson1";
+import { ListEventsInput, ListEventsOutput } from "../models/models_0";
+import { ListEvents } from "../schemas/schemas_1_Memory";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class ListEventsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCore", "ListEvents", {})
   .n("BedrockAgentCoreClient", "ListEventsCommand")
-  .f(void 0, ListEventsOutputFilterSensitiveLog)
-  .ser(se_ListEventsCommand)
-  .de(de_ListEventsCommand)
+  .sc(ListEvents)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

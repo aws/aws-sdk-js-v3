@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateJobRequest, CreateJobRequestFilterSensitiveLog, CreateJobResult } from "../models/models_0";
-import { de_CreateJobCommand, se_CreateJobCommand } from "../protocols/Aws_json1_1";
+import { CreateJobRequest, CreateJobResult } from "../models/models_0";
+import { CreateJob } from "../schemas/schemas_2_List";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -372,16 +371,11 @@ export class CreateJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIESnowballJobManagementService", "CreateJob", {})
   .n("SnowballClient", "CreateJobCommand")
-  .f(CreateJobRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateJobCommand)
-  .de(de_CreateJobCommand)
+  .sc(CreateJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

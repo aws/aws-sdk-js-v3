@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { DeleteFlowTemplateRequest, DeleteFlowTemplateResponse } from "../models/models_0";
-import { de_DeleteFlowTemplateCommand, se_DeleteFlowTemplateCommand } from "../protocols/Aws_json1_1";
+import { DeleteFlowTemplate } from "../schemas/schemas_4_System";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class DeleteFlowTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotThingsGraphFrontEndService", "DeleteFlowTemplate", {})
   .n("IoTThingsGraphClient", "DeleteFlowTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteFlowTemplateCommand)
-  .de(de_DeleteFlowTemplateCommand)
+  .sc(DeleteFlowTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

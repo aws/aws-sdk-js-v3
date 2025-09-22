@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListChannelMessagesRequest,
-  ListChannelMessagesRequestFilterSensitiveLog,
-  ListChannelMessagesResponse,
-  ListChannelMessagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListChannelMessagesCommand, se_ListChannelMessagesCommand } from "../protocols/Aws_restJson1";
+import { ListChannelMessagesRequest, ListChannelMessagesResponse } from "../models/models_0";
+import { ListChannelMessages } from "../schemas/schemas_2_List";
 
 /**
  * @public
@@ -149,16 +143,11 @@ export class ListChannelMessagesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMessagingService", "ListChannelMessages", {})
   .n("ChimeSDKMessagingClient", "ListChannelMessagesCommand")
-  .f(ListChannelMessagesRequestFilterSensitiveLog, ListChannelMessagesResponseFilterSensitiveLog)
-  .ser(se_ListChannelMessagesCommand)
-  .de(de_ListChannelMessagesCommand)
+  .sc(ListChannelMessages)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

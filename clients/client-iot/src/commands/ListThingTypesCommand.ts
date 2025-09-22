@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListThingTypesRequest, ListThingTypesResponse } from "../models/models_2";
-import { de_ListThingTypesCommand, se_ListThingTypesCommand } from "../protocols/Aws_restJson1";
+import { ListThingTypes } from "../schemas/schemas_9_Thing";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class ListThingTypesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "ListThingTypes", {})
   .n("IoTClient", "ListThingTypesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListThingTypesCommand)
-  .de(de_ListThingTypesCommand)
+  .sc(ListThingTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

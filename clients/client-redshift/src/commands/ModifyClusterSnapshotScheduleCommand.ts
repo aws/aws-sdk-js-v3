@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyClusterSnapshotScheduleMessage } from "../models/models_1";
-import {
-  de_ModifyClusterSnapshotScheduleCommand,
-  se_ModifyClusterSnapshotScheduleCommand,
-} from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { ModifyClusterSnapshotSchedule } from "../schemas/schemas_41_Snapshot";
 
 /**
  * @public
@@ -83,16 +79,11 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "ModifyClusterSnapshotSchedule", {})
   .n("RedshiftClient", "ModifyClusterSnapshotScheduleCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyClusterSnapshotScheduleCommand)
-  .de(de_ModifyClusterSnapshotScheduleCommand)
+  .sc(ModifyClusterSnapshotSchedule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

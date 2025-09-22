@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAccessPointScopeRequest, GetAccessPointScopeResult } from "../models/models_0";
-import { de_GetAccessPointScopeCommand, se_GetAccessPointScopeCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { GetAccessPointScope } from "../schemas/schemas_17_AccessPoint";
 
 /**
  * @public
@@ -92,17 +91,11 @@ export class GetAccessPointScopeCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
   })
   .s("AWSS3ControlServiceV20180820", "GetAccessPointScope", {})
   .n("S3ControlClient", "GetAccessPointScopeCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAccessPointScopeCommand)
-  .de(de_GetAccessPointScopeCommand)
+  .sc(GetAccessPointScope)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

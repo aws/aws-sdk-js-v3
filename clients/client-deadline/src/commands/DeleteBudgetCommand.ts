@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteBudgetRequest, DeleteBudgetResponse } from "../models/models_0";
-import { de_DeleteBudgetCommand, se_DeleteBudgetCommand } from "../protocols/Aws_restJson1";
+import { DeleteBudget } from "../schemas/schemas_12_Budget";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class DeleteBudgetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "DeleteBudget", {})
   .n("DeadlineClient", "DeleteBudgetCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteBudgetCommand)
-  .de(de_DeleteBudgetCommand)
+  .sc(DeleteBudget)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

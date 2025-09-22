@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetOnClusterAppUIPresignedURLInput, GetOnClusterAppUIPresignedURLOutput } from "../models/models_0";
-import {
-  de_GetOnClusterAppUIPresignedURLCommand,
-  se_GetOnClusterAppUIPresignedURLCommand,
-} from "../protocols/Aws_json1_1";
+import { GetOnClusterAppUIPresignedURL } from "../schemas/schemas_19_GetOnClusterAppUIPresignedURL";
 
 /**
  * @public
@@ -87,16 +83,11 @@ export class GetOnClusterAppUIPresignedURLCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticMapReduce", "GetOnClusterAppUIPresignedURL", {})
   .n("EMRClient", "GetOnClusterAppUIPresignedURLCommand")
-  .f(void 0, void 0)
-  .ser(se_GetOnClusterAppUIPresignedURLCommand)
-  .de(de_GetOnClusterAppUIPresignedURLCommand)
+  .sc(GetOnClusterAppUIPresignedURL)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartExportTaskInput, StartExportTaskOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_StartExportTaskCommand, se_StartExportTaskCommand } from "../protocols/Aws_restJson1";
+import { StartExportTask } from "../schemas/schemas_4_Task";
 
 /**
  * @public
@@ -152,16 +151,11 @@ export class StartExportTaskCommand extends $Command
     ApiType: { type: "staticContextParams", value: `ControlPlane` },
   })
   .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneGraph", "StartExportTask", {})
   .n("NeptuneGraphClient", "StartExportTaskCommand")
-  .f(void 0, void 0)
-  .ser(se_StartExportTaskCommand)
-  .de(de_StartExportTaskCommand)
+  .sc(StartExportTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

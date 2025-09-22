@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { AddFlowSourcesRequest, AddFlowSourcesResponse } from "../models/models_0";
-import { de_AddFlowSourcesCommand, se_AddFlowSourcesCommand } from "../protocols/Aws_restJson1";
+import { AddFlowSources } from "../schemas/schemas_3_Flow";
 
 /**
  * @public
@@ -206,16 +205,11 @@ export class AddFlowSourcesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConnect", "AddFlowSources", {})
   .n("MediaConnectClient", "AddFlowSourcesCommand")
-  .f(void 0, void 0)
-  .ser(se_AddFlowSourcesCommand)
-  .de(de_AddFlowSourcesCommand)
+  .sc(AddFlowSources)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

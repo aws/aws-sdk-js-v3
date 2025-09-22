@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListIngestionsRequest, ListIngestionsResponse } from "../models/models_4";
-import { de_ListIngestionsCommand, se_ListIngestionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { ListIngestions } from "../schemas/schemas_10_Ingestion";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class ListIngestionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "ListIngestions", {})
   .n("QuickSightClient", "ListIngestionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListIngestionsCommand)
-  .de(de_ListIngestionsCommand)
+  .sc(ListIngestions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

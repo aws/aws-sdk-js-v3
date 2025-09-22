@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeLocationFsxOpenZfsRequest,
-  DescribeLocationFsxOpenZfsResponse,
-  DescribeLocationFsxOpenZfsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeLocationFsxOpenZfsCommand, se_DescribeLocationFsxOpenZfsCommand } from "../protocols/Aws_json1_1";
+import { DescribeLocationFsxOpenZfsRequest, DescribeLocationFsxOpenZfsResponse } from "../models/models_0";
+import { DescribeLocationFsxOpenZfs } from "../schemas/schemas_17_Location";
 
 /**
  * @public
@@ -105,16 +100,11 @@ export class DescribeLocationFsxOpenZfsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FmrsService", "DescribeLocationFsxOpenZfs", {})
   .n("DataSyncClient", "DescribeLocationFsxOpenZfsCommand")
-  .f(void 0, DescribeLocationFsxOpenZfsResponseFilterSensitiveLog)
-  .ser(se_DescribeLocationFsxOpenZfsCommand)
-  .de(de_DescribeLocationFsxOpenZfsCommand)
+  .sc(DescribeLocationFsxOpenZfs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

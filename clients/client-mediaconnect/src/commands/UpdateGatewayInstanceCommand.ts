@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { UpdateGatewayInstanceRequest, UpdateGatewayInstanceResponse } from "../models/models_0";
-import { de_UpdateGatewayInstanceCommand, se_UpdateGatewayInstanceCommand } from "../protocols/Aws_restJson1";
+import { UpdateGatewayInstance } from "../schemas/schemas_19_Instance";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class UpdateGatewayInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConnect", "UpdateGatewayInstance", {})
   .n("MediaConnectClient", "UpdateGatewayInstanceCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateGatewayInstanceCommand)
-  .de(de_UpdateGatewayInstanceCommand)
+  .sc(UpdateGatewayInstance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeSimulationApplicationRequest, DescribeSimulationApplicationResponse } from "../models/models_0";
-import {
-  de_DescribeSimulationApplicationCommand,
-  se_DescribeSimulationApplicationCommand,
-} from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
+import { DescribeSimulationApplication } from "../schemas/schemas_4_Application";
 
 /**
  * @public
@@ -128,16 +124,11 @@ export class DescribeSimulationApplicationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("robomaker", "DescribeSimulationApplication", {})
   .n("RoboMakerClient", "DescribeSimulationApplicationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeSimulationApplicationCommand)
-  .de(de_DescribeSimulationApplicationCommand)
+  .sc(DescribeSimulationApplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

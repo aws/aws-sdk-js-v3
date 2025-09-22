@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { STSServiceException as __BaseException } from "./STSServiceException";
 
@@ -1436,75 +1436,3 @@ export interface GetSessionTokenResponse {
    */
   Credentials?: Credentials | undefined;
 }
-
-/**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
-  ...obj,
-  ...(obj.SecretAccessKey && { SecretAccessKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AssumeRoleResponseFilterSensitiveLog = (obj: AssumeRoleResponse): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const AssumeRoleWithSAMLRequestFilterSensitiveLog = (obj: AssumeRoleWithSAMLRequest): any => ({
-  ...obj,
-  ...(obj.SAMLAssertion && { SAMLAssertion: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AssumeRoleWithSAMLResponseFilterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const AssumeRoleWithWebIdentityRequestFilterSensitiveLog = (obj: AssumeRoleWithWebIdentityRequest): any => ({
-  ...obj,
-  ...(obj.WebIdentityToken && { WebIdentityToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AssumeRoleWithWebIdentityResponseFilterSensitiveLog = (obj: AssumeRoleWithWebIdentityResponse): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const AssumeRootResponseFilterSensitiveLog = (obj: AssumeRootResponse): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const GetFederationTokenResponseFilterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const GetSessionTokenResponseFilterSensitiveLog = (obj: GetSessionTokenResponse): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});

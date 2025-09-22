@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteVerifiedAccessInstanceRequest, DeleteVerifiedAccessInstanceResult } from "../models/models_3";
-import { de_DeleteVerifiedAccessInstanceCommand, se_DeleteVerifiedAccessInstanceCommand } from "../protocols/Aws_ec2";
+import { DeleteVerifiedAccessInstance } from "../schemas/schemas_77_Access";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class DeleteVerifiedAccessInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DeleteVerifiedAccessInstance", {})
   .n("EC2Client", "DeleteVerifiedAccessInstanceCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteVerifiedAccessInstanceCommand)
-  .de(de_DeleteVerifiedAccessInstanceCommand)
+  .sc(DeleteVerifiedAccessInstance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

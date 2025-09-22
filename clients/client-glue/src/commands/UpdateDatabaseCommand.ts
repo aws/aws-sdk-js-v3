@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdateDatabaseRequest, UpdateDatabaseResponse } from "../models/models_3";
-import { de_UpdateDatabaseCommand, se_UpdateDatabaseCommand } from "../protocols/Aws_json1_1";
+import { UpdateDatabase } from "../schemas/schemas_15_Get";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class UpdateDatabaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "UpdateDatabase", {})
   .n("GlueClient", "UpdateDatabaseCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateDatabaseCommand)
-  .de(de_UpdateDatabaseCommand)
+  .sc(UpdateDatabase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

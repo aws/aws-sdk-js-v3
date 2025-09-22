@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSimilarProfilesRequest, GetSimilarProfilesResponse } from "../models/models_0";
-import { de_GetSimilarProfilesCommand, se_GetSimilarProfilesCommand } from "../protocols/Aws_restJson1";
+import { GetSimilarProfiles } from "../schemas/schemas_22_Get";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class GetSimilarProfilesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "GetSimilarProfiles", {})
   .n("CustomerProfilesClient", "GetSimilarProfilesCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSimilarProfilesCommand)
-  .de(de_GetSimilarProfilesCommand)
+  .sc(GetSimilarProfiles)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

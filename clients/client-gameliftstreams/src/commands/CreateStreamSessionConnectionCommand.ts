@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftStreamsClient";
-import {
-  CreateStreamSessionConnectionInput,
-  CreateStreamSessionConnectionInputFilterSensitiveLog,
-  CreateStreamSessionConnectionOutput,
-  CreateStreamSessionConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_CreateStreamSessionConnectionCommand,
-  se_CreateStreamSessionConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateStreamSessionConnectionInput, CreateStreamSessionConnectionOutput } from "../models/models_0";
+import { CreateStreamSessionConnection } from "../schemas/schemas_7_Stream";
 
 /**
  * @public
@@ -101,16 +92,11 @@ export class CreateStreamSessionConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftStreamsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLiftStreams", "CreateStreamSessionConnection", {})
   .n("GameLiftStreamsClient", "CreateStreamSessionConnectionCommand")
-  .f(CreateStreamSessionConnectionInputFilterSensitiveLog, CreateStreamSessionConnectionOutputFilterSensitiveLog)
-  .ser(se_CreateStreamSessionConnectionCommand)
-  .de(de_CreateStreamSessionConnectionCommand)
+  .sc(CreateStreamSessionConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

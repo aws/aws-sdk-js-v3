@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { TestConversionRequest, TestConversionResponse } from "../models/models_0";
-import { de_TestConversionCommand, se_TestConversionCommand } from "../protocols/Aws_json1_0";
+import { TestConversion } from "../schemas/schemas_1_Transformer";
 
 /**
  * @public
@@ -205,16 +204,11 @@ export class TestConversionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("B2BI", "TestConversion", {})
   .n("B2biClient", "TestConversionCommand")
-  .f(void 0, void 0)
-  .ser(se_TestConversionCommand)
-  .de(de_TestConversionCommand)
+  .sc(TestConversion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

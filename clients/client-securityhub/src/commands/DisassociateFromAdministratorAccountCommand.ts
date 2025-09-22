@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   DisassociateFromAdministratorAccountRequest,
   DisassociateFromAdministratorAccountResponse,
 } from "../models/models_2";
-import {
-  de_DisassociateFromAdministratorAccountCommand,
-  se_DisassociateFromAdministratorAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateFromAdministratorAccount } from "../schemas/schemas_49_DisassociateFromAdministratorAccount";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -106,16 +102,11 @@ export class DisassociateFromAdministratorAccountCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "DisassociateFromAdministratorAccount", {})
   .n("SecurityHubClient", "DisassociateFromAdministratorAccountCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateFromAdministratorAccountCommand)
-  .de(de_DisassociateFromAdministratorAccountCommand)
+  .sc(DisassociateFromAdministratorAccount)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

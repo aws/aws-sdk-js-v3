@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AuthorizeEndpointAccessMessage, EndpointAuthorization } from "../models/models_0";
-import { de_AuthorizeEndpointAccessCommand, se_AuthorizeEndpointAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { AuthorizeEndpointAccess } from "../schemas/schemas_18_Endpoint";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class AuthorizeEndpointAccessCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "AuthorizeEndpointAccess", {})
   .n("RedshiftClient", "AuthorizeEndpointAccessCommand")
-  .f(void 0, void 0)
-  .ser(se_AuthorizeEndpointAccessCommand)
-  .de(de_AuthorizeEndpointAccessCommand)
+  .sc(AuthorizeEndpointAccess)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

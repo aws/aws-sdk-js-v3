@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetMultiRegionEndpointRequest, GetMultiRegionEndpointResponse } from "../models/models_0";
-import { de_GetMultiRegionEndpointCommand, se_GetMultiRegionEndpointCommand } from "../protocols/Aws_restJson1";
+import { GetMultiRegionEndpoint } from "../schemas/schemas_34_MultiRegion";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -90,16 +89,11 @@ export class GetMultiRegionEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "GetMultiRegionEndpoint", {})
   .n("SESv2Client", "GetMultiRegionEndpointCommand")
-  .f(void 0, void 0)
-  .ser(se_GetMultiRegionEndpointCommand)
-  .de(de_GetMultiRegionEndpointCommand)
+  .sc(GetMultiRegionEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

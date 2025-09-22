@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import { ListChangeSetsRequest, ListChangeSetsResponse } from "../models/models_0";
-import { de_ListChangeSetsCommand, se_ListChangeSetsCommand } from "../protocols/Aws_restJson1";
+import { ListChangeSets } from "../schemas/schemas_1_Change";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class ListChangeSetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMPSeymour", "ListChangeSets", {})
   .n("MarketplaceCatalogClient", "ListChangeSetsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListChangeSetsCommand)
-  .de(de_ListChangeSetsCommand)
+  .sc(ListChangeSets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

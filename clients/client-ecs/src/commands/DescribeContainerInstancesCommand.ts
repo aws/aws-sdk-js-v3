@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeContainerInstancesRequest, DescribeContainerInstancesResponse } from "../models/models_0";
-import { de_DescribeContainerInstancesCommand, se_DescribeContainerInstancesCommand } from "../protocols/Aws_json1_1";
+import { DescribeContainerInstances } from "../schemas/schemas_9_Container";
 
 /**
  * @public
@@ -269,16 +268,11 @@ export class DescribeContainerInstancesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerServiceV20141113", "DescribeContainerInstances", {})
   .n("ECSClient", "DescribeContainerInstancesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeContainerInstancesCommand)
-  .de(de_DescribeContainerInstancesCommand)
+  .sc(DescribeContainerInstances)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

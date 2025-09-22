@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteVoiceProfileDomainRequest } from "../models/models_0";
-import { de_DeleteVoiceProfileDomainCommand, se_DeleteVoiceProfileDomainCommand } from "../protocols/Aws_restJson1";
+import { DeleteVoiceProfileDomain } from "../schemas/schemas_42_DeleteVoiceProfileDomain";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class DeleteVoiceProfileDomainCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "DeleteVoiceProfileDomain", {})
   .n("ChimeSDKVoiceClient", "DeleteVoiceProfileDomainCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteVoiceProfileDomainCommand)
-  .de(de_DeleteVoiceProfileDomainCommand)
+  .sc(DeleteVoiceProfileDomain)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

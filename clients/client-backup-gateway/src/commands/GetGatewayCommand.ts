@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetGatewayInput, GetGatewayOutput } from "../models/models_0";
-import { de_GetGatewayCommand, se_GetGatewayCommand } from "../protocols/Aws_json1_0";
+import { GetGateway } from "../schemas/schemas_1_Hypervisor";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class GetGatewayCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackupOnPremises_v20210101", "GetGateway", {})
   .n("BackupGatewayClient", "GetGatewayCommand")
-  .f(void 0, void 0)
-  .ser(se_GetGatewayCommand)
-  .de(de_GetGatewayCommand)
+  .sc(GetGateway)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

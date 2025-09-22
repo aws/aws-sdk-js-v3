@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopModelCustomizationJobRequest, StopModelCustomizationJobResponse } from "../models/models_1";
-import { de_StopModelCustomizationJobCommand, se_StopModelCustomizationJobCommand } from "../protocols/Aws_restJson1";
+import { StopModelCustomizationJob } from "../schemas/schemas_10_ModelCustomization";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class StopModelCustomizationJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "StopModelCustomizationJob", {})
   .n("BedrockClient", "StopModelCustomizationJobCommand")
-  .f(void 0, void 0)
-  .ser(se_StopModelCustomizationJobCommand)
-  .de(de_StopModelCustomizationJobCommand)
+  .sc(StopModelCustomizationJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

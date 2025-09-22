@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateHostKeyRequest, UpdateHostKeyResponse } from "../models/models_0";
-import { de_UpdateHostKeyCommand, se_UpdateHostKeyCommand } from "../protocols/Aws_json1_1";
+import { UpdateHostKey } from "../schemas/schemas_1_Host";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -88,16 +87,11 @@ export class UpdateHostKeyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TransferService", "UpdateHostKey", {})
   .n("TransferClient", "UpdateHostKeyCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateHostKeyCommand)
-  .de(de_UpdateHostKeyCommand)
+  .sc(UpdateHostKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

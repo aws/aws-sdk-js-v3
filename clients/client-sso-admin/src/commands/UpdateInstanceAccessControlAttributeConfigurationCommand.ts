@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   UpdateInstanceAccessControlAttributeConfigurationRequest,
   UpdateInstanceAccessControlAttributeConfigurationResponse,
 } from "../models/models_0";
-import {
-  de_UpdateInstanceAccessControlAttributeConfigurationCommand,
-  se_UpdateInstanceAccessControlAttributeConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateInstanceAccessControlAttributeConfiguration } from "../schemas/schemas_19_InstanceAccessControlAttributeConfiguration";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -107,16 +103,11 @@ export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $C
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SWBExternalService", "UpdateInstanceAccessControlAttributeConfiguration", {})
   .n("SSOAdminClient", "UpdateInstanceAccessControlAttributeConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateInstanceAccessControlAttributeConfigurationCommand)
-  .de(de_UpdateInstanceAccessControlAttributeConfigurationCommand)
+  .sc(UpdateInstanceAccessControlAttributeConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

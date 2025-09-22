@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAppBlockBuilderStreamingURLRequest, CreateAppBlockBuilderStreamingURLResult } from "../models/models_0";
-import {
-  de_CreateAppBlockBuilderStreamingURLCommand,
-  se_CreateAppBlockBuilderStreamingURLCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAppBlockBuilderStreamingURL } from "../schemas/schemas_4_Streaming";
 
 /**
  * @public
@@ -83,16 +79,11 @@ export class CreateAppBlockBuilderStreamingURLCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "CreateAppBlockBuilderStreamingURL", {})
   .n("AppStreamClient", "CreateAppBlockBuilderStreamingURLCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAppBlockBuilderStreamingURLCommand)
-  .de(de_CreateAppBlockBuilderStreamingURLCommand)
+  .sc(CreateAppBlockBuilderStreamingURL)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

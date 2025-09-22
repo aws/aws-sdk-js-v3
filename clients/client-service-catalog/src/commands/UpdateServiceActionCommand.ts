@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateServiceActionInput, UpdateServiceActionOutput } from "../models/models_0";
-import { de_UpdateServiceActionCommand, se_UpdateServiceActionCommand } from "../protocols/Aws_json1_1";
+import { UpdateServiceAction } from "../schemas/schemas_13_Service";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -92,16 +91,11 @@ export class UpdateServiceActionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242ServiceCatalogService", "UpdateServiceAction", {})
   .n("ServiceCatalogClient", "UpdateServiceActionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateServiceActionCommand)
-  .de(de_UpdateServiceActionCommand)
+  .sc(UpdateServiceAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GeoMapsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoMapsClient";
-import {
-  GetStyleDescriptorRequest,
-  GetStyleDescriptorRequestFilterSensitiveLog,
-  GetStyleDescriptorResponse,
-} from "../models/models_0";
-import { de_GetStyleDescriptorCommand, se_GetStyleDescriptorCommand } from "../protocols/Aws_restJson1";
+import { GetStyleDescriptorRequest, GetStyleDescriptorResponse } from "../models/models_0";
+import { GetStyleDescriptor } from "../schemas/schemas_1_Get";
 
 /**
  * @public
@@ -88,16 +83,11 @@ export class GetStyleDescriptorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GeoMapsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MapsService", "GetStyleDescriptor", {})
   .n("GeoMapsClient", "GetStyleDescriptorCommand")
-  .f(GetStyleDescriptorRequestFilterSensitiveLog, void 0)
-  .ser(se_GetStyleDescriptorCommand)
-  .de(de_GetStyleDescriptorCommand)
+  .sc(GetStyleDescriptor)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

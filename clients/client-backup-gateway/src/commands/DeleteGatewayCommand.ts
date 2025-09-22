@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteGatewayInput, DeleteGatewayOutput } from "../models/models_0";
-import { de_DeleteGatewayCommand, se_DeleteGatewayCommand } from "../protocols/Aws_json1_0";
+import { DeleteGateway } from "../schemas/schemas_7_DeleteGateway";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class DeleteGatewayCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackupOnPremises_v20210101", "DeleteGateway", {})
   .n("BackupGatewayClient", "DeleteGatewayCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteGatewayCommand)
-  .de(de_DeleteGatewayCommand)
+  .sc(DeleteGateway)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

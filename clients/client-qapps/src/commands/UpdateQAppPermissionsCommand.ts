@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateQAppPermissionsInput, UpdateQAppPermissionsOutput } from "../models/models_0";
-import { de_UpdateQAppPermissionsCommand, se_UpdateQAppPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
+import { UpdateQAppPermissions } from "../schemas/schemas_8_App";
 
 /**
  * @public
@@ -183,16 +182,11 @@ export class UpdateQAppPermissionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QAppsService", "UpdateQAppPermissions", {})
   .n("QAppsClient", "UpdateQAppPermissionsCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateQAppPermissionsCommand)
-  .de(de_UpdateQAppPermissionsCommand)
+  .sc(UpdateQAppPermissions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

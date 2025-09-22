@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListQueriesRequest, ListQueriesResponse } from "../models/models_0";
-import { de_ListQueriesCommand, se_ListQueriesCommand } from "../protocols/Aws_json1_1";
+import { ListQueries } from "../schemas/schemas_2_Import";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class ListQueriesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudTrail_20131101", "ListQueries", {})
   .n("CloudTrailClient", "ListQueriesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListQueriesCommand)
-  .de(de_ListQueriesCommand)
+  .sc(ListQueries)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  EvaluateSessionRequest,
-  EvaluateSessionResponse,
-  EvaluateSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_EvaluateSessionCommand, se_EvaluateSessionCommand } from "../protocols/Aws_json1_0";
+import { EvaluateSessionRequest, EvaluateSessionResponse } from "../models/models_0";
+import { EvaluateSession } from "../schemas/schemas_1_Job";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -138,16 +133,11 @@ export class EvaluateSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VoiceID", "EvaluateSession", {})
   .n("VoiceIDClient", "EvaluateSessionCommand")
-  .f(void 0, EvaluateSessionResponseFilterSensitiveLog)
-  .ser(se_EvaluateSessionCommand)
-  .de(de_EvaluateSessionCommand)
+  .sc(EvaluateSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

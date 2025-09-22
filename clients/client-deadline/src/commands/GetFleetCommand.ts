@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetFleetRequest, GetFleetResponse, GetFleetResponseFilterSensitiveLog } from "../models/models_0";
-import { de_GetFleetCommand, se_GetFleetCommand } from "../protocols/Aws_restJson1";
+import { GetFleetRequest, GetFleetResponse } from "../models/models_0";
+import { GetFleet } from "../schemas/schemas_10_Get";
 
 /**
  * @public
@@ -229,16 +228,11 @@ export class GetFleetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "GetFleet", {})
   .n("DeadlineClient", "GetFleetCommand")
-  .f(void 0, GetFleetResponseFilterSensitiveLog)
-  .ser(se_GetFleetCommand)
-  .de(de_GetFleetCommand)
+  .sc(GetFleet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

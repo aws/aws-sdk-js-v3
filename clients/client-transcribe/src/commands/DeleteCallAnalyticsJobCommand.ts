@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteCallAnalyticsJobRequest, DeleteCallAnalyticsJobResponse } from "../models/models_0";
-import { de_DeleteCallAnalyticsJobCommand, se_DeleteCallAnalyticsJobCommand } from "../protocols/Aws_json1_1";
+import { DeleteCallAnalyticsJob } from "../schemas/schemas_11_Call";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -84,16 +83,11 @@ export class DeleteCallAnalyticsJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Transcribe", "DeleteCallAnalyticsJob", {})
   .n("TranscribeClient", "DeleteCallAnalyticsJobCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCallAnalyticsJobCommand)
-  .de(de_DeleteCallAnalyticsJobCommand)
+  .sc(DeleteCallAnalyticsJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

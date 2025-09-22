@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,15 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetChannelMembershipPreferencesRequest,
-  GetChannelMembershipPreferencesResponse,
-  GetChannelMembershipPreferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetChannelMembershipPreferencesCommand,
-  se_GetChannelMembershipPreferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetChannelMembershipPreferencesRequest, GetChannelMembershipPreferencesResponse } from "../models/models_0";
+import { GetChannelMembershipPreferences } from "../schemas/schemas_12_Channel";
 
 /**
  * @public
@@ -122,16 +114,11 @@ export class GetChannelMembershipPreferencesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMessagingService", "GetChannelMembershipPreferences", {})
   .n("ChimeSDKMessagingClient", "GetChannelMembershipPreferencesCommand")
-  .f(void 0, GetChannelMembershipPreferencesResponseFilterSensitiveLog)
-  .ser(se_GetChannelMembershipPreferencesCommand)
-  .de(de_GetChannelMembershipPreferencesCommand)
+  .sc(GetChannelMembershipPreferences)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

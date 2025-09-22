@@ -24,6 +24,7 @@ import {
   getHttpAuthSchemeEndpointRuleSetPlugin,
   getHttpSigningPlugin,
 } from "@smithy/core";
+import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import {
   CompressionInputConfig,
   CompressionResolvedConfig,
@@ -45,11 +46,14 @@ import {
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
+  ClientProtocol,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  HttpRequest,
+  HttpResponse,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
@@ -735,6 +739,16 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
+   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
+   * may be overridden. A default will always be set by the client.
+   * Available options depend on the service's supported protocols and will not be validated by
+   * the client.
+   * @alpha
+   *
+   */
+  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
+
+  /**
    * A function that, given a hash constructor and a stream, calculates the
    * hash of the streamed value.
    * @internal
@@ -833,6 +847,7 @@ export class RestJsonProtocolClient extends __Client<
     const _config_9 = resolveCompressionConfig(_config_8);
     const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
     this.config = _config_10;
+    this.middlewareStack.use(getSchemaSerdePlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

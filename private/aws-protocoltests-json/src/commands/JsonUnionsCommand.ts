@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { UnionInputOutput } from "../models/models_0";
-import { de_JsonUnionsCommand, se_JsonUnionsCommand } from "../protocols/Aws_json1_1";
+import { JsonUnions } from "../schemas/schemas_1_Operation";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class JsonUnionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("JsonProtocol", "JsonUnions", {})
   .n("JsonProtocolClient", "JsonUnionsCommand")
-  .f(void 0, void 0)
-  .ser(se_JsonUnionsCommand)
-  .de(de_JsonUnionsCommand)
+  .sc(JsonUnions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

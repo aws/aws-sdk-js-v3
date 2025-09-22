@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteIdentityPoolInput } from "../models/models_0";
-import { de_DeleteIdentityPoolCommand, se_DeleteIdentityPoolCommand } from "../protocols/Aws_json1_1";
+import { DeleteIdentityPool } from "../schemas/schemas_7_DeleteIdentityPool";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class DeleteIdentityPoolCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityService", "DeleteIdentityPool", {})
   .n("CognitoIdentityClient", "DeleteIdentityPoolCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteIdentityPoolCommand)
-  .de(de_DeleteIdentityPoolCommand)
+  .sc(DeleteIdentityPool)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

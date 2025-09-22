@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutManagedScalingPolicyInput, PutManagedScalingPolicyOutput } from "../models/models_0";
-import { de_PutManagedScalingPolicyCommand, se_PutManagedScalingPolicyCommand } from "../protocols/Aws_json1_1";
+import { PutManagedScalingPolicy } from "../schemas/schemas_3_Policy";
 
 /**
  * @public
@@ -82,16 +81,11 @@ export class PutManagedScalingPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticMapReduce", "PutManagedScalingPolicy", {})
   .n("EMRClient", "PutManagedScalingPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_PutManagedScalingPolicyCommand)
-  .de(de_PutManagedScalingPolicyCommand)
+  .sc(PutManagedScalingPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

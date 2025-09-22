@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { TagResourceInput, TagResourceOutput } from "../models/models_0";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_0";
+import { TagResource } from "../schemas/schemas_2_StateMachine";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -89,16 +88,11 @@ export class TagResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "TagResource", {})
   .n("SFNClient", "TagResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_TagResourceCommand)
-  .de(de_TagResourceCommand)
+  .sc(TagResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateEnvironmentRoleInput, AssociateEnvironmentRoleOutput } from "../models/models_0";
-import { de_AssociateEnvironmentRoleCommand, se_AssociateEnvironmentRoleCommand } from "../protocols/Aws_restJson1";
+import { AssociateEnvironmentRole } from "../schemas/schemas_29_AssociateEnvironmentRole";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class AssociateEnvironmentRoleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "AssociateEnvironmentRole", {})
   .n("DataZoneClient", "AssociateEnvironmentRoleCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateEnvironmentRoleCommand)
-  .de(de_AssociateEnvironmentRoleCommand)
+  .sc(AssociateEnvironmentRole)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

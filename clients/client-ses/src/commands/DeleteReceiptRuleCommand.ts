@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteReceiptRuleRequest, DeleteReceiptRuleResponse } from "../models/models_0";
-import { de_DeleteReceiptRuleCommand, se_DeleteReceiptRuleCommand } from "../protocols/Aws_query";
+import { DeleteReceiptRule } from "../schemas/schemas_11_Receipt";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -89,16 +88,11 @@ export class DeleteReceiptRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService", "DeleteReceiptRule", {})
   .n("SESClient", "DeleteReceiptRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteReceiptRuleCommand)
-  .de(de_DeleteReceiptRuleCommand)
+  .sc(DeleteReceiptRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

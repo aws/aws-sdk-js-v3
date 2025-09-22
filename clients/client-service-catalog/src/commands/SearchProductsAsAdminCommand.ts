@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchProductsAsAdminInput, SearchProductsAsAdminOutput } from "../models/models_0";
-import { de_SearchProductsAsAdminCommand, se_SearchProductsAsAdminCommand } from "../protocols/Aws_json1_1";
+import { SearchProductsAsAdmin } from "../schemas/schemas_8_Product";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -125,16 +124,11 @@ export class SearchProductsAsAdminCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242ServiceCatalogService", "SearchProductsAsAdmin", {})
   .n("ServiceCatalogClient", "SearchProductsAsAdminCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchProductsAsAdminCommand)
-  .de(de_SearchProductsAsAdminCommand)
+  .sc(SearchProductsAsAdmin)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

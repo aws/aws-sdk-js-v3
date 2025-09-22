@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeletePricingPlanInput, DeletePricingPlanOutput } from "../models/models_0";
-import { de_DeletePricingPlanCommand, se_DeletePricingPlanCommand } from "../protocols/Aws_restJson1";
+import { DeletePricingPlan } from "../schemas/schemas_9_Pricing";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class DeletePricingPlanCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBillingConductor", "DeletePricingPlan", {})
   .n("BillingconductorClient", "DeletePricingPlanCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePricingPlanCommand)
-  .de(de_DeletePricingPlanCommand)
+  .sc(DeletePricingPlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

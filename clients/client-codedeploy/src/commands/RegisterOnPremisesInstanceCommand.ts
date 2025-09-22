@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RegisterOnPremisesInstanceInput } from "../models/models_0";
-import { de_RegisterOnPremisesInstanceCommand, se_RegisterOnPremisesInstanceCommand } from "../protocols/Aws_json1_1";
+import { RegisterOnPremisesInstance } from "../schemas/schemas_9_OnPremises";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class RegisterOnPremisesInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeDeploy_20141006", "RegisterOnPremisesInstance", {})
   .n("CodeDeployClient", "RegisterOnPremisesInstanceCommand")
-  .f(void 0, void 0)
-  .ser(se_RegisterOnPremisesInstanceCommand)
-  .de(de_RegisterOnPremisesInstanceCommand)
+  .sc(RegisterOnPremisesInstance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

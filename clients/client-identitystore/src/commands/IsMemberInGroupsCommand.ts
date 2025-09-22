@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  IsMemberInGroupsRequest,
-  IsMemberInGroupsResponse,
-  IsMemberInGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_IsMemberInGroupsCommand, se_IsMemberInGroupsCommand } from "../protocols/Aws_json1_1";
+import { IsMemberInGroupsRequest, IsMemberInGroupsResponse } from "../models/models_0";
+import { IsMemberInGroups } from "../schemas/schemas_5_Group";
 
 /**
  * @public
@@ -108,16 +103,11 @@ export class IsMemberInGroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IdentitystoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityStore", "IsMemberInGroups", {})
   .n("IdentitystoreClient", "IsMemberInGroupsCommand")
-  .f(void 0, IsMemberInGroupsResponseFilterSensitiveLog)
-  .ser(se_IsMemberInGroupsCommand)
-  .de(de_IsMemberInGroupsCommand)
+  .sc(IsMemberInGroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

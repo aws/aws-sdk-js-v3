@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsInput, ListTagsOutput, ListTagsOutputFilterSensitiveLog } from "../models/models_0";
-import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_restJson1";
+import { ListTagsInput, ListTagsOutput } from "../models/models_0";
+import { ListTags } from "../schemas/schemas_19_ListTags";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class ListTagsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoControllerUserManager", "ListTags", {})
   .n("BackupClient", "ListTagsCommand")
-  .f(void 0, ListTagsOutputFilterSensitiveLog)
-  .ser(se_ListTagsCommand)
-  .de(de_ListTagsCommand)
+  .sc(ListTags)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

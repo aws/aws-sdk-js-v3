@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDirectoryRequest, DeleteDirectoryResult } from "../models/models_0";
-import { de_DeleteDirectoryCommand, se_DeleteDirectoryCommand } from "../protocols/Aws_json1_1";
+import { DeleteDirectory } from "../schemas/schemas_23_DeleteDirectory";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class DeleteDirectoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "DeleteDirectory", {})
   .n("DirectoryServiceClient", "DeleteDirectoryCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDirectoryCommand)
-  .de(de_DeleteDirectoryCommand)
+  .sc(DeleteDirectory)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

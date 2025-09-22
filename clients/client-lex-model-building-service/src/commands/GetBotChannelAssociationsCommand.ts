@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBotChannelAssociationsRequest,
-  GetBotChannelAssociationsResponse,
-  GetBotChannelAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetBotChannelAssociationsCommand, se_GetBotChannelAssociationsCommand } from "../protocols/Aws_restJson1";
+import { GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse } from "../models/models_0";
+import { GetBotChannelAssociations } from "../schemas/schemas_4_Get";
 
 /**
  * @public
@@ -112,16 +107,11 @@ export class GetBotChannelAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepSenseModelBuildingService", "GetBotChannelAssociations", {})
   .n("LexModelBuildingServiceClient", "GetBotChannelAssociationsCommand")
-  .f(void 0, GetBotChannelAssociationsResponseFilterSensitiveLog)
-  .ser(se_GetBotChannelAssociationsCommand)
-  .de(de_GetBotChannelAssociationsCommand)
+  .sc(GetBotChannelAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

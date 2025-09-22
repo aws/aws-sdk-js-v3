@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,12 +7,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListOrganizationRecommendationAccountsRequest,
   ListOrganizationRecommendationAccountsResponse,
-  ListOrganizationRecommendationAccountsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_ListOrganizationRecommendationAccountsCommand,
-  se_ListOrganizationRecommendationAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListOrganizationRecommendationAccounts } from "../schemas/schemas_1_Recommendation";
 import { ServiceInputTypes, ServiceOutputTypes, TrustedAdvisorClientResolvedConfig } from "../TrustedAdvisorClient";
 
 /**
@@ -137,16 +132,11 @@ export class ListOrganizationRecommendationAccountsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TrustedAdvisorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TrustedAdvisor", "ListOrganizationRecommendationAccounts", {})
   .n("TrustedAdvisorClient", "ListOrganizationRecommendationAccountsCommand")
-  .f(void 0, ListOrganizationRecommendationAccountsResponseFilterSensitiveLog)
-  .ser(se_ListOrganizationRecommendationAccountsCommand)
-  .de(de_ListOrganizationRecommendationAccountsCommand)
+  .sc(ListOrganizationRecommendationAccounts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

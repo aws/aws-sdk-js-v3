@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  RegisterMemberToAddressListRequest,
-  RegisterMemberToAddressListRequestFilterSensitiveLog,
-  RegisterMemberToAddressListResponse,
-} from "../models/models_0";
-import { de_RegisterMemberToAddressListCommand, se_RegisterMemberToAddressListCommand } from "../protocols/Aws_json1_0";
+import { RegisterMemberToAddressListRequest, RegisterMemberToAddressListResponse } from "../models/models_0";
+import { RegisterMemberToAddressList } from "../schemas/schemas_1_Address";
 
 /**
  * @public
@@ -90,16 +85,11 @@ export class RegisterMemberToAddressListCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "RegisterMemberToAddressList", {})
   .n("MailManagerClient", "RegisterMemberToAddressListCommand")
-  .f(RegisterMemberToAddressListRequestFilterSensitiveLog, void 0)
-  .ser(se_RegisterMemberToAddressListCommand)
-  .de(de_RegisterMemberToAddressListCommand)
+  .sc(RegisterMemberToAddressList)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

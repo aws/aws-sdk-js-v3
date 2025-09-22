@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { UpdateRuleMetadataRequest, UpdateRuleMetadataResult } from "../models/models_0";
-import { de_UpdateRuleMetadataCommand, se_UpdateRuleMetadataCommand } from "../protocols/Aws_json1_1";
+import { UpdateRuleMetadata } from "../schemas/schemas_5_Version";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class UpdateRuleMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHawksNestServiceFacade", "UpdateRuleMetadata", {})
   .n("FraudDetectorClient", "UpdateRuleMetadataCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateRuleMetadataCommand)
-  .de(de_UpdateRuleMetadataCommand)
+  .sc(UpdateRuleMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { de_CreateConfigurationSetCommand, se_CreateConfigurationSetCommand } from "../protocols/Aws_json1_0";
+import { CreateConfigurationSet } from "../schemas/schemas_9_Create";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class CreateConfigurationSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PinpointSMSVoiceV2", "CreateConfigurationSet", {})
   .n("PinpointSMSVoiceV2Client", "CreateConfigurationSetCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateConfigurationSetCommand)
-  .de(de_CreateConfigurationSetCommand)
+  .sc(CreateConfigurationSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

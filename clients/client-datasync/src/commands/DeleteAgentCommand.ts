@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAgentRequest, DeleteAgentResponse } from "../models/models_0";
-import { de_DeleteAgentCommand, se_DeleteAgentCommand } from "../protocols/Aws_json1_1";
+import { DeleteAgent } from "../schemas/schemas_19_DeleteAgent";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class DeleteAgentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FmrsService", "DeleteAgent", {})
   .n("DataSyncClient", "DeleteAgentCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAgentCommand)
-  .de(de_DeleteAgentCommand)
+  .sc(DeleteAgent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

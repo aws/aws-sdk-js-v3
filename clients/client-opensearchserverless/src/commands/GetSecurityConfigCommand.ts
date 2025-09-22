@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { de_GetSecurityConfigCommand, se_GetSecurityConfigCommand } from "../protocols/Aws_json1_0";
+import { GetSecurityConfig } from "../schemas/schemas_3_List";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class GetSecurityConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OpenSearchServerless", "GetSecurityConfig", {})
   .n("OpenSearchServerlessClient", "GetSecurityConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSecurityConfigCommand)
-  .de(de_GetSecurityConfigCommand)
+  .sc(GetSecurityConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

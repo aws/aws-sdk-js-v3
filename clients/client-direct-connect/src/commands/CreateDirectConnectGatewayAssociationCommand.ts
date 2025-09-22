@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   CreateDirectConnectGatewayAssociationRequest,
   CreateDirectConnectGatewayAssociationResult,
 } from "../models/models_0";
-import {
-  de_CreateDirectConnectGatewayAssociationCommand,
-  se_CreateDirectConnectGatewayAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDirectConnectGatewayAssociation } from "../schemas/schemas_8_DirectConnect";
 
 /**
  * @public
@@ -118,16 +114,11 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OvertureService", "CreateDirectConnectGatewayAssociation", {})
   .n("DirectConnectClient", "CreateDirectConnectGatewayAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDirectConnectGatewayAssociationCommand)
-  .de(de_CreateDirectConnectGatewayAssociationCommand)
+  .sc(CreateDirectConnectGatewayAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAccountRolesRequest,
-  ListAccountRolesRequestFilterSensitiveLog,
-  ListAccountRolesResponse,
-} from "../models/models_0";
-import { de_ListAccountRolesCommand, se_ListAccountRolesCommand } from "../protocols/Aws_restJson1";
+import { ListAccountRolesRequest, ListAccountRolesResponse } from "../models/models_0";
+import { ListAccountRoles } from "../schemas/schemas_1_List";
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
@@ -98,16 +93,11 @@ export class ListAccountRolesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SWBPortalService", "ListAccountRoles", {})
   .n("SSOClient", "ListAccountRolesCommand")
-  .f(ListAccountRolesRequestFilterSensitiveLog, void 0)
-  .ser(se_ListAccountRolesCommand)
-  .de(de_ListAccountRolesCommand)
+  .sc(ListAccountRoles)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

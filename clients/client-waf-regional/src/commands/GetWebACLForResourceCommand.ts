@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetWebACLForResourceRequest, GetWebACLForResourceResponse } from "../models/models_0";
-import { de_GetWebACLForResourceCommand, se_GetWebACLForResourceCommand } from "../protocols/Aws_json1_1";
+import { GetWebACLForResource } from "../schemas/schemas_11_WebA";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -134,16 +133,11 @@ export class GetWebACLForResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_Regional_20161128", "GetWebACLForResource", {})
   .n("WAFRegionalClient", "GetWebACLForResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_GetWebACLForResourceCommand)
-  .de(de_GetWebACLForResourceCommand)
+  .sc(GetWebACLForResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

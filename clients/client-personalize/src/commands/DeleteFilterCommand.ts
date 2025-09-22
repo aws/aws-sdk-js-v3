@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteFilterRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { de_DeleteFilterCommand, se_DeleteFilterCommand } from "../protocols/Aws_json1_1";
+import { DeleteFilter } from "../schemas/schemas_5_DeleteFilter";
 
 /**
  * @public
@@ -77,16 +76,11 @@ export class DeleteFilterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPersonalize", "DeleteFilter", {})
   .n("PersonalizeClient", "DeleteFilterCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteFilterCommand)
-  .de(de_DeleteFilterCommand)
+  .sc(DeleteFilter)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListJobRunAttemptsRequest, ListJobRunAttemptsResponse } from "../models/models_0";
-import { de_ListJobRunAttemptsCommand, se_ListJobRunAttemptsCommand } from "../protocols/Aws_restJson1";
+import { ListJobRunAttempts } from "../schemas/schemas_2_Job";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class ListJobRunAttemptsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsToledoWebService", "ListJobRunAttempts", {})
   .n("EMRServerlessClient", "ListJobRunAttemptsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListJobRunAttemptsCommand)
-  .de(de_ListJobRunAttemptsCommand)
+  .sc(ListJobRunAttempts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

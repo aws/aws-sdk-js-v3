@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,12 +8,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetSipMediaApplicationAlexaSkillConfigurationRequest,
   GetSipMediaApplicationAlexaSkillConfigurationResponse,
-  GetSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_GetSipMediaApplicationAlexaSkillConfigurationCommand,
-  se_GetSipMediaApplicationAlexaSkillConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSipMediaApplicationAlexaSkillConfiguration } from "../schemas/schemas_5_SipMediaApplicationAlexa";
 
 /**
  * @public
@@ -112,16 +107,11 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "GetSipMediaApplicationAlexaSkillConfiguration", {})
   .n("ChimeSDKVoiceClient", "GetSipMediaApplicationAlexaSkillConfigurationCommand")
-  .f(void 0, GetSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog)
-  .ser(se_GetSipMediaApplicationAlexaSkillConfigurationCommand)
-  .de(de_GetSipMediaApplicationAlexaSkillConfigurationCommand)
+  .sc(GetSipMediaApplicationAlexaSkillConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

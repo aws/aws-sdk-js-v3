@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AddPermissionRequest } from "../models/models_0";
-import { de_AddPermissionCommand, se_AddPermissionCommand } from "../protocols/Aws_json1_0";
+import { AddPermission } from "../schemas/schemas_3_";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -141,16 +140,11 @@ export class AddPermissionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSQS", "AddPermission", {})
   .n("SQSClient", "AddPermissionCommand")
-  .f(void 0, void 0)
-  .ser(se_AddPermissionCommand)
-  .de(de_AddPermissionCommand)
+  .sc(AddPermission)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

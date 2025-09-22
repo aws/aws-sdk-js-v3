@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateChallengeRequest,
-  CreateChallengeResponse,
-  CreateChallengeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateChallengeRequest, CreateChallengeResponse } from "../models/models_0";
 import { PcaConnectorScepClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PcaConnectorScepClient";
-import { de_CreateChallengeCommand, se_CreateChallengeCommand } from "../protocols/Aws_restJson1";
+import { CreateChallenge } from "../schemas/schemas_2_Challenge";
 
 /**
  * @public
@@ -115,16 +110,11 @@ export class CreateChallengeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorScepClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PcaConnectorScep", "CreateChallenge", {})
   .n("PcaConnectorScepClient", "CreateChallengeCommand")
-  .f(void 0, CreateChallengeResponseFilterSensitiveLog)
-  .ser(se_CreateChallengeCommand)
-  .de(de_CreateChallengeCommand)
+  .sc(CreateChallenge)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

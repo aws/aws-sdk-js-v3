@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetEventsConfigurationRequest,
-  GetEventsConfigurationResponse,
-  GetEventsConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetEventsConfigurationCommand, se_GetEventsConfigurationCommand } from "../protocols/Aws_restJson1";
+import { GetEventsConfigurationRequest, GetEventsConfigurationResponse } from "../models/models_0";
+import { GetEventsConfiguration } from "../schemas/schemas_3_Create";
 
 /**
  * @public
@@ -100,16 +95,11 @@ export class GetEventsConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("UCBuzzConsoleService", "GetEventsConfiguration", {})
   .n("ChimeClient", "GetEventsConfigurationCommand")
-  .f(void 0, GetEventsConfigurationResponseFilterSensitiveLog)
-  .ser(se_GetEventsConfigurationCommand)
-  .de(de_GetEventsConfigurationCommand)
+  .sc(GetEventsConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

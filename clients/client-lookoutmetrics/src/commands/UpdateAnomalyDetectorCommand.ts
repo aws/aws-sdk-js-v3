@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { UpdateAnomalyDetectorRequest, UpdateAnomalyDetectorResponse } from "../models/models_0";
-import { de_UpdateAnomalyDetectorCommand, se_UpdateAnomalyDetectorCommand } from "../protocols/Aws_restJson1";
+import { UpdateAnomalyDetector } from "../schemas/schemas_7_Detector";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class UpdateAnomalyDetectorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LookoutMetrics", "UpdateAnomalyDetector", {})
   .n("LookoutMetricsClient", "UpdateAnomalyDetectorCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateAnomalyDetectorCommand)
-  .de(de_UpdateAnomalyDetectorCommand)
+  .sc(UpdateAnomalyDetector)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

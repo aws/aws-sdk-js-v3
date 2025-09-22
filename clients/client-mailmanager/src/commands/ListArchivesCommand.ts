@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import { ListArchivesRequest, ListArchivesResponse } from "../models/models_0";
-import { de_ListArchivesCommand, se_ListArchivesCommand } from "../protocols/Aws_json1_0";
+import { ListArchives } from "../schemas/schemas_8_List";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class ListArchivesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "ListArchives", {})
   .n("MailManagerClient", "ListArchivesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListArchivesCommand)
-  .de(de_ListArchivesCommand)
+  .sc(ListArchives)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

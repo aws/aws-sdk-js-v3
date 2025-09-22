@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { UpdateSecurityRequest, UpdateSecurityResponse } from "../models/models_0";
-import { de_UpdateSecurityCommand, se_UpdateSecurityCommand } from "../protocols/Aws_restJson1";
+import { UpdateSecurity } from "../schemas/schemas_2_Cluster";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class UpdateSecurityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Kafka", "UpdateSecurity", {})
   .n("KafkaClient", "UpdateSecurityCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSecurityCommand)
-  .de(de_UpdateSecurityCommand)
+  .sc(UpdateSecurity)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

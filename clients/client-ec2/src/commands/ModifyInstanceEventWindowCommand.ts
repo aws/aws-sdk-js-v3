@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyInstanceEventWindowRequest, ModifyInstanceEventWindowResult } from "../models/models_7";
-import { de_ModifyInstanceEventWindowCommand, se_ModifyInstanceEventWindowCommand } from "../protocols/Aws_ec2";
+import { ModifyInstanceEventWindow } from "../schemas/schemas_31_Instance";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class ModifyInstanceEventWindowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ModifyInstanceEventWindow", {})
   .n("EC2Client", "ModifyInstanceEventWindowCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyInstanceEventWindowCommand)
-  .de(de_ModifyInstanceEventWindowCommand)
+  .sc(ModifyInstanceEventWindow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

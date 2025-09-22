@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListNodeFromTemplateJobsRequest, ListNodeFromTemplateJobsResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { de_ListNodeFromTemplateJobsCommand, se_ListNodeFromTemplateJobsCommand } from "../protocols/Aws_restJson1";
+import { ListNodeFromTemplateJobs } from "../schemas/schemas_6_List";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class ListNodeFromTemplateJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OmniCloudServiceLambda", "ListNodeFromTemplateJobs", {})
   .n("PanoramaClient", "ListNodeFromTemplateJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListNodeFromTemplateJobsCommand)
-  .de(de_ListNodeFromTemplateJobsCommand)
+  .sc(ListNodeFromTemplateJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

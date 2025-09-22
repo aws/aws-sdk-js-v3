@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { XmlNamespacesRequest, XmlNamespacesResponse } from "../models/models_0";
-import { de_XmlNamespacesCommand, se_XmlNamespacesCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { XmlNamespaces } from "../schemas/schemas_1_XmlNamespaces";
 
 /**
  * @public
@@ -80,16 +79,11 @@ export class XmlNamespacesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestXml", "XmlNamespaces", {})
   .n("RestXmlProtocolClient", "XmlNamespacesCommand")
-  .f(void 0, void 0)
-  .ser(se_XmlNamespacesCommand)
-  .de(de_XmlNamespacesCommand)
+  .sc(XmlNamespaces)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

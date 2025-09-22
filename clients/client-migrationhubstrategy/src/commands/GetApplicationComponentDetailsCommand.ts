@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { GetApplicationComponentDetailsRequest, GetApplicationComponentDetailsResponse } from "../models/models_0";
-import {
-  de_GetApplicationComponentDetailsCommand,
-  se_GetApplicationComponentDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetApplicationComponentDetails } from "../schemas/schemas_1_Get";
 
 /**
  * @public
@@ -173,16 +169,11 @@ export class GetApplicationComponentDetailsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHubStrategyRecommendation", "GetApplicationComponentDetails", {})
   .n("MigrationHubStrategyClient", "GetApplicationComponentDetailsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetApplicationComponentDetailsCommand)
-  .de(de_GetApplicationComponentDetailsCommand)
+  .sc(GetApplicationComponentDetails)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

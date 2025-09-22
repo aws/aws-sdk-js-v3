@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAgentAliasesRequest, ListAgentAliasesResponse } from "../models/models_0";
-import { de_ListAgentAliasesCommand, se_ListAgentAliasesCommand } from "../protocols/Aws_restJson1";
+import { ListAgentAliases } from "../schemas/schemas_8_Agent";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class ListAgentAliasesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "ListAgentAliases", {})
   .n("BedrockAgentClient", "ListAgentAliasesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAgentAliasesCommand)
-  .de(de_ListAgentAliasesCommand)
+  .sc(ListAgentAliases)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GrantPermissionsRequest, GrantPermissionsResponse } from "../models/models_0";
-import { de_GrantPermissionsCommand, se_GrantPermissionsCommand } from "../protocols/Aws_restJson1";
+import { GrantPermissions } from "../schemas/schemas_3_Permissions";
 
 /**
  * @public
@@ -152,16 +151,11 @@ export class GrantPermissionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLakeFormation", "GrantPermissions", {})
   .n("LakeFormationClient", "GrantPermissionsCommand")
-  .f(void 0, void 0)
-  .ser(se_GrantPermissionsCommand)
-  .de(de_GrantPermissionsCommand)
+  .sc(GrantPermissions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

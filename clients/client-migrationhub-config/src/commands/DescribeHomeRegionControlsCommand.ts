@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient";
 import { DescribeHomeRegionControlsRequest, DescribeHomeRegionControlsResult } from "../models/models_0";
-import { de_DescribeHomeRegionControlsCommand, se_DescribeHomeRegionControlsCommand } from "../protocols/Aws_json1_1";
+import { DescribeHomeRegionControls } from "../schemas/schemas_1_HomeRegion";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class DescribeHomeRegionControlsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubConfigClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHubMultiAccountService", "DescribeHomeRegionControls", {})
   .n("MigrationHubConfigClient", "DescribeHomeRegionControlsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeHomeRegionControlsCommand)
-  .de(de_DescribeHomeRegionControlsCommand)
+  .sc(DescribeHomeRegionControls)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

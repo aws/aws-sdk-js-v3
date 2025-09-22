@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAssetRequest, GetAssetResponse } from "../models/models_0";
-import { de_GetAssetCommand, se_GetAssetCommand } from "../protocols/Aws_restJson1";
+import { GetAsset } from "../schemas/schemas_1_Asset";
 
 /**
  * @public
@@ -162,16 +161,11 @@ export class GetAssetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataExchange", "GetAsset", {})
   .n("DataExchangeClient", "GetAssetCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAssetCommand)
-  .de(de_GetAssetCommand)
+  .sc(GetAsset)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

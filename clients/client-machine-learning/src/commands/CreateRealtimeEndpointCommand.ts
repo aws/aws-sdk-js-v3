@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput } from "../models/models_0";
-import { de_CreateRealtimeEndpointCommand, se_CreateRealtimeEndpointCommand } from "../protocols/Aws_json1_1";
+import { CreateRealtimeEndpoint } from "../schemas/schemas_3_Describe";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class CreateRealtimeEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonML_20141212", "CreateRealtimeEndpoint", {})
   .n("MachineLearningClient", "CreateRealtimeEndpointCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateRealtimeEndpointCommand)
-  .de(de_CreateRealtimeEndpointCommand)
+  .sc(CreateRealtimeEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

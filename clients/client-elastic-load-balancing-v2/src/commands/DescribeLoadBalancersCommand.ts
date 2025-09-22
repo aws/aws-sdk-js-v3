@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeLoadBalancersInput, DescribeLoadBalancersOutput } from "../models/models_0";
-import { de_DescribeLoadBalancersCommand, se_DescribeLoadBalancersCommand } from "../protocols/Aws_query";
+import { DescribeLoadBalancers } from "../schemas/schemas_4_Describe";
 
 /**
  * @public
@@ -172,16 +171,11 @@ export class DescribeLoadBalancersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticLoadBalancing_v10", "DescribeLoadBalancers", {})
   .n("ElasticLoadBalancingV2Client", "DescribeLoadBalancersCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeLoadBalancersCommand)
-  .de(de_DescribeLoadBalancersCommand)
+  .sc(DescribeLoadBalancers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

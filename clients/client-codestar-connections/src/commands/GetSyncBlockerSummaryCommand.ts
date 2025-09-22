@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSyncBlockerSummaryInput, GetSyncBlockerSummaryOutput } from "../models/models_0";
-import { de_GetSyncBlockerSummaryCommand, se_GetSyncBlockerSummaryCommand } from "../protocols/Aws_json1_0";
+import { GetSyncBlockerSummary } from "../schemas/schemas_5_Sync";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class GetSyncBlockerSummaryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeStar_connections_20191201", "GetSyncBlockerSummary", {})
   .n("CodeStarConnectionsClient", "GetSyncBlockerSummaryCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSyncBlockerSummaryCommand)
-  .de(de_GetSyncBlockerSummaryCommand)
+  .sc(GetSyncBlockerSummary)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

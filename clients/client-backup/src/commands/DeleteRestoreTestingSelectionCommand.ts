@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteRestoreTestingSelectionInput } from "../models/models_0";
-import {
-  de_DeleteRestoreTestingSelectionCommand,
-  se_DeleteRestoreTestingSelectionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRestoreTestingSelection } from "../schemas/schemas_1_RestoreTesting";
 
 /**
  * @public
@@ -81,16 +77,11 @@ export class DeleteRestoreTestingSelectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoControllerUserManager", "DeleteRestoreTestingSelection", {})
   .n("BackupClient", "DeleteRestoreTestingSelectionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteRestoreTestingSelectionCommand)
-  .de(de_DeleteRestoreTestingSelectionCommand)
+  .sc(DeleteRestoreTestingSelection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

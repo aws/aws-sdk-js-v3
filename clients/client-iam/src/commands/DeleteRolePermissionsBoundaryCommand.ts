@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteRolePermissionsBoundaryRequest } from "../models/models_0";
-import {
-  de_DeleteRolePermissionsBoundaryCommand,
-  se_DeleteRolePermissionsBoundaryCommand,
-} from "../protocols/Aws_query";
+import { DeleteRolePermissionsBoundary } from "../schemas/schemas_67_DeleteRolePermissionsBoundary";
 
 /**
  * @public
@@ -91,16 +87,11 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "DeleteRolePermissionsBoundary", {})
   .n("IAMClient", "DeleteRolePermissionsBoundaryCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteRolePermissionsBoundaryCommand)
-  .de(de_DeleteRolePermissionsBoundaryCommand)
+  .sc(DeleteRolePermissionsBoundary)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

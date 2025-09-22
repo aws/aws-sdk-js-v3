@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateSqlInjectionMatchSetRequest, UpdateSqlInjectionMatchSetResponse } from "../models/models_0";
-import { de_UpdateSqlInjectionMatchSetCommand, se_UpdateSqlInjectionMatchSetCommand } from "../protocols/Aws_json1_1";
+import { UpdateSqlInjectionMatchSet } from "../schemas/schemas_18_MatchSet";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -257,16 +256,11 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_Regional_20161128", "UpdateSqlInjectionMatchSet", {})
   .n("WAFRegionalClient", "UpdateSqlInjectionMatchSetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSqlInjectionMatchSetCommand)
-  .de(de_UpdateSqlInjectionMatchSetCommand)
+  .sc(UpdateSqlInjectionMatchSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

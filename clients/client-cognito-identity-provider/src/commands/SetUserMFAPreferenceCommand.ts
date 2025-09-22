@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SetUserMFAPreferenceRequest,
-  SetUserMFAPreferenceRequestFilterSensitiveLog,
-  SetUserMFAPreferenceResponse,
-} from "../models/models_1";
-import { de_SetUserMFAPreferenceCommand, se_SetUserMFAPreferenceCommand } from "../protocols/Aws_json1_1";
+import { SetUserMFAPreferenceRequest, SetUserMFAPreferenceResponse } from "../models/models_1";
+import { SetUserMFAPreference } from "../schemas/schemas_23_UserM";
 
 /**
  * @public
@@ -130,16 +125,11 @@ export class SetUserMFAPreferenceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "SetUserMFAPreference", {})
   .n("CognitoIdentityProviderClient", "SetUserMFAPreferenceCommand")
-  .f(SetUserMFAPreferenceRequestFilterSensitiveLog, void 0)
-  .ser(se_SetUserMFAPreferenceCommand)
-  .de(de_SetUserMFAPreferenceCommand)
+  .sc(SetUserMFAPreference)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

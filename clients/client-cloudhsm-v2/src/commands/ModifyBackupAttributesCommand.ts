@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyBackupAttributesRequest, ModifyBackupAttributesResponse } from "../models/models_0";
-import { de_ModifyBackupAttributesCommand, se_ModifyBackupAttributesCommand } from "../protocols/Aws_json1_1";
+import { ModifyBackupAttributes } from "../schemas/schemas_2_Backup";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class ModifyBackupAttributesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BaldrApiService", "ModifyBackupAttributes", {})
   .n("CloudHSMV2Client", "ModifyBackupAttributesCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyBackupAttributesCommand)
-  .de(de_ModifyBackupAttributesCommand)
+  .sc(ModifyBackupAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

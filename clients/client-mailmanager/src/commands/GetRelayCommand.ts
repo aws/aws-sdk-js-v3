@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import { GetRelayRequest, GetRelayResponse } from "../models/models_0";
-import { de_GetRelayCommand, se_GetRelayCommand } from "../protocols/Aws_json1_0";
+import { GetRelay } from "../schemas/schemas_5_Relay";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class GetRelayCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "GetRelay", {})
   .n("MailManagerClient", "GetRelayCommand")
-  .f(void 0, void 0)
-  .ser(se_GetRelayCommand)
-  .de(de_GetRelayCommand)
+  .sc(GetRelay)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateInstanceRequest, UpdateInstanceResponse } from "../models/models_0";
-import { de_UpdateInstanceCommand, se_UpdateInstanceCommand } from "../protocols/Aws_json1_1";
+import { UpdateInstance } from "../schemas/schemas_22_Instance";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -91,16 +90,11 @@ export class UpdateInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SWBExternalService", "UpdateInstance", {})
   .n("SSOAdminClient", "UpdateInstanceCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateInstanceCommand)
-  .de(de_UpdateInstanceCommand)
+  .sc(UpdateInstance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

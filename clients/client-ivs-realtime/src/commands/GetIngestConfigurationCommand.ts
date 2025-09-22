@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
-import {
-  GetIngestConfigurationRequest,
-  GetIngestConfigurationResponse,
-  GetIngestConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetIngestConfigurationCommand, se_GetIngestConfigurationCommand } from "../protocols/Aws_restJson1";
+import { GetIngestConfigurationRequest, GetIngestConfigurationResponse } from "../models/models_0";
+import { GetIngestConfiguration } from "../schemas/schemas_2_Ingest";
 
 /**
  * @public
@@ -98,16 +93,11 @@ export class GetIngestConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoServiceRealTime", "GetIngestConfiguration", {})
   .n("IVSRealTimeClient", "GetIngestConfigurationCommand")
-  .f(void 0, GetIngestConfigurationResponseFilterSensitiveLog)
-  .ser(se_GetIngestConfigurationCommand)
-  .de(de_GetIngestConfigurationCommand)
+  .sc(GetIngestConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

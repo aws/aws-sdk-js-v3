@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopMeetingTranscriptionRequest } from "../models/models_0";
-import { de_StopMeetingTranscriptionCommand, se_StopMeetingTranscriptionCommand } from "../protocols/Aws_restJson1";
+import { StopMeetingTranscription } from "../schemas/schemas_2_Attendee";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class StopMeetingTranscriptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMeetingsSDKService", "StopMeetingTranscription", {})
   .n("ChimeSDKMeetingsClient", "StopMeetingTranscriptionCommand")
-  .f(void 0, void 0)
-  .ser(se_StopMeetingTranscriptionCommand)
-  .de(de_StopMeetingTranscriptionCommand)
+  .sc(StopMeetingTranscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

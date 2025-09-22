@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListWorkflowTypesInput, WorkflowTypeInfos } from "../models/models_0";
-import { de_ListWorkflowTypesCommand, se_ListWorkflowTypesCommand } from "../protocols/Aws_json1_0";
+import { ListWorkflowTypes } from "../schemas/schemas_3_Workflow";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -117,16 +116,11 @@ export class ListWorkflowTypesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleWorkflowService", "ListWorkflowTypes", {})
   .n("SWFClient", "ListWorkflowTypesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListWorkflowTypesCommand)
-  .de(de_ListWorkflowTypesCommand)
+  .sc(ListWorkflowTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

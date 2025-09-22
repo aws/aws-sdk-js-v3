@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateSettingsRequest, UpdateSettingsResult } from "../models/models_0";
-import { de_UpdateSettingsCommand, se_UpdateSettingsCommand } from "../protocols/Aws_json1_1";
+import { UpdateSettings } from "../schemas/schemas_24_Settings";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class UpdateSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "UpdateSettings", {})
   .n("DirectoryServiceClient", "UpdateSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSettingsCommand)
-  .de(de_UpdateSettingsCommand)
+  .sc(UpdateSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateHostInput, CreateHostOutput } from "../models/models_0";
-import { de_CreateHostCommand, se_CreateHostCommand } from "../protocols/Aws_json1_0";
+import { CreateHost } from "../schemas/schemas_1_Host";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class CreateHostCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeStar_connections_20191201", "CreateHost", {})
   .n("CodeStarConnectionsClient", "CreateHostCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateHostCommand)
-  .de(de_CreateHostCommand)
+  .sc(CreateHost)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

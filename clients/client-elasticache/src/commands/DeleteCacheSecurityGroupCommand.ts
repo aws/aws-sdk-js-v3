@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteCacheSecurityGroupMessage } from "../models/models_0";
-import { de_DeleteCacheSecurityGroupCommand, se_DeleteCacheSecurityGroupCommand } from "../protocols/Aws_query";
+import { DeleteCacheSecurityGroup } from "../schemas/schemas_1_Cache";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class DeleteCacheSecurityGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElastiCacheV9", "DeleteCacheSecurityGroup", {})
   .n("ElastiCacheClient", "DeleteCacheSecurityGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCacheSecurityGroupCommand)
-  .de(de_DeleteCacheSecurityGroupCommand)
+  .sc(DeleteCacheSecurityGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

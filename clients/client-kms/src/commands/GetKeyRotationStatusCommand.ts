@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { GetKeyRotationStatusRequest, GetKeyRotationStatusResponse } from "../models/models_0";
-import { de_GetKeyRotationStatusCommand, se_GetKeyRotationStatusCommand } from "../protocols/Aws_json1_1";
+import { GetKeyRotationStatus } from "../schemas/schemas_23_KeyRotation";
 
 /**
  * @public
@@ -182,16 +181,11 @@ export class GetKeyRotationStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TrentService", "GetKeyRotationStatus", {})
   .n("KMSClient", "GetKeyRotationStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_GetKeyRotationStatusCommand)
-  .de(de_GetKeyRotationStatusCommand)
+  .sc(GetKeyRotationStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

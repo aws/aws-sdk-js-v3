@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,12 +8,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeSlackChannelConfigurationsRequest,
   DescribeSlackChannelConfigurationsResult,
-  DescribeSlackChannelConfigurationsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_DescribeSlackChannelConfigurationsCommand,
-  se_DescribeSlackChannelConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSlackChannelConfigurations } from "../schemas/schemas_1_Configuration";
 
 /**
  * @public
@@ -117,16 +112,11 @@ export class DescribeSlackChannelConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WheatleyOrchestration_20171011", "DescribeSlackChannelConfigurations", {})
   .n("ChatbotClient", "DescribeSlackChannelConfigurationsCommand")
-  .f(void 0, DescribeSlackChannelConfigurationsResultFilterSensitiveLog)
-  .ser(se_DescribeSlackChannelConfigurationsCommand)
-  .de(de_DescribeSlackChannelConfigurationsCommand)
+  .sc(DescribeSlackChannelConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

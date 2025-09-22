@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopAutomationExecutionRequest, StopAutomationExecutionResult } from "../models/models_2";
-import { de_StopAutomationExecutionCommand, se_StopAutomationExecutionCommand } from "../protocols/Aws_json1_1";
+import { StopAutomationExecution } from "../schemas/schemas_33_Automation";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -79,16 +78,11 @@ export class StopAutomationExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "StopAutomationExecution", {})
   .n("SSMClient", "StopAutomationExecutionCommand")
-  .f(void 0, void 0)
-  .ser(se_StopAutomationExecutionCommand)
-  .de(de_StopAutomationExecutionCommand)
+  .sc(StopAutomationExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

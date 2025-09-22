@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { AssociateUserToPermissionGroupRequest, AssociateUserToPermissionGroupResponse } from "../models/models_0";
-import {
-  de_AssociateUserToPermissionGroupCommand,
-  se_AssociateUserToPermissionGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateUserToPermissionGroup } from "../schemas/schemas_3_User";
 
 /**
  * @public
@@ -98,16 +94,11 @@ export class AssociateUserToPermissionGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroPublicAPI", "AssociateUserToPermissionGroup", {})
   .n("FinspaceDataClient", "AssociateUserToPermissionGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateUserToPermissionGroupCommand)
-  .de(de_AssociateUserToPermissionGroupCommand)
+  .sc(AssociateUserToPermissionGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

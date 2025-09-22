@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetQueryLoggingConfigRequest, GetQueryLoggingConfigResponse } from "../models/models_0";
-import { de_GetQueryLoggingConfigCommand, se_GetQueryLoggingConfigCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { GetQueryLoggingConfig } from "../schemas/schemas_16_Logging";
 
 /**
  * @public
@@ -83,17 +82,11 @@ export class GetQueryLoggingConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
   })
   .s("AWSDnsV20130401", "GetQueryLoggingConfig", {})
   .n("Route53Client", "GetQueryLoggingConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_GetQueryLoggingConfigCommand)
-  .de(de_GetQueryLoggingConfigCommand)
+  .sc(GetQueryLoggingConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

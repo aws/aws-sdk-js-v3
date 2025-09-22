@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListManagedNotificationEventsRequest, ListManagedNotificationEventsResponse } from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import {
-  de_ListManagedNotificationEventsCommand,
-  se_ListManagedNotificationEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListManagedNotificationEvents } from "../schemas/schemas_5_Notification";
 
 /**
  * @public
@@ -159,16 +155,11 @@ export class ListManagedNotificationEventsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Notifications", "ListManagedNotificationEvents", {})
   .n("NotificationsClient", "ListManagedNotificationEventsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListManagedNotificationEventsCommand)
-  .de(de_ListManagedNotificationEventsCommand)
+  .sc(ListManagedNotificationEvents)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

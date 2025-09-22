@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateResolverConfigRequest, UpdateResolverConfigResponse } from "../models/models_0";
-import { de_UpdateResolverConfigCommand, se_UpdateResolverConfigCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
+import { UpdateResolverConfig } from "../schemas/schemas_16_Resolver";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class UpdateResolverConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Resolver", "UpdateResolverConfig", {})
   .n("Route53ResolverClient", "UpdateResolverConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateResolverConfigCommand)
-  .de(de_UpdateResolverConfigCommand)
+  .sc(UpdateResolverConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

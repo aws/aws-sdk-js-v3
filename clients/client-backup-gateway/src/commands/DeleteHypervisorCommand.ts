@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteHypervisorInput, DeleteHypervisorOutput } from "../models/models_0";
-import { de_DeleteHypervisorCommand, se_DeleteHypervisorCommand } from "../protocols/Aws_json1_0";
+import { DeleteHypervisor } from "../schemas/schemas_4_Hypervisor";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class DeleteHypervisorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackupOnPremises_v20210101", "DeleteHypervisor", {})
   .n("BackupGatewayClient", "DeleteHypervisorCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteHypervisorCommand)
-  .de(de_DeleteHypervisorCommand)
+  .sc(DeleteHypervisor)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

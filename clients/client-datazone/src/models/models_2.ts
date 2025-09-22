@@ -1,43 +1,30 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AccountSource,
-  AccountSourceFilterSensitiveLog,
   ActionParameters,
   AggregationListItem,
   AggregationOutput,
   AssetItem,
-  AssetItemFilterSensitiveLog,
   AssetListingItem,
-  AssetListingItemFilterSensitiveLog,
   AssetTypeItem,
-  AssetTypeItemFilterSensitiveLog,
   AwsLocation,
   ColumnFilterConfiguration,
   ConfigurableEnvironmentAction,
   ConnectionPropertiesOutput,
-  ConnectionPropertiesOutputFilterSensitiveLog,
   ConnectionPropertiesPatch,
-  ConnectionPropertiesPatchFilterSensitiveLog,
   ConnectionType,
   CustomParameter,
-  CustomParameterFilterSensitiveLog,
   DataZoneEntityType,
   Deployment,
   DeploymentProperties,
   EnvironmentConfiguration,
-  EnvironmentConfigurationFilterSensitiveLog,
   EnvironmentConfigurationUserParameter,
-  EnvironmentConfigurationUserParameterFilterSensitiveLog,
   EnvironmentDeploymentDetails,
   EnvironmentParameter,
   EnvironmentStatus,
   FilterStatus,
   FormEntryOutput,
-  FormEntryOutputFilterSensitiveLog,
   FormOutput,
-  FormOutputFilterSensitiveLog,
   FormTypeStatus,
   GlossaryStatus,
   GlossaryTermStatus,
@@ -48,7 +35,6 @@ import {
   Model,
   OwnerProperties,
   PhysicalEndpoint,
-  PhysicalEndpointFilterSensitiveLog,
   PolicyGrantPrincipal,
   ProjectDeletionError,
   ProjectStatus,
@@ -58,9 +44,7 @@ import {
   RowFilterExpression,
   Status,
   SubscribedListing,
-  SubscribedListingFilterSensitiveLog,
   SubscribedPrincipal,
-  SubscribedPrincipalFilterSensitiveLog,
   SubscriptionRequestStatus,
   SubscriptionStatus,
   TargetEntityType,
@@ -69,13 +53,10 @@ import {
 
 import {
   DataProductListingItem,
-  DataProductListingItemFilterSensitiveLog,
   DataProductResultItem,
-  DataProductResultItemFilterSensitiveLog,
   FailureCause,
   GrantedEntity,
   Import,
-  ImportFilterSensitiveLog,
   MetadataGenerationRunStatus,
   MetadataGenerationTargetType,
   RuleAction,
@@ -92,7 +73,6 @@ import {
   TimeSeriesDataPointFormOutput,
   TimeSeriesEntityType,
   UserProfileDetails,
-  UserProfileDetailsFilterSensitiveLog,
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
@@ -4459,503 +4439,3 @@ export interface UpdateAssetFilterOutput {
    */
   effectiveRowFilter?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const PostLineageEventInputFilterSensitiveLog = (obj: PostLineageEventInput): any => ({
-  ...obj,
-  ...(obj.event && { event: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RejectSubscriptionRequestInputFilterSensitiveLog = (obj: RejectSubscriptionRequestInput): any => ({
-  ...obj,
-  ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RejectSubscriptionRequestOutputFilterSensitiveLog = (obj: RejectSubscriptionRequestOutput): any => ({
-  ...obj,
-  ...(obj.requestReason && { requestReason: SENSITIVE_STRING }),
-  ...(obj.subscribedPrincipals && {
-    subscribedPrincipals: obj.subscribedPrincipals.map((item) => SubscribedPrincipalFilterSensitiveLog(item)),
-  }),
-  ...(obj.subscribedListings && {
-    subscribedListings: obj.subscribedListings.map((item) => SubscribedListingFilterSensitiveLog(item)),
-  }),
-  ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
-  ...(obj.metadataForms && { metadataForms: obj.metadataForms.map((item) => FormOutputFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const RevokeSubscriptionOutputFilterSensitiveLog = (obj: RevokeSubscriptionOutput): any => ({
-  ...obj,
-  ...(obj.subscribedPrincipal && {
-    subscribedPrincipal: SubscribedPrincipalFilterSensitiveLog(obj.subscribedPrincipal),
-  }),
-  ...(obj.subscribedListing && { subscribedListing: SubscribedListingFilterSensitiveLog(obj.subscribedListing) }),
-});
-
-/**
- * @internal
- */
-export const GetRuleOutputFilterSensitiveLog = (obj: GetRuleOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.target && { target: obj.target }),
-  ...(obj.detail && { detail: obj.detail }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RuleSummaryFilterSensitiveLog = (obj: RuleSummary): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.target && { target: obj.target }),
-});
-
-/**
- * @internal
- */
-export const ListRulesOutputFilterSensitiveLog = (obj: ListRulesOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => RuleSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateRuleInputFilterSensitiveLog = (obj: UpdateRuleInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.detail && { detail: obj.detail }),
-});
-
-/**
- * @internal
- */
-export const UpdateRuleOutputFilterSensitiveLog = (obj: UpdateRuleOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.target && { target: obj.target }),
-  ...(obj.detail && { detail: obj.detail }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GlossaryItemFilterSensitiveLog = (obj: GlossaryItem): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.additionalAttributes && { additionalAttributes: obj.additionalAttributes }),
-});
-
-/**
- * @internal
- */
-export const GlossaryTermItemFilterSensitiveLog = (obj: GlossaryTermItem): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.shortDescription && { shortDescription: SENSITIVE_STRING }),
-  ...(obj.longDescription && { longDescription: SENSITIVE_STRING }),
-  ...(obj.additionalAttributes && { additionalAttributes: obj.additionalAttributes }),
-});
-
-/**
- * @internal
- */
-export const SearchInventoryResultItemFilterSensitiveLog = (obj: SearchInventoryResultItem): any => {
-  if (obj.glossaryItem !== undefined) return { glossaryItem: GlossaryItemFilterSensitiveLog(obj.glossaryItem) };
-  if (obj.glossaryTermItem !== undefined)
-    return { glossaryTermItem: GlossaryTermItemFilterSensitiveLog(obj.glossaryTermItem) };
-  if (obj.assetItem !== undefined) return { assetItem: AssetItemFilterSensitiveLog(obj.assetItem) };
-  if (obj.dataProductItem !== undefined)
-    return { dataProductItem: DataProductResultItemFilterSensitiveLog(obj.dataProductItem) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SearchOutputFilterSensitiveLog = (obj: SearchOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => SearchInventoryResultItemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SearchGroupProfilesInputFilterSensitiveLog = (obj: SearchGroupProfilesInput): any => ({
-  ...obj,
-  ...(obj.searchText && { searchText: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GroupProfileSummaryFilterSensitiveLog = (obj: GroupProfileSummary): any => ({
-  ...obj,
-  ...(obj.groupName && { groupName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SearchGroupProfilesOutputFilterSensitiveLog = (obj: SearchGroupProfilesOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => GroupProfileSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SearchResultItemFilterSensitiveLog = (obj: SearchResultItem): any => {
-  if (obj.assetListing !== undefined) return { assetListing: AssetListingItemFilterSensitiveLog(obj.assetListing) };
-  if (obj.dataProductListing !== undefined)
-    return { dataProductListing: DataProductListingItemFilterSensitiveLog(obj.dataProductListing) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SearchListingsOutputFilterSensitiveLog = (obj: SearchListingsOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => SearchResultItemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const FormTypeDataFilterSensitiveLog = (obj: FormTypeData): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.model && { model: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.imports && { imports: obj.imports.map((item) => ImportFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const LineageNodeTypeItemFilterSensitiveLog = (obj: LineageNodeTypeItem): any => ({
-  ...obj,
-  ...(obj.formsOutput && {
-    formsOutput: Object.entries(obj.formsOutput).reduce(
-      (acc: any, [key, value]: [string, FormEntryOutput]) => (
-        (acc[key] = FormEntryOutputFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const SearchTypesResultItemFilterSensitiveLog = (obj: SearchTypesResultItem): any => {
-  if (obj.assetTypeItem !== undefined) return { assetTypeItem: AssetTypeItemFilterSensitiveLog(obj.assetTypeItem) };
-  if (obj.formTypeItem !== undefined) return { formTypeItem: FormTypeDataFilterSensitiveLog(obj.formTypeItem) };
-  if (obj.lineageNodeTypeItem !== undefined)
-    return { lineageNodeTypeItem: LineageNodeTypeItemFilterSensitiveLog(obj.lineageNodeTypeItem) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SearchTypesOutputFilterSensitiveLog = (obj: SearchTypesOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => SearchTypesResultItemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SearchUserProfilesInputFilterSensitiveLog = (obj: SearchUserProfilesInput): any => ({
-  ...obj,
-  ...(obj.searchText && { searchText: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UserProfileSummaryFilterSensitiveLog = (obj: UserProfileSummary): any => ({
-  ...obj,
-  ...(obj.details && { details: UserProfileDetailsFilterSensitiveLog(obj.details) }),
-});
-
-/**
- * @internal
- */
-export const SearchUserProfilesOutputFilterSensitiveLog = (obj: SearchUserProfilesOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => UserProfileSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateAccountPoolInputFilterSensitiveLog = (obj: UpdateAccountPoolInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.accountSource && { accountSource: AccountSourceFilterSensitiveLog(obj.accountSource) }),
-});
-
-/**
- * @internal
- */
-export const UpdateAccountPoolOutputFilterSensitiveLog = (obj: UpdateAccountPoolOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.accountSource && { accountSource: AccountSourceFilterSensitiveLog(obj.accountSource) }),
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionInputFilterSensitiveLog = (obj: UpdateConnectionInput): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.props && { props: ConnectionPropertiesPatchFilterSensitiveLog(obj.props) }),
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionOutputFilterSensitiveLog = (obj: UpdateConnectionOutput): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.physicalEndpoints && {
-    physicalEndpoints: obj.physicalEndpoints.map((item) => PhysicalEndpointFilterSensitiveLog(item)),
-  }),
-  ...(obj.props && { props: ConnectionPropertiesOutputFilterSensitiveLog(obj.props) }),
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentOutputFilterSensitiveLog = (obj: UpdateEnvironmentOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.userParameters && {
-    userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
-  }),
-  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
-  ...(obj.environmentConfigurationId && { environmentConfigurationId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentBlueprintInputFilterSensitiveLog = (obj: UpdateEnvironmentBlueprintInput): any => ({
-  ...obj,
-  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
-  ...(obj.userParameters && {
-    userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentBlueprintOutputFilterSensitiveLog = (obj: UpdateEnvironmentBlueprintOutput): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
-  ...(obj.userParameters && {
-    userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentProfileInputFilterSensitiveLog = (obj: UpdateEnvironmentProfileInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentProfileOutputFilterSensitiveLog = (obj: UpdateEnvironmentProfileOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.userParameters && {
-    userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateGroupProfileOutputFilterSensitiveLog = (obj: UpdateGroupProfileOutput): any => ({
-  ...obj,
-  ...(obj.groupName && { groupName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateProjectInputFilterSensitiveLog = (obj: UpdateProjectInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.userParameters && {
-    userParameters: obj.userParameters.map((item) => EnvironmentConfigurationUserParameterFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateProjectOutputFilterSensitiveLog = (obj: UpdateProjectOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.userParameters && {
-    userParameters: obj.userParameters.map((item) => EnvironmentConfigurationUserParameterFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateProjectProfileInputFilterSensitiveLog = (obj: UpdateProjectProfileInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.environmentConfigurations && {
-    environmentConfigurations: obj.environmentConfigurations.map((item) =>
-      EnvironmentConfigurationFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateProjectProfileOutputFilterSensitiveLog = (obj: UpdateProjectProfileOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.environmentConfigurations && {
-    environmentConfigurations: obj.environmentConfigurations.map((item) =>
-      EnvironmentConfigurationFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriptionRequestInputFilterSensitiveLog = (obj: UpdateSubscriptionRequestInput): any => ({
-  ...obj,
-  ...(obj.requestReason && { requestReason: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriptionRequestOutputFilterSensitiveLog = (obj: UpdateSubscriptionRequestOutput): any => ({
-  ...obj,
-  ...(obj.requestReason && { requestReason: SENSITIVE_STRING }),
-  ...(obj.subscribedPrincipals && {
-    subscribedPrincipals: obj.subscribedPrincipals.map((item) => SubscribedPrincipalFilterSensitiveLog(item)),
-  }),
-  ...(obj.subscribedListings && {
-    subscribedListings: obj.subscribedListings.map((item) => SubscribedListingFilterSensitiveLog(item)),
-  }),
-  ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
-  ...(obj.metadataForms && { metadataForms: obj.metadataForms.map((item) => FormOutputFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriptionTargetInputFilterSensitiveLog = (obj: UpdateSubscriptionTargetInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriptionTargetOutputFilterSensitiveLog = (obj: UpdateSubscriptionTargetOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserProfileOutputFilterSensitiveLog = (obj: UpdateUserProfileOutput): any => ({
-  ...obj,
-  ...(obj.details && { details: UserProfileDetailsFilterSensitiveLog(obj.details) }),
-});
-
-/**
- * @internal
- */
-export const CreateAssetFilterInputFilterSensitiveLog = (obj: CreateAssetFilterInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.configuration && { configuration: obj.configuration }),
-});
-
-/**
- * @internal
- */
-export const CreateAssetFilterOutputFilterSensitiveLog = (obj: CreateAssetFilterOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.configuration && { configuration: obj.configuration }),
-});
-
-/**
- * @internal
- */
-export const GetAssetFilterOutputFilterSensitiveLog = (obj: GetAssetFilterOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.configuration && { configuration: obj.configuration }),
-});
-
-/**
- * @internal
- */
-export const UpdateAssetFilterInputFilterSensitiveLog = (obj: UpdateAssetFilterInput): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.configuration && { configuration: obj.configuration }),
-});
-
-/**
- * @internal
- */
-export const UpdateAssetFilterOutputFilterSensitiveLog = (obj: UpdateAssetFilterOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.configuration && { configuration: obj.configuration }),
-});

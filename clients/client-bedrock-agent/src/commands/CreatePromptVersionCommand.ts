@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreatePromptVersionRequest,
-  CreatePromptVersionResponse,
-  CreatePromptVersionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_CreatePromptVersionCommand, se_CreatePromptVersionCommand } from "../protocols/Aws_restJson1";
+import { CreatePromptVersionRequest, CreatePromptVersionResponse } from "../models/models_1";
+import { CreatePromptVersion } from "../schemas/schemas_5_Agent";
 
 /**
  * @public
@@ -197,16 +192,11 @@ export class CreatePromptVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "CreatePromptVersion", {})
   .n("BedrockAgentClient", "CreatePromptVersionCommand")
-  .f(void 0, CreatePromptVersionResponseFilterSensitiveLog)
-  .ser(se_CreatePromptVersionCommand)
-  .de(de_CreatePromptVersionCommand)
+  .sc(CreatePromptVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

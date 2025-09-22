@@ -1,17 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpPayloadTraitsWithMediaTypeInputOutput } from "../models/models_0";
-import {
-  de_HttpPayloadTraitsWithMediaTypeCommand,
-  se_HttpPayloadTraitsWithMediaTypeCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { HttpPayloadTraitsWithMediaType } from "../schemas/schemas_25_HttpPayloadTraitsWithMediaType";
 
 /**
  * @public
@@ -96,16 +92,11 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "HttpPayloadTraitsWithMediaType", {})
   .n("RestJsonProtocolClient", "HttpPayloadTraitsWithMediaTypeCommand")
-  .f(void 0, void 0)
-  .ser(se_HttpPayloadTraitsWithMediaTypeCommand)
-  .de(de_HttpPayloadTraitsWithMediaTypeCommand)
+  .sc(HttpPayloadTraitsWithMediaType)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

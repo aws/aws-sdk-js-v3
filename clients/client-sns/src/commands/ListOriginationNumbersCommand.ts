@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListOriginationNumbersRequest,
-  ListOriginationNumbersResult,
-  ListOriginationNumbersResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListOriginationNumbersCommand, se_ListOriginationNumbersCommand } from "../protocols/Aws_query";
+import { ListOriginationNumbersRequest, ListOriginationNumbersResult } from "../models/models_0";
+import { ListOriginationNumbers } from "../schemas/schemas_2_Phone";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -105,16 +100,11 @@ export class ListOriginationNumbersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSimpleNotificationService", "ListOriginationNumbers", {})
   .n("SNSClient", "ListOriginationNumbersCommand")
-  .f(void 0, ListOriginationNumbersResultFilterSensitiveLog)
-  .ser(se_ListOriginationNumbersCommand)
-  .de(de_ListOriginationNumbersCommand)
+  .sc(ListOriginationNumbers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

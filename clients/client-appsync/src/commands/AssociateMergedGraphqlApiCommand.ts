@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateMergedGraphqlApiRequest, AssociateMergedGraphqlApiResponse } from "../models/models_0";
-import { de_AssociateMergedGraphqlApiCommand, se_AssociateMergedGraphqlApiCommand } from "../protocols/Aws_restJson1";
+import { AssociateMergedGraphqlApi } from "../schemas/schemas_7_Api";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class AssociateMergedGraphqlApiCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepdishControlPlaneService", "AssociateMergedGraphqlApi", {})
   .n("AppSyncClient", "AssociateMergedGraphqlApiCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateMergedGraphqlApiCommand)
-  .de(de_AssociateMergedGraphqlApiCommand)
+  .sc(AssociateMergedGraphqlApi)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

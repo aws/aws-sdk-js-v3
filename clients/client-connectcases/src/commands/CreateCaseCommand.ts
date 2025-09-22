@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCaseRequest, CreateCaseRequestFilterSensitiveLog, CreateCaseResponse } from "../models/models_0";
-import { de_CreateCaseCommand, se_CreateCaseCommand } from "../protocols/Aws_restJson1";
+import { CreateCaseRequest, CreateCaseResponse } from "../models/models_0";
+import { CreateCase } from "../schemas/schemas_2_Case";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class CreateCaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectCases", "CreateCase", {})
   .n("ConnectCasesClient", "CreateCaseCommand")
-  .f(CreateCaseRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateCaseCommand)
-  .de(de_CreateCaseCommand)
+  .sc(CreateCase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

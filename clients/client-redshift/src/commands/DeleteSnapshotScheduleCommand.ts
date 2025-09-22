@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteSnapshotScheduleMessage } from "../models/models_0";
-import { de_DeleteSnapshotScheduleCommand, se_DeleteSnapshotScheduleCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { DeleteSnapshotSchedule } from "../schemas/schemas_41_Snapshot";
 
 /**
  * @public
@@ -74,16 +73,11 @@ export class DeleteSnapshotScheduleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "DeleteSnapshotSchedule", {})
   .n("RedshiftClient", "DeleteSnapshotScheduleCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteSnapshotScheduleCommand)
-  .de(de_DeleteSnapshotScheduleCommand)
+  .sc(DeleteSnapshotSchedule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

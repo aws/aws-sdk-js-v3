@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListEnvironmentsRequest, ListEnvironmentsResult } from "../models/models_0";
-import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_json1_1";
+import { ListEnvironments } from "../schemas/schemas_1_Environment";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class ListEnvironmentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCloud9WorkspaceManagementService", "ListEnvironments", {})
   .n("Cloud9Client", "ListEnvironmentsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListEnvironmentsCommand)
-  .de(de_ListEnvironmentsCommand)
+  .sc(ListEnvironments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

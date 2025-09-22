@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { ListChannelPlacementGroupsRequest, ListChannelPlacementGroupsResponse } from "../models/models_2";
-import { de_ListChannelPlacementGroupsCommand, se_ListChannelPlacementGroupsCommand } from "../protocols/Aws_restJson1";
+import { ListChannelPlacementGroups } from "../schemas/schemas_17_ChannelPlacement";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class ListChannelPlacementGroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "ListChannelPlacementGroups", {})
   .n("MediaLiveClient", "ListChannelPlacementGroupsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListChannelPlacementGroupsCommand)
-  .de(de_ListChannelPlacementGroupsCommand)
+  .sc(ListChannelPlacementGroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

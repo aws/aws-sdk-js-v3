@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateBillOfMaterialsImportJobRequest, CreateBillOfMaterialsImportJobResponse } from "../models/models_0";
-import {
-  de_CreateBillOfMaterialsImportJobCommand,
-  se_CreateBillOfMaterialsImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateBillOfMaterialsImportJob } from "../schemas/schemas_8_Create";
 import { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -116,16 +112,11 @@ export class CreateBillOfMaterialsImportJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GalaxyPublicAPIGateway", "CreateBillOfMaterialsImportJob", {})
   .n("SupplyChainClient", "CreateBillOfMaterialsImportJobCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateBillOfMaterialsImportJobCommand)
-  .de(de_CreateBillOfMaterialsImportJobCommand)
+  .sc(CreateBillOfMaterialsImportJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

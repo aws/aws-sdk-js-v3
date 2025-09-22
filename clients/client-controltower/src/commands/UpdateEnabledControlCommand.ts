@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateEnabledControlInput, UpdateEnabledControlOutput } from "../models/models_0";
-import { de_UpdateEnabledControlCommand, se_UpdateEnabledControlCommand } from "../protocols/Aws_restJson1";
+import { UpdateEnabledControl } from "../schemas/schemas_4_Control";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class UpdateEnabledControlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSControlTowerApis", "UpdateEnabledControl", {})
   .n("ControlTowerClient", "UpdateEnabledControlCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateEnabledControlCommand)
-  .de(de_UpdateEnabledControlCommand)
+  .sc(UpdateEnabledControl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

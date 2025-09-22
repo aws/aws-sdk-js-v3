@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { DeleteInferenceSchedulerRequest } from "../models/models_0";
-import { de_DeleteInferenceSchedulerCommand, se_DeleteInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
+import { DeleteInferenceScheduler } from "../schemas/schemas_2_Inference";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class DeleteInferenceSchedulerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLookoutEquipmentFrontendService", "DeleteInferenceScheduler", {})
   .n("LookoutEquipmentClient", "DeleteInferenceSchedulerCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteInferenceSchedulerCommand)
-  .de(de_DeleteInferenceSchedulerCommand)
+  .sc(DeleteInferenceScheduler)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

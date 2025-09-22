@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListTaskTemplatesRequest, ListTaskTemplatesResponse } from "../models/models_2";
-import { de_ListTaskTemplatesCommand, se_ListTaskTemplatesCommand } from "../protocols/Aws_restJson1";
+import { ListTaskTemplates } from "../schemas/schemas_44_Task";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class ListTaskTemplatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "ListTaskTemplates", {})
   .n("ConnectClient", "ListTaskTemplatesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTaskTemplatesCommand)
-  .de(de_ListTaskTemplatesCommand)
+  .sc(ListTaskTemplates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

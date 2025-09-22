@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UntagResourcesInput, UntagResourcesOutput } from "../models/models_0";
-import { de_UntagResourcesCommand, se_UntagResourcesCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
+import { UntagResources } from "../schemas/schemas_1_Get";
 
 /**
  * @public
@@ -150,16 +149,11 @@ export class UntagResourcesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsTaggingAPIClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ResourceGroupsTaggingAPI_20170126", "UntagResources", {})
   .n("ResourceGroupsTaggingAPIClient", "UntagResourcesCommand")
-  .f(void 0, void 0)
-  .ser(se_UntagResourcesCommand)
-  .de(de_UntagResourcesCommand)
+  .sc(UntagResources)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

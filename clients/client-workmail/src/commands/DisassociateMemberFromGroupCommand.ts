@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateMemberFromGroupRequest, DisassociateMemberFromGroupResponse } from "../models/models_0";
-import { de_DisassociateMemberFromGroupCommand, se_DisassociateMemberFromGroupCommand } from "../protocols/Aws_json1_1";
+import { DisassociateMemberFromGroup } from "../schemas/schemas_10_DisassociateMemberFromGroup";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -100,16 +99,11 @@ export class DisassociateMemberFromGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkMailService", "DisassociateMemberFromGroup", {})
   .n("WorkMailClient", "DisassociateMemberFromGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateMemberFromGroupCommand)
-  .de(de_DisassociateMemberFromGroupCommand)
+  .sc(DisassociateMemberFromGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

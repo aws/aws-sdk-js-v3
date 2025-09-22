@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { SetV2LoggingOptionsRequest } from "../models/models_2";
-import { de_SetV2LoggingOptionsCommand, se_SetV2LoggingOptionsCommand } from "../protocols/Aws_restJson1";
+import { SetV2LoggingOptions } from "../schemas/schemas_73_Logging";
 
 /**
  * @public
@@ -80,16 +79,11 @@ export class SetV2LoggingOptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "SetV2LoggingOptions", {})
   .n("IoTClient", "SetV2LoggingOptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_SetV2LoggingOptionsCommand)
-  .de(de_SetV2LoggingOptionsCommand)
+  .sc(SetV2LoggingOptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

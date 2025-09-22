@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartAssessmentFrameworkShareRequest,
-  StartAssessmentFrameworkShareResponse,
-  StartAssessmentFrameworkShareResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_StartAssessmentFrameworkShareCommand,
-  se_StartAssessmentFrameworkShareCommand,
-} from "../protocols/Aws_restJson1";
+import { StartAssessmentFrameworkShareRequest, StartAssessmentFrameworkShareResponse } from "../models/models_0";
+import { StartAssessmentFrameworkShare } from "../schemas/schemas_2_Assessment";
 
 /**
  * @public
@@ -148,16 +140,11 @@ export class StartAssessmentFrameworkShareCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BedrockAssessmentManagerLambda", "StartAssessmentFrameworkShare", {})
   .n("AuditManagerClient", "StartAssessmentFrameworkShareCommand")
-  .f(void 0, StartAssessmentFrameworkShareResponseFilterSensitiveLog)
-  .ser(se_StartAssessmentFrameworkShareCommand)
-  .de(de_StartAssessmentFrameworkShareCommand)
+  .sc(StartAssessmentFrameworkShare)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

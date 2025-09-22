@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { GetComplianceDetailRequest, GetComplianceDetailResponse } from "../models/models_0";
-import { de_GetComplianceDetailCommand, se_GetComplianceDetailCommand } from "../protocols/Aws_json1_1";
+import { GetComplianceDetail } from "../schemas/schemas_8_List";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class GetComplianceDetailCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFMS_20180101", "GetComplianceDetail", {})
   .n("FMSClient", "GetComplianceDetailCommand")
-  .f(void 0, void 0)
-  .ser(se_GetComplianceDetailCommand)
-  .de(de_GetComplianceDetailCommand)
+  .sc(GetComplianceDetail)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

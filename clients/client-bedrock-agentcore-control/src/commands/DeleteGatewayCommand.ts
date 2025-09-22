@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteGatewayRequest, DeleteGatewayResponse } from "../models/models_0";
-import { de_DeleteGatewayCommand, se_DeleteGatewayCommand } from "../protocols/Aws_restJson1";
+import { DeleteGateway } from "../schemas/schemas_5_Gateway";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class DeleteGatewayCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteGateway", {})
   .n("BedrockAgentCoreControlClient", "DeleteGatewayCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteGatewayCommand)
-  .de(de_DeleteGatewayCommand)
+  .sc(DeleteGateway)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

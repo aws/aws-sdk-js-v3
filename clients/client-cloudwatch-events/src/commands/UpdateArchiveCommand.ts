@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateArchiveRequest, UpdateArchiveResponse } from "../models/models_0";
-import { de_UpdateArchiveCommand, se_UpdateArchiveCommand } from "../protocols/Aws_json1_1";
+import { UpdateArchive } from "../schemas/schemas_4_Create";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class UpdateArchiveCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSEvents", "UpdateArchive", {})
   .n("CloudWatchEventsClient", "UpdateArchiveCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateArchiveCommand)
-  .de(de_UpdateArchiveCommand)
+  .sc(UpdateArchive)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

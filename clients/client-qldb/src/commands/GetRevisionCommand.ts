@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetRevisionRequest,
-  GetRevisionRequestFilterSensitiveLog,
-  GetRevisionResponse,
-  GetRevisionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetRevisionCommand, se_GetRevisionCommand } from "../protocols/Aws_restJson1";
+import { GetRevisionRequest, GetRevisionResponse } from "../models/models_0";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
+import { GetRevision } from "../schemas/schemas_4_Journal";
 
 /**
  * @public
@@ -98,16 +92,11 @@ export class GetRevisionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QLDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonQLDB", "GetRevision", {})
   .n("QLDBClient", "GetRevisionCommand")
-  .f(GetRevisionRequestFilterSensitiveLog, GetRevisionResponseFilterSensitiveLog)
-  .ser(se_GetRevisionCommand)
-  .de(de_GetRevisionCommand)
+  .sc(GetRevision)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

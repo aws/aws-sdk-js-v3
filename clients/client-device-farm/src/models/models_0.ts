@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DeviceFarmServiceException as __BaseException } from "./DeviceFarmServiceException";
 
@@ -7522,75 +7522,3 @@ export interface UpdateVPCEConfigurationResult {
    */
   vpceConfiguration?: VPCEConfiguration | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateTestGridUrlResultFilterSensitiveLog = (obj: CreateTestGridUrlResult): any => ({
-  ...obj,
-  ...(obj.url && { url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UploadFilterSensitiveLog = (obj: Upload): any => ({
-  ...obj,
-  ...(obj.url && { url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateUploadResultFilterSensitiveLog = (obj: CreateUploadResult): any => ({
-  ...obj,
-  ...(obj.upload && { upload: UploadFilterSensitiveLog(obj.upload) }),
-});
-
-/**
- * @internal
- */
-export const GetUploadResultFilterSensitiveLog = (obj: GetUploadResult): any => ({
-  ...obj,
-  ...(obj.upload && { upload: UploadFilterSensitiveLog(obj.upload) }),
-});
-
-/**
- * @internal
- */
-export const InstallToRemoteAccessSessionResultFilterSensitiveLog = (obj: InstallToRemoteAccessSessionResult): any => ({
-  ...obj,
-  ...(obj.appUpload && { appUpload: UploadFilterSensitiveLog(obj.appUpload) }),
-});
-
-/**
- * @internal
- */
-export const TestGridSessionArtifactFilterSensitiveLog = (obj: TestGridSessionArtifact): any => ({
-  ...obj,
-  ...(obj.url && { url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListTestGridSessionArtifactsResultFilterSensitiveLog = (obj: ListTestGridSessionArtifactsResult): any => ({
-  ...obj,
-  ...(obj.artifacts && { artifacts: obj.artifacts.map((item) => TestGridSessionArtifactFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListUploadsResultFilterSensitiveLog = (obj: ListUploadsResult): any => ({
-  ...obj,
-  ...(obj.uploads && { uploads: obj.uploads.map((item) => UploadFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateUploadResultFilterSensitiveLog = (obj: UpdateUploadResult): any => ({
-  ...obj,
-  ...(obj.upload && { upload: UploadFilterSensitiveLog(obj.upload) }),
-});

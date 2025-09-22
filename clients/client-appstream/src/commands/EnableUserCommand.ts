@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableUserRequest, EnableUserRequestFilterSensitiveLog, EnableUserResult } from "../models/models_0";
-import { de_EnableUserCommand, se_EnableUserCommand } from "../protocols/Aws_json1_1";
+import { EnableUserRequest, EnableUserResult } from "../models/models_0";
+import { EnableUser } from "../schemas/schemas_16_User";
 
 /**
  * @public
@@ -75,16 +74,11 @@ export class EnableUserCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "EnableUser", {})
   .n("AppStreamClient", "EnableUserCommand")
-  .f(EnableUserRequestFilterSensitiveLog, void 0)
-  .ser(se_EnableUserCommand)
-  .de(de_EnableUserCommand)
+  .sc(EnableUser)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { DeleteDistributionConfigurationRequest, DeleteDistributionConfigurationResponse } from "../models/models_0";
-import {
-  de_DeleteDistributionConfigurationCommand,
-  se_DeleteDistributionConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDistributionConfiguration } from "../schemas/schemas_2_Delete";
 
 /**
  * @public
@@ -101,16 +97,11 @@ export class DeleteDistributionConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("imagebuilder", "DeleteDistributionConfiguration", {})
   .n("ImagebuilderClient", "DeleteDistributionConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDistributionConfigurationCommand)
-  .de(de_DeleteDistributionConfigurationCommand)
+  .sc(DeleteDistributionConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

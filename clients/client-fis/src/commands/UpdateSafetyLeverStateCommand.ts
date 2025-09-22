@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import { UpdateSafetyLeverStateRequest, UpdateSafetyLeverStateResponse } from "../models/models_0";
-import { de_UpdateSafetyLeverStateCommand, se_UpdateSafetyLeverStateCommand } from "../protocols/Aws_restJson1";
+import { UpdateSafetyLeverState } from "../schemas/schemas_1_Experiment";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class UpdateSafetyLeverStateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FaultInjectionSimulator", "UpdateSafetyLeverState", {})
   .n("FisClient", "UpdateSafetyLeverStateCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSafetyLeverStateCommand)
-  .de(de_UpdateSafetyLeverStateCommand)
+  .sc(UpdateSafetyLeverState)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListInferenceExperimentsRequest, ListInferenceExperimentsResponse } from "../models/models_4";
-import { de_ListInferenceExperimentsCommand, se_ListInferenceExperimentsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListInferenceExperiments } from "../schemas/schemas_65_Inference";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class ListInferenceExperimentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "ListInferenceExperiments", {})
   .n("SageMakerClient", "ListInferenceExperimentsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListInferenceExperimentsCommand)
-  .de(de_ListInferenceExperimentsCommand)
+  .sc(ListInferenceExperiments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

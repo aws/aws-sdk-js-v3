@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateServiceAttributesRequest, UpdateServiceAttributesResponse } from "../models/models_0";
-import { de_UpdateServiceAttributesCommand, se_UpdateServiceAttributesCommand } from "../protocols/Aws_json1_1";
+import { UpdateServiceAttributes } from "../schemas/schemas_8_ServiceAttributes";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -116,16 +115,11 @@ export class UpdateServiceAttributesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53AutoNaming_v20170314", "UpdateServiceAttributes", {})
   .n("ServiceDiscoveryClient", "UpdateServiceAttributesCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateServiceAttributesCommand)
-  .de(de_UpdateServiceAttributesCommand)
+  .sc(UpdateServiceAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

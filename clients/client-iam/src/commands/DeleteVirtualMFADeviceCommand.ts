@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteVirtualMFADeviceRequest } from "../models/models_0";
-import { de_DeleteVirtualMFADeviceCommand, se_DeleteVirtualMFADeviceCommand } from "../protocols/Aws_query";
+import { DeleteVirtualMFADevice } from "../schemas/schemas_16_MFA";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class DeleteVirtualMFADeviceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "DeleteVirtualMFADevice", {})
   .n("IAMClient", "DeleteVirtualMFADeviceCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteVirtualMFADeviceCommand)
-  .de(de_DeleteVirtualMFADeviceCommand)
+  .sc(DeleteVirtualMFADevice)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

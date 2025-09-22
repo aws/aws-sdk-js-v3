@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DescribeAutoPredictorRequest, DescribeAutoPredictorResponse } from "../models/models_0";
-import { de_DescribeAutoPredictorCommand, se_DescribeAutoPredictorCommand } from "../protocols/Aws_json1_1";
+import { DescribeAutoPredictor } from "../schemas/schemas_5_Describe";
 
 /**
  * @public
@@ -139,16 +138,11 @@ export class DescribeAutoPredictorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecast", "DescribeAutoPredictor", {})
   .n("ForecastClient", "DescribeAutoPredictorCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAutoPredictorCommand)
-  .de(de_DescribeAutoPredictorCommand)
+  .sc(DescribeAutoPredictor)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

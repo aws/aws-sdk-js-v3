@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListResourceServersRequest, ListResourceServersResponse } from "../models/models_1";
-import { de_ListResourceServersCommand, se_ListResourceServersCommand } from "../protocols/Aws_json1_1";
+import { ListResourceServers } from "../schemas/schemas_29_Resource";
 
 /**
  * @public
@@ -128,16 +127,11 @@ export class ListResourceServersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "ListResourceServers", {})
   .n("CognitoIdentityProviderClient", "ListResourceServersCommand")
-  .f(void 0, void 0)
-  .ser(se_ListResourceServersCommand)
-  .de(de_ListResourceServersCommand)
+  .sc(ListResourceServers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

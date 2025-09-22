@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
 import { UpdateKxDatabaseRequest, UpdateKxDatabaseResponse } from "../models/models_0";
-import { de_UpdateKxDatabaseCommand, se_UpdateKxDatabaseCommand } from "../protocols/Aws_restJson1";
+import { UpdateKxDatabase } from "../schemas/schemas_17_UpdateKxDatabase";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class UpdateKxDatabaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroManagementService", "UpdateKxDatabase", {})
   .n("FinspaceClient", "UpdateKxDatabaseCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateKxDatabaseCommand)
-  .de(de_UpdateKxDatabaseCommand)
+  .sc(UpdateKxDatabase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

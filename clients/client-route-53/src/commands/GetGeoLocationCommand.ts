@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetGeoLocationRequest, GetGeoLocationResponse } from "../models/models_0";
-import { de_GetGeoLocationCommand, se_GetGeoLocationCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { GetGeoLocation } from "../schemas/schemas_20_Geo";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class GetGeoLocationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDnsV20130401", "GetGeoLocation", {})
   .n("Route53Client", "GetGeoLocationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetGeoLocationCommand)
-  .de(de_GetGeoLocationCommand)
+  .sc(GetGeoLocation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

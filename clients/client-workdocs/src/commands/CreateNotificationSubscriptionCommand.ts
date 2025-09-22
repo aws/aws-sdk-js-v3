@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateNotificationSubscriptionRequest, CreateNotificationSubscriptionResponse } from "../models/models_0";
-import {
-  de_CreateNotificationSubscriptionCommand,
-  se_CreateNotificationSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateNotificationSubscription } from "../schemas/schemas_11_Notification";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -98,16 +94,11 @@ export class CreateNotificationSubscriptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "CreateNotificationSubscription", {})
   .n("WorkDocsClient", "CreateNotificationSubscriptionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateNotificationSubscriptionCommand)
-  .de(de_CreateNotificationSubscriptionCommand)
+  .sc(CreateNotificationSubscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { ListTimeSeriesRequest, ListTimeSeriesResponse } from "../models/models_1";
-import { de_ListTimeSeriesCommand, se_ListTimeSeriesCommand } from "../protocols/Aws_restJson1";
+import { ListTimeSeries } from "../schemas/schemas_14_Asset";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class ListTimeSeriesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "ListTimeSeries", {})
   .n("IoTSiteWiseClient", "ListTimeSeriesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTimeSeriesCommand)
-  .de(de_ListTimeSeriesCommand)
+  .sc(ListTimeSeries)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

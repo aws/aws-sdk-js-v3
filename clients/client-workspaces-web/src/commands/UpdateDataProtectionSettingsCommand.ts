@@ -1,20 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateDataProtectionSettingsRequest,
-  UpdateDataProtectionSettingsRequestFilterSensitiveLog,
-  UpdateDataProtectionSettingsResponse,
-  UpdateDataProtectionSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_UpdateDataProtectionSettingsCommand,
-  se_UpdateDataProtectionSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDataProtectionSettingsRequest, UpdateDataProtectionSettingsResponse } from "../models/models_0";
+import { UpdateDataProtectionSettings } from "../schemas/schemas_10_ProtectionSettings";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -172,16 +163,11 @@ export class UpdateDataProtectionSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "UpdateDataProtectionSettings", {})
   .n("WorkSpacesWebClient", "UpdateDataProtectionSettingsCommand")
-  .f(UpdateDataProtectionSettingsRequestFilterSensitiveLog, UpdateDataProtectionSettingsResponseFilterSensitiveLog)
-  .ser(se_UpdateDataProtectionSettingsCommand)
-  .de(de_UpdateDataProtectionSettingsCommand)
+  .sc(UpdateDataProtectionSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

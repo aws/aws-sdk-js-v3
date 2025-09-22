@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateUserRequest,
-  CreateUserRequestFilterSensitiveLog,
-  CreateUserResponse,
-  CreateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateUserCommand, se_CreateUserCommand } from "../protocols/Aws_restJson1";
+import { CreateUserRequest, CreateUserResponse } from "../models/models_0";
+import { CreateUser } from "../schemas/schemas_2_User";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -126,16 +120,11 @@ export class CreateUserCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "CreateUser", {})
   .n("WorkDocsClient", "CreateUserCommand")
-  .f(CreateUserRequestFilterSensitiveLog, CreateUserResponseFilterSensitiveLog)
-  .ser(se_CreateUserCommand)
-  .de(de_CreateUserCommand)
+  .sc(CreateUser)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

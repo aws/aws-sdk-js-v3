@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartIncidentInput, StartIncidentOutput } from "../models/models_0";
-import { de_StartIncidentCommand, se_StartIncidentCommand } from "../protocols/Aws_restJson1";
+import { StartIncident } from "../schemas/schemas_3_Update";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -119,16 +118,11 @@ export class StartIncidentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SSMIncidents", "StartIncident", {})
   .n("SSMIncidentsClient", "StartIncidentCommand")
-  .f(void 0, void 0)
-  .ser(se_StartIncidentCommand)
-  .de(de_StartIncidentCommand)
+  .sc(StartIncident)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

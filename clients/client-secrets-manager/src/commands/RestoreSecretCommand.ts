@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreSecretRequest, RestoreSecretResponse } from "../models/models_0";
-import { de_RestoreSecretCommand, se_RestoreSecretCommand } from "../protocols/Aws_json1_1";
+import { RestoreSecret } from "../schemas/schemas_9_RestoreSecret";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -122,16 +121,11 @@ export class RestoreSecretCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("secretsmanager", "RestoreSecret", {})
   .n("SecretsManagerClient", "RestoreSecretCommand")
-  .f(void 0, void 0)
-  .ser(se_RestoreSecretCommand)
-  .de(de_RestoreSecretCommand)
+  .sc(RestoreSecret)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

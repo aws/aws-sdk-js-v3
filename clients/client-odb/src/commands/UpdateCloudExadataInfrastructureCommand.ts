@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateCloudExadataInfrastructureInput, UpdateCloudExadataInfrastructureOutput } from "../models/models_0";
 import { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import {
-  de_UpdateCloudExadataInfrastructureCommand,
-  se_UpdateCloudExadataInfrastructureCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateCloudExadataInfrastructure } from "../schemas/schemas_3_Cloud";
 
 /**
  * @public
@@ -120,16 +116,11 @@ export class UpdateCloudExadataInfrastructureCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Odb", "UpdateCloudExadataInfrastructure", {})
   .n("OdbClient", "UpdateCloudExadataInfrastructureCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateCloudExadataInfrastructureCommand)
-  .de(de_UpdateCloudExadataInfrastructureCommand)
+  .sc(UpdateCloudExadataInfrastructure)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSigningJobsRequest, ListSigningJobsResponse } from "../models/models_0";
-import { de_ListSigningJobsCommand, se_ListSigningJobsCommand } from "../protocols/Aws_restJson1";
+import { ListSigningJobs } from "../schemas/schemas_3_Signing";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -128,16 +127,11 @@ export class ListSigningJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WallabyService", "ListSigningJobs", {})
   .n("SignerClient", "ListSigningJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSigningJobsCommand)
-  .de(de_ListSigningJobsCommand)
+  .sc(ListSigningJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

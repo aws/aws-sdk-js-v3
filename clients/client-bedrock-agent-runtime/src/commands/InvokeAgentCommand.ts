@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,9 +9,9 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InvokeAgentResponse, InvokeAgentResponseFilterSensitiveLog } from "../models/models_0";
-import { InvokeAgentRequest, InvokeAgentRequestFilterSensitiveLog } from "../models/models_1";
-import { de_InvokeAgentCommand, se_InvokeAgentCommand } from "../protocols/Aws_restJson1";
+import { InvokeAgentResponse } from "../models/models_0";
+import { InvokeAgentRequest } from "../models/models_1";
+import { InvokeAgent } from "../schemas/schemas_2_Agent";
 
 /**
  * @public
@@ -1205,10 +1204,7 @@ export class InvokeAgentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentRunTimeService", "InvokeAgent", {
     /**
@@ -1219,9 +1215,7 @@ export class InvokeAgentCommand extends $Command
     },
   })
   .n("BedrockAgentRuntimeClient", "InvokeAgentCommand")
-  .f(InvokeAgentRequestFilterSensitiveLog, InvokeAgentResponseFilterSensitiveLog)
-  .ser(se_InvokeAgentCommand)
-  .de(de_InvokeAgentCommand)
+  .sc(InvokeAgent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

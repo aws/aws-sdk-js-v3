@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartEmailContactResponse } from "../models/models_2";
-import { StartEmailContactRequest, StartEmailContactRequestFilterSensitiveLog } from "../models/models_3";
-import { de_StartEmailContactCommand, se_StartEmailContactCommand } from "../protocols/Aws_restJson1";
+import { StartEmailContactRequest } from "../models/models_3";
+import { StartEmailContact } from "../schemas/schemas_15_Contact";
 
 /**
  * @public
@@ -169,16 +168,11 @@ export class StartEmailContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "StartEmailContact", {})
   .n("ConnectClient", "StartEmailContactCommand")
-  .f(StartEmailContactRequestFilterSensitiveLog, void 0)
-  .ser(se_StartEmailContactCommand)
-  .de(de_StartEmailContactCommand)
+  .sc(StartEmailContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5961,12 +5961,6 @@ export interface StreamingTraitsInputOutput {
   blob?: StreamingBlobTypes | undefined;
 }
 
-/**
- * @internal
- */
-export const StreamingTraitsInputOutputFilterSensitiveLog = (obj: StreamingTraitsInputOutput): any => ({
-  ...obj,
-});
 export namespace StreamingTraitsInputOutput {
   const memberValidators: {
     foo?: __MultiConstraintValidator<string>;
@@ -6013,12 +6007,6 @@ export interface StreamingTraitsRequireLengthInput {
   blob?: StreamingBlobTypes | undefined;
 }
 
-/**
- * @internal
- */
-export const StreamingTraitsRequireLengthInputFilterSensitiveLog = (obj: StreamingTraitsRequireLengthInput): any => ({
-  ...obj,
-});
 export namespace StreamingTraitsRequireLengthInput {
   const memberValidators: {
     foo?: __MultiConstraintValidator<string>;
@@ -6065,14 +6053,6 @@ export interface StreamingTraitsWithMediaTypeInputOutput {
   blob?: StreamingBlobTypes | undefined;
 }
 
-/**
- * @internal
- */
-export const StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog = (
-  obj: StreamingTraitsWithMediaTypeInputOutput
-): any => ({
-  ...obj,
-});
 export namespace StreamingTraitsWithMediaTypeInputOutput {
   const memberValidators: {
     foo?: __MultiConstraintValidator<string>;

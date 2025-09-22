@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateWorkflowVersionRequest } from "../models/models_1";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_UpdateWorkflowVersionCommand, se_UpdateWorkflowVersionCommand } from "../protocols/Aws_restJson1";
+import { UpdateWorkflowVersion } from "../schemas/schemas_5_Workflow";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class UpdateWorkflowVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Omics", "UpdateWorkflowVersion", {})
   .n("OmicsClient", "UpdateWorkflowVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateWorkflowVersionCommand)
-  .de(de_UpdateWorkflowVersionCommand)
+  .sc(UpdateWorkflowVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

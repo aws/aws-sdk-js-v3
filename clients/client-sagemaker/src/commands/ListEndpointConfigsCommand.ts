@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListEndpointConfigsInput, ListEndpointConfigsOutput } from "../models/models_4";
-import { de_ListEndpointConfigsCommand, se_ListEndpointConfigsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListEndpointConfigs } from "../schemas/schemas_2_Endpoint";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class ListEndpointConfigsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "ListEndpointConfigs", {})
   .n("SageMakerClient", "ListEndpointConfigsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListEndpointConfigsCommand)
-  .de(de_ListEndpointConfigsCommand)
+  .sc(ListEndpointConfigs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

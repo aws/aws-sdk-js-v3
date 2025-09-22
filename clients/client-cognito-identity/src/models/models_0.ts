@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CognitoIdentityServiceException as __BaseException } from "./CognitoIdentityServiceException";
 
@@ -1454,79 +1454,3 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const GetCredentialsForIdentityInputFilterSensitiveLog = (obj: GetCredentialsForIdentityInput): any => ({
-  ...obj,
-  ...(obj.Logins && { Logins: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
-  ...obj,
-  ...(obj.SecretKey && { SecretKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetCredentialsForIdentityResponseFilterSensitiveLog = (obj: GetCredentialsForIdentityResponse): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const GetIdInputFilterSensitiveLog = (obj: GetIdInput): any => ({
-  ...obj,
-  ...(obj.Logins && { Logins: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetOpenIdTokenInputFilterSensitiveLog = (obj: GetOpenIdTokenInput): any => ({
-  ...obj,
-  ...(obj.Logins && { Logins: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetOpenIdTokenResponseFilterSensitiveLog = (obj: GetOpenIdTokenResponse): any => ({
-  ...obj,
-  ...(obj.Token && { Token: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog = (
-  obj: GetOpenIdTokenForDeveloperIdentityInput
-): any => ({
-  ...obj,
-  ...(obj.Logins && { Logins: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog = (
-  obj: GetOpenIdTokenForDeveloperIdentityResponse
-): any => ({
-  ...obj,
-  ...(obj.Token && { Token: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UnlinkIdentityInputFilterSensitiveLog = (obj: UnlinkIdentityInput): any => ({
-  ...obj,
-  ...(obj.Logins && { Logins: SENSITIVE_STRING }),
-});

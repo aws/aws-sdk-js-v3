@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AddResourcePermissionsRequest,
-  AddResourcePermissionsRequestFilterSensitiveLog,
-  AddResourcePermissionsResponse,
-  AddResourcePermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_AddResourcePermissionsCommand, se_AddResourcePermissionsCommand } from "../protocols/Aws_restJson1";
+import { AddResourcePermissionsRequest, AddResourcePermissionsResponse } from "../models/models_0";
+import { AddResourcePermissions } from "../schemas/schemas_6_Delete";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -115,16 +109,11 @@ export class AddResourcePermissionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "AddResourcePermissions", {})
   .n("WorkDocsClient", "AddResourcePermissionsCommand")
-  .f(AddResourcePermissionsRequestFilterSensitiveLog, AddResourcePermissionsResponseFilterSensitiveLog)
-  .ser(se_AddResourcePermissionsCommand)
-  .de(de_AddResourcePermissionsCommand)
+  .sc(AddResourcePermissions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

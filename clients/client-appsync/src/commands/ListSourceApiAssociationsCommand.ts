@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSourceApiAssociationsRequest, ListSourceApiAssociationsResponse } from "../models/models_0";
-import { de_ListSourceApiAssociationsCommand, se_ListSourceApiAssociationsCommand } from "../protocols/Aws_restJson1";
+import { ListSourceApiAssociations } from "../schemas/schemas_16_ListSourceApiAssociations";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class ListSourceApiAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepdishControlPlaneService", "ListSourceApiAssociations", {})
   .n("AppSyncClient", "ListSourceApiAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSourceApiAssociationsCommand)
-  .de(de_ListSourceApiAssociationsCommand)
+  .sc(ListSourceApiAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

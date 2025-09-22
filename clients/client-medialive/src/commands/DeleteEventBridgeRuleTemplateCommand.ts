@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DeleteEventBridgeRuleTemplateRequest } from "../models/models_2";
-import {
-  de_DeleteEventBridgeRuleTemplateCommand,
-  se_DeleteEventBridgeRuleTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteEventBridgeRuleTemplate } from "../schemas/schemas_27_DeleteEventBridgeRuleTemplate";
 
 /**
  * @public
@@ -89,16 +85,11 @@ export class DeleteEventBridgeRuleTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "DeleteEventBridgeRuleTemplate", {})
   .n("MediaLiveClient", "DeleteEventBridgeRuleTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteEventBridgeRuleTemplateCommand)
-  .de(de_DeleteEventBridgeRuleTemplateCommand)
+  .sc(DeleteEventBridgeRuleTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

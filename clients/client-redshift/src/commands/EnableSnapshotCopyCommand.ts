@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  EnableSnapshotCopyMessage,
-  EnableSnapshotCopyResult,
-  EnableSnapshotCopyResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_EnableSnapshotCopyCommand, se_EnableSnapshotCopyCommand } from "../protocols/Aws_query";
+import { EnableSnapshotCopyMessage, EnableSnapshotCopyResult } from "../models/models_1";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { EnableSnapshotCopy } from "../schemas/schemas_4_Cluster";
 
 /**
  * @public
@@ -305,16 +300,11 @@ export class EnableSnapshotCopyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "EnableSnapshotCopy", {})
   .n("RedshiftClient", "EnableSnapshotCopyCommand")
-  .f(void 0, EnableSnapshotCopyResultFilterSensitiveLog)
-  .ser(se_EnableSnapshotCopyCommand)
-  .de(de_EnableSnapshotCopyCommand)
+  .sc(EnableSnapshotCopy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AccessScopePath,
   AccessScopePathRequest,
@@ -31,7 +29,6 @@ import {
   VerifiedAccessInstance,
   VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
-  VerifiedAccessTrustProviderFilterSensitiveLog,
   VolumeAttachment,
 } from "./models_0";
 
@@ -10882,90 +10879,3 @@ export const VpcEndpointType = {
  * @public
  */
 export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointType];
-
-/**
- * @internal
- */
-export const ResponseLaunchTemplateDataFilterSensitiveLog = (obj: ResponseLaunchTemplateData): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateVersionFilterSensitiveLog = (obj: LaunchTemplateVersion): any => ({
-  ...obj,
-  ...(obj.LaunchTemplateData && {
-    LaunchTemplateData: ResponseLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateLaunchTemplateVersionResultFilterSensitiveLog = (obj: CreateLaunchTemplateVersionResult): any => ({
-  ...obj,
-  ...(obj.LaunchTemplateVersion && {
-    LaunchTemplateVersion: LaunchTemplateVersionFilterSensitiveLog(obj.LaunchTemplateVersion),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateMacSystemIntegrityProtectionModificationTaskRequestFilterSensitiveLog = (
-  obj: CreateMacSystemIntegrityProtectionModificationTaskRequest
-): any => ({
-  ...obj,
-  ...(obj.MacCredentials && { MacCredentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog = (
-  obj: CreateVerifiedAccessNativeApplicationOidcOptions
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
-  obj: CreateVerifiedAccessTrustProviderOidcOptions
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
-  obj: CreateVerifiedAccessTrustProviderRequest
-): any => ({
-  ...obj,
-  ...(obj.OidcOptions && {
-    OidcOptions: CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
-  }),
-  ...(obj.NativeApplicationOidcOptions && {
-    NativeApplicationOidcOptions: CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog(
-      obj.NativeApplicationOidcOptions
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessTrustProviderResultFilterSensitiveLog = (
-  obj: CreateVerifiedAccessTrustProviderResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProvider && {
-    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
-  }),
-});

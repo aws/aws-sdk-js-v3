@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
 import { CreateDatastoreRequest, CreateDatastoreResponse } from "../models/models_0";
-import { de_CreateDatastoreCommand, se_CreateDatastoreCommand } from "../protocols/Aws_restJson1";
+import { CreateDatastore } from "../schemas/schemas_5_Set";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class CreateDatastoreCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AHIGatewayService", "CreateDatastore", {})
   .n("MedicalImagingClient", "CreateDatastoreCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDatastoreCommand)
-  .de(de_CreateDatastoreCommand)
+  .sc(CreateDatastore)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

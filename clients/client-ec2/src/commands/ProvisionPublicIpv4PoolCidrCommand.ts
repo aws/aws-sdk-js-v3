@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ProvisionPublicIpv4PoolCidrRequest, ProvisionPublicIpv4PoolCidrResult } from "../models/models_8";
-import { de_ProvisionPublicIpv4PoolCidrCommand, se_ProvisionPublicIpv4PoolCidrCommand } from "../protocols/Aws_ec2";
+import { ProvisionPublicIpv4PoolCidr } from "../schemas/schemas_133_PublicIpv";
 
 /**
  * @public
@@ -81,16 +80,11 @@ export class ProvisionPublicIpv4PoolCidrCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ProvisionPublicIpv4PoolCidr", {})
   .n("EC2Client", "ProvisionPublicIpv4PoolCidrCommand")
-  .f(void 0, void 0)
-  .ser(se_ProvisionPublicIpv4PoolCidrCommand)
-  .de(de_ProvisionPublicIpv4PoolCidrCommand)
+  .sc(ProvisionPublicIpv4PoolCidr)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

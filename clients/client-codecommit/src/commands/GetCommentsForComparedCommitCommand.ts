@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetCommentsForComparedCommitInput, GetCommentsForComparedCommitOutput } from "../models/models_0";
-import {
-  de_GetCommentsForComparedCommitCommand,
-  se_GetCommentsForComparedCommitCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCommentsForComparedCommit } from "../schemas/schemas_7_List";
 
 /**
  * @public
@@ -159,16 +155,11 @@ export class GetCommentsForComparedCommitCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCommit_20150413", "GetCommentsForComparedCommit", {})
   .n("CodeCommitClient", "GetCommentsForComparedCommitCommand")
-  .f(void 0, void 0)
-  .ser(se_GetCommentsForComparedCommitCommand)
-  .de(de_GetCommentsForComparedCommitCommand)
+  .sc(GetCommentsForComparedCommit)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

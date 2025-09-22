@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DescribeInputDeviceRequest, DescribeInputDeviceResponse } from "../models/models_2";
-import { de_DescribeInputDeviceCommand, se_DescribeInputDeviceCommand } from "../protocols/Aws_restJson1";
+import { DescribeInputDevice } from "../schemas/schemas_5_Input";
 
 /**
  * @public
@@ -152,16 +151,11 @@ export class DescribeInputDeviceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "DescribeInputDevice", {})
   .n("MediaLiveClient", "DescribeInputDeviceCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeInputDeviceCommand)
-  .de(de_DescribeInputDeviceCommand)
+  .sc(DescribeInputDevice)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { WriteRecordsRequest, WriteRecordsResponse } from "../models/models_0";
-import { de_WriteRecordsCommand, se_WriteRecordsCommand } from "../protocols/Aws_json1_0";
+import { WriteRecords } from "../schemas/schemas_1_Table";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -215,7 +214,6 @@ export class WriteRecordsCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEndpointDiscoveryPlugin(config, {
         clientStack: cs,
@@ -226,9 +224,7 @@ export class WriteRecordsCommand extends $Command
   })
   .s("Timestream_20181101", "WriteRecords", {})
   .n("TimestreamWriteClient", "WriteRecordsCommand")
-  .f(void 0, void 0)
-  .ser(se_WriteRecordsCommand)
-  .de(de_WriteRecordsCommand)
+  .sc(WriteRecords)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

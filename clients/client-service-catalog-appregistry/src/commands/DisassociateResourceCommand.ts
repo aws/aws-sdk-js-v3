@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateResourceRequest, DisassociateResourceResponse } from "../models/models_0";
-import { de_DisassociateResourceCommand, se_DisassociateResourceCommand } from "../protocols/Aws_restJson1";
+import { DisassociateResource } from "../schemas/schemas_3_Attribute";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -141,16 +140,11 @@ export class DisassociateResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242AppRegistry", "DisassociateResource", {})
   .n("ServiceCatalogAppRegistryClient", "DisassociateResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateResourceCommand)
-  .de(de_DisassociateResourceCommand)
+  .sc(DisassociateResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

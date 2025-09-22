@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAssistantRequest, GetAssistantResponse } from "../models/models_0";
-import { de_GetAssistantCommand, se_GetAssistantCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { GetAssistant } from "../schemas/schemas_6_Knowledge";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class GetAssistantCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "GetAssistant", {})
   .n("QConnectClient", "GetAssistantCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAssistantCommand)
-  .de(de_GetAssistantCommand)
+  .sc(GetAssistant)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

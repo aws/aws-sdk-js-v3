@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_2";
-import { de_TestInvokeAuthorizerCommand, se_TestInvokeAuthorizerCommand } from "../protocols/Aws_restJson1";
+import { TestInvokeAuthorizer } from "../schemas/schemas_13_Authorizer";
 
 /**
  * @public
@@ -116,16 +115,11 @@ export class TestInvokeAuthorizerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "TestInvokeAuthorizer", {})
   .n("IoTClient", "TestInvokeAuthorizerCommand")
-  .f(void 0, void 0)
-  .ser(se_TestInvokeAuthorizerCommand)
-  .de(de_TestInvokeAuthorizerCommand)
+  .sc(TestInvokeAuthorizer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

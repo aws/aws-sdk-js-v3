@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeEngineDefaultClusterParametersResult,
 } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  de_DescribeEngineDefaultClusterParametersCommand,
-  se_DescribeEngineDefaultClusterParametersCommand,
-} from "../protocols/Aws_query";
+import { DescribeEngineDefaultClusterParameters } from "../schemas/schemas_17_Parameter";
 
 /**
  * @public
@@ -107,16 +103,11 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "DescribeEngineDefaultClusterParameters", {})
   .n("NeptuneClient", "DescribeEngineDefaultClusterParametersCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeEngineDefaultClusterParametersCommand)
-  .de(de_DescribeEngineDefaultClusterParametersCommand)
+  .sc(DescribeEngineDefaultClusterParameters)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

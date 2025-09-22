@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListTopicsInput, ListTopicsResponse } from "../models/models_0";
-import { de_ListTopicsCommand, se_ListTopicsCommand } from "../protocols/Aws_query";
+import { ListTopics } from "../schemas/schemas_1_List";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -89,16 +88,11 @@ export class ListTopicsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSimpleNotificationService", "ListTopics", {})
   .n("SNSClient", "ListTopicsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTopicsCommand)
-  .de(de_ListTopicsCommand)
+  .sc(ListTopics)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

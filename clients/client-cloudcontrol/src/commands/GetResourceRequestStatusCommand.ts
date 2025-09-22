@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetResourceRequestStatusInput,
-  GetResourceRequestStatusOutput,
-  GetResourceRequestStatusOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetResourceRequestStatusCommand, se_GetResourceRequestStatusCommand } from "../protocols/Aws_json1_0";
+import { GetResourceRequestStatusInput, GetResourceRequestStatusOutput } from "../models/models_0";
+import { GetResourceRequestStatus } from "../schemas/schemas_1_Resource";
 
 /**
  * @public
@@ -103,16 +98,11 @@ export class GetResourceRequestStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudApiService", "GetResourceRequestStatus", {})
   .n("CloudControlClient", "GetResourceRequestStatusCommand")
-  .f(void 0, GetResourceRequestStatusOutputFilterSensitiveLog)
-  .ser(se_GetResourceRequestStatusCommand)
-  .de(de_GetResourceRequestStatusCommand)
+  .sc(GetResourceRequestStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

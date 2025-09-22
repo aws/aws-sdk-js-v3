@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { UpdateImageGenerationConfigurationInput, UpdateImageGenerationConfigurationOutput } from "../models/models_0";
-import {
-  de_UpdateImageGenerationConfigurationCommand,
-  se_UpdateImageGenerationConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateImageGenerationConfiguration } from "../schemas/schemas_2_Configuration";
 
 /**
  * @public
@@ -125,16 +121,11 @@ export class UpdateImageGenerationConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KinesisVideo_20170930", "UpdateImageGenerationConfiguration", {})
   .n("KinesisVideoClient", "UpdateImageGenerationConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateImageGenerationConfigurationCommand)
-  .de(de_UpdateImageGenerationConfigurationCommand)
+  .sc(UpdateImageGenerationConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

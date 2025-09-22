@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdatePullRequestTitleInput, UpdatePullRequestTitleOutput } from "../models/models_1";
-import { de_UpdatePullRequestTitleCommand, se_UpdatePullRequestTitleCommand } from "../protocols/Aws_json1_1";
+import { UpdatePullRequestTitle } from "../schemas/schemas_8_Pull";
 
 /**
  * @public
@@ -130,16 +129,11 @@ export class UpdatePullRequestTitleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCommit_20150413", "UpdatePullRequestTitle", {})
   .n("CodeCommitClient", "UpdatePullRequestTitleCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdatePullRequestTitleCommand)
-  .de(de_UpdatePullRequestTitleCommand)
+  .sc(UpdatePullRequestTitle)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

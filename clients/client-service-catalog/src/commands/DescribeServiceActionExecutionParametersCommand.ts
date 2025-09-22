@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   DescribeServiceActionExecutionParametersInput,
   DescribeServiceActionExecutionParametersOutput,
 } from "../models/models_0";
-import {
-  de_DescribeServiceActionExecutionParametersCommand,
-  se_DescribeServiceActionExecutionParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeServiceActionExecutionParameters } from "../schemas/schemas_17_Action";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -95,16 +91,11 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242ServiceCatalogService", "DescribeServiceActionExecutionParameters", {})
   .n("ServiceCatalogClient", "DescribeServiceActionExecutionParametersCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeServiceActionExecutionParametersCommand)
-  .de(de_DescribeServiceActionExecutionParametersCommand)
+  .sc(DescribeServiceActionExecutionParameters)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

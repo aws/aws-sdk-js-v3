@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/models_0";
-import { de_DeleteDBClusterCommand, se_DeleteDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DeleteDBCluster } from "../schemas/schemas_51_Snapshot";
 
 /**
  * @public
@@ -324,16 +323,11 @@ export class DeleteDBClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "DeleteDBCluster", {})
   .n("RDSClient", "DeleteDBClusterCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDBClusterCommand)
-  .de(de_DeleteDBClusterCommand)
+  .sc(DeleteDBCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

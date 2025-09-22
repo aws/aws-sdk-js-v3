@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AppFabricServiceException as __BaseException } from "./AppFabricServiceException";
 
@@ -2339,92 +2339,3 @@ export interface UpdateIngestionDestinationResponse {
    */
   ingestionDestination: IngestionDestination | undefined;
 }
-
-/**
- * @internal
- */
-export const ApiKeyCredentialFilterSensitiveLog = (obj: ApiKeyCredential): any => ({
-  ...obj,
-  ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AuthRequestFilterSensitiveLog = (obj: AuthRequest): any => ({
-  ...obj,
-  ...(obj.code && { code: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UserAccessResultItemFilterSensitiveLog = (obj: UserAccessResultItem): any => ({
-  ...obj,
-  ...(obj.email && { email: SENSITIVE_STRING }),
-  ...(obj.userId && { userId: SENSITIVE_STRING }),
-  ...(obj.userFullName && { userFullName: SENSITIVE_STRING }),
-  ...(obj.userFirstName && { userFirstName: SENSITIVE_STRING }),
-  ...(obj.userLastName && { userLastName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BatchGetUserAccessTasksResponseFilterSensitiveLog = (obj: BatchGetUserAccessTasksResponse): any => ({
-  ...obj,
-  ...(obj.userAccessResultsList && {
-    userAccessResultsList: obj.userAccessResultsList.map((item) => UserAccessResultItemFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ConnectAppAuthorizationRequestFilterSensitiveLog = (obj: ConnectAppAuthorizationRequest): any => ({
-  ...obj,
-  ...(obj.authRequest && { authRequest: AuthRequestFilterSensitiveLog(obj.authRequest) }),
-});
-
-/**
- * @internal
- */
-export const Oauth2CredentialFilterSensitiveLog = (obj: Oauth2Credential): any => ({
-  ...obj,
-  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CredentialFilterSensitiveLog = (obj: Credential): any => {
-  if (obj.oauth2Credential !== undefined)
-    return { oauth2Credential: Oauth2CredentialFilterSensitiveLog(obj.oauth2Credential) };
-  if (obj.apiKeyCredential !== undefined)
-    return { apiKeyCredential: ApiKeyCredentialFilterSensitiveLog(obj.apiKeyCredential) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateAppAuthorizationRequestFilterSensitiveLog = (obj: CreateAppAuthorizationRequest): any => ({
-  ...obj,
-  ...(obj.credential && { credential: CredentialFilterSensitiveLog(obj.credential) }),
-});
-
-/**
- * @internal
- */
-export const StartUserAccessTasksRequestFilterSensitiveLog = (obj: StartUserAccessTasksRequest): any => ({
-  ...obj,
-  ...(obj.email && { email: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAppAuthorizationRequestFilterSensitiveLog = (obj: UpdateAppAuthorizationRequest): any => ({
-  ...obj,
-  ...(obj.credential && { credential: CredentialFilterSensitiveLog(obj.credential) }),
-});

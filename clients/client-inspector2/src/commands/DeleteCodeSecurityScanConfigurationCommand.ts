@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DeleteCodeSecurityScanConfigurationRequest,
   DeleteCodeSecurityScanConfigurationResponse,
 } from "../models/models_0";
-import {
-  de_DeleteCodeSecurityScanConfigurationCommand,
-  se_DeleteCodeSecurityScanConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteCodeSecurityScanConfiguration } from "../schemas/schemas_6_CodeSecurity";
 
 /**
  * @public
@@ -97,16 +93,11 @@ export class DeleteCodeSecurityScanConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Inspector2", "DeleteCodeSecurityScanConfiguration", {})
   .n("Inspector2Client", "DeleteCodeSecurityScanConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCodeSecurityScanConfigurationCommand)
-  .de(de_DeleteCodeSecurityScanConfigurationCommand)
+  .sc(DeleteCodeSecurityScanConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListCatalogItemsInput, ListCatalogItemsOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { de_ListCatalogItemsCommand, se_ListCatalogItemsCommand } from "../protocols/Aws_restJson1";
+import { ListCatalogItems } from "../schemas/schemas_1_List";
 
 /**
  * @public
@@ -116,16 +115,11 @@ export class ListCatalogItemsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OutpostsOlafService", "ListCatalogItems", {})
   .n("OutpostsClient", "ListCatalogItemsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCatalogItemsCommand)
-  .de(de_ListCatalogItemsCommand)
+  .sc(ListCatalogItems)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

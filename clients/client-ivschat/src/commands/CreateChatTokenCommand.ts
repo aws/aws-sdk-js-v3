@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  CreateChatTokenRequest,
-  CreateChatTokenRequestFilterSensitiveLog,
-  CreateChatTokenResponse,
-  CreateChatTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateChatTokenCommand, se_CreateChatTokenCommand } from "../protocols/Aws_restJson1";
+import { CreateChatTokenRequest, CreateChatTokenResponse } from "../models/models_0";
+import { CreateChatToken } from "../schemas/schemas_2_Delete";
 
 /**
  * @public
@@ -108,16 +102,11 @@ export class CreateChatTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvschatClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoServiceChat", "CreateChatToken", {})
   .n("IvschatClient", "CreateChatTokenCommand")
-  .f(CreateChatTokenRequestFilterSensitiveLog, CreateChatTokenResponseFilterSensitiveLog)
-  .ser(se_CreateChatTokenCommand)
-  .de(de_CreateChatTokenCommand)
+  .sc(CreateChatToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

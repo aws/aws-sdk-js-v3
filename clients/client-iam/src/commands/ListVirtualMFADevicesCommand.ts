@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListVirtualMFADevicesRequest,
-  ListVirtualMFADevicesResponse,
-  ListVirtualMFADevicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListVirtualMFADevicesCommand, se_ListVirtualMFADevicesCommand } from "../protocols/Aws_query";
+import { ListVirtualMFADevicesRequest, ListVirtualMFADevicesResponse } from "../models/models_0";
+import { ListVirtualMFADevices } from "../schemas/schemas_16_MFA";
 
 /**
  * @public
@@ -138,16 +133,11 @@ export class ListVirtualMFADevicesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "ListVirtualMFADevices", {})
   .n("IAMClient", "ListVirtualMFADevicesCommand")
-  .f(void 0, ListVirtualMFADevicesResponseFilterSensitiveLog)
-  .ser(se_ListVirtualMFADevicesCommand)
-  .de(de_ListVirtualMFADevicesCommand)
+  .sc(ListVirtualMFADevices)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

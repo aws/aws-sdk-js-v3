@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAccountPreferencesRequest, GetAccountPreferencesResult } from "../models/models_0";
-import { de_GetAccountPreferencesCommand, se_GetAccountPreferencesCommand } from "../protocols/Aws_restJson1";
+import { GetAccountPreferences } from "../schemas/schemas_5_Channel";
 
 /**
  * @public
@@ -77,16 +76,11 @@ export class GetAccountPreferencesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WheatleyOrchestration_20171011", "GetAccountPreferences", {})
   .n("ChatbotClient", "GetAccountPreferencesCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAccountPreferencesCommand)
-  .de(de_GetAccountPreferencesCommand)
+  .sc(GetAccountPreferences)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

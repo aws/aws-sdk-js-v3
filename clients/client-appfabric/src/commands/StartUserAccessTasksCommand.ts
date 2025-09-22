@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartUserAccessTasksRequest,
-  StartUserAccessTasksRequestFilterSensitiveLog,
-  StartUserAccessTasksResponse,
-} from "../models/models_0";
-import { de_StartUserAccessTasksCommand, se_StartUserAccessTasksCommand } from "../protocols/Aws_restJson1";
+import { StartUserAccessTasksRequest, StartUserAccessTasksResponse } from "../models/models_0";
+import { StartUserAccessTasks } from "../schemas/schemas_4_App";
 
 /**
  * @public
@@ -103,16 +98,11 @@ export class StartUserAccessTasksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FabricFrontEndService", "StartUserAccessTasks", {})
   .n("AppFabricClient", "StartUserAccessTasksCommand")
-  .f(StartUserAccessTasksRequestFilterSensitiveLog, void 0)
-  .ser(se_StartUserAccessTasksCommand)
-  .de(de_StartUserAccessTasksCommand)
+  .sc(StartUserAccessTasks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

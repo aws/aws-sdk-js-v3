@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopMonitoringScheduleRequest } from "../models/models_5";
-import { de_StopMonitoringScheduleCommand, se_StopMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { StopMonitoringSchedule } from "../schemas/schemas_139_StopMonitoringSchedule";
 
 /**
  * @public
@@ -71,16 +70,11 @@ export class StopMonitoringScheduleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "StopMonitoringSchedule", {})
   .n("SageMakerClient", "StopMonitoringScheduleCommand")
-  .f(void 0, void 0)
-  .ser(se_StopMonitoringScheduleCommand)
-  .de(de_StopMonitoringScheduleCommand)
+  .sc(StopMonitoringSchedule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

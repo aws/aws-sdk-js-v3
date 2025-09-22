@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ArtifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ArtifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetReportMetadataRequest, GetReportMetadataResponse } from "../models/models_0";
-import { de_GetReportMetadataCommand, se_GetReportMetadataCommand } from "../protocols/Aws_restJson1";
+import { GetReportMetadata } from "../schemas/schemas_1_Get";
 
 /**
  * @public
@@ -141,16 +140,11 @@ export class GetReportMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Artifact", "GetReportMetadata", {})
   .n("ArtifactClient", "GetReportMetadataCommand")
-  .f(void 0, void 0)
-  .ser(se_GetReportMetadataCommand)
-  .de(de_GetReportMetadataCommand)
+  .sc(GetReportMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

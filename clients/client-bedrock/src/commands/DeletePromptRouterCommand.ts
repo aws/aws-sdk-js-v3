@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeletePromptRouterRequest, DeletePromptRouterResponse } from "../models/models_1";
-import { de_DeletePromptRouterCommand, se_DeletePromptRouterCommand } from "../protocols/Aws_restJson1";
+import { DeletePromptRouter } from "../schemas/schemas_38_Prompt";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class DeletePromptRouterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "DeletePromptRouter", {})
   .n("BedrockClient", "DeletePromptRouterCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePromptRouterCommand)
-  .de(de_DeletePromptRouterCommand)
+  .sc(DeletePromptRouter)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

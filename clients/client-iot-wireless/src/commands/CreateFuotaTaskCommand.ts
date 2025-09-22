@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { CreateFuotaTaskRequest, CreateFuotaTaskResponse } from "../models/models_0";
-import { de_CreateFuotaTaskCommand, se_CreateFuotaTaskCommand } from "../protocols/Aws_restJson1";
+import { CreateFuotaTask } from "../schemas/schemas_9_Multicast";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class CreateFuotaTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "CreateFuotaTask", {})
   .n("IoTWirelessClient", "CreateFuotaTaskCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateFuotaTaskCommand)
-  .de(de_CreateFuotaTaskCommand)
+  .sc(CreateFuotaTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

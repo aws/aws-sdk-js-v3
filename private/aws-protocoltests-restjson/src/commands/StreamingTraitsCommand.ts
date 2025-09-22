@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
   MetadataBearer as __MetadataBearer,
@@ -9,9 +8,9 @@ import {
 } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
-import { de_StreamingTraitsCommand, se_StreamingTraitsCommand } from "../protocols/Aws_restJson1";
+import { StreamingTraitsInputOutput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { StreamingTraits } from "../schemas/schemas_48_StreamingTraits";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class StreamingTraitsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "StreamingTraits", {})
   .n("RestJsonProtocolClient", "StreamingTraitsCommand")
-  .f(StreamingTraitsInputOutputFilterSensitiveLog, StreamingTraitsInputOutputFilterSensitiveLog)
-  .ser(se_StreamingTraitsCommand)
-  .de(de_StreamingTraitsCommand)
+  .sc(StreamingTraits)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDigestRequest, GetDigestResponse, GetDigestResponseFilterSensitiveLog } from "../models/models_0";
-import { de_GetDigestCommand, se_GetDigestCommand } from "../protocols/Aws_restJson1";
+import { GetDigestRequest, GetDigestResponse } from "../models/models_0";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
+import { GetDigest } from "../schemas/schemas_4_Journal";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class GetDigestCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QLDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonQLDB", "GetDigest", {})
   .n("QLDBClient", "GetDigestCommand")
-  .f(void 0, GetDigestResponseFilterSensitiveLog)
-  .ser(se_GetDigestCommand)
-  .de(de_GetDigestCommand)
+  .sc(GetDigest)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

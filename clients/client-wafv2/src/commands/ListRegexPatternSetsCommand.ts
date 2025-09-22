@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRegexPatternSetsRequest, ListRegexPatternSetsResponse } from "../models/models_0";
-import { de_ListRegexPatternSetsCommand, se_ListRegexPatternSetsCommand } from "../protocols/Aws_json1_1";
+import { ListRegexPatternSets } from "../schemas/schemas_11_List";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -110,16 +109,11 @@ export class ListRegexPatternSetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20190729", "ListRegexPatternSets", {})
   .n("WAFV2Client", "ListRegexPatternSetsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRegexPatternSetsCommand)
-  .de(de_ListRegexPatternSetsCommand)
+  .sc(ListRegexPatternSets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

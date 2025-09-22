@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   AssociateManagedNotificationAccountContactResponse,
 } from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import {
-  de_AssociateManagedNotificationAccountContactCommand,
-  se_AssociateManagedNotificationAccountContactCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateManagedNotificationAccountContact } from "../schemas/schemas_5_Notification";
 
 /**
  * @public
@@ -99,16 +95,11 @@ export class AssociateManagedNotificationAccountContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Notifications", "AssociateManagedNotificationAccountContact", {})
   .n("NotificationsClient", "AssociateManagedNotificationAccountContactCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateManagedNotificationAccountContactCommand)
-  .de(de_AssociateManagedNotificationAccountContactCommand)
+  .sc(AssociateManagedNotificationAccountContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateContextRequest, CreateContextResponse } from "../models/models_1";
-import { de_CreateContextCommand, se_CreateContextCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { CreateContext } from "../schemas/schemas_88_Describe";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class CreateContextCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "CreateContext", {})
   .n("SageMakerClient", "CreateContextCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateContextCommand)
-  .de(de_CreateContextCommand)
+  .sc(CreateContext)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
@@ -15112,39 +15112,3 @@ export interface DeleteGlobalClusterMessage {
    */
   GlobalClusterIdentifier: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateTenantDatabaseMessageFilterSensitiveLog = (obj: CreateTenantDatabaseMessage): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TenantDatabasePendingModifiedValuesFilterSensitiveLog = (
-  obj: TenantDatabasePendingModifiedValues
-): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TenantDatabaseFilterSensitiveLog = (obj: TenantDatabase): any => ({
-  ...obj,
-  ...(obj.PendingModifiedValues && {
-    PendingModifiedValues: TenantDatabasePendingModifiedValuesFilterSensitiveLog(obj.PendingModifiedValues),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateTenantDatabaseResultFilterSensitiveLog = (obj: CreateTenantDatabaseResult): any => ({
-  ...obj,
-  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
-});

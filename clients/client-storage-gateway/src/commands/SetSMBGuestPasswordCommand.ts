@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SetSMBGuestPasswordInput,
-  SetSMBGuestPasswordInputFilterSensitiveLog,
-  SetSMBGuestPasswordOutput,
-} from "../models/models_0";
-import { de_SetSMBGuestPasswordCommand, se_SetSMBGuestPasswordCommand } from "../protocols/Aws_json1_1";
+import { SetSMBGuestPasswordInput, SetSMBGuestPasswordOutput } from "../models/models_0";
+import { SetSMBGuestPassword } from "../schemas/schemas_27_SetSMBGuestPassword";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -85,16 +80,11 @@ export class SetSMBGuestPasswordCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "SetSMBGuestPassword", {})
   .n("StorageGatewayClient", "SetSMBGuestPasswordCommand")
-  .f(SetSMBGuestPasswordInputFilterSensitiveLog, void 0)
-  .ser(se_SetSMBGuestPasswordCommand)
-  .de(de_SetSMBGuestPasswordCommand)
+  .sc(SetSMBGuestPassword)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

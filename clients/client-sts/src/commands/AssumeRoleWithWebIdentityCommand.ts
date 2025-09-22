@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AssumeRoleWithWebIdentityRequest,
-  AssumeRoleWithWebIdentityRequestFilterSensitiveLog,
-  AssumeRoleWithWebIdentityResponse,
-  AssumeRoleWithWebIdentityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_AssumeRoleWithWebIdentityCommand, se_AssumeRoleWithWebIdentityCommand } from "../protocols/Aws_query";
+import { AssumeRoleWithWebIdentityRequest, AssumeRoleWithWebIdentityResponse } from "../models/models_0";
+import { AssumeRoleWithWebIdentity } from "../schemas/schemas_1_Assume";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -291,16 +285,11 @@ export class AssumeRoleWithWebIdentityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: STSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSecurityTokenServiceV20110615", "AssumeRoleWithWebIdentity", {})
   .n("STSClient", "AssumeRoleWithWebIdentityCommand")
-  .f(AssumeRoleWithWebIdentityRequestFilterSensitiveLog, AssumeRoleWithWebIdentityResponseFilterSensitiveLog)
-  .ser(se_AssumeRoleWithWebIdentityCommand)
-  .de(de_AssumeRoleWithWebIdentityCommand)
+  .sc(AssumeRoleWithWebIdentity)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

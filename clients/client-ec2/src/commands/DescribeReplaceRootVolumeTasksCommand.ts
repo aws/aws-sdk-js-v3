@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeReplaceRootVolumeTasksRequest, DescribeReplaceRootVolumeTasksResult } from "../models/models_5";
-import {
-  de_DescribeReplaceRootVolumeTasksCommand,
-  se_DescribeReplaceRootVolumeTasksCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeReplaceRootVolumeTasks } from "../schemas/schemas_186_Replace";
 
 /**
  * @public
@@ -107,16 +103,11 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeReplaceRootVolumeTasks", {})
   .n("EC2Client", "DescribeReplaceRootVolumeTasksCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeReplaceRootVolumeTasksCommand)
-  .de(de_DescribeReplaceRootVolumeTasksCommand)
+  .sc(DescribeReplaceRootVolumeTasks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

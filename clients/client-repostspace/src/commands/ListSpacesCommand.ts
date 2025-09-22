@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSpacesInput, ListSpacesOutput, ListSpacesOutputFilterSensitiveLog } from "../models/models_0";
-import { de_ListSpacesCommand, se_ListSpacesCommand } from "../protocols/Aws_restJson1";
+import { ListSpacesInput, ListSpacesOutput } from "../models/models_0";
 import { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
+import { ListSpaces } from "../schemas/schemas_2_Space";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class ListSpacesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RepostspaceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RepostSpace", "ListSpaces", {})
   .n("RepostspaceClient", "ListSpacesCommand")
-  .f(void 0, ListSpacesOutputFilterSensitiveLog)
-  .ser(se_ListSpacesCommand)
-  .de(de_ListSpacesCommand)
+  .sc(ListSpaces)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

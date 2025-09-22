@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateCellRequest, CreateCellResponse } from "../models/models_0";
-import { de_CreateCellCommand, se_CreateCellCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
+import { CreateCell } from "../schemas/schemas_3_Create";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class CreateCellCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryReadinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53RecoveryReadiness", "CreateCell", {})
   .n("Route53RecoveryReadinessClient", "CreateCellCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateCellCommand)
-  .de(de_CreateCellCommand)
+  .sc(CreateCell)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

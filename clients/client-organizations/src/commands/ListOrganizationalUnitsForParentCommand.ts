@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListOrganizationalUnitsForParentRequest, ListOrganizationalUnitsForParentResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  de_ListOrganizationalUnitsForParentCommand,
-  se_ListOrganizationalUnitsForParentCommand,
-} from "../protocols/Aws_json1_1";
+import { ListOrganizationalUnitsForParent } from "../schemas/schemas_4_List";
 
 /**
  * @public
@@ -254,16 +250,11 @@ export class ListOrganizationalUnitsForParentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "ListOrganizationalUnitsForParent", {})
   .n("OrganizationsClient", "ListOrganizationalUnitsForParentCommand")
-  .f(void 0, void 0)
-  .ser(se_ListOrganizationalUnitsForParentCommand)
-  .de(de_ListOrganizationalUnitsForParentCommand)
+  .sc(ListOrganizationalUnitsForParent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

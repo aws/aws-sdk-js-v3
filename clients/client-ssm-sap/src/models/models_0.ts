@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SsmSapServiceException as __BaseException } from "./SsmSapServiceException";
 
@@ -2393,48 +2393,3 @@ export interface UpdateApplicationSettingsOutput {
    */
   OperationIds?: string[] | undefined;
 }
-
-/**
- * @internal
- */
-export const ApplicationCredentialFilterSensitiveLog = (obj: ApplicationCredential): any => ({
-  ...obj,
-  ...(obj.SecretId && { SecretId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DatabaseFilterSensitiveLog = (obj: Database): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: obj.Credentials.map((item) => ApplicationCredentialFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetDatabaseOutputFilterSensitiveLog = (obj: GetDatabaseOutput): any => ({
-  ...obj,
-  ...(obj.Database && { Database: DatabaseFilterSensitiveLog(obj.Database) }),
-});
-
-/**
- * @internal
- */
-export const RegisterApplicationInputFilterSensitiveLog = (obj: RegisterApplicationInput): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: obj.Credentials.map((item) => ApplicationCredentialFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationSettingsInputFilterSensitiveLog = (obj: UpdateApplicationSettingsInput): any => ({
-  ...obj,
-  ...(obj.CredentialsToAddOrUpdate && {
-    CredentialsToAddOrUpdate: obj.CredentialsToAddOrUpdate.map((item) => ApplicationCredentialFilterSensitiveLog(item)),
-  }),
-  ...(obj.CredentialsToRemove && {
-    CredentialsToRemove: obj.CredentialsToRemove.map((item) => ApplicationCredentialFilterSensitiveLog(item)),
-  }),
-});

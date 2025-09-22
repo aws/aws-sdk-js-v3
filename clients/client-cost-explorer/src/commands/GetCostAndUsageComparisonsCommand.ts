@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetCostAndUsageComparisonsRequest, GetCostAndUsageComparisonsResponse } from "../models/models_0";
-import { de_GetCostAndUsageComparisonsCommand, se_GetCostAndUsageComparisonsCommand } from "../protocols/Aws_json1_1";
+import { GetCostAndUsageComparisons } from "../schemas/schemas_3_Get";
 
 /**
  * @public
@@ -255,16 +254,11 @@ export class GetCostAndUsageComparisonsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSInsightsIndexService", "GetCostAndUsageComparisons", {})
   .n("CostExplorerClient", "GetCostAndUsageComparisonsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetCostAndUsageComparisonsCommand)
-  .de(de_GetCostAndUsageComparisonsCommand)
+  .sc(GetCostAndUsageComparisons)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

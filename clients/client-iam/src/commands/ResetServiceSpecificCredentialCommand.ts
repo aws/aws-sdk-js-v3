@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ResetServiceSpecificCredentialRequest,
-  ResetServiceSpecificCredentialResponse,
-  ResetServiceSpecificCredentialResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_ResetServiceSpecificCredentialCommand,
-  se_ResetServiceSpecificCredentialCommand,
-} from "../protocols/Aws_query";
+import { ResetServiceSpecificCredentialRequest, ResetServiceSpecificCredentialResponse } from "../models/models_0";
+import { ResetServiceSpecificCredential } from "../schemas/schemas_10_Service";
 
 /**
  * @public
@@ -98,16 +90,11 @@ export class ResetServiceSpecificCredentialCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "ResetServiceSpecificCredential", {})
   .n("IAMClient", "ResetServiceSpecificCredentialCommand")
-  .f(void 0, ResetServiceSpecificCredentialResponseFilterSensitiveLog)
-  .ser(se_ResetServiceSpecificCredentialCommand)
-  .de(de_ResetServiceSpecificCredentialCommand)
+  .sc(ResetServiceSpecificCredential)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

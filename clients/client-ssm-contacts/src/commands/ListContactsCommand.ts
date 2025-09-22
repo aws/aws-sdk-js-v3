@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListContactsRequest, ListContactsResult } from "../models/models_0";
-import { de_ListContactsCommand, se_ListContactsCommand } from "../protocols/Aws_json1_1";
+import { ListContacts } from "../schemas/schemas_2_List";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -94,16 +93,11 @@ export class ListContactsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SSMContacts", "ListContacts", {})
   .n("SSMContactsClient", "ListContactsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListContactsCommand)
-  .de(de_ListContactsCommand)
+  .sc(ListContacts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

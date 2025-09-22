@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateRegistryRequest, UpdateRegistryResponse } from "../models/models_0";
-import { de_UpdateRegistryCommand, se_UpdateRegistryCommand } from "../protocols/Aws_restJson1";
+import { UpdateRegistry } from "../schemas/schemas_6_Create";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -88,16 +87,11 @@ export class UpdateRegistryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("schemas", "UpdateRegistry", {})
   .n("SchemasClient", "UpdateRegistryCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateRegistryCommand)
-  .de(de_UpdateRegistryCommand)
+  .sc(UpdateRegistry)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

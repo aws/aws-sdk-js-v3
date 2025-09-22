@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { SignRequest, SignRequestFilterSensitiveLog, SignResponse } from "../models/models_0";
-import { de_SignCommand, se_SignCommand } from "../protocols/Aws_json1_1";
+import { SignRequest, SignResponse } from "../models/models_0";
+import { Sign } from "../schemas/schemas_6_Generate";
 
 /**
  * @public
@@ -234,16 +233,11 @@ export class SignCommand extends $Command
   .classBuilder<SignCommandInput, SignCommandOutput, KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes>()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TrentService", "Sign", {})
   .n("KMSClient", "SignCommand")
-  .f(SignRequestFilterSensitiveLog, void 0)
-  .ser(se_SignCommand)
-  .de(de_SignCommand)
+  .sc(Sign)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

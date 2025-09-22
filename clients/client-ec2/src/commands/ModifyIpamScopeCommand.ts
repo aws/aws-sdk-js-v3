@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyIpamScopeRequest, ModifyIpamScopeResult } from "../models/models_7";
-import { de_ModifyIpamScopeCommand, se_ModifyIpamScopeCommand } from "../protocols/Aws_ec2";
+import { ModifyIpamScope } from "../schemas/schemas_41_Ipam";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class ModifyIpamScopeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ModifyIpamScope", {})
   .n("EC2Client", "ModifyIpamScopeCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyIpamScopeCommand)
-  .de(de_ModifyIpamScopeCommand)
+  .sc(ModifyIpamScope)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

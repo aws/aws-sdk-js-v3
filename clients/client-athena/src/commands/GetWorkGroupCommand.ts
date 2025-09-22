@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetWorkGroupInput, GetWorkGroupOutput } from "../models/models_0";
-import { de_GetWorkGroupCommand, se_GetWorkGroupCommand } from "../protocols/Aws_json1_1";
+import { GetWorkGroup } from "../schemas/schemas_8_Work";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class GetWorkGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAthena", "GetWorkGroup", {})
   .n("AthenaClient", "GetWorkGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_GetWorkGroupCommand)
-  .de(de_GetWorkGroupCommand)
+  .sc(GetWorkGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

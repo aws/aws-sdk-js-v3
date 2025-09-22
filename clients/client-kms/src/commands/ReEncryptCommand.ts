@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { ReEncryptRequest, ReEncryptResponse } from "../models/models_0";
-import { de_ReEncryptCommand, se_ReEncryptCommand } from "../protocols/Aws_json1_1";
+import { ReEncrypt } from "../schemas/schemas_3_GenerateDataKey";
 
 /**
  * @public
@@ -287,16 +286,11 @@ export class ReEncryptCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TrentService", "ReEncrypt", {})
   .n("KMSClient", "ReEncryptCommand")
-  .f(void 0, void 0)
-  .ser(se_ReEncryptCommand)
-  .de(de_ReEncryptCommand)
+  .sc(ReEncrypt)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

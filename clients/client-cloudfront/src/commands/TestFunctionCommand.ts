@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  TestFunctionRequest,
-  TestFunctionRequestFilterSensitiveLog,
-  TestFunctionResult,
-  TestFunctionResultFilterSensitiveLog,
-} from "../models/models_2";
-import { de_TestFunctionCommand, se_TestFunctionCommand } from "../protocols/Aws_restXml";
+import { TestFunctionRequest, TestFunctionResult } from "../models/models_2";
+import { TestFunction } from "../schemas/schemas_4_Function";
 
 /**
  * @public
@@ -122,16 +116,11 @@ export class TestFunctionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "TestFunction", {})
   .n("CloudFrontClient", "TestFunctionCommand")
-  .f(TestFunctionRequestFilterSensitiveLog, TestFunctionResultFilterSensitiveLog)
-  .ser(se_TestFunctionCommand)
-  .de(de_TestFunctionCommand)
+  .sc(TestFunction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

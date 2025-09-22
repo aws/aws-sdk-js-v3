@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartDevEnvironmentSessionRequest,
-  StartDevEnvironmentSessionResponse,
-  StartDevEnvironmentSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartDevEnvironmentSessionCommand, se_StartDevEnvironmentSessionCommand } from "../protocols/Aws_restJson1";
+import { StartDevEnvironmentSessionRequest, StartDevEnvironmentSessionResponse } from "../models/models_0";
+import { StartDevEnvironmentSession } from "../schemas/schemas_1_StartDevEnvironmentSession";
 
 /**
  * @public
@@ -112,16 +107,11 @@ export class StartDevEnvironmentSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCatalyst", "StartDevEnvironmentSession", {})
   .n("CodeCatalystClient", "StartDevEnvironmentSessionCommand")
-  .f(void 0, StartDevEnvironmentSessionResponseFilterSensitiveLog)
-  .ser(se_StartDevEnvironmentSessionCommand)
-  .de(de_StartDevEnvironmentSessionCommand)
+  .sc(StartDevEnvironmentSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

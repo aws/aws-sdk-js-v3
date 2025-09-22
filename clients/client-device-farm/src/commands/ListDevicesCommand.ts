@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDevicesRequest, ListDevicesResult } from "../models/models_0";
-import { de_ListDevicesCommand, se_ListDevicesCommand } from "../protocols/Aws_json1_1";
+import { ListDevices } from "../schemas/schemas_4_Get";
 
 /**
  * @public
@@ -157,16 +156,11 @@ export class ListDevicesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "ListDevices", {})
   .n("DeviceFarmClient", "ListDevicesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDevicesCommand)
-  .de(de_ListDevicesCommand)
+  .sc(ListDevices)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAttributesRequest, ListAttributesResponse } from "../models/models_0";
-import { de_ListAttributesCommand, se_ListAttributesCommand } from "../protocols/Aws_json1_1";
+import { ListAttributes } from "../schemas/schemas_18_ListAttributes";
 
 /**
  * @public
@@ -122,16 +121,11 @@ export class ListAttributesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerServiceV20141113", "ListAttributes", {})
   .n("ECSClient", "ListAttributesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAttributesCommand)
-  .de(de_ListAttributesCommand)
+  .sc(ListAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

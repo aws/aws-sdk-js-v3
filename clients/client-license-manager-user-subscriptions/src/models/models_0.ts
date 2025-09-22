@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { LicenseManagerUserSubscriptionsServiceException as __BaseException } from "./LicenseManagerUserSubscriptionsServiceException";
 
@@ -1505,63 +1505,3 @@ export interface UpdateIdentityProviderSettingsResponse {
    */
   IdentityProviderSummary: IdentityProviderSummary | undefined;
 }
-
-/**
- * @internal
- */
-export const AssociateUserRequestFilterSensitiveLog = (obj: AssociateUserRequest): any => ({
-  ...obj,
-  ...(obj.IdentityProvider && { IdentityProvider: obj.IdentityProvider }),
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateLicenseServerEndpointRequestFilterSensitiveLog = (obj: CreateLicenseServerEndpointRequest): any => ({
-  ...obj,
-  ...(obj.LicenseServerSettings && { LicenseServerSettings: obj.LicenseServerSettings }),
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RegisterIdentityProviderRequestFilterSensitiveLog = (obj: RegisterIdentityProviderRequest): any => ({
-  ...obj,
-  ...(obj.IdentityProvider && { IdentityProvider: obj.IdentityProvider }),
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartProductSubscriptionRequestFilterSensitiveLog = (obj: StartProductSubscriptionRequest): any => ({
-  ...obj,
-  ...(obj.IdentityProvider && { IdentityProvider: obj.IdentityProvider }),
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-  ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-});

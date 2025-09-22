@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { ListApplicationStatesRequest, ListApplicationStatesResult } from "../models/models_0";
-import { de_ListApplicationStatesCommand, se_ListApplicationStatesCommand } from "../protocols/Aws_json1_1";
+import { ListApplicationStates } from "../schemas/schemas_4_Migration";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class ListApplicationStatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHub", "ListApplicationStates", {})
   .n("MigrationHubClient", "ListApplicationStatesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListApplicationStatesCommand)
-  .de(de_ListApplicationStatesCommand)
+  .sc(ListApplicationStates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

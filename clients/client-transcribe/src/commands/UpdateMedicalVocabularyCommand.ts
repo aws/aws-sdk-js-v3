@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateMedicalVocabularyRequest, UpdateMedicalVocabularyResponse } from "../models/models_0";
-import { de_UpdateMedicalVocabularyCommand, se_UpdateMedicalVocabularyCommand } from "../protocols/Aws_json1_1";
+import { UpdateMedicalVocabulary } from "../schemas/schemas_3_Vocabulary";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -99,16 +98,11 @@ export class UpdateMedicalVocabularyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Transcribe", "UpdateMedicalVocabulary", {})
   .n("TranscribeClient", "UpdateMedicalVocabularyCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateMedicalVocabularyCommand)
-  .de(de_UpdateMedicalVocabularyCommand)
+  .sc(UpdateMedicalVocabulary)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

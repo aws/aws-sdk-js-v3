@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeGatewayInformationInput,
-  DescribeGatewayInformationOutput,
-  DescribeGatewayInformationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeGatewayInformationCommand, se_DescribeGatewayInformationCommand } from "../protocols/Aws_json1_1";
+import { DescribeGatewayInformationInput, DescribeGatewayInformationOutput } from "../models/models_0";
+import { DescribeGatewayInformation } from "../schemas/schemas_3_Describe";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -145,16 +140,11 @@ export class DescribeGatewayInformationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "DescribeGatewayInformation", {})
   .n("StorageGatewayClient", "DescribeGatewayInformationCommand")
-  .f(void 0, DescribeGatewayInformationOutputFilterSensitiveLog)
-  .ser(se_DescribeGatewayInformationCommand)
-  .de(de_DescribeGatewayInformationCommand)
+  .sc(DescribeGatewayInformation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

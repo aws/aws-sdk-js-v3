@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,10 +7,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchHoursOfOperationOverridesResponse } from "../models/models_2";
 import { SearchHoursOfOperationOverridesRequest } from "../models/models_3";
-import {
-  de_SearchHoursOfOperationOverridesCommand,
-  se_SearchHoursOfOperationOverridesCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchHoursOfOperationOverrides } from "../schemas/schemas_38_Search";
 
 /**
  * @public
@@ -172,16 +168,11 @@ export class SearchHoursOfOperationOverridesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "SearchHoursOfOperationOverrides", {})
   .n("ConnectClient", "SearchHoursOfOperationOverridesCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchHoursOfOperationOverridesCommand)
-  .de(de_SearchHoursOfOperationOverridesCommand)
+  .sc(SearchHoursOfOperationOverrides)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchDeleteTableVersionRequest, BatchDeleteTableVersionResponse } from "../models/models_0";
-import { de_BatchDeleteTableVersionCommand, se_BatchDeleteTableVersionCommand } from "../protocols/Aws_json1_1";
+import { BatchDeleteTableVersion } from "../schemas/schemas_66_Table";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class BatchDeleteTableVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "BatchDeleteTableVersion", {})
   .n("GlueClient", "BatchDeleteTableVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchDeleteTableVersionCommand)
-  .de(de_BatchDeleteTableVersionCommand)
+  .sc(BatchDeleteTableVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

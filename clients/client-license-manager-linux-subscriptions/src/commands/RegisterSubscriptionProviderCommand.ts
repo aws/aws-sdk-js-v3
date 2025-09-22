@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,15 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerLinuxSubscriptionsClient";
-import {
-  RegisterSubscriptionProviderRequest,
-  RegisterSubscriptionProviderRequestFilterSensitiveLog,
-  RegisterSubscriptionProviderResponse,
-} from "../models/models_0";
-import {
-  de_RegisterSubscriptionProviderCommand,
-  se_RegisterSubscriptionProviderCommand,
-} from "../protocols/Aws_restJson1";
+import { RegisterSubscriptionProviderRequest, RegisterSubscriptionProviderResponse } from "../models/models_0";
+import { RegisterSubscriptionProvider } from "../schemas/schemas_1_Subscription";
 
 /**
  * @public
@@ -98,16 +90,11 @@ export class RegisterSubscriptionProviderCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerLinuxSubscriptionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LicenseManagerLinuxSubscriptions", "RegisterSubscriptionProvider", {})
   .n("LicenseManagerLinuxSubscriptionsClient", "RegisterSubscriptionProviderCommand")
-  .f(RegisterSubscriptionProviderRequestFilterSensitiveLog, void 0)
-  .ser(se_RegisterSubscriptionProviderCommand)
-  .de(de_RegisterSubscriptionProviderCommand)
+  .sc(RegisterSubscriptionProvider)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

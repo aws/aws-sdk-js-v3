@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAIAgentRequest, CreateAIAgentResponse } from "../models/models_0";
-import { de_CreateAIAgentCommand, se_CreateAIAgentCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { CreateAIAgent } from "../schemas/schemas_4_Agent";
 
 /**
  * @public
@@ -316,16 +315,11 @@ export class CreateAIAgentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "CreateAIAgent", {})
   .n("QConnectClient", "CreateAIAgentCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAIAgentCommand)
-  .de(de_CreateAIAgentCommand)
+  .sc(CreateAIAgent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

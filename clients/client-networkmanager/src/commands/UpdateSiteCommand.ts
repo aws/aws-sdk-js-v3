@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateSiteRequest,
-  UpdateSiteRequestFilterSensitiveLog,
-  UpdateSiteResponse,
-  UpdateSiteResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSiteRequest, UpdateSiteResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { de_UpdateSiteCommand, se_UpdateSiteCommand } from "../protocols/Aws_restJson1";
+import { UpdateSite } from "../schemas/schemas_6_Site";
 
 /**
  * @public
@@ -120,16 +114,11 @@ export class UpdateSiteCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkManager", "UpdateSite", {})
   .n("NetworkManagerClient", "UpdateSiteCommand")
-  .f(UpdateSiteRequestFilterSensitiveLog, UpdateSiteResponseFilterSensitiveLog)
-  .ser(se_UpdateSiteCommand)
-  .de(de_UpdateSiteCommand)
+  .sc(UpdateSite)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

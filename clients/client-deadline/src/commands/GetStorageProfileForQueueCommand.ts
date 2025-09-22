@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetStorageProfileForQueueRequest,
-  GetStorageProfileForQueueResponse,
-  GetStorageProfileForQueueResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetStorageProfileForQueueCommand, se_GetStorageProfileForQueueCommand } from "../protocols/Aws_restJson1";
+import { GetStorageProfileForQueueRequest, GetStorageProfileForQueueResponse } from "../models/models_0";
+import { GetStorageProfileForQueue } from "../schemas/schemas_15_Get";
 
 /**
  * @public
@@ -101,16 +96,11 @@ export class GetStorageProfileForQueueCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "GetStorageProfileForQueue", {})
   .n("DeadlineClient", "GetStorageProfileForQueueCommand")
-  .f(void 0, GetStorageProfileForQueueResponseFilterSensitiveLog)
-  .ser(se_GetStorageProfileForQueueCommand)
-  .de(de_GetStorageProfileForQueueCommand)
+  .sc(GetStorageProfileForQueue)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

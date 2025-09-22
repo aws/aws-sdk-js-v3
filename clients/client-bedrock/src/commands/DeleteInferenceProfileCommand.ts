@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteInferenceProfileRequest, DeleteInferenceProfileResponse } from "../models/models_1";
-import { de_DeleteInferenceProfileCommand, se_DeleteInferenceProfileCommand } from "../protocols/Aws_restJson1";
+import { DeleteInferenceProfile } from "../schemas/schemas_28_InferenceProfile";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class DeleteInferenceProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "DeleteInferenceProfile", {})
   .n("BedrockClient", "DeleteInferenceProfileCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteInferenceProfileCommand)
-  .de(de_DeleteInferenceProfileCommand)
+  .sc(DeleteInferenceProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

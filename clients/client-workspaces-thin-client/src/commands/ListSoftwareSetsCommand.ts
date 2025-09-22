@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSoftwareSetsRequest, ListSoftwareSetsResponse } from "../models/models_0";
-import { de_ListSoftwareSetsCommand, se_ListSoftwareSetsCommand } from "../protocols/Aws_restJson1";
+import { ListSoftwareSets } from "../schemas/schemas_2_Environment";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -97,16 +96,11 @@ export class ListSoftwareSetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ThinClient", "ListSoftwareSets", {})
   .n("WorkSpacesThinClientClient", "ListSoftwareSetsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSoftwareSetsCommand)
-  .de(de_ListSoftwareSetsCommand)
+  .sc(ListSoftwareSets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

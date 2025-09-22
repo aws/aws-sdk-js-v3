@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDataIntegrationRequest, GetDataIntegrationResponse } from "../models/models_0";
-import { de_GetDataIntegrationCommand, se_GetDataIntegrationCommand } from "../protocols/Aws_restJson1";
+import { GetDataIntegration } from "../schemas/schemas_3_Integration";
 
 /**
  * @public
@@ -120,16 +119,11 @@ export class GetDataIntegrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAppIntegrationService", "GetDataIntegration", {})
   .n("AppIntegrationsClient", "GetDataIntegrationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDataIntegrationCommand)
-  .de(de_GetDataIntegrationCommand)
+  .sc(GetDataIntegration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

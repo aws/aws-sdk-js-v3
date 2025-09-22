@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetViewInput, GetViewOutput, GetViewOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetViewCommand, se_GetViewCommand } from "../protocols/Aws_restJson1";
+import { GetViewInput, GetViewOutput } from "../models/models_0";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
+import { GetView } from "../schemas/schemas_1_View";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class GetViewCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ResourceExplorer", "GetView", {})
   .n("ResourceExplorer2Client", "GetViewCommand")
-  .f(void 0, GetViewOutputFilterSensitiveLog)
-  .ser(se_GetViewCommand)
-  .de(de_GetViewCommand)
+  .sc(GetView)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

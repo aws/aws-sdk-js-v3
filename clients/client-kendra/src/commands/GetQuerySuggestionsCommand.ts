@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { GetQuerySuggestionsResponse } from "../models/models_0";
 import { GetQuerySuggestionsRequest } from "../models/models_1";
-import { de_GetQuerySuggestionsCommand, se_GetQuerySuggestionsCommand } from "../protocols/Aws_json1_1";
+import { GetQuerySuggestions } from "../schemas/schemas_6_Query";
 
 /**
  * @public
@@ -248,16 +247,11 @@ export class GetQuerySuggestionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSKendraFrontendService", "GetQuerySuggestions", {})
   .n("KendraClient", "GetQuerySuggestionsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetQuerySuggestionsCommand)
-  .de(de_GetQuerySuggestionsCommand)
+  .sc(GetQuerySuggestions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

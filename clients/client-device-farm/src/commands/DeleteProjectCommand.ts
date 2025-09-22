@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteProjectRequest, DeleteProjectResult } from "../models/models_0";
-import { de_DeleteProjectCommand, se_DeleteProjectCommand } from "../protocols/Aws_json1_1";
+import { DeleteProject } from "../schemas/schemas_24_DeleteProject";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class DeleteProjectCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "DeleteProject", {})
   .n("DeviceFarmClient", "DeleteProjectCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteProjectCommand)
-  .de(de_DeleteProjectCommand)
+  .sc(DeleteProject)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListProtectedResourcesByBackupVaultInput,
   ListProtectedResourcesByBackupVaultOutput,
 } from "../models/models_0";
-import {
-  de_ListProtectedResourcesByBackupVaultCommand,
-  se_ListProtectedResourcesByBackupVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProtectedResourcesByBackupVault } from "../schemas/schemas_34_Protected";
 
 /**
  * @public
@@ -101,16 +97,11 @@ export class ListProtectedResourcesByBackupVaultCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoControllerUserManager", "ListProtectedResourcesByBackupVault", {})
   .n("BackupClient", "ListProtectedResourcesByBackupVaultCommand")
-  .f(void 0, void 0)
-  .ser(se_ListProtectedResourcesByBackupVaultCommand)
-  .de(de_ListProtectedResourcesByBackupVaultCommand)
+  .sc(ListProtectedResourcesByBackupVault)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

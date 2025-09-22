@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DetachClassicLinkVpcRequest, DetachClassicLinkVpcResult } from "../models/models_6";
-import { de_DetachClassicLinkVpcCommand, se_DetachClassicLinkVpcCommand } from "../protocols/Aws_ec2";
+import { DetachClassicLinkVpc } from "../schemas/schemas_303_DetachClassicLinkVpc";
 
 /**
  * @public
@@ -77,16 +76,11 @@ export class DetachClassicLinkVpcCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DetachClassicLinkVpc", {})
   .n("EC2Client", "DetachClassicLinkVpcCommand")
-  .f(void 0, void 0)
-  .ser(se_DetachClassicLinkVpcCommand)
-  .de(de_DetachClassicLinkVpcCommand)
+  .sc(DetachClassicLinkVpc)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateRobotApplicationRequest, CreateRobotApplicationResponse } from "../models/models_0";
-import { de_CreateRobotApplicationCommand, se_CreateRobotApplicationCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
+import { CreateRobotApplication } from "../schemas/schemas_4_Application";
 
 /**
  * @public
@@ -138,16 +137,11 @@ export class CreateRobotApplicationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("robomaker", "CreateRobotApplication", {})
   .n("RoboMakerClient", "CreateRobotApplicationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateRobotApplicationCommand)
-  .de(de_CreateRobotApplicationCommand)
+  .sc(CreateRobotApplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

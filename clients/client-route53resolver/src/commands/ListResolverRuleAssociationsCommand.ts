@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListResolverRuleAssociationsRequest, ListResolverRuleAssociationsResponse } from "../models/models_0";
-import {
-  de_ListResolverRuleAssociationsCommand,
-  se_ListResolverRuleAssociationsCommand,
-} from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
+import { ListResolverRuleAssociations } from "../schemas/schemas_13_List";
 
 /**
  * @public
@@ -110,16 +106,11 @@ export class ListResolverRuleAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Resolver", "ListResolverRuleAssociations", {})
   .n("Route53ResolverClient", "ListResolverRuleAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListResolverRuleAssociationsCommand)
-  .de(de_ListResolverRuleAssociationsCommand)
+  .sc(ListResolverRuleAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

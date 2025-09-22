@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { PutFeedbackRequest, PutFeedbackResponse } from "../models/models_0";
-import { de_PutFeedbackCommand, se_PutFeedbackCommand } from "../protocols/Aws_restJson1";
+import { PutFeedback } from "../schemas/schemas_8_Group";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class PutFeedbackCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LookoutMetrics", "PutFeedback", {})
   .n("LookoutMetricsClient", "PutFeedbackCommand")
-  .f(void 0, void 0)
-  .ser(se_PutFeedbackCommand)
-  .de(de_PutFeedbackCommand)
+  .sc(PutFeedback)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

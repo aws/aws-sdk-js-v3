@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { ListClassificationJobsRequest, ListClassificationJobsResponse } from "../models/models_1";
-import { de_ListClassificationJobsCommand, se_ListClassificationJobsCommand } from "../protocols/Aws_restJson1";
+import { ListClassificationJobs } from "../schemas/schemas_1_Get";
 
 /**
  * @public
@@ -187,16 +186,11 @@ export class ListClassificationJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Macie2", "ListClassificationJobs", {})
   .n("Macie2Client", "ListClassificationJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListClassificationJobsCommand)
-  .de(de_ListClassificationJobsCommand)
+  .sc(ListClassificationJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

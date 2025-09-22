@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetUploadRequest, GetUploadResult, GetUploadResultFilterSensitiveLog } from "../models/models_0";
-import { de_GetUploadCommand, se_GetUploadCommand } from "../protocols/Aws_json1_1";
+import { GetUploadRequest, GetUploadResult } from "../models/models_0";
+import { GetUpload } from "../schemas/schemas_13_Upload";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class GetUploadCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "GetUpload", {})
   .n("DeviceFarmClient", "GetUploadCommand")
-  .f(void 0, GetUploadResultFilterSensitiveLog)
-  .ser(se_GetUploadCommand)
-  .de(de_GetUploadCommand)
+  .sc(GetUpload)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

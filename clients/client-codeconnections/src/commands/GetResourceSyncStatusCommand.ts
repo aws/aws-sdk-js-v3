@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeConnectionsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetResourceSyncStatusInput, GetResourceSyncStatusOutput } from "../models/models_0";
-import { de_GetResourceSyncStatusCommand, se_GetResourceSyncStatusCommand } from "../protocols/Aws_json1_0";
+import { GetResourceSyncStatus } from "../schemas/schemas_4_Sync";
 
 /**
  * @public
@@ -152,16 +151,11 @@ export class GetResourceSyncStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeConnections_20231201", "GetResourceSyncStatus", {})
   .n("CodeConnectionsClient", "GetResourceSyncStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_GetResourceSyncStatusCommand)
-  .de(de_GetResourceSyncStatusCommand)
+  .sc(GetResourceSyncStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

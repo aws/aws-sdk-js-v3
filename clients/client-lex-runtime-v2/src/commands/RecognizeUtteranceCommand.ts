@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
   MetadataBearer as __MetadataBearer,
@@ -10,13 +9,8 @@ import {
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import {
-  RecognizeUtteranceRequest,
-  RecognizeUtteranceRequestFilterSensitiveLog,
-  RecognizeUtteranceResponse,
-  RecognizeUtteranceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RecognizeUtteranceCommand, se_RecognizeUtteranceCommand } from "../protocols/Aws_restJson1";
+import { RecognizeUtteranceRequest, RecognizeUtteranceResponse } from "../models/models_0";
+import { RecognizeUtterance } from "../schemas/schemas_1_Session";
 
 /**
  * @public
@@ -194,16 +188,11 @@ export class RecognizeUtteranceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepSenseRunTimeServiceApi2_0", "RecognizeUtterance", {})
   .n("LexRuntimeV2Client", "RecognizeUtteranceCommand")
-  .f(RecognizeUtteranceRequestFilterSensitiveLog, RecognizeUtteranceResponseFilterSensitiveLog)
-  .ser(se_RecognizeUtteranceCommand)
-  .de(de_RecognizeUtteranceCommand)
+  .sc(RecognizeUtterance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

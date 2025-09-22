@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDataLakeNamespaceRequest, GetDataLakeNamespaceResponse } from "../models/models_0";
-import { de_GetDataLakeNamespaceCommand, se_GetDataLakeNamespaceCommand } from "../protocols/Aws_restJson1";
+import { GetDataLakeNamespace } from "../schemas/schemas_4_DataLake";
 import { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -144,16 +143,11 @@ export class GetDataLakeNamespaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GalaxyPublicAPIGateway", "GetDataLakeNamespace", {})
   .n("SupplyChainClient", "GetDataLakeNamespaceCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDataLakeNamespaceCommand)
-  .de(de_GetDataLakeNamespaceCommand)
+  .sc(GetDataLakeNamespace)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

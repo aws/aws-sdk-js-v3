@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateAppRequest, UpdateAppResponse, UpdateAppResponseFilterSensitiveLog } from "../models/models_0";
-import { de_UpdateAppCommand, se_UpdateAppCommand } from "../protocols/Aws_restJson1";
+import { UpdateAppRequest, UpdateAppResponse } from "../models/models_0";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
+import { UpdateApp } from "../schemas/schemas_1_App";
 
 /**
  * @public
@@ -146,16 +145,11 @@ export class UpdateAppCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsResilienceHub", "UpdateApp", {})
   .n("ResiliencehubClient", "UpdateAppCommand")
-  .f(void 0, UpdateAppResponseFilterSensitiveLog)
-  .ser(se_UpdateAppCommand)
-  .de(de_UpdateAppCommand)
+  .sc(UpdateApp)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

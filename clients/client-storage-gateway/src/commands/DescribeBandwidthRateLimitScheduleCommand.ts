@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeBandwidthRateLimitScheduleInput, DescribeBandwidthRateLimitScheduleOutput } from "../models/models_0";
-import {
-  de_DescribeBandwidthRateLimitScheduleCommand,
-  se_DescribeBandwidthRateLimitScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeBandwidthRateLimitSchedule } from "../schemas/schemas_15_Schedule";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -109,16 +105,11 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "DescribeBandwidthRateLimitSchedule", {})
   .n("StorageGatewayClient", "DescribeBandwidthRateLimitScheduleCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeBandwidthRateLimitScheduleCommand)
-  .de(de_DescribeBandwidthRateLimitScheduleCommand)
+  .sc(DescribeBandwidthRateLimitSchedule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

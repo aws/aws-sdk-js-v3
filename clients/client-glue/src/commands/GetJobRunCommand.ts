@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetJobRunRequest, GetJobRunResponse } from "../models/models_2";
-import { de_GetJobRunCommand, se_GetJobRunCommand } from "../protocols/Aws_json1_1";
+import { GetJobRun } from "../schemas/schemas_10_Get";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class GetJobRunCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "GetJobRun", {})
   .n("GlueClient", "GetJobRunCommand")
-  .f(void 0, void 0)
-  .ser(se_GetJobRunCommand)
-  .de(de_GetJobRunCommand)
+  .sc(GetJobRun)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

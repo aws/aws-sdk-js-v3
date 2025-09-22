@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetNetworkProfileRequest, GetNetworkProfileResult } from "../models/models_0";
-import { de_GetNetworkProfileCommand, se_GetNetworkProfileCommand } from "../protocols/Aws_json1_1";
+import { GetNetworkProfile } from "../schemas/schemas_11_Network";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class GetNetworkProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "GetNetworkProfile", {})
   .n("DeviceFarmClient", "GetNetworkProfileCommand")
-  .f(void 0, void 0)
-  .ser(se_GetNetworkProfileCommand)
-  .de(de_GetNetworkProfileCommand)
+  .sc(GetNetworkProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

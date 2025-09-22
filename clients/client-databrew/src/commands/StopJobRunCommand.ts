@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopJobRunRequest, StopJobRunResponse } from "../models/models_0";
-import { de_StopJobRunCommand, se_StopJobRunCommand } from "../protocols/Aws_restJson1";
+import { StopJobRun } from "../schemas/schemas_9_Job";
 
 /**
  * @public
@@ -77,16 +76,11 @@ export class StopJobRunCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlueDataBrew", "StopJobRun", {})
   .n("DataBrewClient", "StopJobRunCommand")
-  .f(void 0, void 0)
-  .ser(se_StopJobRunCommand)
-  .de(de_StopJobRunCommand)
+  .sc(StopJobRun)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

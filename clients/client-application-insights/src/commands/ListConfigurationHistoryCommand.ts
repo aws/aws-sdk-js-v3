@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/models_0";
-import { de_ListConfigurationHistoryCommand, se_ListConfigurationHistoryCommand } from "../protocols/Aws_json1_1";
+import { ListConfigurationHistory } from "../schemas/schemas_1_List";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class ListConfigurationHistoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("EC2WindowsBarleyService", "ListConfigurationHistory", {})
   .n("ApplicationInsightsClient", "ListConfigurationHistoryCommand")
-  .f(void 0, void 0)
-  .ser(se_ListConfigurationHistoryCommand)
-  .de(de_ListConfigurationHistoryCommand)
+  .sc(ListConfigurationHistory)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

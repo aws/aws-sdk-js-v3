@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteApnsVoipChannelRequest, DeleteApnsVoipChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { de_DeleteApnsVoipChannelCommand, se_DeleteApnsVoipChannelCommand } from "../protocols/Aws_restJson1";
+import { DeleteApnsVoipChannel } from "../schemas/schemas_1_ApnsVoipChannel";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class DeleteApnsVoipChannelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Pinpoint", "DeleteApnsVoipChannel", {})
   .n("PinpointClient", "DeleteApnsVoipChannelCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteApnsVoipChannelCommand)
-  .de(de_DeleteApnsVoipChannelCommand)
+  .sc(DeleteApnsVoipChannel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

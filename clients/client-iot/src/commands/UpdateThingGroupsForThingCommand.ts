@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateThingGroupsForThingRequest, UpdateThingGroupsForThingResponse } from "../models/models_2";
-import { de_UpdateThingGroupsForThingCommand, se_UpdateThingGroupsForThingCommand } from "../protocols/Aws_restJson1";
+import { UpdateThingGroupsForThing } from "../schemas/schemas_87_Thing";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class UpdateThingGroupsForThingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "UpdateThingGroupsForThing", {})
   .n("IoTClient", "UpdateThingGroupsForThingCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateThingGroupsForThingCommand)
-  .de(de_UpdateThingGroupsForThingCommand)
+  .sc(UpdateThingGroupsForThing)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

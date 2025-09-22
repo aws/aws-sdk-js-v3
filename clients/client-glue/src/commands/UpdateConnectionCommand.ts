@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateConnectionRequest,
-  UpdateConnectionRequestFilterSensitiveLog,
-  UpdateConnectionResponse,
-} from "../models/models_3";
-import { de_UpdateConnectionCommand, se_UpdateConnectionCommand } from "../protocols/Aws_json1_1";
+import { UpdateConnectionRequest, UpdateConnectionResponse } from "../models/models_3";
+import { UpdateConnection } from "../schemas/schemas_13_Connection";
 
 /**
  * @public
@@ -149,16 +144,11 @@ export class UpdateConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "UpdateConnection", {})
   .n("GlueClient", "UpdateConnectionCommand")
-  .f(UpdateConnectionRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateConnectionCommand)
-  .de(de_UpdateConnectionCommand)
+  .sc(UpdateConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

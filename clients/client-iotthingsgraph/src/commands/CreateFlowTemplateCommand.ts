@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { CreateFlowTemplateRequest, CreateFlowTemplateResponse } from "../models/models_0";
-import { de_CreateFlowTemplateCommand, se_CreateFlowTemplateCommand } from "../protocols/Aws_json1_1";
+import { CreateFlowTemplate } from "../schemas/schemas_3_Template";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class CreateFlowTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotThingsGraphFrontEndService", "CreateFlowTemplate", {})
   .n("IoTThingsGraphClient", "CreateFlowTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateFlowTemplateCommand)
-  .de(de_CreateFlowTemplateCommand)
+  .sc(CreateFlowTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

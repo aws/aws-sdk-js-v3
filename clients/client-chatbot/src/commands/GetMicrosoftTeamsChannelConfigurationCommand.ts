@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetTeamsChannelConfigurationRequest,
-  GetTeamsChannelConfigurationResult,
-  GetTeamsChannelConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetMicrosoftTeamsChannelConfigurationCommand,
-  se_GetMicrosoftTeamsChannelConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTeamsChannelConfigurationRequest, GetTeamsChannelConfigurationResult } from "../models/models_0";
+import { GetMicrosoftTeamsChannelConfiguration } from "../schemas/schemas_1_Configuration";
 
 /**
  * @public
@@ -113,16 +105,11 @@ export class GetMicrosoftTeamsChannelConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WheatleyOrchestration_20171011", "GetMicrosoftTeamsChannelConfiguration", {})
   .n("ChatbotClient", "GetMicrosoftTeamsChannelConfigurationCommand")
-  .f(void 0, GetTeamsChannelConfigurationResultFilterSensitiveLog)
-  .ser(se_GetMicrosoftTeamsChannelConfigurationCommand)
-  .de(de_GetMicrosoftTeamsChannelConfigurationCommand)
+  .sc(GetMicrosoftTeamsChannelConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

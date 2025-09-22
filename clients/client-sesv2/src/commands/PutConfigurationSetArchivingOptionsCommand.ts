@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   PutConfigurationSetArchivingOptionsRequest,
   PutConfigurationSetArchivingOptionsResponse,
 } from "../models/models_1";
-import {
-  de_PutConfigurationSetArchivingOptionsCommand,
-  se_PutConfigurationSetArchivingOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { PutConfigurationSetArchivingOptions } from "../schemas/schemas_20_ConfigurationSet";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -102,16 +98,11 @@ export class PutConfigurationSetArchivingOptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "PutConfigurationSetArchivingOptions", {})
   .n("SESv2Client", "PutConfigurationSetArchivingOptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_PutConfigurationSetArchivingOptionsCommand)
-  .de(de_PutConfigurationSetArchivingOptionsCommand)
+  .sc(PutConfigurationSetArchivingOptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

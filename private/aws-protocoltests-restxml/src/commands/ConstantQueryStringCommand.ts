@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ConstantQueryStringInput } from "../models/models_0";
-import { de_ConstantQueryStringCommand, se_ConstantQueryStringCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { ConstantQueryString } from "../schemas/schemas_37_ConstantQueryString";
 
 /**
  * @public
@@ -71,16 +70,11 @@ export class ConstantQueryStringCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestXml", "ConstantQueryString", {})
   .n("RestXmlProtocolClient", "ConstantQueryStringCommand")
-  .f(void 0, void 0)
-  .ser(se_ConstantQueryStringCommand)
-  .de(de_ConstantQueryStringCommand)
+  .sc(ConstantQueryString)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

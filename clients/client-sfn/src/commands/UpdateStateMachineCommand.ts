@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateStateMachineInput,
-  UpdateStateMachineInputFilterSensitiveLog,
-  UpdateStateMachineOutput,
-} from "../models/models_0";
-import { de_UpdateStateMachineCommand, se_UpdateStateMachineCommand } from "../protocols/Aws_json1_0";
+import { UpdateStateMachineInput, UpdateStateMachineOutput } from "../models/models_0";
+import { UpdateStateMachine } from "../schemas/schemas_7_StateMachine";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -187,16 +182,11 @@ export class UpdateStateMachineCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "UpdateStateMachine", {})
   .n("SFNClient", "UpdateStateMachineCommand")
-  .f(UpdateStateMachineInputFilterSensitiveLog, void 0)
-  .ser(se_UpdateStateMachineCommand)
-  .de(de_UpdateStateMachineCommand)
+  .sc(UpdateStateMachine)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

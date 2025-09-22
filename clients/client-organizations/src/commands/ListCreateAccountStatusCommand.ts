@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListCreateAccountStatusRequest,
-  ListCreateAccountStatusResponse,
-  ListCreateAccountStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCreateAccountStatusRequest, ListCreateAccountStatusResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { de_ListCreateAccountStatusCommand, se_ListCreateAccountStatusCommand } from "../protocols/Aws_json1_1";
+import { ListCreateAccountStatus } from "../schemas/schemas_5_Account";
 
 /**
  * @public
@@ -285,16 +280,11 @@ export class ListCreateAccountStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "ListCreateAccountStatus", {})
   .n("OrganizationsClient", "ListCreateAccountStatusCommand")
-  .f(void 0, ListCreateAccountStatusResponseFilterSensitiveLog)
-  .ser(se_ListCreateAccountStatusCommand)
-  .de(de_ListCreateAccountStatusCommand)
+  .sc(ListCreateAccountStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

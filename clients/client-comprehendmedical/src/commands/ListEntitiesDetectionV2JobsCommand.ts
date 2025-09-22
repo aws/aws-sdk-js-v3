@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListEntitiesDetectionV2JobsRequest, ListEntitiesDetectionV2JobsResponse } from "../models/models_0";
-import { de_ListEntitiesDetectionV2JobsCommand, se_ListEntitiesDetectionV2JobsCommand } from "../protocols/Aws_json1_1";
+import { ListEntitiesDetectionV2Jobs } from "../schemas/schemas_3_Job";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ComprehendMedical_20181030", "ListEntitiesDetectionV2Jobs", {})
   .n("ComprehendMedicalClient", "ListEntitiesDetectionV2JobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListEntitiesDetectionV2JobsCommand)
-  .de(de_ListEntitiesDetectionV2JobsCommand)
+  .sc(ListEntitiesDetectionV2Jobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

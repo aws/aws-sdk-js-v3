@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import {
-  de_StartEngagementFromOpportunityTaskCommand,
-  se_StartEngagementFromOpportunityTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { StartEngagementFromOpportunityTask } from "../schemas/schemas_4_Resource";
 
 /**
  * @public
@@ -124,16 +120,11 @@ export class StartEngagementFromOpportunityTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSPartnerCentralSelling", "StartEngagementFromOpportunityTask", {})
   .n("PartnerCentralSellingClient", "StartEngagementFromOpportunityTaskCommand")
-  .f(void 0, void 0)
-  .ser(se_StartEngagementFromOpportunityTaskCommand)
-  .de(de_StartEngagementFromOpportunityTaskCommand)
+  .sc(StartEngagementFromOpportunityTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

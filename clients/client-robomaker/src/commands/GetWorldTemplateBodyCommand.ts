@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetWorldTemplateBodyRequest, GetWorldTemplateBodyResponse } from "../models/models_0";
-import { de_GetWorldTemplateBodyCommand, se_GetWorldTemplateBodyCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
+import { GetWorldTemplateBody } from "../schemas/schemas_11_World";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class GetWorldTemplateBodyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("robomaker", "GetWorldTemplateBody", {})
   .n("RoboMakerClient", "GetWorldTemplateBodyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetWorldTemplateBodyCommand)
-  .de(de_GetWorldTemplateBodyCommand)
+  .sc(GetWorldTemplateBody)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   CreateConfigurationSetTrackingOptionsRequest,
   CreateConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
-import {
-  de_CreateConfigurationSetTrackingOptionsCommand,
-  se_CreateConfigurationSetTrackingOptionsCommand,
-} from "../protocols/Aws_query";
+import { CreateConfigurationSetTrackingOptions } from "../schemas/schemas_15_ConfigurationSet";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -104,16 +100,11 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService", "CreateConfigurationSetTrackingOptions", {})
   .n("SESClient", "CreateConfigurationSetTrackingOptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateConfigurationSetTrackingOptionsCommand)
-  .de(de_CreateConfigurationSetTrackingOptionsCommand)
+  .sc(CreateConfigurationSetTrackingOptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

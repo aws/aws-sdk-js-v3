@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteApiRequest, DeleteApiResponse } from "../models/models_0";
-import { de_DeleteApiCommand, se_DeleteApiCommand } from "../protocols/Aws_restJson1";
+import { DeleteApi } from "../schemas/schemas_27_DeleteApi";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class DeleteApiCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepdishControlPlaneService", "DeleteApi", {})
   .n("AppSyncClient", "DeleteApiCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteApiCommand)
-  .de(de_DeleteApiCommand)
+  .sc(DeleteApi)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -2,14 +2,13 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutBucketPolicyRequest } from "../models/models_1";
-import { de_PutBucketPolicyCommand, se_PutBucketPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { PutBucketPolicy } from "../schemas/schemas_22_Policy";
 
 /**
  * @public
@@ -114,7 +113,6 @@ export class PutBucketPolicyCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getProcessArnablesPlugin(config),
       getApplyMd5BodyChecksumPlugin(config),
@@ -122,9 +120,7 @@ export class PutBucketPolicyCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "PutBucketPolicy", {})
   .n("S3ControlClient", "PutBucketPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_PutBucketPolicyCommand)
-  .de(de_PutBucketPolicyCommand)
+  .sc(PutBucketPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

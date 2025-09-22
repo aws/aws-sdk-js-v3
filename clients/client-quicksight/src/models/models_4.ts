@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import {
   AccountCustomization,
@@ -38,7 +38,6 @@ import {
   AssetBundleImportJobSummary,
   AssetBundleImportJobWarning,
   AssetBundleImportSourceDescription,
-  AssetBundleImportSourceDescriptionFilterSensitiveLog,
   AssignmentStatus,
   AuthorizedTargetsByService,
   BookmarksConfigurations,
@@ -54,11 +53,9 @@ import {
 
 import {
   _Parameters,
-  _ParametersFilterSensitiveLog,
   BrandDetail,
   BrandSummary,
   CustomInstructions,
-  CustomInstructionsFilterSensitiveLog,
   CustomPermissions,
   Dashboard,
   DashboardError,
@@ -71,7 +68,6 @@ import {
   DashboardVisualResult,
   DataSet,
   DataSetConfiguration,
-  DataSetFilterSensitiveLog,
   DataSetSummary,
   DataSource,
   FolderType,
@@ -9012,232 +9008,3 @@ export interface SearchDashboardsResponse {
    */
   RequestId?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const DescribeAnalysisResponseFilterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssetBundleExportJobResponseFilterSensitiveLog = (
-  obj: DescribeAssetBundleExportJobResponse
-): any => ({
-  ...obj,
-  ...(obj.DownloadUrl && { DownloadUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeAssetBundleImportJobResponseFilterSensitiveLog = (
-  obj: DescribeAssetBundleImportJobResponse
-): any => ({
-  ...obj,
-  ...(obj.AssetBundleImportSource && {
-    AssetBundleImportSource: AssetBundleImportSourceDescriptionFilterSensitiveLog(obj.AssetBundleImportSource),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardResponseFilterSensitiveLog = (obj: DescribeDashboardResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardDefinitionResponseFilterSensitiveLog = (
-  obj: DescribeDashboardDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotConfigurationFilterSensitiveLog = (obj: SnapshotConfiguration): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardSnapshotJobResponseFilterSensitiveLog = (
-  obj: DescribeDashboardSnapshotJobResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotJobResultFilterSensitiveLog = (obj: SnapshotJobResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardSnapshotJobResultResponseFilterSensitiveLog = (
-  obj: DescribeDashboardSnapshotJobResultResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSetResponseFilterSensitiveLog = (obj: DescribeDataSetResponse): any => ({
-  ...obj,
-  ...(obj.DataSet && { DataSet: DataSetFilterSensitiveLog(obj.DataSet) }),
-});
-
-/**
- * @internal
- */
-export const TemplateVersionFilterSensitiveLog = (obj: TemplateVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateFilterSensitiveLog = (obj: Template): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateResponseFilterSensitiveLog = (obj: DescribeTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateDefinitionResponseFilterSensitiveLog = (obj: DescribeTemplateDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTopicResponseFilterSensitiveLog = (obj: DescribeTopicResponse): any => ({
-  ...obj,
-  ...(obj.CustomInstructions && { CustomInstructions: CustomInstructionsFilterSensitiveLog(obj.CustomInstructions) }),
-});
-
-/**
- * @internal
- */
-export const GeneratedAnswerResultFilterSensitiveLog = (obj: GeneratedAnswerResult): any => ({
-  ...obj,
-  ...(obj.QuestionText && { QuestionText: SENSITIVE_STRING }),
-  ...(obj.Restatement && { Restatement: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SessionTagFilterSensitiveLog = (obj: SessionTag): any => ({
-  ...obj,
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForAnonymousUserRequest
-): any => ({
-  ...obj,
-  ...(obj.SessionTags && { SessionTags: obj.SessionTags.map((item) => SessionTagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForAnonymousUserResponse
-): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForRegisteredUserResponse
-): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForRegisteredUserWithIdentityResponseFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForRegisteredUserWithIdentityResponse
-): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetDashboardEmbedUrlResponseFilterSensitiveLog = (obj: GetDashboardEmbedUrlResponse): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetSessionEmbedUrlResponseFilterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PredictQAResultsRequestFilterSensitiveLog = (obj: PredictQAResultsRequest): any => ({
-  ...obj,
-  ...(obj.QueryText && { QueryText: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const QAResultFilterSensitiveLog = (obj: QAResult): any => ({
-  ...obj,
-  ...(obj.GeneratedAnswer && { GeneratedAnswer: GeneratedAnswerResultFilterSensitiveLog(obj.GeneratedAnswer) }),
-});
-
-/**
- * @internal
- */
-export const PredictQAResultsResponseFilterSensitiveLog = (obj: PredictQAResultsResponse): any => ({
-  ...obj,
-  ...(obj.PrimaryResult && { PrimaryResult: QAResultFilterSensitiveLog(obj.PrimaryResult) }),
-  ...(obj.AdditionalResults && {
-    AdditionalResults: obj.AdditionalResults.map((item) => QAResultFilterSensitiveLog(item)),
-  }),
-});

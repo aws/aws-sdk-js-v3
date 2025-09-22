@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_6";
-import { de_GetAssociatedIpv6PoolCidrsCommand, se_GetAssociatedIpv6PoolCidrsCommand } from "../protocols/Aws_ec2";
+import { GetAssociatedIpv6PoolCidrs } from "../schemas/schemas_64_Ipv6";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "GetAssociatedIpv6PoolCidrs", {})
   .n("EC2Client", "GetAssociatedIpv6PoolCidrsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAssociatedIpv6PoolCidrsCommand)
-  .de(de_GetAssociatedIpv6PoolCidrsCommand)
+  .sc(GetAssociatedIpv6PoolCidrs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

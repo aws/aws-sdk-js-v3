@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CostAndUsageReportServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyReportDefinitionRequest, ModifyReportDefinitionResponse } from "../models/models_0";
-import { de_ModifyReportDefinitionCommand, se_ModifyReportDefinitionCommand } from "../protocols/Aws_json1_1";
+import { ModifyReportDefinition } from "../schemas/schemas_1_Report";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class ModifyReportDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostAndUsageReportServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrigamiServiceGatewayService", "ModifyReportDefinition", {})
   .n("CostAndUsageReportServiceClient", "ModifyReportDefinitionCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyReportDefinitionCommand)
-  .de(de_ModifyReportDefinitionCommand)
+  .sc(ModifyReportDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

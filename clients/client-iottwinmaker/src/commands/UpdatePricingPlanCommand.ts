@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { UpdatePricingPlanRequest, UpdatePricingPlanResponse } from "../models/models_0";
-import { de_UpdatePricingPlanCommand, se_UpdatePricingPlanCommand } from "../protocols/Aws_restJson1";
+import { UpdatePricingPlan } from "../schemas/schemas_8_Pricing";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class UpdatePricingPlanCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTTwinMaker", "UpdatePricingPlan", {})
   .n("IoTTwinMakerClient", "UpdatePricingPlanCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdatePricingPlanCommand)
-  .de(de_UpdatePricingPlanCommand)
+  .sc(UpdatePricingPlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

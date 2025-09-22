@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetXssMatchSetRequest, GetXssMatchSetResponse } from "../models/models_0";
-import { de_GetXssMatchSetCommand, se_GetXssMatchSetCommand } from "../protocols/Aws_json1_1";
+import { GetXssMatchSet } from "../schemas/schemas_20_XssMatchSet";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -125,16 +124,11 @@ export class GetXssMatchSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20150824", "GetXssMatchSet", {})
   .n("WAFClient", "GetXssMatchSetCommand")
-  .f(void 0, void 0)
-  .ser(se_GetXssMatchSetCommand)
-  .de(de_GetXssMatchSetCommand)
+  .sc(GetXssMatchSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

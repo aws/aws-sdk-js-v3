@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListEventsRequest, ListEventsResponse } from "../models/models_0";
-import { de_ListEventsCommand, se_ListEventsCommand } from "../protocols/Aws_restJson1";
+import { ListEvents } from "../schemas/schemas_1_Describe";
 
 /**
  * @public
@@ -149,16 +148,11 @@ export class ListEventsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CapstoneControlPlaneService", "ListEvents", {})
   .n("DevOpsGuruClient", "ListEventsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListEventsCommand)
-  .de(de_ListEventsCommand)
+  .sc(ListEvents)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

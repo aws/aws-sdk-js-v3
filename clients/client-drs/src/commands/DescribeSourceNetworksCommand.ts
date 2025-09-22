@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeSourceNetworksRequest,
-  DescribeSourceNetworksResponse,
-  DescribeSourceNetworksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeSourceNetworksCommand, se_DescribeSourceNetworksCommand } from "../protocols/Aws_restJson1";
+import { DescribeSourceNetworksRequest, DescribeSourceNetworksResponse } from "../models/models_0";
+import { DescribeSourceNetworks } from "../schemas/schemas_1_Describe";
 
 /**
  * @public
@@ -115,16 +110,11 @@ export class DescribeSourceNetworksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticDisasterRecoveryService", "DescribeSourceNetworks", {})
   .n("DrsClient", "DescribeSourceNetworksCommand")
-  .f(void 0, DescribeSourceNetworksResponseFilterSensitiveLog)
-  .ser(se_DescribeSourceNetworksCommand)
-  .de(de_DescribeSourceNetworksCommand)
+  .sc(DescribeSourceNetworks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

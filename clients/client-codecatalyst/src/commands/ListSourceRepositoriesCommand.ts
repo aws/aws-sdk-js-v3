@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSourceRepositoriesRequest, ListSourceRepositoriesResponse } from "../models/models_0";
-import { de_ListSourceRepositoriesCommand, se_ListSourceRepositoriesCommand } from "../protocols/Aws_restJson1";
+import { ListSourceRepositories } from "../schemas/schemas_2_List";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class ListSourceRepositoriesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCatalyst", "ListSourceRepositories", {})
   .n("CodeCatalystClient", "ListSourceRepositoriesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSourceRepositoriesCommand)
-  .de(de_ListSourceRepositoriesCommand)
+  .sc(ListSourceRepositories)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

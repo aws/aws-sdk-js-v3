@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { KinesisVideoServiceException as __BaseException } from "./KinesisVideoServiceException";
 
@@ -2438,71 +2438,3 @@ export interface UpdateStreamInput {
  * @public
  */
 export interface UpdateStreamOutput {}
-
-/**
- * @internal
- */
-export const MediaSourceConfigFilterSensitiveLog = (obj: MediaSourceConfig): any => ({
-  ...obj,
-  ...(obj.MediaUriSecretArn && { MediaUriSecretArn: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RecorderConfigFilterSensitiveLog = (obj: RecorderConfig): any => ({
-  ...obj,
-  ...(obj.MediaSourceConfig && { MediaSourceConfig: MediaSourceConfigFilterSensitiveLog(obj.MediaSourceConfig) }),
-});
-
-/**
- * @internal
- */
-export const EdgeConfigFilterSensitiveLog = (obj: EdgeConfig): any => ({
-  ...obj,
-  ...(obj.RecorderConfig && { RecorderConfig: RecorderConfigFilterSensitiveLog(obj.RecorderConfig) }),
-});
-
-/**
- * @internal
- */
-export const DescribeEdgeConfigurationOutputFilterSensitiveLog = (obj: DescribeEdgeConfigurationOutput): any => ({
-  ...obj,
-  ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
-});
-
-/**
- * @internal
- */
-export const ListEdgeAgentConfigurationsEdgeConfigFilterSensitiveLog = (
-  obj: ListEdgeAgentConfigurationsEdgeConfig
-): any => ({
-  ...obj,
-  ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
-});
-
-/**
- * @internal
- */
-export const ListEdgeAgentConfigurationsOutputFilterSensitiveLog = (obj: ListEdgeAgentConfigurationsOutput): any => ({
-  ...obj,
-  ...(obj.EdgeConfigs && {
-    EdgeConfigs: obj.EdgeConfigs.map((item) => ListEdgeAgentConfigurationsEdgeConfigFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const StartEdgeConfigurationUpdateInputFilterSensitiveLog = (obj: StartEdgeConfigurationUpdateInput): any => ({
-  ...obj,
-  ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
-});
-
-/**
- * @internal
- */
-export const StartEdgeConfigurationUpdateOutputFilterSensitiveLog = (obj: StartEdgeConfigurationUpdateOutput): any => ({
-  ...obj,
-  ...(obj.EdgeConfig && { EdgeConfig: EdgeConfigFilterSensitiveLog(obj.EdgeConfig) }),
-});

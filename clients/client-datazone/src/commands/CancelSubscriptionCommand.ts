@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CancelSubscriptionInput,
-  CancelSubscriptionOutput,
-  CancelSubscriptionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CancelSubscriptionCommand, se_CancelSubscriptionCommand } from "../protocols/Aws_restJson1";
+import { CancelSubscriptionInput, CancelSubscriptionOutput } from "../models/models_0";
+import { CancelSubscription } from "../schemas/schemas_1_Subscription";
 
 /**
  * @public
@@ -159,16 +154,11 @@ export class CancelSubscriptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "CancelSubscription", {})
   .n("DataZoneClient", "CancelSubscriptionCommand")
-  .f(void 0, CancelSubscriptionOutputFilterSensitiveLog)
-  .ser(se_CancelSubscriptionCommand)
-  .de(de_CancelSubscriptionCommand)
+  .sc(CancelSubscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPodIdentityAssociationsRequest, ListPodIdentityAssociationsResponse } from "../models/models_0";
-import {
-  de_ListPodIdentityAssociationsCommand,
-  se_ListPodIdentityAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPodIdentityAssociations } from "../schemas/schemas_9_ListPodIdentityAssociations";
 
 /**
  * @public
@@ -107,16 +103,11 @@ export class ListPodIdentityAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWesleyFrontend", "ListPodIdentityAssociations", {})
   .n("EKSClient", "ListPodIdentityAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPodIdentityAssociationsCommand)
-  .de(de_ListPodIdentityAssociationsCommand)
+  .sc(ListPodIdentityAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

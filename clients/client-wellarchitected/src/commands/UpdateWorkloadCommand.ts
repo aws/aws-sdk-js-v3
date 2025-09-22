@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateWorkloadInput, UpdateWorkloadOutput } from "../models/models_0";
-import { de_UpdateWorkloadCommand, se_UpdateWorkloadCommand } from "../protocols/Aws_restJson1";
+import { UpdateWorkload } from "../schemas/schemas_4_List";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -186,16 +185,11 @@ export class UpdateWorkloadCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WellArchitectedApiServiceLambda", "UpdateWorkload", {})
   .n("WellArchitectedClient", "UpdateWorkloadCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateWorkloadCommand)
-  .de(de_UpdateWorkloadCommand)
+  .sc(UpdateWorkload)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

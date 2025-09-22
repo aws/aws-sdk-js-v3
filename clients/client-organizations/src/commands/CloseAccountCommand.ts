@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CloseAccountRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { de_CloseAccountCommand, se_CloseAccountCommand } from "../protocols/Aws_json1_1";
+import { CloseAccount } from "../schemas/schemas_12_Account";
 
 /**
  * @public
@@ -481,16 +480,11 @@ export class CloseAccountCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "CloseAccount", {})
   .n("OrganizationsClient", "CloseAccountCommand")
-  .f(void 0, void 0)
-  .ser(se_CloseAccountCommand)
-  .de(de_CloseAccountCommand)
+  .sc(CloseAccount)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

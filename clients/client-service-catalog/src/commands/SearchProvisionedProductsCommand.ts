@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchProvisionedProductsInput, SearchProvisionedProductsOutput } from "../models/models_0";
-import { de_SearchProvisionedProductsCommand, se_SearchProvisionedProductsCommand } from "../protocols/Aws_json1_1";
+import { SearchProvisionedProducts } from "../schemas/schemas_1_Product";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -115,16 +114,11 @@ export class SearchProvisionedProductsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242ServiceCatalogService", "SearchProvisionedProducts", {})
   .n("ServiceCatalogClient", "SearchProvisionedProductsCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchProvisionedProductsCommand)
-  .de(de_SearchProvisionedProductsCommand)
+  .sc(SearchProvisionedProducts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

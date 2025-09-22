@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsRestXmlProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -30,6 +31,12 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsRestXmlProtocol({
+        defaultNamespace: "com.amazonaws.s3control",
+        xmlNamespace: "http://awss3control.amazonaws.com/doc/2018-08-20/",
+      }),
     serviceId: config?.serviceId ?? "S3 Control",
     signingEscapePath: config?.signingEscapePath ?? false,
     urlParser: config?.urlParser ?? parseUrl,

@@ -20,7 +20,6 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
-    "@aws-sdk/core": "*",
     "@aws-sdk/types": "*",
     "@aws-smithy/server-common": "1.0.0-alpha.10",
     "@smithy/config-resolver": "^4.2.2",

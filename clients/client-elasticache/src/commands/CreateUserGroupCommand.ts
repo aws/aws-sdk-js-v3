@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateUserGroupMessage, UserGroup } from "../models/models_0";
-import { de_CreateUserGroupCommand, se_CreateUserGroupCommand } from "../protocols/Aws_query";
+import { CreateUserGroup } from "../schemas/schemas_9_User";
 
 /**
  * @public
@@ -129,16 +128,11 @@ export class CreateUserGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElastiCacheV9", "CreateUserGroup", {})
   .n("ElastiCacheClient", "CreateUserGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateUserGroupCommand)
-  .de(de_CreateUserGroupCommand)
+  .sc(CreateUserGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

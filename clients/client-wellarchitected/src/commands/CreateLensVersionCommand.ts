@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateLensVersionInput, CreateLensVersionOutput } from "../models/models_0";
-import { de_CreateLensVersionCommand, se_CreateLensVersionCommand } from "../protocols/Aws_restJson1";
+import { CreateLensVersion } from "../schemas/schemas_3_Lens";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -101,16 +100,11 @@ export class CreateLensVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WellArchitectedApiServiceLambda", "CreateLensVersion", {})
   .n("WellArchitectedClient", "CreateLensVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateLensVersionCommand)
-  .de(de_CreateLensVersionCommand)
+  .sc(CreateLensVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

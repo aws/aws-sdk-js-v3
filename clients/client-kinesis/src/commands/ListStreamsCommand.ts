@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { ListStreamsInput, ListStreamsOutput } from "../models/models_0";
-import { de_ListStreamsCommand, se_ListStreamsCommand } from "../protocols/Aws_json1_1";
+import { ListStreams } from "../schemas/schemas_3_Stream";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class ListStreamsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Kinesis_20131202", "ListStreams", {})
   .n("KinesisClient", "ListStreamsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListStreamsCommand)
-  .de(de_ListStreamsCommand)
+  .sc(ListStreams)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreatePackageRequest,
-  CreatePackageRequestFilterSensitiveLog,
-  CreatePackageResponse,
-  CreatePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreatePackageCommand, se_CreatePackageCommand } from "../protocols/Aws_restJson1";
+import { CreatePackageRequest, CreatePackageResponse } from "../models/models_0";
+import { CreatePackage } from "../schemas/schemas_38_Package";
 
 /**
  * @public
@@ -99,16 +93,11 @@ export class CreatePackageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "CreatePackage", {})
   .n("IoTClient", "CreatePackageCommand")
-  .f(CreatePackageRequestFilterSensitiveLog, CreatePackageResponseFilterSensitiveLog)
-  .ser(se_CreatePackageCommand)
-  .de(de_CreatePackageCommand)
+  .sc(CreatePackage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

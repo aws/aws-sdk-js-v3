@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutCodeBindingRequest, PutCodeBindingResponse } from "../models/models_0";
-import { de_PutCodeBindingCommand, se_PutCodeBindingCommand } from "../protocols/Aws_restJson1";
+import { PutCodeBinding } from "../schemas/schemas_5_Schema";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -90,16 +89,11 @@ export class PutCodeBindingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("schemas", "PutCodeBinding", {})
   .n("SchemasClient", "PutCodeBindingCommand")
-  .f(void 0, void 0)
-  .ser(se_PutCodeBindingCommand)
-  .de(de_PutCodeBindingCommand)
+  .sc(PutCodeBinding)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

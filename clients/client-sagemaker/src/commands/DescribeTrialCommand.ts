@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeTrialRequest, DescribeTrialResponse } from "../models/models_3";
-import { de_DescribeTrialCommand, se_DescribeTrialCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DescribeTrial } from "../schemas/schemas_58_Describe";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class DescribeTrialCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "DescribeTrial", {})
   .n("SageMakerClient", "DescribeTrialCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeTrialCommand)
-  .de(de_DescribeTrialCommand)
+  .sc(DescribeTrial)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

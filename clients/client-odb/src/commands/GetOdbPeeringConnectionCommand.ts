@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetOdbPeeringConnectionInput, GetOdbPeeringConnectionOutput } from "../models/models_0";
 import { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { de_GetOdbPeeringConnectionCommand, se_GetOdbPeeringConnectionCommand } from "../protocols/Aws_json1_0";
+import { GetOdbPeeringConnection } from "../schemas/schemas_4_Cloud";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class GetOdbPeeringConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Odb", "GetOdbPeeringConnection", {})
   .n("OdbClient", "GetOdbPeeringConnectionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetOdbPeeringConnectionCommand)
-  .de(de_GetOdbPeeringConnectionCommand)
+  .sc(GetOdbPeeringConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

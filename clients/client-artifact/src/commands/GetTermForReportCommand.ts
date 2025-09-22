@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ArtifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ArtifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTermForReportRequest, GetTermForReportResponse } from "../models/models_0";
-import { de_GetTermForReportCommand, se_GetTermForReportCommand } from "../protocols/Aws_restJson1";
+import { GetTermForReport } from "../schemas/schemas_1_Get";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class GetTermForReportCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Artifact", "GetTermForReport", {})
   .n("ArtifactClient", "GetTermForReportCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTermForReportCommand)
-  .de(de_GetTermForReportCommand)
+  .sc(GetTermForReport)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

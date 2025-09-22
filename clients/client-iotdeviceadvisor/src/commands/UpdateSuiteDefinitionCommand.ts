@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
 import { UpdateSuiteDefinitionRequest, UpdateSuiteDefinitionResponse } from "../models/models_0";
-import { de_UpdateSuiteDefinitionCommand, se_UpdateSuiteDefinitionCommand } from "../protocols/Aws_restJson1";
+import { UpdateSuiteDefinition } from "../schemas/schemas_1_Suite";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class UpdateSuiteDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IotDeviceAdvisorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotSenateService", "UpdateSuiteDefinition", {})
   .n("IotDeviceAdvisorClient", "UpdateSuiteDefinitionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSuiteDefinitionCommand)
-  .de(de_UpdateSuiteDefinitionCommand)
+  .sc(UpdateSuiteDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

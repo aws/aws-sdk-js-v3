@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,9 +9,9 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RetrieveAndGenerateResponse, RetrieveAndGenerateResponseFilterSensitiveLog } from "../models/models_0";
-import { RetrieveAndGenerateRequest, RetrieveAndGenerateRequestFilterSensitiveLog } from "../models/models_1";
-import { de_RetrieveAndGenerateCommand, se_RetrieveAndGenerateCommand } from "../protocols/Aws_restJson1";
+import { RetrieveAndGenerateResponse } from "../models/models_0";
+import { RetrieveAndGenerateRequest } from "../models/models_1";
+import { RetrieveAndGenerate } from "../schemas/schemas_2_Agent";
 
 /**
  * @public
@@ -363,16 +362,11 @@ export class RetrieveAndGenerateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentRunTimeService", "RetrieveAndGenerate", {})
   .n("BedrockAgentRuntimeClient", "RetrieveAndGenerateCommand")
-  .f(RetrieveAndGenerateRequestFilterSensitiveLog, RetrieveAndGenerateResponseFilterSensitiveLog)
-  .ser(se_RetrieveAndGenerateCommand)
-  .de(de_RetrieveAndGenerateCommand)
+  .sc(RetrieveAndGenerate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

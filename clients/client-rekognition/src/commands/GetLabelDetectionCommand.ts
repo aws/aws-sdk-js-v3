@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetLabelDetectionRequest, GetLabelDetectionResponse } from "../models/models_0";
-import { de_GetLabelDetectionCommand, se_GetLabelDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { GetLabelDetection } from "../schemas/schemas_1_Get";
 
 /**
  * @public
@@ -238,16 +237,11 @@ export class GetLabelDetectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RekognitionService", "GetLabelDetection", {})
   .n("RekognitionClient", "GetLabelDetectionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetLabelDetectionCommand)
-  .de(de_GetLabelDetectionCommand)
+  .sc(GetLabelDetection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

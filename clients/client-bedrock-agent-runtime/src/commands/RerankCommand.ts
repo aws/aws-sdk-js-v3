@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RerankRequest,
-  RerankRequestFilterSensitiveLog,
-  RerankResponse,
-  RerankResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RerankCommand, se_RerankCommand } from "../protocols/Aws_restJson1";
+import { RerankRequest, RerankResponse } from "../models/models_0";
+import { Rerank } from "../schemas/schemas_5_List";
 
 /**
  * @public
@@ -151,16 +145,11 @@ export class RerankCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentRunTimeService", "Rerank", {})
   .n("BedrockAgentRuntimeClient", "RerankCommand")
-  .f(RerankRequestFilterSensitiveLog, RerankResponseFilterSensitiveLog)
-  .ser(se_RerankCommand)
-  .de(de_RerankCommand)
+  .sc(Rerank)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

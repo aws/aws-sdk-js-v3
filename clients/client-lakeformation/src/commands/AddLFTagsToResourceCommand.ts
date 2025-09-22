@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { AddLFTagsToResourceRequest, AddLFTagsToResourceResponse } from "../models/models_0";
-import { de_AddLFTagsToResourceCommand, se_AddLFTagsToResourceCommand } from "../protocols/Aws_restJson1";
+import { AddLFTagsToResource } from "../schemas/schemas_2_LFTag";
 
 /**
  * @public
@@ -173,16 +172,11 @@ export class AddLFTagsToResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLakeFormation", "AddLFTagsToResource", {})
   .n("LakeFormationClient", "AddLFTagsToResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_AddLFTagsToResourceCommand)
-  .de(de_AddLFTagsToResourceCommand)
+  .sc(AddLFTagsToResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

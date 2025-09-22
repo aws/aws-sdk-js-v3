@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteMediaCapturePipelineRequest } from "../models/models_0";
-import { de_DeleteMediaCapturePipelineCommand, se_DeleteMediaCapturePipelineCommand } from "../protocols/Aws_restJson1";
+import { DeleteMediaCapturePipeline } from "../schemas/schemas_11_DeleteMediaCapturePipeline";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class DeleteMediaCapturePipelineCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKMediaPipelinesService", "DeleteMediaCapturePipeline", {})
   .n("ChimeSDKMediaPipelinesClient", "DeleteMediaCapturePipelineCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteMediaCapturePipelineCommand)
-  .de(de_DeleteMediaCapturePipelineCommand)
+  .sc(DeleteMediaCapturePipeline)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

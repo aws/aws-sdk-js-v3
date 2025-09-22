@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDeploymentConfigInput, CreateDeploymentConfigOutput } from "../models/models_0";
-import { de_CreateDeploymentConfigCommand, se_CreateDeploymentConfigCommand } from "../protocols/Aws_json1_1";
+import { CreateDeploymentConfig } from "../schemas/schemas_1_Deployment";
 
 /**
  * @public
@@ -119,16 +118,11 @@ export class CreateDeploymentConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeDeploy_20141006", "CreateDeploymentConfig", {})
   .n("CodeDeployClient", "CreateDeploymentConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDeploymentConfigCommand)
-  .de(de_CreateDeploymentConfigCommand)
+  .sc(CreateDeploymentConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

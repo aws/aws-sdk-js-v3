@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSecretRequest, UpdateSecretRequestFilterSensitiveLog, UpdateSecretResponse } from "../models/models_0";
-import { de_UpdateSecretCommand, se_UpdateSecretCommand } from "../protocols/Aws_json1_1";
+import { UpdateSecretRequest, UpdateSecretResponse } from "../models/models_0";
+import { UpdateSecret } from "../schemas/schemas_1_Secret";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -206,16 +205,11 @@ export class UpdateSecretCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("secretsmanager", "UpdateSecret", {})
   .n("SecretsManagerClient", "UpdateSecretCommand")
-  .f(UpdateSecretRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateSecretCommand)
-  .de(de_UpdateSecretCommand)
+  .sc(UpdateSecret)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

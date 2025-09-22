@@ -1,0 +1,148 @@
+export const _A = "Attendee";
+export const _ADE = "AccessDeniedException";
+export const _AF = "AudioFeatures";
+export const _AFU = "AudioFallbackUrl";
+export const _AHU = "AudioHostUrl";
+export const _AI = "AttachmentItem";
+export const _AIt = "AttachmentId";
+export const _AItt = "AttendeeId";
+export const _AItta = "AttachmentIds";
+export const _AN = "AttachmentName";
+export const _ASIB = "AttachmentSizeInBytes";
+export const _AT = "AbsoluteTime";
+export const _AU = "AuthenticationUrl";
+export const _Ac = "Actions";
+export const _Ar = "Arn";
+export const _At = "Attachments";
+export const _Au = "Audio";
+export const _C = "Content";
+export const _CAU = "CompleteAttachmentUpload";
+export const _CAUR = "CompleteAttachmentUploadRequest";
+export const _CAURo = "CompleteAttachmentUploadResponse";
+export const _CC = "ConnectionCredentials";
+export const _CE = "ConflictException";
+export const _CEo = "ConnectionExpiry";
+export const _CI = "ContactId";
+export const _CP = "ConnectParticipant";
+export const _CPA = "CancelParticipantAuthentication";
+export const _CPAR = "CancelParticipantAuthenticationRequest";
+export const _CPARa = "CancelParticipantAuthenticationResponse";
+export const _CPC = "CreateParticipantConnection";
+export const _CPCR = "CreateParticipantConnectionRequest";
+export const _CPCRr = "CreateParticipantConnectionResponse";
+export const _CT = "ContentType";
+export const _CTl = "ClientToken";
+export const _CTo = "ConnectionToken";
+export const _DN = "DisplayName";
+export const _DP = "DisconnectParticipant";
+export const _DPR = "DisconnectParticipantRequest";
+export const _DPRi = "DisconnectParticipantResponse";
+export const _DT = "DeliveredTimestamp";
+export const _DV = "DescribeView";
+export const _DVR = "DescribeViewRequest";
+export const _DVRe = "DescribeViewResponse";
+export const _E = "Expiry";
+export const _EIU = "EventIngestionUrl";
+export const _ER = "EchoReduction";
+export const _GA = "GetAttachment";
+export const _GAR = "GetAttachmentRequest";
+export const _GARe = "GetAttachmentResponse";
+export const _GAU = "GetAuthenticationUrl";
+export const _GAUR = "GetAuthenticationUrlRequest";
+export const _GAURe = "GetAuthenticationUrlResponse";
+export const _GT = "GetTranscript";
+export const _GTR = "GetTranscriptRequest";
+export const _GTRe = "GetTranscriptResponse";
+export const _HTI = "HeadersToInclude";
+export const _I = "Item";
+export const _ICI = "InitialContactId";
+export const _IS = "InputSchema";
+export const _ISE = "InternalServerException";
+export const _Id = "Id";
+export const _JT = "JoinToken";
+export const _M = "Message";
+export const _MF = "MeetingFeatures";
+export const _MFC = "MeetingFeaturesConfiguration";
+export const _MI = "MessageId";
+export const _MIe = "MeetingId";
+export const _MM = "MessageMetadata";
+export const _MP = "MediaPlacement";
+export const _MR = "MaxResults";
+export const _MRo = "MostRecent";
+export const _Me = "Meeting";
+export const _N = "Name";
+export const _NT = "NextToken";
+export const _PI = "ParticipantId";
+export const _PR = "ParticipantRole";
+export const _PT = "ParticipantToken";
+export const _R = "Receipts";
+export const _RCI = "RelatedContactId";
+export const _RI = "ResourceId";
+export const _RNFE = "ResourceNotFoundException";
+export const _RPI = "RecipientParticipantId";
+export const _RT = "ReadTimestamp";
+export const _RTe = "ResourceType";
+export const _RU = "RedirectUri";
+export const _Re = "Receipt";
+export const _S = "Status";
+export const _SAU = "StartAttachmentUpload";
+export const _SAUR = "StartAttachmentUploadRequest";
+export const _SAURt = "StartAttachmentUploadResponse";
+export const _SD = "ScanDirection";
+export const _SE = "SendEvent";
+export const _SER = "SendEventRequest";
+export const _SERe = "SendEventResponse";
+export const _SI = "SessionId";
+export const _SM = "SendMessage";
+export const _SMR = "SendMessageRequest";
+export const _SMRe = "SendMessageResponse";
+export const _SO = "SortOrder";
+export const _SP = "StartPosition";
+export const _SQEE = "ServiceQuotaExceededException";
+export const _SU = "SignalingUrl";
+export const _T = "Type";
+export const _TE = "ThrottlingException";
+export const _Te = "Template";
+export const _Tr = "Transcript";
+export const _U = "Url";
+export const _UE = "UrlExpiry";
+export const _UEIS = "UrlExpiryInSeconds";
+export const _UM = "UploadMetadata";
+export const _V = "View";
+export const _VA = "ViewAction";
+export const _VAi = "ViewActions";
+export const _VC = "ViewContent";
+export const _VE = "ValidationException";
+export const _VIS = "ViewInputSchema";
+export const _VN = "ViewName";
+export const _VT = "ViewTemplate";
+export const _VTi = "ViewToken";
+export const _Ve = "Version";
+export const _W = "Websocket";
+export const _WRTCC = "WebRTCConnection";
+export const _WRTCM = "WebRTCMeeting";
+export const _WRTCMP = "WebRTCMediaPlacement";
+export const _XAB = "X-Amz-Bearer";
+export const _c = "client";
+export const _e = "error";
+export const _h = "http";
+export const _hE = "httpError";
+export const _hH = "httpHeader";
+export const _s = "server";
+export const n0 = "com.amazonaws.connectparticipant";
+
+// smithy-typescript generated code
+import { error } from "@smithy/core/schema";
+
+import { ConnectParticipantServiceException as __ConnectParticipantServiceException } from "../models/ConnectParticipantServiceException";
+
+/* eslint no-var: 0 */
+
+export var ConnectParticipantServiceException = error(
+  "smithy.ts.sdk.synthetic.com.amazonaws.connectparticipant",
+  "ConnectParticipantServiceException",
+  0,
+  [],
+  [],
+  __ConnectParticipantServiceException
+);

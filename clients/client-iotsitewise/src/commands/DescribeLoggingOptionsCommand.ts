@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse } from "../models/models_0";
-import { de_DescribeLoggingOptionsCommand, se_DescribeLoggingOptionsCommand } from "../protocols/Aws_restJson1";
+import { DescribeLoggingOptions } from "../schemas/schemas_28_Logging";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class DescribeLoggingOptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "DescribeLoggingOptions", {})
   .n("IoTSiteWiseClient", "DescribeLoggingOptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeLoggingOptionsCommand)
-  .de(de_DescribeLoggingOptionsCommand)
+  .sc(DescribeLoggingOptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

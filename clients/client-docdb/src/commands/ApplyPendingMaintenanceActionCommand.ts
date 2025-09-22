@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult } from "../models/models_0";
-import {
-  de_ApplyPendingMaintenanceActionCommand,
-  se_ApplyPendingMaintenanceActionCommand,
-} from "../protocols/Aws_query";
+import { ApplyPendingMaintenanceAction } from "../schemas/schemas_9_DBCluster";
 
 /**
  * @public
@@ -100,16 +96,11 @@ export class ApplyPendingMaintenanceActionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "ApplyPendingMaintenanceAction", {})
   .n("DocDBClient", "ApplyPendingMaintenanceActionCommand")
-  .f(void 0, void 0)
-  .ser(se_ApplyPendingMaintenanceActionCommand)
-  .de(de_ApplyPendingMaintenanceActionCommand)
+  .sc(ApplyPendingMaintenanceAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetFindingsV2Request, GetFindingsV2Response } from "../models/models_3";
-import { de_GetFindingsV2Command, se_GetFindingsV2Command } from "../protocols/Aws_restJson1";
+import { GetFindingsV2 } from "../schemas/schemas_6_Get";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -161,16 +160,11 @@ export class GetFindingsV2Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "GetFindingsV2", {})
   .n("SecurityHubClient", "GetFindingsV2Command")
-  .f(void 0, void 0)
-  .ser(se_GetFindingsV2Command)
-  .de(de_GetFindingsV2Command)
+  .sc(GetFindingsV2)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

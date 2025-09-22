@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,11 +8,8 @@ import {
   ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsForHyperParameterTuningJobResponse,
 } from "../models/models_4";
-import {
-  de_ListTrainingJobsForHyperParameterTuningJobCommand,
-  se_ListTrainingJobsForHyperParameterTuningJobCommand,
-} from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListTrainingJobsForHyperParameterTuningJob } from "../schemas/schemas_48_Job";
 
 /**
  * @public
@@ -109,16 +105,11 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "ListTrainingJobsForHyperParameterTuningJob", {})
   .n("SageMakerClient", "ListTrainingJobsForHyperParameterTuningJobCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTrainingJobsForHyperParameterTuningJobCommand)
-  .de(de_ListTrainingJobsForHyperParameterTuningJobCommand)
+  .sc(ListTrainingJobsForHyperParameterTuningJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

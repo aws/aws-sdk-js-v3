@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteFoundationModelAgreementRequest, DeleteFoundationModelAgreementResponse } from "../models/models_1";
-import {
-  de_DeleteFoundationModelAgreementCommand,
-  se_DeleteFoundationModelAgreementCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFoundationModelAgreement } from "../schemas/schemas_3_Foundation";
 
 /**
  * @public
@@ -91,16 +87,11 @@ export class DeleteFoundationModelAgreementCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "DeleteFoundationModelAgreement", {})
   .n("BedrockClient", "DeleteFoundationModelAgreementCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteFoundationModelAgreementCommand)
-  .de(de_DeleteFoundationModelAgreementCommand)
+  .sc(DeleteFoundationModelAgreement)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

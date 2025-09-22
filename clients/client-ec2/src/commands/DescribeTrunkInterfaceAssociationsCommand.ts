@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeTrunkInterfaceAssociationsRequest,
   DescribeTrunkInterfaceAssociationsResult,
 } from "../models/models_5";
-import {
-  de_DescribeTrunkInterfaceAssociationsCommand,
-  se_DescribeTrunkInterfaceAssociationsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeTrunkInterfaceAssociations } from "../schemas/schemas_131_Trunk";
 
 /**
  * @public
@@ -107,16 +103,11 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeTrunkInterfaceAssociations", {})
   .n("EC2Client", "DescribeTrunkInterfaceAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeTrunkInterfaceAssociationsCommand)
-  .de(de_DescribeTrunkInterfaceAssociationsCommand)
+  .sc(DescribeTrunkInterfaceAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpChecksumRequiredInputOutput } from "../models/models_0";
-import { de_HttpChecksumRequiredCommand, se_HttpChecksumRequiredCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { HttpChecksumRequired } from "../schemas/schemas_33_HttpChecksumRequired";
 
 /**
  * @public
@@ -72,16 +71,13 @@ export class HttpChecksumRequiredCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getApplyMd5BodyChecksumPlugin(config),
     ];
   })
   .s("RestJson", "HttpChecksumRequired", {})
   .n("RestJsonProtocolClient", "HttpChecksumRequiredCommand")
-  .f(void 0, void 0)
-  .ser(se_HttpChecksumRequiredCommand)
-  .de(de_HttpChecksumRequiredCommand)
+  .sc(HttpChecksumRequired)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

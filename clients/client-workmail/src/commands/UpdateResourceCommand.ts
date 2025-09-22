@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateResourceRequest,
-  UpdateResourceRequestFilterSensitiveLog,
-  UpdateResourceResponse,
-} from "../models/models_0";
-import { de_UpdateResourceCommand, se_UpdateResourceCommand } from "../protocols/Aws_json1_1";
+import { UpdateResourceRequest, UpdateResourceResponse } from "../models/models_0";
+import { UpdateResource } from "../schemas/schemas_8_Create";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -128,16 +123,11 @@ export class UpdateResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkMailService", "UpdateResource", {})
   .n("WorkMailClient", "UpdateResourceCommand")
-  .f(UpdateResourceRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateResourceCommand)
-  .de(de_UpdateResourceCommand)
+  .sc(UpdateResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

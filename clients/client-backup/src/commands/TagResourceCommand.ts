@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceInput, TagResourceInputFilterSensitiveLog } from "../models/models_0";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
+import { TagResourceInput } from "../models/models_0";
+import { TagResource } from "../schemas/schemas_36_TagResource";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class TagResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoControllerUserManager", "TagResource", {})
   .n("BackupClient", "TagResourceCommand")
-  .f(TagResourceInputFilterSensitiveLog, void 0)
-  .ser(se_TagResourceCommand)
-  .de(de_TagResourceCommand)
+  .sc(TagResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

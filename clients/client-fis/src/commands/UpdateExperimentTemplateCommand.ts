@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import { UpdateExperimentTemplateRequest, UpdateExperimentTemplateResponse } from "../models/models_0";
-import { de_UpdateExperimentTemplateCommand, se_UpdateExperimentTemplateCommand } from "../protocols/Aws_restJson1";
+import { UpdateExperimentTemplate } from "../schemas/schemas_1_Experiment";
 
 /**
  * @public
@@ -241,16 +240,11 @@ export class UpdateExperimentTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FaultInjectionSimulator", "UpdateExperimentTemplate", {})
   .n("FisClient", "UpdateExperimentTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateExperimentTemplateCommand)
-  .de(de_UpdateExperimentTemplateCommand)
+  .sc(UpdateExperimentTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

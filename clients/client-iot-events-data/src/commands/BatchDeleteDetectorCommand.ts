@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchDeleteDetectorRequest, BatchDeleteDetectorResponse } from "../models/models_0";
-import { de_BatchDeleteDetectorCommand, se_BatchDeleteDetectorCommand } from "../protocols/Aws_restJson1";
+import { BatchDeleteDetector } from "../schemas/schemas_1_Batch";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class BatchDeleteDetectorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotColumboDataService", "BatchDeleteDetector", {})
   .n("IoTEventsDataClient", "BatchDeleteDetectorCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchDeleteDetectorCommand)
-  .de(de_BatchDeleteDetectorCommand)
+  .sc(BatchDeleteDetector)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

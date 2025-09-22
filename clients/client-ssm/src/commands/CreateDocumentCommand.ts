@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDocumentRequest, CreateDocumentResult } from "../models/models_0";
-import { de_CreateDocumentCommand, se_CreateDocumentCommand } from "../protocols/Aws_json1_1";
+import { CreateDocument } from "../schemas/schemas_17_Document";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -189,16 +188,11 @@ export class CreateDocumentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "CreateDocument", {})
   .n("SSMClient", "CreateDocumentCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDocumentCommand)
-  .de(de_CreateDocumentCommand)
+  .sc(CreateDocument)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListLogSourcesRequest, ListLogSourcesResponse } from "../models/models_0";
-import { de_ListLogSourcesCommand, se_ListLogSourcesCommand } from "../protocols/Aws_restJson1";
+import { ListLogSources } from "../schemas/schemas_1_Subscriber";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -150,16 +149,11 @@ export class ListLogSourcesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityLake", "ListLogSources", {})
   .n("SecurityLakeClient", "ListLogSourcesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListLogSourcesCommand)
-  .de(de_ListLogSourcesCommand)
+  .sc(ListLogSources)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

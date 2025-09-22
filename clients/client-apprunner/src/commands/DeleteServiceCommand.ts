@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DeleteServiceRequest,
-  DeleteServiceResponse,
-  DeleteServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DeleteServiceCommand, se_DeleteServiceCommand } from "../protocols/Aws_json1_0";
+import { DeleteServiceRequest, DeleteServiceResponse } from "../models/models_0";
+import { DeleteService } from "../schemas/schemas_2_Service";
 
 /**
  * @public
@@ -185,16 +180,11 @@ export class DeleteServiceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AppRunner", "DeleteService", {})
   .n("AppRunnerClient", "DeleteServiceCommand")
-  .f(void 0, DeleteServiceResponseFilterSensitiveLog)
-  .ser(se_DeleteServiceCommand)
-  .de(de_DeleteServiceCommand)
+  .sc(DeleteService)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

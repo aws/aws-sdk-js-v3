@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateBrowserSettingsRequest,
-  UpdateBrowserSettingsRequestFilterSensitiveLog,
-  UpdateBrowserSettingsResponse,
-  UpdateBrowserSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateBrowserSettingsCommand, se_UpdateBrowserSettingsCommand } from "../protocols/Aws_restJson1";
+import { UpdateBrowserSettingsRequest, UpdateBrowserSettingsResponse } from "../models/models_0";
+import { UpdateBrowserSettings } from "../schemas/schemas_14_Settings";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -102,16 +96,11 @@ export class UpdateBrowserSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "UpdateBrowserSettings", {})
   .n("WorkSpacesWebClient", "UpdateBrowserSettingsCommand")
-  .f(UpdateBrowserSettingsRequestFilterSensitiveLog, UpdateBrowserSettingsResponseFilterSensitiveLog)
-  .ser(se_UpdateBrowserSettingsCommand)
-  .de(de_UpdateBrowserSettingsCommand)
+  .sc(UpdateBrowserSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

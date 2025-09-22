@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateScheduleRequest, UpdateScheduleResponse } from "../models/models_0";
-import { de_UpdateScheduleCommand, se_UpdateScheduleCommand } from "../protocols/Aws_restJson1";
+import { UpdateSchedule } from "../schemas/schemas_2_Create";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class UpdateScheduleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlueDataBrew", "UpdateSchedule", {})
   .n("DataBrewClient", "UpdateScheduleCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateScheduleCommand)
-  .de(de_UpdateScheduleCommand)
+  .sc(UpdateSchedule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

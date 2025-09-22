@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  GetExternalDataViewAccessDetailsRequest,
-  GetExternalDataViewAccessDetailsResponse,
-  GetExternalDataViewAccessDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetExternalDataViewAccessDetailsCommand,
-  se_GetExternalDataViewAccessDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetExternalDataViewAccessDetailsRequest, GetExternalDataViewAccessDetailsResponse } from "../models/models_0";
+import { GetExternalDataViewAccessDetails } from "../schemas/schemas_1_Data";
 
 /**
  * @public
@@ -115,16 +107,11 @@ export class GetExternalDataViewAccessDetailsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroPublicAPI", "GetExternalDataViewAccessDetails", {})
   .n("FinspaceDataClient", "GetExternalDataViewAccessDetailsCommand")
-  .f(void 0, GetExternalDataViewAccessDetailsResponseFilterSensitiveLog)
-  .ser(se_GetExternalDataViewAccessDetailsCommand)
-  .de(de_GetExternalDataViewAccessDetailsCommand)
+  .sc(GetExternalDataViewAccessDetails)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

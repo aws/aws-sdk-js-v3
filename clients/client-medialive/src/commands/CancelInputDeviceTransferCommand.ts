@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { CancelInputDeviceTransferRequest, CancelInputDeviceTransferResponse } from "../models/models_2";
-import { de_CancelInputDeviceTransferCommand, se_CancelInputDeviceTransferCommand } from "../protocols/Aws_restJson1";
+import { CancelInputDeviceTransfer } from "../schemas/schemas_31_CancelInputDeviceTransfer";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class CancelInputDeviceTransferCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "CancelInputDeviceTransfer", {})
   .n("MediaLiveClient", "CancelInputDeviceTransferCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelInputDeviceTransferCommand)
-  .de(de_CancelInputDeviceTransferCommand)
+  .sc(CancelInputDeviceTransfer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

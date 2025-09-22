@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { HttpBearerAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
@@ -30,6 +31,7 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.codecatalyst" }),
     serviceId: config?.serviceId ?? "CodeCatalyst",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

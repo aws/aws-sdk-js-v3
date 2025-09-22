@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateServerRequest, UpdateServerRequestFilterSensitiveLog, UpdateServerResponse } from "../models/models_0";
-import { de_UpdateServerCommand, se_UpdateServerCommand } from "../protocols/Aws_json1_1";
+import { UpdateServerRequest, UpdateServerResponse } from "../models/models_0";
+import { UpdateServer } from "../schemas/schemas_5_Workflow";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -153,16 +152,11 @@ export class UpdateServerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TransferService", "UpdateServer", {})
   .n("TransferClient", "UpdateServerCommand")
-  .f(UpdateServerRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateServerCommand)
-  .de(de_UpdateServerCommand)
+  .sc(UpdateServer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

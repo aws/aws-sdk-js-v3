@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutMetricAlarmInput } from "../models/models_0";
-import { de_PutMetricAlarmCommand, se_PutMetricAlarmCommand } from "../protocols/Aws_query";
+import { PutMetricAlarm } from "../schemas/schemas_3_Alarm";
 
 /**
  * @public
@@ -181,16 +180,11 @@ export class PutMetricAlarmCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GraniteServiceVersion20100801", "PutMetricAlarm", {})
   .n("CloudWatchClient", "PutMetricAlarmCommand")
-  .f(void 0, void 0)
-  .ser(se_PutMetricAlarmCommand)
-  .de(de_PutMetricAlarmCommand)
+  .sc(PutMetricAlarm)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

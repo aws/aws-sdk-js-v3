@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateAdmChannelRequest, UpdateAdmChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { de_UpdateAdmChannelCommand, se_UpdateAdmChannelCommand } from "../protocols/Aws_restJson1";
+import { UpdateAdmChannel } from "../schemas/schemas_17_Channel";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class UpdateAdmChannelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Pinpoint", "UpdateAdmChannel", {})
   .n("PinpointClient", "UpdateAdmChannelCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateAdmChannelCommand)
-  .de(de_UpdateAdmChannelCommand)
+  .sc(UpdateAdmChannel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

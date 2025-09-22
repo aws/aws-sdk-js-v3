@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteConnectorRequest } from "../models/models_0";
-import { de_DeleteConnectorCommand, se_DeleteConnectorCommand } from "../protocols/Aws_json1_1";
+import { DeleteConnector } from "../schemas/schemas_6_Connector";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -80,16 +79,11 @@ export class DeleteConnectorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TransferService", "DeleteConnector", {})
   .n("TransferClient", "DeleteConnectorCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteConnectorCommand)
-  .de(de_DeleteConnectorCommand)
+  .sc(DeleteConnector)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

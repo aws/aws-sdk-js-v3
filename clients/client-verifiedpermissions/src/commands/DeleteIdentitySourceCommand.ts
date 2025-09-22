@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteIdentitySourceInput, DeleteIdentitySourceOutput } from "../models/models_0";
-import { de_DeleteIdentitySourceCommand, se_DeleteIdentitySourceCommand } from "../protocols/Aws_json1_0";
+import { DeleteIdentitySource } from "../schemas/schemas_4_Identity";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -105,16 +104,11 @@ export class DeleteIdentitySourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VerifiedPermissions", "DeleteIdentitySource", {})
   .n("VerifiedPermissionsClient", "DeleteIdentitySourceCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteIdentitySourceCommand)
-  .de(de_DeleteIdentitySourceCommand)
+  .sc(DeleteIdentitySource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

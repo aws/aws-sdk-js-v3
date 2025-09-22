@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { UpdateMatchmakingConfigurationInput, UpdateMatchmakingConfigurationOutput } from "../models/models_1";
-import {
-  de_UpdateMatchmakingConfigurationCommand,
-  se_UpdateMatchmakingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateMatchmakingConfiguration } from "../schemas/schemas_6_Matchmaking";
 
 /**
  * @public
@@ -143,16 +139,11 @@ export class UpdateMatchmakingConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "UpdateMatchmakingConfiguration", {})
   .n("GameLiftClient", "UpdateMatchmakingConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateMatchmakingConfigurationCommand)
-  .de(de_UpdateMatchmakingConfigurationCommand)
+  .sc(UpdateMatchmakingConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateLocationFsxOntapRequest,
-  CreateLocationFsxOntapRequestFilterSensitiveLog,
-  CreateLocationFsxOntapResponse,
-} from "../models/models_0";
-import { de_CreateLocationFsxOntapCommand, se_CreateLocationFsxOntapCommand } from "../protocols/Aws_json1_1";
+import { CreateLocationFsxOntapRequest, CreateLocationFsxOntapResponse } from "../models/models_0";
+import { CreateLocationFsxOntap } from "../schemas/schemas_17_Location";
 
 /**
  * @public
@@ -110,16 +105,11 @@ export class CreateLocationFsxOntapCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FmrsService", "CreateLocationFsxOntap", {})
   .n("DataSyncClient", "CreateLocationFsxOntapCommand")
-  .f(CreateLocationFsxOntapRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateLocationFsxOntapCommand)
-  .de(de_CreateLocationFsxOntapCommand)
+  .sc(CreateLocationFsxOntap)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

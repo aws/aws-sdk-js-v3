@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import {
-  GetCredentialLockerRequest,
-  GetCredentialLockerResponse,
-  GetCredentialLockerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetCredentialLockerCommand, se_GetCredentialLockerCommand } from "../protocols/Aws_restJson1";
+import { GetCredentialLockerRequest, GetCredentialLockerResponse } from "../models/models_0";
+import { GetCredentialLocker } from "../schemas/schemas_3_Credential";
 
 /**
  * @public
@@ -102,16 +97,11 @@ export class GetCredentialLockerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "GetCredentialLocker", {})
   .n("IoTManagedIntegrationsClient", "GetCredentialLockerCommand")
-  .f(void 0, GetCredentialLockerResponseFilterSensitiveLog)
-  .ser(se_GetCredentialLockerCommand)
-  .de(de_GetCredentialLockerCommand)
+  .sc(GetCredentialLocker)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

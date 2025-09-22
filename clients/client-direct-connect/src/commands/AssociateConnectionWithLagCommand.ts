@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateConnectionWithLagRequest, Connection } from "../models/models_0";
-import { de_AssociateConnectionWithLagCommand, se_AssociateConnectionWithLagCommand } from "../protocols/Aws_json1_1";
+import { AssociateConnectionWithLag } from "../schemas/schemas_27_AssociateConnectionWithLag";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class AssociateConnectionWithLagCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OvertureService", "AssociateConnectionWithLag", {})
   .n("DirectConnectClient", "AssociateConnectionWithLagCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateConnectionWithLagCommand)
-  .de(de_AssociateConnectionWithLagCommand)
+  .sc(AssociateConnectionWithLag)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

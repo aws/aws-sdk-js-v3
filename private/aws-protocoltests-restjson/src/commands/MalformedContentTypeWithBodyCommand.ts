@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GreetingStruct } from "../models/models_0";
-import {
-  de_MalformedContentTypeWithBodyCommand,
-  se_MalformedContentTypeWithBodyCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { MalformedContentTypeWithBody } from "../schemas/schemas_32_Json";
 
 /**
  * @public
@@ -71,16 +67,11 @@ export class MalformedContentTypeWithBodyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "MalformedContentTypeWithBody", {})
   .n("RestJsonProtocolClient", "MalformedContentTypeWithBodyCommand")
-  .f(void 0, void 0)
-  .ser(se_MalformedContentTypeWithBodyCommand)
-  .de(de_MalformedContentTypeWithBodyCommand)
+  .sc(MalformedContentTypeWithBody)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonIntEnumsInputOutput } from "../models/models_0";
-import { de_JsonIntEnumsCommand, se_JsonIntEnumsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { JsonIntEnums } from "../schemas/schemas_15_Json";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class JsonIntEnumsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "JsonIntEnums", {})
   .n("RestJsonProtocolClient", "JsonIntEnumsCommand")
-  .f(void 0, void 0)
-  .ser(se_JsonIntEnumsCommand)
-  .de(de_JsonIntEnumsCommand)
+  .sc(JsonIntEnums)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

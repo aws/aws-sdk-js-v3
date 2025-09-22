@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListChatResponseConfigurationsRequest, ListChatResponseConfigurationsResponse } from "../models/models_1";
-import {
-  de_ListChatResponseConfigurationsCommand,
-  se_ListChatResponseConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import { ListChatResponseConfigurations } from "../schemas/schemas_1_Response";
 
 /**
  * @public
@@ -103,16 +99,11 @@ export class ListChatResponseConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ExpertQ", "ListChatResponseConfigurations", {})
   .n("QBusinessClient", "ListChatResponseConfigurationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListChatResponseConfigurationsCommand)
-  .de(de_ListChatResponseConfigurationsCommand)
+  .sc(ListChatResponseConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

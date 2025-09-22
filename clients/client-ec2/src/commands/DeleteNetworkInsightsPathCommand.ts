@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_3";
-import { de_DeleteNetworkInsightsPathCommand, se_DeleteNetworkInsightsPathCommand } from "../protocols/Aws_ec2";
+import { DeleteNetworkInsightsPath } from "../schemas/schemas_121_Insights";
 
 /**
  * @public
@@ -71,16 +70,11 @@ export class DeleteNetworkInsightsPathCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DeleteNetworkInsightsPath", {})
   .n("EC2Client", "DeleteNetworkInsightsPathCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteNetworkInsightsPathCommand)
-  .de(de_DeleteNetworkInsightsPathCommand)
+  .sc(DeleteNetworkInsightsPath)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

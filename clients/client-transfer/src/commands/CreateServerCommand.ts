@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateServerRequest, CreateServerRequestFilterSensitiveLog, CreateServerResponse } from "../models/models_0";
-import { de_CreateServerCommand, se_CreateServerCommand } from "../protocols/Aws_json1_1";
+import { CreateServerRequest, CreateServerResponse } from "../models/models_0";
+import { CreateServer } from "../schemas/schemas_5_Workflow";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -157,16 +156,11 @@ export class CreateServerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TransferService", "CreateServer", {})
   .n("TransferClient", "CreateServerCommand")
-  .f(CreateServerRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateServerCommand)
-  .de(de_CreateServerCommand)
+  .sc(CreateServer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListReadSetImportJobsRequest, ListReadSetImportJobsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_ListReadSetImportJobsCommand, se_ListReadSetImportJobsCommand } from "../protocols/Aws_restJson1";
+import { ListReadSetImportJobs } from "../schemas/schemas_4_List";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class ListReadSetImportJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Omics", "ListReadSetImportJobs", {})
   .n("OmicsClient", "ListReadSetImportJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListReadSetImportJobsCommand)
-  .de(de_ListReadSetImportJobsCommand)
+  .sc(ListReadSetImportJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

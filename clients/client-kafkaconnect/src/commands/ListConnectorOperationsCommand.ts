@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import { ListConnectorOperationsRequest, ListConnectorOperationsResponse } from "../models/models_0";
-import { de_ListConnectorOperationsCommand, se_ListConnectorOperationsCommand } from "../protocols/Aws_restJson1";
+import { ListConnectorOperations } from "../schemas/schemas_2_Describe";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class ListConnectorOperationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KafkaConnect", "ListConnectorOperations", {})
   .n("KafkaConnectClient", "ListConnectorOperationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListConnectorOperationsCommand)
-  .de(de_ListConnectorOperationsCommand)
+  .sc(ListConnectorOperations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

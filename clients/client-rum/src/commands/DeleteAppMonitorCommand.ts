@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAppMonitorRequest, DeleteAppMonitorResponse } from "../models/models_0";
-import { de_DeleteAppMonitorCommand, se_DeleteAppMonitorCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
+import { DeleteAppMonitor } from "../schemas/schemas_1_Rum";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class DeleteAppMonitorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RUM", "DeleteAppMonitor", {})
   .n("RUMClient", "DeleteAppMonitorCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAppMonitorCommand)
-  .de(de_DeleteAppMonitorCommand)
+  .sc(DeleteAppMonitor)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetJobManifestRequest, GetJobManifestResult } from "../models/models_0";
-import { de_GetJobManifestCommand, se_GetJobManifestCommand } from "../protocols/Aws_json1_1";
+import { GetJobManifest } from "../schemas/schemas_6_Job";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -114,16 +113,11 @@ export class GetJobManifestCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIESnowballJobManagementService", "GetJobManifest", {})
   .n("SnowballClient", "GetJobManifestCommand")
-  .f(void 0, void 0)
-  .ser(se_GetJobManifestCommand)
-  .de(de_GetJobManifestCommand)
+  .sc(GetJobManifest)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

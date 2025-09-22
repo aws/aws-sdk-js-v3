@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ConstantAndVariableQueryStringInput } from "../models/models_0";
-import {
-  de_ConstantAndVariableQueryStringCommand,
-  se_ConstantAndVariableQueryStringCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { ConstantAndVariableQueryString } from "../schemas/schemas_10_ConstantAndVariableQueryString";
 
 /**
  * @public
@@ -74,16 +70,11 @@ export class ConstantAndVariableQueryStringCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "ConstantAndVariableQueryString", {})
   .n("RestJsonProtocolClient", "ConstantAndVariableQueryStringCommand")
-  .f(void 0, void 0)
-  .ser(se_ConstantAndVariableQueryStringCommand)
-  .de(de_ConstantAndVariableQueryStringCommand)
+  .sc(ConstantAndVariableQueryString)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { NullOperationInputOutput } from "../models/models_0";
-import { de_NullOperationCommand, se_NullOperationCommand } from "../protocols/Aws_json1_1";
+import { NullOperation } from "../schemas/schemas_1_Operation";
 
 /**
  * @public
@@ -70,16 +69,11 @@ export class NullOperationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("JsonProtocol", "NullOperation", {})
   .n("JsonProtocolClient", "NullOperationCommand")
-  .f(void 0, void 0)
-  .ser(se_NullOperationCommand)
-  .de(de_NullOperationCommand)
+  .sc(NullOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

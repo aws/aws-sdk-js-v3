@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType } from "@smithy/types";
 
@@ -13517,19 +13517,3 @@ export interface StopTaskRequest {
    */
   reason?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const SessionFilterSensitiveLog = (obj: Session): any => ({
-  ...obj,
-  ...(obj.tokenValue && { tokenValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ExecuteCommandResponseFilterSensitiveLog = (obj: ExecuteCommandResponse): any => ({
-  ...obj,
-  ...(obj.session && { session: SessionFilterSensitiveLog(obj.session) }),
-});

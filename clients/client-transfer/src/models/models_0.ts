@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { TransferServiceException as __BaseException } from "./TransferServiceException";
 
@@ -5714,92 +5714,3 @@ export interface UpdateWebAppResponse {
    */
   WebAppId: string | undefined;
 }
-
-/**
- * @internal
- */
-export const DescribedCertificateFilterSensitiveLog = (obj: DescribedCertificate): any => ({
-  ...obj,
-  ...(obj.Certificate && { Certificate: SENSITIVE_STRING }),
-  ...(obj.CertificateChain && { CertificateChain: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeCertificateResponseFilterSensitiveLog = (obj: DescribeCertificateResponse): any => ({
-  ...obj,
-  ...(obj.Certificate && { Certificate: DescribedCertificateFilterSensitiveLog(obj.Certificate) }),
-});
-
-/**
- * @internal
- */
-export const ImportCertificateRequestFilterSensitiveLog = (obj: ImportCertificateRequest): any => ({
-  ...obj,
-  ...(obj.Certificate && { Certificate: SENSITIVE_STRING }),
-  ...(obj.CertificateChain && { CertificateChain: SENSITIVE_STRING }),
-  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateServerRequestFilterSensitiveLog = (obj: CreateServerRequest): any => ({
-  ...obj,
-  ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribedWebAppCustomizationFilterSensitiveLog = (obj: DescribedWebAppCustomization): any => ({
-  ...obj,
-  ...(obj.LogoFile && { LogoFile: SENSITIVE_STRING }),
-  ...(obj.FaviconFile && { FaviconFile: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeWebAppCustomizationResponseFilterSensitiveLog = (
-  obj: DescribeWebAppCustomizationResponse
-): any => ({
-  ...obj,
-  ...(obj.WebAppCustomization && {
-    WebAppCustomization: DescribedWebAppCustomizationFilterSensitiveLog(obj.WebAppCustomization),
-  }),
-});
-
-/**
- * @internal
- */
-export const ImportHostKeyRequestFilterSensitiveLog = (obj: ImportHostKeyRequest): any => ({
-  ...obj,
-  ...(obj.HostKeyBody && { HostKeyBody: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateServerRequestFilterSensitiveLog = (obj: UpdateServerRequest): any => ({
-  ...obj,
-  ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TestIdentityProviderRequestFilterSensitiveLog = (obj: TestIdentityProviderRequest): any => ({
-  ...obj,
-  ...(obj.UserPassword && { UserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateWebAppCustomizationRequestFilterSensitiveLog = (obj: UpdateWebAppCustomizationRequest): any => ({
-  ...obj,
-  ...(obj.LogoFile && { LogoFile: SENSITIVE_STRING }),
-  ...(obj.FaviconFile && { FaviconFile: SENSITIVE_STRING }),
-});

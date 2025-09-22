@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetLaunchTemplateDataRequest,
-  GetLaunchTemplateDataResult,
-  GetLaunchTemplateDataResultFilterSensitiveLog,
-} from "../models/models_6";
-import { de_GetLaunchTemplateDataCommand, se_GetLaunchTemplateDataCommand } from "../protocols/Aws_ec2";
+import { GetLaunchTemplateDataRequest, GetLaunchTemplateDataResult } from "../models/models_6";
+import { GetLaunchTemplateData } from "../schemas/schemas_7_Launch";
 
 /**
  * @public
@@ -413,16 +408,11 @@ export class GetLaunchTemplateDataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "GetLaunchTemplateData", {})
   .n("EC2Client", "GetLaunchTemplateDataCommand")
-  .f(void 0, GetLaunchTemplateDataResultFilterSensitiveLog)
-  .ser(se_GetLaunchTemplateDataCommand)
-  .de(de_GetLaunchTemplateDataCommand)
+  .sc(GetLaunchTemplateData)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

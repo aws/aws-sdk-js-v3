@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateGameSessionInput,
-  UpdateGameSessionOutput,
-  UpdateGameSessionOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_UpdateGameSessionCommand, se_UpdateGameSessionCommand } from "../protocols/Aws_json1_1";
+import { UpdateGameSessionInput, UpdateGameSessionOutput } from "../models/models_1";
+import { UpdateGameSession } from "../schemas/schemas_15_Fleet";
 
 /**
  * @public
@@ -140,16 +135,11 @@ export class UpdateGameSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "UpdateGameSession", {})
   .n("GameLiftClient", "UpdateGameSessionCommand")
-  .f(void 0, UpdateGameSessionOutputFilterSensitiveLog)
-  .ser(se_UpdateGameSessionCommand)
-  .de(de_UpdateGameSessionCommand)
+  .sc(UpdateGameSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

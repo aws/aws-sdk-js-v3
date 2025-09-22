@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateCostCategoryDefinitionRequest, UpdateCostCategoryDefinitionResponse } from "../models/models_0";
-import {
-  de_UpdateCostCategoryDefinitionCommand,
-  se_UpdateCostCategoryDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCostCategoryDefinition } from "../schemas/schemas_7_Cost";
 
 /**
  * @public
@@ -185,16 +181,11 @@ export class UpdateCostCategoryDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSInsightsIndexService", "UpdateCostCategoryDefinition", {})
   .n("CostExplorerClient", "UpdateCostCategoryDefinitionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateCostCategoryDefinitionCommand)
-  .de(de_UpdateCostCategoryDefinitionCommand)
+  .sc(UpdateCostCategoryDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

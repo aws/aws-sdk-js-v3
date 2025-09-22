@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RestorePhoneNumberRequest,
-  RestorePhoneNumberRequestFilterSensitiveLog,
-  RestorePhoneNumberResponse,
-  RestorePhoneNumberResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RestorePhoneNumberCommand, se_RestorePhoneNumberCommand } from "../protocols/Aws_restJson1";
+import { RestorePhoneNumberRequest, RestorePhoneNumberResponse } from "../models/models_0";
+import { RestorePhoneNumber } from "../schemas/schemas_4_Phone";
 
 /**
  * @public
@@ -128,16 +122,11 @@ export class RestorePhoneNumberCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "RestorePhoneNumber", {})
   .n("ChimeSDKVoiceClient", "RestorePhoneNumberCommand")
-  .f(RestorePhoneNumberRequestFilterSensitiveLog, RestorePhoneNumberResponseFilterSensitiveLog)
-  .ser(se_RestorePhoneNumberCommand)
-  .de(de_RestorePhoneNumberCommand)
+  .sc(RestorePhoneNumber)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

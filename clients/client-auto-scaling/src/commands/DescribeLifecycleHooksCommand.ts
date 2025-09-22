@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeLifecycleHooksAnswer, DescribeLifecycleHooksType } from "../models/models_0";
-import { de_DescribeLifecycleHooksCommand, se_DescribeLifecycleHooksCommand } from "../protocols/Aws_query";
+import { DescribeLifecycleHooks } from "../schemas/schemas_16_Lifecycle";
 
 /**
  * @public
@@ -115,16 +114,11 @@ export class DescribeLifecycleHooksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AutoScaling_2011_01_01", "DescribeLifecycleHooks", {})
   .n("AutoScalingClient", "DescribeLifecycleHooksCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeLifecycleHooksCommand)
-  .de(de_DescribeLifecycleHooksCommand)
+  .sc(DescribeLifecycleHooks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

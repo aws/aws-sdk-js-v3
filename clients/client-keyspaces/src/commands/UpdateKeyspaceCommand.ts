@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import { UpdateKeyspaceRequest, UpdateKeyspaceResponse } from "../models/models_0";
-import { de_UpdateKeyspaceCommand, se_UpdateKeyspaceCommand } from "../protocols/Aws_json1_0";
+import { UpdateKeyspace } from "../schemas/schemas_1_Table";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class UpdateKeyspaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KeyspacesService", "UpdateKeyspace", {})
   .n("KeyspacesClient", "UpdateKeyspaceCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateKeyspaceCommand)
-  .de(de_UpdateKeyspaceCommand)
+  .sc(UpdateKeyspace)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

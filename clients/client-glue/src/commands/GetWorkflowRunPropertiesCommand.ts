@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetWorkflowRunPropertiesRequest, GetWorkflowRunPropertiesResponse } from "../models/models_2";
-import { de_GetWorkflowRunPropertiesCommand, se_GetWorkflowRunPropertiesCommand } from "../protocols/Aws_json1_1";
+import { GetWorkflowRunProperties } from "../schemas/schemas_72_Workflow";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class GetWorkflowRunPropertiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "GetWorkflowRunProperties", {})
   .n("GlueClient", "GetWorkflowRunPropertiesCommand")
-  .f(void 0, void 0)
-  .ser(se_GetWorkflowRunPropertiesCommand)
-  .de(de_GetWorkflowRunPropertiesCommand)
+  .sc(GetWorkflowRunProperties)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

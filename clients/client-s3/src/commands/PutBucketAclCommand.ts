@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutBucketAclRequest } from "../models/models_1";
-import { de_PutBucketAclCommand, se_PutBucketAclCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { PutBucketAcl } from "../schemas/schemas_15_List";
 
 /**
  * @public
@@ -316,7 +315,6 @@ export class PutBucketAclCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
         requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
@@ -326,9 +324,7 @@ export class PutBucketAclCommand extends $Command
   })
   .s("AmazonS3", "PutBucketAcl", {})
   .n("S3Client", "PutBucketAclCommand")
-  .f(void 0, void 0)
-  .ser(se_PutBucketAclCommand)
-  .de(de_PutBucketAclCommand)
+  .sc(PutBucketAcl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

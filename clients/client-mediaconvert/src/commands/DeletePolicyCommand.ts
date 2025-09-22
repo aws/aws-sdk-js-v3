@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { DeletePolicyRequest, DeletePolicyResponse } from "../models/models_2";
-import { de_DeletePolicyCommand, se_DeletePolicyCommand } from "../protocols/Aws_restJson1";
+import { DeletePolicy } from "../schemas/schemas_15_DeletePolicy";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class DeletePolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConvert", "DeletePolicy", {})
   .n("MediaConvertClient", "DeletePolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePolicyCommand)
-  .de(de_DeletePolicyCommand)
+  .sc(DeletePolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

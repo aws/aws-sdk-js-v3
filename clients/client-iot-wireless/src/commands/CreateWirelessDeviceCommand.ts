@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { CreateWirelessDeviceRequest, CreateWirelessDeviceResponse } from "../models/models_0";
-import { de_CreateWirelessDeviceCommand, se_CreateWirelessDeviceCommand } from "../protocols/Aws_restJson1";
+import { CreateWirelessDevice } from "../schemas/schemas_7_Wireless";
 
 /**
  * @public
@@ -154,16 +153,11 @@ export class CreateWirelessDeviceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "CreateWirelessDevice", {})
   .n("IoTWirelessClient", "CreateWirelessDeviceCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateWirelessDeviceCommand)
-  .de(de_CreateWirelessDeviceCommand)
+  .sc(CreateWirelessDevice)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

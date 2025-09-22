@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { DescribeFlowSourceThumbnailRequest, DescribeFlowSourceThumbnailResponse } from "../models/models_0";
-import {
-  de_DescribeFlowSourceThumbnailCommand,
-  se_DescribeFlowSourceThumbnailCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeFlowSourceThumbnail } from "../schemas/schemas_4_Describe";
 
 /**
  * @public
@@ -105,16 +101,11 @@ export class DescribeFlowSourceThumbnailCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConnect", "DescribeFlowSourceThumbnail", {})
   .n("MediaConnectClient", "DescribeFlowSourceThumbnailCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeFlowSourceThumbnailCommand)
-  .de(de_DescribeFlowSourceThumbnailCommand)
+  .sc(DescribeFlowSourceThumbnail)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

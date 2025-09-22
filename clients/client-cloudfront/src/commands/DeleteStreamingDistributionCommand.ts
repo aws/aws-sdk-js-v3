@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteStreamingDistributionRequest } from "../models/models_1";
-import { de_DeleteStreamingDistributionCommand, se_DeleteStreamingDistributionCommand } from "../protocols/Aws_restXml";
+import { DeleteStreamingDistribution } from "../schemas/schemas_53_Streaming";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class DeleteStreamingDistributionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "DeleteStreamingDistribution", {})
   .n("CloudFrontClient", "DeleteStreamingDistributionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteStreamingDistributionCommand)
-  .de(de_DeleteStreamingDistributionCommand)
+  .sc(DeleteStreamingDistribution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

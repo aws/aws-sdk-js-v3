@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { StartMulticastGroupSessionRequest, StartMulticastGroupSessionResponse } from "../models/models_1";
-import { de_StartMulticastGroupSessionCommand, se_StartMulticastGroupSessionCommand } from "../protocols/Aws_restJson1";
+import { StartMulticastGroupSession } from "../schemas/schemas_26_GroupSession";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class StartMulticastGroupSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "StartMulticastGroupSession", {})
   .n("IoTWirelessClient", "StartMulticastGroupSessionCommand")
-  .f(void 0, void 0)
-  .ser(se_StartMulticastGroupSessionCommand)
-  .de(de_StartMulticastGroupSessionCommand)
+  .sc(StartMulticastGroupSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

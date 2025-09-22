@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient";
 import { QueryWhatIfForecastRequest, QueryWhatIfForecastResponse } from "../models/models_0";
-import { de_QueryWhatIfForecastCommand, se_QueryWhatIfForecastCommand } from "../protocols/Aws_json1_1";
+import { QueryWhatIfForecast } from "../schemas/schemas_1_Query";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class QueryWhatIfForecastCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastqueryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecastRuntime", "QueryWhatIfForecast", {})
   .n("ForecastqueryClient", "QueryWhatIfForecastCommand")
-  .f(void 0, void 0)
-  .ser(se_QueryWhatIfForecastCommand)
-  .de(de_QueryWhatIfForecastCommand)
+  .sc(QueryWhatIfForecast)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

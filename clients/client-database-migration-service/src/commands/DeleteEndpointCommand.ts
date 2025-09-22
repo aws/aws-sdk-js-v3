@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DeleteEndpointMessage,
-  DeleteEndpointResponse,
-  DeleteEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DeleteEndpointCommand, se_DeleteEndpointCommand } from "../protocols/Aws_json1_1";
+import { DeleteEndpointMessage, DeleteEndpointResponse } from "../models/models_0";
+import { DeleteEndpoint } from "../schemas/schemas_3_Data";
 
 /**
  * @public
@@ -474,16 +469,11 @@ export class DeleteEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "DeleteEndpoint", {})
   .n("DatabaseMigrationServiceClient", "DeleteEndpointCommand")
-  .f(void 0, DeleteEndpointResponseFilterSensitiveLog)
-  .ser(se_DeleteEndpointCommand)
-  .de(de_DeleteEndpointCommand)
+  .sc(DeleteEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

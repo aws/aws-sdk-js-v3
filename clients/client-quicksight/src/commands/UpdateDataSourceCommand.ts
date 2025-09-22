@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateDataSourceRequest,
-  UpdateDataSourceRequestFilterSensitiveLog,
-  UpdateDataSourceResponse,
-} from "../models/models_5";
-import { de_UpdateDataSourceCommand, se_UpdateDataSourceCommand } from "../protocols/Aws_restJson1";
+import { UpdateDataSourceRequest, UpdateDataSourceResponse } from "../models/models_5";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { UpdateDataSource } from "../schemas/schemas_13_Data";
 
 /**
  * @public
@@ -446,16 +441,11 @@ export class UpdateDataSourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "UpdateDataSource", {})
   .n("QuickSightClient", "UpdateDataSourceCommand")
-  .f(UpdateDataSourceRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateDataSourceCommand)
-  .de(de_UpdateDataSourceCommand)
+  .sc(UpdateDataSource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

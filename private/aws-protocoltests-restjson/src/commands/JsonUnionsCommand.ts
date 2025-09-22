@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UnionInputOutput } from "../models/models_0";
-import { de_JsonUnionsCommand, se_JsonUnionsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { JsonUnions } from "../schemas/schemas_2_Json";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class JsonUnionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "JsonUnions", {})
   .n("RestJsonProtocolClient", "JsonUnionsCommand")
-  .f(void 0, void 0)
-  .ser(se_JsonUnionsCommand)
-  .de(de_JsonUnionsCommand)
+  .sc(JsonUnions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

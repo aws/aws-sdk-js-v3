@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListClusterEventsRequest, ListClusterEventsResponse } from "../models/models_4";
-import { de_ListClusterEventsCommand, se_ListClusterEventsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListClusterEvents } from "../schemas/schemas_20_Cluster";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class ListClusterEventsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "ListClusterEvents", {})
   .n("SageMakerClient", "ListClusterEventsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListClusterEventsCommand)
-  .de(de_ListClusterEventsCommand)
+  .sc(ListClusterEvents)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

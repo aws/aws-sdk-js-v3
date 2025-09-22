@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartInstanceOnboardingJobRequest, StartInstanceOnboardingJobResponse } from "../models/models_0";
-import { de_StartInstanceOnboardingJobCommand, se_StartInstanceOnboardingJobCommand } from "../protocols/Aws_restJson1";
+import { StartInstanceOnboardingJob } from "../schemas/schemas_3_Instance";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class StartInstanceOnboardingJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectCampaignServiceV2", "StartInstanceOnboardingJob", {})
   .n("ConnectCampaignsV2Client", "StartInstanceOnboardingJobCommand")
-  .f(void 0, void 0)
-  .ser(se_StartInstanceOnboardingJobCommand)
-  .de(de_StartInstanceOnboardingJobCommand)
+  .sc(StartInstanceOnboardingJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

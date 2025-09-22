@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { PutRecordsInput, PutRecordsOutput } from "../models/models_0";
-import { de_PutRecordsCommand, se_PutRecordsCommand } from "../protocols/Aws_json1_1";
+import { PutRecords } from "../schemas/schemas_1_Shard";
 
 /**
  * @public
@@ -201,16 +200,11 @@ export class PutRecordsCommand extends $Command
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Kinesis_20131202", "PutRecords", {})
   .n("KinesisClient", "PutRecordsCommand")
-  .f(void 0, void 0)
-  .ser(se_PutRecordsCommand)
-  .de(de_PutRecordsCommand)
+  .sc(PutRecords)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

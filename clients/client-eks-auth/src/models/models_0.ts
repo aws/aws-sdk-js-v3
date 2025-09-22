@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { EKSAuthServiceException as __BaseException } from "./EKSAuthServiceException";
 
@@ -350,26 +350,3 @@ export class ThrottlingException extends __BaseException {
     Object.setPrototypeOf(this, ThrottlingException.prototype);
   }
 }
-
-/**
- * @internal
- */
-export const AssumeRoleForPodIdentityRequestFilterSensitiveLog = (obj: AssumeRoleForPodIdentityRequest): any => ({
-  ...obj,
-  ...(obj.token && { token: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssumeRoleForPodIdentityResponseFilterSensitiveLog = (obj: AssumeRoleForPodIdentityResponse): any => ({
-  ...obj,
-  ...(obj.credentials && { credentials: SENSITIVE_STRING }),
-});

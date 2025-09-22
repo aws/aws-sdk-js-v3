@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSegmentEstimateRequest, GetSegmentEstimateResponse } from "../models/models_0";
-import { de_GetSegmentEstimateCommand, se_GetSegmentEstimateCommand } from "../protocols/Aws_restJson1";
+import { GetSegmentEstimate } from "../schemas/schemas_9_Estimate";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class GetSegmentEstimateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "GetSegmentEstimate", {})
   .n("CustomerProfilesClient", "GetSegmentEstimateCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSegmentEstimateCommand)
-  .de(de_GetSegmentEstimateCommand)
+  .sc(GetSegmentEstimate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
