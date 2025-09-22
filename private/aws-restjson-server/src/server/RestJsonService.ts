@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import {
+  httpbinding,
   InternalFailureException as __InternalFailureException,
   isFrameworkException as __isFrameworkException,
   Mux as __Mux,
@@ -21,225 +22,424 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
-import { AllQueryStringTypes, AllQueryStringTypesServerInput } from "./operations/AllQueryStringTypes";
+import { serializeFrameworkException } from "../protocols/Aws_restJson1";
+import {
+  AllQueryStringTypes,
+  AllQueryStringTypesSerializer,
+  AllQueryStringTypesServerInput,
+} from "./operations/AllQueryStringTypes";
 import {
   ConstantAndVariableQueryString,
+  ConstantAndVariableQueryStringSerializer,
   ConstantAndVariableQueryStringServerInput,
 } from "./operations/ConstantAndVariableQueryString";
-import { ConstantQueryString, ConstantQueryStringServerInput } from "./operations/ConstantQueryString";
-import { ContentTypeParameters, ContentTypeParametersServerInput } from "./operations/ContentTypeParameters";
-import { DatetimeOffsets, DatetimeOffsetsServerInput } from "./operations/DatetimeOffsets";
-import { DocumentType, DocumentTypeServerInput } from "./operations/DocumentType";
-import { DocumentTypeAsMapValue, DocumentTypeAsMapValueServerInput } from "./operations/DocumentTypeAsMapValue";
-import { DocumentTypeAsPayload, DocumentTypeAsPayloadServerInput } from "./operations/DocumentTypeAsPayload";
-import { EmptyInputAndEmptyOutput, EmptyInputAndEmptyOutputServerInput } from "./operations/EmptyInputAndEmptyOutput";
-import { EndpointOperation, EndpointOperationServerInput } from "./operations/EndpointOperation";
+import {
+  ConstantQueryString,
+  ConstantQueryStringSerializer,
+  ConstantQueryStringServerInput,
+} from "./operations/ConstantQueryString";
+import {
+  ContentTypeParameters,
+  ContentTypeParametersSerializer,
+  ContentTypeParametersServerInput,
+} from "./operations/ContentTypeParameters";
+import { DatetimeOffsets, DatetimeOffsetsSerializer, DatetimeOffsetsServerInput } from "./operations/DatetimeOffsets";
+import { DocumentType, DocumentTypeSerializer, DocumentTypeServerInput } from "./operations/DocumentType";
+import {
+  DocumentTypeAsMapValue,
+  DocumentTypeAsMapValueSerializer,
+  DocumentTypeAsMapValueServerInput,
+} from "./operations/DocumentTypeAsMapValue";
+import {
+  DocumentTypeAsPayload,
+  DocumentTypeAsPayloadSerializer,
+  DocumentTypeAsPayloadServerInput,
+} from "./operations/DocumentTypeAsPayload";
+import {
+  EmptyInputAndEmptyOutput,
+  EmptyInputAndEmptyOutputSerializer,
+  EmptyInputAndEmptyOutputServerInput,
+} from "./operations/EmptyInputAndEmptyOutput";
+import {
+  EndpointOperation,
+  EndpointOperationSerializer,
+  EndpointOperationServerInput,
+} from "./operations/EndpointOperation";
 import {
   EndpointWithHostLabelOperation,
+  EndpointWithHostLabelOperationSerializer,
   EndpointWithHostLabelOperationServerInput,
 } from "./operations/EndpointWithHostLabelOperation";
-import { FractionalSeconds, FractionalSecondsServerInput } from "./operations/FractionalSeconds";
-import { GreetingWithErrors, GreetingWithErrorsServerInput } from "./operations/GreetingWithErrors";
-import { HostWithPathOperation, HostWithPathOperationServerInput } from "./operations/HostWithPathOperation";
-import { HttpChecksumRequired, HttpChecksumRequiredServerInput } from "./operations/HttpChecksumRequired";
-import { HttpEmptyPrefixHeaders, HttpEmptyPrefixHeadersServerInput } from "./operations/HttpEmptyPrefixHeaders";
-import { HttpEnumPayload, HttpEnumPayloadServerInput } from "./operations/HttpEnumPayload";
-import { HttpPayloadTraits, HttpPayloadTraitsServerInput } from "./operations/HttpPayloadTraits";
+import {
+  FractionalSeconds,
+  FractionalSecondsSerializer,
+  FractionalSecondsServerInput,
+} from "./operations/FractionalSeconds";
+import {
+  GreetingWithErrors,
+  GreetingWithErrorsSerializer,
+  GreetingWithErrorsServerInput,
+} from "./operations/GreetingWithErrors";
+import {
+  HostWithPathOperation,
+  HostWithPathOperationSerializer,
+  HostWithPathOperationServerInput,
+} from "./operations/HostWithPathOperation";
+import {
+  HttpChecksumRequired,
+  HttpChecksumRequiredSerializer,
+  HttpChecksumRequiredServerInput,
+} from "./operations/HttpChecksumRequired";
+import {
+  HttpEmptyPrefixHeaders,
+  HttpEmptyPrefixHeadersSerializer,
+  HttpEmptyPrefixHeadersServerInput,
+} from "./operations/HttpEmptyPrefixHeaders";
+import { HttpEnumPayload, HttpEnumPayloadSerializer, HttpEnumPayloadServerInput } from "./operations/HttpEnumPayload";
+import {
+  HttpPayloadTraits,
+  HttpPayloadTraitsSerializer,
+  HttpPayloadTraitsServerInput,
+} from "./operations/HttpPayloadTraits";
 import {
   HttpPayloadTraitsWithMediaType,
+  HttpPayloadTraitsWithMediaTypeSerializer,
   HttpPayloadTraitsWithMediaTypeServerInput,
 } from "./operations/HttpPayloadTraitsWithMediaType";
-import { HttpPayloadWithStructure, HttpPayloadWithStructureServerInput } from "./operations/HttpPayloadWithStructure";
-import { HttpPayloadWithUnion, HttpPayloadWithUnionServerInput } from "./operations/HttpPayloadWithUnion";
-import { HttpPrefixHeaders, HttpPrefixHeadersServerInput } from "./operations/HttpPrefixHeaders";
+import {
+  HttpPayloadWithStructure,
+  HttpPayloadWithStructureSerializer,
+  HttpPayloadWithStructureServerInput,
+} from "./operations/HttpPayloadWithStructure";
+import {
+  HttpPayloadWithUnion,
+  HttpPayloadWithUnionSerializer,
+  HttpPayloadWithUnionServerInput,
+} from "./operations/HttpPayloadWithUnion";
+import {
+  HttpPrefixHeaders,
+  HttpPrefixHeadersSerializer,
+  HttpPrefixHeadersServerInput,
+} from "./operations/HttpPrefixHeaders";
 import {
   HttpPrefixHeadersInResponse,
+  HttpPrefixHeadersInResponseSerializer,
   HttpPrefixHeadersInResponseServerInput,
 } from "./operations/HttpPrefixHeadersInResponse";
 import {
   HttpRequestWithFloatLabels,
+  HttpRequestWithFloatLabelsSerializer,
   HttpRequestWithFloatLabelsServerInput,
 } from "./operations/HttpRequestWithFloatLabels";
 import {
   HttpRequestWithGreedyLabelInPath,
+  HttpRequestWithGreedyLabelInPathSerializer,
   HttpRequestWithGreedyLabelInPathServerInput,
 } from "./operations/HttpRequestWithGreedyLabelInPath";
-import { HttpRequestWithLabels, HttpRequestWithLabelsServerInput } from "./operations/HttpRequestWithLabels";
+import {
+  HttpRequestWithLabels,
+  HttpRequestWithLabelsSerializer,
+  HttpRequestWithLabelsServerInput,
+} from "./operations/HttpRequestWithLabels";
 import {
   HttpRequestWithLabelsAndTimestampFormat,
+  HttpRequestWithLabelsAndTimestampFormatSerializer,
   HttpRequestWithLabelsAndTimestampFormatServerInput,
 } from "./operations/HttpRequestWithLabelsAndTimestampFormat";
 import {
   HttpRequestWithRegexLiteral,
+  HttpRequestWithRegexLiteralSerializer,
   HttpRequestWithRegexLiteralServerInput,
 } from "./operations/HttpRequestWithRegexLiteral";
-import { HttpResponseCode, HttpResponseCodeServerInput } from "./operations/HttpResponseCode";
-import { HttpStringPayload, HttpStringPayloadServerInput } from "./operations/HttpStringPayload";
+import {
+  HttpResponseCode,
+  HttpResponseCodeSerializer,
+  HttpResponseCodeServerInput,
+} from "./operations/HttpResponseCode";
+import {
+  HttpStringPayload,
+  HttpStringPayloadSerializer,
+  HttpStringPayloadServerInput,
+} from "./operations/HttpStringPayload";
 import {
   IgnoreQueryParamsInResponse,
+  IgnoreQueryParamsInResponseSerializer,
   IgnoreQueryParamsInResponseServerInput,
 } from "./operations/IgnoreQueryParamsInResponse";
 import {
   InputAndOutputWithHeaders,
+  InputAndOutputWithHeadersSerializer,
   InputAndOutputWithHeadersServerInput,
 } from "./operations/InputAndOutputWithHeaders";
-import { JsonBlobs, JsonBlobsServerInput } from "./operations/JsonBlobs";
-import { JsonEnums, JsonEnumsServerInput } from "./operations/JsonEnums";
-import { JsonIntEnums, JsonIntEnumsServerInput } from "./operations/JsonIntEnums";
-import { JsonLists, JsonListsServerInput } from "./operations/JsonLists";
-import { JsonMaps, JsonMapsServerInput } from "./operations/JsonMaps";
-import { JsonTimestamps, JsonTimestampsServerInput } from "./operations/JsonTimestamps";
-import { JsonUnions, JsonUnionsServerInput } from "./operations/JsonUnions";
-import { MalformedAcceptWithBody, MalformedAcceptWithBodyServerInput } from "./operations/MalformedAcceptWithBody";
+import { JsonBlobs, JsonBlobsSerializer, JsonBlobsServerInput } from "./operations/JsonBlobs";
+import { JsonEnums, JsonEnumsSerializer, JsonEnumsServerInput } from "./operations/JsonEnums";
+import { JsonIntEnums, JsonIntEnumsSerializer, JsonIntEnumsServerInput } from "./operations/JsonIntEnums";
+import { JsonLists, JsonListsSerializer, JsonListsServerInput } from "./operations/JsonLists";
+import { JsonMaps, JsonMapsSerializer, JsonMapsServerInput } from "./operations/JsonMaps";
+import { JsonTimestamps, JsonTimestampsSerializer, JsonTimestampsServerInput } from "./operations/JsonTimestamps";
+import { JsonUnions, JsonUnionsSerializer, JsonUnionsServerInput } from "./operations/JsonUnions";
+import {
+  MalformedAcceptWithBody,
+  MalformedAcceptWithBodySerializer,
+  MalformedAcceptWithBodyServerInput,
+} from "./operations/MalformedAcceptWithBody";
 import {
   MalformedAcceptWithGenericString,
+  MalformedAcceptWithGenericStringSerializer,
   MalformedAcceptWithGenericStringServerInput,
 } from "./operations/MalformedAcceptWithGenericString";
 import {
   MalformedAcceptWithPayload,
+  MalformedAcceptWithPayloadSerializer,
   MalformedAcceptWithPayloadServerInput,
 } from "./operations/MalformedAcceptWithPayload";
-import { MalformedBlob, MalformedBlobServerInput } from "./operations/MalformedBlob";
-import { MalformedBoolean, MalformedBooleanServerInput } from "./operations/MalformedBoolean";
-import { MalformedByte, MalformedByteServerInput } from "./operations/MalformedByte";
+import { MalformedBlob, MalformedBlobSerializer, MalformedBlobServerInput } from "./operations/MalformedBlob";
+import {
+  MalformedBoolean,
+  MalformedBooleanSerializer,
+  MalformedBooleanServerInput,
+} from "./operations/MalformedBoolean";
+import { MalformedByte, MalformedByteSerializer, MalformedByteServerInput } from "./operations/MalformedByte";
 import {
   MalformedContentTypeWithBody,
+  MalformedContentTypeWithBodySerializer,
   MalformedContentTypeWithBodyServerInput,
 } from "./operations/MalformedContentTypeWithBody";
 import {
   MalformedContentTypeWithGenericString,
+  MalformedContentTypeWithGenericStringSerializer,
   MalformedContentTypeWithGenericStringServerInput,
 } from "./operations/MalformedContentTypeWithGenericString";
 import {
   MalformedContentTypeWithoutBody,
+  MalformedContentTypeWithoutBodySerializer,
   MalformedContentTypeWithoutBodyServerInput,
 } from "./operations/MalformedContentTypeWithoutBody";
 import {
   MalformedContentTypeWithoutBodyEmptyInput,
+  MalformedContentTypeWithoutBodyEmptyInputSerializer,
   MalformedContentTypeWithoutBodyEmptyInputServerInput,
 } from "./operations/MalformedContentTypeWithoutBodyEmptyInput";
 import {
   MalformedContentTypeWithPayload,
+  MalformedContentTypeWithPayloadSerializer,
   MalformedContentTypeWithPayloadServerInput,
 } from "./operations/MalformedContentTypeWithPayload";
-import { MalformedDouble, MalformedDoubleServerInput } from "./operations/MalformedDouble";
-import { MalformedFloat, MalformedFloatServerInput } from "./operations/MalformedFloat";
-import { MalformedInteger, MalformedIntegerServerInput } from "./operations/MalformedInteger";
-import { MalformedList, MalformedListServerInput } from "./operations/MalformedList";
-import { MalformedLong, MalformedLongServerInput } from "./operations/MalformedLong";
-import { MalformedMap, MalformedMapServerInput } from "./operations/MalformedMap";
-import { MalformedRequestBody, MalformedRequestBodyServerInput } from "./operations/MalformedRequestBody";
-import { MalformedShort, MalformedShortServerInput } from "./operations/MalformedShort";
-import { MalformedString, MalformedStringServerInput } from "./operations/MalformedString";
+import { MalformedDouble, MalformedDoubleSerializer, MalformedDoubleServerInput } from "./operations/MalformedDouble";
+import { MalformedFloat, MalformedFloatSerializer, MalformedFloatServerInput } from "./operations/MalformedFloat";
+import {
+  MalformedInteger,
+  MalformedIntegerSerializer,
+  MalformedIntegerServerInput,
+} from "./operations/MalformedInteger";
+import { MalformedList, MalformedListSerializer, MalformedListServerInput } from "./operations/MalformedList";
+import { MalformedLong, MalformedLongSerializer, MalformedLongServerInput } from "./operations/MalformedLong";
+import { MalformedMap, MalformedMapSerializer, MalformedMapServerInput } from "./operations/MalformedMap";
+import {
+  MalformedRequestBody,
+  MalformedRequestBodySerializer,
+  MalformedRequestBodyServerInput,
+} from "./operations/MalformedRequestBody";
+import { MalformedShort, MalformedShortSerializer, MalformedShortServerInput } from "./operations/MalformedShort";
+import { MalformedString, MalformedStringSerializer, MalformedStringServerInput } from "./operations/MalformedString";
 import {
   MalformedTimestampBodyDateTime,
+  MalformedTimestampBodyDateTimeSerializer,
   MalformedTimestampBodyDateTimeServerInput,
 } from "./operations/MalformedTimestampBodyDateTime";
 import {
   MalformedTimestampBodyDefault,
+  MalformedTimestampBodyDefaultSerializer,
   MalformedTimestampBodyDefaultServerInput,
 } from "./operations/MalformedTimestampBodyDefault";
 import {
   MalformedTimestampBodyHttpDate,
+  MalformedTimestampBodyHttpDateSerializer,
   MalformedTimestampBodyHttpDateServerInput,
 } from "./operations/MalformedTimestampBodyHttpDate";
 import {
   MalformedTimestampHeaderDateTime,
+  MalformedTimestampHeaderDateTimeSerializer,
   MalformedTimestampHeaderDateTimeServerInput,
 } from "./operations/MalformedTimestampHeaderDateTime";
 import {
   MalformedTimestampHeaderDefault,
+  MalformedTimestampHeaderDefaultSerializer,
   MalformedTimestampHeaderDefaultServerInput,
 } from "./operations/MalformedTimestampHeaderDefault";
 import {
   MalformedTimestampHeaderEpoch,
+  MalformedTimestampHeaderEpochSerializer,
   MalformedTimestampHeaderEpochServerInput,
 } from "./operations/MalformedTimestampHeaderEpoch";
 import {
   MalformedTimestampPathDefault,
+  MalformedTimestampPathDefaultSerializer,
   MalformedTimestampPathDefaultServerInput,
 } from "./operations/MalformedTimestampPathDefault";
 import {
   MalformedTimestampPathEpoch,
+  MalformedTimestampPathEpochSerializer,
   MalformedTimestampPathEpochServerInput,
 } from "./operations/MalformedTimestampPathEpoch";
 import {
   MalformedTimestampPathHttpDate,
+  MalformedTimestampPathHttpDateSerializer,
   MalformedTimestampPathHttpDateServerInput,
 } from "./operations/MalformedTimestampPathHttpDate";
 import {
   MalformedTimestampQueryDefault,
+  MalformedTimestampQueryDefaultSerializer,
   MalformedTimestampQueryDefaultServerInput,
 } from "./operations/MalformedTimestampQueryDefault";
 import {
   MalformedTimestampQueryEpoch,
+  MalformedTimestampQueryEpochSerializer,
   MalformedTimestampQueryEpochServerInput,
 } from "./operations/MalformedTimestampQueryEpoch";
 import {
   MalformedTimestampQueryHttpDate,
+  MalformedTimestampQueryHttpDateSerializer,
   MalformedTimestampQueryHttpDateServerInput,
 } from "./operations/MalformedTimestampQueryHttpDate";
-import { MalformedUnion, MalformedUnionServerInput } from "./operations/MalformedUnion";
-import { MediaTypeHeader, MediaTypeHeaderServerInput } from "./operations/MediaTypeHeader";
-import { NoInputAndNoOutput, NoInputAndNoOutputServerInput } from "./operations/NoInputAndNoOutput";
-import { NoInputAndOutput, NoInputAndOutputServerInput } from "./operations/NoInputAndOutput";
+import { MalformedUnion, MalformedUnionSerializer, MalformedUnionServerInput } from "./operations/MalformedUnion";
+import { MediaTypeHeader, MediaTypeHeaderSerializer, MediaTypeHeaderServerInput } from "./operations/MediaTypeHeader";
+import {
+  NoInputAndNoOutput,
+  NoInputAndNoOutputSerializer,
+  NoInputAndNoOutputServerInput,
+} from "./operations/NoInputAndNoOutput";
+import {
+  NoInputAndOutput,
+  NoInputAndOutputSerializer,
+  NoInputAndOutputServerInput,
+} from "./operations/NoInputAndOutput";
 import {
   NullAndEmptyHeadersClient,
+  NullAndEmptyHeadersClientSerializer,
   NullAndEmptyHeadersClientServerInput,
 } from "./operations/NullAndEmptyHeadersClient";
 import {
   NullAndEmptyHeadersServer,
+  NullAndEmptyHeadersServerSerializer,
   NullAndEmptyHeadersServerServerInput,
 } from "./operations/NullAndEmptyHeadersServer";
 import {
   OmitsNullSerializesEmptyString,
+  OmitsNullSerializesEmptyStringSerializer,
   OmitsNullSerializesEmptyStringServerInput,
 } from "./operations/OmitsNullSerializesEmptyString";
 import {
   OmitsSerializingEmptyLists,
+  OmitsSerializingEmptyListsSerializer,
   OmitsSerializingEmptyListsServerInput,
 } from "./operations/OmitsSerializingEmptyLists";
-import { OperationWithDefaults, OperationWithDefaultsServerInput } from "./operations/OperationWithDefaults";
+import {
+  OperationWithDefaults,
+  OperationWithDefaultsSerializer,
+  OperationWithDefaultsServerInput,
+} from "./operations/OperationWithDefaults";
 import {
   OperationWithNestedStructure,
+  OperationWithNestedStructureSerializer,
   OperationWithNestedStructureServerInput,
 } from "./operations/OperationWithNestedStructure";
-import { PostPlayerAction, PostPlayerActionServerInput } from "./operations/PostPlayerAction";
-import { PostUnionWithJsonName, PostUnionWithJsonNameServerInput } from "./operations/PostUnionWithJsonName";
-import { PutWithContentEncoding, PutWithContentEncodingServerInput } from "./operations/PutWithContentEncoding";
+import {
+  PostPlayerAction,
+  PostPlayerActionSerializer,
+  PostPlayerActionServerInput,
+} from "./operations/PostPlayerAction";
+import {
+  PostUnionWithJsonName,
+  PostUnionWithJsonNameSerializer,
+  PostUnionWithJsonNameServerInput,
+} from "./operations/PostUnionWithJsonName";
+import {
+  PutWithContentEncoding,
+  PutWithContentEncodingSerializer,
+  PutWithContentEncodingServerInput,
+} from "./operations/PutWithContentEncoding";
 import {
   QueryIdempotencyTokenAutoFill,
+  QueryIdempotencyTokenAutoFillSerializer,
   QueryIdempotencyTokenAutoFillServerInput,
 } from "./operations/QueryIdempotencyTokenAutoFill";
 import {
   QueryParamsAsStringListMap,
+  QueryParamsAsStringListMapSerializer,
   QueryParamsAsStringListMapServerInput,
 } from "./operations/QueryParamsAsStringListMap";
-import { QueryPrecedence, QueryPrecedenceServerInput } from "./operations/QueryPrecedence";
-import { RecursiveShapes, RecursiveShapesServerInput } from "./operations/RecursiveShapes";
-import { ResponseCodeHttpFallback, ResponseCodeHttpFallbackServerInput } from "./operations/ResponseCodeHttpFallback";
-import { ResponseCodeRequired, ResponseCodeRequiredServerInput } from "./operations/ResponseCodeRequired";
-import { SimpleScalarProperties, SimpleScalarPropertiesServerInput } from "./operations/SimpleScalarProperties";
-import { SparseJsonLists, SparseJsonListsServerInput } from "./operations/SparseJsonLists";
-import { SparseJsonMaps, SparseJsonMapsServerInput } from "./operations/SparseJsonMaps";
-import { StreamingTraits, StreamingTraitsServerInput } from "./operations/StreamingTraits";
+import { QueryPrecedence, QueryPrecedenceSerializer, QueryPrecedenceServerInput } from "./operations/QueryPrecedence";
+import { RecursiveShapes, RecursiveShapesSerializer, RecursiveShapesServerInput } from "./operations/RecursiveShapes";
+import {
+  ResponseCodeHttpFallback,
+  ResponseCodeHttpFallbackSerializer,
+  ResponseCodeHttpFallbackServerInput,
+} from "./operations/ResponseCodeHttpFallback";
+import {
+  ResponseCodeRequired,
+  ResponseCodeRequiredSerializer,
+  ResponseCodeRequiredServerInput,
+} from "./operations/ResponseCodeRequired";
+import {
+  SimpleScalarProperties,
+  SimpleScalarPropertiesSerializer,
+  SimpleScalarPropertiesServerInput,
+} from "./operations/SimpleScalarProperties";
+import { SparseJsonLists, SparseJsonListsSerializer, SparseJsonListsServerInput } from "./operations/SparseJsonLists";
+import { SparseJsonMaps, SparseJsonMapsSerializer, SparseJsonMapsServerInput } from "./operations/SparseJsonMaps";
+import { StreamingTraits, StreamingTraitsSerializer, StreamingTraitsServerInput } from "./operations/StreamingTraits";
 import {
   StreamingTraitsRequireLength,
+  StreamingTraitsRequireLengthSerializer,
   StreamingTraitsRequireLengthServerInput,
 } from "./operations/StreamingTraitsRequireLength";
 import {
   StreamingTraitsWithMediaType,
+  StreamingTraitsWithMediaTypeSerializer,
   StreamingTraitsWithMediaTypeServerInput,
 } from "./operations/StreamingTraitsWithMediaType";
-import { TestBodyStructure, TestBodyStructureServerInput } from "./operations/TestBodyStructure";
-import { TestGetNoInputNoPayload, TestGetNoInputNoPayloadServerInput } from "./operations/TestGetNoInputNoPayload";
-import { TestGetNoPayload, TestGetNoPayloadServerInput } from "./operations/TestGetNoPayload";
-import { TestPayloadBlob, TestPayloadBlobServerInput } from "./operations/TestPayloadBlob";
-import { TestPayloadStructure, TestPayloadStructureServerInput } from "./operations/TestPayloadStructure";
-import { TestPostNoInputNoPayload, TestPostNoInputNoPayloadServerInput } from "./operations/TestPostNoInputNoPayload";
-import { TestPostNoPayload, TestPostNoPayloadServerInput } from "./operations/TestPostNoPayload";
-import { TimestampFormatHeaders, TimestampFormatHeadersServerInput } from "./operations/TimestampFormatHeaders";
-import { UnitInputAndOutput, UnitInputAndOutputServerInput } from "./operations/UnitInputAndOutput";
+import {
+  TestBodyStructure,
+  TestBodyStructureSerializer,
+  TestBodyStructureServerInput,
+} from "./operations/TestBodyStructure";
+import {
+  TestGetNoInputNoPayload,
+  TestGetNoInputNoPayloadSerializer,
+  TestGetNoInputNoPayloadServerInput,
+} from "./operations/TestGetNoInputNoPayload";
+import {
+  TestGetNoPayload,
+  TestGetNoPayloadSerializer,
+  TestGetNoPayloadServerInput,
+} from "./operations/TestGetNoPayload";
+import { TestPayloadBlob, TestPayloadBlobSerializer, TestPayloadBlobServerInput } from "./operations/TestPayloadBlob";
+import {
+  TestPayloadStructure,
+  TestPayloadStructureSerializer,
+  TestPayloadStructureServerInput,
+} from "./operations/TestPayloadStructure";
+import {
+  TestPostNoInputNoPayload,
+  TestPostNoInputNoPayloadSerializer,
+  TestPostNoInputNoPayloadServerInput,
+} from "./operations/TestPostNoInputNoPayload";
+import {
+  TestPostNoPayload,
+  TestPostNoPayloadSerializer,
+  TestPostNoPayloadServerInput,
+} from "./operations/TestPostNoPayload";
+import {
+  TimestampFormatHeaders,
+  TimestampFormatHeadersSerializer,
+  TimestampFormatHeadersServerInput,
+} from "./operations/TimestampFormatHeaders";
+import {
+  UnitInputAndOutput,
+  UnitInputAndOutputSerializer,
+  UnitInputAndOutputServerInput,
+} from "./operations/UnitInputAndOutput";
 
 export type RestJsonServiceOperations =
   | "AllQueryStringTypes"
@@ -1807,3 +2007,871 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
     }
   }
 }
+
+export const getRestJsonServiceHandler = <Context>(
+  service: RestJsonService<Context>,
+  customizer: __ValidationCustomizer<RestJsonServiceOperations>
+): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+  const mux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<Context>>([
+    new httpbinding.UriSpec<"RestJson", "AllQueryStringTypes">(
+      "GET",
+      [{ type: "path_literal", value: "AllQueryStringTypesInput" }],
+      [],
+      { service: "RestJson", operation: "AllQueryStringTypes" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "ConstantAndVariableQueryString">(
+      "GET",
+      [{ type: "path_literal", value: "ConstantAndVariableQueryString" }],
+      [{ type: "query_literal", key: "foo", value: "bar" }],
+      { service: "RestJson", operation: "ConstantAndVariableQueryString" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "ConstantQueryString">(
+      "GET",
+      [{ type: "path_literal", value: "ConstantQueryString" }, { type: "path" }],
+      [
+        { type: "query_literal", key: "foo", value: "bar" },
+        { type: "query_literal", key: "hello", value: "" },
+      ],
+      { service: "RestJson", operation: "ConstantQueryString" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "ContentTypeParameters">(
+      "POST",
+      [{ type: "path_literal", value: "ContentTypeParameters" }],
+      [],
+      { service: "RestJson", operation: "ContentTypeParameters" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "DatetimeOffsets">(
+      "POST",
+      [{ type: "path_literal", value: "DatetimeOffsets" }],
+      [],
+      { service: "RestJson", operation: "DatetimeOffsets" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "DocumentType">("PUT", [{ type: "path_literal", value: "DocumentType" }], [], {
+      service: "RestJson",
+      operation: "DocumentType",
+    }),
+    new httpbinding.UriSpec<"RestJson", "DocumentTypeAsMapValue">(
+      "PUT",
+      [{ type: "path_literal", value: "DocumentTypeAsMapValue" }],
+      [],
+      { service: "RestJson", operation: "DocumentTypeAsMapValue" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "DocumentTypeAsPayload">(
+      "PUT",
+      [{ type: "path_literal", value: "DocumentTypeAsPayload" }],
+      [],
+      { service: "RestJson", operation: "DocumentTypeAsPayload" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "EmptyInputAndEmptyOutput">(
+      "POST",
+      [{ type: "path_literal", value: "EmptyInputAndEmptyOutput" }],
+      [],
+      { service: "RestJson", operation: "EmptyInputAndEmptyOutput" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "EndpointOperation">(
+      "POST",
+      [{ type: "path_literal", value: "EndpointOperation" }],
+      [],
+      { service: "RestJson", operation: "EndpointOperation" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "EndpointWithHostLabelOperation">(
+      "POST",
+      [{ type: "path_literal", value: "EndpointWithHostLabelOperation" }],
+      [],
+      { service: "RestJson", operation: "EndpointWithHostLabelOperation" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "FractionalSeconds">(
+      "POST",
+      [{ type: "path_literal", value: "FractionalSeconds" }],
+      [],
+      { service: "RestJson", operation: "FractionalSeconds" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "GreetingWithErrors">(
+      "PUT",
+      [{ type: "path_literal", value: "GreetingWithErrors" }],
+      [],
+      { service: "RestJson", operation: "GreetingWithErrors" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HostWithPathOperation">(
+      "GET",
+      [{ type: "path_literal", value: "HostWithPathOperation" }],
+      [],
+      { service: "RestJson", operation: "HostWithPathOperation" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpChecksumRequired">(
+      "POST",
+      [{ type: "path_literal", value: "HttpChecksumRequired" }],
+      [],
+      { service: "RestJson", operation: "HttpChecksumRequired" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpEmptyPrefixHeaders">(
+      "GET",
+      [{ type: "path_literal", value: "HttpEmptyPrefixHeaders" }],
+      [],
+      { service: "RestJson", operation: "HttpEmptyPrefixHeaders" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpEnumPayload">(
+      "POST",
+      [{ type: "path_literal", value: "EnumPayload" }],
+      [],
+      { service: "RestJson", operation: "HttpEnumPayload" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpPayloadTraits">(
+      "POST",
+      [{ type: "path_literal", value: "HttpPayloadTraits" }],
+      [],
+      { service: "RestJson", operation: "HttpPayloadTraits" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpPayloadTraitsWithMediaType">(
+      "POST",
+      [{ type: "path_literal", value: "HttpPayloadTraitsWithMediaType" }],
+      [],
+      { service: "RestJson", operation: "HttpPayloadTraitsWithMediaType" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpPayloadWithStructure">(
+      "PUT",
+      [{ type: "path_literal", value: "HttpPayloadWithStructure" }],
+      [],
+      { service: "RestJson", operation: "HttpPayloadWithStructure" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpPayloadWithUnion">(
+      "PUT",
+      [{ type: "path_literal", value: "HttpPayloadWithUnion" }],
+      [],
+      { service: "RestJson", operation: "HttpPayloadWithUnion" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpPrefixHeaders">(
+      "GET",
+      [{ type: "path_literal", value: "HttpPrefixHeaders" }],
+      [],
+      { service: "RestJson", operation: "HttpPrefixHeaders" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpPrefixHeadersInResponse">(
+      "GET",
+      [{ type: "path_literal", value: "HttpPrefixHeadersResponse" }],
+      [],
+      { service: "RestJson", operation: "HttpPrefixHeadersInResponse" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpRequestWithFloatLabels">(
+      "GET",
+      [{ type: "path_literal", value: "FloatHttpLabels" }, { type: "path" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "HttpRequestWithFloatLabels" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpRequestWithGreedyLabelInPath">(
+      "GET",
+      [
+        { type: "path_literal", value: "HttpRequestWithGreedyLabelInPath" },
+        { type: "path_literal", value: "foo" },
+        { type: "path" },
+        { type: "path_literal", value: "baz" },
+        { type: "greedy" },
+      ],
+      [],
+      { service: "RestJson", operation: "HttpRequestWithGreedyLabelInPath" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpRequestWithLabels">(
+      "GET",
+      [
+        { type: "path_literal", value: "HttpRequestWithLabels" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+      ],
+      [],
+      { service: "RestJson", operation: "HttpRequestWithLabels" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpRequestWithLabelsAndTimestampFormat">(
+      "GET",
+      [
+        { type: "path_literal", value: "HttpRequestWithLabelsAndTimestampFormat" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+        { type: "path" },
+      ],
+      [],
+      { service: "RestJson", operation: "HttpRequestWithLabelsAndTimestampFormat" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpRequestWithRegexLiteral">(
+      "GET",
+      [{ type: "path_literal", value: "ReDosLiteral" }, { type: "path" }, { type: "path_literal", value: "(a+)+" }],
+      [],
+      { service: "RestJson", operation: "HttpRequestWithRegexLiteral" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpResponseCode">(
+      "PUT",
+      [{ type: "path_literal", value: "HttpResponseCode" }],
+      [],
+      { service: "RestJson", operation: "HttpResponseCode" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "HttpStringPayload">(
+      "POST",
+      [{ type: "path_literal", value: "StringPayload" }],
+      [],
+      { service: "RestJson", operation: "HttpStringPayload" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "IgnoreQueryParamsInResponse">(
+      "GET",
+      [{ type: "path_literal", value: "IgnoreQueryParamsInResponse" }],
+      [],
+      { service: "RestJson", operation: "IgnoreQueryParamsInResponse" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "InputAndOutputWithHeaders">(
+      "POST",
+      [{ type: "path_literal", value: "InputAndOutputWithHeaders" }],
+      [],
+      { service: "RestJson", operation: "InputAndOutputWithHeaders" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "JsonBlobs">("POST", [{ type: "path_literal", value: "JsonBlobs" }], [], {
+      service: "RestJson",
+      operation: "JsonBlobs",
+    }),
+    new httpbinding.UriSpec<"RestJson", "JsonEnums">("PUT", [{ type: "path_literal", value: "JsonEnums" }], [], {
+      service: "RestJson",
+      operation: "JsonEnums",
+    }),
+    new httpbinding.UriSpec<"RestJson", "JsonIntEnums">("PUT", [{ type: "path_literal", value: "JsonIntEnums" }], [], {
+      service: "RestJson",
+      operation: "JsonIntEnums",
+    }),
+    new httpbinding.UriSpec<"RestJson", "JsonLists">("PUT", [{ type: "path_literal", value: "JsonLists" }], [], {
+      service: "RestJson",
+      operation: "JsonLists",
+    }),
+    new httpbinding.UriSpec<"RestJson", "JsonMaps">("POST", [{ type: "path_literal", value: "JsonMaps" }], [], {
+      service: "RestJson",
+      operation: "JsonMaps",
+    }),
+    new httpbinding.UriSpec<"RestJson", "JsonTimestamps">(
+      "POST",
+      [{ type: "path_literal", value: "JsonTimestamps" }],
+      [],
+      { service: "RestJson", operation: "JsonTimestamps" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "JsonUnions">("PUT", [{ type: "path_literal", value: "JsonUnions" }], [], {
+      service: "RestJson",
+      operation: "JsonUnions",
+    }),
+    new httpbinding.UriSpec<"RestJson", "MalformedAcceptWithBody">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedAcceptWithBody" }],
+      [],
+      { service: "RestJson", operation: "MalformedAcceptWithBody" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedAcceptWithGenericString">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedAcceptWithGenericString" }],
+      [],
+      { service: "RestJson", operation: "MalformedAcceptWithGenericString" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedAcceptWithPayload">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedAcceptWithPayload" }],
+      [],
+      { service: "RestJson", operation: "MalformedAcceptWithPayload" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedBlob">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedBlob" }],
+      [],
+      { service: "RestJson", operation: "MalformedBlob" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedBoolean">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedBoolean" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "MalformedBoolean" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedByte">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedByte" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "MalformedByte" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithBody">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedContentTypeWithBody" }],
+      [],
+      { service: "RestJson", operation: "MalformedContentTypeWithBody" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithGenericString">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedContentTypeWithGenericString" }],
+      [],
+      { service: "RestJson", operation: "MalformedContentTypeWithGenericString" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithoutBody">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedContentTypeWithoutBody" }],
+      [],
+      { service: "RestJson", operation: "MalformedContentTypeWithoutBody" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithoutBodyEmptyInput">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedContentTypeWithoutBodyEmptyInput" }],
+      [],
+      { service: "RestJson", operation: "MalformedContentTypeWithoutBodyEmptyInput" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithPayload">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedContentTypeWithPayload" }],
+      [],
+      { service: "RestJson", operation: "MalformedContentTypeWithPayload" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedDouble">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedDouble" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "MalformedDouble" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedFloat">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedFloat" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "MalformedFloat" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedInteger">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedInteger" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "MalformedInteger" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedList">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedList" }],
+      [],
+      { service: "RestJson", operation: "MalformedList" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedLong">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedLong" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "MalformedLong" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedMap">("POST", [{ type: "path_literal", value: "MalformedMap" }], [], {
+      service: "RestJson",
+      operation: "MalformedMap",
+    }),
+    new httpbinding.UriSpec<"RestJson", "MalformedRequestBody">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedRequestBody" }],
+      [],
+      { service: "RestJson", operation: "MalformedRequestBody" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedShort">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedShort" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "MalformedShort" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedString">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedString" }],
+      [],
+      { service: "RestJson", operation: "MalformedString" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampBodyDateTime">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampBodyDateTime" }],
+      [],
+      { service: "RestJson", operation: "MalformedTimestampBodyDateTime" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampBodyDefault">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampBodyDefault" }],
+      [],
+      { service: "RestJson", operation: "MalformedTimestampBodyDefault" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampBodyHttpDate">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampBodyHttpDate" }],
+      [],
+      { service: "RestJson", operation: "MalformedTimestampBodyHttpDate" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampHeaderDateTime">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampHeaderDateTime" }],
+      [],
+      { service: "RestJson", operation: "MalformedTimestampHeaderDateTime" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampHeaderDefault">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampHeaderDefault" }],
+      [],
+      { service: "RestJson", operation: "MalformedTimestampHeaderDefault" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampHeaderEpoch">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampHeaderEpoch" }],
+      [],
+      { service: "RestJson", operation: "MalformedTimestampHeaderEpoch" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampPathDefault">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampPathDefault" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "MalformedTimestampPathDefault" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampPathEpoch">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampPathEpoch" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "MalformedTimestampPathEpoch" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampPathHttpDate">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampPathHttpDate" }, { type: "path" }],
+      [],
+      { service: "RestJson", operation: "MalformedTimestampPathHttpDate" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampQueryDefault">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampQueryDefault" }],
+      [{ type: "query", key: "timestamp" }],
+      { service: "RestJson", operation: "MalformedTimestampQueryDefault" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampQueryEpoch">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampQueryEpoch" }],
+      [{ type: "query", key: "timestamp" }],
+      { service: "RestJson", operation: "MalformedTimestampQueryEpoch" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedTimestampQueryHttpDate">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedTimestampQueryHttpDate" }],
+      [{ type: "query", key: "timestamp" }],
+      { service: "RestJson", operation: "MalformedTimestampQueryHttpDate" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MalformedUnion">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedUnion" }],
+      [],
+      { service: "RestJson", operation: "MalformedUnion" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "MediaTypeHeader">(
+      "GET",
+      [{ type: "path_literal", value: "MediaTypeHeader" }],
+      [],
+      { service: "RestJson", operation: "MediaTypeHeader" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "NoInputAndNoOutput">(
+      "POST",
+      [{ type: "path_literal", value: "NoInputAndNoOutput" }],
+      [],
+      { service: "RestJson", operation: "NoInputAndNoOutput" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "NoInputAndOutput">(
+      "POST",
+      [{ type: "path_literal", value: "NoInputAndOutputOutput" }],
+      [],
+      { service: "RestJson", operation: "NoInputAndOutput" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "NullAndEmptyHeadersClient">(
+      "GET",
+      [{ type: "path_literal", value: "NullAndEmptyHeadersClient" }],
+      [],
+      { service: "RestJson", operation: "NullAndEmptyHeadersClient" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "NullAndEmptyHeadersServer">(
+      "GET",
+      [{ type: "path_literal", value: "NullAndEmptyHeadersServer" }],
+      [],
+      { service: "RestJson", operation: "NullAndEmptyHeadersServer" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "OmitsNullSerializesEmptyString">(
+      "GET",
+      [{ type: "path_literal", value: "OmitsNullSerializesEmptyString" }],
+      [],
+      { service: "RestJson", operation: "OmitsNullSerializesEmptyString" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "OmitsSerializingEmptyLists">(
+      "POST",
+      [{ type: "path_literal", value: "OmitsSerializingEmptyLists" }],
+      [],
+      { service: "RestJson", operation: "OmitsSerializingEmptyLists" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "OperationWithDefaults">(
+      "POST",
+      [{ type: "path_literal", value: "OperationWithDefaults" }],
+      [],
+      { service: "RestJson", operation: "OperationWithDefaults" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "OperationWithNestedStructure">(
+      "POST",
+      [{ type: "path_literal", value: "OperationWithNestedStructure" }],
+      [],
+      { service: "RestJson", operation: "OperationWithNestedStructure" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "PostPlayerAction">(
+      "POST",
+      [{ type: "path_literal", value: "PostPlayerAction" }],
+      [],
+      { service: "RestJson", operation: "PostPlayerAction" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "PostUnionWithJsonName">(
+      "POST",
+      [{ type: "path_literal", value: "PostUnionWithJsonName" }],
+      [],
+      { service: "RestJson", operation: "PostUnionWithJsonName" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "PutWithContentEncoding">(
+      "POST",
+      [
+        { type: "path_literal", value: "requestcompression" },
+        { type: "path_literal", value: "putcontentwithencoding" },
+      ],
+      [],
+      { service: "RestJson", operation: "PutWithContentEncoding" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "QueryIdempotencyTokenAutoFill">(
+      "POST",
+      [{ type: "path_literal", value: "QueryIdempotencyTokenAutoFill" }],
+      [],
+      { service: "RestJson", operation: "QueryIdempotencyTokenAutoFill" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "QueryParamsAsStringListMap">(
+      "POST",
+      [{ type: "path_literal", value: "StringListMap" }],
+      [],
+      { service: "RestJson", operation: "QueryParamsAsStringListMap" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "QueryPrecedence">(
+      "POST",
+      [{ type: "path_literal", value: "Precedence" }],
+      [],
+      { service: "RestJson", operation: "QueryPrecedence" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "RecursiveShapes">(
+      "PUT",
+      [{ type: "path_literal", value: "RecursiveShapes" }],
+      [],
+      { service: "RestJson", operation: "RecursiveShapes" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "ResponseCodeHttpFallback">(
+      "GET",
+      [{ type: "path_literal", value: "responseCodeHttpFallback" }],
+      [],
+      { service: "RestJson", operation: "ResponseCodeHttpFallback" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "ResponseCodeRequired">(
+      "GET",
+      [{ type: "path_literal", value: "responseCodeRequired" }],
+      [],
+      { service: "RestJson", operation: "ResponseCodeRequired" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "SimpleScalarProperties">(
+      "PUT",
+      [{ type: "path_literal", value: "SimpleScalarProperties" }],
+      [],
+      { service: "RestJson", operation: "SimpleScalarProperties" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "SparseJsonLists">(
+      "PUT",
+      [{ type: "path_literal", value: "SparseJsonLists" }],
+      [],
+      { service: "RestJson", operation: "SparseJsonLists" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "SparseJsonMaps">(
+      "POST",
+      [{ type: "path_literal", value: "SparseJsonMaps" }],
+      [],
+      { service: "RestJson", operation: "SparseJsonMaps" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "StreamingTraits">(
+      "POST",
+      [{ type: "path_literal", value: "StreamingTraits" }],
+      [],
+      { service: "RestJson", operation: "StreamingTraits" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "StreamingTraitsRequireLength">(
+      "POST",
+      [{ type: "path_literal", value: "StreamingTraitsRequireLength" }],
+      [],
+      { service: "RestJson", operation: "StreamingTraitsRequireLength" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "StreamingTraitsWithMediaType">(
+      "POST",
+      [{ type: "path_literal", value: "StreamingTraitsWithMediaType" }],
+      [],
+      { service: "RestJson", operation: "StreamingTraitsWithMediaType" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "TestBodyStructure">("POST", [{ type: "path_literal", value: "body" }], [], {
+      service: "RestJson",
+      operation: "TestBodyStructure",
+    }),
+    new httpbinding.UriSpec<"RestJson", "TestGetNoInputNoPayload">(
+      "GET",
+      [{ type: "path_literal", value: "no_input_no_payload" }],
+      [],
+      { service: "RestJson", operation: "TestGetNoInputNoPayload" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "TestGetNoPayload">(
+      "GET",
+      [{ type: "path_literal", value: "no_payload" }],
+      [],
+      { service: "RestJson", operation: "TestGetNoPayload" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "TestPayloadBlob">(
+      "POST",
+      [{ type: "path_literal", value: "blob_payload" }],
+      [],
+      { service: "RestJson", operation: "TestPayloadBlob" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "TestPayloadStructure">(
+      "POST",
+      [{ type: "path_literal", value: "payload" }],
+      [],
+      { service: "RestJson", operation: "TestPayloadStructure" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "TestPostNoInputNoPayload">(
+      "POST",
+      [{ type: "path_literal", value: "no_input_no_payload" }],
+      [],
+      { service: "RestJson", operation: "TestPostNoInputNoPayload" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "TestPostNoPayload">(
+      "POST",
+      [{ type: "path_literal", value: "no_payload" }],
+      [],
+      { service: "RestJson", operation: "TestPostNoPayload" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "TimestampFormatHeaders">(
+      "POST",
+      [{ type: "path_literal", value: "TimestampFormatHeaders" }],
+      [],
+      { service: "RestJson", operation: "TimestampFormatHeaders" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "UnitInputAndOutput">(
+      "POST",
+      [{ type: "path_literal", value: "UnitInputAndOutput" }],
+      [],
+      { service: "RestJson", operation: "UnitInputAndOutput" }
+    ),
+  ]);
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<Context>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    switch (op) {
+      case "AllQueryStringTypes":
+        return new AllQueryStringTypesSerializer();
+      case "ConstantAndVariableQueryString":
+        return new ConstantAndVariableQueryStringSerializer();
+      case "ConstantQueryString":
+        return new ConstantQueryStringSerializer();
+      case "ContentTypeParameters":
+        return new ContentTypeParametersSerializer();
+      case "DatetimeOffsets":
+        return new DatetimeOffsetsSerializer();
+      case "DocumentType":
+        return new DocumentTypeSerializer();
+      case "DocumentTypeAsMapValue":
+        return new DocumentTypeAsMapValueSerializer();
+      case "DocumentTypeAsPayload":
+        return new DocumentTypeAsPayloadSerializer();
+      case "EmptyInputAndEmptyOutput":
+        return new EmptyInputAndEmptyOutputSerializer();
+      case "EndpointOperation":
+        return new EndpointOperationSerializer();
+      case "EndpointWithHostLabelOperation":
+        return new EndpointWithHostLabelOperationSerializer();
+      case "FractionalSeconds":
+        return new FractionalSecondsSerializer();
+      case "GreetingWithErrors":
+        return new GreetingWithErrorsSerializer();
+      case "HostWithPathOperation":
+        return new HostWithPathOperationSerializer();
+      case "HttpChecksumRequired":
+        return new HttpChecksumRequiredSerializer();
+      case "HttpEmptyPrefixHeaders":
+        return new HttpEmptyPrefixHeadersSerializer();
+      case "HttpEnumPayload":
+        return new HttpEnumPayloadSerializer();
+      case "HttpPayloadTraits":
+        return new HttpPayloadTraitsSerializer();
+      case "HttpPayloadTraitsWithMediaType":
+        return new HttpPayloadTraitsWithMediaTypeSerializer();
+      case "HttpPayloadWithStructure":
+        return new HttpPayloadWithStructureSerializer();
+      case "HttpPayloadWithUnion":
+        return new HttpPayloadWithUnionSerializer();
+      case "HttpPrefixHeaders":
+        return new HttpPrefixHeadersSerializer();
+      case "HttpPrefixHeadersInResponse":
+        return new HttpPrefixHeadersInResponseSerializer();
+      case "HttpRequestWithFloatLabels":
+        return new HttpRequestWithFloatLabelsSerializer();
+      case "HttpRequestWithGreedyLabelInPath":
+        return new HttpRequestWithGreedyLabelInPathSerializer();
+      case "HttpRequestWithLabels":
+        return new HttpRequestWithLabelsSerializer();
+      case "HttpRequestWithLabelsAndTimestampFormat":
+        return new HttpRequestWithLabelsAndTimestampFormatSerializer();
+      case "HttpRequestWithRegexLiteral":
+        return new HttpRequestWithRegexLiteralSerializer();
+      case "HttpResponseCode":
+        return new HttpResponseCodeSerializer();
+      case "HttpStringPayload":
+        return new HttpStringPayloadSerializer();
+      case "IgnoreQueryParamsInResponse":
+        return new IgnoreQueryParamsInResponseSerializer();
+      case "InputAndOutputWithHeaders":
+        return new InputAndOutputWithHeadersSerializer();
+      case "JsonBlobs":
+        return new JsonBlobsSerializer();
+      case "JsonEnums":
+        return new JsonEnumsSerializer();
+      case "JsonIntEnums":
+        return new JsonIntEnumsSerializer();
+      case "JsonLists":
+        return new JsonListsSerializer();
+      case "JsonMaps":
+        return new JsonMapsSerializer();
+      case "JsonTimestamps":
+        return new JsonTimestampsSerializer();
+      case "JsonUnions":
+        return new JsonUnionsSerializer();
+      case "MalformedAcceptWithBody":
+        return new MalformedAcceptWithBodySerializer();
+      case "MalformedAcceptWithGenericString":
+        return new MalformedAcceptWithGenericStringSerializer();
+      case "MalformedAcceptWithPayload":
+        return new MalformedAcceptWithPayloadSerializer();
+      case "MalformedBlob":
+        return new MalformedBlobSerializer();
+      case "MalformedBoolean":
+        return new MalformedBooleanSerializer();
+      case "MalformedByte":
+        return new MalformedByteSerializer();
+      case "MalformedContentTypeWithBody":
+        return new MalformedContentTypeWithBodySerializer();
+      case "MalformedContentTypeWithGenericString":
+        return new MalformedContentTypeWithGenericStringSerializer();
+      case "MalformedContentTypeWithoutBody":
+        return new MalformedContentTypeWithoutBodySerializer();
+      case "MalformedContentTypeWithoutBodyEmptyInput":
+        return new MalformedContentTypeWithoutBodyEmptyInputSerializer();
+      case "MalformedContentTypeWithPayload":
+        return new MalformedContentTypeWithPayloadSerializer();
+      case "MalformedDouble":
+        return new MalformedDoubleSerializer();
+      case "MalformedFloat":
+        return new MalformedFloatSerializer();
+      case "MalformedInteger":
+        return new MalformedIntegerSerializer();
+      case "MalformedList":
+        return new MalformedListSerializer();
+      case "MalformedLong":
+        return new MalformedLongSerializer();
+      case "MalformedMap":
+        return new MalformedMapSerializer();
+      case "MalformedRequestBody":
+        return new MalformedRequestBodySerializer();
+      case "MalformedShort":
+        return new MalformedShortSerializer();
+      case "MalformedString":
+        return new MalformedStringSerializer();
+      case "MalformedTimestampBodyDateTime":
+        return new MalformedTimestampBodyDateTimeSerializer();
+      case "MalformedTimestampBodyDefault":
+        return new MalformedTimestampBodyDefaultSerializer();
+      case "MalformedTimestampBodyHttpDate":
+        return new MalformedTimestampBodyHttpDateSerializer();
+      case "MalformedTimestampHeaderDateTime":
+        return new MalformedTimestampHeaderDateTimeSerializer();
+      case "MalformedTimestampHeaderDefault":
+        return new MalformedTimestampHeaderDefaultSerializer();
+      case "MalformedTimestampHeaderEpoch":
+        return new MalformedTimestampHeaderEpochSerializer();
+      case "MalformedTimestampPathDefault":
+        return new MalformedTimestampPathDefaultSerializer();
+      case "MalformedTimestampPathEpoch":
+        return new MalformedTimestampPathEpochSerializer();
+      case "MalformedTimestampPathHttpDate":
+        return new MalformedTimestampPathHttpDateSerializer();
+      case "MalformedTimestampQueryDefault":
+        return new MalformedTimestampQueryDefaultSerializer();
+      case "MalformedTimestampQueryEpoch":
+        return new MalformedTimestampQueryEpochSerializer();
+      case "MalformedTimestampQueryHttpDate":
+        return new MalformedTimestampQueryHttpDateSerializer();
+      case "MalformedUnion":
+        return new MalformedUnionSerializer();
+      case "MediaTypeHeader":
+        return new MediaTypeHeaderSerializer();
+      case "NoInputAndNoOutput":
+        return new NoInputAndNoOutputSerializer();
+      case "NoInputAndOutput":
+        return new NoInputAndOutputSerializer();
+      case "NullAndEmptyHeadersClient":
+        return new NullAndEmptyHeadersClientSerializer();
+      case "NullAndEmptyHeadersServer":
+        return new NullAndEmptyHeadersServerSerializer();
+      case "OmitsNullSerializesEmptyString":
+        return new OmitsNullSerializesEmptyStringSerializer();
+      case "OmitsSerializingEmptyLists":
+        return new OmitsSerializingEmptyListsSerializer();
+      case "OperationWithDefaults":
+        return new OperationWithDefaultsSerializer();
+      case "OperationWithNestedStructure":
+        return new OperationWithNestedStructureSerializer();
+      case "PostPlayerAction":
+        return new PostPlayerActionSerializer();
+      case "PostUnionWithJsonName":
+        return new PostUnionWithJsonNameSerializer();
+      case "PutWithContentEncoding":
+        return new PutWithContentEncodingSerializer();
+      case "QueryIdempotencyTokenAutoFill":
+        return new QueryIdempotencyTokenAutoFillSerializer();
+      case "QueryParamsAsStringListMap":
+        return new QueryParamsAsStringListMapSerializer();
+      case "QueryPrecedence":
+        return new QueryPrecedenceSerializer();
+      case "RecursiveShapes":
+        return new RecursiveShapesSerializer();
+      case "ResponseCodeHttpFallback":
+        return new ResponseCodeHttpFallbackSerializer();
+      case "ResponseCodeRequired":
+        return new ResponseCodeRequiredSerializer();
+      case "SimpleScalarProperties":
+        return new SimpleScalarPropertiesSerializer();
+      case "SparseJsonLists":
+        return new SparseJsonListsSerializer();
+      case "SparseJsonMaps":
+        return new SparseJsonMapsSerializer();
+      case "StreamingTraits":
+        return new StreamingTraitsSerializer();
+      case "StreamingTraitsRequireLength":
+        return new StreamingTraitsRequireLengthSerializer();
+      case "StreamingTraitsWithMediaType":
+        return new StreamingTraitsWithMediaTypeSerializer();
+      case "TestBodyStructure":
+        return new TestBodyStructureSerializer();
+      case "TestGetNoInputNoPayload":
+        return new TestGetNoInputNoPayloadSerializer();
+      case "TestGetNoPayload":
+        return new TestGetNoPayloadSerializer();
+      case "TestPayloadBlob":
+        return new TestPayloadBlobSerializer();
+      case "TestPayloadStructure":
+        return new TestPayloadStructureSerializer();
+      case "TestPostNoInputNoPayload":
+        return new TestPostNoInputNoPayloadSerializer();
+      case "TestPostNoPayload":
+        return new TestPostNoPayloadSerializer();
+      case "TimestampFormatHeaders":
+        return new TimestampFormatHeadersSerializer();
+      case "UnitInputAndOutput":
+        return new UnitInputAndOutputSerializer();
+    }
+  };
+  return new RestJsonServiceHandler(service, mux, serFn, serializeFrameworkException, customizer);
+};

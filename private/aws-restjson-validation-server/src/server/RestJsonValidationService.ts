@@ -1,5 +1,8 @@
 // smithy-typescript generated code
 import {
+  generateValidationMessage as __generateValidationMessage,
+  generateValidationSummary as __generateValidationSummary,
+  httpbinding,
   InternalFailureException as __InternalFailureException,
   isFrameworkException as __isFrameworkException,
   Mux as __Mux,
@@ -21,21 +24,55 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
-import { MalformedEnum, MalformedEnumServerInput } from "./operations/MalformedEnum";
-import { MalformedLength, MalformedLengthServerInput } from "./operations/MalformedLength";
-import { MalformedLengthOverride, MalformedLengthOverrideServerInput } from "./operations/MalformedLengthOverride";
+import { serializeFrameworkException } from "../protocols/Aws_restJson1";
+import { MalformedEnum, MalformedEnumSerializer, MalformedEnumServerInput } from "./operations/MalformedEnum";
+import { MalformedLength, MalformedLengthSerializer, MalformedLengthServerInput } from "./operations/MalformedLength";
+import {
+  MalformedLengthOverride,
+  MalformedLengthOverrideSerializer,
+  MalformedLengthOverrideServerInput,
+} from "./operations/MalformedLengthOverride";
 import {
   MalformedLengthQueryString,
+  MalformedLengthQueryStringSerializer,
   MalformedLengthQueryStringServerInput,
 } from "./operations/MalformedLengthQueryString";
-import { MalformedPattern, MalformedPatternServerInput } from "./operations/MalformedPattern";
-import { MalformedPatternOverride, MalformedPatternOverrideServerInput } from "./operations/MalformedPatternOverride";
-import { MalformedRange, MalformedRangeServerInput } from "./operations/MalformedRange";
-import { MalformedRangeOverride, MalformedRangeOverrideServerInput } from "./operations/MalformedRangeOverride";
-import { MalformedRequired, MalformedRequiredServerInput } from "./operations/MalformedRequired";
-import { MalformedUniqueItems, MalformedUniqueItemsServerInput } from "./operations/MalformedUniqueItems";
-import { RecursiveStructures, RecursiveStructuresServerInput } from "./operations/RecursiveStructures";
-import { SensitiveValidation, SensitiveValidationServerInput } from "./operations/SensitiveValidation";
+import {
+  MalformedPattern,
+  MalformedPatternSerializer,
+  MalformedPatternServerInput,
+} from "./operations/MalformedPattern";
+import {
+  MalformedPatternOverride,
+  MalformedPatternOverrideSerializer,
+  MalformedPatternOverrideServerInput,
+} from "./operations/MalformedPatternOverride";
+import { MalformedRange, MalformedRangeSerializer, MalformedRangeServerInput } from "./operations/MalformedRange";
+import {
+  MalformedRangeOverride,
+  MalformedRangeOverrideSerializer,
+  MalformedRangeOverrideServerInput,
+} from "./operations/MalformedRangeOverride";
+import {
+  MalformedRequired,
+  MalformedRequiredSerializer,
+  MalformedRequiredServerInput,
+} from "./operations/MalformedRequired";
+import {
+  MalformedUniqueItems,
+  MalformedUniqueItemsSerializer,
+  MalformedUniqueItemsServerInput,
+} from "./operations/MalformedUniqueItems";
+import {
+  RecursiveStructures,
+  RecursiveStructuresSerializer,
+  RecursiveStructuresServerInput,
+} from "./operations/RecursiveStructures";
+import {
+  SensitiveValidation,
+  SensitiveValidationSerializer,
+  SensitiveValidationServerInput,
+} from "./operations/SensitiveValidation";
 
 export type RestJsonValidationServiceOperations =
   | "MalformedEnum"
@@ -301,3 +338,131 @@ export class RestJsonValidationServiceHandler<Context> implements __ServiceHandl
     }
   }
 }
+
+export const getRestJsonValidationServiceHandler = <Context>(
+  service: RestJsonValidationService<Context>
+): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+  const mux = new httpbinding.HttpBindingMux<"RestJsonValidation", keyof RestJsonValidationService<Context>>([
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedEnum">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedEnum" }],
+      [],
+      { service: "RestJsonValidation", operation: "MalformedEnum" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedLength">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedLength" }],
+      [],
+      { service: "RestJsonValidation", operation: "MalformedLength" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedLengthOverride">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedLengthOverride" }],
+      [],
+      { service: "RestJsonValidation", operation: "MalformedLengthOverride" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedLengthQueryString">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedLengthQueryString" }],
+      [],
+      { service: "RestJsonValidation", operation: "MalformedLengthQueryString" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedPattern">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedPattern" }],
+      [],
+      { service: "RestJsonValidation", operation: "MalformedPattern" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedPatternOverride">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedPatternOverride" }],
+      [],
+      { service: "RestJsonValidation", operation: "MalformedPatternOverride" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedRange">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedRange" }],
+      [],
+      { service: "RestJsonValidation", operation: "MalformedRange" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedRangeOverride">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedRangeOverride" }],
+      [],
+      { service: "RestJsonValidation", operation: "MalformedRangeOverride" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedRequired">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedRequired" }],
+      [{ type: "query", key: "stringInQuery" }],
+      { service: "RestJsonValidation", operation: "MalformedRequired" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "MalformedUniqueItems">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedUniqueItems" }],
+      [],
+      { service: "RestJsonValidation", operation: "MalformedUniqueItems" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "RecursiveStructures">(
+      "POST",
+      [{ type: "path_literal", value: "RecursiveStructures" }],
+      [],
+      { service: "RestJsonValidation", operation: "RecursiveStructures" }
+    ),
+    new httpbinding.UriSpec<"RestJsonValidation", "SensitiveValidation">(
+      "POST",
+      [{ type: "path_literal", value: "SensitiveValidation" }],
+      [],
+      { service: "RestJsonValidation", operation: "SensitiveValidation" }
+    ),
+  ]);
+  const serFn: (
+    op: RestJsonValidationServiceOperations
+  ) => __OperationSerializer<
+    RestJsonValidationService<Context>,
+    RestJsonValidationServiceOperations,
+    __ServiceException
+  > = (op) => {
+    switch (op) {
+      case "MalformedEnum":
+        return new MalformedEnumSerializer();
+      case "MalformedLength":
+        return new MalformedLengthSerializer();
+      case "MalformedLengthOverride":
+        return new MalformedLengthOverrideSerializer();
+      case "MalformedLengthQueryString":
+        return new MalformedLengthQueryStringSerializer();
+      case "MalformedPattern":
+        return new MalformedPatternSerializer();
+      case "MalformedPatternOverride":
+        return new MalformedPatternOverrideSerializer();
+      case "MalformedRange":
+        return new MalformedRangeSerializer();
+      case "MalformedRangeOverride":
+        return new MalformedRangeOverrideSerializer();
+      case "MalformedRequired":
+        return new MalformedRequiredSerializer();
+      case "MalformedUniqueItems":
+        return new MalformedUniqueItemsSerializer();
+      case "RecursiveStructures":
+        return new RecursiveStructuresSerializer();
+      case "SensitiveValidation":
+        return new SensitiveValidationSerializer();
+    }
+  };
+  const customizer: __ValidationCustomizer<RestJsonValidationServiceOperations> = (ctx, failures) => {
+    if (!failures) {
+      return undefined;
+    }
+    return {
+      name: "ValidationException",
+      $fault: "client",
+      message: __generateValidationSummary(failures),
+      fieldList: failures.map((failure) => ({
+        path: failure.path,
+        message: __generateValidationMessage(failure),
+      })),
+    };
+  };
+  return new RestJsonValidationServiceHandler(service, mux, serFn, serializeFrameworkException, customizer);
+};

@@ -17,7 +17,7 @@ import {
   UniqueItemsValidator as __UniqueItemsValidator,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 /**
  * @public
@@ -1451,6 +1451,13 @@ export interface SensitiveValidationInput {
   string?: string | undefined;
 }
 
+/**
+ * @internal
+ */
+export const SensitiveValidationInputFilterSensitiveLog = (obj: SensitiveValidationInput): any => ({
+  ...obj,
+  ...(obj.string && { string: SENSITIVE_STRING }),
+});
 export namespace SensitiveValidationInput {
   const memberValidators: {
     string?: __MultiConstraintValidator<string>;

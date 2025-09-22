@@ -1339,6 +1339,7 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@aws-smithy/server-common": "npm:1.0.0-alpha.10"
     "@smithy/config-resolver": "npm:^4.2.2"
@@ -1378,6 +1379,7 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@aws-smithy/server-common": "npm:1.0.0-alpha.10"
     "@smithy/config-resolver": "npm:^4.2.2"
