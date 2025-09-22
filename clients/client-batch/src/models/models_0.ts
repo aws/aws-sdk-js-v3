@@ -367,6 +367,13 @@ export interface Ec2Configuration {
    *       specified in an update, but neither an <code>imageId</code> nor a <code>imageIdOverride</code>
    *       parameter is specified, then the latest Amazon ECS optimized AMI for that image type that's
    *       supported by Batch is used.</p>
+   *                <important>
+   *                   <p>Amazon Web Services will end support for Amazon ECS optimized AL2-optimized and AL2-accelerated AMIs. Starting in January 2026, Batch will change
+   *        the default AMI for new Amazon ECS compute environments from Amazon Linux 2 to Amazon Linux 2023.
+   *        We recommend migrating Batch Amazon ECS compute environments to Amazon Linux 2023 to maintain
+   *        optimal performance and security. For more information on upgrading from AL2 to AL2023, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/ecs-migration-2023.html">How to migrate
+   *         from ECS AL2 to ECS AL2023</a> in the <i>Batch User Guide</i>.</p>
+   *                </important>
    *                <dl>
    *                   <dt>ECS_AL2</dt>
    *                   <dd>
@@ -399,12 +406,6 @@ export interface Ec2Configuration {
    *                         <p>ECS_AL2023_NVIDIA doesn't support <code>p3</code> and <code>g3</code> instance types.</p>
    *                      </note>
    *                   </dd>
-   *                   <dt>ECS_AL1</dt>
-   *                   <dd>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami">Amazon Linux</a>. Amazon Linux has
-   *          reached the end-of-life of standard support. For more information, see <a href="http://aws.amazon.com/amazon-linux-ami/">Amazon Linux AMI</a>.</p>
-   *                   </dd>
    *                </dl>
    *             </dd>
    *             <dt>EKS</dt>
@@ -423,7 +424,7 @@ export interface Ec2Configuration {
    *        using Batch-provided Amazon EKS optimized Amazon Linux 2 AMIs on your Amazon EKS compute
    *        environments beyond the 11/26/25 end-of-support date, these compute environments will no
    *        longer receive any new software updates, security patches, or bug fixes from
-   *        Amazon Web Services. For more information on upgrading from AL2 to AL2023, see <a href="">How to upgrade from EKS AL2 to EKS AL2023</a> in the <i>Batch User Guide</i>.</p>
+   *        Amazon Web Services. For more information on upgrading from AL2 to AL2023, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-migration-2023.html">How to upgrade from EKS AL2 to EKS AL2023</a> in the <i>Batch User Guide</i>.</p>
    *                </important>
    *                <dl>
    *                   <dt>EKS_AL2</dt>
@@ -692,6 +693,9 @@ export interface ComputeResource {
    *          <p> If you choose <code>SPOT</code>, you must also specify an Amazon EC2 Spot Fleet role with the
    *     <code>spotIamFleetRole</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon EC2 spot fleet role</a> in the
    *     <i>Batch User Guide</i>.</p>
+   *          <note>
+   *             <p>Multi-node parallel jobs aren't supported on Spot Instances.</p>
+   *          </note>
    * @public
    */
   type: CRType | undefined;
@@ -1168,6 +1172,10 @@ export interface CreateComputeEnvironmentRequest {
 
   /**
    * <p>The details for the Amazon EKS cluster that supports the compute environment.</p>
+   *          <note>
+   *             <p>To create a compute environment that uses EKS resources, the caller must have
+   *         permissions to call <code>eks:DescribeCluster</code>.</p>
+   *          </note>
    * @public
    */
   eksConfiguration?: EksConfiguration | undefined;
@@ -2554,7 +2562,7 @@ export interface LogConfiguration {
   /**
    * <p>The log driver to use for the container. The valid values that are listed for this parameter
    *    are log drivers that the Amazon ECS container agent can communicate with by default.</p>
-   *          <p>The supported log drivers are <code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
+   *          <p>The supported log drivers are <code>awsfirelens</code>, <code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
    *     <code>json-file</code>, <code>journald</code>, <code>logentries</code>, <code>syslog</code>, and
    *     <code>splunk</code>.</p>
    *          <note>
@@ -5708,7 +5716,8 @@ export interface EcsTaskDetails {
   platformVersion?: string | undefined;
 
   /**
-   * <p>The IPC resource namespace to use for the containers in the task.</p>
+   * <p>The IPC resource namespace to use for the containers in the task. The valid values are
+   *    <code>host</code>, <code>task</code>, or <code>none</code>. For more information see <code>ipcMode</code> in <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_EcsTaskProperties.html">EcsTaskProperties</a>.</p>
    * @public
    */
   ipcMode?: string | undefined;
@@ -5725,7 +5734,8 @@ export interface EcsTaskDetails {
   taskRoleArn?: string | undefined;
 
   /**
-   * <p>The process namespace to use for the containers in the task.</p>
+   * <p>The process namespace to use for the containers in the task. The valid values are
+   *    <code>host</code>, or <code>task</code>. For more information see <code>pidMode</code> in <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_EcsTaskProperties.html">EcsTaskProperties</a>.</p>
    * @public
    */
   pidMode?: string | undefined;
@@ -8487,9 +8497,9 @@ export interface SubmitServiceJobRequest {
   serviceJobType: ServiceJobType | undefined;
 
   /**
-   * <p>The share identifier for the service job. Don't specify this parameter if the job queue doesn't have a fair-
-   *            share scheduling policy. If the job queue has a fair-share scheduling policy, then this parameter
-   *            must be specified.</p>
+   * <p>The share identifier for the service job. Don't specify this parameter if the job
+   *             queue doesn't have a fair-share scheduling policy. If the job queue has a fair-share
+   *             scheduling policy, then this parameter must be specified.</p>
    * @public
    */
   shareIdentifier?: string | undefined;
