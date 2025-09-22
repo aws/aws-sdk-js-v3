@@ -66,7 +66,7 @@ export class Upload extends EventEmitter {
 
   private uploadedParts: CompletedPart[] = [];
   private uploadEnqueuedPartsCount = 0;
-  private expectedPartsCount = 0;
+  private expectedPartsCount?: number;
   /**
    * Last UploadId if the upload was done with MultipartUpload and not PutObject.
    */
@@ -93,8 +93,8 @@ export class Upload extends EventEmitter {
     this.bytesUploadedSoFar = 0;
     this.abortController = options.abortController ?? new AbortController();
 
-    this.partSize = this.__calculatePartSize(this.totalBytes ?? 0, Upload.MIN_PART_SIZE);
-    this.expectedPartsCount = this.totalBytes ? Math.ceil(this.totalBytes / this.partSize) : 1;
+    this.partSize = Math.max(Upload.MIN_PART_SIZE, Math.floor((this.totalBytes || 0) / this.MAX_PARTS));
+    this.expectedPartsCount = this.totalBytes !== undefined ? Math.ceil(this.totalBytes / this.partSize) : undefined;
 
     this.__validateInput();
   }
@@ -237,8 +237,6 @@ export class Upload extends EventEmitter {
         return;
       }
 
-      this.__validateUploadPart(dataPart, this.partSize);
-
       // Use put instead of multipart for one chunk uploads.
       if (dataPart.partNumber === 1 && dataPart.lastPart) {
         return await this.__uploadUsingPut(dataPart);
@@ -286,6 +284,8 @@ export class Upload extends EventEmitter {
       }
 
       this.uploadEnqueuedPartsCount += 1;
+
+      this.__validateUploadPart(dataPart);
 
       const partResult = await this.client.send(
         new UploadPartCommand({
@@ -369,10 +369,9 @@ export class Upload extends EventEmitter {
 
     let result;
     if (this.isMultiPart) {
-      if (this.totalBytes && this.uploadedParts.length !== this.expectedPartsCount) {
-        throw new Error(
-          `Expected ${this.expectedPartsCount} number of parts but uploaded only ${this.uploadedParts.length} parts`
-        );
+      const { expectedPartsCount, uploadedParts } = this;
+      if (expectedPartsCount !== undefined && uploadedParts.length !== expectedPartsCount) {
+        throw new Error(`Expected ${expectedPartsCount} part(s) but uploaded ${uploadedParts.length} part(s).`);
       }
 
       this.uploadedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
@@ -438,27 +437,24 @@ export class Upload extends EventEmitter {
     });
   }
 
-  private __calculatePartSize(targetPartSizeBytes: number, minPartSize: number): number {
-    const calculatedPartSize = Math.floor(targetPartSizeBytes / this.MAX_PARTS);
-    return Math.max(minPartSize, calculatedPartSize);
-  }
-
-  private __validateUploadPart(dataPart: RawDataPart, partSize: number): void {
-    const actualPartSize = byteLength(dataPart.data) || 0;
+  private __validateUploadPart(dataPart: RawDataPart): void {
+    const actualPartSize = byteLength(dataPart.data) || undefined;
 
     // Skip validation for single-part uploads (PUT operations)
     if (dataPart.partNumber === 1 && dataPart.lastPart) {
       return;
     }
 
-    if (actualPartSize === 0) {
-      throw new Error(`Content length is missing on the data for part number ${dataPart.partNumber}`);
+    if (actualPartSize === undefined) {
+      throw new Error(
+        `A dataPart was generated without a measurable data chunk size for part number ${dataPart.partNumber}`
+      );
     }
 
     // Validate part size (last part may be smaller)
-    if (!dataPart.lastPart && actualPartSize !== partSize) {
+    if (!dataPart.lastPart && actualPartSize !== this.partSize) {
       throw new Error(
-        `The Part size for part number ${dataPart.partNumber}, size ${actualPartSize} does not match expected size ${partSize}`
+        `The Part size for part number ${dataPart.partNumber}, size ${actualPartSize} does not match expected size ${this.partSize}`
       );
     }
   }

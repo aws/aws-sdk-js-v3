@@ -808,7 +808,7 @@ describe(Upload.name, () => {
       (upload as any).uploadedParts = [{ PartNumber: 1, ETag: "etag1" }];
       (upload as any).isMultiPart = true;
 
-      await expect(upload.done()).rejects.toThrow("Expected 3 number of parts but uploaded only 1 part");
+      await expect(upload.done()).rejects.toThrow("Expected 3 part(s) but uploaded 1 part(s).");
     });
 
     it("should throw error when part size doesn't match expected size except for laast part", () => {
@@ -859,7 +859,7 @@ describe(Upload.name, () => {
 
       expect(() => {
         (upload as any).__validateUploadPart(emptyPart, MOCK_PART_SIZE);
-      }).toThrow("Content length is missing on the data for part number 1");
+      }).toThrow("A dataPart was generated without a measurable data chunk size for part number 1");
     });
 
     it("should skip validation for single-part uploads", () => {
