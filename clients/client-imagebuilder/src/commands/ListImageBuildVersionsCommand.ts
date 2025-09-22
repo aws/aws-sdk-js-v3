@@ -38,7 +38,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImageBuildVersionsRequest
- *   imageVersionArn: "STRING_VALUE", // required
+ *   imageVersionArn: "STRING_VALUE",
  *   filters: [ // FilterList
  *     { // Filter
  *       name: "STRING_VALUE",

@@ -38,7 +38,7 @@ export interface ListWorkflowBuildVersionsCommandOutput extends ListWorkflowBuil
  * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // ListWorkflowBuildVersionsRequest
- *   workflowVersionArn: "STRING_VALUE", // required
+ *   workflowVersionArn: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

@@ -1057,6 +1057,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListComponentBuildVersionsCommand}
    */
+  listComponentBuildVersions(): Promise<ListComponentBuildVersionsCommandOutput>;
   listComponentBuildVersions(
     args: ListComponentBuildVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1125,6 +1126,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListImageBuildVersionsCommand}
    */
+  listImageBuildVersions(): Promise<ListImageBuildVersionsCommandOutput>;
   listImageBuildVersions(
     args: ListImageBuildVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1365,6 +1367,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListWorkflowBuildVersionsCommand}
    */
+  listWorkflowBuildVersions(): Promise<ListWorkflowBuildVersionsCommandOutput>;
   listWorkflowBuildVersions(
     args: ListWorkflowBuildVersionsCommandInput,
     options?: __HttpHandlerOptions

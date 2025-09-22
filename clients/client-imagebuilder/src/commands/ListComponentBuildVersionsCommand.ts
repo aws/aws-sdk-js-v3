@@ -39,7 +39,7 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // ListComponentBuildVersionsRequest
- *   componentVersionArn: "STRING_VALUE", // required
+ *   componentVersionArn: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

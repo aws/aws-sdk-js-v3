@@ -6068,7 +6068,7 @@ export interface ListComponentBuildVersionsRequest {
    * 			list.</p>
    * @public
    */
-  componentVersionArn: string | undefined;
+  componentVersionArn?: string | undefined;
 
   /**
    * <p>The maximum items to return in a request.</p>
@@ -6363,7 +6363,7 @@ export interface ListImageBuildVersionsRequest {
    * 			retrieve.</p>
    * @public
    */
-  imageVersionArn: string | undefined;
+  imageVersionArn?: string | undefined;
 
   /**
    * <p>Use the following filters to streamline results:</p>
@@ -8285,7 +8285,7 @@ export interface ListWorkflowBuildVersionsRequest {
    * <p>The Amazon Resource Name (ARN) of the workflow resource for which to get a list of build versions.</p>
    * @public
    */
-  workflowVersionArn: string | undefined;
+  workflowVersionArn?: string | undefined;
 
   /**
    * <p>The maximum items to return in a request.</p>
