@@ -103,6 +103,18 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *   },
  *   nodeRepairConfig: { // NodeRepairConfig
  *     enabled: true || false,
+ *     maxUnhealthyNodeThresholdCount: Number("int"),
+ *     maxUnhealthyNodeThresholdPercentage: Number("int"),
+ *     maxParallelNodesRepairedCount: Number("int"),
+ *     maxParallelNodesRepairedPercentage: Number("int"),
+ *     nodeRepairConfigOverrides: [ // NodeRepairConfigOverridesList
+ *       { // NodeRepairConfigOverrides
+ *         nodeMonitoringCondition: "STRING_VALUE",
+ *         nodeUnhealthyReason: "STRING_VALUE",
+ *         minRepairWaitTimeMins: Number("int"),
+ *         repairAction: "Replace" || "Reboot" || "NoAction",
+ *       },
+ *     ],
  *   },
  *   capacityType: "ON_DEMAND" || "SPOT" || "CAPACITY_BLOCK",
  *   version: "STRING_VALUE",
@@ -175,6 +187,18 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * //     },
  * //     nodeRepairConfig: { // NodeRepairConfig
  * //       enabled: true || false,
+ * //       maxUnhealthyNodeThresholdCount: Number("int"),
+ * //       maxUnhealthyNodeThresholdPercentage: Number("int"),
+ * //       maxParallelNodesRepairedCount: Number("int"),
+ * //       maxParallelNodesRepairedPercentage: Number("int"),
+ * //       nodeRepairConfigOverrides: [ // NodeRepairConfigOverridesList
+ * //         { // NodeRepairConfigOverrides
+ * //           nodeMonitoringCondition: "STRING_VALUE",
+ * //           nodeUnhealthyReason: "STRING_VALUE",
+ * //           minRepairWaitTimeMins: Number("int"),
+ * //           repairAction: "Replace" || "Reboot" || "NoAction",
+ * //         },
+ * //       ],
  * //     },
  * //     launchTemplate: { // LaunchTemplateSpecification
  * //       name: "STRING_VALUE",

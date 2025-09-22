@@ -81,6 +81,18 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  *   },
  *   nodeRepairConfig: { // NodeRepairConfig
  *     enabled: true || false,
+ *     maxUnhealthyNodeThresholdCount: Number("int"),
+ *     maxUnhealthyNodeThresholdPercentage: Number("int"),
+ *     maxParallelNodesRepairedCount: Number("int"),
+ *     maxParallelNodesRepairedPercentage: Number("int"),
+ *     nodeRepairConfigOverrides: [ // NodeRepairConfigOverridesList
+ *       { // NodeRepairConfigOverrides
+ *         nodeMonitoringCondition: "STRING_VALUE",
+ *         nodeUnhealthyReason: "STRING_VALUE",
+ *         minRepairWaitTimeMins: Number("int"),
+ *         repairAction: "Replace" || "Reboot" || "NoAction",
+ *       },
+ *     ],
  *   },
  *   clientRequestToken: "STRING_VALUE",
  * };
@@ -93,7 +105,7 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate" || "UpgradePolicyUpdate" || "ZonalShiftConfigUpdate" || "AutoModeUpdate" || "RemoteNetworkConfigUpdate" || "DeletionProtectionUpdate",
  * //     params: [ // UpdateParams
  * //       { // UpdateParam
- * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "NodeRepairEnabled" || "UpdateStrategy" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode" || "PodIdentityAssociations" || "UpgradePolicy" || "ZonalShiftConfig" || "ComputeConfig" || "StorageConfig" || "KubernetesNetworkConfig" || "RemoteNetworkConfig" || "DeletionProtection",
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "NodeRepairEnabled" || "UpdateStrategy" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode" || "PodIdentityAssociations" || "UpgradePolicy" || "ZonalShiftConfig" || "ComputeConfig" || "StorageConfig" || "KubernetesNetworkConfig" || "RemoteNetworkConfig" || "DeletionProtection" || "NodeRepairConfig",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],

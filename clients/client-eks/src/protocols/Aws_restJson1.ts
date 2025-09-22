@@ -230,6 +230,7 @@ import {
   NodegroupScalingConfig,
   NodegroupUpdateConfig,
   NodeRepairConfig,
+  NodeRepairConfigOverrides,
   NotFoundException,
   OidcIdentityProviderConfigRequest,
   OutpostConfigRequest,
@@ -3260,6 +3261,10 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_NodeRepairConfig omitted.
 
+// se_NodeRepairConfigOverrides omitted.
+
+// se_NodeRepairConfigOverridesList omitted.
+
 // se_OidcIdentityProviderConfigRequest omitted.
 
 // se_OutpostConfigRequest omitted.
@@ -3761,6 +3766,10 @@ const de_Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
 // de_NodegroupUpdateConfig omitted.
 
 // de_NodeRepairConfig omitted.
+
+// de_NodeRepairConfigOverrides omitted.
+
+// de_NodeRepairConfigOverridesList omitted.
 
 // de_OIDC omitted.
 

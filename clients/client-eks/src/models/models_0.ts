@@ -1109,6 +1109,7 @@ export const UpdateParamType = {
   MAX_UNAVAILABLE: "MaxUnavailable",
   MAX_UNAVAILABLE_PERCENTAGE: "MaxUnavailablePercentage",
   MIN_SIZE: "MinSize",
+  NODE_REPAIR_CONFIG: "NodeRepairConfig",
   NODE_REPAIR_ENABLED: "NodeRepairEnabled",
   PLATFORM_VERSION: "PlatformVersion",
   POD_IDENTITY_ASSOCIATIONS: "PodIdentityAssociations",
@@ -3797,6 +3798,58 @@ export interface LaunchTemplateSpecification {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RepairAction = {
+  NoAction: "NoAction",
+  Reboot: "Reboot",
+  Replace: "Replace",
+} as const;
+
+/**
+ * @public
+ */
+export type RepairAction = (typeof RepairAction)[keyof typeof RepairAction];
+
+/**
+ * <p>Specify granular overrides for specific repair actions. These overrides control the
+ *             repair action and the repair delay time before a node is considered eligible for repair.
+ *             If you use this, you must specify all the values.</p>
+ * @public
+ */
+export interface NodeRepairConfigOverrides {
+  /**
+   * <p>Specify an unhealthy condition reported by the node monitoring agent that this
+   *             override would apply to.</p>
+   * @public
+   */
+  nodeMonitoringCondition?: string | undefined;
+
+  /**
+   * <p>Specify a reason reported by the node monitoring agent that this
+   *             override would apply to.</p>
+   * @public
+   */
+  nodeUnhealthyReason?: string | undefined;
+
+  /**
+   * <p>Specify the minimum time in minutes to wait before attempting to repair a node
+   *             with this specific <code>nodeMonitoringCondition</code> and
+   *             <code>nodeUnhealthyReason</code>.</p>
+   * @public
+   */
+  minRepairWaitTimeMins?: number | undefined;
+
+  /**
+   * <p>Specify the repair action to take for nodes when all of the specified conditions are
+   *             met.</p>
+   * @public
+   */
+  repairAction?: RepairAction | undefined;
+}
+
+/**
  * <p>The node auto repair configuration for the node group.</p>
  * @public
  */
@@ -3807,6 +3860,48 @@ export interface NodeRepairConfig {
    * @public
    */
   enabled?: boolean | undefined;
+
+  /**
+   * <p>Specify a count threshold of unhealthy nodes, above which node auto
+   *             repair actions will stop. When using this, you cannot also set
+   *             <code>maxUnhealthyNodeThresholdPercentage</code> at the same time.</p>
+   * @public
+   */
+  maxUnhealthyNodeThresholdCount?: number | undefined;
+
+  /**
+   * <p>Specify a percentage threshold of unhealthy nodes, above which node auto
+   *             repair actions will stop. When using this, you cannot also set
+   *             <code>maxUnhealthyNodeThresholdCount</code> at the same time.</p>
+   * @public
+   */
+  maxUnhealthyNodeThresholdPercentage?: number | undefined;
+
+  /**
+   * <p>Specify the maximum number of nodes that can be repaired concurrently or in parallel,
+   *             expressed as a count of unhealthy nodes. This gives you finer-grained control over the
+   *             pace of node replacements. When using this, you cannot also set
+   *             <code>maxParallelNodesRepairedPercentage</code> at the same time.</p>
+   * @public
+   */
+  maxParallelNodesRepairedCount?: number | undefined;
+
+  /**
+   * <p>Specify the maximum number of nodes that can be repaired concurrently or in parallel,
+   *             expressed as a percentage of unhealthy nodes. This gives you finer-grained control over the
+   *             pace of node replacements. When using this, you cannot also set
+   *             <code>maxParallelNodesRepairedCount</code> at the same time.</p>
+   * @public
+   */
+  maxParallelNodesRepairedPercentage?: number | undefined;
+
+  /**
+   * <p>Specify granular overrides for specific repair actions. These overrides control the
+   *             repair action and the repair delay time before a node is considered eligible for repair.
+   *             If you use this, you must specify all the values.</p>
+   * @public
+   */
+  nodeRepairConfigOverrides?: NodeRepairConfigOverrides[] | undefined;
 }
 
 /**
