@@ -108,9 +108,7 @@ export class ProtocolLib {
       const errorSchema = getErrorSchema?.(registry, errorName) ?? (registry.getSchema(errorIdentifier) as ErrorSchema);
       return { errorSchema, errorMetadata };
     } catch (e) {
-      if (dataObject.Message) {
-        dataObject.message = dataObject.Message;
-      }
+      dataObject.message = dataObject.message ?? dataObject.Message ?? "UnknownError";
       const baseExceptionSchema = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace).getBaseException();
       if (baseExceptionSchema) {
         const ErrorCtor = baseExceptionSchema.ctor;

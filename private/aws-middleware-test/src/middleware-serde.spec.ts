@@ -1,10 +1,9 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { EC2 } from "@aws-sdk/client-ec2";
 import { S3 } from "@aws-sdk/client-s3";
 import { SageMaker } from "@aws-sdk/client-sagemaker";
 import { SageMakerRuntime } from "@aws-sdk/client-sagemaker-runtime";
 import { describe, test as it } from "vitest";
-
-import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 
 describe("middleware-serde", () => {
   describe(S3.name, () => {
@@ -75,7 +74,15 @@ describe("middleware-serde", () => {
           "content-type": "application/x-www-form-urlencoded",
           host: "ec2.us-west-2.amazonaws.com",
         },
-        body: /ClientCidrBlock=ClientCidrBlock&ServerCertificateArn=ServerCertificateArn(.*?)&Action=CreateClientVpnEndpoint&Version=2016-11-15/,
+        body(body: any) {
+          const params = Object.fromEntries(new URLSearchParams(body).entries());
+          expect(params).toMatchObject({
+            Action: "CreateClientVpnEndpoint",
+            Version: "2016-11-15",
+            ClientCidrBlock: "ClientCidrBlock",
+            ServerCertificateArn: "ServerCertificateArn",
+          });
+        },
         protocol: "https:",
         path: "/",
       });
