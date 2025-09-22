@@ -28,6 +28,7 @@
     "@aws-sdk/client-sqs": "*",
     "@aws-sdk/client-sts": "*",
     "@aws-sdk/client-transcribe-streaming": "*",
+    "@aws-sdk/core": "*",
     "@aws-sdk/credential-provider-node": "*",
     "@aws-sdk/middleware-bucket-endpoint": "*",
     "@aws-sdk/middleware-flexible-checksums": "*",
