@@ -432,6 +432,8 @@ export var ValidationException = error(
 
   __ValidationException
 );
+export var Unit = "unit" as const;
+
 export var ConnectCampaignsV2ServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.connectcampaignsv2",
   "ConnectCampaignsV2ServiceException",

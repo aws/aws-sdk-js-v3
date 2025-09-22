@@ -37,6 +37,8 @@ import { ApiGatewayManagementApiServiceException as __ApiGatewayManagementApiSer
 
 /* eslint no-var: 0 */
 
+export var Unit = "unit" as const;
+
 export var ApiGatewayManagementApiServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.apigatewaymanagementapi",
   "ApiGatewayManagementApiServiceException",

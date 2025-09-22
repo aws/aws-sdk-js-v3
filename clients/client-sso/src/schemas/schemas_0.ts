@@ -56,6 +56,8 @@ import { SSOServiceException as __SSOServiceException } from "../models/SSOServi
 
 /* eslint no-var: 0 */
 
+export var Unit = "unit" as const;
+
 export var SSOServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.sso",
   "SSOServiceException",

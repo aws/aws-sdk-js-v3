@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { op, struct } from "@smithy/core/schema";
 
-import { _dI, _DSR, _DSRI, _ht, _i, n0, Unit_n1 } from "./schemas_0";
+import { _dI, _DSR, _DSRI, _ht, _i, n0, Unit } from "./schemas_0";
 
 /* eslint no-var: 0 */
 
@@ -22,5 +22,5 @@ export var DeleteSubscriptionRequest = op(
     [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/subscription-requests/{identifier}", 204],
   },
   () => DeleteSubscriptionRequestInput,
-  () => Unit_n1
+  () => Unit
 );

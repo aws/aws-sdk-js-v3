@@ -353,6 +353,8 @@ export var ValidationException = error(
 
   __ValidationException
 );
+export var Unit = "unit" as const;
+
 export var CodeCatalystServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.codecatalyst",
   "CodeCatalystServiceException",

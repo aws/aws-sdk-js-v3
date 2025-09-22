@@ -188,6 +188,8 @@ export var ValidationException = error(
 
   __ValidationException
 );
+export var Unit = "unit" as const;
+
 export var SnowDeviceManagementServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.snowdevicemanagement",
   "SnowDeviceManagementServiceException",

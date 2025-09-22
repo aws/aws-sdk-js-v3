@@ -422,6 +422,8 @@ export var ValidationException = error(
 
   __ValidationException
 );
+export var Unit = "unit" as const;
+
 export var DataExchangeServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.dataexchange",
   "DataExchangeServiceException",

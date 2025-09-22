@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { op, struct } from "@smithy/core/schema";
 
-import { _DE, _DEI, _dI, _ht, _i, n0, Unit_n1 } from "./schemas_0";
+import { _DE, _DEI, _dI, _ht, _i, n0, Unit } from "./schemas_0";
 
 /* eslint no-var: 0 */
 
@@ -22,5 +22,5 @@ export var DeleteEnvironment = op(
     [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/environments/{identifier}", 204],
   },
   () => DeleteEnvironmentInput,
-  () => Unit_n1
+  () => Unit
 );

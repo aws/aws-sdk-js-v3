@@ -238,7 +238,7 @@ export var RemovePolicyGrantInput = struct(
   [[0, 1], [0, 1], [0, 1], 0, () => PolicyGrantPrincipal, 0, [0, 4]]
 );
 export var RemovePolicyGrantOutput = struct(n0, _RPGO, 0, [], []);
-export var Unit = struct(n0, _U, 0, [], []);
+export var Unit_n0 = struct(n0, _U, 0, [], []);
 export var UpdateUserProfileInput = struct(n0, _UUPI, 0, [_dI, _uI, _ty, _s], [[0, 1], [0, 1], 0, 0]);
 export var UpdateUserProfileOutput = struct(
   n0,
@@ -269,9 +269,9 @@ export var PolicyGrantDetail = uni(
     () => CreateAssetTypePolicyGrantDetail,
     () => CreateProjectPolicyGrantDetail,
     () => CreateEnvironmentProfilePolicyGrantDetail,
-    () => Unit,
-    () => Unit,
-    () => Unit,
+    () => Unit_n0,
+    () => Unit_n0,
+    () => Unit_n0,
     () => CreateProjectFromProjectProfilePolicyGrantDetail,
     () => UseAssetTypePolicyGrantDetail,
   ]

@@ -97,7 +97,7 @@ import {
   _USTp,
   AssetScope,
   n0,
-  Unit_n1,
+  Unit,
 } from "./schemas_0";
 
 /* eslint no-var: 0 */
@@ -396,7 +396,7 @@ export var DeleteSubscriptionTarget = op(
     ],
   },
   () => DeleteSubscriptionTargetInput,
-  () => Unit_n1
+  () => Unit
 );
 export var GetSubscriptionGrant = op(
   n0,

@@ -235,6 +235,8 @@ export var ValidationException = error(
   __ValidationException
 );
 export var ValidationExceptionField = struct(n0, _VEF, 0, [_N, _VI], [0, 0]);
+export var Unit = "unit" as const;
+
 export var ResourceExplorer2ServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.resourceexplorer2",
   "ResourceExplorer2ServiceException",

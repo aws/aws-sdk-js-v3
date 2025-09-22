@@ -43,7 +43,7 @@ import {
   _uA,
   Description,
   n0,
-  Unit_n1,
+  Unit,
 } from "./schemas_0";
 import { EnvironmentConfigurationId } from "./schemas_65_Environment";
 
@@ -227,7 +227,7 @@ export var DeleteEnvironmentProfile = op(
     [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/environment-profiles/{identifier}", 204],
   },
   () => DeleteEnvironmentProfileInput,
-  () => Unit_n1
+  () => Unit
 );
 export var ListEnvironmentProfiles = op(
   n0,

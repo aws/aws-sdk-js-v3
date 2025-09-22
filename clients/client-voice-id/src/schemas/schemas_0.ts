@@ -287,6 +287,8 @@ export var ValidationException = error(
 
   __ValidationException
 );
+export var Unit = "unit" as const;
+
 export var VoiceIDServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.voiceid",
   "VoiceIDServiceException",

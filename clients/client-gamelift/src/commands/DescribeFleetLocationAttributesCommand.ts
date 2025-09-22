@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeFleetLocationAttributesInput, DescribeFleetLocationAttributesOutput } from "../models/models_0";
-import { DescribeFleetLocationAttributes } from "../schemas/schemas_1_Fleet";
+import { DescribeFleetLocationAttributes } from "../schemas/schemas_39_Fleet";
 
 /**
  * @public

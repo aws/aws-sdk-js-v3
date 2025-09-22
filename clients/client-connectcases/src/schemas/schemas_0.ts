@@ -447,6 +447,8 @@ export var ValidationException = error(
 
   __ValidationException
 );
+export var Unit = "unit" as const;
+
 export var ConnectCasesServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.connectcases",
   "ConnectCasesServiceException",

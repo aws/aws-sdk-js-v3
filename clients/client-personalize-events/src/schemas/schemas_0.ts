@@ -70,6 +70,8 @@ import { PersonalizeEventsServiceException as __PersonalizeEventsServiceExceptio
 
 /* eslint no-var: 0 */
 
+export var Unit = "unit" as const;
+
 export var PersonalizeEventsServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.personalizeevents",
   "PersonalizeEventsServiceException",

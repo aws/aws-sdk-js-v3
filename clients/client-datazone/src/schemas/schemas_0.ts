@@ -1504,7 +1504,6 @@ export const _wN = "workgroupName";
 export const _wS = "withSecret";
 export const _wT = "workerType";
 export const n0 = "com.amazonaws.datazone";
-export const n1 = "smithy.api";
 
 // smithy-typescript generated code
 import { error, sim, struct } from "@smithy/core/schema";

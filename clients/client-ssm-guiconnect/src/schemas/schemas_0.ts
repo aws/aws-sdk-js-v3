@@ -36,6 +36,8 @@ import { SSMGuiConnectServiceException as __SSMGuiConnectServiceException } from
 
 /* eslint no-var: 0 */
 
+export var Unit = "unit" as const;
+
 export var SSMGuiConnectServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.ssmguiconnect",
   "SSMGuiConnectServiceException",

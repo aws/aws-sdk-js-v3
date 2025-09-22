@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { op, struct } from "@smithy/core/schema";
 
-import { _aIs, _DAF, _DAFI, _dI, _ht, _i, n0, Unit_n1 } from "./schemas_0";
+import { _aIs, _DAF, _DAFI, _dI, _ht, _i, n0, Unit } from "./schemas_0";
 
 /* eslint no-var: 0 */
 
@@ -23,5 +23,5 @@ export var DeleteAssetFilter = op(
     [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}", 204],
   },
   () => DeleteAssetFilterInput,
-  () => Unit_n1
+  () => Unit
 );

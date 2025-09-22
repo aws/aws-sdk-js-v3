@@ -22,6 +22,8 @@ import { KinesisVideoWebRTCStorageServiceException as __KinesisVideoWebRTCStorag
 
 /* eslint no-var: 0 */
 
+export var Unit = "unit" as const;
+
 export var KinesisVideoWebRTCStorageServiceException = error(
   "smithy.ts.sdk.synthetic.com.amazonaws.kinesisvideowebrtcstorage",
   "KinesisVideoWebRTCStorageServiceException",

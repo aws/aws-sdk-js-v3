@@ -20,6 +20,8 @@ import { error } from "@smithy/core/schema";
 
 /* eslint no-var: 0 */
 
+export var Unit = "unit" as const;
+
 export var WeatherServiceException = error(
   "smithy.ts.sdk.synthetic.example.weather",
   "WeatherServiceException",
