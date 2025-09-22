@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.894.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.893.0...v3.894.0) (2025-09-22)
+
+
+### Features
+
+* **client-imagebuilder:** Version ARNs are no longer required for the EC2 Image Builder list-image-build-version, list-component-build-version, and list-workflow-build-version APIs. Calling these APIs without the ARN returns all build versions for the given resource type in the requesting account. ([ac6ffdf](https://github.com/aws/aws-sdk-js-v3/commit/ac6ffdfebc04e8c0865aa68cf89a4c9b4ebbd4ee))
+
+
+
+
+
 # [3.893.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.892.0...v3.893.0) (2025-09-19)
 
 **Note:** Version bump only for package @aws-sdk/client-imagebuilder

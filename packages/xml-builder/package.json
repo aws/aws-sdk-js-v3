@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/xml-builder",
-  "version": "3.893.0",
+  "version": "3.894.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
     "@smithy/types": "^4.5.0",

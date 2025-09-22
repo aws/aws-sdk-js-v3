@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.894.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.893.0...v3.894.0) (2025-09-22)
+
+
+### Features
+
+* **xml-builder:** use DOMParser for browser XML parsing ([#7347](https://github.com/aws/aws-sdk-js-v3/issues/7347)) ([af40250](https://github.com/aws/aws-sdk-js-v3/commit/af4025005e5c251d64b5cf3840d24e48d7ae1d91))
+
+
+
+
+
 # [3.893.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.892.0...v3.893.0) (2025-09-19)
 
 **Note:** Version bump only for package @aws-sdk/client-iam

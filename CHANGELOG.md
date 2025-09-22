@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.894.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.893.0...v3.894.0) (2025-09-22)
+
+
+### Features
+
+* **client-eks:** Adds support for RepairConfig overrides and configurations in EKS Managed Node Groups. ([8a8db62](https://github.com/aws/aws-sdk-js-v3/commit/8a8db628913a20e498bb3471f469d4e0ecdb603d))
+* **client-imagebuilder:** Version ARNs are no longer required for the EC2 Image Builder list-image-build-version, list-component-build-version, and list-workflow-build-version APIs. Calling these APIs without the ARN returns all build versions for the given resource type in the requesting account. ([ac6ffdf](https://github.com/aws/aws-sdk-js-v3/commit/ac6ffdfebc04e8c0865aa68cf89a4c9b4ebbd4ee))
+* **clients:** update client endpoints as of 2025-09-22 ([182581c](https://github.com/aws/aws-sdk-js-v3/commit/182581c32e14d4ce080fe85ba215fd4c458035e3))
+* **xml-builder:** use DOMParser for browser XML parsing ([#7347](https://github.com/aws/aws-sdk-js-v3/issues/7347)) ([af40250](https://github.com/aws/aws-sdk-js-v3/commit/af4025005e5c251d64b5cf3840d24e48d7ae1d91))
+
+
+
+
+
 # [3.893.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.892.0...v3.893.0) (2025-09-19)
 
 
