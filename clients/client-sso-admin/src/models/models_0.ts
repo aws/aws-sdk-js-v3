@@ -36,6 +36,20 @@ export interface AccessControlAttribute {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AccessDeniedExceptionReason = {
+  KMS_ACCESS_DENIED_EXCEPTION: "KMS_AccessDeniedException",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessDeniedExceptionReason =
+  (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
+
+/**
  * <p>You do not have sufficient access to perform this action.</p>
  * @public
  */
@@ -43,6 +57,11 @@ export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   Message?: string | undefined;
+  /**
+   * <p>The reason for the access denied exception.</p>
+   * @public
+   */
+  Reason?: AccessDeniedExceptionReason | undefined;
   /**
    * @internal
    */
@@ -54,6 +73,7 @@ export class AccessDeniedException extends __BaseException {
     });
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
     this.Message = opts.Message;
+    this.Reason = opts.Reason;
   }
 }
 
@@ -443,6 +463,20 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ResourceNotFoundExceptionReason = {
+  KMS_NOT_FOUND_EXCEPTION: "KMS_NotFoundException",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceNotFoundExceptionReason =
+  (typeof ResourceNotFoundExceptionReason)[keyof typeof ResourceNotFoundExceptionReason];
+
+/**
  * <p>Indicates that a requested resource is not found.</p>
  * @public
  */
@@ -450,6 +484,11 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   Message?: string | undefined;
+  /**
+   * <p>The reason for the resource not found exception.</p>
+   * @public
+   */
+  Reason?: ResourceNotFoundExceptionReason | undefined;
   /**
    * @internal
    */
@@ -461,8 +500,22 @@ export class ResourceNotFoundException extends __BaseException {
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.Message = opts.Message;
+    this.Reason = opts.Reason;
   }
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ThrottlingExceptionReason = {
+  KMS_THROTTLING_EXCEPTION: "KMS_ThrottlingException",
+} as const;
+
+/**
+ * @public
+ */
+export type ThrottlingExceptionReason = (typeof ThrottlingExceptionReason)[keyof typeof ThrottlingExceptionReason];
 
 /**
  * <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
@@ -472,6 +525,11 @@ export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   Message?: string | undefined;
+  /**
+   * <p>The reason for the throttling exception.</p>
+   * @public
+   */
+  Reason?: ThrottlingExceptionReason | undefined;
   /**
    * @internal
    */
@@ -483,8 +541,24 @@ export class ThrottlingException extends __BaseException {
     });
     Object.setPrototypeOf(this, ThrottlingException.prototype);
     this.Message = opts.Message;
+    this.Reason = opts.Reason;
   }
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  KMS_DISABLED_EXCEPTION: "KMS_DisabledException",
+  KMS_INVALID_KEY_USAGE_EXCEPTION: "KMS_InvalidKeyUsageException",
+  KMS_INVALID_STATE_EXCEPTION: "KMS_InvalidStateException",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * <p>The request failed because it contains a syntax error.</p>
@@ -494,6 +568,11 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   Message?: string | undefined;
+  /**
+   * <p>The reason for the validation exception.</p>
+   * @public
+   */
+  Reason?: ValidationExceptionReason | undefined;
   /**
    * @internal
    */
@@ -505,6 +584,7 @@ export class ValidationException extends __BaseException {
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
     this.Message = opts.Message;
+    this.Reason = opts.Reason;
   }
 }
 
@@ -2256,8 +2336,68 @@ export interface DescribeInstanceRequest {
  * @public
  * @enum
  */
+export const KmsKeyStatus = {
+  ENABLED: "ENABLED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type KmsKeyStatus = (typeof KmsKeyStatus)[keyof typeof KmsKeyStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const KmsKeyType = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type KmsKeyType = (typeof KmsKeyType)[keyof typeof KmsKeyType];
+
+/**
+ * <p>The encryption configuration of your IAM Identity Center instance, including the key type, KMS key ARN, and current encryption status. </p>
+ * @public
+ */
+export interface EncryptionConfigurationDetails {
+  /**
+   * <p>The type of KMS key used for encryption.</p>
+   * @public
+   */
+  KeyType?: KmsKeyType | undefined;
+
+  /**
+   * <p>The ARN of the KMS key currently used to encrypt data in your IAM Identity Center instance. </p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The current status of encryption configuration.</p>
+   * @public
+   */
+  EncryptionStatus?: KmsKeyStatus | undefined;
+
+  /**
+   * <p>Provides additional context about the current encryption status. This field is particularly useful when the encryption status is UPDATE_FAILED. When encryption configuration update fails, this field contains information about the cause, which may include KMS key access issues, key not found errors, invalid key configuration, key in an invalid state, or a disabled key. </p>
+   * @public
+   */
+  EncryptionStatusReason?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const InstanceStatus = {
   ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
   CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
   DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
 } as const;
@@ -2306,6 +2446,18 @@ export interface DescribeInstanceResponse {
    * @public
    */
   Status?: InstanceStatus | undefined;
+
+  /**
+   * <p>Provides additional context about the current status of the IAM Identity Center instance. This field is particularly useful when an instance is in a non-ACTIVE state, such as CREATE_FAILED. When an instance fails to create or update, this field contains information about the cause, which may include issues with KMS key configuration, permission problems with the specified KMS key, or service-related errors. </p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>Contains the encryption configuration for your IAM Identity Center instance, including the encryption status, KMS key type, and KMS key ARN.</p>
+   * @public
+   */
+  EncryptionConfigurationDetails?: EncryptionConfigurationDetails | undefined;
 }
 
 /**
@@ -2553,6 +2705,24 @@ export interface DetachManagedPolicyFromPermissionSetRequest {
 export interface DetachManagedPolicyFromPermissionSetResponse {}
 
 /**
+ * <p> A structure that specifies the KMS key type and KMS key ARN used to encrypt data in your IAM Identity Center instance.</p>
+ * @public
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>The type of KMS key used for encryption.</p>
+   * @public
+   */
+  KeyType: KmsKeyType | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt data. Required when KeyType is CUSTOMER_MANAGED_KEY. Cannot be specified when KeyType is AWS_OWNED_KMS_KEY.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetApplicationAssignmentConfigurationRequest {
@@ -2725,6 +2895,12 @@ export interface InstanceMetadata {
    * @public
    */
   Status?: InstanceStatus | undefined;
+
+  /**
+   * <p>Provides additional context about the current status of the IAM Identity Center instance. This field is particularly useful when an instance is in a non-ACTIVE state, such as CREATE_FAILED. When an instance creation fails, this field contains information about the cause, which may include issues with KMS key configuration or insufficient permissions. </p>
+   * @public
+   */
+  StatusReason?: string | undefined;
 }
 
 /**
@@ -3913,13 +4089,19 @@ export interface UpdateInstanceRequest {
    * <p>Updates the instance name.</p>
    * @public
    */
-  Name: string | undefined;
+  Name?: string | undefined;
 
   /**
    * <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   InstanceArn: string | undefined;
+
+  /**
+   * <p>Specifies the encryption configuration for your IAM Identity Center instance. You can use this to configure customer managed KMS keys (CMK) or Amazon Web Services owned KMS keys for encrypting your instance data.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
