@@ -110,6 +110,7 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *     ],
  *     AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  *   },
+ *   UseS3DualStackEndpoint: true || false,
  * };
  * const command = new GetDeployablePatchSnapshotForInstanceCommand(input);
  * const response = await client.send(command);
