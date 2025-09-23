@@ -28,7 +28,7 @@
     "@aws-sdk/core": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-endpoints": "*",
-    "@smithy/core": "^3.11.1",
+    "@smithy/core": "^3.12.0",
     "@smithy/protocol-http": "^5.2.1",
     "@smithy/types": "^4.5.0",
     "tslib": "^2.6.2"
