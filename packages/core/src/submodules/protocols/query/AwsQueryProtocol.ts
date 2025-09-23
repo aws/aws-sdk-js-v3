@@ -142,6 +142,8 @@ export class AwsQueryProtocol extends RpcProtocol {
   ): Promise<never> {
     const errorIdentifier = this.loadQueryErrorCode(response, dataObject) ?? "Unknown";
     const errorData = this.loadQueryError(dataObject);
+    const message = this.loadQueryErrorMessage(dataObject);
+    errorData.message = message;
 
     const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
       errorIdentifier,
@@ -156,7 +158,6 @@ export class AwsQueryProtocol extends RpcProtocol {
     );
 
     const ns = NormalizedSchema.of(errorSchema);
-    const message = this.loadQueryErrorMessage(dataObject);
     const exception = new errorSchema.ctor(message);
 
     const output = {} as any;
