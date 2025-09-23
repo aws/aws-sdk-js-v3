@@ -43,7 +43,6 @@
     "@smithy/util-defaults-mode-node": "^4.1.4",
     "@smithy/util-endpoints": "^3.1.2",
     "@smithy/util-utf8": "^4.1.0",
-    "@smithy/uuid": "^1.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

@@ -58,7 +58,6 @@
     "@smithy/util-retry": "^4.1.2",
     "@smithy/util-utf8": "^4.1.0",
     "@smithy/util-waiter": "^4.1.1",
-    "@smithy/uuid": "^1.0.0",
     "@types/uuid": "^9.0.1",
     "tslib": "^2.6.2",
     "uuid": "^9.0.1"
