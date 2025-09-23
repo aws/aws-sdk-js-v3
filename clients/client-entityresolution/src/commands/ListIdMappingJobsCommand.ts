@@ -71,7 +71,7 @@ export interface ListIdMappingJobsCommandOutput extends ListIdMappingJobsOutput,
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *  <p>The resource couldn't be found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

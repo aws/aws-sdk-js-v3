@@ -76,7 +76,7 @@ export interface BatchDeleteUniqueIdCommandOutput extends BatchDeleteUniqueIdOut
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *  <p>The resource couldn't be found. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>

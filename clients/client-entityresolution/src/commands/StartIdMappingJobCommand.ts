@@ -46,6 +46,7 @@ export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput,
  *       KMSArn: "STRING_VALUE",
  *     },
  *   ],
+ *   jobType: "BATCH" || "INCREMENTAL" || "DELETE_ONLY",
  * };
  * const command = new StartIdMappingJobCommand(input);
  * const response = await client.send(command);
@@ -58,6 +59,7 @@ export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput,
  * //       KMSArn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   jobType: "BATCH" || "INCREMENTAL" || "DELETE_ONLY",
  * // };
  *
  * ```
@@ -72,7 +74,7 @@ export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput,
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+ *  <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link ExceedsLimitException} (client fault)
  *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
@@ -81,7 +83,7 @@ export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput,
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *  <p>The resource couldn't be found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

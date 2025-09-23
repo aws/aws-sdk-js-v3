@@ -52,10 +52,18 @@ export interface GetIdMappingJobCommandOutput extends GetIdMappingJobOutput, __M
  * //     inputRecords: Number("int"),
  * //     totalRecordsProcessed: Number("int"),
  * //     recordsNotProcessed: Number("int"),
+ * //     deleteRecordsProcessed: Number("int"),
  * //     totalMappedRecords: Number("int"),
  * //     totalMappedSourceRecords: Number("int"),
  * //     totalMappedTargetRecords: Number("int"),
  * //     uniqueRecordsLoaded: Number("int"),
+ * //     newMappedRecords: Number("int"),
+ * //     newMappedSourceRecords: Number("int"),
+ * //     newMappedTargetRecords: Number("int"),
+ * //     newUniqueRecordsLoaded: Number("int"),
+ * //     mappedRecordsRemoved: Number("int"),
+ * //     mappedSourceRecordsRemoved: Number("int"),
+ * //     mappedTargetRecordsRemoved: Number("int"),
  * //   },
  * //   errorDetails: { // ErrorDetails
  * //     errorMessage: "STRING_VALUE",
@@ -67,6 +75,7 @@ export interface GetIdMappingJobCommandOutput extends GetIdMappingJobOutput, __M
  * //       KMSArn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   jobType: "BATCH" || "INCREMENTAL" || "DELETE_ONLY",
  * // };
  *
  * ```
@@ -84,7 +93,7 @@ export interface GetIdMappingJobCommandOutput extends GetIdMappingJobOutput, __M
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *  <p>The resource couldn't be found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

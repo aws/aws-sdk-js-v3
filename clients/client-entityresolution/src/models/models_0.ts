@@ -104,7 +104,7 @@ export interface AddPolicyStatementOutput {
 }
 
 /**
- * <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+ * <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -145,7 +145,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource could not be found. </p>
+ * <p>The resource couldn't be found. </p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -271,18 +271,18 @@ export const DeleteUniqueIdErrorType = {
 export type DeleteUniqueIdErrorType = (typeof DeleteUniqueIdErrorType)[keyof typeof DeleteUniqueIdErrorType];
 
 /**
- * <p>The Delete Unique Id error.</p>
+ * <p>The error information provided when the delete unique ID operation doesn't complete.</p>
  * @public
  */
 export interface DeleteUniqueIdError {
   /**
-   * <p>The unique ID that could not be deleted.</p>
+   * <p>The unique ID that couldn't be deleted.</p>
    * @public
    */
   uniqueId: string | undefined;
 
   /**
-   * <p> The error type for the batch delete unique ID operation.</p>
+   * <p> The error type for the delete unique ID operation.</p> <p>The <code>SERVICE_ERROR</code> value indicates that an internal service-side problem occurred during the deletion operation.</p> <p>The <code>VALIDATION_ERROR</code> value indicates that the deletion operation couldn't complete because of invalid input parameters or data.</p>
    * @public
    */
   errorType: DeleteUniqueIdErrorType | undefined;
@@ -486,6 +486,32 @@ export interface IdMappingTechniques {
  * @public
  * @enum
  */
+export const IdMappingIncrementalRunType = {
+  ON_DEMAND: "ON_DEMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type IdMappingIncrementalRunType =
+  (typeof IdMappingIncrementalRunType)[keyof typeof IdMappingIncrementalRunType];
+
+/**
+ * <p> Incremental run configuration for an ID mapping workflow.</p>
+ * @public
+ */
+export interface IdMappingIncrementalRunConfig {
+  /**
+   * <p> The incremental run type for an ID mapping workflow.</p> <p>It takes only one value: <code>ON_DEMAND</code>. This setting runs the ID mapping workflow when it's manually triggered through the <code>StartIdMappingJob</code> API.</p>
+   * @public
+   */
+  incrementalRunType?: IdMappingIncrementalRunType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const IdNamespaceType = {
   SOURCE: "SOURCE",
   TARGET: "TARGET",
@@ -573,6 +599,12 @@ export interface CreateIdMappingWorkflowInput {
   idMappingTechniques: IdMappingTechniques | undefined;
 
   /**
+   * <p> The incremental run configuration for the ID mapping workflow.</p>
+   * @public
+   */
+  incrementalRunConfig?: IdMappingIncrementalRunConfig | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.</p>
    * @public
    */
@@ -624,6 +656,12 @@ export interface CreateIdMappingWorkflowOutput {
    * @public
    */
   idMappingTechniques: IdMappingTechniques | undefined;
+
+  /**
+   * <p> The incremental run configuration for the ID mapping workflow.</p>
+   * @public
+   */
+  incrementalRunConfig?: IdMappingIncrementalRunConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.</p>
@@ -882,12 +920,12 @@ export const IncrementalRunType = {
 export type IncrementalRunType = (typeof IncrementalRunType)[keyof typeof IncrementalRunType];
 
 /**
- * <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as "Automatic" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code>, incremental processing is not supported. </p> </important>
+ * <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as "Automatic" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>
  * @public
  */
 export interface IncrementalRunConfig {
   /**
-   * <p>The type of incremental run. The only valid value is <code>IMMEDIATE</code>. This appears as "Automatic" in the console.</p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code>, incremental processing is not supported. </p> </important>
+   * <p>The type of incremental run. The only valid value is <code>IMMEDIATE</code>. This appears as "Automatic" in the console.</p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>
    * @public
    */
   incrementalRunType?: IncrementalRunType | undefined;
@@ -1054,7 +1092,7 @@ export interface RuleConditionProperties {
  */
 export interface ResolutionTechniques {
   /**
-   * <p>The type of matching. There are three types of matching: <code>RULE_MATCHING</code>, <code>ML_MATCHING</code>, and <code>PROVIDER</code>.</p>
+   * <p>The type of matching workflow to create. Specify one of the following types: </p> <ul> <li> <p> <code>RULE_MATCHING</code>: Match records using configurable rule-based criteria </p> </li> <li> <p> <code>ML_MATCHING</code>: Match records using machine learning models </p> </li> <li> <p> <code>PROVIDER</code>: Match records using a third-party matching provider</p> </li> </ul>
    * @public
    */
   resolutionType: ResolutionType | undefined;
@@ -1113,7 +1151,7 @@ export interface CreateMatchingWorkflowInput {
   resolutionTechniques: ResolutionTechniques | undefined;
 
   /**
-   * <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as "Automatic" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code>, incremental processing is not supported. </p> </important>
+   * <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as "Automatic" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>
    * @public
    */
   incrementalRunConfig?: IncrementalRunConfig | undefined;
@@ -1622,6 +1660,21 @@ export interface ErrorDetails {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const JobType = {
+  BATCH: "BATCH",
+  DELETE_ONLY: "DELETE_ONLY",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
  * <p>An object that contains metrics about an ID mapping job, including counts of input records, processed records, and mapped records between source and target identifiers. </p>
  * @public
  */
@@ -1645,6 +1698,12 @@ export interface IdMappingJobMetrics {
   recordsNotProcessed?: number | undefined;
 
   /**
+   * <p>The number of records processed that were marked for deletion in the input file using the DELETE schema mapping field. These are the records to be removed from the ID mapping table.</p>
+   * @public
+   */
+  deleteRecordsProcessed?: number | undefined;
+
+  /**
    * <p> The total number of records that were mapped.</p>
    * @public
    */
@@ -1663,10 +1722,52 @@ export interface IdMappingJobMetrics {
   totalMappedTargetRecords?: number | undefined;
 
   /**
-   * <p>The number of records remaining after loading and aggregating duplicate records. Duplicates are determined by the field marked as UNIQUE_ID in your schema mapping - records sharing the same value in this field are considered duplicates. For example, if you specified "customer_id" as a UNIQUE_ID field and had three records with the same customer_id value, they would count as one unique record in this metric. </p>
+   * <p>The number of de-duplicated processed records across all runs, excluding deletion-related records. Duplicates are determined by the field marked as UNIQUE_ID in your schema mapping. Records sharing the same value in this field are considered duplicates. For example, if you specified "customer_id" as a UNIQUE_ID field and had three records with the same customer_id value, they would count as one unique record in this metric. </p>
    * @public
    */
   uniqueRecordsLoaded?: number | undefined;
+
+  /**
+   * <p> The number of new mapped records.</p>
+   * @public
+   */
+  newMappedRecords?: number | undefined;
+
+  /**
+   * <p> The number of new source records mapped.</p>
+   * @public
+   */
+  newMappedSourceRecords?: number | undefined;
+
+  /**
+   * <p> The number of new mapped target records.</p>
+   * @public
+   */
+  newMappedTargetRecords?: number | undefined;
+
+  /**
+   * <p>The number of new unique records processed in the current job run, after removing duplicates. This metric excludes deletion-related records. Duplicates are determined by the field marked as UNIQUE_ID in your schema mapping. Records sharing the same value in this field are considered duplicates. For example, if your current run processes five new records with the same UNIQUE_ID value, they would count as one new unique record in this metric.</p>
+   * @public
+   */
+  newUniqueRecordsLoaded?: number | undefined;
+
+  /**
+   * <p> The number of mapped records removed.</p>
+   * @public
+   */
+  mappedRecordsRemoved?: number | undefined;
+
+  /**
+   * <p> The number of source records removed due to ID mapping.</p>
+   * @public
+   */
+  mappedSourceRecordsRemoved?: number | undefined;
+
+  /**
+   * <p> The number of mapped target records removed.</p>
+   * @public
+   */
+  mappedTargetRecordsRemoved?: number | undefined;
 }
 
 /**
@@ -1754,6 +1855,12 @@ export interface GetIdMappingJobOutput {
    * @public
    */
   outputSourceConfig?: IdMappingJobOutputSource[] | undefined;
+
+  /**
+   * <p> The job type of the ID mapping job.</p> <p>A value of <code>INCREMENTAL</code> indicates that only new or changed data was processed since the last job run. This is the default job type if the workflow was created with an <code>incrementalRunConfig</code>.</p> <p>A value of <code>BATCH</code> indicates that all data was processed from the input source, regardless of previous job runs. This is the default job type if the workflow wasn't created with an <code>incrementalRunConfig</code>.</p> <p>A value of <code>DELETE_ONLY</code> indicates that only deletion requests from <code>BatchDeleteUniqueIds</code> were processed.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
 }
 
 /**
@@ -1818,6 +1925,12 @@ export interface GetIdMappingWorkflowOutput {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p> The incremental run configuration for the ID mapping workflow.</p>
+   * @public
+   */
+  incrementalRunConfig?: IdMappingIncrementalRunConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to access Amazon Web Services resources on your behalf.</p>
@@ -1987,6 +2100,12 @@ export interface JobMetrics {
    * @public
    */
   recordsNotProcessed?: number | undefined;
+
+  /**
+   * <p>The number of records processed that were marked for deletion (<code>DELETE</code> = True) in the input file. This metric tracks records flagged for removal during the job execution.</p>
+   * @public
+   */
+  deleteRecordsProcessed?: number | undefined;
 
   /**
    * <p>The total number of <code>matchID</code>s generated.</p>
@@ -3088,6 +3207,12 @@ export interface StartIdMappingJobInput {
    * @public
    */
   outputSourceConfig?: IdMappingJobOutputSource[] | undefined;
+
+  /**
+   * <p> The job type for the ID mapping job.</p> <p>If the <code>jobType</code> value is set to <code>INCREMENTAL</code>, only new or changed data is processed since the last job run. This is the default value if the <code>CreateIdMappingWorkflow</code> API is configured with an <code>incrementalRunConfig</code>.</p> <p>If the <code>jobType</code> value is set to <code>BATCH</code>, all data is processed from the input source, regardless of previous job runs. This is the default value if the <code>CreateIdMappingWorkflow</code> API isn't configured with an <code>incrementalRunConfig</code>.</p> <p>If the <code>jobType</code> value is set to <code>DELETE_ONLY</code>, only deletion requests from <code>BatchDeleteUniqueIds</code> are processed.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
 }
 
 /**
@@ -3105,6 +3230,12 @@ export interface StartIdMappingJobOutput {
    * @public
    */
   outputSourceConfig?: IdMappingJobOutputSource[] | undefined;
+
+  /**
+   * <p> The job type for the started ID mapping job.</p> <p>A value of <code>INCREMENTAL</code> indicates that only new or changed data was processed since the last job run. This is the default job type if the workflow was created with an <code>incrementalRunConfig</code>.</p> <p>A value of <code>BATCH</code> indicates that all data was processed from the input source, regardless of previous job runs. This is the default job type if the workflow wasn't created with an <code>incrementalRunConfig</code>.</p> <p>A value of <code>DELETE_ONLY</code> indicates that only deletion requests from <code>BatchDeleteUniqueIds</code> were processed.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
 }
 
 /**
@@ -3208,6 +3339,12 @@ export interface UpdateIdMappingWorkflowInput {
   idMappingTechniques: IdMappingTechniques | undefined;
 
   /**
+   * <p> The incremental run configuration for the update ID mapping workflow.</p>
+   * @public
+   */
+  incrementalRunConfig?: IdMappingIncrementalRunConfig | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
@@ -3253,6 +3390,12 @@ export interface UpdateIdMappingWorkflowOutput {
    * @public
    */
   idMappingTechniques: IdMappingTechniques | undefined;
+
+  /**
+   * <p> The incremental run configuration for the update ID mapping workflow output.</p>
+   * @public
+   */
+  incrementalRunConfig?: IdMappingIncrementalRunConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to access Amazon Web Services resources on your behalf.</p>
@@ -3390,7 +3533,7 @@ export interface UpdateMatchingWorkflowInput {
   resolutionTechniques: ResolutionTechniques | undefined;
 
   /**
-   * <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as "Automatic" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code>, incremental processing is not supported. </p> </important>
+   * <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as "Automatic" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>
    * @public
    */
   incrementalRunConfig?: IncrementalRunConfig | undefined;

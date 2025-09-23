@@ -59,7 +59,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *  <p>The resource couldn't be found. </p>
  *
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>

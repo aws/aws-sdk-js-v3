@@ -84,6 +84,9 @@ export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowO
  * //   },
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   incrementalRunConfig: { // IdMappingIncrementalRunConfig
+ * //     incrementalRunType: "ON_DEMAND",
+ * //   },
  * //   roleArn: "STRING_VALUE",
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
@@ -105,7 +108,7 @@ export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowO
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *  <p>The resource couldn't be found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

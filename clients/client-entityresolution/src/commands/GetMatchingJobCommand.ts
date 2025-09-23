@@ -52,6 +52,7 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  * //     inputRecords: Number("int"),
  * //     totalRecordsProcessed: Number("int"),
  * //     recordsNotProcessed: Number("int"),
+ * //     deleteRecordsProcessed: Number("int"),
  * //     matchIDs: Number("int"),
  * //   },
  * //   errorDetails: { // ErrorDetails
@@ -81,7 +82,7 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *  <p>The resource couldn't be found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>
