@@ -64,7 +64,6 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateJsonParseBody(context);
         AwsProtocolUtils.generateJsonParseErrorBody(context);
-        AwsProtocolUtils.addItempotencyAutofillImport(context);
 
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
