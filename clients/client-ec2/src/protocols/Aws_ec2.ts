@@ -74893,12 +74893,12 @@ const de_ImageCriterion = (output: any, context: __SerdeContext): ImageCriterion
   } else if (output[_iPSm] != null && output[_iPSm][_i] != null) {
     contents[_IPm] = de_ImageProviderList(__getArrayIfSingleItem(output[_iPSm][_i]), context);
   }
-  if (output.marketplaceProductCodeSet === "") {
+  if (String(output.marketplaceProductCodeSet).trim() === "") {
     contents[_MPC] = [];
   } else if (output[_mPCS] != null && output[_mPCS][_i] != null) {
     contents[_MPC] = de_MarketplaceProductCodeList(__getArrayIfSingleItem(output[_mPCS][_i]), context);
   }
-  if (output.imageNameSet === "") {
+  if (String(output.imageNameSet).trim() === "") {
     contents[_INm] = [];
   } else if (output[_iNS] != null && output[_iNS][_i] != null) {
     contents[_INm] = de_ImageNameList(__getArrayIfSingleItem(output[_iNS][_i]), context);
