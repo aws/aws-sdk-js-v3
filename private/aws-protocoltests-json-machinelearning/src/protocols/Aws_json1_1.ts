@@ -16,7 +16,6 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 import { PredictCommandInput, PredictCommandOutput } from "../commands/PredictCommand";
 import { MachineLearningServiceException as __BaseException } from "../models/MachineLearningServiceException";

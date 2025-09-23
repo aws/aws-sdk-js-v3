@@ -23,7 +23,6 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 import { GetRestApisCommandInput, GetRestApisCommandOutput } from "../commands/GetRestApisCommand";
 import { APIGatewayServiceException as __BaseException } from "../models/APIGatewayServiceException";

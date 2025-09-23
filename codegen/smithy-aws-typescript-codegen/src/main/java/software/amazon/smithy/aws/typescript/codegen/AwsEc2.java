@@ -104,7 +104,6 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
         AwsProtocolUtils.generateXmlParseBody(context);
         AwsProtocolUtils.generateXmlParseErrorBody(context);
         AwsProtocolUtils.generateBuildFormUrlencodedString(context);
-        AwsProtocolUtils.addItempotencyAutofillImport(context);
 
         TypeScriptWriter writer = context.getWriter();
 

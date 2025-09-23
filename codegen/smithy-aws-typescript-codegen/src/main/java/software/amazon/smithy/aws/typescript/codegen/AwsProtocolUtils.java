@@ -239,29 +239,6 @@ final class AwsProtocolUtils {
     }
 
     /**
-     * Imports a UUID v4 generating function used for auto-filling idempotency tokens.
-     *
-     * @param context The generation context.
-     */
-    static void addItempotencyAutofillImport(GenerationContext context) {
-        // servers do not autogenerate idempotency tokens during deserialization
-        if (!context.getSettings().generateClient()) {
-            return;
-        }
-        context.getModel().shapes(MemberShape.class)
-                .filter(memberShape -> memberShape.hasTrait(IdempotencyTokenTrait.class))
-                .findFirst()
-                .ifPresent(memberShape -> {
-                    TypeScriptWriter writer = context.getWriter();
-
-                    // Include the uuid package and import the v4 function as our more clearly named alias.
-                    writer.addDependency(TypeScriptDependency.UUID);
-                    writer.addDependency(TypeScriptDependency.UUID_TYPES);
-                    writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
-                });
-    }
-
-    /**
      * Writes a statement that auto-fills the value of a member that is an idempotency
      * token if it is undefined at the time of serialization.
      *
@@ -272,6 +249,10 @@ final class AwsProtocolUtils {
     static void writeIdempotencyAutofill(GenerationContext context, MemberShape memberShape, String inputLocation) {
         if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
             TypeScriptWriter writer = context.getWriter();
+
+            writer.addDependency(TypeScriptDependency.UUID);
+            writer.addDependency(TypeScriptDependency.UUID_TYPES);
+            writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
 
             writer.openBlock("if ($L === undefined) {", "}", inputLocation, () ->
                     writer.write("$L = generateIdempotencyToken();", inputLocation));
