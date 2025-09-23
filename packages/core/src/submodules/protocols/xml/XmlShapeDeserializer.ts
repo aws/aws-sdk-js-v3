@@ -58,6 +58,11 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
 
   public readSchema(_schema: Schema, value: any): any {
     const ns = NormalizedSchema.of(_schema);
+
+    if (ns.isUnitSchema()) {
+      return;
+    }
+
     const traits = ns.getMergedTraits();
 
     if (ns.isListSchema() && !Array.isArray(value)) {
