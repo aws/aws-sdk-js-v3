@@ -7085,6 +7085,21 @@ export interface ListIdMappingTablesOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const JobType = {
+  BATCH: "BATCH",
+  DELETE_ONLY: "DELETE_ONLY",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
  */
 export interface PopulateIdMappingTableInput {
   /**
@@ -7098,6 +7113,12 @@ export interface PopulateIdMappingTableInput {
    * @public
    */
   membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The job type of the rule-based ID mapping job. Valid values include:</p> <p> <code>INCREMENTAL</code>: Processes only new or changed data since the last job run. This is the default job type if the ID mapping workflow was created in Entity Resolution with <code>incrementalRunConfig</code> specified.</p> <p> <code>BATCH</code>: Processes all data from the input source, regardless of previous job runs. This is the default job type if the ID mapping workflow was created in Entity Resolution but <code>incrementalRunConfig</code> wasn't specified.</p> <p> <code>DELETE_ONLY</code>: Processes only deletion requests from <code>BatchDeleteUniqueId</code>, which is set in Entity Resolution.</p> <p>For more information about <code>incrementalRunConfig</code> and <code>BatchDeleteUniqueId</code>, see the <a href="https://docs.aws.amazon.com/entityresolution/latest/apireference/Welcome.html">Entity Resolution API Reference</a>.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
 }
 
 /**
@@ -7804,20 +7825,6 @@ export interface MembershipPaymentConfiguration {
    */
   jobCompute?: MembershipJobComputePaymentConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MembershipQueryLogStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof typeof MembershipQueryLogStatus];
 
 /**
  * @internal

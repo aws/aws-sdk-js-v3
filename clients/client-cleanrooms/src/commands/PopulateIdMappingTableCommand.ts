@@ -40,6 +40,7 @@ export interface PopulateIdMappingTableCommandOutput extends PopulateIdMappingTa
  * const input = { // PopulateIdMappingTableInput
  *   idMappingTableIdentifier: "STRING_VALUE", // required
  *   membershipIdentifier: "STRING_VALUE", // required
+ *   jobType: "BATCH" || "INCREMENTAL" || "DELETE_ONLY",
  * };
  * const command = new PopulateIdMappingTableCommand(input);
  * const response = await client.send(command);

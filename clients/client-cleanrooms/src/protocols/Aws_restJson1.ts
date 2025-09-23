@@ -1904,11 +1904,18 @@ export const se_PopulateIdMappingTableCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   b.bp("/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}/populate");
   b.p("idMappingTableIdentifier", () => input.idMappingTableIdentifier!, "{idMappingTableIdentifier}", false);
   b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
+  body = JSON.stringify(
+    take(input, {
+      jobType: [],
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };

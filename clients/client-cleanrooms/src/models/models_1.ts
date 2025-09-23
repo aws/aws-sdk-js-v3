@@ -9,7 +9,6 @@ import {
   MembershipPaymentConfiguration,
   MembershipProtectedJobResultConfiguration,
   MembershipProtectedQueryResultConfiguration,
-  MembershipQueryLogStatus,
   MLMemberAbilities,
   PrivacyBudget,
   PrivacyBudgetTemplateAutoRefresh,
@@ -17,6 +16,20 @@ import {
   PrivacyBudgetType,
   ProtectedQueryS3OutputConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const MembershipQueryLogStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof typeof MembershipQueryLogStatus];
 
 /**
  * @public
