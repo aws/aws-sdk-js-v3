@@ -30,7 +30,6 @@ import {
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   AcceptInputDeviceTransferCommandInput,

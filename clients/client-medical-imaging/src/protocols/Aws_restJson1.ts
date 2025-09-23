@@ -29,7 +29,6 @@ import {
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CopyImageSetCommandInput, CopyImageSetCommandOutput } from "../commands/CopyImageSetCommand";
 import { CreateDatastoreCommandInput, CreateDatastoreCommandOutput } from "../commands/CreateDatastoreCommand";

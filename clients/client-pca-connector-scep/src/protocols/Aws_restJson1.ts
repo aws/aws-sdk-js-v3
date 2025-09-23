@@ -27,7 +27,6 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CreateChallengeCommandInput, CreateChallengeCommandOutput } from "../commands/CreateChallengeCommand";
 import { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "../commands/CreateConnectorCommand";

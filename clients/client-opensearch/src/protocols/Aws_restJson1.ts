@@ -31,7 +31,6 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   AcceptInboundConnectionCommandInput,
