@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.895.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.894.0...v3.895.0) (2025-09-23)
+
+
+### Features
+
+* **client-sso-oidc:** This release includes exception definition and documentation updates. ([6106ad2](https://github.com/aws/aws-sdk-js-v3/commit/6106ad2c5b3b8835ab8b1cdca3f026b0d0fc28a2))
+
+
+
+
+
 # [3.894.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.893.0...v3.894.0) (2025-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-sso-oidc

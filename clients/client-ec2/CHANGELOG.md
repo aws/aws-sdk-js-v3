@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.895.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.894.0...v3.895.0) (2025-09-23)
+
+
+### Features
+
+* **client-ec2:** Add Amazon EC2 R8gn instance types ([6368fb5](https://github.com/aws/aws-sdk-js-v3/commit/6368fb54db116a7580a26284dd360bb3d9a756b5))
+
+
+
+
+
 # [3.894.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.893.0...v3.894.0) (2025-09-22)
 
 

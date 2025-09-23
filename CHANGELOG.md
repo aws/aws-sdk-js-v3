@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.895.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.894.0...v3.895.0) (2025-09-23)
+
+
+### Features
+
+* **client-cleanrooms:** Added support for running incremental ID mapping for rule-based workflows. ([f151936](https://github.com/aws/aws-sdk-js-v3/commit/f151936fdf556bfb8435b9b530b0c3cecfe3327a))
+* **client-ec2:** Add Amazon EC2 R8gn instance types ([6368fb5](https://github.com/aws/aws-sdk-js-v3/commit/6368fb54db116a7580a26284dd360bb3d9a756b5))
+* **client-entityresolution:** Support incremental id mapping workflow for AWS Entity Resolution ([556772a](https://github.com/aws/aws-sdk-js-v3/commit/556772aa3a1d808794535326a02fb25963528b03))
+* **client-ssm:** Added Dualstack support to GetDeployablePatchSnapshotForInstance ([d5e4492](https://github.com/aws/aws-sdk-js-v3/commit/d5e449292ec55ece62eaff25ea74ca24059620c6))
+* **client-sso-admin:** Add support for encryption at rest with Customer Managed KMS Key in AWS IAM Identity Center ([b6c4746](https://github.com/aws/aws-sdk-js-v3/commit/b6c4746bfe6a89da9e9cb4a7798719a9ddc41a89))
+* **client-sso-oidc:** This release includes exception definition and documentation updates. ([6106ad2](https://github.com/aws/aws-sdk-js-v3/commit/6106ad2c5b3b8835ab8b1cdca3f026b0d0fc28a2))
+
+
+
+
+
 # [3.894.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.893.0...v3.894.0) (2025-09-22)
 
 
