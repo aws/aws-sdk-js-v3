@@ -74,11 +74,7 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
       }
     }
 
-    if (request.body) {
-      try {
-        request.headers["content-length"] = this.mixin.calculateContentLength(request.body, this.serdeContext);
-      } catch (e) {}
-    }
+    // content-length header is set by the contentLengthMiddleware.
 
     return request;
   }

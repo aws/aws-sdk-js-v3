@@ -82,9 +82,8 @@ export class AwsQueryProtocol extends RpcProtocol {
       request.body = request.body.slice(-1);
     }
 
-    try {
-      request.headers["content-length"] = this.mixin.calculateContentLength(request.body, this.serdeContext);
-    } catch (e) {}
+    // content-length header is set by the contentLengthMiddleware.
+
     return request;
   }
 
