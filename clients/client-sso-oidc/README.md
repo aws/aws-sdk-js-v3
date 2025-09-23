@@ -13,7 +13,7 @@ user’s access token upon successful authentication and authorization with IAM 
 <b>API namespaces</b>
 </p>
 <p>IAM Identity Center uses the <code>sso</code> and <code>identitystore</code> API namespaces. IAM Identity Center
-OpenID Connect uses the <code>sso-oidc</code> namespace.</p>
+OpenID Connect uses the <code>sso-oauth</code> namespace.</p>
 <p>
 <b>Considerations for using this guide</b>
 </p>

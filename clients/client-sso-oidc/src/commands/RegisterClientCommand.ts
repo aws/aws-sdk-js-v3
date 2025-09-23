@@ -96,6 +96,10 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * @throws {@link InvalidScopeException} (client fault)
  *  <p>Indicates that the scope provided in the request is invalid.</p>
  *
+ * @throws {@link SlowDownException} (client fault)
+ *  <p>Indicates that the client is making the request too frequently and is more than the
+ *       service can handle. </p>
+ *
  * @throws {@link UnsupportedGrantTypeException} (client fault)
  *  <p>Indicates that the grant type in the request is not supported by the service.</p>
  *
