@@ -144,6 +144,11 @@ export class AwsQueryProtocol extends RpcProtocol {
     const errorData = this.loadQueryError(dataObject);
     const message = this.loadQueryErrorMessage(dataObject);
     errorData.message = message;
+    errorData.Error = {
+      Type: errorData.Type,
+      Code: errorData.Code,
+      Message: message,
+    };
 
     const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
       errorIdentifier,
@@ -160,7 +165,9 @@ export class AwsQueryProtocol extends RpcProtocol {
     const ns = NormalizedSchema.of(errorSchema);
     const exception = new errorSchema.ctor(message);
 
-    const output = {} as any;
+    const output = {
+      Error: errorData.Error,
+    } as any;
 
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().xmlName ?? name;

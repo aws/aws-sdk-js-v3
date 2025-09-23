@@ -3,8 +3,9 @@ import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-en
 import { HttpRequest } from "@smithy/protocol-http";
 import { SignatureV4 } from "@smithy/signature-v4";
 import { extendedEncodeURIComponent } from "@smithy/smithy-client";
-import {
+import type {
   AwsCredentialIdentity,
+  BodyLengthCalculator,
   ChecksumConstructor,
   Endpoint,
   HandlerExecutionContext,
@@ -29,6 +30,7 @@ interface PreviouslyResolved {
   sha256: ChecksumConstructor | HashConstructor;
   signingEscapePath: boolean;
   regionInfoProvider?: RegionInfoProvider;
+  bodyLengthChecker: BodyLengthCalculator;
 }
 
 const version = "2016-11-15";
@@ -113,8 +115,8 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
           },
         };
 
-        // we also double-check the work of the serialzier here
-        // because this middleware may be placed after the regular serialzier.
+        // we also double-check the work of the serializer here
+        // because this middleware may be placed after the regular serializer.
         if (HttpRequest.isInstance(args.request)) {
           const { request } = args;
           if (!(request.body ?? "").includes("DestinationRegion=")) {
@@ -122,6 +124,9 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
           }
           if (!(request.body ?? "").includes("PresignedUrl=")) {
             request.body += `&PresignedUrl=${extendedEncodeURIComponent(args.input.PresignedUrl)}`;
+          }
+          if (typeof options.bodyLengthChecker === "function") {
+            request.headers["content-length"] = String(options.bodyLengthChecker(request.body));
           }
         }
       }
