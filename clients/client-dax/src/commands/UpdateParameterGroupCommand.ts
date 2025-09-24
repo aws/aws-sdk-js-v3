@@ -28,9 +28,8 @@ export interface UpdateParameterGroupCommandInput extends UpdateParameterGroupRe
 export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the parameters of a parameter group. You can modify up to 20
- *             parameters in a single request by submitting a list parameter name and value
- *             pairs.</p>
+ * <p>Modifies the parameters of a parameter group. You can modify up to 20 parameters in
+ *             a single request by submitting a list parameter name and value pairs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

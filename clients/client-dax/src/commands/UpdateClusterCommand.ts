@@ -28,9 +28,9 @@ export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
 export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the settings for a DAX cluster. You can use this action to change one or
- *             more cluster configuration parameters by specifying the parameters and the new
- *             values.</p>
+ * <p>Modifies the settings for a DAX cluster. You can use this action to
+ *             change one or more cluster configuration parameters by specifying the parameters and the
+ *             new values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,6 +107,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * //       Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //     },
  * //     ClusterEndpointEncryptionType: "NONE" || "TLS",
+ * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //   },
  * // };
  *
@@ -119,11 +120,12 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *  <p>The requested cluster ID does not refer to an existing DAX
+ *             cluster.</p>
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the <i>available</i>
- *             state.</p>
+ *  <p>The requested DAX cluster is not in the
+ *                 <i>available</i> state.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>

@@ -28,13 +28,14 @@ export interface RebootNodeCommandInput extends RebootNodeRequest {}
 export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataBearer {}
 
 /**
- * <p>Reboots a single node of a DAX cluster. The reboot action takes place
- *             as soon as possible. During the
- *             reboot, the node status is set to REBOOTING.</p>
- *         <note>
+ * <p>Reboots a single node of a DAX cluster. The reboot action takes
+ *             place as soon as possible. During the reboot, the node status is set to
+ *             REBOOTING.</p>
+ *          <note>
  *             <p>
- *                <code>RebootNode</code> restarts the DAX engine process and does not remove the contents of the cache.  </p>
- *         </note>
+ *                <code>RebootNode</code> restarts the DAX engine process and does not remove the
+ *                 contents of the cache.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,6 +105,7 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  * //       Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //     },
  * //     ClusterEndpointEncryptionType: "NONE" || "TLS",
+ * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //   },
  * // };
  *
@@ -116,11 +118,12 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *  <p>The requested cluster ID does not refer to an existing DAX
+ *             cluster.</p>
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the <i>available</i>
- *             state.</p>
+ *  <p>The requested DAX cluster is not in the
+ *                 <i>available</i> state.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>

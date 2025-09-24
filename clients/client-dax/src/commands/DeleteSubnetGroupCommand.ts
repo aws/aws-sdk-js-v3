@@ -29,10 +29,10 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
 
 /**
  * <p>Deletes a subnet group.</p>
- *         <note>
+ *          <note>
  *             <p>You cannot delete a subnet group if it is associated with any DAX
  *                 clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

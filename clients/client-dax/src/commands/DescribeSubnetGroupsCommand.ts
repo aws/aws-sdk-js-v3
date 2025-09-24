@@ -58,7 +58,13 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * //         { // Subnet
  * //           SubnetIdentifier: "STRING_VALUE",
  * //           SubnetAvailabilityZone: "STRING_VALUE",
+ * //           SupportedNetworkTypes: [ // NetworkTypeList
+ * //             "ipv4" || "ipv6" || "dual_stack",
+ * //           ],
  * //         },
+ * //       ],
+ * //       SupportedNetworkTypes: [
+ * //         "ipv4" || "ipv6" || "dual_stack",
  * //       ],
  * //     },
  * //   ],

@@ -29,10 +29,10 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
 
 /**
  * <p>Deletes a previously provisioned DAX cluster.
- *                 <i>DeleteCluster</i> deletes all associated nodes, node endpoints
- *             and the DAX cluster itself. When you receive a successful response from this action,
- *             DAX immediately begins deleting the cluster; you cannot cancel or revert this
- *             action.</p>
+ *                 <i>DeleteCluster</i> deletes all associated nodes, node endpoints and
+ *             the DAX cluster itself. When you receive a successful response from this
+ *             action, DAX immediately begins deleting the cluster; you cannot cancel or
+ *             revert this action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,6 +101,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //       Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //     },
  * //     ClusterEndpointEncryptionType: "NONE" || "TLS",
+ * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //   },
  * // };
  *
@@ -113,11 +114,12 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *  <p>The requested cluster ID does not refer to an existing DAX
+ *             cluster.</p>
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the <i>available</i>
- *             state.</p>
+ *  <p>The requested DAX cluster is not in the
+ *                 <i>available</i> state.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>

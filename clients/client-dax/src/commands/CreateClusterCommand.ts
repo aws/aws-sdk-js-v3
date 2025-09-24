@@ -63,6 +63,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     Enabled: true || false, // required
  *   },
  *   ClusterEndpointEncryptionType: "NONE" || "TLS",
+ *   NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -121,6 +122,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //     },
  * //     ClusterEndpointEncryptionType: "NONE" || "TLS",
+ * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //   },
  * // };
  *
@@ -136,16 +138,16 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *  <p>You already have a DAX cluster with the given identifier.</p>
  *
  * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
- *  <p>You have attempted to exceed the maximum number of DAX clusters for your AWS
- *             account.</p>
+ *  <p>You have attempted to exceed the maximum number of DAX clusters for
+ *             your Amazon Web Services account.</p>
  *
  * @throws {@link InsufficientClusterCapacityFault} (client fault)
  *  <p>There are not enough system resources to create the cluster you requested (or to
  *             resize an already-existing cluster). </p>
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the <i>available</i>
- *             state.</p>
+ *  <p>The requested DAX cluster is not in the
+ *                 <i>available</i> state.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>
@@ -164,8 +166,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *             cluster.</p>
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>You have attempted to exceed the maximum number of nodes for your AWS
- *             account.</p>
+ *  <p>You have attempted to exceed the maximum number of nodes for your Amazon Web Services account.</p>
  *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
  *  <p>The specified parameter group does not exist.</p>
@@ -175,8 +176,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have reached the maximum number of x509 certificates that can be created for
- *             encrypted clusters in a 30 day period. Contact AWS customer support to discuss options
- *             for continuing to create encrypted clusters.</p>
+ *             encrypted clusters in a 30 day period. Contact Amazon Web Services customer support to
+ *             discuss options for continuing to create encrypted clusters.</p>
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
  *  <p>The requested subnet group name does not refer to an existing subnet

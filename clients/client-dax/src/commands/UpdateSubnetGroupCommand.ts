@@ -55,7 +55,13 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * //       { // Subnet
  * //         SubnetIdentifier: "STRING_VALUE",
  * //         SubnetAvailabilityZone: "STRING_VALUE",
+ * //         SupportedNetworkTypes: [ // NetworkTypeList
+ * //           "ipv4" || "ipv6" || "dual_stack",
+ * //         ],
  * //       },
+ * //     ],
+ * //     SupportedNetworkTypes: [
+ * //       "ipv4" || "ipv6" || "dual_stack",
  * //     ],
  * //   },
  * // };
@@ -80,6 +86,13 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  *
  * @throws {@link SubnetInUse} (client fault)
  *  <p>The requested subnet is being used by another subnet group.</p>
+ *
+ * @throws {@link SubnetNotAllowedFault} (client fault)
+ *  <p>The specified subnet can't be used for the requested network type. This error
+ *             occurs when either there aren't enough subnets of the required network type to create
+ *             the cluster, or when you try to use a subnet that doesn't support the requested network
+ *             type (for example, trying to create a dual-stack cluster with a subnet that doesn't have
+ *             IPv6 CIDR). </p>
  *
  * @throws {@link SubnetQuotaExceededFault} (client fault)
  *  <p>The request cannot be processed because it would exceed the allowed number of
