@@ -350,9 +350,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
                 if (hasJsonName) {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.addDependency(TypeScriptDependency.UUID);
-                        writer.addDependency(TypeScriptDependency.UUID_TYPES);
-                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
+                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
                         writer.write("'$L': [true,_ => _ ?? generateIdempotencyToken(),`$L`],",
                             wireName, memberName);
                     } else {
@@ -364,9 +362,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                     }
                 } else {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.addDependency(TypeScriptDependency.UUID);
-                        writer.addDependency(TypeScriptDependency.UUID_TYPES);
-                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
+                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
                         writer.write("'$L': [true, _ => _ ?? generateIdempotencyToken()],", wireName);
                     } else {
                         if (valueProvider.equals("_ => _")) {

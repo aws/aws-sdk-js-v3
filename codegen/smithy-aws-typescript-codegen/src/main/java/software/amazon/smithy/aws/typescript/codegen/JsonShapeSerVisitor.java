@@ -170,9 +170,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
                 if (hasJsonName) {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.addDependency(TypeScriptDependency.UUID);
-                        writer.addDependency(TypeScriptDependency.UUID_TYPES);
-                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
+                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
                         writer.write("'$L': [true, _ => _ ?? generateIdempotencyToken(), `$L`],", wireName, memberName);
                     } else {
                         if (valueProvider.equals("_ => _")) {
@@ -186,9 +184,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                     }
                 } else {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.addDependency(TypeScriptDependency.UUID);
-                        writer.addDependency(TypeScriptDependency.UUID_TYPES);
-                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
+                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
                         writer.write("'$L': [true, _ => _ ?? generateIdempotencyToken()],", memberName);
                     } else {
                         if (valueProvider.equals("_ => _")) {

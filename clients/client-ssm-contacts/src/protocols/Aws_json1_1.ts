@@ -18,7 +18,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { AcceptPageCommandInput, AcceptPageCommandOutput } from "../commands/AcceptPageCommand";
 import {

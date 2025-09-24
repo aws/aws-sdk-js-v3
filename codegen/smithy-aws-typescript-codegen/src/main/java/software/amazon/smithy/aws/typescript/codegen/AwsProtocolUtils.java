@@ -249,11 +249,7 @@ final class AwsProtocolUtils {
     static void writeIdempotencyAutofill(GenerationContext context, MemberShape memberShape, String inputLocation) {
         if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
             TypeScriptWriter writer = context.getWriter();
-
-            writer.addDependency(TypeScriptDependency.UUID);
-            writer.addDependency(TypeScriptDependency.UUID_TYPES);
-            writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
-
+            writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
             writer.openBlock("if ($L === undefined) {", "}", inputLocation, () ->
                     writer.write("$L = generateIdempotencyToken();", inputLocation));
         }
