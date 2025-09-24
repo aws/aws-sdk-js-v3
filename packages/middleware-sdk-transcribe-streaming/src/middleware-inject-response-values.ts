@@ -5,7 +5,7 @@ import {
   InitializeMiddleware,
   RequestHandler,
 } from "@smithy/types";
-import { v4 } from "uuid";
+import { v4 } from "@smithy/uuid";
 
 type WithSession = {
   SessionId?: string;
