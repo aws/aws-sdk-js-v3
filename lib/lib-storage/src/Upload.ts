@@ -438,7 +438,7 @@ export class Upload extends EventEmitter {
   }
 
   private __validateUploadPart(dataPart: RawDataPart): void {
-    const actualPartSize = byteLength(dataPart.data) || undefined;
+    const actualPartSize = byteLength(dataPart.data);
 
     if (actualPartSize === undefined) {
       throw new Error(

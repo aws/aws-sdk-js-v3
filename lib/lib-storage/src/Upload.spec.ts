@@ -859,7 +859,7 @@ describe(Upload.name, () => {
 
       expect(() => {
         (upload as any).__validateUploadPart(emptyPart, MOCK_PART_SIZE);
-      }).toThrow("A dataPart was generated without a measurable data chunk size for part number 1");
+      }).toThrow(`The byte size for part number 1, size 0 does not match expected size ${MOCK_PART_SIZE}`);
     });
 
     it("should skip validation for single-part uploads", () => {
