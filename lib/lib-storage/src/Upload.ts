@@ -440,21 +440,21 @@ export class Upload extends EventEmitter {
   private __validateUploadPart(dataPart: RawDataPart): void {
     const actualPartSize = byteLength(dataPart.data) || undefined;
 
-    // Skip validation for single-part uploads (PUT operations)
-    if (dataPart.partNumber === 1 && dataPart.lastPart) {
-      return;
-    }
-
     if (actualPartSize === undefined) {
       throw new Error(
         `A dataPart was generated without a measurable data chunk size for part number ${dataPart.partNumber}`
       );
     }
 
+    // Skip validation for single-part uploads (PUT operations)
+    if (dataPart.partNumber === 1 && dataPart.lastPart) {
+      return;
+    }
+
     // Validate part size (last part may be smaller)
     if (!dataPart.lastPart && actualPartSize !== this.partSize) {
       throw new Error(
-        `The Part size for part number ${dataPart.partNumber}, size ${actualPartSize} does not match expected size ${this.partSize}`
+        `The byte size for part number ${dataPart.partNumber}, size ${actualPartSize} does not match expected size ${this.partSize}`
       );
     }
   }

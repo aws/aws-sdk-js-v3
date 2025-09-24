@@ -825,7 +825,7 @@ describe(Upload.name, () => {
 
       expect(() => {
         (upload as any).__validateUploadPart(invalidPart, MOCK_PART_SIZE);
-      }).toThrow(`The Part size for part number 1, size 5 does not match expected size ${MOCK_PART_SIZE}`);
+      }).toThrow(`The byte size for part number 1, size 5 does not match expected size ${MOCK_PART_SIZE}`);
     });
 
     it("should allow smaller size for last part", () => {
