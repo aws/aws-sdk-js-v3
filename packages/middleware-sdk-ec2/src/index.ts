@@ -5,7 +5,6 @@ import { SignatureV4 } from "@smithy/signature-v4";
 import { extendedEncodeURIComponent } from "@smithy/smithy-client";
 import type {
   AwsCredentialIdentity,
-  BodyLengthCalculator,
   ChecksumConstructor,
   Endpoint,
   HandlerExecutionContext,
@@ -30,7 +29,6 @@ interface PreviouslyResolved {
   sha256: ChecksumConstructor | HashConstructor;
   signingEscapePath: boolean;
   regionInfoProvider?: RegionInfoProvider;
-  bodyLengthChecker: BodyLengthCalculator;
 }
 
 const version = "2016-11-15";
@@ -124,9 +122,6 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
           }
           if (!(request.body ?? "").includes("PresignedUrl=")) {
             request.body += `&PresignedUrl=${extendedEncodeURIComponent(args.input.PresignedUrl)}`;
-          }
-          if (typeof options.bodyLengthChecker === "function") {
-            request.headers["content-length"] = String(options.bodyLengthChecker(request.body));
           }
         }
       }
