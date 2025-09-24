@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
+
+
+### Bug Fixes
+
+* **lib-storage:** add validation for partCount and contentLength for multipart upload ([#7363](https://github.com/aws/aws-sdk-js-v3/issues/7363)) ([0562a0d](https://github.com/aws/aws-sdk-js-v3/commit/0562a0d1d3a445a2a124fbbe875fc558546d02e6))
+
+
+
+
+
 # [3.895.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.894.0...v3.895.0) (2025-09-23)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage

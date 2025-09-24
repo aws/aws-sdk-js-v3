@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
+
+
+### Bug Fixes
+
+* **nested-clients:** update latest changes from SSO/SSOOIDC ([#7371](https://github.com/aws/aws-sdk-js-v3/issues/7371)) ([6800db7](https://github.com/aws/aws-sdk-js-v3/commit/6800db79d071aa2f95b0061067cea2076b09512c))
+
+
+
+
+
 # [3.895.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.894.0...v3.895.0) (2025-09-23)
 
 **Note:** Version bump only for package @aws-sdk/nested-clients

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
+
+
+### Features
+
+* **client-dax:** This release adds support for IPv6-only, DUAL_STACK DAX instances ([d0290d5](https://github.com/aws/aws-sdk-js-v3/commit/d0290d54396727710e154f439790c2d194f761fb))
+
+
+
+
+
 # [3.895.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.894.0...v3.895.0) (2025-09-23)
 
 **Note:** Version bump only for package @aws-sdk/client-dax

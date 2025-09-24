@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
+
+
+### Bug Fixes
+
+* **lib-storage:** add validation for partCount and contentLength for multipart upload ([#7363](https://github.com/aws/aws-sdk-js-v3/issues/7363)) ([0562a0d](https://github.com/aws/aws-sdk-js-v3/commit/0562a0d1d3a445a2a124fbbe875fc558546d02e6))
+* **nested-clients:** update latest changes from SSO/SSOOIDC ([#7371](https://github.com/aws/aws-sdk-js-v3/issues/7371)) ([6800db7](https://github.com/aws/aws-sdk-js-v3/commit/6800db79d071aa2f95b0061067cea2076b09512c))
+
+
+### Features
+
+* **client-cloudwatch:** Fix default dualstack FIPS endpoints in AWS GovCloud(US) regions ([b22faff](https://github.com/aws/aws-sdk-js-v3/commit/b22faff800b4f490954d5270ce54df3831841803))
+* **client-dax:** This release adds support for IPv6-only, DUAL_STACK DAX instances ([d0290d5](https://github.com/aws/aws-sdk-js-v3/commit/d0290d54396727710e154f439790c2d194f761fb))
+
+
+
+
+
 # [3.895.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.894.0...v3.895.0) (2025-09-23)
 
 
