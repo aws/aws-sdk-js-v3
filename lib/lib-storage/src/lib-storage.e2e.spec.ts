@@ -139,6 +139,43 @@ describe("@aws-sdk/lib-storage", () => {
             "S3Client AbortMultipartUploadCommand 204",
           ]);
         });
+
+        it("should validate part size constraints", () => {
+          const upload = new Upload({
+            client,
+            params: {
+              Bucket,
+              Key: `validation-test-${Date.now()}`,
+              Body: Buffer.alloc(1024 * 1024 * 10),
+            },
+          });
+
+          const invalidPart = {
+            partNumber: 2,
+            data: Buffer.alloc(1024 * 1024 * 3), // 3MB - too small for non-final part
+            lastPart: false,
+          };
+
+          expect(() => {
+            (upload as any).__validateUploadPart(invalidPart);
+          }).toThrow(/The byte size for part number 2, size \d+ does not match expected size \d+/);
+        });
+
+        it("should validate part count constraints", async () => {
+          const upload = new Upload({
+            client,
+            params: {
+              Bucket,
+              Key: `validation-test-${Date.now()}`,
+              Body: Buffer.alloc(1024 * 1024 * 10),
+            },
+          });
+
+          (upload as any).uploadedParts = [{ PartNumber: 1, ETag: "etag1" }];
+          (upload as any).isMultiPart = true;
+
+          await expect(upload.done()).rejects.toThrow(/Expected \d+ part\(s\) but uploaded \d+ part\(s\)\./);
+        });
       });
     }
   );

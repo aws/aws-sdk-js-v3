@@ -792,4 +792,91 @@ describe(Upload.name, () => {
       new Error("@aws-sdk/lib-storage: this instance of Upload has already executed .done(). Create a new instance.")
     );
   });
+
+  describe("Upload Part and parts count validation", () => {
+    const MOCK_PART_SIZE = 1024 * 1024 * 5; // 5MB
+
+    it("should throw error when uploaded parts count doesn't match expected parts count", async () => {
+      const largeBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE * 2 + 100));
+      const upload = new Upload({
+        params: { ...params, Body: largeBuffer },
+        client: new S3({}),
+      });
+
+      (upload as any).__doConcurrentUpload = vi.fn().mockResolvedValue(undefined);
+
+      (upload as any).uploadedParts = [{ PartNumber: 1, ETag: "etag1" }];
+      (upload as any).isMultiPart = true;
+
+      await expect(upload.done()).rejects.toThrow("Expected 3 part(s) but uploaded 1 part(s).");
+    });
+
+    it("should throw error when part size doesn't match expected size except for laast part", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      const invalidPart = {
+        partNumber: 1,
+        data: Buffer.from("small"),
+        lastPart: false,
+      };
+
+      expect(() => {
+        (upload as any).__validateUploadPart(invalidPart, MOCK_PART_SIZE);
+      }).toThrow(`The byte size for part number 1, size 5 does not match expected size ${MOCK_PART_SIZE}`);
+    });
+
+    it("should allow smaller size for last part", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      const lastPart = {
+        partNumber: 2,
+        data: Buffer.from("small"),
+        lastPart: true,
+      };
+
+      expect(() => {
+        (upload as any).__validateUploadPart(lastPart, MOCK_PART_SIZE);
+      }).not.toThrow();
+    });
+
+    it("should throw error when part has zero content length", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      const emptyPart = {
+        partNumber: 1,
+        data: Buffer.from(""),
+        lastPart: false,
+      };
+
+      expect(() => {
+        (upload as any).__validateUploadPart(emptyPart, MOCK_PART_SIZE);
+      }).toThrow(`The byte size for part number 1, size 0 does not match expected size ${MOCK_PART_SIZE}`);
+    });
+
+    it("should skip validation for single-part uploads", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      const singlePart = {
+        partNumber: 1,
+        data: Buffer.from("small"),
+        lastPart: true,
+      };
+
+      expect(() => {
+        (upload as any).__validateUploadPart(singlePart, MOCK_PART_SIZE);
+      }).not.toThrow();
+    });
+  });
 });
