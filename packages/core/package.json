@@ -91,7 +91,6 @@
     "@smithy/smithy-client": "^4.6.4",
     "@smithy/types": "^4.5.0",
     "@smithy/util-base64": "^4.1.0",
-    "@smithy/util-body-length-browser": "^4.1.0",
     "@smithy/util-middleware": "^4.1.1",
     "@smithy/util-utf8": "^4.1.0",
     "tslib": "^2.6.2"

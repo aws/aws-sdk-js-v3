@@ -130,7 +130,7 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
 
       const mediaType = ns.getMergedTraits().mediaType;
 
-      if (typeof value === "string" && mediaType) {
+      if (value != null && mediaType) {
         const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
         if (isJson) {
           return LazyJsonString.from(value);

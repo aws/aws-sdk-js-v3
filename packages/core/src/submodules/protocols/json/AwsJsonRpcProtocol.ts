@@ -71,9 +71,9 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     if (deref(operationSchema.input) === "unit" || !request.body) {
       request.body = "{}";
     }
-    try {
-      request.headers["content-length"] = this.mixin.calculateContentLength(request.body, this.serdeContext);
-    } catch (e) {}
+
+    // content-length header is set by the contentLengthMiddleware.
+
     return request;
   }
 

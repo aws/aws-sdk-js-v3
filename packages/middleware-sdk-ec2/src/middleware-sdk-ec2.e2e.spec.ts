@@ -1,5 +1,6 @@
 import { EC2, EC2ServiceException, waitUntilSnapshotCompleted, waitUntilVolumeAvailable } from "@aws-sdk/client-ec2";
 import { KMS } from "@aws-sdk/client-kms";
+import { getHttpDebugLogPlugin } from "@aws-sdk/middleware-http-debug-log";
 import { afterAll, beforeAll, describe, expect, onTestFailed, test as it } from "vitest";
 
 const errors = [] as any[];
@@ -107,6 +108,14 @@ describe("EC2 feature test", () => {
 
     const sourceKms = new KMS({ region: sourceRegion, logger });
     const destinationKms = new KMS({ region: destRegion, logger });
+
+    for (const client of [sourceEc2, destinationEc2, sourceKms, destinationKms]) {
+      // I'm leaving this debug call in the test because it's so slow that
+      // you will want to see active request progress.
+      void getHttpDebugLogPlugin;
+      void client;
+      // client.middlewareStack.use(getHttpDebugLogPlugin("line"));
+    }
 
     async function teardown() {
       if (volumeId) {
