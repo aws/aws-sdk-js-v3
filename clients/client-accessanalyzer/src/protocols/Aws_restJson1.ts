@@ -30,7 +30,6 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "@smithy/uuid";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 import { ApplyArchiveRuleCommandInput, ApplyArchiveRuleCommandOutput } from "../commands/ApplyArchiveRuleCommand";
 import {
