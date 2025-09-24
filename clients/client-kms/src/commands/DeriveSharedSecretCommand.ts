@@ -35,8 +35,8 @@ export interface DeriveSharedSecretCommandOutput extends DeriveSharedSecretRespo
  * <p>Derives a shared secret using a key agreement algorithm.</p>
  *          <note>
  *             <p>You must use an asymmetric NIST-recommended elliptic curve (ECC) or SM2 (China Regions
- *         only) KMS key pair with a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code> to call
- *         DeriveSharedSecret.</p>
+ *         only) KMS key pair with a <code>KeyUsage</code>
+ *         value of <code>KEY_AGREEMENT</code> to call DeriveSharedSecret.</p>
  *          </note>
  *          <p>DeriveSharedSecret uses the <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60">Elliptic Curve Cryptography Cofactor Diffie-Hellman Primitive</a> (ECDH) to establish a
  *       key agreement between two peers by deriving a shared secret from their elliptic curve

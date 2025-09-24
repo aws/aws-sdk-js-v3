@@ -562,8 +562,8 @@ export interface CreateAliasRequest {
   AliasName: string | undefined;
 
   /**
-   * <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key must
-   *       be in the same Amazon Web Services Region. </p>
+   * <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key
+   *       must be in the same Amazon Web Services Region. </p>
    *          <p>A valid key ID is required. If you supply a null or empty string value, this operation
    *       returns an error.</p>
    *          <p>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html">Find the key ID and key ARN</a> in
@@ -1577,8 +1577,11 @@ export interface CreateKeyRequest {
   /**
    * <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is
    *         <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric
-   *       encryption KMS key; otherwise, it is required. You can't change the <code>KeyUsage</code>
-   *       value after the KMS key is created.</p>
+   *       encryption KMS key; otherwise, it is required. You can't change the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#key-usage">
+   *                <code>KeyUsage</code>
+   *             </a> value after the KMS key is created. Each KMS key can have
+   *       only one key usage. This follows key usage best practices according to <a href="https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final">NIST SP 800-57 Recommendations for
+   *         Key Management</a>, section 5.2, Key usage.</p>
    *          <p>Select only one valid value.</p>
    *          <ul>
    *             <li>
@@ -2861,21 +2864,21 @@ export type KeyEncryptionMechanism = (typeof KeyEncryptionMechanism)[keyof typeo
 /**
  * <p>Contains information about the party that receives the response from the API
  *       operation.</p>
- *          <p>This data type is designed to support Amazon Web Services Nitro Enclaves, which lets you create an isolated
- *       compute environment in Amazon EC2. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>This data type is designed to support Amazon Web Services Nitro Enclaves and Amazon Web Services NitroTPM, which lets you create an attested
+ *       environment in Amazon EC2. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  * @public
  */
 export interface RecipientInfo {
   /**
    * <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro
-   *       Enclave to encrypt plaintext values for the response. The only valid value is
+   *       Enclave or NitroTPM to encrypt plaintext values for the response. The only valid value is
    *         <code>RSAES_OAEP_SHA_256</code>.</p>
    * @public
    */
   KeyEncryptionAlgorithm?: KeyEncryptionMechanism | undefined;
 
   /**
-   * <p>The attestation document for an Amazon Web Services Nitro Enclave. This document includes the enclave's
+   * <p>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This document includes the enclave's
    *       public key.</p>
    * @public
    */
@@ -2959,16 +2962,17 @@ export interface DecryptRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-concepts.html#term-attestdoc">attestation
-   *         document</a> from an Amazon Web Services Nitro enclave and the encryption algorithm to use with the
-   *       enclave's public key. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
-   *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
+   *         document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the
+   *       public key in the attestation document. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports
+   *       any Amazon Web Services SDK for Amazon Web Services NitroTPM.
+   *     </p>
    *          <p>When you use this parameter, instead of returning the plaintext data, KMS encrypts the
    *       plaintext data with the public key in the attestation document, and returns the resulting
    *       ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext
-   *       can be decrypted only with the private key in the enclave. The <code>Plaintext</code> field in
+   *       can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in
    *       the response is null or empty.</p>
-   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   Recipient?: RecipientInfo | undefined;
@@ -3006,10 +3010,11 @@ export interface DecryptResponse {
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | undefined;
 
   /**
-   * <p>The plaintext data encrypted with the public key in the attestation document. </p>
+   * <p>The plaintext data encrypted with the public key from the attestation document. This
+   *       ciphertext can be decrypted only by using a private key from the attested environment. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
-   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
-   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM.
+   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   CiphertextForRecipient?: Uint8Array | undefined;
@@ -3288,21 +3293,21 @@ export interface DeriveSharedSecretRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
+   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The
    *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To call
-   *       DeriveSharedSecret for an Amazon Web Services Nitro Enclaves, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> to generate the
-   *       attestation document and then use the Recipient parameter from any Amazon Web Services SDK to provide the
-   *       attestation document for the enclave.</p>
+   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call
+   *       DeriveSharedSecret generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the
+   *       attestation document for the attested environment.</p>
    *          <p>When you use this parameter, instead of returning a plaintext copy of the shared secret,
    *       KMS encrypts the plaintext shared secret under the public key in the attestation document,
    *       and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the
-   *       response. This ciphertext can be decrypted only with the private key in the enclave. The
+   *       response. This ciphertext can be decrypted only with the private key in the attested environment. The
    *         <code>CiphertextBlob</code> field in the response contains the encrypted shared secret
    *       derived from the KMS key specified by the <code>KeyId</code> parameter and public key
    *       specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the
    *       response is null or empty.</p>
-   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   Recipient?: RecipientInfo | undefined;
@@ -3328,11 +3333,11 @@ export interface DeriveSharedSecretResponse {
   SharedSecret?: Uint8Array | undefined;
 
   /**
-   * <p>The plaintext shared secret encrypted with the public key in the attestation
-   *       document.</p>
+   * <p>The plaintext shared secret encrypted with the public key from the attestation document. This
+   *       ciphertext can be decrypted only by using a private key from the attested environment. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
-   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
-   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM.
+   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   CiphertextForRecipient?: Uint8Array | undefined;
@@ -3454,8 +3459,8 @@ export interface DescribeKeyRequest {
   /**
    * <p>Describes the specified KMS key. </p>
    *          <p>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias with no key ID), KMS associates
-   *       the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a> and returns its
-   *         <code>KeyId</code> and <code>Arn</code> in the response.</p>
+   *       the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a> and returns its <code>KeyId</code> and <code>Arn</code> in the
+   *       response.</p>
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3832,10 +3837,11 @@ export interface GenerateDataKeyRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
+   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The
    *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
-   *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
+   *          <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports
+   *       any Amazon Web Services SDK for Amazon Web Services NitroTPM.
+   *     </p>
    *          <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts
    *       the plaintext data key under the public key in the attestation document, and returns the
    *       resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This
@@ -3843,7 +3849,7 @@ export interface GenerateDataKeyRequest {
    *         <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted
    *       under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code>
    *       field in the response is null or empty.</p>
-   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   Recipient?: RecipientInfo | undefined;
@@ -3882,11 +3888,11 @@ export interface GenerateDataKeyResponse {
   KeyId?: string | undefined;
 
   /**
-   * <p>The plaintext data key encrypted with the public key from the Nitro enclave. This
-   *       ciphertext can be decrypted only by using a private key in the Nitro enclave. </p>
+   * <p>The plaintext data key encrypted with the public key from the attestation document. This
+   *       ciphertext can be decrypted only by using a private key from the attested environment. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
-   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
-   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM.
+   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   CiphertextForRecipient?: Uint8Array | undefined;
@@ -3964,20 +3970,20 @@ export interface GenerateDataKeyPairRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
+   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The
    *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To call
-   *       DeriveSharedSecret for an Amazon Web Services Nitro Enclaves, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> to generate the
-   *       attestation document and then use the Recipient parameter from any Amazon Web Services SDK to provide the
-   *       attestation document for the enclave.</p>
+   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call
+   *       GenerateDataKeyPair generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the
+   *       attestation document for the attested environment.</p>
    *          <p>When you use this parameter, instead of returning a plaintext copy of the private data
    *       key, KMS encrypts the plaintext private data key under the public key in the attestation
    *       document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code>
    *       field in the response. This ciphertext can be decrypted only with the private key in the
-   *       enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the private
+   *       attested environment. The <code>CiphertextBlob</code> field in the response contains a copy of the private
    *       data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The
    *         <code>PrivateKeyPlaintext</code> field in the response is null or empty.</p>
-   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   Recipient?: RecipientInfo | undefined;
@@ -4027,11 +4033,11 @@ export interface GenerateDataKeyPairResponse {
   KeyPairSpec?: DataKeyPairSpec | undefined;
 
   /**
-   * <p>The plaintext private data key encrypted with the public key from the Nitro enclave. This
-   *       ciphertext can be decrypted only by using a private key in the Nitro enclave. </p>
+   * <p>The plaintext private data key encrypted with the public key from the attestation document. This
+   *       ciphertext can be decrypted only by using a private key from the attested environment. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
-   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
-   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM.
+   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   CiphertextForRecipient?: Uint8Array | undefined;
@@ -4345,16 +4351,17 @@ export interface GenerateRandomRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
+   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The
    *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
-   *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
+   *          <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports
+   *       any Amazon Web Services SDK for Amazon Web Services NitroTPM.
+   *     </p>
    *          <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the
    *       plaintext bytes under the public key in the attestation document, and returns the resulting
    *       ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext
-   *       can be decrypted only with the private key in the enclave. The <code>Plaintext</code> field in
+   *       can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in
    *       the response is null or empty.</p>
-   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   Recipient?: RecipientInfo | undefined;
@@ -4373,11 +4380,11 @@ export interface GenerateRandomResponse {
   Plaintext?: Uint8Array | undefined;
 
   /**
-   * <p>The plaintext random bytes encrypted with the public key from the Nitro enclave. This
-   *       ciphertext can be decrypted only by using a private key in the Nitro enclave. </p>
+   * <p>The plaintext random bytes encrypted with the public key from the attestation document. This
+   *       ciphertext can be decrypted only by using a private key from the attested environment. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
-   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
-   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM.
+   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   CiphertextForRecipient?: Uint8Array | undefined;
@@ -6596,8 +6603,9 @@ export interface UpdateAliasRequest {
   AliasName: string | undefined;
 
   /**
-   * <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a> to associate with the alias. You don't have permission to
-   *       associate an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p>
+   * <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a> to associate
+   *       with the alias. You don't have permission to associate an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed
+   *         key</a>.</p>
    *          <p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new
    *       target KMS key must be the same type as the current target KMS key (both symmetric or both
    *       asymmetric or both HMAC) and they must have the same key usage. </p>
