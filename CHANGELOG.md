@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.897.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.896.0...v3.897.0) (2025-09-25)
+
+
+### Features
+
+* **client-glue:** Update GetConnection(s) API to return KmsKeyArn & Add 63 missing connection types ([e36983e](https://github.com/aws/aws-sdk-js-v3/commit/e36983ea1c3b605c362ed1cceaefd1e06962b36a))
+* **client-lightsail:** Attribute HTTP binding update for Get/Delete operations ([ddf1117](https://github.com/aws/aws-sdk-js-v3/commit/ddf1117f1c29c9c61b6fab38274d51519bbf2f9c))
+* **client-network-firewall:** Network Firewall now introduces Reject and Alert action support for stateful domain list rule groups, providing customers with more granular control over their network traffic. ([75348db](https://github.com/aws/aws-sdk-js-v3/commit/75348db95ef8c62877cac705567ed809ced9835c))
+* **clients:** update client endpoints as of 2025-09-25 ([6492daa](https://github.com/aws/aws-sdk-js-v3/commit/6492daac90bbfc0a049bcd51f2267eb288911006))
+
+
+
+
+
 # [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
 
 

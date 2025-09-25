@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.897.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.896.0...v3.897.0) (2025-09-25)
+
+
+### Features
+
+* **client-lightsail:** Attribute HTTP binding update for Get/Delete operations ([ddf1117](https://github.com/aws/aws-sdk-js-v3/commit/ddf1117f1c29c9c61b6fab38274d51519bbf2f9c))
+
+
+
+
+
 # [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
 
 **Note:** Version bump only for package @aws-sdk/client-lightsail
