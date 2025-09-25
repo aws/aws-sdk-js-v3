@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListManagedWorkgroupsRequest, ListManagedWorkgroupsResponse } from "../models/models_0";
-import { de_ListManagedWorkgroupsCommand, se_ListManagedWorkgroupsCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
+import { ListManagedWorkgroups } from "../schemas/schemas_1_List";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class ListManagedWorkgroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServerless", "ListManagedWorkgroups", {})
   .n("RedshiftServerlessClient", "ListManagedWorkgroupsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListManagedWorkgroupsCommand)
-  .de(de_ListManagedWorkgroupsCommand)
+  .sc(ListManagedWorkgroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

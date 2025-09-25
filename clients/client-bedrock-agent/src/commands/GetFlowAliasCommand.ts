@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetFlowAliasRequest, GetFlowAliasResponse } from "../models/models_0";
-import { de_GetFlowAliasCommand, se_GetFlowAliasCommand } from "../protocols/Aws_restJson1";
+import { GetFlowAlias } from "../schemas/schemas_4_Flow";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class GetFlowAliasCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "GetFlowAlias", {})
   .n("BedrockAgentClient", "GetFlowAliasCommand")
-  .f(void 0, void 0)
-  .ser(se_GetFlowAliasCommand)
-  .de(de_GetFlowAliasCommand)
+  .sc(GetFlowAlias)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

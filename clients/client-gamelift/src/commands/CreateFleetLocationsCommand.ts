@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { CreateFleetLocationsInput, CreateFleetLocationsOutput } from "../models/models_0";
-import { de_CreateFleetLocationsCommand, se_CreateFleetLocationsCommand } from "../protocols/Aws_json1_1";
+import { CreateFleetLocations } from "../schemas/schemas_23_Fleet";
 
 /**
  * @public
@@ -145,16 +144,11 @@ export class CreateFleetLocationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "CreateFleetLocations", {})
   .n("GameLiftClient", "CreateFleetLocationsCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateFleetLocationsCommand)
-  .de(de_CreateFleetLocationsCommand)
+  .sc(CreateFleetLocations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

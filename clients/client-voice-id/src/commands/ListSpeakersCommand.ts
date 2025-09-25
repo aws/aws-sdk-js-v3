@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSpeakersRequest, ListSpeakersResponse, ListSpeakersResponseFilterSensitiveLog } from "../models/models_0";
-import { de_ListSpeakersCommand, se_ListSpeakersCommand } from "../protocols/Aws_json1_0";
+import { ListSpeakersRequest, ListSpeakersResponse } from "../models/models_0";
+import { ListSpeakers } from "../schemas/schemas_2_List";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -104,16 +103,11 @@ export class ListSpeakersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VoiceID", "ListSpeakers", {})
   .n("VoiceIDClient", "ListSpeakersCommand")
-  .f(void 0, ListSpeakersResponseFilterSensitiveLog)
-  .ser(se_ListSpeakersCommand)
-  .de(de_ListSpeakersCommand)
+  .sc(ListSpeakers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

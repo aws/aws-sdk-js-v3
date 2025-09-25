@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListQueriesInput, ListQueriesOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_ListQueriesCommand, se_ListQueriesCommand } from "../protocols/Aws_restJson1";
+import { ListQueries } from "../schemas/schemas_2_Query";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class ListQueriesCommand extends $Command
     ApiType: { type: "staticContextParams", value: `DataPlane` },
   })
   .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneGraph", "ListQueries", {})
   .n("NeptuneGraphClient", "ListQueriesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListQueriesCommand)
-  .de(de_ListQueriesCommand)
+  .sc(ListQueries)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

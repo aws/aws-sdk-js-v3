@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { TrustedAdvisorServiceException as __BaseException } from "./TrustedAdvisorServiceException";
 
@@ -1635,83 +1635,3 @@ export interface UpdateRecommendationLifecycleRequest {
    */
   recommendationIdentifier: string | undefined;
 }
-
-/**
- * @internal
- */
-export const AccountRecommendationLifecycleSummaryFilterSensitiveLog = (
-  obj: AccountRecommendationLifecycleSummary
-): any => ({
-  ...obj,
-  ...(obj.updateReason && { updateReason: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const OrganizationRecommendationFilterSensitiveLog = (obj: OrganizationRecommendation): any => ({
-  ...obj,
-  ...(obj.updateReason && { updateReason: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetOrganizationRecommendationResponseFilterSensitiveLog = (
-  obj: GetOrganizationRecommendationResponse
-): any => ({
-  ...obj,
-  ...(obj.organizationRecommendation && {
-    organizationRecommendation: OrganizationRecommendationFilterSensitiveLog(obj.organizationRecommendation),
-  }),
-});
-
-/**
- * @internal
- */
-export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
-  ...obj,
-  ...(obj.updateReason && { updateReason: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetRecommendationResponseFilterSensitiveLog = (obj: GetRecommendationResponse): any => ({
-  ...obj,
-  ...(obj.recommendation && { recommendation: RecommendationFilterSensitiveLog(obj.recommendation) }),
-});
-
-/**
- * @internal
- */
-export const ListOrganizationRecommendationAccountsResponseFilterSensitiveLog = (
-  obj: ListOrganizationRecommendationAccountsResponse
-): any => ({
-  ...obj,
-  ...(obj.accountRecommendationLifecycleSummaries && {
-    accountRecommendationLifecycleSummaries: obj.accountRecommendationLifecycleSummaries.map((item) =>
-      AccountRecommendationLifecycleSummaryFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateOrganizationRecommendationLifecycleRequestFilterSensitiveLog = (
-  obj: UpdateOrganizationRecommendationLifecycleRequest
-): any => ({
-  ...obj,
-  ...(obj.updateReason && { updateReason: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateRecommendationLifecycleRequestFilterSensitiveLog = (
-  obj: UpdateRecommendationLifecycleRequest
-): any => ({
-  ...obj,
-  ...(obj.updateReason && { updateReason: SENSITIVE_STRING }),
-});

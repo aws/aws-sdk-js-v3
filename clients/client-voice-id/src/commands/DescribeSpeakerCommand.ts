@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeSpeakerRequest,
-  DescribeSpeakerRequestFilterSensitiveLog,
-  DescribeSpeakerResponse,
-  DescribeSpeakerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeSpeakerCommand, se_DescribeSpeakerCommand } from "../protocols/Aws_json1_0";
+import { DescribeSpeakerRequest, DescribeSpeakerResponse } from "../models/models_0";
+import { DescribeSpeaker } from "../schemas/schemas_10_Speaker";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -105,16 +99,11 @@ export class DescribeSpeakerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VoiceID", "DescribeSpeaker", {})
   .n("VoiceIDClient", "DescribeSpeakerCommand")
-  .f(DescribeSpeakerRequestFilterSensitiveLog, DescribeSpeakerResponseFilterSensitiveLog)
-  .ser(se_DescribeSpeakerCommand)
-  .de(de_DescribeSpeakerCommand)
+  .sc(DescribeSpeaker)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

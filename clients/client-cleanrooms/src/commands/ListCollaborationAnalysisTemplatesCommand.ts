@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListCollaborationAnalysisTemplatesInput, ListCollaborationAnalysisTemplatesOutput } from "../models/models_0";
-import {
-  de_ListCollaborationAnalysisTemplatesCommand,
-  se_ListCollaborationAnalysisTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCollaborationAnalysisTemplates } from "../schemas/schemas_11_Analysis";
 
 /**
  * @public
@@ -105,16 +101,11 @@ export class ListCollaborationAnalysisTemplatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationAnalysisTemplates", {})
   .n("CleanRoomsClient", "ListCollaborationAnalysisTemplatesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCollaborationAnalysisTemplatesCommand)
-  .de(de_ListCollaborationAnalysisTemplatesCommand)
+  .sc(ListCollaborationAnalysisTemplates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

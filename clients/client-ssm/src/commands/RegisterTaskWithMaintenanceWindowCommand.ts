@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RegisterTaskWithMaintenanceWindowRequest,
-  RegisterTaskWithMaintenanceWindowRequestFilterSensitiveLog,
-  RegisterTaskWithMaintenanceWindowResult,
-} from "../models/models_2";
-import {
-  de_RegisterTaskWithMaintenanceWindowCommand,
-  se_RegisterTaskWithMaintenanceWindowCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterTaskWithMaintenanceWindowRequest, RegisterTaskWithMaintenanceWindowResult } from "../models/models_2";
+import { RegisterTaskWithMaintenanceWindow } from "../schemas/schemas_24_Maintenance";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -185,16 +177,11 @@ export class RegisterTaskWithMaintenanceWindowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "RegisterTaskWithMaintenanceWindow", {})
   .n("SSMClient", "RegisterTaskWithMaintenanceWindowCommand")
-  .f(RegisterTaskWithMaintenanceWindowRequestFilterSensitiveLog, void 0)
-  .ser(se_RegisterTaskWithMaintenanceWindowCommand)
-  .de(de_RegisterTaskWithMaintenanceWindowCommand)
+  .sc(RegisterTaskWithMaintenanceWindow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

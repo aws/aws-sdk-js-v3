@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppTestClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppTestClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTestSuiteRequest, GetTestSuiteResponse } from "../models/models_0";
-import { de_GetTestSuiteCommand, se_GetTestSuiteCommand } from "../protocols/Aws_restJson1";
+import { GetTestSuite } from "../schemas/schemas_4_Test";
 
 /**
  * @public
@@ -279,16 +278,11 @@ export class GetTestSuiteCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppTestClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsApptestControlPlaneService", "GetTestSuite", {})
   .n("AppTestClient", "GetTestSuiteCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTestSuiteCommand)
-  .de(de_GetTestSuiteCommand)
+  .sc(GetTestSuite)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

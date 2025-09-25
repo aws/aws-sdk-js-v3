@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CancelResourceRequestInput,
-  CancelResourceRequestOutput,
-  CancelResourceRequestOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CancelResourceRequestCommand, se_CancelResourceRequestCommand } from "../protocols/Aws_json1_0";
+import { CancelResourceRequestInput, CancelResourceRequestOutput } from "../models/models_0";
+import { CancelResourceRequest } from "../schemas/schemas_1_Resource";
 
 /**
  * @public
@@ -95,16 +90,11 @@ export class CancelResourceRequestCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudApiService", "CancelResourceRequest", {})
   .n("CloudControlClient", "CancelResourceRequestCommand")
-  .f(void 0, CancelResourceRequestOutputFilterSensitiveLog)
-  .ser(se_CancelResourceRequestCommand)
-  .de(de_CancelResourceRequestCommand)
+  .sc(CancelResourceRequest)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

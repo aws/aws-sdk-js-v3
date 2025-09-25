@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateVpcEndpointRequest, UpdateVpcEndpointResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { de_UpdateVpcEndpointCommand, se_UpdateVpcEndpointCommand } from "../protocols/Aws_restJson1";
+import { UpdateVpcEndpoint } from "../schemas/schemas_26_Package";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class UpdateVpcEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchService", "UpdateVpcEndpoint", {})
   .n("OpenSearchClient", "UpdateVpcEndpointCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateVpcEndpointCommand)
-  .de(de_UpdateVpcEndpointCommand)
+  .sc(UpdateVpcEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreatePlayerSessionInput,
-  CreatePlayerSessionInputFilterSensitiveLog,
-  CreatePlayerSessionOutput,
-  CreatePlayerSessionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreatePlayerSessionCommand, se_CreatePlayerSessionCommand } from "../protocols/Aws_json1_1";
+import { CreatePlayerSessionInput, CreatePlayerSessionOutput } from "../models/models_0";
+import { CreatePlayerSession } from "../schemas/schemas_7_Session";
 
 /**
  * @public
@@ -136,16 +130,11 @@ export class CreatePlayerSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "CreatePlayerSession", {})
   .n("GameLiftClient", "CreatePlayerSessionCommand")
-  .f(CreatePlayerSessionInputFilterSensitiveLog, CreatePlayerSessionOutputFilterSensitiveLog)
-  .ser(se_CreatePlayerSessionCommand)
-  .de(de_CreatePlayerSessionCommand)
+  .sc(CreatePlayerSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

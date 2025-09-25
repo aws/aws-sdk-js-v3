@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeFeedbackRequest, DescribeFeedbackResponse } from "../models/models_0";
-import { de_DescribeFeedbackCommand, se_DescribeFeedbackCommand } from "../protocols/Aws_restJson1";
+import { DescribeFeedback } from "../schemas/schemas_5_Feedback";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class DescribeFeedbackCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CapstoneControlPlaneService", "DescribeFeedback", {})
   .n("DevOpsGuruClient", "DescribeFeedbackCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeFeedbackCommand)
-  .de(de_DescribeFeedbackCommand)
+  .sc(DescribeFeedback)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

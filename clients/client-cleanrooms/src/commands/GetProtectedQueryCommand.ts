@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetProtectedQueryInput,
-  GetProtectedQueryOutput,
-  GetProtectedQueryOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetProtectedQueryCommand, se_GetProtectedQueryCommand } from "../protocols/Aws_restJson1";
+import { GetProtectedQueryInput, GetProtectedQueryOutput } from "../models/models_1";
+import { GetProtectedQuery } from "../schemas/schemas_7_Protected";
 
 /**
  * @public
@@ -180,16 +175,11 @@ export class GetProtectedQueryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetProtectedQuery", {})
   .n("CleanRoomsClient", "GetProtectedQueryCommand")
-  .f(void 0, GetProtectedQueryOutputFilterSensitiveLog)
-  .ser(se_GetProtectedQueryCommand)
-  .de(de_GetProtectedQueryCommand)
+  .sc(GetProtectedQuery)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,11 +9,8 @@ import {
   ListTrafficPolicyInstancesByHostedZoneRequest,
   ListTrafficPolicyInstancesByHostedZoneResponse,
 } from "../models/models_0";
-import {
-  de_ListTrafficPolicyInstancesByHostedZoneCommand,
-  se_ListTrafficPolicyInstancesByHostedZoneCommand,
-} from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { ListTrafficPolicyInstancesByHostedZone } from "../schemas/schemas_7_List";
 
 /**
  * @public
@@ -119,17 +115,11 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
   })
   .s("AWSDnsV20130401", "ListTrafficPolicyInstancesByHostedZone", {})
   .n("Route53Client", "ListTrafficPolicyInstancesByHostedZoneCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTrafficPolicyInstancesByHostedZoneCommand)
-  .de(de_ListTrafficPolicyInstancesByHostedZoneCommand)
+  .sc(ListTrafficPolicyInstancesByHostedZone)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

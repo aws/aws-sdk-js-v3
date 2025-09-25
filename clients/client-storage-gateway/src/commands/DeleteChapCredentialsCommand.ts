@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteChapCredentialsInput, DeleteChapCredentialsOutput } from "../models/models_0";
-import { de_DeleteChapCredentialsCommand, se_DeleteChapCredentialsCommand } from "../protocols/Aws_json1_1";
+import { DeleteChapCredentials } from "../schemas/schemas_8_SCSI";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -99,16 +98,11 @@ export class DeleteChapCredentialsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "DeleteChapCredentials", {})
   .n("StorageGatewayClient", "DeleteChapCredentialsCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteChapCredentialsCommand)
-  .de(de_DeleteChapCredentialsCommand)
+  .sc(DeleteChapCredentials)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

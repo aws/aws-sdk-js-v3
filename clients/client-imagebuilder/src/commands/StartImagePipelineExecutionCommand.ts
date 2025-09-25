@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { StartImagePipelineExecutionRequest, StartImagePipelineExecutionResponse } from "../models/models_0";
-import {
-  de_StartImagePipelineExecutionCommand,
-  se_StartImagePipelineExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { StartImagePipelineExecution } from "../schemas/schemas_3_Image";
 
 /**
  * @public
@@ -110,16 +106,11 @@ export class StartImagePipelineExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("imagebuilder", "StartImagePipelineExecution", {})
   .n("ImagebuilderClient", "StartImagePipelineExecutionCommand")
-  .f(void 0, void 0)
-  .ser(se_StartImagePipelineExecutionCommand)
-  .de(de_StartImagePipelineExecutionCommand)
+  .sc(StartImagePipelineExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

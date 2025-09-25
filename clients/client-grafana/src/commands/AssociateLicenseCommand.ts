@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import {
-  AssociateLicenseRequest,
-  AssociateLicenseResponse,
-  AssociateLicenseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_AssociateLicenseCommand, se_AssociateLicenseCommand } from "../protocols/Aws_restJson1";
+import { AssociateLicenseRequest, AssociateLicenseResponse } from "../models/models_0";
+import { AssociateLicense } from "../schemas/schemas_1_Workspace";
 
 /**
  * @public
@@ -148,16 +143,11 @@ export class AssociateLicenseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGrafanaControlPlane", "AssociateLicense", {})
   .n("GrafanaClient", "AssociateLicenseCommand")
-  .f(void 0, AssociateLicenseResponseFilterSensitiveLog)
-  .ser(se_AssociateLicenseCommand)
-  .de(de_AssociateLicenseCommand)
+  .sc(AssociateLicense)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

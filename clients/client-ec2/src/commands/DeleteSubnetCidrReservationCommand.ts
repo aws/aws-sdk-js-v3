@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteSubnetCidrReservationRequest, DeleteSubnetCidrReservationResult } from "../models/models_3";
-import { de_DeleteSubnetCidrReservationCommand, se_DeleteSubnetCidrReservationCommand } from "../protocols/Aws_ec2";
+import { DeleteSubnetCidrReservation } from "../schemas/schemas_249_SubnetCidr";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class DeleteSubnetCidrReservationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DeleteSubnetCidrReservation", {})
   .n("EC2Client", "DeleteSubnetCidrReservationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteSubnetCidrReservationCommand)
-  .de(de_DeleteSubnetCidrReservationCommand)
+  .sc(DeleteSubnetCidrReservation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

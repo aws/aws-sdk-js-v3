@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFlowMonitorClient";
-import { de_GetScopeCommand, se_GetScopeCommand } from "../protocols/Aws_restJson1";
+import { GetScope } from "../schemas/schemas_2_Scope";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class GetScopeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkFlowMonitor", "GetScope", {})
   .n("NetworkFlowMonitorClient", "GetScopeCommand")
-  .f(void 0, void 0)
-  .ser(se_GetScopeCommand)
-  .de(de_GetScopeCommand)
+  .sc(GetScope)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

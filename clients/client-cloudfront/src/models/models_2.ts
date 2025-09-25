@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CloudFrontServiceException as __BaseException } from "./CloudFrontServiceException";
 
@@ -15,8 +15,6 @@ import {
   Customizations,
   Distribution,
   DistributionConfig,
-  DistributionConfigFilterSensitiveLog,
-  DistributionFilterSensitiveLog,
   DistributionTenant,
   DomainItem,
   FieldLevelEncryption,
@@ -1435,63 +1433,3 @@ export interface VerifyDnsConfigurationResult {
    */
   DnsConfigurationList?: DnsConfiguration[] | undefined;
 }
-
-/**
- * @internal
- */
-export const TestFunctionRequestFilterSensitiveLog = (obj: TestFunctionRequest): any => ({
-  ...obj,
-  ...(obj.EventObject && { EventObject: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TestResultFilterSensitiveLog = (obj: TestResult): any => ({
-  ...obj,
-  ...(obj.FunctionExecutionLogs && { FunctionExecutionLogs: SENSITIVE_STRING }),
-  ...(obj.FunctionErrorMessage && { FunctionErrorMessage: SENSITIVE_STRING }),
-  ...(obj.FunctionOutput && { FunctionOutput: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TestFunctionResultFilterSensitiveLog = (obj: TestFunctionResult): any => ({
-  ...obj,
-  ...(obj.TestResult && { TestResult: TestResultFilterSensitiveLog(obj.TestResult) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDistributionRequestFilterSensitiveLog = (obj: UpdateDistributionRequest): any => ({
-  ...obj,
-  ...(obj.DistributionConfig && { DistributionConfig: DistributionConfigFilterSensitiveLog(obj.DistributionConfig) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDistributionResultFilterSensitiveLog = (obj: UpdateDistributionResult): any => ({
-  ...obj,
-  ...(obj.Distribution && { Distribution: DistributionFilterSensitiveLog(obj.Distribution) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDistributionWithStagingConfigResultFilterSensitiveLog = (
-  obj: UpdateDistributionWithStagingConfigResult
-): any => ({
-  ...obj,
-  ...(obj.Distribution && { Distribution: DistributionFilterSensitiveLog(obj.Distribution) }),
-});
-
-/**
- * @internal
- */
-export const UpdateFunctionRequestFilterSensitiveLog = (obj: UpdateFunctionRequest): any => ({
-  ...obj,
-  ...(obj.FunctionCode && { FunctionCode: SENSITIVE_STRING }),
-});

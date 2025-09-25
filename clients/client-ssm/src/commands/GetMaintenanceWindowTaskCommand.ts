@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetMaintenanceWindowTaskRequest,
-  GetMaintenanceWindowTaskResult,
-  GetMaintenanceWindowTaskResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetMaintenanceWindowTaskCommand, se_GetMaintenanceWindowTaskCommand } from "../protocols/Aws_json1_1";
+import { GetMaintenanceWindowTaskRequest, GetMaintenanceWindowTaskResult } from "../models/models_1";
+import { GetMaintenanceWindowTask } from "../schemas/schemas_24_Maintenance";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -174,16 +169,11 @@ export class GetMaintenanceWindowTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "GetMaintenanceWindowTask", {})
   .n("SSMClient", "GetMaintenanceWindowTaskCommand")
-  .f(void 0, GetMaintenanceWindowTaskResultFilterSensitiveLog)
-  .ser(se_GetMaintenanceWindowTaskCommand)
-  .de(de_GetMaintenanceWindowTaskCommand)
+  .sc(GetMaintenanceWindowTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

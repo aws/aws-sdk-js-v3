@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import {
   ActivityStreamMode,
@@ -42,7 +42,6 @@ import {
   ServerlessV2ScalingConfiguration,
   Tag,
   TenantDatabase,
-  TenantDatabaseFilterSensitiveLog,
   UserAuthConfig,
 } from "./models_0";
 
@@ -16017,37 +16016,3 @@ export interface SwitchoverReadReplicaResult {
    */
   DBInstance?: DBInstance | undefined;
 }
-
-/**
- * @internal
- */
-export const DeleteTenantDatabaseResultFilterSensitiveLog = (obj: DeleteTenantDatabaseResult): any => ({
-  ...obj,
-  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
-});
-
-/**
- * @internal
- */
-export const TenantDatabasesMessageFilterSensitiveLog = (obj: TenantDatabasesMessage): any => ({
-  ...obj,
-  ...(obj.TenantDatabases && {
-    TenantDatabases: obj.TenantDatabases.map((item) => TenantDatabaseFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ModifyTenantDatabaseMessageFilterSensitiveLog = (obj: ModifyTenantDatabaseMessage): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyTenantDatabaseResultFilterSensitiveLog = (obj: ModifyTenantDatabaseResult): any => ({
-  ...obj,
-  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
-});

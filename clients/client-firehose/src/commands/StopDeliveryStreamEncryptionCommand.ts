@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { StopDeliveryStreamEncryptionInput, StopDeliveryStreamEncryptionOutput } from "../models/models_0";
-import {
-  de_StopDeliveryStreamEncryptionCommand,
-  se_StopDeliveryStreamEncryptionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopDeliveryStreamEncryption } from "../schemas/schemas_1_DeliveryStream";
 
 /**
  * @public
@@ -103,16 +99,11 @@ export class StopDeliveryStreamEncryptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Firehose_20150804", "StopDeliveryStreamEncryption", {})
   .n("FirehoseClient", "StopDeliveryStreamEncryptionCommand")
-  .f(void 0, void 0)
-  .ser(se_StopDeliveryStreamEncryptionCommand)
-  .de(de_StopDeliveryStreamEncryptionCommand)
+  .sc(StopDeliveryStreamEncryption)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

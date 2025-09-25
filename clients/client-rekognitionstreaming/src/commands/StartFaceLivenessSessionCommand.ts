@@ -2,23 +2,17 @@
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartFaceLivenessSessionRequest,
-  StartFaceLivenessSessionRequestFilterSensitiveLog,
-  StartFaceLivenessSessionResponse,
-  StartFaceLivenessSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartFaceLivenessSessionCommand, se_StartFaceLivenessSessionCommand } from "../protocols/Aws_restJson1";
+import { StartFaceLivenessSessionRequest, StartFaceLivenessSessionResponse } from "../models/models_0";
 import {
   RekognitionStreamingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RekognitionStreamingClient";
+import { StartFaceLivenessSession } from "../schemas/schemas_1_StartFaceLivenessSession";
 
 /**
  * @public
@@ -280,7 +274,6 @@ export class StartFaceLivenessSessionCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionStreamingClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
@@ -298,9 +291,7 @@ export class StartFaceLivenessSessionCommand extends $Command
     },
   })
   .n("RekognitionStreamingClient", "StartFaceLivenessSessionCommand")
-  .f(StartFaceLivenessSessionRequestFilterSensitiveLog, StartFaceLivenessSessionResponseFilterSensitiveLog)
-  .ser(se_StartFaceLivenessSessionCommand)
-  .de(de_StartFaceLivenessSessionCommand)
+  .sc(StartFaceLivenessSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

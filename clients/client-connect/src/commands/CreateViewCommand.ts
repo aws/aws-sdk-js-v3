@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateViewRequest,
-  CreateViewRequestFilterSensitiveLog,
-  CreateViewResponse,
-  CreateViewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateViewCommand, se_CreateViewCommand } from "../protocols/Aws_restJson1";
+import { CreateViewRequest, CreateViewResponse } from "../models/models_0";
+import { CreateView } from "../schemas/schemas_18_View";
 
 /**
  * @public
@@ -147,16 +141,11 @@ export class CreateViewCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "CreateView", {})
   .n("ConnectClient", "CreateViewCommand")
-  .f(CreateViewRequestFilterSensitiveLog, CreateViewResponseFilterSensitiveLog)
-  .ser(se_CreateViewCommand)
-  .de(de_CreateViewCommand)
+  .sc(CreateView)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

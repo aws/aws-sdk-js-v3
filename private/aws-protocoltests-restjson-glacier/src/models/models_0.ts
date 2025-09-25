@@ -140,13 +140,6 @@ export interface UploadArchiveInput {
 }
 
 /**
- * @internal
- */
-export const UploadArchiveInputFilterSensitiveLog = (obj: UploadArchiveInput): any => ({
-  ...obj,
-});
-
-/**
  * @public
  */
 export interface UploadMultipartPartInput {
@@ -157,13 +150,6 @@ export interface UploadMultipartPartInput {
   range?: string | undefined;
   body?: StreamingBlobTypes | undefined;
 }
-
-/**
- * @internal
- */
-export const UploadMultipartPartInputFilterSensitiveLog = (obj: UploadMultipartPartInput): any => ({
-  ...obj,
-});
 
 /**
  * @public

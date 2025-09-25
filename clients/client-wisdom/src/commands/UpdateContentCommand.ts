@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateContentRequest,
-  UpdateContentResponse,
-  UpdateContentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateContentCommand, se_UpdateContentCommand } from "../protocols/Aws_restJson1";
+import { UpdateContentRequest, UpdateContentResponse } from "../models/models_0";
+import { UpdateContent } from "../schemas/schemas_5_Content";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -115,16 +110,11 @@ export class UpdateContentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "UpdateContent", {})
   .n("WisdomClient", "UpdateContentCommand")
-  .f(void 0, UpdateContentResponseFilterSensitiveLog)
-  .ser(se_UpdateContentCommand)
-  .de(de_UpdateContentCommand)
+  .sc(UpdateContent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -3582,10 +3582,3 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const ExecuteQueryOutputFilterSensitiveLog = (obj: ExecuteQueryOutput): any => ({
-  ...obj,
-});

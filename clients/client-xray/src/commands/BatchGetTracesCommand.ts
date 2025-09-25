@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchGetTracesRequest, BatchGetTracesResult } from "../models/models_0";
-import { de_BatchGetTracesCommand, se_BatchGetTracesCommand } from "../protocols/Aws_restJson1";
+import { BatchGetTraces } from "../schemas/schemas_3_Get";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -100,16 +99,11 @@ export class BatchGetTracesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSXRay", "BatchGetTraces", {})
   .n("XRayClient", "BatchGetTracesCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchGetTracesCommand)
-  .de(de_BatchGetTracesCommand)
+  .sc(BatchGetTraces)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

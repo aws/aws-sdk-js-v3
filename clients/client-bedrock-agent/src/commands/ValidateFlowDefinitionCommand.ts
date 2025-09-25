@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ValidateFlowDefinitionRequest,
-  ValidateFlowDefinitionRequestFilterSensitiveLog,
-  ValidateFlowDefinitionResponse,
-  ValidateFlowDefinitionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ValidateFlowDefinitionCommand, se_ValidateFlowDefinitionCommand } from "../protocols/Aws_restJson1";
+import { ValidateFlowDefinitionRequest, ValidateFlowDefinitionResponse } from "../models/models_1";
+import { ValidateFlowDefinition } from "../schemas/schemas_10_Flow";
 
 /**
  * @public
@@ -648,16 +642,11 @@ export class ValidateFlowDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "ValidateFlowDefinition", {})
   .n("BedrockAgentClient", "ValidateFlowDefinitionCommand")
-  .f(ValidateFlowDefinitionRequestFilterSensitiveLog, ValidateFlowDefinitionResponseFilterSensitiveLog)
-  .ser(se_ValidateFlowDefinitionCommand)
-  .de(de_ValidateFlowDefinitionCommand)
+  .sc(ValidateFlowDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

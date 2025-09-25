@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DescribeDatasetGroupRequest, DescribeDatasetGroupResponse } from "../models/models_0";
-import { de_DescribeDatasetGroupCommand, se_DescribeDatasetGroupCommand } from "../protocols/Aws_json1_1";
+import { DescribeDatasetGroup } from "../schemas/schemas_13_Dataset";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class DescribeDatasetGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecast", "DescribeDatasetGroup", {})
   .n("ForecastClient", "DescribeDatasetGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDatasetGroupCommand)
-  .de(de_DescribeDatasetGroupCommand)
+  .sc(DescribeDatasetGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

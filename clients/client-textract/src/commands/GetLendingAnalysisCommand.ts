@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetLendingAnalysisRequest, GetLendingAnalysisResponse } from "../models/models_0";
-import { de_GetLendingAnalysisCommand, se_GetLendingAnalysisCommand } from "../protocols/Aws_json1_1";
+import { GetLendingAnalysis } from "../schemas/schemas_1_Analysis";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -373,16 +372,11 @@ export class GetLendingAnalysisCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Textract", "GetLendingAnalysis", {})
   .n("TextractClient", "GetLendingAnalysisCommand")
-  .f(void 0, void 0)
-  .ser(se_GetLendingAnalysisCommand)
-  .de(de_GetLendingAnalysisCommand)
+  .sc(GetLendingAnalysis)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

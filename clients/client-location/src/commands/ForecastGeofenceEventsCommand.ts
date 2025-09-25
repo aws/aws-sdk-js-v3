@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ForecastGeofenceEventsRequest,
-  ForecastGeofenceEventsRequestFilterSensitiveLog,
-  ForecastGeofenceEventsResponse,
-  ForecastGeofenceEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ForecastGeofenceEventsCommand, se_ForecastGeofenceEventsCommand } from "../protocols/Aws_restJson1";
+import { ForecastGeofenceEventsRequest, ForecastGeofenceEventsResponse } from "../models/models_0";
+import { ForecastGeofenceEvents } from "../schemas/schemas_13_Geofence";
 
 /**
  * @public
@@ -136,16 +130,11 @@ export class ForecastGeofenceEventsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LocationService", "ForecastGeofenceEvents", {})
   .n("LocationClient", "ForecastGeofenceEventsCommand")
-  .f(ForecastGeofenceEventsRequestFilterSensitiveLog, ForecastGeofenceEventsResponseFilterSensitiveLog)
-  .ser(se_ForecastGeofenceEventsCommand)
-  .de(de_ForecastGeofenceEventsCommand)
+  .sc(ForecastGeofenceEvents)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

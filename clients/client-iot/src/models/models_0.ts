@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 
@@ -7994,62 +7994,3 @@ export const TopicRuleDestinationStatus = {
  * @public
  */
 export type TopicRuleDestinationStatus = (typeof TopicRuleDestinationStatus)[keyof typeof TopicRuleDestinationStatus];
-
-/**
- * @internal
- */
-export const KeyPairFilterSensitiveLog = (obj: KeyPair): any => ({
-  ...obj,
-  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateKeysAndCertificateResponseFilterSensitiveLog = (obj: CreateKeysAndCertificateResponse): any => ({
-  ...obj,
-  ...(obj.keyPair && { keyPair: KeyPairFilterSensitiveLog(obj.keyPair) }),
-});
-
-/**
- * @internal
- */
-export const CreatePackageRequestFilterSensitiveLog = (obj: CreatePackageRequest): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePackageResponseFilterSensitiveLog = (obj: CreatePackageResponse): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePackageVersionRequestFilterSensitiveLog = (obj: CreatePackageVersionRequest): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
-  ...(obj.recipe && { recipe: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePackageVersionResponseFilterSensitiveLog = (obj: CreatePackageVersionResponse): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateProvisioningClaimResponseFilterSensitiveLog = (obj: CreateProvisioningClaimResponse): any => ({
-  ...obj,
-  ...(obj.keyPair && { keyPair: KeyPairFilterSensitiveLog(obj.keyPair) }),
-});

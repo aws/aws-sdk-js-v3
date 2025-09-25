@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AddWorkingStorageInput, AddWorkingStorageOutput } from "../models/models_0";
-import { de_AddWorkingStorageCommand, se_AddWorkingStorageCommand } from "../protocols/Aws_json1_1";
+import { AddWorkingStorage } from "../schemas/schemas_18_Describe";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -110,16 +109,11 @@ export class AddWorkingStorageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "AddWorkingStorage", {})
   .n("StorageGatewayClient", "AddWorkingStorageCommand")
-  .f(void 0, void 0)
-  .ser(se_AddWorkingStorageCommand)
-  .de(de_AddWorkingStorageCommand)
+  .sc(AddWorkingStorage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

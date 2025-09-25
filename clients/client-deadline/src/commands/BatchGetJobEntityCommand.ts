@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchGetJobEntityRequest,
-  BatchGetJobEntityResponse,
-  BatchGetJobEntityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchGetJobEntityCommand, se_BatchGetJobEntityCommand } from "../protocols/Aws_restJson1";
+import { BatchGetJobEntityRequest, BatchGetJobEntityResponse } from "../models/models_0";
+import { BatchGetJobEntity } from "../schemas/schemas_10_Get";
 
 /**
  * @public
@@ -208,16 +203,11 @@ export class BatchGetJobEntityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "BatchGetJobEntity", {})
   .n("DeadlineClient", "BatchGetJobEntityCommand")
-  .f(void 0, BatchGetJobEntityResponseFilterSensitiveLog)
-  .ser(se_BatchGetJobEntityCommand)
-  .de(de_BatchGetJobEntityCommand)
+  .sc(BatchGetJobEntity)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

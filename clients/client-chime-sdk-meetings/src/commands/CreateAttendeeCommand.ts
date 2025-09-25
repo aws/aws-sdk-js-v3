@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateAttendeeRequest,
-  CreateAttendeeRequestFilterSensitiveLog,
-  CreateAttendeeResponse,
-  CreateAttendeeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateAttendeeCommand, se_CreateAttendeeCommand } from "../protocols/Aws_restJson1";
+import { CreateAttendeeRequest, CreateAttendeeResponse } from "../models/models_0";
+import { CreateAttendee } from "../schemas/schemas_2_Attendee";
 
 /**
  * @public
@@ -122,16 +116,11 @@ export class CreateAttendeeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMeetingsSDKService", "CreateAttendee", {})
   .n("ChimeSDKMeetingsClient", "CreateAttendeeCommand")
-  .f(CreateAttendeeRequestFilterSensitiveLog, CreateAttendeeResponseFilterSensitiveLog)
-  .ser(se_CreateAttendeeCommand)
-  .de(de_CreateAttendeeCommand)
+  .sc(CreateAttendee)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

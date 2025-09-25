@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   AssociateTransitGatewayConnectPeerResponse,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  de_AssociateTransitGatewayConnectPeerCommand,
-  se_AssociateTransitGatewayConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateTransitGatewayConnectPeer } from "../schemas/schemas_8_GatewayConnectPeer";
 
 /**
  * @public
@@ -113,16 +109,11 @@ export class AssociateTransitGatewayConnectPeerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkManager", "AssociateTransitGatewayConnectPeer", {})
   .n("NetworkManagerClient", "AssociateTransitGatewayConnectPeerCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateTransitGatewayConnectPeerCommand)
-  .de(de_AssociateTransitGatewayConnectPeerCommand)
+  .sc(AssociateTransitGatewayConnectPeer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

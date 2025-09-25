@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../DirectoryServiceDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateGroupRequest, CreateGroupRequestFilterSensitiveLog, CreateGroupResult } from "../models/models_0";
-import { de_CreateGroupCommand, se_CreateGroupCommand } from "../protocols/Aws_restJson1";
+import { CreateGroupRequest, CreateGroupResult } from "../models/models_0";
+import { CreateGroup } from "../schemas/schemas_3_Group";
 
 /**
  * @public
@@ -150,16 +149,11 @@ export class CreateGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryServiceData", "CreateGroup", {})
   .n("DirectoryServiceDataClient", "CreateGroupCommand")
-  .f(CreateGroupRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateGroupCommand)
-  .de(de_CreateGroupCommand)
+  .sc(CreateGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

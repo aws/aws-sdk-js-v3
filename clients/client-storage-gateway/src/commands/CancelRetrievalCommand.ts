@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CancelRetrievalInput, CancelRetrievalOutput } from "../models/models_0";
-import { de_CancelRetrievalCommand, se_CancelRetrievalCommand } from "../protocols/Aws_json1_1";
+import { CancelRetrieval } from "../schemas/schemas_14_CancelRetrieval";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -97,16 +96,11 @@ export class CancelRetrievalCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "CancelRetrieval", {})
   .n("StorageGatewayClient", "CancelRetrievalCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelRetrievalCommand)
-  .de(de_CancelRetrievalCommand)
+  .sc(CancelRetrieval)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

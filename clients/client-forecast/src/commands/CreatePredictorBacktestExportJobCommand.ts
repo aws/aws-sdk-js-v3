@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  CreatePredictorBacktestExportJobRequest,
-  CreatePredictorBacktestExportJobRequestFilterSensitiveLog,
-  CreatePredictorBacktestExportJobResponse,
-} from "../models/models_0";
-import {
-  de_CreatePredictorBacktestExportJobCommand,
-  se_CreatePredictorBacktestExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePredictorBacktestExportJobRequest, CreatePredictorBacktestExportJobResponse } from "../models/models_0";
+import { CreatePredictorBacktestExportJob } from "../schemas/schemas_32_CreatePredictorBacktestExportJob";
 
 /**
  * @public
@@ -125,16 +117,11 @@ export class CreatePredictorBacktestExportJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecast", "CreatePredictorBacktestExportJob", {})
   .n("ForecastClient", "CreatePredictorBacktestExportJobCommand")
-  .f(CreatePredictorBacktestExportJobRequestFilterSensitiveLog, void 0)
-  .ser(se_CreatePredictorBacktestExportJobCommand)
-  .de(de_CreatePredictorBacktestExportJobCommand)
+  .sc(CreatePredictorBacktestExportJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

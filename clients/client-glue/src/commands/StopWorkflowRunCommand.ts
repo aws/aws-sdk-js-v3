@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { StopWorkflowRunRequest, StopWorkflowRunResponse } from "../models/models_3";
-import { de_StopWorkflowRunCommand, se_StopWorkflowRunCommand } from "../protocols/Aws_json1_1";
+import { StopWorkflowRun } from "../schemas/schemas_68_Workflow";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class StopWorkflowRunCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "StopWorkflowRun", {})
   .n("GlueClient", "StopWorkflowRunCommand")
-  .f(void 0, void 0)
-  .ser(se_StopWorkflowRunCommand)
-  .de(de_StopWorkflowRunCommand)
+  .sc(StopWorkflowRun)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

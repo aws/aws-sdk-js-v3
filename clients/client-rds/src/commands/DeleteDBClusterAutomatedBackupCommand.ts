@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDBClusterAutomatedBackupMessage, DeleteDBClusterAutomatedBackupResult } from "../models/models_0";
-import {
-  de_DeleteDBClusterAutomatedBackupCommand,
-  se_DeleteDBClusterAutomatedBackupCommand,
-} from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DeleteDBClusterAutomatedBackup } from "../schemas/schemas_5_Automated";
 
 /**
  * @public
@@ -114,16 +110,11 @@ export class DeleteDBClusterAutomatedBackupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "DeleteDBClusterAutomatedBackup", {})
   .n("RDSClient", "DeleteDBClusterAutomatedBackupCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDBClusterAutomatedBackupCommand)
-  .de(de_DeleteDBClusterAutomatedBackupCommand)
+  .sc(DeleteDBClusterAutomatedBackup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

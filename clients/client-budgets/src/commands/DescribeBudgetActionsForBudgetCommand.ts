@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeBudgetActionsForBudgetRequest,
-  DescribeBudgetActionsForBudgetResponse,
-  DescribeBudgetActionsForBudgetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_DescribeBudgetActionsForBudgetCommand,
-  se_DescribeBudgetActionsForBudgetCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeBudgetActionsForBudgetRequest, DescribeBudgetActionsForBudgetResponse } from "../models/models_0";
+import { DescribeBudgetActionsForBudget } from "../schemas/schemas_2_Budget";
 
 /**
  * @public
@@ -151,16 +143,11 @@ export class DescribeBudgetActionsForBudgetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBudgetServiceGateway", "DescribeBudgetActionsForBudget", {})
   .n("BudgetsClient", "DescribeBudgetActionsForBudgetCommand")
-  .f(void 0, DescribeBudgetActionsForBudgetResponseFilterSensitiveLog)
-  .ser(se_DescribeBudgetActionsForBudgetCommand)
-  .de(de_DescribeBudgetActionsForBudgetCommand)
+  .sc(DescribeBudgetActionsForBudget)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

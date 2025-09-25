@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetDocumentPathRequest,
-  GetDocumentPathRequestFilterSensitiveLog,
-  GetDocumentPathResponse,
-  GetDocumentPathResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetDocumentPathCommand, se_GetDocumentPathCommand } from "../protocols/Aws_restJson1";
+import { GetDocumentPathRequest, GetDocumentPathResponse } from "../models/models_0";
+import { GetDocumentPath } from "../schemas/schemas_3_Describe";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -108,16 +102,11 @@ export class GetDocumentPathCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "GetDocumentPath", {})
   .n("WorkDocsClient", "GetDocumentPathCommand")
-  .f(GetDocumentPathRequestFilterSensitiveLog, GetDocumentPathResponseFilterSensitiveLog)
-  .ser(se_GetDocumentPathCommand)
-  .de(de_GetDocumentPathCommand)
+  .sc(GetDocumentPath)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

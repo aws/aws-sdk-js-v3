@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetCampaignVersionsRequest, GetCampaignVersionsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { de_GetCampaignVersionsCommand, se_GetCampaignVersionsCommand } from "../protocols/Aws_restJson1";
+import { GetCampaignVersions } from "../schemas/schemas_12_Campaign";
 
 /**
  * @public
@@ -492,16 +491,11 @@ export class GetCampaignVersionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Pinpoint", "GetCampaignVersions", {})
   .n("PinpointClient", "GetCampaignVersionsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetCampaignVersionsCommand)
-  .de(de_GetCampaignVersionsCommand)
+  .sc(GetCampaignVersions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

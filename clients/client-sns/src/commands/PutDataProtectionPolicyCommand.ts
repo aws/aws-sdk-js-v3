@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutDataProtectionPolicyInput } from "../models/models_0";
-import { de_PutDataProtectionPolicyCommand, se_PutDataProtectionPolicyCommand } from "../protocols/Aws_query";
+import { PutDataProtectionPolicy } from "../schemas/schemas_4_Topic";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -87,16 +86,11 @@ export class PutDataProtectionPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSimpleNotificationService", "PutDataProtectionPolicy", {})
   .n("SNSClient", "PutDataProtectionPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_PutDataProtectionPolicyCommand)
-  .de(de_PutDataProtectionPolicyCommand)
+  .sc(PutDataProtectionPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

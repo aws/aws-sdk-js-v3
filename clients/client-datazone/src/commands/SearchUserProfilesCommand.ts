@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SearchUserProfilesInput,
-  SearchUserProfilesInputFilterSensitiveLog,
-  SearchUserProfilesOutput,
-  SearchUserProfilesOutputFilterSensitiveLog,
-} from "../models/models_2";
-import { de_SearchUserProfilesCommand, se_SearchUserProfilesCommand } from "../protocols/Aws_restJson1";
+import { SearchUserProfilesInput, SearchUserProfilesOutput } from "../models/models_2";
+import { SearchUserProfiles } from "../schemas/schemas_44_User";
 
 /**
  * @public
@@ -116,16 +110,11 @@ export class SearchUserProfilesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "SearchUserProfiles", {})
   .n("DataZoneClient", "SearchUserProfilesCommand")
-  .f(SearchUserProfilesInputFilterSensitiveLog, SearchUserProfilesOutputFilterSensitiveLog)
-  .ser(se_SearchUserProfilesCommand)
-  .de(de_SearchUserProfilesCommand)
+  .sc(SearchUserProfiles)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

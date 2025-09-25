@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DisassociateTransitGatewayPolicyTableRequest,
   DisassociateTransitGatewayPolicyTableResult,
 } from "../models/models_6";
-import {
-  de_DisassociateTransitGatewayPolicyTableCommand,
-  se_DisassociateTransitGatewayPolicyTableCommand,
-} from "../protocols/Aws_ec2";
+import { DisassociateTransitGatewayPolicyTable } from "../schemas/schemas_87_Policy";
 
 /**
  * @public
@@ -87,16 +83,11 @@ export class DisassociateTransitGatewayPolicyTableCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DisassociateTransitGatewayPolicyTable", {})
   .n("EC2Client", "DisassociateTransitGatewayPolicyTableCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateTransitGatewayPolicyTableCommand)
-  .de(de_DisassociateTransitGatewayPolicyTableCommand)
+  .sc(DisassociateTransitGatewayPolicyTable)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

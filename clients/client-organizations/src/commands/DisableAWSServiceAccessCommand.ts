@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisableAWSServiceAccessRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { de_DisableAWSServiceAccessCommand, se_DisableAWSServiceAccessCommand } from "../protocols/Aws_json1_1";
+import { DisableAWSServiceAccess } from "../schemas/schemas_10_Delegated";
 
 /**
  * @public
@@ -477,16 +476,11 @@ export class DisableAWSServiceAccessCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "DisableAWSServiceAccess", {})
   .n("OrganizationsClient", "DisableAWSServiceAccessCommand")
-  .f(void 0, void 0)
-  .ser(se_DisableAWSServiceAccessCommand)
-  .de(de_DisableAWSServiceAccessCommand)
+  .sc(DisableAWSServiceAccess)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

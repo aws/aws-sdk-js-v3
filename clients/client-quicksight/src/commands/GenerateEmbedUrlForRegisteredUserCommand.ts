@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,13 +7,9 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GenerateEmbedUrlForRegisteredUserRequest,
   GenerateEmbedUrlForRegisteredUserResponse,
-  GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
 } from "../models/models_4";
-import {
-  de_GenerateEmbedUrlForRegisteredUserCommand,
-  se_GenerateEmbedUrlForRegisteredUserCommand,
-} from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { GenerateEmbedUrlForRegisteredUser } from "../schemas/schemas_8_User";
 
 /**
  * @public
@@ -227,16 +222,11 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "GenerateEmbedUrlForRegisteredUser", {})
   .n("QuickSightClient", "GenerateEmbedUrlForRegisteredUserCommand")
-  .f(void 0, GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog)
-  .ser(se_GenerateEmbedUrlForRegisteredUserCommand)
-  .de(de_GenerateEmbedUrlForRegisteredUserCommand)
+  .sc(GenerateEmbedUrlForRegisteredUser)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

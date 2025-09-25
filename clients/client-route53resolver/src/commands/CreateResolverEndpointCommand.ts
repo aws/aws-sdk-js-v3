@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateResolverEndpointRequest, CreateResolverEndpointResponse } from "../models/models_0";
-import { de_CreateResolverEndpointCommand, se_CreateResolverEndpointCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
+import { CreateResolverEndpoint } from "../schemas/schemas_9_Create";
 
 /**
  * @public
@@ -151,16 +150,11 @@ export class CreateResolverEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Resolver", "CreateResolverEndpoint", {})
   .n("Route53ResolverClient", "CreateResolverEndpointCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateResolverEndpointCommand)
-  .de(de_CreateResolverEndpointCommand)
+  .sc(CreateResolverEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

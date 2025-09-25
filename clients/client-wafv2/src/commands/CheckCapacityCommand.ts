@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CheckCapacityRequest, CheckCapacityResponse } from "../models/models_0";
-import { de_CheckCapacityCommand, se_CheckCapacityCommand } from "../protocols/Aws_json1_1";
+import { CheckCapacity } from "../schemas/schemas_3_WebACL";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -1179,16 +1178,11 @@ export class CheckCapacityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20190729", "CheckCapacity", {})
   .n("WAFV2Client", "CheckCapacityCommand")
-  .f(void 0, void 0)
-  .ser(se_CheckCapacityCommand)
-  .de(de_CheckCapacityCommand)
+  .sc(CheckCapacity)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

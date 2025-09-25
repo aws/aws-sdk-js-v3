@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAccountSettingsRequest, GetAccountSettingsResponse } from "../models/models_0";
-import { de_GetAccountSettingsCommand, se_GetAccountSettingsCommand } from "../protocols/Aws_restJson1";
+import { GetAccountSettings } from "../schemas/schemas_8_User";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class GetAccountSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("UCBuzzConsoleService", "GetAccountSettings", {})
   .n("ChimeClient", "GetAccountSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAccountSettingsCommand)
-  .de(de_GetAccountSettingsCommand)
+  .sc(GetAccountSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

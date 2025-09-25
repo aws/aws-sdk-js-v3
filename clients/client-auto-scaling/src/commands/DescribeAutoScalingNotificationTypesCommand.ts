@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAutoScalingNotificationTypesAnswer } from "../models/models_0";
-import {
-  de_DescribeAutoScalingNotificationTypesCommand,
-  se_DescribeAutoScalingNotificationTypesCommand,
-} from "../protocols/Aws_query";
+import { DescribeAutoScalingNotificationTypes } from "../schemas/schemas_18_Describe";
 
 /**
  * @public
@@ -98,16 +94,11 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AutoScaling_2011_01_01", "DescribeAutoScalingNotificationTypes", {})
   .n("AutoScalingClient", "DescribeAutoScalingNotificationTypesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAutoScalingNotificationTypesCommand)
-  .de(de_DescribeAutoScalingNotificationTypesCommand)
+  .sc(DescribeAutoScalingNotificationTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

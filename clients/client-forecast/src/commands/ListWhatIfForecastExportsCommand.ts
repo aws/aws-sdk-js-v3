@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { ListWhatIfForecastExportsRequest, ListWhatIfForecastExportsResponse } from "../models/models_0";
-import { de_ListWhatIfForecastExportsCommand, se_ListWhatIfForecastExportsCommand } from "../protocols/Aws_json1_1";
+import { ListWhatIfForecastExports } from "../schemas/schemas_1_What";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class ListWhatIfForecastExportsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecast", "ListWhatIfForecastExports", {})
   .n("ForecastClient", "ListWhatIfForecastExportsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListWhatIfForecastExportsCommand)
-  .de(de_ListWhatIfForecastExportsCommand)
+  .sc(ListWhatIfForecastExports)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

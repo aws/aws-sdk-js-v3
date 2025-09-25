@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  UpdateConnectorRequest,
-  UpdateConnectorRequestFilterSensitiveLog,
-  UpdateConnectorResponse,
-} from "../models/models_0";
-import { de_UpdateConnectorCommand, se_UpdateConnectorCommand } from "../protocols/Aws_restJson1";
+import { UpdateConnectorRequest, UpdateConnectorResponse } from "../models/models_0";
+import { UpdateConnector } from "../schemas/schemas_1_Connector";
 
 /**
  * @public
@@ -124,16 +119,11 @@ export class UpdateConnectorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KafkaConnect", "UpdateConnector", {})
   .n("KafkaConnectClient", "UpdateConnectorCommand")
-  .f(UpdateConnectorRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateConnectorCommand)
-  .de(de_UpdateConnectorCommand)
+  .sc(UpdateConnector)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

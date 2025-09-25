@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeProfilingGroupRequest, DescribeProfilingGroupResponse } from "../models/models_0";
-import { de_DescribeProfilingGroupCommand, se_DescribeProfilingGroupCommand } from "../protocols/Aws_restJson1";
+import { DescribeProfilingGroup } from "../schemas/schemas_5_Profiling";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class DescribeProfilingGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeGuruProfiler", "DescribeProfilingGroup", {})
   .n("CodeGuruProfilerClient", "DescribeProfilingGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeProfilingGroupCommand)
-  .de(de_DescribeProfilingGroupCommand)
+  .sc(DescribeProfilingGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

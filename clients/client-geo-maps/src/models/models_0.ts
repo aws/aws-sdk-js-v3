@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { GeoMapsServiceException as __BaseException } from "./GeoMapsServiceException";
 
@@ -678,42 +678,3 @@ export class ResourceNotFoundException extends __BaseException {
     this.Message = opts.Message;
   }
 }
-
-/**
- * @internal
- */
-export const GetStaticMapRequestFilterSensitiveLog = (obj: GetStaticMapRequest): any => ({
-  ...obj,
-  ...(obj.BoundingBox && { BoundingBox: SENSITIVE_STRING }),
-  ...(obj.BoundedPositions && { BoundedPositions: SENSITIVE_STRING }),
-  ...(obj.Center && { Center: SENSITIVE_STRING }),
-  ...(obj.CompactOverlay && { CompactOverlay: SENSITIVE_STRING }),
-  ...(obj.GeoJsonOverlay && { GeoJsonOverlay: SENSITIVE_STRING }),
-  ...(obj.Height && { Height: SENSITIVE_STRING }),
-  ...(obj.Key && { Key: SENSITIVE_STRING }),
-  ...(obj.Padding && { Padding: SENSITIVE_STRING }),
-  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
-  ...(obj.Radius && { Radius: SENSITIVE_STRING }),
-  ...(obj.Width && { Width: SENSITIVE_STRING }),
-  ...(obj.Zoom && { Zoom: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetStyleDescriptorRequestFilterSensitiveLog = (obj: GetStyleDescriptorRequest): any => ({
-  ...obj,
-  ...(obj.PoliticalView && { PoliticalView: SENSITIVE_STRING }),
-  ...(obj.Key && { Key: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetTileRequestFilterSensitiveLog = (obj: GetTileRequest): any => ({
-  ...obj,
-  ...(obj.Z && { Z: SENSITIVE_STRING }),
-  ...(obj.X && { X: SENSITIVE_STRING }),
-  ...(obj.Y && { Y: SENSITIVE_STRING }),
-  ...(obj.Key && { Key: SENSITIVE_STRING }),
-});

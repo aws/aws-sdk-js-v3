@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteStreamRequest, DeleteStreamResponse } from "../models/models_1";
-import { de_DeleteStreamCommand, se_DeleteStreamCommand } from "../protocols/Aws_restJson1";
+import { DeleteStream } from "../schemas/schemas_72_Delete";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class DeleteStreamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "DeleteStream", {})
   .n("IoTClient", "DeleteStreamCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteStreamCommand)
-  .de(de_DeleteStreamCommand)
+  .sc(DeleteStream)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  SearchPlaceIndexForTextRequest,
-  SearchPlaceIndexForTextRequestFilterSensitiveLog,
-  SearchPlaceIndexForTextResponse,
-  SearchPlaceIndexForTextResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_SearchPlaceIndexForTextCommand, se_SearchPlaceIndexForTextCommand } from "../protocols/Aws_restJson1";
+import { SearchPlaceIndexForTextRequest, SearchPlaceIndexForTextResponse } from "../models/models_0";
+import { SearchPlaceIndexForText } from "../schemas/schemas_9_Place";
 
 /**
  * @public
@@ -173,16 +167,11 @@ export class SearchPlaceIndexForTextCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LocationService", "SearchPlaceIndexForText", {})
   .n("LocationClient", "SearchPlaceIndexForTextCommand")
-  .f(SearchPlaceIndexForTextRequestFilterSensitiveLog, SearchPlaceIndexForTextResponseFilterSensitiveLog)
-  .ser(se_SearchPlaceIndexForTextCommand)
-  .de(de_SearchPlaceIndexForTextCommand)
+  .sc(SearchPlaceIndexForText)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

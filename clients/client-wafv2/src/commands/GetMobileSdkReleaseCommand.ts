@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetMobileSdkReleaseRequest, GetMobileSdkReleaseResponse } from "../models/models_0";
-import { de_GetMobileSdkReleaseCommand, se_GetMobileSdkReleaseCommand } from "../protocols/Aws_json1_1";
+import { GetMobileSdkRelease } from "../schemas/schemas_22_Create";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -118,16 +117,11 @@ export class GetMobileSdkReleaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20190729", "GetMobileSdkRelease", {})
   .n("WAFV2Client", "GetMobileSdkReleaseCommand")
-  .f(void 0, void 0)
-  .ser(se_GetMobileSdkReleaseCommand)
-  .de(de_GetMobileSdkReleaseCommand)
+  .sc(GetMobileSdkRelease)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

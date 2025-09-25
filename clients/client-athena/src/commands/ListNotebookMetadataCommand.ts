@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListNotebookMetadataInput, ListNotebookMetadataOutput } from "../models/models_0";
-import { de_ListNotebookMetadataCommand, se_ListNotebookMetadataCommand } from "../protocols/Aws_json1_1";
+import { ListNotebookMetadata } from "../schemas/schemas_6_Notebook";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class ListNotebookMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAthena", "ListNotebookMetadata", {})
   .n("AthenaClient", "ListNotebookMetadataCommand")
-  .f(void 0, void 0)
-  .ser(se_ListNotebookMetadataCommand)
-  .de(de_ListNotebookMetadataCommand)
+  .sc(ListNotebookMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

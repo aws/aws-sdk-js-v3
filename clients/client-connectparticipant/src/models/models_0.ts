@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConnectParticipantServiceException as __BaseException } from "./ConnectParticipantServiceException";
 
@@ -1250,56 +1250,3 @@ export interface StartAttachmentUploadResponse {
    */
   UploadMetadata?: UploadMetadata | undefined;
 }
-
-/**
- * @internal
- */
-export const AttendeeFilterSensitiveLog = (obj: Attendee): any => ({
-  ...obj,
-  ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const WebRTCConnectionFilterSensitiveLog = (obj: WebRTCConnection): any => ({
-  ...obj,
-  ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
-});
-
-/**
- * @internal
- */
-export const CreateParticipantConnectionResponseFilterSensitiveLog = (
-  obj: CreateParticipantConnectionResponse
-): any => ({
-  ...obj,
-  ...(obj.WebRTCConnection && { WebRTCConnection: WebRTCConnectionFilterSensitiveLog(obj.WebRTCConnection) }),
-});
-
-/**
- * @internal
- */
-export const ViewContentFilterSensitiveLog = (obj: ViewContent): any => ({
-  ...obj,
-  ...(obj.InputSchema && { InputSchema: SENSITIVE_STRING }),
-  ...(obj.Template && { Template: SENSITIVE_STRING }),
-  ...(obj.Actions && { Actions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ViewFilterSensitiveLog = (obj: View): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Content && { Content: ViewContentFilterSensitiveLog(obj.Content) }),
-});
-
-/**
- * @internal
- */
-export const DescribeViewResponseFilterSensitiveLog = (obj: DescribeViewResponse): any => ({
-  ...obj,
-  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});

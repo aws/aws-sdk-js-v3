@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { StartMonitoringMembersRequest, StartMonitoringMembersResponse } from "../models/models_1";
-import { de_StartMonitoringMembersCommand, se_StartMonitoringMembersCommand } from "../protocols/Aws_restJson1";
+import { StartMonitoringMembers } from "../schemas/schemas_50_StartMonitoringMembers";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class StartMonitoringMembersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GuardDutyAPIService", "StartMonitoringMembers", {})
   .n("GuardDutyClient", "StartMonitoringMembersCommand")
-  .f(void 0, void 0)
-  .ser(se_StartMonitoringMembersCommand)
-  .de(de_StartMonitoringMembersCommand)
+  .sc(StartMonitoringMembers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

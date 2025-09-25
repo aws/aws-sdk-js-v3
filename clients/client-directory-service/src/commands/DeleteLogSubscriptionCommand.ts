@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult } from "../models/models_0";
-import { de_DeleteLogSubscriptionCommand, se_DeleteLogSubscriptionCommand } from "../protocols/Aws_json1_1";
+import { DeleteLogSubscription } from "../schemas/schemas_32_DeleteLogSubscription";
 
 /**
  * @public
@@ -80,16 +79,11 @@ export class DeleteLogSubscriptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "DeleteLogSubscription", {})
   .n("DirectoryServiceClient", "DeleteLogSubscriptionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteLogSubscriptionCommand)
-  .de(de_DeleteLogSubscriptionCommand)
+  .sc(DeleteLogSubscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

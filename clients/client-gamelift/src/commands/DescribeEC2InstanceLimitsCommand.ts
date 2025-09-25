@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeEC2InstanceLimitsInput, DescribeEC2InstanceLimitsOutput } from "../models/models_0";
-import { de_DescribeEC2InstanceLimitsCommand, se_DescribeEC2InstanceLimitsCommand } from "../protocols/Aws_json1_1";
+import { DescribeEC2InstanceLimits } from "../schemas/schemas_25_Describe";
 
 /**
  * @public
@@ -146,16 +145,11 @@ export class DescribeEC2InstanceLimitsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "DescribeEC2InstanceLimits", {})
   .n("GameLiftClient", "DescribeEC2InstanceLimitsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeEC2InstanceLimitsCommand)
-  .de(de_DescribeEC2InstanceLimitsCommand)
+  .sc(DescribeEC2InstanceLimits)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

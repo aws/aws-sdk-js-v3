@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FractionalSecondsOutput } from "../models/models_0";
-import { de_FractionalSecondsCommand, se_FractionalSecondsCommand } from "../protocols/Rpcv2cbor";
 import { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
+import { FractionalSeconds } from "../schemas/schemas_3_FractionalSeconds";
 
 /**
  * @public
@@ -68,16 +67,11 @@ export class FractionalSecondsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RpcV2ProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RpcV2Protocol", "FractionalSeconds", {})
   .n("RpcV2ProtocolClient", "FractionalSecondsCommand")
-  .f(void 0, void 0)
-  .ser(se_FractionalSecondsCommand)
-  .de(de_FractionalSecondsCommand)
+  .sc(FractionalSeconds)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

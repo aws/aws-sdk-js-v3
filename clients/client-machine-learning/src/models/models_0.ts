@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { MachineLearningServiceException as __BaseException } from "./MachineLearningServiceException";
 
@@ -3993,55 +3993,3 @@ export interface UpdateMLModelOutput {
    */
   MLModelId?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const RDSDatabaseCredentialsFilterSensitiveLog = (obj: RDSDatabaseCredentials): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RDSDataSpecFilterSensitiveLog = (obj: RDSDataSpec): any => ({
-  ...obj,
-  ...(obj.DatabaseCredentials && {
-    DatabaseCredentials: RDSDatabaseCredentialsFilterSensitiveLog(obj.DatabaseCredentials),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateDataSourceFromRDSInputFilterSensitiveLog = (obj: CreateDataSourceFromRDSInput): any => ({
-  ...obj,
-  ...(obj.RDSData && { RDSData: RDSDataSpecFilterSensitiveLog(obj.RDSData) }),
-});
-
-/**
- * @internal
- */
-export const RedshiftDatabaseCredentialsFilterSensitiveLog = (obj: RedshiftDatabaseCredentials): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RedshiftDataSpecFilterSensitiveLog = (obj: RedshiftDataSpec): any => ({
-  ...obj,
-  ...(obj.DatabaseCredentials && {
-    DatabaseCredentials: RedshiftDatabaseCredentialsFilterSensitiveLog(obj.DatabaseCredentials),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateDataSourceFromRedshiftInputFilterSensitiveLog = (obj: CreateDataSourceFromRedshiftInput): any => ({
-  ...obj,
-  ...(obj.DataSpec && { DataSpec: RedshiftDataSpecFilterSensitiveLog(obj.DataSpec) }),
-});

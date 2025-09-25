@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateNetworkSettingsRequest,
-  CreateNetworkSettingsRequestFilterSensitiveLog,
-  CreateNetworkSettingsResponse,
-} from "../models/models_0";
-import { de_CreateNetworkSettingsCommand, se_CreateNetworkSettingsCommand } from "../protocols/Aws_restJson1";
+import { CreateNetworkSettingsRequest, CreateNetworkSettingsResponse } from "../models/models_0";
+import { CreateNetworkSettings } from "../schemas/schemas_15_NetworkSettings";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -107,16 +102,11 @@ export class CreateNetworkSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "CreateNetworkSettings", {})
   .n("WorkSpacesWebClient", "CreateNetworkSettingsCommand")
-  .f(CreateNetworkSettingsRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateNetworkSettingsCommand)
-  .de(de_CreateNetworkSettingsCommand)
+  .sc(CreateNetworkSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListClusterSnapshotsInput, ListClusterSnapshotsOutput } from "../models/models_0";
-import { de_ListClusterSnapshotsCommand, se_ListClusterSnapshotsCommand } from "../protocols/Aws_restJson1";
+import { ListClusterSnapshots } from "../schemas/schemas_5_List";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class ListClusterSnapshotsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeraDbLionfishServiceLambda", "ListClusterSnapshots", {})
   .n("DocDBElasticClient", "ListClusterSnapshotsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListClusterSnapshotsCommand)
-  .de(de_ListClusterSnapshotsCommand)
+  .sc(ListClusterSnapshots)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

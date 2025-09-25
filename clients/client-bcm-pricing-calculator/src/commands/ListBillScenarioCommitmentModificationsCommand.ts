@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   ListBillScenarioCommitmentModificationsRequest,
   ListBillScenarioCommitmentModificationsResponse,
 } from "../models/models_0";
-import {
-  de_ListBillScenarioCommitmentModificationsCommand,
-  se_ListBillScenarioCommitmentModificationsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListBillScenarioCommitmentModifications } from "../schemas/schemas_1_Bill";
 
 /**
  * @public
@@ -126,16 +122,11 @@ export class ListBillScenarioCommitmentModificationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBCMPricingCalculator", "ListBillScenarioCommitmentModifications", {})
   .n("BCMPricingCalculatorClient", "ListBillScenarioCommitmentModificationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListBillScenarioCommitmentModificationsCommand)
-  .de(de_ListBillScenarioCommitmentModificationsCommand)
+  .sc(ListBillScenarioCommitmentModifications)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

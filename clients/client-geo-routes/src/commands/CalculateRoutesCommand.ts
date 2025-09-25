@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GeoRoutesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoRoutesClient";
-import {
-  CalculateRoutesRequest,
-  CalculateRoutesRequestFilterSensitiveLog,
-  CalculateRoutesResponse,
-  CalculateRoutesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CalculateRoutesCommand, se_CalculateRoutesCommand } from "../protocols/Aws_restJson1";
+import { CalculateRoutesRequest, CalculateRoutesResponse } from "../models/models_0";
+import { CalculateRoutes } from "../schemas/schemas_1_Calculate";
 
 /**
  * @public
@@ -972,16 +966,11 @@ export class CalculateRoutesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GeoRoutesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RoutesService", "CalculateRoutes", {})
   .n("GeoRoutesClient", "CalculateRoutesCommand")
-  .f(CalculateRoutesRequestFilterSensitiveLog, CalculateRoutesResponseFilterSensitiveLog)
-  .ser(se_CalculateRoutesCommand)
-  .de(de_CalculateRoutesCommand)
+  .sc(CalculateRoutes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

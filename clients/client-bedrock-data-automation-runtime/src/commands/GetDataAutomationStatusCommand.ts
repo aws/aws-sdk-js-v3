@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../BedrockDataAutomationRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDataAutomationStatusRequest, GetDataAutomationStatusResponse } from "../models/models_0";
-import { de_GetDataAutomationStatusCommand, se_GetDataAutomationStatusCommand } from "../protocols/Aws_json1_1";
+import { GetDataAutomationStatus } from "../schemas/schemas_1_Resource";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class GetDataAutomationStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockDataAutomationRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockKeystoneRuntimeService", "GetDataAutomationStatus", {})
   .n("BedrockDataAutomationRuntimeClient", "GetDataAutomationStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDataAutomationStatusCommand)
-  .de(de_GetDataAutomationStatusCommand)
+  .sc(GetDataAutomationStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

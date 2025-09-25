@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType } from "@smithy/types";
 
@@ -12,11 +12,8 @@ import {
   CustomEntityType,
   DataQualityAggregatedMetrics,
   DataQualityAnalyzerResult,
-  DataQualityAnalyzerResultFilterSensitiveLog,
   DataQualityObservation,
-  DataQualityObservationFilterSensitiveLog,
   DataQualityRuleResult,
-  DataQualityRuleResultFilterSensitiveLog,
   DataSource,
   DevEndpoint,
   ErrorDetail,
@@ -8774,41 +8771,3 @@ export interface ListStatementsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const GetDataQualityResultResponseFilterSensitiveLog = (obj: GetDataQualityResultResponse): any => ({
-  ...obj,
-  ...(obj.RuleResults && { RuleResults: obj.RuleResults.map((item) => DataQualityRuleResultFilterSensitiveLog(item)) }),
-  ...(obj.AnalyzerResults && {
-    AnalyzerResults: obj.AnalyzerResults.map((item) => DataQualityAnalyzerResultFilterSensitiveLog(item)),
-  }),
-  ...(obj.Observations && {
-    Observations: obj.Observations.map((item) => DataQualityObservationFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetEntityRecordsResponseFilterSensitiveLog = (obj: GetEntityRecordsResponse): any => ({
-  ...obj,
-  ...(obj.Records && { Records: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StatisticSummaryFilterSensitiveLog = (obj: StatisticSummary): any => ({
-  ...obj,
-  ...(obj.StatisticProperties && { StatisticProperties: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListDataQualityStatisticsResponseFilterSensitiveLog = (obj: ListDataQualityStatisticsResponse): any => ({
-  ...obj,
-  ...(obj.Statistics && { Statistics: obj.Statistics.map((item) => StatisticSummaryFilterSensitiveLog(item)) }),
-});

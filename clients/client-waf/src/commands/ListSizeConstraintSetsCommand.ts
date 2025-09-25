@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSizeConstraintSetsRequest, ListSizeConstraintSetsResponse } from "../models/models_0";
-import { de_ListSizeConstraintSetsCommand, se_ListSizeConstraintSetsCommand } from "../protocols/Aws_json1_1";
+import { ListSizeConstraintSets } from "../schemas/schemas_42_ListSizeConstraintSets";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -111,16 +110,11 @@ export class ListSizeConstraintSetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20150824", "ListSizeConstraintSets", {})
   .n("WAFClient", "ListSizeConstraintSetsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSizeConstraintSetsCommand)
-  .de(de_ListSizeConstraintSetsCommand)
+  .sc(ListSizeConstraintSets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

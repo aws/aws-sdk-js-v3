@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAutonomousVirtualMachinesInput, ListAutonomousVirtualMachinesOutput } from "../models/models_0";
 import { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import {
-  de_ListAutonomousVirtualMachinesCommand,
-  se_ListAutonomousVirtualMachinesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListAutonomousVirtualMachines } from "../schemas/schemas_13_ListAutonomousVirtualMachines";
 
 /**
  * @public
@@ -109,16 +105,11 @@ export class ListAutonomousVirtualMachinesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Odb", "ListAutonomousVirtualMachines", {})
   .n("OdbClient", "ListAutonomousVirtualMachinesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAutonomousVirtualMachinesCommand)
-  .de(de_ListAutonomousVirtualMachinesCommand)
+  .sc(ListAutonomousVirtualMachines)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

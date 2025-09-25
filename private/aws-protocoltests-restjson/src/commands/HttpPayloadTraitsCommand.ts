@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpPayloadTraitsInputOutput } from "../models/models_0";
-import { de_HttpPayloadTraitsCommand, se_HttpPayloadTraitsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { HttpPayloadTraits } from "../schemas/schemas_3_Blob";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class HttpPayloadTraitsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "HttpPayloadTraits", {})
   .n("RestJsonProtocolClient", "HttpPayloadTraitsCommand")
-  .f(void 0, void 0)
-  .ser(se_HttpPayloadTraitsCommand)
-  .de(de_HttpPayloadTraitsCommand)
+  .sc(HttpPayloadTraits)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

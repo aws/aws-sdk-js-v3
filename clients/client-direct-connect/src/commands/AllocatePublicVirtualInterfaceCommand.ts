@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AllocatePublicVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
-import {
-  de_AllocatePublicVirtualInterfaceCommand,
-  se_AllocatePublicVirtualInterfaceCommand,
-} from "../protocols/Aws_json1_1";
+import { AllocatePublicVirtualInterface } from "../schemas/schemas_2_Virtual";
 
 /**
  * @public
@@ -161,16 +157,11 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OvertureService", "AllocatePublicVirtualInterface", {})
   .n("DirectConnectClient", "AllocatePublicVirtualInterfaceCommand")
-  .f(void 0, void 0)
-  .ser(se_AllocatePublicVirtualInterfaceCommand)
-  .de(de_AllocatePublicVirtualInterfaceCommand)
+  .sc(AllocatePublicVirtualInterface)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

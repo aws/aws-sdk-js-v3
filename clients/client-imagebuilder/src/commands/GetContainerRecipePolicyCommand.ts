@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { GetContainerRecipePolicyRequest, GetContainerRecipePolicyResponse } from "../models/models_0";
-import { de_GetContainerRecipePolicyCommand, se_GetContainerRecipePolicyCommand } from "../protocols/Aws_restJson1";
+import { GetContainerRecipePolicy } from "../schemas/schemas_26_Recipe";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class GetContainerRecipePolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("imagebuilder", "GetContainerRecipePolicy", {})
   .n("ImagebuilderClient", "GetContainerRecipePolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetContainerRecipePolicyCommand)
-  .de(de_GetContainerRecipePolicyCommand)
+  .sc(GetContainerRecipePolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

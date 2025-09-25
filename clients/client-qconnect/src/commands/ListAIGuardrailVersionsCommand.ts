@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAIGuardrailVersionsRequest,
-  ListAIGuardrailVersionsResponse,
-  ListAIGuardrailVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListAIGuardrailVersionsCommand, se_ListAIGuardrailVersionsCommand } from "../protocols/Aws_restJson1";
+import { ListAIGuardrailVersionsRequest, ListAIGuardrailVersionsResponse } from "../models/models_0";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { ListAIGuardrailVersions } from "../schemas/schemas_7_Guardrail";
 
 /**
  * @public
@@ -111,16 +106,11 @@ export class ListAIGuardrailVersionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "ListAIGuardrailVersions", {})
   .n("QConnectClient", "ListAIGuardrailVersionsCommand")
-  .f(void 0, ListAIGuardrailVersionsResponseFilterSensitiveLog)
-  .ser(se_ListAIGuardrailVersionsCommand)
-  .de(de_ListAIGuardrailVersionsCommand)
+  .sc(ListAIGuardrailVersions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

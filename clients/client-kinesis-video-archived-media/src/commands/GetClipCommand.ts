@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import { GetClipInput, GetClipOutput, GetClipOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetClipCommand, se_GetClipCommand } from "../protocols/Aws_restJson1";
+import { GetClipInput, GetClipOutput } from "../models/models_0";
+import { GetClip } from "../schemas/schemas_1_Get";
 
 /**
  * @public
@@ -173,16 +172,11 @@ export class GetClipCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoArchivedMediaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSAcuityReader", "GetClip", {})
   .n("KinesisVideoArchivedMediaClient", "GetClipCommand")
-  .f(void 0, GetClipOutputFilterSensitiveLog)
-  .ser(se_GetClipCommand)
-  .de(de_GetClipCommand)
+  .sc(GetClip)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

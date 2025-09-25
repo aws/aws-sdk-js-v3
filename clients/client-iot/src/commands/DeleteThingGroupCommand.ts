@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteThingGroupRequest, DeleteThingGroupResponse } from "../models/models_1";
-import { de_DeleteThingGroupCommand, se_DeleteThingGroupCommand } from "../protocols/Aws_restJson1";
+import { DeleteThingGroup } from "../schemas/schemas_122_DeleteThingGroup";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class DeleteThingGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "DeleteThingGroup", {})
   .n("IoTClient", "DeleteThingGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteThingGroupCommand)
-  .de(de_DeleteThingGroupCommand)
+  .sc(DeleteThingGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

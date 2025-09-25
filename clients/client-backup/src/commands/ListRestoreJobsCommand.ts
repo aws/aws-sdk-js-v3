@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRestoreJobsInput, ListRestoreJobsOutput } from "../models/models_0";
-import { de_ListRestoreJobsCommand, se_ListRestoreJobsCommand } from "../protocols/Aws_restJson1";
+import { ListRestoreJobs } from "../schemas/schemas_32_Restore";
 
 /**
  * @public
@@ -118,16 +117,11 @@ export class ListRestoreJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoControllerUserManager", "ListRestoreJobs", {})
   .n("BackupClient", "ListRestoreJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRestoreJobsCommand)
-  .de(de_ListRestoreJobsCommand)
+  .sc(ListRestoreJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

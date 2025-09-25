@@ -478,17 +478,3 @@ export interface PutObjectResponse {
    */
   StorageClass?: StorageClass | undefined;
 }
-
-/**
- * @internal
- */
-export const GetObjectResponseFilterSensitiveLog = (obj: GetObjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectRequestFilterSensitiveLog = (obj: PutObjectRequest): any => ({
-  ...obj,
-});

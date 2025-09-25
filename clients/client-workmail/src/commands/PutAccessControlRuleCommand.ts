@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutAccessControlRuleRequest, PutAccessControlRuleResponse } from "../models/models_0";
-import { de_PutAccessControlRuleCommand, se_PutAccessControlRuleCommand } from "../protocols/Aws_json1_1";
+import { PutAccessControlRule } from "../schemas/schemas_12_Impersonation";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -119,16 +118,11 @@ export class PutAccessControlRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkMailService", "PutAccessControlRule", {})
   .n("WorkMailClient", "PutAccessControlRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_PutAccessControlRuleCommand)
-  .de(de_PutAccessControlRuleCommand)
+  .sc(PutAccessControlRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

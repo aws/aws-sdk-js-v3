@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DetectStackSetDriftInput, DetectStackSetDriftOutput } from "../models/models_0";
-import { de_DetectStackSetDriftCommand, se_DetectStackSetDriftCommand } from "../protocols/Aws_query";
+import { DetectStackSetDrift } from "../schemas/schemas_10_Stack";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class DetectStackSetDriftCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudFormation", "DetectStackSetDrift", {})
   .n("CloudFormationClient", "DetectStackSetDriftCommand")
-  .f(void 0, void 0)
-  .ser(se_DetectStackSetDriftCommand)
-  .de(de_DetectStackSetDriftCommand)
+  .sc(DetectStackSetDrift)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

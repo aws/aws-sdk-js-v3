@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import {
-  StartDeviceDiscoveryRequest,
-  StartDeviceDiscoveryRequestFilterSensitiveLog,
-  StartDeviceDiscoveryResponse,
-} from "../models/models_0";
-import { de_StartDeviceDiscoveryCommand, se_StartDeviceDiscoveryCommand } from "../protocols/Aws_restJson1";
+import { StartDeviceDiscoveryRequest, StartDeviceDiscoveryResponse } from "../models/models_0";
+import { StartDeviceDiscovery } from "../schemas/schemas_4_Device";
 
 /**
  * @public
@@ -115,16 +110,11 @@ export class StartDeviceDiscoveryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "StartDeviceDiscovery", {})
   .n("IoTManagedIntegrationsClient", "StartDeviceDiscoveryCommand")
-  .f(StartDeviceDiscoveryRequestFilterSensitiveLog, void 0)
-  .ser(se_StartDeviceDiscoveryCommand)
-  .de(de_StartDeviceDiscoveryCommand)
+  .sc(StartDeviceDiscovery)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

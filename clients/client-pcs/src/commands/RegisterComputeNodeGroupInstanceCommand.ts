@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RegisterComputeNodeGroupInstanceRequest,
-  RegisterComputeNodeGroupInstanceResponse,
-  RegisterComputeNodeGroupInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterComputeNodeGroupInstanceRequest, RegisterComputeNodeGroupInstanceResponse } from "../models/models_0";
 import { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
-import {
-  de_RegisterComputeNodeGroupInstanceCommand,
-  se_RegisterComputeNodeGroupInstanceCommand,
-} from "../protocols/Aws_json1_0";
+import { RegisterComputeNodeGroupInstance } from "../schemas/schemas_2_Cluster";
 
 /**
  * @public
@@ -96,16 +88,11 @@ export class RegisterComputeNodeGroupInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PCSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSParallelComputingService", "RegisterComputeNodeGroupInstance", {})
   .n("PCSClient", "RegisterComputeNodeGroupInstanceCommand")
-  .f(void 0, RegisterComputeNodeGroupInstanceResponseFilterSensitiveLog)
-  .ser(se_RegisterComputeNodeGroupInstanceCommand)
-  .de(de_RegisterComputeNodeGroupInstanceCommand)
+  .sc(RegisterComputeNodeGroupInstance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

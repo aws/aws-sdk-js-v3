@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { PutAndGetInlineDocumentsInputOutput } from "../models/models_0";
-import { de_PutAndGetInlineDocumentsCommand, se_PutAndGetInlineDocumentsCommand } from "../protocols/Aws_json1_1";
+import { PutAndGetInlineDocuments } from "../schemas/schemas_7_PutAndGetInlineDocuments";
 
 /**
  * @public
@@ -70,16 +69,11 @@ export class PutAndGetInlineDocumentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("JsonProtocol", "PutAndGetInlineDocuments", {})
   .n("JsonProtocolClient", "PutAndGetInlineDocumentsCommand")
-  .f(void 0, void 0)
-  .ser(se_PutAndGetInlineDocumentsCommand)
-  .de(de_PutAndGetInlineDocumentsCommand)
+  .sc(PutAndGetInlineDocuments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

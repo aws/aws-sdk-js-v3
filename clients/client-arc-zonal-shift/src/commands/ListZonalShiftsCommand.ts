@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListZonalShiftsRequest, ListZonalShiftsResponse } from "../models/models_0";
-import { de_ListZonalShiftsCommand, se_ListZonalShiftsCommand } from "../protocols/Aws_restJson1";
+import { ListZonalShifts } from "../schemas/schemas_1_Zonal";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class ListZonalShiftsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PercDataPlane", "ListZonalShifts", {})
   .n("ARCZonalShiftClient", "ListZonalShiftsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListZonalShiftsCommand)
-  .de(de_ListZonalShiftsCommand)
+  .sc(ListZonalShifts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

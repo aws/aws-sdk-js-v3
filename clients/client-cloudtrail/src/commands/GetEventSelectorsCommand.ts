@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetEventSelectorsRequest, GetEventSelectorsResponse } from "../models/models_0";
-import { de_GetEventSelectorsCommand, se_GetEventSelectorsCommand } from "../protocols/Aws_json1_1";
+import { GetEventSelectors } from "../schemas/schemas_16_Trail";
 
 /**
  * @public
@@ -199,16 +198,11 @@ export class GetEventSelectorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudTrail_20131101", "GetEventSelectors", {})
   .n("CloudTrailClient", "GetEventSelectorsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetEventSelectorsCommand)
-  .de(de_GetEventSelectorsCommand)
+  .sc(GetEventSelectors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

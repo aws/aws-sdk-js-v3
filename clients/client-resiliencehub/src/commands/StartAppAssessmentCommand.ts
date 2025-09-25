@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartAppAssessmentRequest,
-  StartAppAssessmentRequestFilterSensitiveLog,
-  StartAppAssessmentResponse,
-  StartAppAssessmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartAppAssessmentCommand, se_StartAppAssessmentCommand } from "../protocols/Aws_restJson1";
+import { StartAppAssessmentRequest, StartAppAssessmentResponse } from "../models/models_0";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
+import { StartAppAssessment } from "../schemas/schemas_4_App";
 
 /**
  * @public
@@ -198,16 +192,11 @@ export class StartAppAssessmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsResilienceHub", "StartAppAssessment", {})
   .n("ResiliencehubClient", "StartAppAssessmentCommand")
-  .f(StartAppAssessmentRequestFilterSensitiveLog, StartAppAssessmentResponseFilterSensitiveLog)
-  .ser(se_StartAppAssessmentCommand)
-  .de(de_StartAppAssessmentCommand)
+  .sc(StartAppAssessment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

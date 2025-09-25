@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   DescribeTrustedAdvisorCheckRefreshStatusesRequest,
   DescribeTrustedAdvisorCheckRefreshStatusesResponse,
 } from "../models/models_0";
-import {
-  de_DescribeTrustedAdvisorCheckRefreshStatusesCommand,
-  se_DescribeTrustedAdvisorCheckRefreshStatusesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTrustedAdvisorCheckRefreshStatuses } from "../schemas/schemas_4_Describe";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -118,16 +114,11 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSupport_20130415", "DescribeTrustedAdvisorCheckRefreshStatuses", {})
   .n("SupportClient", "DescribeTrustedAdvisorCheckRefreshStatusesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeTrustedAdvisorCheckRefreshStatusesCommand)
-  .de(de_DescribeTrustedAdvisorCheckRefreshStatusesCommand)
+  .sc(DescribeTrustedAdvisorCheckRefreshStatuses)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

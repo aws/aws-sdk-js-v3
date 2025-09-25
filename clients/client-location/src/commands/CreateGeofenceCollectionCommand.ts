@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  CreateGeofenceCollectionRequest,
-  CreateGeofenceCollectionResponse,
-  CreateGeofenceCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateGeofenceCollectionCommand, se_CreateGeofenceCollectionCommand } from "../protocols/Aws_restJson1";
+import { CreateGeofenceCollectionRequest, CreateGeofenceCollectionResponse } from "../models/models_0";
+import { CreateGeofenceCollection } from "../schemas/schemas_4_Create";
 
 /**
  * @public
@@ -103,16 +98,11 @@ export class CreateGeofenceCollectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LocationService", "CreateGeofenceCollection", {})
   .n("LocationClient", "CreateGeofenceCollectionCommand")
-  .f(void 0, CreateGeofenceCollectionResponseFilterSensitiveLog)
-  .ser(se_CreateGeofenceCollectionCommand)
-  .de(de_CreateGeofenceCollectionCommand)
+  .sc(CreateGeofenceCollection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

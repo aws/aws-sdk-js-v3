@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteImageBuilderRequest, DeleteImageBuilderResult } from "../models/models_0";
-import { de_DeleteImageBuilderCommand, se_DeleteImageBuilderCommand } from "../protocols/Aws_json1_1";
+import { DeleteImageBuilder } from "../schemas/schemas_12_Image";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class DeleteImageBuilderCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "DeleteImageBuilder", {})
   .n("AppStreamClient", "DeleteImageBuilderCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteImageBuilderCommand)
-  .de(de_DeleteImageBuilderCommand)
+  .sc(DeleteImageBuilder)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

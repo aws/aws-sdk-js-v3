@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   GetCloudFrontOriginAccessIdentityConfigRequest,
   GetCloudFrontOriginAccessIdentityConfigResult,
 } from "../models/models_1";
-import {
-  de_GetCloudFrontOriginAccessIdentityConfigCommand,
-  se_GetCloudFrontOriginAccessIdentityConfigCommand,
-} from "../protocols/Aws_restXml";
+import { GetCloudFrontOriginAccessIdentityConfig } from "../schemas/schemas_30_Origin";
 
 /**
  * @public
@@ -89,16 +85,11 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "GetCloudFrontOriginAccessIdentityConfig", {})
   .n("CloudFrontClient", "GetCloudFrontOriginAccessIdentityConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_GetCloudFrontOriginAccessIdentityConfigCommand)
-  .de(de_GetCloudFrontOriginAccessIdentityConfigCommand)
+  .sc(GetCloudFrontOriginAccessIdentityConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

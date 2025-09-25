@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSubscriptionsRequest, ListSubscriptionsResponse } from "../models/models_1";
-import { de_ListSubscriptionsCommand, se_ListSubscriptionsCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import { ListSubscriptions } from "../schemas/schemas_17_Subscription";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class ListSubscriptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ExpertQ", "ListSubscriptions", {})
   .n("QBusinessClient", "ListSubscriptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSubscriptionsCommand)
-  .de(de_ListSubscriptionsCommand)
+  .sc(ListSubscriptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

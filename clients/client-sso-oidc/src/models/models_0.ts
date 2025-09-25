@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SSOOIDCServiceException as __BaseException } from "./SSOOIDCServiceException";
 
@@ -1048,60 +1048,3 @@ export interface StartDeviceAuthorizationResponse {
    */
   interval?: number | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateTokenRequestFilterSensitiveLog = (obj: CreateTokenRequest): any => ({
-  ...obj,
-  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-  ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
-  ...(obj.codeVerifier && { codeVerifier: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateTokenResponseFilterSensitiveLog = (obj: CreateTokenResponse): any => ({
-  ...obj,
-  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
-  ...(obj.idToken && { idToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateTokenWithIAMRequestFilterSensitiveLog = (obj: CreateTokenWithIAMRequest): any => ({
-  ...obj,
-  ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
-  ...(obj.assertion && { assertion: SENSITIVE_STRING }),
-  ...(obj.subjectToken && { subjectToken: SENSITIVE_STRING }),
-  ...(obj.codeVerifier && { codeVerifier: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateTokenWithIAMResponseFilterSensitiveLog = (obj: CreateTokenWithIAMResponse): any => ({
-  ...obj,
-  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
-  ...(obj.idToken && { idToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RegisterClientResponseFilterSensitiveLog = (obj: RegisterClientResponse): any => ({
-  ...obj,
-  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartDeviceAuthorizationRequestFilterSensitiveLog = (obj: StartDeviceAuthorizationRequest): any => ({
-  ...obj,
-  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-});

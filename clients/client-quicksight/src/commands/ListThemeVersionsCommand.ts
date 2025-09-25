@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListThemeVersionsRequest, ListThemeVersionsResponse } from "../models/models_4";
-import { de_ListThemeVersionsCommand, se_ListThemeVersionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { ListThemeVersions } from "../schemas/schemas_77_ListThemeVersions";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class ListThemeVersionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "ListThemeVersions", {})
   .n("QuickSightClient", "ListThemeVersionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListThemeVersionsCommand)
-  .de(de_ListThemeVersionsCommand)
+  .sc(ListThemeVersions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

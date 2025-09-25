@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UndeprecateDomainInput } from "../models/models_0";
-import { de_UndeprecateDomainCommand, se_UndeprecateDomainCommand } from "../protocols/Aws_json1_0";
+import { UndeprecateDomain } from "../schemas/schemas_15_Domain";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -105,16 +104,11 @@ export class UndeprecateDomainCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleWorkflowService", "UndeprecateDomain", {})
   .n("SWFClient", "UndeprecateDomainCommand")
-  .f(void 0, void 0)
-  .ser(se_UndeprecateDomainCommand)
-  .de(de_UndeprecateDomainCommand)
+  .sc(UndeprecateDomain)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

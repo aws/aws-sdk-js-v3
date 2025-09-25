@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListDataQualityStatisticAnnotationsRequest,
   ListDataQualityStatisticAnnotationsResponse,
 } from "../models/models_2";
-import {
-  de_ListDataQualityStatisticAnnotationsCommand,
-  se_ListDataQualityStatisticAnnotationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDataQualityStatisticAnnotations } from "../schemas/schemas_1_List";
 
 /**
  * @public
@@ -102,16 +98,11 @@ export class ListDataQualityStatisticAnnotationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "ListDataQualityStatisticAnnotations", {})
   .n("GlueClient", "ListDataQualityStatisticAnnotationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDataQualityStatisticAnnotationsCommand)
-  .de(de_ListDataQualityStatisticAnnotationsCommand)
+  .sc(ListDataQualityStatisticAnnotations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

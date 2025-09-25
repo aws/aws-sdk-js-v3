@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { InvoicingServiceException as __BaseException } from "./InvoicingServiceException";
 
@@ -1183,28 +1183,3 @@ export interface UpdateInvoiceUnitResponse {
    */
   InvoiceUnitArn?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const ReceiverAddressFilterSensitiveLog = (obj: ReceiverAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvoiceProfileFilterSensitiveLog = (obj: InvoiceProfile): any => ({
-  ...obj,
-  ...(obj.ReceiverAddress && { ReceiverAddress: SENSITIVE_STRING }),
-  ...(obj.ReceiverEmail && { ReceiverEmail: SENSITIVE_STRING }),
-  ...(obj.TaxRegistrationNumber && { TaxRegistrationNumber: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BatchGetInvoiceProfileResponseFilterSensitiveLog = (obj: BatchGetInvoiceProfileResponse): any => ({
-  ...obj,
-  ...(obj.Profiles && { Profiles: obj.Profiles.map((item) => InvoiceProfileFilterSensitiveLog(item)) }),
-});

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,11 +8,8 @@ import {
   DescribeDashboardsQAConfigurationRequest,
   DescribeDashboardsQAConfigurationResponse,
 } from "../models/models_4";
-import {
-  de_DescribeDashboardsQAConfigurationCommand,
-  se_DescribeDashboardsQAConfigurationCommand,
-} from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DescribeDashboardsQAConfiguration } from "../schemas/schemas_86_DashboardsQAConfiguration";
 
 /**
  * @public
@@ -101,16 +97,11 @@ export class DescribeDashboardsQAConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "DescribeDashboardsQAConfiguration", {})
   .n("QuickSightClient", "DescribeDashboardsQAConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDashboardsQAConfigurationCommand)
-  .de(de_DescribeDashboardsQAConfigurationCommand)
+  .sc(DescribeDashboardsQAConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

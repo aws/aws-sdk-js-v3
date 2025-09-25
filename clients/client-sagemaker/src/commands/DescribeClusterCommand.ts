@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_2";
-import { de_DescribeClusterCommand, se_DescribeClusterCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DescribeCluster } from "../schemas/schemas_20_Cluster";
 
 /**
  * @public
@@ -224,16 +223,11 @@ export class DescribeClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "DescribeCluster", {})
   .n("SageMakerClient", "DescribeClusterCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeClusterCommand)
-  .de(de_DescribeClusterCommand)
+  .sc(DescribeCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

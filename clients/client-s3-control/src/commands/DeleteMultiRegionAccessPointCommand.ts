@@ -2,17 +2,13 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteMultiRegionAccessPointRequest, DeleteMultiRegionAccessPointResult } from "../models/models_0";
-import {
-  de_DeleteMultiRegionAccessPointCommand,
-  se_DeleteMultiRegionAccessPointCommand,
-} from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { DeleteMultiRegionAccessPoint } from "../schemas/schemas_14_RegionAccess";
 
 /**
  * @public
@@ -123,7 +119,6 @@ export class DeleteMultiRegionAccessPointCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getProcessArnablesPlugin(config),
       getApplyMd5BodyChecksumPlugin(config),
@@ -131,9 +126,7 @@ export class DeleteMultiRegionAccessPointCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "DeleteMultiRegionAccessPoint", {})
   .n("S3ControlClient", "DeleteMultiRegionAccessPointCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteMultiRegionAccessPointCommand)
-  .de(de_DeleteMultiRegionAccessPointCommand)
+  .sc(DeleteMultiRegionAccessPoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteServiceSpecificCredentialRequest } from "../models/models_0";
-import {
-  de_DeleteServiceSpecificCredentialCommand,
-  se_DeleteServiceSpecificCredentialCommand,
-} from "../protocols/Aws_query";
+import { DeleteServiceSpecificCredential } from "../schemas/schemas_10_Service";
 
 /**
  * @public
@@ -76,16 +72,11 @@ export class DeleteServiceSpecificCredentialCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "DeleteServiceSpecificCredential", {})
   .n("IAMClient", "DeleteServiceSpecificCredentialCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteServiceSpecificCredentialCommand)
-  .de(de_DeleteServiceSpecificCredentialCommand)
+  .sc(DeleteServiceSpecificCredential)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

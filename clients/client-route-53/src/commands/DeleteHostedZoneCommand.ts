@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/models_0";
-import { de_DeleteHostedZoneCommand, se_DeleteHostedZoneCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { DeleteHostedZone } from "../schemas/schemas_21_Resource";
 
 /**
  * @public
@@ -136,17 +135,11 @@ export class DeleteHostedZoneCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
   })
   .s("AWSDnsV20130401", "DeleteHostedZone", {})
   .n("Route53Client", "DeleteHostedZoneCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteHostedZoneCommand)
-  .de(de_DeleteHostedZoneCommand)
+  .sc(DeleteHostedZone)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

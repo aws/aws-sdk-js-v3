@@ -749,10 +749,3 @@ export interface UploadDocumentsResponse {
    */
   warnings?: DocumentServiceWarning[] | undefined;
 }
-
-/**
- * @internal
- */
-export const UploadDocumentsRequestFilterSensitiveLog = (obj: UploadDocumentsRequest): any => ({
-  ...obj,
-});

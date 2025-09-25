@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartDevEnvironmentRequest, StartDevEnvironmentResponse } from "../models/models_0";
-import { de_StartDevEnvironmentCommand, se_StartDevEnvironmentCommand } from "../protocols/Aws_restJson1";
+import { StartDevEnvironment } from "../schemas/schemas_4_Dev";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class StartDevEnvironmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCatalyst", "StartDevEnvironment", {})
   .n("CodeCatalystClient", "StartDevEnvironmentCommand")
-  .f(void 0, void 0)
-  .ser(se_StartDevEnvironmentCommand)
-  .de(de_StartDevEnvironmentCommand)
+  .sc(StartDevEnvironment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

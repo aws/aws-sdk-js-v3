@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDataIntegrationAssociationRequest, CreateDataIntegrationAssociationResponse } from "../models/models_0";
-import {
-  de_CreateDataIntegrationAssociationCommand,
-  se_CreateDataIntegrationAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDataIntegrationAssociation } from "../schemas/schemas_6_Integration";
 
 /**
  * @public
@@ -119,16 +115,11 @@ export class CreateDataIntegrationAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAppIntegrationService", "CreateDataIntegrationAssociation", {})
   .n("AppIntegrationsClient", "CreateDataIntegrationAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDataIntegrationAssociationCommand)
-  .de(de_CreateDataIntegrationAssociationCommand)
+  .sc(CreateDataIntegrationAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

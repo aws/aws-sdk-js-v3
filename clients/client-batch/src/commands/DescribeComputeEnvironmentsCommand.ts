@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeComputeEnvironmentsRequest, DescribeComputeEnvironmentsResponse } from "../models/models_0";
-import {
-  de_DescribeComputeEnvironmentsCommand,
-  se_DescribeComputeEnvironmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeComputeEnvironments } from "../schemas/schemas_3_Job";
 
 /**
  * @public
@@ -216,16 +212,11 @@ export class DescribeComputeEnvironmentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBatchV20160810", "DescribeComputeEnvironments", {})
   .n("BatchClient", "DescribeComputeEnvironmentsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeComputeEnvironmentsCommand)
-  .de(de_DescribeComputeEnvironmentsCommand)
+  .sc(DescribeComputeEnvironments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

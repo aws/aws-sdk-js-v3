@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ExportCertificateRequest,
-  ExportCertificateRequestFilterSensitiveLog,
-  ExportCertificateResponse,
-  ExportCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ExportCertificateCommand, se_ExportCertificateCommand } from "../protocols/Aws_json1_1";
+import { ExportCertificateRequest, ExportCertificateResponse } from "../models/models_0";
+import { ExportCertificate } from "../schemas/schemas_1_Certificate";
 
 /**
  * @public
@@ -87,16 +81,11 @@ export class ExportCertificateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CertificateManager", "ExportCertificate", {})
   .n("ACMClient", "ExportCertificateCommand")
-  .f(ExportCertificateRequestFilterSensitiveLog, ExportCertificateResponseFilterSensitiveLog)
-  .ser(se_ExportCertificateCommand)
-  .de(de_ExportCertificateCommand)
+  .sc(ExportCertificate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

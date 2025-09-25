@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DeletePushNotificationRegistrationRequest,
   DeletePushNotificationRegistrationResponse,
 } from "../models/models_1";
-import {
-  de_DeletePushNotificationRegistrationCommand,
-  se_DeletePushNotificationRegistrationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeletePushNotificationRegistration } from "../schemas/schemas_103_Registration";
 
 /**
  * @public
@@ -93,16 +89,11 @@ export class DeletePushNotificationRegistrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "DeletePushNotificationRegistration", {})
   .n("ConnectClient", "DeletePushNotificationRegistrationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePushNotificationRegistrationCommand)
-  .de(de_DeletePushNotificationRegistrationCommand)
+  .sc(DeletePushNotificationRegistration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

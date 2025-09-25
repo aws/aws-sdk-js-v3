@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribePortalRequest,
-  DescribePortalResponse,
-  DescribePortalResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribePortalCommand, se_DescribePortalCommand } from "../protocols/Aws_restJson1";
+import { DescribePortalRequest, DescribePortalResponse } from "../models/models_0";
+import { DescribePortal } from "../schemas/schemas_10_Access";
 
 /**
  * @public
@@ -124,16 +119,11 @@ export class DescribePortalCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "DescribePortal", {})
   .n("IoTSiteWiseClient", "DescribePortalCommand")
-  .f(void 0, DescribePortalResponseFilterSensitiveLog)
-  .ser(se_DescribePortalCommand)
-  .de(de_DescribePortalCommand)
+  .sc(DescribePortal)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

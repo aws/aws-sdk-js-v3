@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAssistantRequest, CreateAssistantResponse } from "../models/models_0";
-import { de_CreateAssistantCommand, se_CreateAssistantCommand } from "../protocols/Aws_restJson1";
+import { CreateAssistant } from "../schemas/schemas_1_Create";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -111,16 +110,11 @@ export class CreateAssistantCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "CreateAssistant", {})
   .n("WisdomClient", "CreateAssistantCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAssistantCommand)
-  .de(de_CreateAssistantCommand)
+  .sc(CreateAssistant)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

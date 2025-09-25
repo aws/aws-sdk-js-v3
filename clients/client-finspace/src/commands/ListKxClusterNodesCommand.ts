@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
 import { ListKxClusterNodesRequest, ListKxClusterNodesResponse } from "../models/models_0";
-import { de_ListKxClusterNodesCommand, se_ListKxClusterNodesCommand } from "../protocols/Aws_restJson1";
+import { ListKxClusterNodes } from "../schemas/schemas_5_List";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class ListKxClusterNodesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroManagementService", "ListKxClusterNodes", {})
   .n("FinspaceClient", "ListKxClusterNodesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListKxClusterNodesCommand)
-  .de(de_ListKxClusterNodesCommand)
+  .sc(ListKxClusterNodes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

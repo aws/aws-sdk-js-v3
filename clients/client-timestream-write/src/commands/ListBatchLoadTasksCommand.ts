@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListBatchLoadTasksRequest, ListBatchLoadTasksResponse } from "../models/models_0";
-import { de_ListBatchLoadTasksCommand, se_ListBatchLoadTasksCommand } from "../protocols/Aws_json1_0";
+import { ListBatchLoadTasks } from "../schemas/schemas_5_Table";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -105,7 +104,6 @@ export class ListBatchLoadTasksCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEndpointDiscoveryPlugin(config, {
         clientStack: cs,
@@ -116,9 +114,7 @@ export class ListBatchLoadTasksCommand extends $Command
   })
   .s("Timestream_20181101", "ListBatchLoadTasks", {})
   .n("TimestreamWriteClient", "ListBatchLoadTasksCommand")
-  .f(void 0, void 0)
-  .ser(se_ListBatchLoadTasksCommand)
-  .de(de_ListBatchLoadTasksCommand)
+  .sc(ListBatchLoadTasks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

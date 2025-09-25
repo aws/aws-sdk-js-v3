@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListConfiguredModelAlgorithmAssociationsRequest,
   ListConfiguredModelAlgorithmAssociationsResponse,
 } from "../models/models_0";
-import {
-  de_ListConfiguredModelAlgorithmAssociationsCommand,
-  se_ListConfiguredModelAlgorithmAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListConfiguredModelAlgorithmAssociations } from "../schemas/schemas_12_ConfiguredModel";
 
 /**
  * @public
@@ -102,16 +98,11 @@ export class ListConfiguredModelAlgorithmAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStarkControlService", "ListConfiguredModelAlgorithmAssociations", {})
   .n("CleanRoomsMLClient", "ListConfiguredModelAlgorithmAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListConfiguredModelAlgorithmAssociationsCommand)
-  .de(de_ListConfiguredModelAlgorithmAssociationsCommand)
+  .sc(ListConfiguredModelAlgorithmAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

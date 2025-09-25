@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListSnapshotBlocksRequest,
-  ListSnapshotBlocksResponse,
-  ListSnapshotBlocksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListSnapshotBlocksCommand, se_ListSnapshotBlocksCommand } from "../protocols/Aws_restJson1";
+import { ListSnapshotBlocksRequest, ListSnapshotBlocksResponse } from "../models/models_0";
+import { ListSnapshotBlocks } from "../schemas/schemas_1_Snapshot";
 
 /**
  * @public
@@ -111,16 +106,11 @@ export class ListSnapshotBlocksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EBSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Ebs", "ListSnapshotBlocks", {})
   .n("EBSClient", "ListSnapshotBlocksCommand")
-  .f(void 0, ListSnapshotBlocksResponseFilterSensitiveLog)
-  .ser(se_ListSnapshotBlocksCommand)
-  .de(de_ListSnapshotBlocksCommand)
+  .sc(ListSnapshotBlocks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

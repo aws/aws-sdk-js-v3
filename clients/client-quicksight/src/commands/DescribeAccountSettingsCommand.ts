@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAccountSettingsRequest, DescribeAccountSettingsResponse } from "../models/models_4";
-import { de_DescribeAccountSettingsCommand, se_DescribeAccountSettingsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DescribeAccountSettings } from "../schemas/schemas_54_Account";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class DescribeAccountSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "DescribeAccountSettings", {})
   .n("QuickSightClient", "DescribeAccountSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAccountSettingsCommand)
-  .de(de_DescribeAccountSettingsCommand)
+  .sc(DescribeAccountSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

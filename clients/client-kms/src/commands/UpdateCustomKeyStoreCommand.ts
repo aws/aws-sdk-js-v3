@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  UpdateCustomKeyStoreRequest,
-  UpdateCustomKeyStoreRequestFilterSensitiveLog,
-  UpdateCustomKeyStoreResponse,
-} from "../models/models_0";
-import { de_UpdateCustomKeyStoreCommand, se_UpdateCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
+import { UpdateCustomKeyStoreRequest, UpdateCustomKeyStoreResponse } from "../models/models_0";
+import { UpdateCustomKeyStore } from "../schemas/schemas_7_Key";
 
 /**
  * @public
@@ -406,16 +401,11 @@ export class UpdateCustomKeyStoreCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TrentService", "UpdateCustomKeyStore", {})
   .n("KMSClient", "UpdateCustomKeyStoreCommand")
-  .f(UpdateCustomKeyStoreRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateCustomKeyStoreCommand)
-  .de(de_UpdateCustomKeyStoreCommand)
+  .sc(UpdateCustomKeyStore)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

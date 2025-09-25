@@ -1,0 +1,140 @@
+export const _CSP = "CreateSavingsPlan";
+export const _CSPR = "CreateSavingsPlanRequest";
+export const _CSPRr = "CreateSavingsPlanResponse";
+export const _DQSP = "DeleteQueuedSavingsPlan";
+export const _DQSPR = "DeleteQueuedSavingsPlanRequest";
+export const _DQSPRe = "DeleteQueuedSavingsPlanResponse";
+export const _DSP = "DescribeSavingsPlans";
+export const _DSPO = "DescribeSavingsPlansOfferings";
+export const _DSPOR = "DescribeSavingsPlansOfferingsRequest";
+export const _DSPORR = "DescribeSavingsPlansOfferingRatesRequest";
+export const _DSPORRe = "DescribeSavingsPlansOfferingRatesResponse";
+export const _DSPORe = "DescribeSavingsPlansOfferingsResponse";
+export const _DSPORes = "DescribeSavingsPlansOfferingRates";
+export const _DSPR = "DescribeSavingsPlansRequest";
+export const _DSPRR = "DescribeSavingsPlanRatesRequest";
+export const _DSPRRe = "DescribeSavingsPlanRatesResponse";
+export const _DSPRe = "DescribeSavingsPlansResponse";
+export const _DSPRes = "DescribeSavingsPlanRates";
+export const _ISE = "InternalServerException";
+export const _LTFR = "ListTagsForResource";
+export const _LTFRR = "ListTagsForResourceRequest";
+export const _LTFRRi = "ListTagsForResourceResponse";
+export const _PSPO = "ParentSavingsPlanOffering";
+export const _RNFE = "ResourceNotFoundException";
+export const _RSP = "ReturnSavingsPlan";
+export const _RSPR = "ReturnSavingsPlanRequest";
+export const _RSPRe = "ReturnSavingsPlanResponse";
+export const _SP = "SavingsPlan";
+export const _SPF = "SavingsPlanFilter";
+export const _SPFL = "SavingsPlanFilterList";
+export const _SPL = "SavingsPlanList";
+export const _SPO = "SavingsPlanOffering";
+export const _SPOFE = "SavingsPlanOfferingFilterElement";
+export const _SPOFL = "SavingsPlanOfferingFiltersList";
+export const _SPOL = "SavingsPlanOfferingsList";
+export const _SPOP = "SavingsPlanOfferingProperty";
+export const _SPOPL = "SavingsPlanOfferingPropertyList";
+export const _SPOR = "SavingsPlanOfferingRate";
+export const _SPORFE = "SavingsPlanOfferingRateFilterElement";
+export const _SPORFL = "SavingsPlanOfferingRateFiltersList";
+export const _SPORL = "SavingsPlanOfferingRatesList";
+export const _SPORP = "SavingsPlanOfferingRateProperty";
+export const _SPORPL = "SavingsPlanOfferingRatePropertyList";
+export const _SPR = "SavingsPlanRate";
+export const _SPRF = "SavingsPlanRateFilter";
+export const _SPRFL = "SavingsPlanRateFilterList";
+export const _SPRL = "SavingsPlanRateList";
+export const _SPRP = "SavingsPlanRateProperty";
+export const _SPRPL = "SavingsPlanRatePropertyList";
+export const _SQEE = "ServiceQuotaExceededException";
+export const _TR = "TagResource";
+export const _TRR = "TagResourceRequest";
+export const _TRRa = "TagResourceResponse";
+export const _UR = "UntagResource";
+export const _URR = "UntagResourceRequest";
+export const _URRn = "UntagResourceResponse";
+export const _VE = "ValidationException";
+export const _aQE = "awsQueryError";
+export const _c = "commitment";
+export const _cT = "clientToken";
+export const _cl = "client";
+export const _cu = "currencies";
+export const _cur = "currency";
+export const _d = "durations";
+export const _dS = "durationSeconds";
+export const _de = "descriptions";
+export const _des = "description";
+export const _e = "error";
+export const _eIF = "ec2InstanceFamily";
+export const _en = "end";
+export const _f = "filters";
+export const _h = "http";
+export const _hE = "httpError";
+export const _m = "message";
+export const _mR = "maxResults";
+export const _n = "name";
+export const _nT = "nextToken";
+export const _o = "operations";
+export const _oI = "offeringIds";
+export const _oIf = "offeringId";
+export const _op = "operation";
+export const _p = "products";
+export const _pD = "planDescription";
+export const _pO = "paymentOptions";
+export const _pOa = "paymentOption";
+export const _pT = "purchaseTime";
+export const _pTl = "planTypes";
+export const _pTla = "planType";
+export const _pTr = "productType";
+export const _pTro = "productTypes";
+export const _pr = "properties";
+export const _r = "region";
+export const _rA = "resourceArn";
+export const _rPA = "recurringPaymentAmount";
+export const _rU = "returnableUntil";
+export const _ra = "rate";
+export const _s = "states";
+export const _sC = "serviceCodes";
+export const _sCe = "serviceCode";
+export const _sP = "savingsPlans";
+export const _sPA = "savingsPlanArns";
+export const _sPAa = "savingsPlanArn";
+export const _sPI = "savingsPlanId";
+export const _sPIa = "savingsPlanIds";
+export const _sPO = "savingsPlanOffering";
+export const _sPOI = "savingsPlanOfferingId";
+export const _sPOIa = "savingsPlanOfferingIds";
+export const _sPPO = "savingsPlanPaymentOptions";
+export const _sPT = "savingsPlanTypes";
+export const _sPTa = "savingsPlanType";
+export const _sR = "searchResults";
+export const _se = "server";
+export const _st = "start";
+export const _sta = "state";
+export const _t = "tags";
+export const _tDIS = "termDurationInSeconds";
+export const _tK = "tagKeys";
+export const _u = "unit";
+export const _uPA = "upfrontPaymentAmount";
+export const _uT = "usageTypes";
+export const _uTs = "usageType";
+export const _v = "values";
+export const _va = "value";
+export const n0 = "com.amazonaws.savingsplans";
+
+// smithy-typescript generated code
+import { error } from "@smithy/core/schema";
+
+import { SavingsplansServiceException as __SavingsplansServiceException } from "../models/SavingsplansServiceException";
+
+/* eslint no-var: 0 */
+
+export var SavingsplansServiceException = error(
+  "smithy.ts.sdk.synthetic.com.amazonaws.savingsplans",
+  "SavingsplansServiceException",
+  0,
+  [],
+  [],
+  __SavingsplansServiceException
+);

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteRetrieverRequest, DeleteRetrieverResponse } from "../models/models_0";
-import { de_DeleteRetrieverCommand, se_DeleteRetrieverCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import { DeleteRetriever } from "../schemas/schemas_9_Retriever";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class DeleteRetrieverCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ExpertQ", "DeleteRetriever", {})
   .n("QBusinessClient", "DeleteRetrieverCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteRetrieverCommand)
-  .de(de_DeleteRetrieverCommand)
+  .sc(DeleteRetriever)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

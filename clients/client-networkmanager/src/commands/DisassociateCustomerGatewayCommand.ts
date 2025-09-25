@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateCustomerGatewayRequest, DisassociateCustomerGatewayResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  de_DisassociateCustomerGatewayCommand,
-  se_DisassociateCustomerGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateCustomerGateway } from "../schemas/schemas_17_Customer";
 
 /**
  * @public
@@ -101,16 +97,11 @@ export class DisassociateCustomerGatewayCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkManager", "DisassociateCustomerGateway", {})
   .n("NetworkManagerClient", "DisassociateCustomerGatewayCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateCustomerGatewayCommand)
-  .de(de_DisassociateCustomerGatewayCommand)
+  .sc(DisassociateCustomerGateway)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeOrganizationResponse, DescribeOrganizationResponseFilterSensitiveLog } from "../models/models_0";
+import { DescribeOrganizationResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { de_DescribeOrganizationCommand, se_DescribeOrganizationCommand } from "../protocols/Aws_json1_1";
+import { DescribeOrganization } from "../schemas/schemas_2_Policy";
 
 /**
  * @public
@@ -137,16 +136,11 @@ export class DescribeOrganizationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "DescribeOrganization", {})
   .n("OrganizationsClient", "DescribeOrganizationCommand")
-  .f(void 0, DescribeOrganizationResponseFilterSensitiveLog)
-  .ser(se_DescribeOrganizationCommand)
-  .de(de_DescribeOrganizationCommand)
+  .sc(DescribeOrganization)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

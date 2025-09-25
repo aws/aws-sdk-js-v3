@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListDataAccessorsRequest,
-  ListDataAccessorsResponse,
-  ListDataAccessorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListDataAccessorsCommand, se_ListDataAccessorsCommand } from "../protocols/Aws_restJson1";
+import { ListDataAccessorsRequest, ListDataAccessorsResponse } from "../models/models_0";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import { ListDataAccessors } from "../schemas/schemas_5_Get";
 
 /**
  * @public
@@ -113,16 +108,11 @@ export class ListDataAccessorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ExpertQ", "ListDataAccessors", {})
   .n("QBusinessClient", "ListDataAccessorsCommand")
-  .f(void 0, ListDataAccessorsResponseFilterSensitiveLog)
-  .ser(se_ListDataAccessorsCommand)
-  .de(de_ListDataAccessorsCommand)
+  .sc(ListDataAccessors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

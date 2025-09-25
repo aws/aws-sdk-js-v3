@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EnableProactiveEngagementRequest, EnableProactiveEngagementResponse } from "../models/models_0";
-import { de_EnableProactiveEngagementCommand, se_EnableProactiveEngagementCommand } from "../protocols/Aws_json1_1";
+import { EnableProactiveEngagement } from "../schemas/schemas_18_EnableProactiveEngagement";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -82,16 +81,11 @@ export class EnableProactiveEngagementCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSShield_20160616", "EnableProactiveEngagement", {})
   .n("ShieldClient", "EnableProactiveEngagementCommand")
-  .f(void 0, void 0)
-  .ser(se_EnableProactiveEngagementCommand)
-  .de(de_EnableProactiveEngagementCommand)
+  .sc(EnableProactiveEngagement)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

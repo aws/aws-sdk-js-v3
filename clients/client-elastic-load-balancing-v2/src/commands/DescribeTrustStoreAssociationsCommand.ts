@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeTrustStoreAssociationsInput, DescribeTrustStoreAssociationsOutput } from "../models/models_0";
-import {
-  de_DescribeTrustStoreAssociationsCommand,
-  se_DescribeTrustStoreAssociationsCommand,
-} from "../protocols/Aws_query";
+import { DescribeTrustStoreAssociations } from "../schemas/schemas_4_Describe";
 
 /**
  * @public
@@ -89,16 +85,11 @@ export class DescribeTrustStoreAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticLoadBalancing_v10", "DescribeTrustStoreAssociations", {})
   .n("ElasticLoadBalancingV2Client", "DescribeTrustStoreAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeTrustStoreAssociationsCommand)
-  .de(de_DescribeTrustStoreAssociationsCommand)
+  .sc(DescribeTrustStoreAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

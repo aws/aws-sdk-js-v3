@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTransitGatewayRouteRequest, CreateTransitGatewayRouteResult } from "../models/models_2";
-import { de_CreateTransitGatewayRouteCommand, se_CreateTransitGatewayRouteCommand } from "../protocols/Aws_ec2";
+import { CreateTransitGatewayRoute } from "../schemas/schemas_26_Gateway";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class CreateTransitGatewayRouteCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "CreateTransitGatewayRoute", {})
   .n("EC2Client", "CreateTransitGatewayRouteCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateTransitGatewayRouteCommand)
-  .de(de_CreateTransitGatewayRouteCommand)
+  .sc(CreateTransitGatewayRoute)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

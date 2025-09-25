@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateSessionLoggerRequest,
-  UpdateSessionLoggerRequestFilterSensitiveLog,
-  UpdateSessionLoggerResponse,
-  UpdateSessionLoggerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateSessionLoggerCommand, se_UpdateSessionLoggerCommand } from "../protocols/Aws_restJson1";
+import { UpdateSessionLoggerRequest, UpdateSessionLoggerResponse } from "../models/models_0";
+import { UpdateSessionLogger } from "../schemas/schemas_10_ProtectionSettings";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -220,16 +214,11 @@ export class UpdateSessionLoggerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "UpdateSessionLogger", {})
   .n("WorkSpacesWebClient", "UpdateSessionLoggerCommand")
-  .f(UpdateSessionLoggerRequestFilterSensitiveLog, UpdateSessionLoggerResponseFilterSensitiveLog)
-  .ser(se_UpdateSessionLoggerCommand)
-  .de(de_UpdateSessionLoggerCommand)
+  .sc(UpdateSessionLogger)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

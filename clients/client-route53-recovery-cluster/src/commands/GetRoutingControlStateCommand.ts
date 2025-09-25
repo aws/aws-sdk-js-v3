@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetRoutingControlStateRequest, GetRoutingControlStateResponse } from "../models/models_0";
-import { de_GetRoutingControlStateCommand, se_GetRoutingControlStateCommand } from "../protocols/Aws_json1_0";
 import {
   Route53RecoveryClusterClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryClusterClient";
+import { GetRoutingControlState } from "../schemas/schemas_1_Routing";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class GetRoutingControlStateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryClusterClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ToggleCustomerAPI", "GetRoutingControlState", {})
   .n("Route53RecoveryClusterClient", "GetRoutingControlStateCommand")
-  .f(void 0, void 0)
-  .ser(se_GetRoutingControlStateCommand)
-  .de(de_GetRoutingControlStateCommand)
+  .sc(GetRoutingControlState)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

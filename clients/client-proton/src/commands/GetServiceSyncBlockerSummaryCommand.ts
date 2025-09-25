@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetServiceSyncBlockerSummaryInput, GetServiceSyncBlockerSummaryOutput } from "../models/models_0";
-import {
-  de_GetServiceSyncBlockerSummaryCommand,
-  se_GetServiceSyncBlockerSummaryCommand,
-} from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { GetServiceSyncBlockerSummary } from "../schemas/schemas_14_SyncBlocker";
 
 /**
  * @public
@@ -111,16 +107,11 @@ export class GetServiceSyncBlockerSummaryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "GetServiceSyncBlockerSummary", {})
   .n("ProtonClient", "GetServiceSyncBlockerSummaryCommand")
-  .f(void 0, void 0)
-  .ser(se_GetServiceSyncBlockerSummaryCommand)
-  .de(de_GetServiceSyncBlockerSummaryCommand)
+  .sc(GetServiceSyncBlockerSummary)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDomainPermissionsPolicyRequest, DeleteDomainPermissionsPolicyResult } from "../models/models_0";
-import {
-  de_DeleteDomainPermissionsPolicyCommand,
-  se_DeleteDomainPermissionsPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDomainPermissionsPolicy } from "../schemas/schemas_1_Policy";
 
 /**
  * @public
@@ -111,16 +107,11 @@ export class DeleteDomainPermissionsPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeArtifactControlPlaneService", "DeleteDomainPermissionsPolicy", {})
   .n("CodeartifactClient", "DeleteDomainPermissionsPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDomainPermissionsPolicyCommand)
-  .de(de_DeleteDomainPermissionsPolicyCommand)
+  .sc(DeleteDomainPermissionsPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

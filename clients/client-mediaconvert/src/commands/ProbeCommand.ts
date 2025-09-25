@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { ProbeRequest, ProbeResponse } from "../models/models_2";
-import { de_ProbeCommand, se_ProbeCommand } from "../protocols/Aws_restJson1";
+import { Probe } from "../schemas/schemas_7_Probe";
 
 /**
  * @public
@@ -153,16 +152,11 @@ export class ProbeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConvert", "Probe", {})
   .n("MediaConvertClient", "ProbeCommand")
-  .f(void 0, void 0)
-  .ser(se_ProbeCommand)
-  .de(de_ProbeCommand)
+  .sc(Probe)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

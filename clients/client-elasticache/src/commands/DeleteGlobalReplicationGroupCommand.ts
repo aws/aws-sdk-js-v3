@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteGlobalReplicationGroupMessage, DeleteGlobalReplicationGroupResult } from "../models/models_0";
-import { de_DeleteGlobalReplicationGroupCommand, se_DeleteGlobalReplicationGroupCommand } from "../protocols/Aws_query";
+import { DeleteGlobalReplicationGroup } from "../schemas/schemas_7_Group";
 
 /**
  * @public
@@ -129,16 +128,11 @@ export class DeleteGlobalReplicationGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElastiCacheV9", "DeleteGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "DeleteGlobalReplicationGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteGlobalReplicationGroupCommand)
-  .de(de_DeleteGlobalReplicationGroupCommand)
+  .sc(DeleteGlobalReplicationGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

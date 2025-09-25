@@ -5734,24 +5734,3 @@ export interface UpdateRepositoryResult {
    */
   repository?: RepositoryDescription | undefined;
 }
-
-/**
- * @internal
- */
-export const GetAuthorizationTokenResultFilterSensitiveLog = (obj: GetAuthorizationTokenResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPackageVersionAssetResultFilterSensitiveLog = (obj: GetPackageVersionAssetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishPackageVersionRequestFilterSensitiveLog = (obj: PublishPackageVersionRequest): any => ({
-  ...obj,
-});

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListCostCategoryDefinitionsRequest, ListCostCategoryDefinitionsResponse } from "../models/models_0";
-import { de_ListCostCategoryDefinitionsCommand, se_ListCostCategoryDefinitionsCommand } from "../protocols/Aws_json1_1";
+import { ListCostCategoryDefinitions } from "../schemas/schemas_1_Purchase";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class ListCostCategoryDefinitionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSInsightsIndexService", "ListCostCategoryDefinitions", {})
   .n("CostExplorerClient", "ListCostCategoryDefinitionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCostCategoryDefinitionsCommand)
-  .de(de_ListCostCategoryDefinitionsCommand)
+  .sc(ListCostCategoryDefinitions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

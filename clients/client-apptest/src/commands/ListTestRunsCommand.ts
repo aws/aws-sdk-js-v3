@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppTestClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppTestClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListTestRunsRequest, ListTestRunsResponse } from "../models/models_0";
-import { de_ListTestRunsCommand, se_ListTestRunsCommand } from "../protocols/Aws_restJson1";
+import { ListTestRuns } from "../schemas/schemas_1_Test";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class ListTestRunsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppTestClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsApptestControlPlaneService", "ListTestRuns", {})
   .n("AppTestClient", "ListTestRunsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTestRunsCommand)
-  .de(de_ListTestRunsCommand)
+  .sc(ListTestRuns)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

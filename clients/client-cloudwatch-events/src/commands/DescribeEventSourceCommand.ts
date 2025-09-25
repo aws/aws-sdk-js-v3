@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeEventSourceRequest, DescribeEventSourceResponse } from "../models/models_0";
-import { de_DescribeEventSourceCommand, se_DescribeEventSourceCommand } from "../protocols/Aws_json1_1";
+import { DescribeEventSource } from "../schemas/schemas_8_Event";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class DescribeEventSourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSEvents", "DescribeEventSource", {})
   .n("CloudWatchEventsClient", "DescribeEventSourceCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeEventSourceCommand)
-  .de(de_DescribeEventSourceCommand)
+  .sc(DescribeEventSource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

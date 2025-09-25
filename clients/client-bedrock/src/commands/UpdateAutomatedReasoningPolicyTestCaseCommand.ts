@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,13 +7,9 @@ import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateAutomatedReasoningPolicyTestCaseRequest,
-  UpdateAutomatedReasoningPolicyTestCaseRequestFilterSensitiveLog,
   UpdateAutomatedReasoningPolicyTestCaseResponse,
 } from "../models/models_0";
-import {
-  de_UpdateAutomatedReasoningPolicyTestCaseCommand,
-  se_UpdateAutomatedReasoningPolicyTestCaseCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAutomatedReasoningPolicyTestCase } from "../schemas/schemas_11_Policy";
 
 /**
  * @public
@@ -109,16 +104,11 @@ export class UpdateAutomatedReasoningPolicyTestCaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "UpdateAutomatedReasoningPolicyTestCase", {})
   .n("BedrockClient", "UpdateAutomatedReasoningPolicyTestCaseCommand")
-  .f(UpdateAutomatedReasoningPolicyTestCaseRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateAutomatedReasoningPolicyTestCaseCommand)
-  .de(de_UpdateAutomatedReasoningPolicyTestCaseCommand)
+  .sc(UpdateAutomatedReasoningPolicyTestCase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

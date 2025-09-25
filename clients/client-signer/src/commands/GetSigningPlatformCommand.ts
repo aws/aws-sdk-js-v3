@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSigningPlatformRequest, GetSigningPlatformResponse } from "../models/models_0";
-import { de_GetSigningPlatformCommand, se_GetSigningPlatformCommand } from "../protocols/Aws_restJson1";
+import { GetSigningPlatform } from "../schemas/schemas_2_Signing";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -109,16 +108,11 @@ export class GetSigningPlatformCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WallabyService", "GetSigningPlatform", {})
   .n("SignerClient", "GetSigningPlatformCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSigningPlatformCommand)
-  .de(de_GetSigningPlatformCommand)
+  .sc(GetSigningPlatform)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

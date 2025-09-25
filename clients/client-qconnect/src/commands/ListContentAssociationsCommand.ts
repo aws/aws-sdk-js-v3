@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListContentAssociationsRequest, ListContentAssociationsResponse } from "../models/models_0";
-import { de_ListContentAssociationsCommand, se_ListContentAssociationsCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { ListContentAssociations } from "../schemas/schemas_21_Content";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class ListContentAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "ListContentAssociations", {})
   .n("QConnectClient", "ListContentAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListContentAssociationsCommand)
-  .de(de_ListContentAssociationsCommand)
+  .sc(ListContentAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

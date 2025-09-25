@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteVoiceConnectorExternalSystemsConfigurationRequest } from "../models/models_0";
-import {
-  de_DeleteVoiceConnectorExternalSystemsConfigurationCommand,
-  se_DeleteVoiceConnectorExternalSystemsConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVoiceConnectorExternalSystemsConfiguration } from "../schemas/schemas_37_DeleteVoiceConnectorExternalSystemsConfiguration";
 
 /**
  * @public
@@ -93,16 +89,11 @@ export class DeleteVoiceConnectorExternalSystemsConfigurationCommand extends $Co
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "DeleteVoiceConnectorExternalSystemsConfiguration", {})
   .n("ChimeSDKVoiceClient", "DeleteVoiceConnectorExternalSystemsConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteVoiceConnectorExternalSystemsConfigurationCommand)
-  .de(de_DeleteVoiceConnectorExternalSystemsConfigurationCommand)
+  .sc(DeleteVoiceConnectorExternalSystemsConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

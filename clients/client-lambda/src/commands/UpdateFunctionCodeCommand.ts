@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  FunctionConfiguration,
-  FunctionConfigurationFilterSensitiveLog,
-  UpdateFunctionCodeRequest,
-  UpdateFunctionCodeRequestFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateFunctionCodeCommand, se_UpdateFunctionCodeCommand } from "../protocols/Aws_restJson1";
+import { FunctionConfiguration, UpdateFunctionCodeRequest } from "../models/models_0";
+import { UpdateFunctionCode } from "../schemas/schemas_2_Function";
 
 /**
  * @public
@@ -249,16 +243,11 @@ export class UpdateFunctionCodeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGirApiService", "UpdateFunctionCode", {})
   .n("LambdaClient", "UpdateFunctionCodeCommand")
-  .f(UpdateFunctionCodeRequestFilterSensitiveLog, FunctionConfigurationFilterSensitiveLog)
-  .ser(se_UpdateFunctionCodeCommand)
-  .de(de_UpdateFunctionCodeCommand)
+  .sc(UpdateFunctionCode)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

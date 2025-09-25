@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSolFunctionPackageContentInput, GetSolFunctionPackageContentOutput } from "../models/models_0";
-import {
-  de_GetSolFunctionPackageContentCommand,
-  se_GetSolFunctionPackageContentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSolFunctionPackageContent } from "../schemas/schemas_3_Sol";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -122,16 +118,11 @@ export class GetSolFunctionPackageContentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TNB", "GetSolFunctionPackageContent", {})
   .n("TnbClient", "GetSolFunctionPackageContentCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSolFunctionPackageContentCommand)
-  .de(de_GetSolFunctionPackageContentCommand)
+  .sc(GetSolFunctionPackageContent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

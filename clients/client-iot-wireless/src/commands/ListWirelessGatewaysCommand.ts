@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { ListWirelessGatewaysRequest, ListWirelessGatewaysResponse } from "../models/models_1";
-import { de_ListWirelessGatewaysCommand, se_ListWirelessGatewaysCommand } from "../protocols/Aws_restJson1";
+import { ListWirelessGateways } from "../schemas/schemas_12_Wireless";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class ListWirelessGatewaysCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "ListWirelessGateways", {})
   .n("IoTWirelessClient", "ListWirelessGatewaysCommand")
-  .f(void 0, void 0)
-  .ser(se_ListWirelessGatewaysCommand)
-  .de(de_ListWirelessGatewaysCommand)
+  .sc(ListWirelessGateways)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteListenerRequest, DeleteListenerResponse } from "../models/models_0";
-import { de_DeleteListenerCommand, se_DeleteListenerCommand } from "../protocols/Aws_restJson1";
+import { DeleteListener } from "../schemas/schemas_1_Rule";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -89,16 +88,11 @@ export class DeleteListenerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MercuryControlPlane", "DeleteListener", {})
   .n("VPCLatticeClient", "DeleteListenerCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteListenerCommand)
-  .de(de_DeleteListenerCommand)
+  .sc(DeleteListener)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateMembershipRequest,
-  CreateMembershipRequestFilterSensitiveLog,
-  CreateMembershipResponse,
-} from "../models/models_0";
-import { de_CreateMembershipCommand, se_CreateMembershipCommand } from "../protocols/Aws_restJson1";
+import { CreateMembershipRequest, CreateMembershipResponse } from "../models/models_0";
+import { CreateMembership } from "../schemas/schemas_6_Membership";
 import { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
@@ -152,16 +147,11 @@ export class CreateMembershipCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityIncidentResponse", "CreateMembership", {})
   .n("SecurityIRClient", "CreateMembershipCommand")
-  .f(CreateMembershipRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateMembershipCommand)
-  .de(de_CreateMembershipCommand)
+  .sc(CreateMembership)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

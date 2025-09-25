@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListPricingRulesAssociatedToPricingPlanInput,
   ListPricingRulesAssociatedToPricingPlanOutput,
 } from "../models/models_0";
-import {
-  de_ListPricingRulesAssociatedToPricingPlanCommand,
-  se_ListPricingRulesAssociatedToPricingPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPricingRulesAssociatedToPricingPlan } from "../schemas/schemas_5_List";
 
 /**
  * @public
@@ -108,16 +104,11 @@ export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBillingConductor", "ListPricingRulesAssociatedToPricingPlan", {})
   .n("BillingconductorClient", "ListPricingRulesAssociatedToPricingPlanCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPricingRulesAssociatedToPricingPlanCommand)
-  .de(de_ListPricingRulesAssociatedToPricingPlanCommand)
+  .sc(ListPricingRulesAssociatedToPricingPlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

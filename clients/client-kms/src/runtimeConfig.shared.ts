@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsJson1_1Protocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -30,6 +31,13 @@ export const getRuntimeConfig = (config: KMSClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsJson1_1Protocol({
+        defaultNamespace: "com.amazonaws.kms",
+        serviceTarget: "TrentService",
+        awsQueryCompatible: false,
+      }),
     serviceId: config?.serviceId ?? "KMS",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PutProfileObjectTypeRequest,
-  PutProfileObjectTypeRequestFilterSensitiveLog,
-  PutProfileObjectTypeResponse,
-  PutProfileObjectTypeResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_PutProfileObjectTypeCommand, se_PutProfileObjectTypeCommand } from "../protocols/Aws_restJson1";
+import { PutProfileObjectTypeRequest, PutProfileObjectTypeResponse } from "../models/models_1";
+import { PutProfileObjectType } from "../schemas/schemas_3_ProfileObject";
 
 /**
  * @public
@@ -154,16 +148,11 @@ export class PutProfileObjectTypeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "PutProfileObjectType", {})
   .n("CustomerProfilesClient", "PutProfileObjectTypeCommand")
-  .f(PutProfileObjectTypeRequestFilterSensitiveLog, PutProfileObjectTypeResponseFilterSensitiveLog)
-  .ser(se_PutProfileObjectTypeCommand)
-  .de(de_PutProfileObjectTypeCommand)
+  .sc(PutProfileObjectType)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

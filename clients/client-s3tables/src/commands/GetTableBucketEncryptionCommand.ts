@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTableBucketEncryptionRequest, GetTableBucketEncryptionResponse } from "../models/models_0";
-import { de_GetTableBucketEncryptionCommand, se_GetTableBucketEncryptionCommand } from "../protocols/Aws_restJson1";
 import { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
+import { GetTableBucketEncryption } from "../schemas/schemas_6_Table";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class GetTableBucketEncryptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("S3TableBuckets", "GetTableBucketEncryption", {})
   .n("S3TablesClient", "GetTableBucketEncryptionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTableBucketEncryptionCommand)
-  .de(de_GetTableBucketEncryptionCommand)
+  .sc(GetTableBucketEncryption)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopFlowExecutionRequest, StopFlowExecutionResponse } from "../models/models_0";
-import { de_StopFlowExecutionCommand, se_StopFlowExecutionCommand } from "../protocols/Aws_restJson1";
+import { StopFlowExecution } from "../schemas/schemas_4_Flow";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class StopFlowExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentRunTimeService", "StopFlowExecution", {})
   .n("BedrockAgentRuntimeClient", "StopFlowExecutionCommand")
-  .f(void 0, void 0)
-  .ser(se_StopFlowExecutionCommand)
-  .de(de_StopFlowExecutionCommand)
+  .sc(StopFlowExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

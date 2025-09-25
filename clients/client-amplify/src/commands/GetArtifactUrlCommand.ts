@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/models_0";
-import { de_GetArtifactUrlCommand, se_GetArtifactUrlCommand } from "../protocols/Aws_restJson1";
+import { GetArtifactUrl } from "../schemas/schemas_9_Artifact";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class GetArtifactUrlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Amplify", "GetArtifactUrl", {})
   .n("AmplifyClient", "GetArtifactUrlCommand")
-  .f(void 0, void 0)
-  .ser(se_GetArtifactUrlCommand)
-  .de(de_GetArtifactUrlCommand)
+  .sc(GetArtifactUrl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

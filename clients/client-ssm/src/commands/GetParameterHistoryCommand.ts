@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetParameterHistoryRequest,
-  GetParameterHistoryResult,
-  GetParameterHistoryResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetParameterHistoryCommand, se_GetParameterHistoryCommand } from "../protocols/Aws_json1_1";
+import { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/models_1";
+import { GetParameterHistory } from "../schemas/schemas_2_Parameter";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -128,16 +123,11 @@ export class GetParameterHistoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "GetParameterHistory", {})
   .n("SSMClient", "GetParameterHistoryCommand")
-  .f(void 0, GetParameterHistoryResultFilterSensitiveLog)
-  .ser(se_GetParameterHistoryCommand)
-  .de(de_GetParameterHistoryCommand)
+  .sc(GetParameterHistory)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

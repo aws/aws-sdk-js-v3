@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { AbortMultipartUploadInput } from "../models/models_0";
-import { de_AbortMultipartUploadCommand, se_AbortMultipartUploadCommand } from "../protocols/Aws_restJson1";
+import { AbortMultipartUpload } from "../schemas/schemas_12_AbortMultipartUpload";
 
 /**
  * @public
@@ -115,16 +114,11 @@ export class AbortMultipartUploadCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Glacier", "AbortMultipartUpload", {})
   .n("GlacierClient", "AbortMultipartUploadCommand")
-  .f(void 0, void 0)
-  .ser(se_AbortMultipartUploadCommand)
-  .de(de_AbortMultipartUploadCommand)
+  .sc(AbortMultipartUpload)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { ReleaseStaticIpRequest, ReleaseStaticIpResult } from "../models/models_1";
-import { de_ReleaseStaticIpCommand, se_ReleaseStaticIpCommand } from "../protocols/Aws_json1_1";
+import { ReleaseStaticIp } from "../schemas/schemas_72_ReleaseStaticIp";
 
 /**
  * @public
@@ -122,16 +121,11 @@ export class ReleaseStaticIpCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "ReleaseStaticIp", {})
   .n("LightsailClient", "ReleaseStaticIpCommand")
-  .f(void 0, void 0)
-  .ser(se_ReleaseStaticIpCommand)
-  .de(de_ReleaseStaticIpCommand)
+  .sc(ReleaseStaticIp)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

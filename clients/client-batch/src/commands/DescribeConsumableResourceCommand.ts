@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeConsumableResourceRequest, DescribeConsumableResourceResponse } from "../models/models_0";
-import { de_DescribeConsumableResourceCommand, se_DescribeConsumableResourceCommand } from "../protocols/Aws_restJson1";
+import { DescribeConsumableResource } from "../schemas/schemas_24_DescribeConsumableResource";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class DescribeConsumableResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBatchV20160810", "DescribeConsumableResource", {})
   .n("BatchClient", "DescribeConsumableResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeConsumableResourceCommand)
-  .de(de_DescribeConsumableResourceCommand)
+  .sc(DescribeConsumableResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/models_4";
-import { de_GetSearchSuggestionsCommand, se_GetSearchSuggestionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { GetSearchSuggestions } from "../schemas/schemas_86_Search";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class GetSearchSuggestionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "GetSearchSuggestions", {})
   .n("SageMakerClient", "GetSearchSuggestionsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSearchSuggestionsCommand)
-  .de(de_GetSearchSuggestionsCommand)
+  .sc(GetSearchSuggestions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateAgentRuntimeRequest,
-  UpdateAgentRuntimeRequestFilterSensitiveLog,
-  UpdateAgentRuntimeResponse,
-} from "../models/models_0";
-import { de_UpdateAgentRuntimeCommand, se_UpdateAgentRuntimeCommand } from "../protocols/Aws_restJson1";
+import { UpdateAgentRuntimeRequest, UpdateAgentRuntimeResponse } from "../models/models_0";
+import { UpdateAgentRuntime } from "../schemas/schemas_4_Agent";
 
 /**
  * @public
@@ -148,16 +143,11 @@ export class UpdateAgentRuntimeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCoreControl", "UpdateAgentRuntime", {})
   .n("BedrockAgentCoreControlClient", "UpdateAgentRuntimeCommand")
-  .f(UpdateAgentRuntimeRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateAgentRuntimeCommand)
-  .de(de_UpdateAgentRuntimeCommand)
+  .sc(UpdateAgentRuntime)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

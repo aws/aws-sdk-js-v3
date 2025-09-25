@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SynthesizeSpeechInput,
-  SynthesizeSpeechOutput,
-  SynthesizeSpeechOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { SynthesizeSpeechInput, SynthesizeSpeechOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import { de_SynthesizeSpeechCommand, se_SynthesizeSpeechCommand } from "../protocols/Aws_restJson1";
+import { SynthesizeSpeech } from "../schemas/schemas_1_Speech";
 
 /**
  * @public
@@ -172,16 +167,11 @@ export class SynthesizeSpeechCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Parrot_v1", "SynthesizeSpeech", {})
   .n("PollyClient", "SynthesizeSpeechCommand")
-  .f(void 0, SynthesizeSpeechOutputFilterSensitiveLog)
-  .ser(se_SynthesizeSpeechCommand)
-  .de(de_SynthesizeSpeechCommand)
+  .sc(SynthesizeSpeech)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

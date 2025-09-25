@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateUserSettingsRequest, DisassociateUserSettingsResponse } from "../models/models_0";
-import { de_DisassociateUserSettingsCommand, se_DisassociateUserSettingsCommand } from "../protocols/Aws_restJson1";
+import { DisassociateUserSettings } from "../schemas/schemas_43_DisassociateUserSettings";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -86,16 +85,11 @@ export class DisassociateUserSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "DisassociateUserSettings", {})
   .n("WorkSpacesWebClient", "DisassociateUserSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateUserSettingsCommand)
-  .de(de_DisassociateUserSettingsCommand)
+  .sc(DisassociateUserSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

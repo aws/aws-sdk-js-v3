@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetIndexInput, GetIndexOutput } from "../models/models_0";
-import { de_GetIndexCommand, se_GetIndexCommand } from "../protocols/Aws_restJson1";
 import { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
+import { GetIndex } from "../schemas/schemas_1_Vectors";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class GetIndexCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: S3VectorsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("S3Vectors", "GetIndex", {})
   .n("S3VectorsClient", "GetIndexCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIndexCommand)
-  .de(de_GetIndexCommand)
+  .sc(GetIndex)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

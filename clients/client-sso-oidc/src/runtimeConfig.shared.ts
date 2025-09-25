@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { NoAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
@@ -37,6 +38,7 @@ export const getRuntimeConfig = (config: SSOOIDCClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.ssooidc" }),
     serviceId: config?.serviceId ?? "SSO OIDC",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

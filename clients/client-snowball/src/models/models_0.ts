@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SnowballServiceException as __BaseException } from "./SnowballServiceException";
 
@@ -3010,45 +3010,3 @@ export interface UpdateLongTermPricingRequest {
  * @public
  */
 export interface UpdateLongTermPricingResult {}
-
-/**
- * @internal
- */
-export const PickupDetailsFilterSensitiveLog = (obj: PickupDetails): any => ({
-  ...obj,
-  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-  ...(obj.Email && { Email: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
-  ...obj,
-  ...(obj.PickupDetails && { PickupDetails: PickupDetailsFilterSensitiveLog(obj.PickupDetails) }),
-});
-
-/**
- * @internal
- */
-export const JobMetadataFilterSensitiveLog = (obj: JobMetadata): any => ({
-  ...obj,
-  ...(obj.PickupDetails && { PickupDetails: PickupDetailsFilterSensitiveLog(obj.PickupDetails) }),
-});
-
-/**
- * @internal
- */
-export const DescribeJobResultFilterSensitiveLog = (obj: DescribeJobResult): any => ({
-  ...obj,
-  ...(obj.JobMetadata && { JobMetadata: JobMetadataFilterSensitiveLog(obj.JobMetadata) }),
-  ...(obj.SubJobMetadata && { SubJobMetadata: obj.SubJobMetadata.map((item) => JobMetadataFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateJobRequestFilterSensitiveLog = (obj: UpdateJobRequest): any => ({
-  ...obj,
-  ...(obj.PickupDetails && { PickupDetails: PickupDetailsFilterSensitiveLog(obj.PickupDetails) }),
-});

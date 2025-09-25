@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTraceSegmentDestinationRequest, GetTraceSegmentDestinationResult } from "../models/models_0";
-import { de_GetTraceSegmentDestinationCommand, se_GetTraceSegmentDestinationCommand } from "../protocols/Aws_restJson1";
+import { GetTraceSegmentDestination } from "../schemas/schemas_4_Get";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -77,16 +76,11 @@ export class GetTraceSegmentDestinationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSXRay", "GetTraceSegmentDestination", {})
   .n("XRayClient", "GetTraceSegmentDestinationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTraceSegmentDestinationCommand)
-  .de(de_GetTraceSegmentDestinationCommand)
+  .sc(GetTraceSegmentDestination)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

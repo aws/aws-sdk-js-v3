@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { ListInputRoutingsRequest, ListInputRoutingsResponse } from "../models/models_0";
-import { de_ListInputRoutingsCommand, se_ListInputRoutingsCommand } from "../protocols/Aws_restJson1";
+import { ListInputRoutings } from "../schemas/schemas_1_Model";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class ListInputRoutingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotColumboService", "ListInputRoutings", {})
   .n("IoTEventsClient", "ListInputRoutingsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListInputRoutingsCommand)
-  .de(de_ListInputRoutingsCommand)
+  .sc(ListInputRoutings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

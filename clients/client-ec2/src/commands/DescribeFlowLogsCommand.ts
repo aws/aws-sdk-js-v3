@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeFlowLogsRequest, DescribeFlowLogsResult } from "../models/models_4";
-import { de_DescribeFlowLogsCommand, se_DescribeFlowLogsCommand } from "../protocols/Aws_ec2";
+import { DescribeFlowLogs } from "../schemas/schemas_126_FlowLogs";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class DescribeFlowLogsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeFlowLogs", {})
   .n("EC2Client", "DescribeFlowLogsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeFlowLogsCommand)
-  .de(de_DescribeFlowLogsCommand)
+  .sc(DescribeFlowLogs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDatabasesRequest, ListDatabasesResponse } from "../models/models_0";
-import { de_ListDatabasesCommand, se_ListDatabasesCommand } from "../protocols/Aws_json1_0";
+import { ListDatabases } from "../schemas/schemas_1_Table";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -103,7 +102,6 @@ export class ListDatabasesCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEndpointDiscoveryPlugin(config, {
         clientStack: cs,
@@ -114,9 +112,7 @@ export class ListDatabasesCommand extends $Command
   })
   .s("Timestream_20181101", "ListDatabases", {})
   .n("TimestreamWriteClient", "ListDatabasesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDatabasesCommand)
-  .de(de_ListDatabasesCommand)
+  .sc(ListDatabases)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeServiceUpdatesMessage, ServiceUpdatesMessage } from "../models/models_0";
-import { de_DescribeServiceUpdatesCommand, se_DescribeServiceUpdatesCommand } from "../protocols/Aws_query";
+import { DescribeServiceUpdates } from "../schemas/schemas_15_Update";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class DescribeServiceUpdatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElastiCacheV9", "DescribeServiceUpdates", {})
   .n("ElastiCacheClient", "DescribeServiceUpdatesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeServiceUpdatesCommand)
-  .de(de_DescribeServiceUpdatesCommand)
+  .sc(DescribeServiceUpdates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

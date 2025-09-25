@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RegisterMarketplaceModelEndpointRequest, RegisterMarketplaceModelEndpointResponse } from "../models/models_0";
-import {
-  de_RegisterMarketplaceModelEndpointCommand,
-  se_RegisterMarketplaceModelEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { RegisterMarketplaceModelEndpoint } from "../schemas/schemas_6_Model";
 
 /**
  * @public
@@ -119,16 +115,11 @@ export class RegisterMarketplaceModelEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "RegisterMarketplaceModelEndpoint", {})
   .n("BedrockClient", "RegisterMarketplaceModelEndpointCommand")
-  .f(void 0, void 0)
-  .ser(se_RegisterMarketplaceModelEndpointCommand)
-  .de(de_RegisterMarketplaceModelEndpointCommand)
+  .sc(RegisterMarketplaceModelEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

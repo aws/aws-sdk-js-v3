@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDedicatedIpRequest, GetDedicatedIpResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { de_GetDedicatedIpCommand, se_GetDedicatedIpCommand } from "../protocols/Aws_restJson1";
+import { GetDedicatedIp } from "../schemas/schemas_9_Dedicated";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class GetDedicatedIpCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPinpointEmailService", "GetDedicatedIp", {})
   .n("PinpointEmailClient", "GetDedicatedIpCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDedicatedIpCommand)
-  .de(de_GetDedicatedIpCommand)
+  .sc(GetDedicatedIp)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

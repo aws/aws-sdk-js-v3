@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DomainNameAccessAssociations, GetDomainNameAccessAssociationsRequest } from "../models/models_0";
-import {
-  de_GetDomainNameAccessAssociationsCommand,
-  se_GetDomainNameAccessAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDomainNameAccessAssociations } from "../schemas/schemas_20_DomainName";
 
 /**
  * @public
@@ -98,16 +94,11 @@ export class GetDomainNameAccessAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackplaneControlService", "GetDomainNameAccessAssociations", {})
   .n("APIGatewayClient", "GetDomainNameAccessAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDomainNameAccessAssociationsCommand)
-  .de(de_GetDomainNameAccessAssociationsCommand)
+  .sc(GetDomainNameAccessAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

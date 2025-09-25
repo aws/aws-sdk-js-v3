@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { CreateStreamInput, CreateStreamOutput } from "../models/models_0";
-import { de_CreateStreamCommand, se_CreateStreamCommand } from "../protocols/Aws_restJson1";
+import { CreateStream } from "../schemas/schemas_1_Stream";
 
 /**
  * @public
@@ -125,16 +124,11 @@ export class CreateStreamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KinesisVideo_20170930", "CreateStream", {})
   .n("KinesisVideoClient", "CreateStreamCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateStreamCommand)
-  .de(de_CreateStreamCommand)
+  .sc(CreateStream)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

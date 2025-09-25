@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteADAssessmentRequest, DeleteADAssessmentResult } from "../models/models_0";
-import { de_DeleteADAssessmentCommand, se_DeleteADAssessmentCommand } from "../protocols/Aws_json1_1";
+import { DeleteADAssessment } from "../schemas/schemas_17_DAssessment";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class DeleteADAssessmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "DeleteADAssessment", {})
   .n("DirectoryServiceClient", "DeleteADAssessmentCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteADAssessmentCommand)
-  .de(de_DeleteADAssessmentCommand)
+  .sc(DeleteADAssessment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

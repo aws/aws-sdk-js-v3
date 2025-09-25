@@ -1,20 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  InitiateDocumentVersionUploadRequest,
-  InitiateDocumentVersionUploadRequestFilterSensitiveLog,
-  InitiateDocumentVersionUploadResponse,
-  InitiateDocumentVersionUploadResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_InitiateDocumentVersionUploadCommand,
-  se_InitiateDocumentVersionUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { InitiateDocumentVersionUploadRequest, InitiateDocumentVersionUploadResponse } from "../models/models_0";
+import { InitiateDocumentVersionUpload } from "../schemas/schemas_1_Folder";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -172,16 +163,11 @@ export class InitiateDocumentVersionUploadCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "InitiateDocumentVersionUpload", {})
   .n("WorkDocsClient", "InitiateDocumentVersionUploadCommand")
-  .f(InitiateDocumentVersionUploadRequestFilterSensitiveLog, InitiateDocumentVersionUploadResponseFilterSensitiveLog)
-  .ser(se_InitiateDocumentVersionUploadCommand)
-  .de(de_InitiateDocumentVersionUploadCommand)
+  .sc(InitiateDocumentVersionUpload)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

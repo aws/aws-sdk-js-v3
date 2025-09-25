@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SubscribeRequest, SubscribeRequestFilterSensitiveLog, SubscribeResult } from "../models/models_0";
-import { de_SubscribeCommand, se_SubscribeCommand } from "../protocols/Aws_restJson1";
+import { SubscribeRequest, SubscribeResult } from "../models/models_0";
+import { Subscribe } from "../schemas/schemas_2_Notification";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class SubscribeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeStarNotifications_20191015", "Subscribe", {})
   .n("CodestarNotificationsClient", "SubscribeCommand")
-  .f(SubscribeRequestFilterSensitiveLog, void 0)
-  .ser(se_SubscribeCommand)
-  .de(de_SubscribeCommand)
+  .sc(Subscribe)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

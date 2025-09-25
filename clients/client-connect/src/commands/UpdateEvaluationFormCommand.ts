@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateEvaluationFormResponse } from "../models/models_2";
 import { UpdateEvaluationFormRequest } from "../models/models_3";
-import { de_UpdateEvaluationFormCommand, se_UpdateEvaluationFormCommand } from "../protocols/Aws_restJson1";
+import { UpdateEvaluationForm } from "../schemas/schemas_4_Evaluation";
 
 /**
  * @public
@@ -226,16 +225,11 @@ export class UpdateEvaluationFormCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "UpdateEvaluationForm", {})
   .n("ConnectClient", "UpdateEvaluationFormCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateEvaluationFormCommand)
-  .de(de_UpdateEvaluationFormCommand)
+  .sc(UpdateEvaluationForm)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

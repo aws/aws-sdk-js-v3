@@ -1,21 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetHostedConfigurationVersionRequest,
-  HostedConfigurationVersion,
-  HostedConfigurationVersionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetHostedConfigurationVersionCommand,
-  se_GetHostedConfigurationVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetHostedConfigurationVersionRequest, HostedConfigurationVersion } from "../models/models_0";
+import { GetHostedConfigurationVersion } from "../schemas/schemas_9_Deployment";
 
 /**
  * @public
@@ -125,16 +117,11 @@ export class GetHostedConfigurationVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAppConfig", "GetHostedConfigurationVersion", {})
   .n("AppConfigClient", "GetHostedConfigurationVersionCommand")
-  .f(void 0, HostedConfigurationVersionFilterSensitiveLog)
-  .ser(se_GetHostedConfigurationVersionCommand)
-  .de(de_GetHostedConfigurationVersionCommand)
+  .sc(GetHostedConfigurationVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

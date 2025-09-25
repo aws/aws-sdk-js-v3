@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchGetFieldRequest, BatchGetFieldResponse } from "../models/models_0";
-import { de_BatchGetFieldCommand, se_BatchGetFieldCommand } from "../protocols/Aws_restJson1";
+import { BatchGetField } from "../schemas/schemas_4_Get";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class BatchGetFieldCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectCases", "BatchGetField", {})
   .n("ConnectCasesClient", "BatchGetFieldCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchGetFieldCommand)
-  .de(de_BatchGetFieldCommand)
+  .sc(BatchGetField)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
 import { RegisterUsageRequest, RegisterUsageResult } from "../models/models_0";
-import { de_RegisterUsageCommand, se_RegisterUsageCommand } from "../protocols/Aws_json1_1";
+import { RegisterUsage } from "../schemas/schemas_1_Usage";
 
 /**
  * @public
@@ -151,16 +150,11 @@ export class RegisterUsageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceMeteringClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMPMeteringService", "RegisterUsage", {})
   .n("MarketplaceMeteringClient", "RegisterUsageCommand")
-  .f(void 0, void 0)
-  .ser(se_RegisterUsageCommand)
-  .de(de_RegisterUsageCommand)
+  .sc(RegisterUsage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

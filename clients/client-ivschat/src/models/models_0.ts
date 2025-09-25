@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IvschatServiceException as __BaseException } from "./IvschatServiceException";
 
@@ -1549,28 +1549,3 @@ export interface UpdateRoomResponse {
    */
   loggingConfigurationIdentifiers?: string[] | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateChatTokenRequestFilterSensitiveLog = (obj: CreateChatTokenRequest): any => ({
-  ...obj,
-  ...(obj.userId && { userId: SENSITIVE_STRING }),
-  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateChatTokenResponseFilterSensitiveLog = (obj: CreateChatTokenResponse): any => ({
-  ...obj,
-  ...(obj.token && { token: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DisconnectUserRequestFilterSensitiveLog = (obj: DisconnectUserRequest): any => ({
-  ...obj,
-  ...(obj.userId && { userId: SENSITIVE_STRING }),
-});

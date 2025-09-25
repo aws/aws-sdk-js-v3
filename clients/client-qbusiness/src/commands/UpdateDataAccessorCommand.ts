@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateDataAccessorResponse } from "../models/models_0";
-import { UpdateDataAccessorRequest, UpdateDataAccessorRequestFilterSensitiveLog } from "../models/models_1";
-import { de_UpdateDataAccessorCommand, se_UpdateDataAccessorCommand } from "../protocols/Aws_restJson1";
+import { UpdateDataAccessorRequest } from "../models/models_1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import { UpdateDataAccessor } from "../schemas/schemas_10_Data";
 
 /**
  * @public
@@ -188,16 +187,11 @@ export class UpdateDataAccessorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ExpertQ", "UpdateDataAccessor", {})
   .n("QBusinessClient", "UpdateDataAccessorCommand")
-  .f(UpdateDataAccessorRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateDataAccessorCommand)
-  .de(de_UpdateDataAccessorCommand)
+  .sc(UpdateDataAccessor)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

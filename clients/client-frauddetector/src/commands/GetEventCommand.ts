@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetEventRequest, GetEventResult, GetEventResultFilterSensitiveLog } from "../models/models_0";
-import { de_GetEventCommand, se_GetEventCommand } from "../protocols/Aws_json1_1";
+import { GetEventRequest, GetEventResult } from "../models/models_0";
+import { GetEvent } from "../schemas/schemas_11_Event";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class GetEventCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHawksNestServiceFacade", "GetEvent", {})
   .n("FraudDetectorClient", "GetEventCommand")
-  .f(void 0, GetEventResultFilterSensitiveLog)
-  .ser(se_GetEventCommand)
-  .de(de_GetEventCommand)
+  .sc(GetEvent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

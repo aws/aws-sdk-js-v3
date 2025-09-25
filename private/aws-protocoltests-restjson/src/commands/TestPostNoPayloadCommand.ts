@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { TestNoPayloadInputOutput } from "../models/models_0";
-import { de_TestPostNoPayloadCommand, se_TestPostNoPayloadCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { TestPostNoPayload } from "../schemas/schemas_14_Test";
 
 /**
  * @public
@@ -74,16 +73,11 @@ export class TestPostNoPayloadCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "TestPostNoPayload", {})
   .n("RestJsonProtocolClient", "TestPostNoPayloadCommand")
-  .f(void 0, void 0)
-  .ser(se_TestPostNoPayloadCommand)
-  .de(de_TestPostNoPayloadCommand)
+  .sc(TestPostNoPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

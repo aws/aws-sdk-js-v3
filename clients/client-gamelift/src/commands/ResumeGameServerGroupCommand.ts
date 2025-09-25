@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { ResumeGameServerGroupInput, ResumeGameServerGroupOutput } from "../models/models_1";
-import { de_ResumeGameServerGroupCommand, se_ResumeGameServerGroupCommand } from "../protocols/Aws_json1_1";
+import { ResumeGameServerGroup } from "../schemas/schemas_2_Server";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class ResumeGameServerGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "ResumeGameServerGroup", {})
   .n("GameLiftClient", "ResumeGameServerGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_ResumeGameServerGroupCommand)
-  .de(de_ResumeGameServerGroupCommand)
+  .sc(ResumeGameServerGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

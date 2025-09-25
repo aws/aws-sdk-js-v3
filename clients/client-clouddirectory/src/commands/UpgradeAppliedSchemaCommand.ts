@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpgradeAppliedSchemaRequest, UpgradeAppliedSchemaResponse } from "../models/models_0";
-import { de_UpgradeAppliedSchemaCommand, se_UpgradeAppliedSchemaCommand } from "../protocols/Aws_restJson1";
+import { UpgradeAppliedSchema } from "../schemas/schemas_2_Facet";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class UpgradeAppliedSchemaCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonCloudDirectory_20170111", "UpgradeAppliedSchema", {})
   .n("CloudDirectoryClient", "UpgradeAppliedSchemaCommand")
-  .f(void 0, void 0)
-  .ser(se_UpgradeAppliedSchemaCommand)
-  .de(de_UpgradeAppliedSchemaCommand)
+  .sc(UpgradeAppliedSchema)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

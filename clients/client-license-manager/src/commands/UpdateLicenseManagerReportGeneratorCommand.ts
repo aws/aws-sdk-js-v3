@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   UpdateLicenseManagerReportGeneratorRequest,
   UpdateLicenseManagerReportGeneratorResponse,
 } from "../models/models_0";
-import {
-  de_UpdateLicenseManagerReportGeneratorCommand,
-  se_UpdateLicenseManagerReportGeneratorCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateLicenseManagerReportGenerator } from "../schemas/schemas_5_List";
 
 /**
  * @public
@@ -117,16 +113,11 @@ export class UpdateLicenseManagerReportGeneratorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLicenseManager", "UpdateLicenseManagerReportGenerator", {})
   .n("LicenseManagerClient", "UpdateLicenseManagerReportGeneratorCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateLicenseManagerReportGeneratorCommand)
-  .de(de_UpdateLicenseManagerReportGeneratorCommand)
+  .sc(UpdateLicenseManagerReportGenerator)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

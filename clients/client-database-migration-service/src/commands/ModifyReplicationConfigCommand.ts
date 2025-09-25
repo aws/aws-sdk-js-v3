@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyReplicationConfigMessage, ModifyReplicationConfigResponse } from "../models/models_1";
-import { de_ModifyReplicationConfigCommand, se_ModifyReplicationConfigCommand } from "../protocols/Aws_json1_1";
+import { ModifyReplicationConfig } from "../schemas/schemas_10_Replication";
 
 /**
  * @public
@@ -144,16 +143,11 @@ export class ModifyReplicationConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "ModifyReplicationConfig", {})
   .n("DatabaseMigrationServiceClient", "ModifyReplicationConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyReplicationConfigCommand)
-  .de(de_ModifyReplicationConfigCommand)
+  .sc(ModifyReplicationConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { XmlBlobsOutput } from "../models/models_0";
-import { de_XmlBlobsCommand, se_XmlBlobsCommand } from "../protocols/Aws_ec2";
+import { XmlBlobs } from "../schemas/schemas_4_Blobs";
 
 /**
  * @public
@@ -68,16 +67,11 @@ export class XmlBlobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsEc2", "XmlBlobs", {})
   .n("EC2ProtocolClient", "XmlBlobsCommand")
-  .f(void 0, void 0)
-  .ser(se_XmlBlobsCommand)
-  .de(de_XmlBlobsCommand)
+  .sc(XmlBlobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

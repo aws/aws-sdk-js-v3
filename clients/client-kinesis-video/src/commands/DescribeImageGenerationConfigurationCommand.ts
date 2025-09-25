@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeImageGenerationConfigurationInput,
   DescribeImageGenerationConfigurationOutput,
 } from "../models/models_0";
-import {
-  de_DescribeImageGenerationConfigurationCommand,
-  se_DescribeImageGenerationConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeImageGenerationConfiguration } from "../schemas/schemas_2_Configuration";
 
 /**
  * @public
@@ -106,16 +102,11 @@ export class DescribeImageGenerationConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KinesisVideo_20170930", "DescribeImageGenerationConfiguration", {})
   .n("KinesisVideoClient", "DescribeImageGenerationConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeImageGenerationConfigurationCommand)
-  .de(de_DescribeImageGenerationConfigurationCommand)
+  .sc(DescribeImageGenerationConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

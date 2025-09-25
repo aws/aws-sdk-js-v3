@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetEventStreamRequest, GetEventStreamResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { de_GetEventStreamCommand, se_GetEventStreamCommand } from "../protocols/Aws_restJson1";
+import { GetEventStream } from "../schemas/schemas_21_EventStream";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class GetEventStreamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Pinpoint", "GetEventStream", {})
   .n("PinpointClient", "GetEventStreamCommand")
-  .f(void 0, void 0)
-  .ser(se_GetEventStreamCommand)
-  .de(de_GetEventStreamCommand)
+  .sc(GetEventStream)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

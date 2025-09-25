@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeCarrierGatewaysRequest, DescribeCarrierGatewaysResult } from "../models/models_4";
-import { de_DescribeCarrierGatewaysCommand, se_DescribeCarrierGatewaysCommand } from "../protocols/Aws_ec2";
+import { DescribeCarrierGateways } from "../schemas/schemas_85_Route";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class DescribeCarrierGatewaysCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeCarrierGateways", {})
   .n("EC2Client", "DescribeCarrierGatewaysCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeCarrierGatewaysCommand)
-  .de(de_DescribeCarrierGatewaysCommand)
+  .sc(DescribeCarrierGateways)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

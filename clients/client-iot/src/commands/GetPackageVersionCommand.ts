@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetPackageVersionRequest,
-  GetPackageVersionResponse,
-  GetPackageVersionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetPackageVersionCommand, se_GetPackageVersionCommand } from "../protocols/Aws_restJson1";
+import { GetPackageVersionRequest, GetPackageVersionResponse } from "../models/models_1";
+import { GetPackageVersion } from "../schemas/schemas_4_Describe";
 
 /**
  * @public
@@ -115,16 +110,11 @@ export class GetPackageVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "GetPackageVersion", {})
   .n("IoTClient", "GetPackageVersionCommand")
-  .f(void 0, GetPackageVersionResponseFilterSensitiveLog)
-  .ser(se_GetPackageVersionCommand)
-  .de(de_GetPackageVersionCommand)
+  .sc(GetPackageVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

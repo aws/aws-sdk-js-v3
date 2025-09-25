@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListQueueTagsRequest, ListQueueTagsResult } from "../models/models_0";
-import { de_ListQueueTagsCommand, se_ListQueueTagsCommand } from "../protocols/Aws_json1_0";
+import { ListQueueTags } from "../schemas/schemas_7_Queue";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -106,16 +105,11 @@ export class ListQueueTagsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSQS", "ListQueueTags", {})
   .n("SQSClient", "ListQueueTagsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListQueueTagsCommand)
-  .de(de_ListQueueTagsCommand)
+  .sc(ListQueueTags)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

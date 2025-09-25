@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { QLDBServiceException as __BaseException } from "./QLDBServiceException";
 
@@ -1794,55 +1794,3 @@ export interface UpdateLedgerPermissionsModeResponse {
    */
   PermissionsMode?: PermissionsMode | undefined;
 }
-
-/**
- * @internal
- */
-export const ValueHolderFilterSensitiveLog = (obj: ValueHolder): any => ({
-  ...obj,
-  ...(obj.IonText && { IonText: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetBlockRequestFilterSensitiveLog = (obj: GetBlockRequest): any => ({
-  ...obj,
-  ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
-  ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetBlockResponseFilterSensitiveLog = (obj: GetBlockResponse): any => ({
-  ...obj,
-  ...(obj.Block && { Block: SENSITIVE_STRING }),
-  ...(obj.Proof && { Proof: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetDigestResponseFilterSensitiveLog = (obj: GetDigestResponse): any => ({
-  ...obj,
-  ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetRevisionRequestFilterSensitiveLog = (obj: GetRevisionRequest): any => ({
-  ...obj,
-  ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
-  ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetRevisionResponseFilterSensitiveLog = (obj: GetRevisionResponse): any => ({
-  ...obj,
-  ...(obj.Proof && { Proof: SENSITIVE_STRING }),
-  ...(obj.Revision && { Revision: SENSITIVE_STRING }),
-});

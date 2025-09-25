@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSubscriptionGrantInput, GetSubscriptionGrantOutput } from "../models/models_1";
-import { de_GetSubscriptionGrantCommand, se_GetSubscriptionGrantCommand } from "../protocols/Aws_restJson1";
+import { GetSubscriptionGrant } from "../schemas/schemas_10_Subscription";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class GetSubscriptionGrantCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "GetSubscriptionGrant", {})
   .n("DataZoneClient", "GetSubscriptionGrantCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSubscriptionGrantCommand)
-  .de(de_GetSubscriptionGrantCommand)
+  .sc(GetSubscriptionGrant)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

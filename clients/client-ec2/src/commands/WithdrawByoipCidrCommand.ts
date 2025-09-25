@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/models_8";
-import { de_WithdrawByoipCidrCommand, se_WithdrawByoipCidrCommand } from "../protocols/Aws_ec2";
+import { WithdrawByoipCidr } from "../schemas/schemas_2_Byoip";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class WithdrawByoipCidrCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "WithdrawByoipCidr", {})
   .n("EC2Client", "WithdrawByoipCidrCommand")
-  .f(void 0, void 0)
-  .ser(se_WithdrawByoipCidrCommand)
-  .de(de_WithdrawByoipCidrCommand)
+  .sc(WithdrawByoipCidr)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

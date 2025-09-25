@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DeleteReplicationConfigurationTemplateRequest,
   DeleteReplicationConfigurationTemplateResponse,
 } from "../models/models_0";
-import {
-  de_DeleteReplicationConfigurationTemplateCommand,
-  se_DeleteReplicationConfigurationTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteReplicationConfigurationTemplate } from "../schemas/schemas_20_Configuration";
 
 /**
  * @public
@@ -92,16 +88,11 @@ export class DeleteReplicationConfigurationTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticDisasterRecoveryService", "DeleteReplicationConfigurationTemplate", {})
   .n("DrsClient", "DeleteReplicationConfigurationTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteReplicationConfigurationTemplateCommand)
-  .de(de_DeleteReplicationConfigurationTemplateCommand)
+  .sc(DeleteReplicationConfigurationTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

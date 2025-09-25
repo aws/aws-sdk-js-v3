@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeImageTagsRequest, DescribeImageTagsResponse } from "../models/models_0";
-import { de_DescribeImageTagsCommand, se_DescribeImageTagsCommand } from "../protocols/Aws_json1_1";
+import { DescribeImageTags } from "../schemas/schemas_2_Image";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class DescribeImageTagsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SpencerFrontendService", "DescribeImageTags", {})
   .n("ECRPUBLICClient", "DescribeImageTagsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeImageTagsCommand)
-  .de(de_DescribeImageTagsCommand)
+  .sc(DescribeImageTags)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DataBrewServiceException as __BaseException } from "./DataBrewServiceException";
 
@@ -4705,19 +4705,3 @@ export interface UpdateScheduleResponse {
    */
   Name: string | undefined;
 }
-
-/**
- * @internal
- */
-export const SendProjectSessionActionRequestFilterSensitiveLog = (obj: SendProjectSessionActionRequest): any => ({
-  ...obj,
-  ...(obj.ClientSessionId && { ClientSessionId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartProjectSessionResponseFilterSensitiveLog = (obj: StartProjectSessionResponse): any => ({
-  ...obj,
-  ...(obj.ClientSessionId && { ClientSessionId: SENSITIVE_STRING }),
-});

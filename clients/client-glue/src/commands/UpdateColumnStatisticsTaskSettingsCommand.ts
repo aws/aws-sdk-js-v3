@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   UpdateColumnStatisticsTaskSettingsRequest,
   UpdateColumnStatisticsTaskSettingsResponse,
 } from "../models/models_3";
-import {
-  de_UpdateColumnStatisticsTaskSettingsCommand,
-  se_UpdateColumnStatisticsTaskSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateColumnStatisticsTaskSettings } from "../schemas/schemas_3_Crawler";
 
 /**
  * @public
@@ -100,16 +96,11 @@ export class UpdateColumnStatisticsTaskSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "UpdateColumnStatisticsTaskSettings", {})
   .n("GlueClient", "UpdateColumnStatisticsTaskSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateColumnStatisticsTaskSettingsCommand)
-  .de(de_UpdateColumnStatisticsTaskSettingsCommand)
+  .sc(UpdateColumnStatisticsTaskSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

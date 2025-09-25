@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { ContentTypeParametersInput, ContentTypeParametersOutput } from "../models/models_0";
-import { de_ContentTypeParametersCommand, se_ContentTypeParametersCommand } from "../protocols/Aws_json1_1";
+import { ContentTypeParameters } from "../schemas/schemas_3_";
 
 /**
  * @public
@@ -69,16 +68,11 @@ export class ContentTypeParametersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("JsonProtocol", "ContentTypeParameters", {})
   .n("JsonProtocolClient", "ContentTypeParametersCommand")
-  .f(void 0, void 0)
-  .ser(se_ContentTypeParametersCommand)
-  .de(de_ContentTypeParametersCommand)
+  .sc(ContentTypeParameters)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

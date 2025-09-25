@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PostLineageEventInput,
-  PostLineageEventInputFilterSensitiveLog,
-  PostLineageEventOutput,
-} from "../models/models_2";
-import { de_PostLineageEventCommand, se_PostLineageEventCommand } from "../protocols/Aws_restJson1";
+import { PostLineageEventInput, PostLineageEventOutput } from "../models/models_2";
+import { PostLineageEvent } from "../schemas/schemas_52_Lineage";
 
 /**
  * @public
@@ -108,16 +103,11 @@ export class PostLineageEventCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "PostLineageEvent", {})
   .n("DataZoneClient", "PostLineageEventCommand")
-  .f(PostLineageEventInputFilterSensitiveLog, void 0)
-  .ser(se_PostLineageEventCommand)
-  .de(de_PostLineageEventCommand)
+  .sc(PostLineageEvent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

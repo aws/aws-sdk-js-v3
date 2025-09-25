@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetInvocationStepRequest,
-  GetInvocationStepResponse,
-  GetInvocationStepResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetInvocationStepCommand, se_GetInvocationStepCommand } from "../protocols/Aws_restJson1";
+import { GetInvocationStepRequest, GetInvocationStepResponse } from "../models/models_1";
+import { GetInvocationStep } from "../schemas/schemas_6_Invocation";
 
 /**
  * @public
@@ -116,16 +111,11 @@ export class GetInvocationStepCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentRunTimeService", "GetInvocationStep", {})
   .n("BedrockAgentRuntimeClient", "GetInvocationStepCommand")
-  .f(void 0, GetInvocationStepResponseFilterSensitiveLog)
-  .ser(se_GetInvocationStepCommand)
-  .de(de_GetInvocationStepCommand)
+  .sc(GetInvocationStep)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

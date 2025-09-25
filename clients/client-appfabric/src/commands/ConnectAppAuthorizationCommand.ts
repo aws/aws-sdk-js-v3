@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ConnectAppAuthorizationRequest,
-  ConnectAppAuthorizationRequestFilterSensitiveLog,
-  ConnectAppAuthorizationResponse,
-} from "../models/models_0";
-import { de_ConnectAppAuthorizationCommand, se_ConnectAppAuthorizationCommand } from "../protocols/Aws_restJson1";
+import { ConnectAppAuthorizationRequest, ConnectAppAuthorizationResponse } from "../models/models_0";
+import { ConnectAppAuthorization } from "../schemas/schemas_1_App";
 
 /**
  * @public
@@ -106,16 +101,11 @@ export class ConnectAppAuthorizationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FabricFrontEndService", "ConnectAppAuthorization", {})
   .n("AppFabricClient", "ConnectAppAuthorizationCommand")
-  .f(ConnectAppAuthorizationRequestFilterSensitiveLog, void 0)
-  .ser(se_ConnectAppAuthorizationCommand)
-  .de(de_ConnectAppAuthorizationCommand)
+  .sc(ConnectAppAuthorization)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

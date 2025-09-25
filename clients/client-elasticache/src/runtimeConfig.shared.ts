@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsQueryProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -30,6 +31,13 @@ export const getRuntimeConfig = (config: ElastiCacheClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsQueryProtocol({
+        defaultNamespace: "com.amazonaws.elasticache",
+        xmlNamespace: "http://elasticache.amazonaws.com/doc/2015-02-02/",
+        version: "2015-02-02",
+      }),
     serviceId: config?.serviceId ?? "ElastiCache",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

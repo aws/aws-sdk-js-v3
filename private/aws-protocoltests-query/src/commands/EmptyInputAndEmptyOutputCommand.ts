@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/models_0";
-import { de_EmptyInputAndEmptyOutputCommand, se_EmptyInputAndEmptyOutputCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
+import { EmptyInputAndEmptyOutput } from "../schemas/schemas_8_EmptyInputAndEmptyOutput";
 
 /**
  * @public
@@ -69,16 +68,11 @@ export class EmptyInputAndEmptyOutputCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsQuery", "EmptyInputAndEmptyOutput", {})
   .n("QueryProtocolClient", "EmptyInputAndEmptyOutputCommand")
-  .f(void 0, void 0)
-  .ser(se_EmptyInputAndEmptyOutputCommand)
-  .de(de_EmptyInputAndEmptyOutputCommand)
+  .sc(EmptyInputAndEmptyOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DeleteLocalGatewayVirtualInterfaceRequest,
   DeleteLocalGatewayVirtualInterfaceResult,
 } from "../models/models_3";
-import {
-  de_DeleteLocalGatewayVirtualInterfaceCommand,
-  se_DeleteLocalGatewayVirtualInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteLocalGatewayVirtualInterface } from "../schemas/schemas_117_LocalGatewayVirtual";
 
 /**
  * @public
@@ -99,16 +95,11 @@ export class DeleteLocalGatewayVirtualInterfaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DeleteLocalGatewayVirtualInterface", {})
   .n("EC2Client", "DeleteLocalGatewayVirtualInterfaceCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteLocalGatewayVirtualInterfaceCommand)
-  .de(de_DeleteLocalGatewayVirtualInterfaceCommand)
+  .sc(DeleteLocalGatewayVirtualInterface)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

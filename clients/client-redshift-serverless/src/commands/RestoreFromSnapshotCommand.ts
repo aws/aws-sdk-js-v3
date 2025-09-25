@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RestoreFromSnapshotRequest,
-  RestoreFromSnapshotResponse,
-  RestoreFromSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RestoreFromSnapshotCommand, se_RestoreFromSnapshotCommand } from "../protocols/Aws_json1_1";
+import { RestoreFromSnapshotRequest, RestoreFromSnapshotResponse } from "../models/models_0";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
+import { RestoreFromSnapshot } from "../schemas/schemas_8_Namespace";
 
 /**
  * @public
@@ -119,16 +114,11 @@ export class RestoreFromSnapshotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServerless", "RestoreFromSnapshot", {})
   .n("RedshiftServerlessClient", "RestoreFromSnapshotCommand")
-  .f(void 0, RestoreFromSnapshotResponseFilterSensitiveLog)
-  .ser(se_RestoreFromSnapshotCommand)
-  .de(de_RestoreFromSnapshotCommand)
+  .sc(RestoreFromSnapshot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

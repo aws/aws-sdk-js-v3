@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateVPCWithHostedZoneRequest, AssociateVPCWithHostedZoneResponse } from "../models/models_0";
-import { de_AssociateVPCWithHostedZoneCommand, se_AssociateVPCWithHostedZoneCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { AssociateVPCWithHostedZone } from "../schemas/schemas_21_Resource";
 
 /**
  * @public
@@ -196,17 +195,11 @@ export class AssociateVPCWithHostedZoneCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
   })
   .s("AWSDnsV20130401", "AssociateVPCWithHostedZone", {})
   .n("Route53Client", "AssociateVPCWithHostedZoneCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateVPCWithHostedZoneCommand)
-  .de(de_AssociateVPCWithHostedZoneCommand)
+  .sc(AssociateVPCWithHostedZone)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

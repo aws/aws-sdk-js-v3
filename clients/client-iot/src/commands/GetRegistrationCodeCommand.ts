@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetRegistrationCodeRequest, GetRegistrationCodeResponse } from "../models/models_1";
-import { de_GetRegistrationCodeCommand, se_GetRegistrationCodeCommand } from "../protocols/Aws_restJson1";
+import { GetRegistrationCode } from "../schemas/schemas_95_GetRegistrationCode";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class GetRegistrationCodeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "GetRegistrationCode", {})
   .n("IoTClient", "GetRegistrationCodeCommand")
-  .f(void 0, void 0)
-  .ser(se_GetRegistrationCodeCommand)
-  .de(de_GetRegistrationCodeCommand)
+  .sc(GetRegistrationCode)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

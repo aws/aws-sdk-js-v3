@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActionSource,
   ActionStatus,
@@ -7051,43 +7049,3 @@ export interface DescribeClusterNodeRequest {
    */
   NodeLogicalId?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateModelCardRequestFilterSensitiveLog = (obj: CreateModelCardRequest): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModelPackageModelCardFilterSensitiveLog = (obj: ModelPackageModelCard): any => ({
-  ...obj,
-  ...(obj.ModelCardContent && { ModelCardContent: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateModelPackageInputFilterSensitiveLog = (obj: CreateModelPackageInput): any => ({
-  ...obj,
-  ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
-});
-
-/**
- * @internal
- */
-export const OidcConfigFilterSensitiveLog = (obj: OidcConfig): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateWorkforceRequestFilterSensitiveLog = (obj: CreateWorkforceRequest): any => ({
-  ...obj,
-  ...(obj.OidcConfig && { OidcConfig: OidcConfigFilterSensitiveLog(obj.OidcConfig) }),
-});

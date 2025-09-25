@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListProjectsInput,
-  ListProjectsInputFilterSensitiveLog,
-  ListProjectsOutput,
-  ListProjectsOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ListProjectsCommand, se_ListProjectsCommand } from "../protocols/Aws_restJson1";
+import { ListProjectsInput, ListProjectsOutput } from "../models/models_1";
+import { ListProjects } from "../schemas/schemas_19_Project";
 
 /**
  * @public
@@ -114,16 +108,11 @@ export class ListProjectsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "ListProjects", {})
   .n("DataZoneClient", "ListProjectsCommand")
-  .f(ListProjectsInputFilterSensitiveLog, ListProjectsOutputFilterSensitiveLog)
-  .ser(se_ListProjectsCommand)
-  .de(de_ListProjectsCommand)
+  .sc(ListProjects)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

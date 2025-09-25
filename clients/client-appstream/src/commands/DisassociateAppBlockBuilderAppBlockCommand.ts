@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DisassociateAppBlockBuilderAppBlockRequest,
   DisassociateAppBlockBuilderAppBlockResult,
 } from "../models/models_0";
-import {
-  de_DisassociateAppBlockBuilderAppBlockCommand,
-  se_DisassociateAppBlockBuilderAppBlockCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateAppBlockBuilderAppBlock } from "../schemas/schemas_20_DisassociateAppBlockBuilderAppBlock";
 
 /**
  * @public
@@ -89,16 +85,11 @@ export class DisassociateAppBlockBuilderAppBlockCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "DisassociateAppBlockBuilderAppBlock", {})
   .n("AppStreamClient", "DisassociateAppBlockBuilderAppBlockCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateAppBlockBuilderAppBlockCommand)
-  .de(de_DisassociateAppBlockBuilderAppBlockCommand)
+  .sc(DisassociateAppBlockBuilderAppBlock)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

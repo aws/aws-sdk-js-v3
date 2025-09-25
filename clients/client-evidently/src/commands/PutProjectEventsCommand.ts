@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { PutProjectEventsRequest, PutProjectEventsResponse } from "../models/models_0";
-import { de_PutProjectEventsCommand, se_PutProjectEventsCommand } from "../protocols/Aws_restJson1";
+import { PutProjectEvents } from "../schemas/schemas_12_PutProjectEvents";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class PutProjectEventsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvidentlyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Evidently", "PutProjectEvents", {})
   .n("EvidentlyClient", "PutProjectEventsCommand")
-  .f(void 0, void 0)
-  .ser(se_PutProjectEventsCommand)
-  .de(de_PutProjectEventsCommand)
+  .sc(PutProjectEvents)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateViewInput,
-  UpdateViewInputFilterSensitiveLog,
-  UpdateViewOutput,
-  UpdateViewOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateViewCommand, se_UpdateViewCommand } from "../protocols/Aws_restJson1";
+import { UpdateViewInput, UpdateViewOutput } from "../models/models_0";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
+import { UpdateView } from "../schemas/schemas_1_View";
 
 /**
  * @public
@@ -124,16 +118,11 @@ export class UpdateViewCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ResourceExplorer", "UpdateView", {})
   .n("ResourceExplorer2Client", "UpdateViewCommand")
-  .f(UpdateViewInputFilterSensitiveLog, UpdateViewOutputFilterSensitiveLog)
-  .ser(se_UpdateViewCommand)
-  .de(de_UpdateViewCommand)
+  .sc(UpdateView)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

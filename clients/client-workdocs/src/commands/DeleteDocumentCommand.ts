@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDocumentRequest, DeleteDocumentRequestFilterSensitiveLog } from "../models/models_0";
-import { de_DeleteDocumentCommand, se_DeleteDocumentCommand } from "../protocols/Aws_restJson1";
+import { DeleteDocumentRequest } from "../models/models_0";
+import { DeleteDocument } from "../schemas/schemas_7_Document";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -98,16 +97,11 @@ export class DeleteDocumentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "DeleteDocument", {})
   .n("WorkDocsClient", "DeleteDocumentCommand")
-  .f(DeleteDocumentRequestFilterSensitiveLog, void 0)
-  .ser(se_DeleteDocumentCommand)
-  .de(de_DeleteDocumentCommand)
+  .sc(DeleteDocument)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { AssociateSourceServersRequest, AssociateSourceServersResponse } from "../models/models_0";
-import { de_AssociateSourceServersCommand, se_AssociateSourceServersCommand } from "../protocols/Aws_restJson1";
+import { AssociateSourceServers } from "../schemas/schemas_27_AssociateSourceServers";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class AssociateSourceServersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationMigrationService", "AssociateSourceServers", {})
   .n("MgnClient", "AssociateSourceServersCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateSourceServersCommand)
-  .de(de_AssociateSourceServersCommand)
+  .sc(AssociateSourceServers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

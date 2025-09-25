@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeIdentityUsageRequest, DescribeIdentityUsageResponse } from "../models/models_0";
-import { de_DescribeIdentityUsageCommand, se_DescribeIdentityUsageCommand } from "../protocols/Aws_restJson1";
+import { DescribeIdentityUsage } from "../schemas/schemas_1_Dataset";
 
 /**
  * @public
@@ -146,16 +145,11 @@ export class DescribeIdentityUsageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoSyncService", "DescribeIdentityUsage", {})
   .n("CognitoSyncClient", "DescribeIdentityUsageCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeIdentityUsageCommand)
-  .de(de_DescribeIdentityUsageCommand)
+  .sc(DescribeIdentityUsage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteFindingAggregatorRequest, DeleteFindingAggregatorResponse } from "../models/models_2";
-import { de_DeleteFindingAggregatorCommand, se_DeleteFindingAggregatorCommand } from "../protocols/Aws_restJson1";
+import { DeleteFindingAggregator } from "../schemas/schemas_3_DeleteFindingAggregator";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -108,16 +107,11 @@ export class DeleteFindingAggregatorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "DeleteFindingAggregator", {})
   .n("SecurityHubClient", "DeleteFindingAggregatorCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteFindingAggregatorCommand)
-  .de(de_DeleteFindingAggregatorCommand)
+  .sc(DeleteFindingAggregator)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

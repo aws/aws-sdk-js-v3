@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CloudFrontKeyValueStoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteKeyRequest, DeleteKeyResponse } from "../models/models_0";
-import { de_DeleteKeyCommand, se_DeleteKeyCommand } from "../protocols/Aws_restJson1";
+import { DeleteKey } from "../schemas/schemas_1_Key";
 
 /**
  * @public
@@ -118,16 +117,11 @@ export class DeleteKeyCommand extends $Command
     KvsARN: { type: "contextParams", name: "KvsARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: CloudFrontKeyValueStoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudFrontKeyValueStore", "DeleteKey", {})
   .n("CloudFrontKeyValueStoreClient", "DeleteKeyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteKeyCommand)
-  .de(de_DeleteKeyCommand)
+  .sc(DeleteKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

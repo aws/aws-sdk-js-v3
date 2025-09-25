@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetRestoreTestingInferredMetadataInput, GetRestoreTestingInferredMetadataOutput } from "../models/models_0";
-import {
-  de_GetRestoreTestingInferredMetadataCommand,
-  se_GetRestoreTestingInferredMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRestoreTestingInferredMetadata } from "../schemas/schemas_1_RestoreTesting";
 
 /**
  * @public
@@ -95,16 +91,11 @@ export class GetRestoreTestingInferredMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoControllerUserManager", "GetRestoreTestingInferredMetadata", {})
   .n("BackupClient", "GetRestoreTestingInferredMetadataCommand")
-  .f(void 0, void 0)
-  .ser(se_GetRestoreTestingInferredMetadataCommand)
-  .de(de_GetRestoreTestingInferredMetadataCommand)
+  .sc(GetRestoreTestingInferredMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

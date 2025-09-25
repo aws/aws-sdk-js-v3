@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutJobFailureResultInput } from "../models/models_0";
-import { de_PutJobFailureResultCommand, se_PutJobFailureResultCommand } from "../protocols/Aws_json1_1";
+import { PutJobFailureResult } from "../schemas/schemas_12_Job";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class PutJobFailureResultCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodePipeline_20150709", "PutJobFailureResult", {})
   .n("CodePipelineClient", "PutJobFailureResultCommand")
-  .f(void 0, void 0)
-  .ser(se_PutJobFailureResultCommand)
-  .de(de_PutJobFailureResultCommand)
+  .sc(PutJobFailureResult)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

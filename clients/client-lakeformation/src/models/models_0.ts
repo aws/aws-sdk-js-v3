@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { StreamingBlobTypes } from "@smithy/types";
 
@@ -4268,26 +4268,3 @@ export interface UpdateTableStorageOptimizerResponse {
    */
   Result?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const GetWorkUnitResultsRequestFilterSensitiveLog = (obj: GetWorkUnitResultsRequest): any => ({
-  ...obj,
-  ...(obj.WorkUnitToken && { WorkUnitToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetWorkUnitResultsResponseFilterSensitiveLog = (obj: GetWorkUnitResultsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartQueryPlanningRequestFilterSensitiveLog = (obj: StartQueryPlanningRequest): any => ({
-  ...obj,
-  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-});

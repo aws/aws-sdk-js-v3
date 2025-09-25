@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeServiceLinkVirtualInterfacesRequest,
   DescribeServiceLinkVirtualInterfacesResult,
 } from "../models/models_5";
-import {
-  de_DescribeServiceLinkVirtualInterfacesCommand,
-  se_DescribeServiceLinkVirtualInterfacesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeServiceLinkVirtualInterfaces } from "../schemas/schemas_207_Describe";
 
 /**
  * @public
@@ -112,16 +108,11 @@ export class DescribeServiceLinkVirtualInterfacesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeServiceLinkVirtualInterfaces", {})
   .n("EC2Client", "DescribeServiceLinkVirtualInterfacesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeServiceLinkVirtualInterfacesCommand)
-  .de(de_DescribeServiceLinkVirtualInterfacesCommand)
+  .sc(DescribeServiceLinkVirtualInterfaces)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

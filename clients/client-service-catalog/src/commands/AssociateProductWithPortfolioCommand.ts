@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateProductWithPortfolioInput, AssociateProductWithPortfolioOutput } from "../models/models_0";
-import {
-  de_AssociateProductWithPortfolioCommand,
-  se_AssociateProductWithPortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateProductWithPortfolio } from "../schemas/schemas_32_AssociateProductWithPortfolio";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -87,16 +83,11 @@ export class AssociateProductWithPortfolioCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242ServiceCatalogService", "AssociateProductWithPortfolio", {})
   .n("ServiceCatalogClient", "AssociateProductWithPortfolioCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateProductWithPortfolioCommand)
-  .de(de_AssociateProductWithPortfolioCommand)
+  .sc(AssociateProductWithPortfolio)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

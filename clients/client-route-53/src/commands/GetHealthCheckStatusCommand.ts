@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetHealthCheckStatusRequest, GetHealthCheckStatusResponse } from "../models/models_0";
-import { de_GetHealthCheckStatusCommand, se_GetHealthCheckStatusCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { GetHealthCheckStatus } from "../schemas/schemas_3_Health";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class GetHealthCheckStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDnsV20130401", "GetHealthCheckStatus", {})
   .n("Route53Client", "GetHealthCheckStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_GetHealthCheckStatusCommand)
-  .de(de_GetHealthCheckStatusCommand)
+  .sc(GetHealthCheckStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

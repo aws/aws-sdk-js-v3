@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeClusterVersionsRequest, DescribeClusterVersionsResponse } from "../models/models_0";
-import { de_DescribeClusterVersionsCommand, se_DescribeClusterVersionsCommand } from "../protocols/Aws_restJson1";
+import { DescribeClusterVersions } from "../schemas/schemas_13_DescribeClusterVersions";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class DescribeClusterVersionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWesleyFrontend", "DescribeClusterVersions", {})
   .n("EKSClient", "DescribeClusterVersionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeClusterVersionsCommand)
-  .de(de_DescribeClusterVersionsCommand)
+  .sc(DescribeClusterVersions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

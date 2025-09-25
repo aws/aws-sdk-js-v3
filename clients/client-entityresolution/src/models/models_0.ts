@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType } from "@smithy/types";
 
@@ -3643,27 +3643,3 @@ export interface UpdateSchemaMappingOutput {
    */
   mappedInputFields: SchemaInputAttribute[] | undefined;
 }
-
-/**
- * @internal
- */
-export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
-  ...obj,
-  ...(obj.recordAttributeMap && { recordAttributeMap: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GenerateMatchIdInputFilterSensitiveLog = (obj: GenerateMatchIdInput): any => ({
-  ...obj,
-  ...(obj.records && { records: obj.records.map((item) => _RecordFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetMatchIdInputFilterSensitiveLog = (obj: GetMatchIdInput): any => ({
-  ...obj,
-  ...(obj.record && { record: SENSITIVE_STRING }),
-});

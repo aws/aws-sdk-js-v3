@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsQueryProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -30,6 +31,13 @@ export const getRuntimeConfig = (config: QueryProtocolClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsQueryProtocol({
+        defaultNamespace: "aws.protocoltests.query",
+        xmlNamespace: "https://example.com/",
+        version: "2020-01-08",
+      }),
     serviceId: config?.serviceId ?? "Query Protocol",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

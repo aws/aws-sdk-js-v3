@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DisassociateSigninDelegateGroupsFromAccountRequest,
   DisassociateSigninDelegateGroupsFromAccountResponse,
 } from "../models/models_0";
-import {
-  de_DisassociateSigninDelegateGroupsFromAccountCommand,
-  se_DisassociateSigninDelegateGroupsFromAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateSigninDelegateGroupsFromAccount } from "../schemas/schemas_23_";
 
 /**
  * @public
@@ -101,16 +97,11 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("UCBuzzConsoleService", "DisassociateSigninDelegateGroupsFromAccount", {})
   .n("ChimeClient", "DisassociateSigninDelegateGroupsFromAccountCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateSigninDelegateGroupsFromAccountCommand)
-  .de(de_DisassociateSigninDelegateGroupsFromAccountCommand)
+  .sc(DisassociateSigninDelegateGroupsFromAccount)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { RolesAnywhereServiceException as __BaseException } from "./RolesAnywhereServiceException";
 
@@ -1328,61 +1328,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-  ...(obj.key && { key: SENSITIVE_STRING }),
-  ...(obj.value && { value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateProfileRequestFilterSensitiveLog = (obj: CreateProfileRequest): any => ({
-  ...obj,
-  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateTrustAnchorRequestFilterSensitiveLog = (obj: CreateTrustAnchorRequest): any => ({
-  ...obj,
-  ...(obj.source && { source: obj.source }),
-  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ImportCrlRequestFilterSensitiveLog = (obj: ImportCrlRequest): any => ({
-  ...obj,
-  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-  ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
-});

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetMedicalScribeJobRequest, GetMedicalScribeJobResponse } from "../models/models_0";
-import { de_GetMedicalScribeJobCommand, se_GetMedicalScribeJobCommand } from "../protocols/Aws_json1_1";
+import { GetMedicalScribeJob } from "../schemas/schemas_2_Job";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -136,16 +135,11 @@ export class GetMedicalScribeJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Transcribe", "GetMedicalScribeJob", {})
   .n("TranscribeClient", "GetMedicalScribeJobCommand")
-  .f(void 0, void 0)
-  .ser(se_GetMedicalScribeJobCommand)
-  .de(de_GetMedicalScribeJobCommand)
+  .sc(GetMedicalScribeJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

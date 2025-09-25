@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListOfferingsRequest, ListOfferingsResult } from "../models/models_0";
-import { de_ListOfferingsCommand, se_ListOfferingsCommand } from "../protocols/Aws_json1_1";
+import { ListOfferings } from "../schemas/schemas_1_Offering";
 
 /**
  * @public
@@ -182,16 +181,11 @@ export class ListOfferingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "ListOfferings", {})
   .n("DeviceFarmClient", "ListOfferingsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListOfferingsCommand)
-  .de(de_ListOfferingsCommand)
+  .sc(ListOfferings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

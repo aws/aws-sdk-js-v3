@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { EnableKeyRotationRequest } from "../models/models_0";
-import { de_EnableKeyRotationCommand, se_EnableKeyRotationCommand } from "../protocols/Aws_json1_1";
+import { EnableKeyRotation } from "../schemas/schemas_23_KeyRotation";
 
 /**
  * @public
@@ -188,16 +187,11 @@ export class EnableKeyRotationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TrentService", "EnableKeyRotation", {})
   .n("KMSClient", "EnableKeyRotationCommand")
-  .f(void 0, void 0)
-  .ser(se_EnableKeyRotationCommand)
-  .de(de_EnableKeyRotationCommand)
+  .sc(EnableKeyRotation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

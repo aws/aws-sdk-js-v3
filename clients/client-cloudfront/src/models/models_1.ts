@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CloudFrontServiceException as __BaseException } from "./CloudFrontServiceException";
 
@@ -27,8 +27,6 @@ import {
   DefaultCacheBehavior,
   Distribution,
   DistributionConfig,
-  DistributionConfigFilterSensitiveLog,
-  DistributionFilterSensitiveLog,
   DistributionTenant,
   DomainResult,
   EncryptionEntities,
@@ -6120,89 +6118,3 @@ export interface ListStreamingDistributionsRequest {
    */
   MaxItems?: number | undefined;
 }
-
-/**
- * @internal
- */
-export const GetDistributionResultFilterSensitiveLog = (obj: GetDistributionResult): any => ({
-  ...obj,
-  ...(obj.Distribution && { Distribution: DistributionFilterSensitiveLog(obj.Distribution) }),
-});
-
-/**
- * @internal
- */
-export const GetDistributionConfigResultFilterSensitiveLog = (obj: GetDistributionConfigResult): any => ({
-  ...obj,
-  ...(obj.DistributionConfig && { DistributionConfig: DistributionConfigFilterSensitiveLog(obj.DistributionConfig) }),
-});
-
-/**
- * @internal
- */
-export const GetFunctionResultFilterSensitiveLog = (obj: GetFunctionResult): any => ({
-  ...obj,
-  ...(obj.FunctionCode && { FunctionCode: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DistributionSummaryFilterSensitiveLog = (obj: DistributionSummary): any => ({
-  ...obj,
-  ...(obj.Comment && { Comment: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DistributionListFilterSensitiveLog = (obj: DistributionList): any => ({
-  ...obj,
-  ...(obj.Items && { Items: obj.Items.map((item) => DistributionSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListDistributionsResultFilterSensitiveLog = (obj: ListDistributionsResult): any => ({
-  ...obj,
-  ...(obj.DistributionList && { DistributionList: DistributionListFilterSensitiveLog(obj.DistributionList) }),
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByAnycastIpListIdResultFilterSensitiveLog = (
-  obj: ListDistributionsByAnycastIpListIdResult
-): any => ({
-  ...obj,
-  ...(obj.DistributionList && { DistributionList: DistributionListFilterSensitiveLog(obj.DistributionList) }),
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByConnectionModeResultFilterSensitiveLog = (
-  obj: ListDistributionsByConnectionModeResult
-): any => ({
-  ...obj,
-  ...(obj.DistributionList && { DistributionList: DistributionListFilterSensitiveLog(obj.DistributionList) }),
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog = (
-  obj: ListDistributionsByRealtimeLogConfigResult
-): any => ({
-  ...obj,
-  ...(obj.DistributionList && { DistributionList: DistributionListFilterSensitiveLog(obj.DistributionList) }),
-});
-
-/**
- * @internal
- */
-export const ListDistributionsByWebACLIdResultFilterSensitiveLog = (obj: ListDistributionsByWebACLIdResult): any => ({
-  ...obj,
-  ...(obj.DistributionList && { DistributionList: DistributionListFilterSensitiveLog(obj.DistributionList) }),
-});

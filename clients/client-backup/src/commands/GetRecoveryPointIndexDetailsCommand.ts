@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetRecoveryPointIndexDetailsInput, GetRecoveryPointIndexDetailsOutput } from "../models/models_0";
-import {
-  de_GetRecoveryPointIndexDetailsCommand,
-  se_GetRecoveryPointIndexDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRecoveryPointIndexDetails } from "../schemas/schemas_17_Recovery";
 
 /**
  * @public
@@ -98,16 +94,11 @@ export class GetRecoveryPointIndexDetailsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoControllerUserManager", "GetRecoveryPointIndexDetails", {})
   .n("BackupClient", "GetRecoveryPointIndexDetailsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetRecoveryPointIndexDetailsCommand)
-  .de(de_GetRecoveryPointIndexDetailsCommand)
+  .sc(GetRecoveryPointIndexDetails)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

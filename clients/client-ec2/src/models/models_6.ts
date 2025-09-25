@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActiveVpnTunnelStatus,
   AddressTransfer,
@@ -28,7 +26,6 @@ import {
   UserTrustProviderType,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
-  VerifiedAccessTrustProviderFilterSensitiveLog,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
@@ -44,12 +41,7 @@ import {
   Vpc,
 } from "./models_1";
 
-import {
-  ResponseLaunchTemplateData,
-  ResponseLaunchTemplateDataFilterSensitiveLog,
-  SSEType,
-  VpcBlockPublicAccessExclusion,
-} from "./models_2";
+import { ResponseLaunchTemplateData, SSEType, VpcBlockPublicAccessExclusion } from "./models_2";
 
 import {
   ConnectionNotification,
@@ -67,7 +59,6 @@ import {
   StatisticType,
   VpcEndpoint,
   VpnConnection,
-  VpnConnectionFilterSensitiveLog,
   VpnGateway,
 } from "./models_3";
 
@@ -8216,67 +8207,3 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsRequest {
    */
   DryRun?: boolean | undefined;
 }
-
-/**
- * @internal
- */
-export const DescribeVpnConnectionsResultFilterSensitiveLog = (obj: DescribeVpnConnectionsResult): any => ({
-  ...obj,
-  ...(obj.VpnConnections && {
-    VpnConnections: obj.VpnConnections.map((item) => VpnConnectionFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const DetachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
-  obj: DetachVerifiedAccessTrustProviderResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProvider && {
-    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
-  }),
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessInstanceUserTrustProviderClientConfigurationFilterSensitiveLog = (
-  obj: VerifiedAccessInstanceUserTrustProviderClientConfiguration
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ExportVerifiedAccessInstanceClientConfigurationResultFilterSensitiveLog = (
-  obj: ExportVerifiedAccessInstanceClientConfigurationResult
-): any => ({
-  ...obj,
-  ...(obj.UserTrustProvider && {
-    UserTrustProvider: VerifiedAccessInstanceUserTrustProviderClientConfigurationFilterSensitiveLog(
-      obj.UserTrustProvider
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetInstanceTpmEkPubResultFilterSensitiveLog = (obj: GetInstanceTpmEkPubResult): any => ({
-  ...obj,
-  ...(obj.KeyValue && { KeyValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetLaunchTemplateDataResultFilterSensitiveLog = (obj: GetLaunchTemplateDataResult): any => ({
-  ...obj,
-  ...(obj.LaunchTemplateData && {
-    LaunchTemplateData: ResponseLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
-  }),
-});

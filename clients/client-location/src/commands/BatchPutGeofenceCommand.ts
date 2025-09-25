@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  BatchPutGeofenceRequest,
-  BatchPutGeofenceRequestFilterSensitiveLog,
-  BatchPutGeofenceResponse,
-  BatchPutGeofenceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchPutGeofenceCommand, se_BatchPutGeofenceCommand } from "../protocols/Aws_restJson1";
+import { BatchPutGeofenceRequest, BatchPutGeofenceResponse } from "../models/models_0";
+import { BatchPutGeofence } from "../schemas/schemas_1_Device";
 
 /**
  * @public
@@ -139,16 +133,11 @@ export class BatchPutGeofenceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LocationService", "BatchPutGeofence", {})
   .n("LocationClient", "BatchPutGeofenceCommand")
-  .f(BatchPutGeofenceRequestFilterSensitiveLog, BatchPutGeofenceResponseFilterSensitiveLog)
-  .ser(se_BatchPutGeofenceCommand)
-  .de(de_BatchPutGeofenceCommand)
+  .sc(BatchPutGeofence)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

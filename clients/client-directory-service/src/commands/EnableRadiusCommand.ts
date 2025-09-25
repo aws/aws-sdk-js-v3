@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableRadiusRequest, EnableRadiusRequestFilterSensitiveLog, EnableRadiusResult } from "../models/models_0";
-import { de_EnableRadiusCommand, se_EnableRadiusCommand } from "../protocols/Aws_json1_1";
+import { EnableRadiusRequest, EnableRadiusResult } from "../models/models_0";
+import { EnableRadius } from "../schemas/schemas_14_Create";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class EnableRadiusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "EnableRadius", {})
   .n("DirectoryServiceClient", "EnableRadiusCommand")
-  .f(EnableRadiusRequestFilterSensitiveLog, void 0)
-  .ser(se_EnableRadiusCommand)
-  .de(de_EnableRadiusCommand)
+  .sc(EnableRadius)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

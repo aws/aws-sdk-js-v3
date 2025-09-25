@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CopyDistributionRequest,
-  CopyDistributionResult,
-  CopyDistributionResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CopyDistributionCommand, se_CopyDistributionCommand } from "../protocols/Aws_restXml";
+import { CopyDistributionRequest, CopyDistributionResult } from "../models/models_0";
+import { CopyDistribution } from "../schemas/schemas_11_Distribution";
 
 /**
  * @public
@@ -633,16 +628,11 @@ export class CopyDistributionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "CopyDistribution", {})
   .n("CloudFrontClient", "CopyDistributionCommand")
-  .f(void 0, CopyDistributionResultFilterSensitiveLog)
-  .ser(se_CopyDistributionCommand)
-  .de(de_CopyDistributionCommand)
+  .sc(CopyDistribution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

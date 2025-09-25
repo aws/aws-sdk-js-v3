@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateFirewallDomainListRequest, CreateFirewallDomainListResponse } from "../models/models_0";
-import { de_CreateFirewallDomainListCommand, se_CreateFirewallDomainListCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
+import { CreateFirewallDomainList } from "../schemas/schemas_2_Firewall";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class CreateFirewallDomainListCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Resolver", "CreateFirewallDomainList", {})
   .n("Route53ResolverClient", "CreateFirewallDomainListCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateFirewallDomainListCommand)
-  .de(de_CreateFirewallDomainListCommand)
+  .sc(CreateFirewallDomainList)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

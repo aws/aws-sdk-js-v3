@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AcceptPredictionsInput,
-  AcceptPredictionsInputFilterSensitiveLog,
-  AcceptPredictionsOutput,
-} from "../models/models_0";
-import { de_AcceptPredictionsCommand, se_AcceptPredictionsCommand } from "../protocols/Aws_restJson1";
+import { AcceptPredictionsInput, AcceptPredictionsOutput } from "../models/models_0";
+import { AcceptPredictions } from "../schemas/schemas_34_Asset";
 
 /**
  * @public
@@ -111,16 +106,11 @@ export class AcceptPredictionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "AcceptPredictions", {})
   .n("DataZoneClient", "AcceptPredictionsCommand")
-  .f(AcceptPredictionsInputFilterSensitiveLog, void 0)
-  .ser(se_AcceptPredictionsCommand)
-  .de(de_AcceptPredictionsCommand)
+  .sc(AcceptPredictions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

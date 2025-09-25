@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { ListConnectorDefinitionsRequest, ListConnectorDefinitionsResponse } from "../models/models_0";
-import { de_ListConnectorDefinitionsCommand, se_ListConnectorDefinitionsCommand } from "../protocols/Aws_restJson1";
+import { ListConnectorDefinitions } from "../schemas/schemas_5_Definitions";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class ListConnectorDefinitionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Greengrass", "ListConnectorDefinitions", {})
   .n("GreengrassClient", "ListConnectorDefinitionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListConnectorDefinitionsCommand)
-  .de(de_ListConnectorDefinitionsCommand)
+  .sc(ListConnectorDefinitions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

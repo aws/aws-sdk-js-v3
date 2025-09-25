@@ -2,19 +2,13 @@
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SelectObjectContentOutput,
-  SelectObjectContentOutputFilterSensitiveLog,
-  SelectObjectContentRequest,
-  SelectObjectContentRequestFilterSensitiveLog,
-} from "../models/models_1";
-import { de_SelectObjectContentCommand, se_SelectObjectContentCommand } from "../protocols/Aws_restXml";
+import { SelectObjectContentOutput, SelectObjectContentRequest } from "../models/models_1";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { SelectObjectContent } from "../schemas/schemas_8_Object";
 
 /**
  * @public
@@ -255,7 +249,6 @@ export class SelectObjectContentCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getThrow200ExceptionsPlugin(config),
       getSsecPlugin(config),
@@ -270,9 +263,7 @@ export class SelectObjectContentCommand extends $Command
     },
   })
   .n("S3Client", "SelectObjectContentCommand")
-  .f(SelectObjectContentRequestFilterSensitiveLog, SelectObjectContentOutputFilterSensitiveLog)
-  .ser(se_SelectObjectContentCommand)
-  .de(de_SelectObjectContentCommand)
+  .sc(SelectObjectContent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

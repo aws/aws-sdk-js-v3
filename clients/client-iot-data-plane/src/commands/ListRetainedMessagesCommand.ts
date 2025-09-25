@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { ListRetainedMessagesRequest, ListRetainedMessagesResponse } from "../models/models_0";
-import { de_ListRetainedMessagesCommand, se_ListRetainedMessagesCommand } from "../protocols/Aws_restJson1";
+import { ListRetainedMessages } from "../schemas/schemas_1_Thing";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class ListRetainedMessagesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTDataPlaneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotMoonrakerService", "ListRetainedMessages", {})
   .n("IoTDataPlaneClient", "ListRetainedMessagesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRetainedMessagesCommand)
-  .de(de_ListRetainedMessagesCommand)
+  .sc(ListRetainedMessages)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EnableFederationRequest, EnableFederationResponse } from "../models/models_0";
-import { de_EnableFederationCommand, se_EnableFederationCommand } from "../protocols/Aws_json1_1";
+import { EnableFederation } from "../schemas/schemas_3_Store";
 
 /**
  * @public
@@ -145,16 +144,11 @@ export class EnableFederationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudTrail_20131101", "EnableFederation", {})
   .n("CloudTrailClient", "EnableFederationCommand")
-  .f(void 0, void 0)
-  .ser(se_EnableFederationCommand)
-  .de(de_EnableFederationCommand)
+  .sc(EnableFederation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTableRestoreStatusRequest, GetTableRestoreStatusResponse } from "../models/models_0";
-import { de_GetTableRestoreStatusCommand, se_GetTableRestoreStatusCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
+import { GetTableRestoreStatus } from "../schemas/schemas_11_Table";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class GetTableRestoreStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServerless", "GetTableRestoreStatus", {})
   .n("RedshiftServerlessClient", "GetTableRestoreStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTableRestoreStatusCommand)
-  .de(de_GetTableRestoreStatusCommand)
+  .sc(GetTableRestoreStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

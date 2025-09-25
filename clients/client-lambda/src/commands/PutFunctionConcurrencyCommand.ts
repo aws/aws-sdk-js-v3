@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { Concurrency, PutFunctionConcurrencyRequest } from "../models/models_0";
-import { de_PutFunctionConcurrencyCommand, se_PutFunctionConcurrencyCommand } from "../protocols/Aws_restJson1";
+import { PutFunctionConcurrency } from "../schemas/schemas_19_Function";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class PutFunctionConcurrencyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGirApiService", "PutFunctionConcurrency", {})
   .n("LambdaClient", "PutFunctionConcurrencyCommand")
-  .f(void 0, void 0)
-  .ser(se_PutFunctionConcurrencyCommand)
-  .de(de_PutFunctionConcurrencyCommand)
+  .sc(PutFunctionConcurrency)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteExtensionAssociationRequest } from "../models/models_0";
-import { de_DeleteExtensionAssociationCommand, se_DeleteExtensionAssociationCommand } from "../protocols/Aws_restJson1";
+import { DeleteExtensionAssociation } from "../schemas/schemas_13_DeleteExtensionAssociation";
 
 /**
  * @public
@@ -78,16 +77,11 @@ export class DeleteExtensionAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAppConfig", "DeleteExtensionAssociation", {})
   .n("AppConfigClient", "DeleteExtensionAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteExtensionAssociationCommand)
-  .de(de_DeleteExtensionAssociationCommand)
+  .sc(DeleteExtensionAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

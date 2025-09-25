@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { GetViolationDetailsRequest, GetViolationDetailsResponse } from "../models/models_0";
-import { de_GetViolationDetailsCommand, se_GetViolationDetailsCommand } from "../protocols/Aws_json1_1";
+import { GetViolationDetails } from "../schemas/schemas_5_Get";
 
 /**
  * @public
@@ -639,16 +638,11 @@ export class GetViolationDetailsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFMS_20180101", "GetViolationDetails", {})
   .n("FMSClient", "GetViolationDetailsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetViolationDetailsCommand)
-  .de(de_GetViolationDetailsCommand)
+  .sc(GetViolationDetails)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

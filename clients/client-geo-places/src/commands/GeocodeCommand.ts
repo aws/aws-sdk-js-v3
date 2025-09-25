@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
-import {
-  GeocodeRequest,
-  GeocodeRequestFilterSensitiveLog,
-  GeocodeResponse,
-  GeocodeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GeocodeCommand, se_GeocodeCommand } from "../protocols/Aws_restJson1";
+import { GeocodeRequest, GeocodeResponse } from "../models/models_0";
+import { Geocode } from "../schemas/schemas_1_Geocode";
 
 /**
  * @public
@@ -387,16 +381,11 @@ export class GeocodeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GeoPlacesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PlacesService", "Geocode", {})
   .n("GeoPlacesClient", "GeocodeCommand")
-  .f(GeocodeRequestFilterSensitiveLog, GeocodeResponseFilterSensitiveLog)
-  .ser(se_GeocodeCommand)
-  .de(de_GeocodeCommand)
+  .sc(Geocode)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

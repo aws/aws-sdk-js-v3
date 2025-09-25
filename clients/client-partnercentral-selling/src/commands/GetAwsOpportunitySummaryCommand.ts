@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetAwsOpportunitySummaryRequest,
-  GetAwsOpportunitySummaryResponse,
-  GetAwsOpportunitySummaryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAwsOpportunitySummaryRequest, GetAwsOpportunitySummaryResponse } from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_GetAwsOpportunitySummaryCommand, se_GetAwsOpportunitySummaryCommand } from "../protocols/Aws_json1_0";
+import { GetAwsOpportunitySummary } from "../schemas/schemas_8_Opportunity";
 
 /**
  * @public
@@ -153,16 +148,11 @@ export class GetAwsOpportunitySummaryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSPartnerCentralSelling", "GetAwsOpportunitySummary", {})
   .n("PartnerCentralSellingClient", "GetAwsOpportunitySummaryCommand")
-  .f(void 0, GetAwsOpportunitySummaryResponseFilterSensitiveLog)
-  .ser(se_GetAwsOpportunitySummaryCommand)
-  .de(de_GetAwsOpportunitySummaryCommand)
+  .sc(GetAwsOpportunitySummary)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

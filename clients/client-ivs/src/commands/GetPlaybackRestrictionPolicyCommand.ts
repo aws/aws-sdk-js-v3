@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { GetPlaybackRestrictionPolicyRequest, GetPlaybackRestrictionPolicyResponse } from "../models/models_0";
-import {
-  de_GetPlaybackRestrictionPolicyCommand,
-  se_GetPlaybackRestrictionPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPlaybackRestrictionPolicy } from "../schemas/schemas_11_Restriction";
 
 /**
  * @public
@@ -100,16 +96,11 @@ export class GetPlaybackRestrictionPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoService", "GetPlaybackRestrictionPolicy", {})
   .n("IvsClient", "GetPlaybackRestrictionPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetPlaybackRestrictionPolicyCommand)
-  .de(de_GetPlaybackRestrictionPolicyCommand)
+  .sc(GetPlaybackRestrictionPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

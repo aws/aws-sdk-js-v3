@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { NotificationsContactsServiceException as __BaseException } from "./NotificationsContactsServiceException";
 
@@ -539,44 +539,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const ActivateEmailContactRequestFilterSensitiveLog = (obj: ActivateEmailContactRequest): any => ({
-  ...obj,
-  ...(obj.code && { code: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateEmailContactRequestFilterSensitiveLog = (obj: CreateEmailContactRequest): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EmailContactFilterSensitiveLog = (obj: EmailContact): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.address && { address: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetEmailContactResponseFilterSensitiveLog = (obj: GetEmailContactResponse): any => ({
-  ...obj,
-  ...(obj.emailContact && { emailContact: EmailContactFilterSensitiveLog(obj.emailContact) }),
-});
-
-/**
- * @internal
- */
-export const ListEmailContactsResponseFilterSensitiveLog = (obj: ListEmailContactsResponse): any => ({
-  ...obj,
-  ...(obj.emailContacts && { emailContacts: obj.emailContacts.map((item) => EmailContactFilterSensitiveLog(item)) }),
-});

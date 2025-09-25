@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
 } from "../models/models_7";
-import {
-  de_ImportClientVpnClientCertificateRevocationListCommand,
-  se_ImportClientVpnClientCertificateRevocationListCommand,
-} from "../protocols/Aws_ec2";
+import { ImportClientVpnClientCertificateRevocationList } from "../schemas/schemas_79_ImportClientVpnClientCertificateRevocationList";
 
 /**
  * @public
@@ -82,16 +78,11 @@ export class ImportClientVpnClientCertificateRevocationListCommand extends $Comm
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ImportClientVpnClientCertificateRevocationList", {})
   .n("EC2Client", "ImportClientVpnClientCertificateRevocationListCommand")
-  .f(void 0, void 0)
-  .ser(se_ImportClientVpnClientCertificateRevocationListCommand)
-  .de(de_ImportClientVpnClientCertificateRevocationListCommand)
+  .sc(ImportClientVpnClientCertificateRevocationList)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

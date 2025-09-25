@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ValidateSolNetworkPackageContentInput,
-  ValidateSolNetworkPackageContentInputFilterSensitiveLog,
-  ValidateSolNetworkPackageContentOutput,
-} from "../models/models_0";
-import {
-  de_ValidateSolNetworkPackageContentCommand,
-  se_ValidateSolNetworkPackageContentCommand,
-} from "../protocols/Aws_restJson1";
+import { ValidateSolNetworkPackageContentInput, ValidateSolNetworkPackageContentOutput } from "../models/models_0";
+import { ValidateSolNetworkPackageContent } from "../schemas/schemas_3_Sol";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -162,16 +154,11 @@ export class ValidateSolNetworkPackageContentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TNB", "ValidateSolNetworkPackageContent", {})
   .n("TnbClient", "ValidateSolNetworkPackageContentCommand")
-  .f(ValidateSolNetworkPackageContentInputFilterSensitiveLog, void 0)
-  .ser(se_ValidateSolNetworkPackageContentCommand)
-  .de(de_ValidateSolNetworkPackageContentCommand)
+  .sc(ValidateSolNetworkPackageContent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateAIPromptVersionRequest,
-  CreateAIPromptVersionResponse,
-  CreateAIPromptVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateAIPromptVersionCommand, se_CreateAIPromptVersionCommand } from "../protocols/Aws_restJson1";
+import { CreateAIPromptVersionRequest, CreateAIPromptVersionResponse } from "../models/models_0";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { CreateAIPromptVersion } from "../schemas/schemas_3_IPrompt";
 
 /**
  * @public
@@ -122,16 +117,11 @@ export class CreateAIPromptVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "CreateAIPromptVersion", {})
   .n("QConnectClient", "CreateAIPromptVersionCommand")
-  .f(void 0, CreateAIPromptVersionResponseFilterSensitiveLog)
-  .ser(se_CreateAIPromptVersionCommand)
-  .de(de_CreateAIPromptVersionCommand)
+  .sc(CreateAIPromptVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

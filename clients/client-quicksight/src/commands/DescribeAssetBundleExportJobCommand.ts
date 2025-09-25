@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeAssetBundleExportJobRequest,
-  DescribeAssetBundleExportJobResponse,
-  DescribeAssetBundleExportJobResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  de_DescribeAssetBundleExportJobCommand,
-  se_DescribeAssetBundleExportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAssetBundleExportJobRequest, DescribeAssetBundleExportJobResponse } from "../models/models_4";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DescribeAssetBundleExportJob } from "../schemas/schemas_15_AssetBundleExport";
 
 /**
  * @public
@@ -195,16 +187,11 @@ export class DescribeAssetBundleExportJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "DescribeAssetBundleExportJob", {})
   .n("QuickSightClient", "DescribeAssetBundleExportJobCommand")
-  .f(void 0, DescribeAssetBundleExportJobResponseFilterSensitiveLog)
-  .ser(se_DescribeAssetBundleExportJobCommand)
-  .de(de_DescribeAssetBundleExportJobCommand)
+  .sc(DescribeAssetBundleExportJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

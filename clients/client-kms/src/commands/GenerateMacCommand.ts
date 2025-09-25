@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { GenerateMacRequest, GenerateMacRequestFilterSensitiveLog, GenerateMacResponse } from "../models/models_0";
-import { de_GenerateMacCommand, se_GenerateMacCommand } from "../protocols/Aws_json1_1";
+import { GenerateMacRequest, GenerateMacResponse } from "../models/models_0";
+import { GenerateMac } from "../schemas/schemas_6_Generate";
 
 /**
  * @public
@@ -191,16 +190,11 @@ export class GenerateMacCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TrentService", "GenerateMac", {})
   .n("KMSClient", "GenerateMacCommand")
-  .f(GenerateMacRequestFilterSensitiveLog, void 0)
-  .ser(se_GenerateMacCommand)
-  .de(de_GenerateMacCommand)
+  .sc(GenerateMac)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

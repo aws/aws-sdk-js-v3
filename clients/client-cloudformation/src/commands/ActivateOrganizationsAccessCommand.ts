@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ActivateOrganizationsAccessInput, ActivateOrganizationsAccessOutput } from "../models/models_0";
-import { de_ActivateOrganizationsAccessCommand, se_ActivateOrganizationsAccessCommand } from "../protocols/Aws_query";
+import { ActivateOrganizationsAccess } from "../schemas/schemas_8_Stack";
 
 /**
  * @public
@@ -74,16 +73,11 @@ export class ActivateOrganizationsAccessCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudFormation", "ActivateOrganizationsAccess", {})
   .n("CloudFormationClient", "ActivateOrganizationsAccessCommand")
-  .f(void 0, void 0)
-  .ser(se_ActivateOrganizationsAccessCommand)
-  .de(de_ActivateOrganizationsAccessCommand)
+  .sc(ActivateOrganizationsAccess)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

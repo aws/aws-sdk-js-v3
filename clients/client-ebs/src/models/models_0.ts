@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { StreamingBlobTypes } from "@smithy/types";
 
@@ -987,58 +987,3 @@ export interface StartSnapshotResponse {
    */
   SseType?: SSEType | undefined;
 }
-
-/**
- * @internal
- */
-export const ChangedBlockFilterSensitiveLog = (obj: ChangedBlock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSnapshotBlockResponseFilterSensitiveLog = (obj: GetSnapshotBlockResponse): any => ({
-  ...obj,
-  ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListChangedBlocksResponseFilterSensitiveLog = (obj: ListChangedBlocksResponse): any => ({
-  ...obj,
-  ...(obj.ChangedBlocks && { ChangedBlocks: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListSnapshotBlocksResponseFilterSensitiveLog = (obj: ListSnapshotBlocksResponse): any => ({
-  ...obj,
-  ...(obj.Blocks && { Blocks: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutSnapshotBlockRequestFilterSensitiveLog = (obj: PutSnapshotBlockRequest): any => ({
-  ...obj,
-  ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartSnapshotRequestFilterSensitiveLog = (obj: StartSnapshotRequest): any => ({
-  ...obj,
-  ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartSnapshotResponseFilterSensitiveLog = (obj: StartSnapshotResponse): any => ({
-  ...obj,
-  ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
-});

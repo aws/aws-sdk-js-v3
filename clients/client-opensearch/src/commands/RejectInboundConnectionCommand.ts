@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RejectInboundConnectionRequest, RejectInboundConnectionResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { de_RejectInboundConnectionCommand, se_RejectInboundConnectionCommand } from "../protocols/Aws_restJson1";
+import { RejectInboundConnection } from "../schemas/schemas_5_Connection";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class RejectInboundConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchService", "RejectInboundConnection", {})
   .n("OpenSearchClient", "RejectInboundConnectionCommand")
-  .f(void 0, void 0)
-  .ser(se_RejectInboundConnectionCommand)
-  .de(de_RejectInboundConnectionCommand)
+  .sc(RejectInboundConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

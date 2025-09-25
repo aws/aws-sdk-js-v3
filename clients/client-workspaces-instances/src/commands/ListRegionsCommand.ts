@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListRegionsRequest,
-  ListRegionsRequestFilterSensitiveLog,
-  ListRegionsResponse,
-  ListRegionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListRegionsCommand, se_ListRegionsCommand } from "../protocols/Aws_json1_0";
+import { ListRegionsRequest, ListRegionsResponse } from "../models/models_0";
+import { ListRegions } from "../schemas/schemas_1_List";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -97,16 +91,11 @@ export class ListRegionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkspacesInstancesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("EUCMIFrontendAPIService", "ListRegions", {})
   .n("WorkspacesInstancesClient", "ListRegionsCommand")
-  .f(ListRegionsRequestFilterSensitiveLog, ListRegionsResponseFilterSensitiveLog)
-  .ser(se_ListRegionsCommand)
-  .de(de_ListRegionsCommand)
+  .sc(ListRegions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

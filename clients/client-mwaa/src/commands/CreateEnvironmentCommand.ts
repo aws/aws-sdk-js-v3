@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateEnvironmentInput,
-  CreateEnvironmentInputFilterSensitiveLog,
-  CreateEnvironmentOutput,
-} from "../models/models_0";
+import { CreateEnvironmentInput, CreateEnvironmentOutput } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../protocols/Aws_restJson1";
+import { CreateEnvironment } from "../schemas/schemas_1_Environment";
 
 /**
  * @public
@@ -136,16 +131,11 @@ export class CreateEnvironmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonMWAA", "CreateEnvironment", {})
   .n("MWAAClient", "CreateEnvironmentCommand")
-  .f(CreateEnvironmentInputFilterSensitiveLog, void 0)
-  .ser(se_CreateEnvironmentCommand)
-  .de(de_CreateEnvironmentCommand)
+  .sc(CreateEnvironment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

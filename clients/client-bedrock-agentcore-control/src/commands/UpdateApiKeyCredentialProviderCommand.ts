@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,15 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateApiKeyCredentialProviderRequest,
-  UpdateApiKeyCredentialProviderRequestFilterSensitiveLog,
-  UpdateApiKeyCredentialProviderResponse,
-} from "../models/models_0";
-import {
-  de_UpdateApiKeyCredentialProviderCommand,
-  se_UpdateApiKeyCredentialProviderCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateApiKeyCredentialProviderRequest, UpdateApiKeyCredentialProviderResponse } from "../models/models_0";
+import { UpdateApiKeyCredentialProvider } from "../schemas/schemas_6_Credential";
 
 /**
  * @public
@@ -120,16 +112,11 @@ export class UpdateApiKeyCredentialProviderCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCoreControl", "UpdateApiKeyCredentialProvider", {})
   .n("BedrockAgentCoreControlClient", "UpdateApiKeyCredentialProviderCommand")
-  .f(UpdateApiKeyCredentialProviderRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateApiKeyCredentialProviderCommand)
-  .de(de_UpdateApiKeyCredentialProviderCommand)
+  .sc(UpdateApiKeyCredentialProvider)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

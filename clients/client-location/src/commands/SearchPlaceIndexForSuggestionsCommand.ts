@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  SearchPlaceIndexForSuggestionsRequest,
-  SearchPlaceIndexForSuggestionsRequestFilterSensitiveLog,
-  SearchPlaceIndexForSuggestionsResponse,
-  SearchPlaceIndexForSuggestionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_SearchPlaceIndexForSuggestionsCommand,
-  se_SearchPlaceIndexForSuggestionsCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchPlaceIndexForSuggestionsRequest, SearchPlaceIndexForSuggestionsResponse } from "../models/models_0";
+import { SearchPlaceIndexForSuggestions } from "../schemas/schemas_9_Place";
 
 /**
  * @public
@@ -152,16 +143,11 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LocationService", "SearchPlaceIndexForSuggestions", {})
   .n("LocationClient", "SearchPlaceIndexForSuggestionsCommand")
-  .f(SearchPlaceIndexForSuggestionsRequestFilterSensitiveLog, SearchPlaceIndexForSuggestionsResponseFilterSensitiveLog)
-  .ser(se_SearchPlaceIndexForSuggestionsCommand)
-  .de(de_SearchPlaceIndexForSuggestionsCommand)
+  .sc(SearchPlaceIndexForSuggestions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../DirectoryServiceDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListUsersRequest,
-  ListUsersRequestFilterSensitiveLog,
-  ListUsersResult,
-  ListUsersResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_restJson1";
+import { ListUsersRequest, ListUsersResult } from "../models/models_0";
+import { ListUsers } from "../schemas/schemas_3_Group";
 
 /**
  * @public
@@ -154,16 +148,11 @@ export class ListUsersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryServiceData", "ListUsers", {})
   .n("DirectoryServiceDataClient", "ListUsersCommand")
-  .f(ListUsersRequestFilterSensitiveLog, ListUsersResultFilterSensitiveLog)
-  .ser(se_ListUsersCommand)
-  .de(de_ListUsersCommand)
+  .sc(ListUsers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

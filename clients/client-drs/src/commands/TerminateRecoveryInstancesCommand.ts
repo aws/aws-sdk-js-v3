@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  TerminateRecoveryInstancesRequest,
-  TerminateRecoveryInstancesResponse,
-  TerminateRecoveryInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_TerminateRecoveryInstancesCommand, se_TerminateRecoveryInstancesCommand } from "../protocols/Aws_restJson1";
+import { TerminateRecoveryInstancesRequest, TerminateRecoveryInstancesResponse } from "../models/models_0";
+import { TerminateRecoveryInstances } from "../schemas/schemas_4_Create";
 
 /**
  * @public
@@ -145,16 +140,11 @@ export class TerminateRecoveryInstancesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticDisasterRecoveryService", "TerminateRecoveryInstances", {})
   .n("DrsClient", "TerminateRecoveryInstancesCommand")
-  .f(void 0, TerminateRecoveryInstancesResponseFilterSensitiveLog)
-  .ser(se_TerminateRecoveryInstancesCommand)
-  .de(de_TerminateRecoveryInstancesCommand)
+  .sc(TerminateRecoveryInstances)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

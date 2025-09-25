@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateScraperRequest, CreateScraperResponse } from "../models/models_0";
-import { de_CreateScraperCommand, se_CreateScraperCommand } from "../protocols/Aws_restJson1";
+import { CreateScraper } from "../schemas/schemas_4_Create";
 
 /**
  * @public
@@ -170,16 +169,11 @@ export class CreateScraperCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPrometheusService", "CreateScraper", {})
   .n("AmpClient", "CreateScraperCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateScraperCommand)
-  .de(de_CreateScraperCommand)
+  .sc(CreateScraper)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

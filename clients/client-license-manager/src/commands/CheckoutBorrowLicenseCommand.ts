@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { CheckoutBorrowLicenseRequest, CheckoutBorrowLicenseResponse } from "../models/models_0";
-import { de_CheckoutBorrowLicenseCommand, se_CheckoutBorrowLicenseCommand } from "../protocols/Aws_json1_1";
+import { CheckoutBorrowLicense } from "../schemas/schemas_2_License";
 
 /**
  * @public
@@ -138,16 +137,11 @@ export class CheckoutBorrowLicenseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLicenseManager", "CheckoutBorrowLicense", {})
   .n("LicenseManagerClient", "CheckoutBorrowLicenseCommand")
-  .f(void 0, void 0)
-  .ser(se_CheckoutBorrowLicenseCommand)
-  .de(de_CheckoutBorrowLicenseCommand)
+  .sc(CheckoutBorrowLicense)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

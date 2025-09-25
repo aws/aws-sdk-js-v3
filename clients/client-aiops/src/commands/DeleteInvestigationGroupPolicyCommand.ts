@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AIOpsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AIOpsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteInvestigationGroupPolicyOutput, DeleteInvestigationGroupPolicyRequest } from "../models/models_0";
-import {
-  de_DeleteInvestigationGroupPolicyCommand,
-  se_DeleteInvestigationGroupPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteInvestigationGroupPolicy } from "../schemas/schemas_1_Investigation";
 
 /**
  * @public
@@ -94,16 +90,11 @@ export class DeleteInvestigationGroupPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AIOpsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AIOps", "DeleteInvestigationGroupPolicy", {})
   .n("AIOpsClient", "DeleteInvestigationGroupPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteInvestigationGroupPolicyCommand)
-  .de(de_DeleteInvestigationGroupPolicyCommand)
+  .sc(DeleteInvestigationGroupPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

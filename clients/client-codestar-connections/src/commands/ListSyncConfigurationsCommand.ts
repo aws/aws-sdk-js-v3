@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSyncConfigurationsInput, ListSyncConfigurationsOutput } from "../models/models_0";
-import { de_ListSyncConfigurationsCommand, se_ListSyncConfigurationsCommand } from "../protocols/Aws_json1_0";
+import { ListSyncConfigurations } from "../schemas/schemas_2_Repository";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class ListSyncConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeStar_connections_20191201", "ListSyncConfigurations", {})
   .n("CodeStarConnectionsClient", "ListSyncConfigurationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSyncConfigurationsCommand)
-  .de(de_ListSyncConfigurationsCommand)
+  .sc(ListSyncConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

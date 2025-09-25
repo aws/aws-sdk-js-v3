@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutVectorsInput, PutVectorsOutput } from "../models/models_0";
-import { de_PutVectorsCommand, se_PutVectorsCommand } from "../protocols/Aws_restJson1";
 import { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
+import { PutVectors } from "../schemas/schemas_1_Vectors";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class PutVectorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: S3VectorsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("S3Vectors", "PutVectors", {})
   .n("S3VectorsClient", "PutVectorsCommand")
-  .f(void 0, void 0)
-  .ser(se_PutVectorsCommand)
-  .de(de_PutVectorsCommand)
+  .sc(PutVectors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

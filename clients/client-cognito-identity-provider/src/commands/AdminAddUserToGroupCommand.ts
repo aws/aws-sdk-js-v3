@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AdminAddUserToGroupRequest, AdminAddUserToGroupRequestFilterSensitiveLog } from "../models/models_0";
-import { de_AdminAddUserToGroupCommand, se_AdminAddUserToGroupCommand } from "../protocols/Aws_json1_1";
+import { AdminAddUserToGroupRequest } from "../models/models_0";
+import { AdminAddUserToGroup } from "../schemas/schemas_12_Group";
 
 /**
  * @public
@@ -117,16 +116,11 @@ export class AdminAddUserToGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "AdminAddUserToGroup", {})
   .n("CognitoIdentityProviderClient", "AdminAddUserToGroupCommand")
-  .f(AdminAddUserToGroupRequestFilterSensitiveLog, void 0)
-  .ser(se_AdminAddUserToGroupCommand)
-  .de(de_AdminAddUserToGroupCommand)
+  .sc(AdminAddUserToGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

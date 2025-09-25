@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -31,6 +32,7 @@ export const getRuntimeConfig = (config: MediaLiveClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.medialive" }),
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "MediaLive",
     urlParser: config?.urlParser ?? parseUrl,

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { RegisterGameServerInput, RegisterGameServerOutput } from "../models/models_1";
-import { de_RegisterGameServerCommand, se_RegisterGameServerCommand } from "../protocols/Aws_json1_1";
+import { RegisterGameServer } from "../schemas/schemas_16_Game";
 
 /**
  * @public
@@ -129,16 +128,11 @@ export class RegisterGameServerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "RegisterGameServer", {})
   .n("GameLiftClient", "RegisterGameServerCommand")
-  .f(void 0, void 0)
-  .ser(se_RegisterGameServerCommand)
-  .de(de_RegisterGameServerCommand)
+  .sc(RegisterGameServer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType } from "@smithy/types";
 
@@ -10026,65 +10026,3 @@ export const QueryResultFormat = {
  * @public
  */
 export type QueryResultFormat = (typeof QueryResultFormat)[keyof typeof QueryResultFormat];
-
-/**
- * @internal
- */
-export const ServerSideEncryptionConfigurationFilterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
-  ...obj,
-  ...(obj.KmsKeyId && { KmsKeyId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateIndexRequestFilterSensitiveLog = (obj: CreateIndexRequest): any => ({
-  ...obj,
-  ...(obj.ServerSideEncryptionConfiguration && {
-    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationFilterSensitiveLog(
-      obj.ServerSideEncryptionConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeIndexResponseFilterSensitiveLog = (obj: DescribeIndexResponse): any => ({
-  ...obj,
-  ...(obj.ServerSideEncryptionConfiguration && {
-    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationFilterSensitiveLog(
-      obj.ServerSideEncryptionConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const EntityDisplayDataFilterSensitiveLog = (obj: EntityDisplayData): any => ({
-  ...obj,
-  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-  ...(obj.GroupName && { GroupName: SENSITIVE_STRING }),
-  ...(obj.IdentifiedUserName && { IdentifiedUserName: SENSITIVE_STRING }),
-  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
-  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ExperienceEntitiesSummaryFilterSensitiveLog = (obj: ExperienceEntitiesSummary): any => ({
-  ...obj,
-  ...(obj.DisplayData && { DisplayData: EntityDisplayDataFilterSensitiveLog(obj.DisplayData) }),
-});
-
-/**
- * @internal
- */
-export const ListExperienceEntitiesResponseFilterSensitiveLog = (obj: ListExperienceEntitiesResponse): any => ({
-  ...obj,
-  ...(obj.SummaryItems && {
-    SummaryItems: obj.SummaryItems.map((item) => ExperienceEntitiesSummaryFilterSensitiveLog(item)),
-  }),
-});

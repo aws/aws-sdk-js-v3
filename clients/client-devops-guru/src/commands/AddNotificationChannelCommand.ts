@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AddNotificationChannelRequest, AddNotificationChannelResponse } from "../models/models_0";
-import { de_AddNotificationChannelCommand, se_AddNotificationChannelCommand } from "../protocols/Aws_restJson1";
+import { AddNotificationChannel } from "../schemas/schemas_4_NotificationChannel";
 
 /**
  * @public
@@ -115,16 +114,11 @@ export class AddNotificationChannelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CapstoneControlPlaneService", "AddNotificationChannel", {})
   .n("DevOpsGuruClient", "AddNotificationChannelCommand")
-  .f(void 0, void 0)
-  .ser(se_AddNotificationChannelCommand)
-  .de(de_AddNotificationChannelCommand)
+  .sc(AddNotificationChannel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

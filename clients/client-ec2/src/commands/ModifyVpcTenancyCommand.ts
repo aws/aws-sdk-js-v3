@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyVpcTenancyRequest, ModifyVpcTenancyResult } from "../models/models_7";
-import { de_ModifyVpcTenancyCommand, se_ModifyVpcTenancyCommand } from "../protocols/Aws_ec2";
+import { ModifyVpcTenancy } from "../schemas/schemas_250_ModifyVpcTenancy";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class ModifyVpcTenancyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ModifyVpcTenancy", {})
   .n("EC2Client", "ModifyVpcTenancyCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyVpcTenancyCommand)
-  .de(de_ModifyVpcTenancyCommand)
+  .sc(ModifyVpcTenancy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

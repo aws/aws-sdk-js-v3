@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RegisterClientRequest,
-  RegisterClientResponse,
-  RegisterClientResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RegisterClientCommand, se_RegisterClientCommand } from "../protocols/Aws_restJson1";
+import { RegisterClientRequest, RegisterClientResponse } from "../models/models_0";
+import { RegisterClient } from "../schemas/schemas_1_Create";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
@@ -151,16 +146,11 @@ export class RegisterClientCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSSOOIDCService", "RegisterClient", {})
   .n("SSOOIDCClient", "RegisterClientCommand")
-  .f(void 0, RegisterClientResponseFilterSensitiveLog)
-  .ser(se_RegisterClientCommand)
-  .de(de_RegisterClientCommand)
+  .sc(RegisterClient)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

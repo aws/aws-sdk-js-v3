@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { de_EmptyOperationCommand, se_EmptyOperationCommand } from "../protocols/Aws_json1_1";
+import { EmptyOperation } from "../schemas/schemas_8_EmptyOperation";
 
 /**
  * @public
@@ -65,16 +64,11 @@ export class EmptyOperationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("JsonProtocol", "EmptyOperation", {})
   .n("JsonProtocolClient", "EmptyOperationCommand")
-  .f(void 0, void 0)
-  .ser(se_EmptyOperationCommand)
-  .de(de_EmptyOperationCommand)
+  .sc(EmptyOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

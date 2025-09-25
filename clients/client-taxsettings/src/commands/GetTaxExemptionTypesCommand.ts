@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTaxExemptionTypesRequest, GetTaxExemptionTypesResponse } from "../models/models_0";
-import { de_GetTaxExemptionTypesCommand, se_GetTaxExemptionTypesCommand } from "../protocols/Aws_restJson1";
+import { GetTaxExemptionTypes } from "../schemas/schemas_1_Tax";
 import { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -90,16 +89,11 @@ export class GetTaxExemptionTypesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TaxSettings", "GetTaxExemptionTypes", {})
   .n("TaxSettingsClient", "GetTaxExemptionTypesCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTaxExemptionTypesCommand)
-  .de(de_GetTaxExemptionTypesCommand)
+  .sc(GetTaxExemptionTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateEnrollmentStatusRequest, UpdateEnrollmentStatusResponse } from "../models/models_0";
-import { de_UpdateEnrollmentStatusCommand, se_UpdateEnrollmentStatusCommand } from "../protocols/Aws_json1_0";
+import { UpdateEnrollmentStatus } from "../schemas/schemas_15_Recommendations";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class UpdateEnrollmentStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ComputeOptimizerService", "UpdateEnrollmentStatus", {})
   .n("ComputeOptimizerClient", "UpdateEnrollmentStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateEnrollmentStatusCommand)
-  .de(de_UpdateEnrollmentStatusCommand)
+  .sc(UpdateEnrollmentStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

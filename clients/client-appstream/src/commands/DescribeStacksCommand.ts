@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeStacksRequest, DescribeStacksResult } from "../models/models_0";
-import { de_DescribeStacksCommand, se_DescribeStacksCommand } from "../protocols/Aws_json1_1";
+import { DescribeStacks } from "../schemas/schemas_2_Stack";
 
 /**
  * @public
@@ -129,16 +128,11 @@ export class DescribeStacksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "DescribeStacks", {})
   .n("AppStreamClient", "DescribeStacksCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeStacksCommand)
-  .de(de_DescribeStacksCommand)
+  .sc(DescribeStacks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

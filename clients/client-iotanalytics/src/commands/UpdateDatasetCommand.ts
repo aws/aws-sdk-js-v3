@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { UpdateDatasetRequest } from "../models/models_0";
-import { de_UpdateDatasetCommand, se_UpdateDatasetCommand } from "../protocols/Aws_restJson1";
+import { UpdateDataset } from "../schemas/schemas_3_Datastore";
 
 /**
  * @public
@@ -168,16 +167,11 @@ export class UpdateDatasetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTAnalyticsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTAnalytics", "UpdateDataset", {})
   .n("IoTAnalyticsClient", "UpdateDatasetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateDatasetCommand)
-  .de(de_UpdateDatasetCommand)
+  .sc(UpdateDataset)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

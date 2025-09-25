@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteRepositoryRequest, DeleteRepositoryResponse } from "../models/models_0";
-import { de_DeleteRepositoryCommand, se_DeleteRepositoryCommand } from "../protocols/Aws_json1_1";
+import { DeleteRepository } from "../schemas/schemas_3_Resource";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class DeleteRepositoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SpencerFrontendService", "DeleteRepository", {})
   .n("ECRPUBLICClient", "DeleteRepositoryCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteRepositoryCommand)
-  .de(de_DeleteRepositoryCommand)
+  .sc(DeleteRepository)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

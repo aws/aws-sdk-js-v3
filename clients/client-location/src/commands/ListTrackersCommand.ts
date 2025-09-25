@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { ListTrackersRequest, ListTrackersResponse, ListTrackersResponseFilterSensitiveLog } from "../models/models_0";
-import { de_ListTrackersCommand, se_ListTrackersCommand } from "../protocols/Aws_restJson1";
+import { ListTrackersRequest, ListTrackersResponse } from "../models/models_0";
+import { ListTrackers } from "../schemas/schemas_6_List";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class ListTrackersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LocationService", "ListTrackers", {})
   .n("LocationClient", "ListTrackersCommand")
-  .f(void 0, ListTrackersResponseFilterSensitiveLog)
-  .ser(se_ListTrackersCommand)
-  .de(de_ListTrackersCommand)
+  .sc(ListTrackers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

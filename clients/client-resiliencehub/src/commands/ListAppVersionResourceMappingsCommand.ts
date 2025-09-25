@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAppVersionResourceMappingsRequest, ListAppVersionResourceMappingsResponse } from "../models/models_0";
-import {
-  de_ListAppVersionResourceMappingsCommand,
-  se_ListAppVersionResourceMappingsCommand,
-} from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
+import { ListAppVersionResourceMappings } from "../schemas/schemas_13_App";
 
 /**
  * @public
@@ -115,16 +111,11 @@ export class ListAppVersionResourceMappingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsResilienceHub", "ListAppVersionResourceMappings", {})
   .n("ResiliencehubClient", "ListAppVersionResourceMappingsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAppVersionResourceMappingsCommand)
-  .de(de_ListAppVersionResourceMappingsCommand)
+  .sc(ListAppVersionResourceMappings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

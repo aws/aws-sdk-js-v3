@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAssociatedContactsRequest, ListAssociatedContactsResponse } from "../models/models_1";
-import { de_ListAssociatedContactsCommand, se_ListAssociatedContactsCommand } from "../protocols/Aws_restJson1";
+import { ListAssociatedContacts } from "../schemas/schemas_58_Contact";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class ListAssociatedContactsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "ListAssociatedContacts", {})
   .n("ConnectClient", "ListAssociatedContactsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAssociatedContactsCommand)
-  .de(de_ListAssociatedContactsCommand)
+  .sc(ListAssociatedContacts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

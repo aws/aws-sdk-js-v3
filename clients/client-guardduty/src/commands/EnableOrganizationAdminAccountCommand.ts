@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse } from "../models/models_0";
-import {
-  de_EnableOrganizationAdminAccountCommand,
-  se_EnableOrganizationAdminAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { EnableOrganizationAdminAccount } from "../schemas/schemas_39_EnableOrganizationAdminAccount";
 
 /**
  * @public
@@ -81,16 +77,11 @@ export class EnableOrganizationAdminAccountCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GuardDutyAPIService", "EnableOrganizationAdminAccount", {})
   .n("GuardDutyClient", "EnableOrganizationAdminAccountCommand")
-  .f(void 0, void 0)
-  .ser(se_EnableOrganizationAdminAccountCommand)
-  .de(de_EnableOrganizationAdminAccountCommand)
+  .sc(EnableOrganizationAdminAccount)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

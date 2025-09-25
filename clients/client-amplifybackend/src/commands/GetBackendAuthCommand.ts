@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetBackendAuthRequest,
-  GetBackendAuthResponse,
-  GetBackendAuthResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetBackendAuthCommand, se_GetBackendAuthCommand } from "../protocols/Aws_restJson1";
+import { GetBackendAuthRequest, GetBackendAuthResponse } from "../models/models_0";
+import { GetBackendAuth } from "../schemas/schemas_7_Backend";
 
 /**
  * @public
@@ -174,16 +169,11 @@ export class GetBackendAuthCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmplifyBackend", "GetBackendAuth", {})
   .n("AmplifyBackendClient", "GetBackendAuthCommand")
-  .f(void 0, GetBackendAuthResponseFilterSensitiveLog)
-  .ser(se_GetBackendAuthCommand)
-  .de(de_GetBackendAuthCommand)
+  .sc(GetBackendAuth)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

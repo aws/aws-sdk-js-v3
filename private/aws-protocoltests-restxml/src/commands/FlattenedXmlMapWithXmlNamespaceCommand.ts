@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FlattenedXmlMapWithXmlNamespaceOutput } from "../models/models_0";
-import {
-  de_FlattenedXmlMapWithXmlNamespaceCommand,
-  se_FlattenedXmlMapWithXmlNamespaceCommand,
-} from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { FlattenedXmlMapWithXmlNamespace } from "../schemas/schemas_9_FlattenedXmlMapWithXmlNamespace";
 
 /**
  * @public
@@ -75,16 +71,11 @@ export class FlattenedXmlMapWithXmlNamespaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestXml", "FlattenedXmlMapWithXmlNamespace", {})
   .n("RestXmlProtocolClient", "FlattenedXmlMapWithXmlNamespaceCommand")
-  .f(void 0, void 0)
-  .ser(se_FlattenedXmlMapWithXmlNamespaceCommand)
-  .de(de_FlattenedXmlMapWithXmlNamespaceCommand)
+  .sc(FlattenedXmlMapWithXmlNamespace)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

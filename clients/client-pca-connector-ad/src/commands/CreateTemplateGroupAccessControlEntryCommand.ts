@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTemplateGroupAccessControlEntryRequest } from "../models/models_0";
 import { PcaConnectorAdClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PcaConnectorAdClient";
-import {
-  de_CreateTemplateGroupAccessControlEntryCommand,
-  se_CreateTemplateGroupAccessControlEntryCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateTemplateGroupAccessControlEntry } from "../schemas/schemas_1_Template";
 
 /**
  * @public
@@ -109,16 +105,11 @@ export class CreateTemplateGroupAccessControlEntryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PcaConnectorAd", "CreateTemplateGroupAccessControlEntry", {})
   .n("PcaConnectorAdClient", "CreateTemplateGroupAccessControlEntryCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateTemplateGroupAccessControlEntryCommand)
-  .de(de_CreateTemplateGroupAccessControlEntryCommand)
+  .sc(CreateTemplateGroupAccessControlEntry)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

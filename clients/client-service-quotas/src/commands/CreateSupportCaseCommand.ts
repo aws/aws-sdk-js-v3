@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateSupportCaseRequest, CreateSupportCaseResponse } from "../models/models_0";
-import { de_CreateSupportCaseCommand, se_CreateSupportCaseCommand } from "../protocols/Aws_json1_1";
+import { CreateSupportCase } from "../schemas/schemas_3_Service";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -94,16 +93,11 @@ export class CreateSupportCaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ServiceQuotasV20190624", "CreateSupportCase", {})
   .n("ServiceQuotasClient", "CreateSupportCaseCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateSupportCaseCommand)
-  .de(de_CreateSupportCaseCommand)
+  .sc(CreateSupportCase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

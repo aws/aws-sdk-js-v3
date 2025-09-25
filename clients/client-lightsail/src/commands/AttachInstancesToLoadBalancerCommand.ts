@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { AttachInstancesToLoadBalancerRequest, AttachInstancesToLoadBalancerResult } from "../models/models_0";
-import {
-  de_AttachInstancesToLoadBalancerCommand,
-  se_AttachInstancesToLoadBalancerCommand,
-} from "../protocols/Aws_json1_1";
+import { AttachInstancesToLoadBalancer } from "../schemas/schemas_56_Instances";
 
 /**
  * @public
@@ -135,16 +131,11 @@ export class AttachInstancesToLoadBalancerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "AttachInstancesToLoadBalancer", {})
   .n("LightsailClient", "AttachInstancesToLoadBalancerCommand")
-  .f(void 0, void 0)
-  .ser(se_AttachInstancesToLoadBalancerCommand)
-  .de(de_AttachInstancesToLoadBalancerCommand)
+  .sc(AttachInstancesToLoadBalancer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

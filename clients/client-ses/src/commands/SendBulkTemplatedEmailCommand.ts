@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse } from "../models/models_0";
-import { de_SendBulkTemplatedEmailCommand, se_SendBulkTemplatedEmailCommand } from "../protocols/Aws_query";
+import { SendBulkTemplatedEmail } from "../schemas/schemas_3_Send";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -181,16 +180,11 @@ export class SendBulkTemplatedEmailCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService", "SendBulkTemplatedEmail", {})
   .n("SESClient", "SendBulkTemplatedEmailCommand")
-  .f(void 0, void 0)
-  .ser(se_SendBulkTemplatedEmailCommand)
-  .de(de_SendBulkTemplatedEmailCommand)
+  .sc(SendBulkTemplatedEmail)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

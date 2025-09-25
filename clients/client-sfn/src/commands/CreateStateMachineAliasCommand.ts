@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateStateMachineAliasInput,
-  CreateStateMachineAliasInputFilterSensitiveLog,
-  CreateStateMachineAliasOutput,
-} from "../models/models_0";
-import { de_CreateStateMachineAliasCommand, se_CreateStateMachineAliasCommand } from "../protocols/Aws_json1_0";
+import { CreateStateMachineAliasInput, CreateStateMachineAliasOutput } from "../models/models_0";
+import { CreateStateMachineAlias } from "../schemas/schemas_2_StateMachine";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -145,16 +140,11 @@ export class CreateStateMachineAliasCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "CreateStateMachineAlias", {})
   .n("SFNClient", "CreateStateMachineAliasCommand")
-  .f(CreateStateMachineAliasInputFilterSensitiveLog, void 0)
-  .ser(se_CreateStateMachineAliasCommand)
-  .de(de_CreateStateMachineAliasCommand)
+  .sc(CreateStateMachineAlias)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

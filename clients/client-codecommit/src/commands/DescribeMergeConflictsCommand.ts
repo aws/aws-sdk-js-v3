@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeMergeConflictsInput, DescribeMergeConflictsOutput } from "../models/models_0";
-import { de_DescribeMergeConflictsCommand, se_DescribeMergeConflictsCommand } from "../protocols/Aws_json1_1";
+import { DescribeMergeConflicts } from "../schemas/schemas_7_List";
 
 /**
  * @public
@@ -210,16 +209,11 @@ export class DescribeMergeConflictsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCommit_20150413", "DescribeMergeConflicts", {})
   .n("CodeCommitClient", "DescribeMergeConflictsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeMergeConflictsCommand)
-  .de(de_DescribeMergeConflictsCommand)
+  .sc(DescribeMergeConflicts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

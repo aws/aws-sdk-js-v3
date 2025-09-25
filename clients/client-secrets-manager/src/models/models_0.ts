@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SecretsManagerServiceException as __BaseException } from "./SecretsManagerServiceException";
 
@@ -2270,65 +2270,3 @@ export interface ValidateResourcePolicyResponse {
    */
   ValidationErrors?: ValidationErrorsEntry[] | undefined;
 }
-
-/**
- * @internal
- */
-export const SecretValueEntryFilterSensitiveLog = (obj: SecretValueEntry): any => ({
-  ...obj,
-  ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-  ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BatchGetSecretValueResponseFilterSensitiveLog = (obj: BatchGetSecretValueResponse): any => ({
-  ...obj,
-  ...(obj.SecretValues && { SecretValues: obj.SecretValues.map((item) => SecretValueEntryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateSecretRequestFilterSensitiveLog = (obj: CreateSecretRequest): any => ({
-  ...obj,
-  ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-  ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetRandomPasswordResponseFilterSensitiveLog = (obj: GetRandomPasswordResponse): any => ({
-  ...obj,
-  ...(obj.RandomPassword && { RandomPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetSecretValueResponseFilterSensitiveLog = (obj: GetSecretValueResponse): any => ({
-  ...obj,
-  ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-  ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutSecretValueRequestFilterSensitiveLog = (obj: PutSecretValueRequest): any => ({
-  ...obj,
-  ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-  ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-  ...(obj.RotationToken && { RotationToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateSecretRequestFilterSensitiveLog = (obj: UpdateSecretRequest): any => ({
-  ...obj,
-  ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-  ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-});

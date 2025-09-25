@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
 import { DisassociateEipFromVlanRequest, DisassociateEipFromVlanResponse } from "../models/models_0";
-import { de_DisassociateEipFromVlanCommand, se_DisassociateEipFromVlanCommand } from "../protocols/Aws_json1_0";
+import { DisassociateEipFromVlan } from "../schemas/schemas_1_Environment";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class DisassociateEipFromVlanCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElasticVMwareService", "DisassociateEipFromVlan", {})
   .n("EvsClient", "DisassociateEipFromVlanCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateEipFromVlanCommand)
-  .de(de_DisassociateEipFromVlanCommand)
+  .sc(DisassociateEipFromVlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

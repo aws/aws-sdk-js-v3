@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopFlowRequest, StopFlowResponse } from "../models/models_0";
-import { de_StopFlowCommand, se_StopFlowCommand } from "../protocols/Aws_restJson1";
+import { StopFlow } from "../schemas/schemas_2_Flow";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class StopFlowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SandstoneConfigurationServiceLambda", "StopFlow", {})
   .n("AppflowClient", "StopFlowCommand")
-  .f(void 0, void 0)
-  .ser(se_StopFlowCommand)
-  .de(de_StopFlowCommand)
+  .sc(StopFlow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

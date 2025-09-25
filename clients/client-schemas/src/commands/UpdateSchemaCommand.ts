@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateSchemaRequest, UpdateSchemaResponse } from "../models/models_0";
-import { de_UpdateSchemaCommand, se_UpdateSchemaCommand } from "../protocols/Aws_restJson1";
+import { UpdateSchema } from "../schemas/schemas_5_Schema";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -94,16 +93,11 @@ export class UpdateSchemaCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("schemas", "UpdateSchema", {})
   .n("SchemasClient", "UpdateSchemaCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSchemaCommand)
-  .de(de_UpdateSchemaCommand)
+  .sc(UpdateSchema)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

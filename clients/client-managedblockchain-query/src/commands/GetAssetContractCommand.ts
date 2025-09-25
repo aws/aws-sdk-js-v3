@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../ManagedBlockchainQueryClient";
 import { GetAssetContractInput, GetAssetContractOutput } from "../models/models_0";
-import { de_GetAssetContractCommand, se_GetAssetContractCommand } from "../protocols/Aws_restJson1";
+import { GetAssetContract } from "../schemas/schemas_1_List";
 
 /**
  * @public
@@ -120,16 +119,11 @@ export class GetAssetContractCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainQueryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TietonChainQueryService", "GetAssetContract", {})
   .n("ManagedBlockchainQueryClient", "GetAssetContractCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAssetContractCommand)
-  .de(de_GetAssetContractCommand)
+  .sc(GetAssetContract)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

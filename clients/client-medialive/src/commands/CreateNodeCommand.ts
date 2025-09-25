@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { CreateNodeRequest, CreateNodeResponse } from "../models/models_2";
-import { de_CreateNodeCommand, se_CreateNodeCommand } from "../protocols/Aws_restJson1";
+import { CreateNode } from "../schemas/schemas_13_Node";
 
 /**
  * @public
@@ -128,16 +127,11 @@ export class CreateNodeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "CreateNode", {})
   .n("MediaLiveClient", "CreateNodeCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateNodeCommand)
-  .de(de_CreateNodeCommand)
+  .sc(CreateNode)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

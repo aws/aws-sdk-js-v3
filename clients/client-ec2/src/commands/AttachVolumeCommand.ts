@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AttachVolumeRequest, VolumeAttachment } from "../models/models_0";
-import { de_AttachVolumeCommand, se_AttachVolumeCommand } from "../protocols/Aws_ec2";
+import { AttachVolume } from "../schemas/schemas_185_Volume";
 
 /**
  * @public
@@ -131,16 +130,11 @@ export class AttachVolumeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "AttachVolume", {})
   .n("EC2Client", "AttachVolumeCommand")
-  .f(void 0, void 0)
-  .ser(se_AttachVolumeCommand)
-  .de(de_AttachVolumeCommand)
+  .sc(AttachVolume)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

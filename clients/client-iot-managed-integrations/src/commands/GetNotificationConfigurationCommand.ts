@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,15 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import {
-  GetNotificationConfigurationRequest,
-  GetNotificationConfigurationResponse,
-  GetNotificationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetNotificationConfigurationCommand,
-  se_GetNotificationConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetNotificationConfigurationRequest, GetNotificationConfigurationResponse } from "../models/models_0";
+import { GetNotificationConfiguration } from "../schemas/schemas_11_Destination";
 
 /**
  * @public
@@ -104,16 +96,11 @@ export class GetNotificationConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "GetNotificationConfiguration", {})
   .n("IoTManagedIntegrationsClient", "GetNotificationConfigurationCommand")
-  .f(void 0, GetNotificationConfigurationResponseFilterSensitiveLog)
-  .ser(se_GetNotificationConfigurationCommand)
-  .de(de_GetNotificationConfigurationCommand)
+  .sc(GetNotificationConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

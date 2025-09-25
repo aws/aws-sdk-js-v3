@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SearchMessageTemplatesRequest,
-  SearchMessageTemplatesResponse,
-  SearchMessageTemplatesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_SearchMessageTemplatesCommand, se_SearchMessageTemplatesCommand } from "../protocols/Aws_restJson1";
+import { SearchMessageTemplatesRequest, SearchMessageTemplatesResponse } from "../models/models_1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { SearchMessageTemplates } from "../schemas/schemas_1_Quick";
 
 /**
  * @public
@@ -144,16 +139,11 @@ export class SearchMessageTemplatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "SearchMessageTemplates", {})
   .n("QConnectClient", "SearchMessageTemplatesCommand")
-  .f(void 0, SearchMessageTemplatesResponseFilterSensitiveLog)
-  .ser(se_SearchMessageTemplatesCommand)
-  .de(de_SearchMessageTemplatesCommand)
+  .sc(SearchMessageTemplates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

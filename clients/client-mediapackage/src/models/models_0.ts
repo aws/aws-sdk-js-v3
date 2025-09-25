@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { MediaPackageServiceException as __BaseException } from "./MediaPackageServiceException";
 
@@ -2731,87 +2731,3 @@ export interface UpdateOriginEndpointResponse {
    */
   Whitelist?: string[] | undefined;
 }
-
-/**
- * @internal
- */
-export const IngestEndpointFilterSensitiveLog = (obj: IngestEndpoint): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-  ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const HlsIngestFilterSensitiveLog = (obj: HlsIngest): any => ({
-  ...obj,
-  ...(obj.IngestEndpoints && {
-    IngestEndpoints: obj.IngestEndpoints.map((item) => IngestEndpointFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
-  ...obj,
-  ...(obj.HlsIngest && { HlsIngest: HlsIngestFilterSensitiveLog(obj.HlsIngest) }),
-});
-
-/**
- * @internal
- */
-export const ConfigureLogsResponseFilterSensitiveLog = (obj: ConfigureLogsResponse): any => ({
-  ...obj,
-  ...(obj.HlsIngest && { HlsIngest: HlsIngestFilterSensitiveLog(obj.HlsIngest) }),
-});
-
-/**
- * @internal
- */
-export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
-  ...obj,
-  ...(obj.HlsIngest && { HlsIngest: HlsIngestFilterSensitiveLog(obj.HlsIngest) }),
-});
-
-/**
- * @internal
- */
-export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelResponse): any => ({
-  ...obj,
-  ...(obj.HlsIngest && { HlsIngest: HlsIngestFilterSensitiveLog(obj.HlsIngest) }),
-});
-
-/**
- * @internal
- */
-export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RotateChannelCredentialsResponseFilterSensitiveLog = (obj: RotateChannelCredentialsResponse): any => ({
-  ...obj,
-  ...(obj.HlsIngest && { HlsIngest: HlsIngestFilterSensitiveLog(obj.HlsIngest) }),
-});
-
-/**
- * @internal
- */
-export const RotateIngestEndpointCredentialsResponseFilterSensitiveLog = (
-  obj: RotateIngestEndpointCredentialsResponse
-): any => ({
-  ...obj,
-  ...(obj.HlsIngest && { HlsIngest: HlsIngestFilterSensitiveLog(obj.HlsIngest) }),
-});
-
-/**
- * @internal
- */
-export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-  ...obj,
-  ...(obj.HlsIngest && { HlsIngest: HlsIngestFilterSensitiveLog(obj.HlsIngest) }),
-});

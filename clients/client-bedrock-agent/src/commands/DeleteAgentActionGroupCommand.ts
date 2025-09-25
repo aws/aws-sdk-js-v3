@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAgentActionGroupRequest, DeleteAgentActionGroupResponse } from "../models/models_0";
-import { de_DeleteAgentActionGroupCommand, se_DeleteAgentActionGroupCommand } from "../protocols/Aws_restJson1";
+import { DeleteAgentActionGroup } from "../schemas/schemas_12_Agent";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class DeleteAgentActionGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "DeleteAgentActionGroup", {})
   .n("BedrockAgentClient", "DeleteAgentActionGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAgentActionGroupCommand)
-  .de(de_DeleteAgentActionGroupCommand)
+  .sc(DeleteAgentActionGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

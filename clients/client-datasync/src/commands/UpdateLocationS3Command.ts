@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateLocationS3Request, UpdateLocationS3Response } from "../models/models_0";
-import { de_UpdateLocationS3Command, se_UpdateLocationS3Command } from "../protocols/Aws_json1_1";
+import { UpdateLocationS3 } from "../schemas/schemas_2_Task";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class UpdateLocationS3Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FmrsService", "UpdateLocationS3", {})
   .n("DataSyncClient", "UpdateLocationS3Command")
-  .f(void 0, void 0)
-  .ser(se_UpdateLocationS3Command)
-  .de(de_UpdateLocationS3Command)
+  .sc(UpdateLocationS3)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

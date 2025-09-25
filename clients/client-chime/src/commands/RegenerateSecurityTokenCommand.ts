@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RegenerateSecurityTokenRequest,
-  RegenerateSecurityTokenResponse,
-  RegenerateSecurityTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RegenerateSecurityTokenCommand, se_RegenerateSecurityTokenCommand } from "../protocols/Aws_restJson1";
+import { RegenerateSecurityTokenRequest, RegenerateSecurityTokenResponse } from "../models/models_0";
+import { RegenerateSecurityToken } from "../schemas/schemas_16_Phone";
 
 /**
  * @public
@@ -106,16 +101,11 @@ export class RegenerateSecurityTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("UCBuzzConsoleService", "RegenerateSecurityToken", {})
   .n("ChimeClient", "RegenerateSecurityTokenCommand")
-  .f(void 0, RegenerateSecurityTokenResponseFilterSensitiveLog)
-  .ser(se_RegenerateSecurityTokenCommand)
-  .de(de_RegenerateSecurityTokenCommand)
+  .sc(RegenerateSecurityToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

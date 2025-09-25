@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateFieldLevelEncryptionConfigRequest, UpdateFieldLevelEncryptionConfigResult } from "../models/models_2";
-import {
-  de_UpdateFieldLevelEncryptionConfigCommand,
-  se_UpdateFieldLevelEncryptionConfigCommand,
-} from "../protocols/Aws_restXml";
+import { UpdateFieldLevelEncryptionConfig } from "../schemas/schemas_32_Distribution";
 
 /**
  * @public
@@ -171,16 +167,11 @@ export class UpdateFieldLevelEncryptionConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "UpdateFieldLevelEncryptionConfig", {})
   .n("CloudFrontClient", "UpdateFieldLevelEncryptionConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateFieldLevelEncryptionConfigCommand)
-  .de(de_UpdateFieldLevelEncryptionConfigCommand)
+  .sc(UpdateFieldLevelEncryptionConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

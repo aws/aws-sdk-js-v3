@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DisassociateTransitGatewayMulticastDomainRequest,
   DisassociateTransitGatewayMulticastDomainResult,
 } from "../models/models_6";
-import {
-  de_DisassociateTransitGatewayMulticastDomainCommand,
-  se_DisassociateTransitGatewayMulticastDomainCommand,
-} from "../protocols/Aws_ec2";
+import { DisassociateTransitGatewayMulticastDomain } from "../schemas/schemas_93_MulticastDomain";
 
 /**
  * @public
@@ -96,16 +92,11 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DisassociateTransitGatewayMulticastDomain", {})
   .n("EC2Client", "DisassociateTransitGatewayMulticastDomainCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateTransitGatewayMulticastDomainCommand)
-  .de(de_DisassociateTransitGatewayMulticastDomainCommand)
+  .sc(DisassociateTransitGatewayMulticastDomain)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

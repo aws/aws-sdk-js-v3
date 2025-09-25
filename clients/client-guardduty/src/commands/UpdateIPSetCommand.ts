@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/models_1";
-import { de_UpdateIPSetCommand, se_UpdateIPSetCommand } from "../protocols/Aws_restJson1";
+import { UpdateIPSet } from "../schemas/schemas_41_UpdateIPSet";
 
 /**
  * @public
@@ -82,16 +81,11 @@ export class UpdateIPSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GuardDutyAPIService", "UpdateIPSet", {})
   .n("GuardDutyClient", "UpdateIPSetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateIPSetCommand)
-  .de(de_UpdateIPSetCommand)
+  .sc(UpdateIPSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

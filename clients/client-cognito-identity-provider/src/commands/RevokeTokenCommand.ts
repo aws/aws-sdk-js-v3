@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RevokeTokenRequest, RevokeTokenRequestFilterSensitiveLog, RevokeTokenResponse } from "../models/models_1";
-import { de_RevokeTokenCommand, se_RevokeTokenCommand } from "../protocols/Aws_json1_1";
+import { RevokeTokenRequest, RevokeTokenResponse } from "../models/models_1";
+import { RevokeToken } from "../schemas/schemas_9_UserPool";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class RevokeTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "RevokeToken", {})
   .n("CognitoIdentityProviderClient", "RevokeTokenCommand")
-  .f(RevokeTokenRequestFilterSensitiveLog, void 0)
-  .ser(se_RevokeTokenCommand)
-  .de(de_RevokeTokenCommand)
+  .sc(RevokeToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

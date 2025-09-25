@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { CreateMemberInput, CreateMemberInputFilterSensitiveLog, CreateMemberOutput } from "../models/models_0";
-import { de_CreateMemberCommand, se_CreateMemberCommand } from "../protocols/Aws_restJson1";
+import { CreateMemberInput, CreateMemberOutput } from "../models/models_0";
+import { CreateMember } from "../schemas/schemas_3_List";
 
 /**
  * @public
@@ -131,16 +130,11 @@ export class CreateMemberCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TaigaWebService", "CreateMember", {})
   .n("ManagedBlockchainClient", "CreateMemberCommand")
-  .f(CreateMemberInputFilterSensitiveLog, void 0)
-  .ser(se_CreateMemberCommand)
-  .de(de_CreateMemberCommand)
+  .sc(CreateMember)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

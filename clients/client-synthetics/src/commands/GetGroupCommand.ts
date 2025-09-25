@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetGroupRequest, GetGroupResponse } from "../models/models_0";
-import { de_GetGroupCommand, se_GetGroupCommand } from "../protocols/Aws_restJson1";
+import { GetGroup } from "../schemas/schemas_1_Resource";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -92,16 +91,11 @@ export class GetGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Synthetics", "GetGroup", {})
   .n("SyntheticsClient", "GetGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_GetGroupCommand)
-  .de(de_GetGroupCommand)
+  .sc(GetGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListEnvironmentTemplateVersionsInput,
-  ListEnvironmentTemplateVersionsOutput,
-  ListEnvironmentTemplateVersionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_ListEnvironmentTemplateVersionsCommand,
-  se_ListEnvironmentTemplateVersionsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListEnvironmentTemplateVersionsInput, ListEnvironmentTemplateVersionsOutput } from "../models/models_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { ListEnvironmentTemplateVersions } from "../schemas/schemas_3_List";
 
 /**
  * @public
@@ -111,16 +103,11 @@ export class ListEnvironmentTemplateVersionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "ListEnvironmentTemplateVersions", {})
   .n("ProtonClient", "ListEnvironmentTemplateVersionsCommand")
-  .f(void 0, ListEnvironmentTemplateVersionsOutputFilterSensitiveLog)
-  .ser(se_ListEnvironmentTemplateVersionsCommand)
-  .de(de_ListEnvironmentTemplateVersionsCommand)
+  .sc(ListEnvironmentTemplateVersions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

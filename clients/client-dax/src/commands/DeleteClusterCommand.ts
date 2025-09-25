@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_0";
-import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/Aws_json1_1";
+import { DeleteCluster } from "../schemas/schemas_1_Describe";
 
 /**
  * @public
@@ -146,16 +145,11 @@ export class DeleteClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DAXClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDAXV3", "DeleteCluster", {})
   .n("DAXClient", "DeleteClusterCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteClusterCommand)
-  .de(de_DeleteClusterCommand)
+  .sc(DeleteCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

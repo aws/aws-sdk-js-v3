@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse } from "../models/models_0";
-import { de_DeleteLoggingConfigurationCommand, se_DeleteLoggingConfigurationCommand } from "../protocols/Aws_json1_1";
+import { DeleteLoggingConfiguration } from "../schemas/schemas_7_Logging";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -109,16 +108,11 @@ export class DeleteLoggingConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20190729", "DeleteLoggingConfiguration", {})
   .n("WAFV2Client", "DeleteLoggingConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteLoggingConfigurationCommand)
-  .de(de_DeleteLoggingConfigurationCommand)
+  .sc(DeleteLoggingConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

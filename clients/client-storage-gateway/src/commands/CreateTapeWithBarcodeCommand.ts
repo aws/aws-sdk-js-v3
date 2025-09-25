@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTapeWithBarcodeInput, CreateTapeWithBarcodeOutput } from "../models/models_0";
-import { de_CreateTapeWithBarcodeCommand, se_CreateTapeWithBarcodeCommand } from "../protocols/Aws_json1_1";
+import { CreateTapeWithBarcode } from "../schemas/schemas_2_Tape";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -114,16 +113,11 @@ export class CreateTapeWithBarcodeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "CreateTapeWithBarcode", {})
   .n("StorageGatewayClient", "CreateTapeWithBarcodeCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateTapeWithBarcodeCommand)
-  .de(de_CreateTapeWithBarcodeCommand)
+  .sc(CreateTapeWithBarcode)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

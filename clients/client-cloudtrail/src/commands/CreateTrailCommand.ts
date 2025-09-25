@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTrailRequest, CreateTrailResponse } from "../models/models_0";
-import { de_CreateTrailCommand, se_CreateTrailCommand } from "../protocols/Aws_json1_1";
+import { CreateTrail } from "../schemas/schemas_10_Create";
 
 /**
  * @public
@@ -247,16 +246,11 @@ export class CreateTrailCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudTrail_20131101", "CreateTrail", {})
   .n("CloudTrailClient", "CreateTrailCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateTrailCommand)
-  .de(de_CreateTrailCommand)
+  .sc(CreateTrail)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

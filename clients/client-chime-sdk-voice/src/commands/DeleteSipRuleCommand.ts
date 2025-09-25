@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteSipRuleRequest } from "../models/models_0";
-import { de_DeleteSipRuleCommand, se_DeleteSipRuleCommand } from "../protocols/Aws_restJson1";
+import { DeleteSipRule } from "../schemas/schemas_45_DeleteSipRule";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class DeleteSipRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "DeleteSipRule", {})
   .n("ChimeSDKVoiceClient", "DeleteSipRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteSipRuleCommand)
-  .de(de_DeleteSipRuleCommand)
+  .sc(DeleteSipRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { GrantFlowEntitlementsRequest, GrantFlowEntitlementsResponse } from "../models/models_0";
-import { de_GrantFlowEntitlementsCommand, se_GrantFlowEntitlementsCommand } from "../protocols/Aws_restJson1";
+import { GrantFlowEntitlements } from "../schemas/schemas_3_Flow";
 
 /**
  * @public
@@ -136,16 +135,11 @@ export class GrantFlowEntitlementsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConnect", "GrantFlowEntitlements", {})
   .n("MediaConnectClient", "GrantFlowEntitlementsCommand")
-  .f(void 0, void 0)
-  .ser(se_GrantFlowEntitlementsCommand)
-  .de(de_GrantFlowEntitlementsCommand)
+  .sc(GrantFlowEntitlements)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateGlobalSettingsInput } from "../models/models_0";
-import { de_UpdateGlobalSettingsCommand, se_UpdateGlobalSettingsCommand } from "../protocols/Aws_restJson1";
+import { UpdateGlobalSettings } from "../schemas/schemas_16_Get";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -90,16 +89,11 @@ export class UpdateGlobalSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WellArchitectedApiServiceLambda", "UpdateGlobalSettings", {})
   .n("WellArchitectedClient", "UpdateGlobalSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateGlobalSettingsCommand)
-  .de(de_UpdateGlobalSettingsCommand)
+  .sc(UpdateGlobalSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

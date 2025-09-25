@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetUserAuthFactorsRequest,
-  GetUserAuthFactorsRequestFilterSensitiveLog,
-  GetUserAuthFactorsResponse,
-  GetUserAuthFactorsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetUserAuthFactorsCommand, se_GetUserAuthFactorsCommand } from "../protocols/Aws_json1_1";
+import { GetUserAuthFactorsRequest, GetUserAuthFactorsResponse } from "../models/models_1";
+import { GetUserAuthFactors } from "../schemas/schemas_41_User";
 
 /**
  * @public
@@ -134,16 +128,11 @@ export class GetUserAuthFactorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "GetUserAuthFactors", {})
   .n("CognitoIdentityProviderClient", "GetUserAuthFactorsCommand")
-  .f(GetUserAuthFactorsRequestFilterSensitiveLog, GetUserAuthFactorsResponseFilterSensitiveLog)
-  .ser(se_GetUserAuthFactorsCommand)
-  .de(de_GetUserAuthFactorsCommand)
+  .sc(GetUserAuthFactors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

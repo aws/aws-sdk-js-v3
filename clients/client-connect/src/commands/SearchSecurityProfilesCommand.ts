@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchSecurityProfilesResponse } from "../models/models_2";
 import { SearchSecurityProfilesRequest } from "../models/models_3";
-import { de_SearchSecurityProfilesCommand, se_SearchSecurityProfilesCommand } from "../protocols/Aws_restJson1";
+import { SearchSecurityProfiles } from "../schemas/schemas_38_Search";
 
 /**
  * @public
@@ -150,16 +149,11 @@ export class SearchSecurityProfilesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "SearchSecurityProfiles", {})
   .n("ConnectClient", "SearchSecurityProfilesCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchSecurityProfilesCommand)
-  .de(de_SearchSecurityProfilesCommand)
+  .sc(SearchSecurityProfiles)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

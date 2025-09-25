@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { DescribeAcceleratorAttributesRequest, DescribeAcceleratorAttributesResponse } from "../models/models_0";
-import {
-  de_DescribeAcceleratorAttributesCommand,
-  se_DescribeAcceleratorAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAcceleratorAttributes } from "../schemas/schemas_9_Attributes";
 
 /**
  * @public
@@ -93,16 +89,11 @@ export class DescribeAcceleratorAttributesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GlobalAccelerator_V20180706", "DescribeAcceleratorAttributes", {})
   .n("GlobalAcceleratorClient", "DescribeAcceleratorAttributesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAcceleratorAttributesCommand)
-  .de(de_DescribeAcceleratorAttributesCommand)
+  .sc(DescribeAcceleratorAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateConnectionRequest, CreateConnectionResponse } from "../models/models_0";
-import { de_CreateConnectionCommand, se_CreateConnectionCommand } from "../protocols/Aws_json1_0";
+import { CreateConnection } from "../schemas/schemas_3_Create";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class CreateConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AppRunner", "CreateConnection", {})
   .n("AppRunnerClient", "CreateConnectionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateConnectionCommand)
-  .de(de_CreateConnectionCommand)
+  .sc(CreateConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

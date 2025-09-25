@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateComponentRequest, CreateComponentResponse } from "../models/models_0";
-import { de_CreateComponentCommand, se_CreateComponentCommand } from "../protocols/Aws_restJson1";
+import { CreateComponent } from "../schemas/schemas_1_Form";
 
 /**
  * @public
@@ -517,16 +516,11 @@ export class CreateComponentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmplifyUIBuilder", "CreateComponent", {})
   .n("AmplifyUIBuilderClient", "CreateComponentCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateComponentCommand)
-  .de(de_CreateComponentCommand)
+  .sc(CreateComponent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

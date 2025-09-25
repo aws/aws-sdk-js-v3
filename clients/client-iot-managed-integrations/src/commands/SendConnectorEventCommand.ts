@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import {
-  SendConnectorEventRequest,
-  SendConnectorEventRequestFilterSensitiveLog,
-  SendConnectorEventResponse,
-} from "../models/models_0";
-import { de_SendConnectorEventCommand, se_SendConnectorEventCommand } from "../protocols/Aws_restJson1";
+import { SendConnectorEventRequest, SendConnectorEventResponse } from "../models/models_0";
+import { SendConnectorEvent } from "../schemas/schemas_6_ManagedThing";
 
 /**
  * @public
@@ -315,16 +310,11 @@ export class SendConnectorEventCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "SendConnectorEvent", {})
   .n("IoTManagedIntegrationsClient", "SendConnectorEventCommand")
-  .f(SendConnectorEventRequestFilterSensitiveLog, void 0)
-  .ser(se_SendConnectorEventCommand)
-  .de(de_SendConnectorEventCommand)
+  .sc(SendConnectorEvent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  CreateAutoPredictorRequest,
-  CreateAutoPredictorRequestFilterSensitiveLog,
-  CreateAutoPredictorResponse,
-} from "../models/models_0";
-import { de_CreateAutoPredictorCommand, se_CreateAutoPredictorCommand } from "../protocols/Aws_json1_1";
+import { CreateAutoPredictorRequest, CreateAutoPredictorResponse } from "../models/models_0";
+import { CreateAutoPredictor } from "../schemas/schemas_14_Describe";
 
 /**
  * @public
@@ -190,16 +185,11 @@ export class CreateAutoPredictorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecast", "CreateAutoPredictor", {})
   .n("ForecastClient", "CreateAutoPredictorCommand")
-  .f(CreateAutoPredictorRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateAutoPredictorCommand)
-  .de(de_CreateAutoPredictorCommand)
+  .sc(CreateAutoPredictor)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

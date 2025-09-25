@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSubscriptionStateRequest, GetSubscriptionStateResponse } from "../models/models_0";
-import { de_GetSubscriptionStateCommand, se_GetSubscriptionStateCommand } from "../protocols/Aws_json1_1";
+import { GetSubscriptionState } from "../schemas/schemas_23_GetSubscriptionState";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -71,16 +70,11 @@ export class GetSubscriptionStateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSShield_20160616", "GetSubscriptionState", {})
   .n("ShieldClient", "GetSubscriptionStateCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSubscriptionStateCommand)
-  .de(de_GetSubscriptionStateCommand)
+  .sc(GetSubscriptionState)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

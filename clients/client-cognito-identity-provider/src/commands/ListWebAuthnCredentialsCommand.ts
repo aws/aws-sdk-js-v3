@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListWebAuthnCredentialsRequest,
-  ListWebAuthnCredentialsRequestFilterSensitiveLog,
-  ListWebAuthnCredentialsResponse,
-} from "../models/models_1";
-import { de_ListWebAuthnCredentialsCommand, se_ListWebAuthnCredentialsCommand } from "../protocols/Aws_json1_1";
+import { ListWebAuthnCredentialsRequest, ListWebAuthnCredentialsResponse } from "../models/models_1";
+import { ListWebAuthnCredentials } from "../schemas/schemas_6_List";
 
 /**
  * @public
@@ -122,16 +117,11 @@ export class ListWebAuthnCredentialsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "ListWebAuthnCredentials", {})
   .n("CognitoIdentityProviderClient", "ListWebAuthnCredentialsCommand")
-  .f(ListWebAuthnCredentialsRequestFilterSensitiveLog, void 0)
-  .ser(se_ListWebAuthnCredentialsCommand)
-  .de(de_ListWebAuthnCredentialsCommand)
+  .sc(ListWebAuthnCredentials)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

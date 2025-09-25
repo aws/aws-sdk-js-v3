@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteReplicationConfigMessage, DeleteReplicationConfigResponse } from "../models/models_0";
-import { de_DeleteReplicationConfigCommand, se_DeleteReplicationConfigCommand } from "../protocols/Aws_json1_1";
+import { DeleteReplicationConfig } from "../schemas/schemas_33_Replication";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class DeleteReplicationConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "DeleteReplicationConfig", {})
   .n("DatabaseMigrationServiceClient", "DeleteReplicationConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteReplicationConfigCommand)
-  .de(de_DeleteReplicationConfigCommand)
+  .sc(DeleteReplicationConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

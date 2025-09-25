@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchUpdateAttendeeCapabilitiesExceptRequest } from "../models/models_0";
-import {
-  de_BatchUpdateAttendeeCapabilitiesExceptCommand,
-  se_BatchUpdateAttendeeCapabilitiesExceptCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchUpdateAttendeeCapabilitiesExcept } from "../schemas/schemas_2_Attendee";
 
 /**
  * @public
@@ -134,16 +130,11 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMeetingsSDKService", "BatchUpdateAttendeeCapabilitiesExcept", {})
   .n("ChimeSDKMeetingsClient", "BatchUpdateAttendeeCapabilitiesExceptCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchUpdateAttendeeCapabilitiesExceptCommand)
-  .de(de_BatchUpdateAttendeeCapabilitiesExceptCommand)
+  .sc(BatchUpdateAttendeeCapabilitiesExcept)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

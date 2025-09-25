@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutEventsRequest, PutEventsRequestFilterSensitiveLog } from "../models/models_0";
+import { PutEventsRequest } from "../models/models_0";
 import {
   PersonalizeEventsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
-import { de_PutEventsCommand, se_PutEventsCommand } from "../protocols/Aws_restJson1";
+import { PutEvents } from "../schemas/schemas_1_Put";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class PutEventsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeEventsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPersonalizeEvents", "PutEvents", {})
   .n("PersonalizeEventsClient", "PutEventsCommand")
-  .f(PutEventsRequestFilterSensitiveLog, void 0)
-  .ser(se_PutEventsCommand)
-  .de(de_PutEventsCommand)
+  .sc(PutEvents)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

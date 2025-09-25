@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PostCommentForComparedCommitInput, PostCommentForComparedCommitOutput } from "../models/models_1";
-import {
-  de_PostCommentForComparedCommitCommand,
-  se_PostCommentForComparedCommitCommand,
-} from "../protocols/Aws_json1_1";
+import { PostCommentForComparedCommit } from "../schemas/schemas_14_Comment";
 
 /**
  * @public
@@ -189,16 +185,11 @@ export class PostCommentForComparedCommitCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCommit_20150413", "PostCommentForComparedCommit", {})
   .n("CodeCommitClient", "PostCommentForComparedCommitCommand")
-  .f(void 0, void 0)
-  .ser(se_PostCommentForComparedCommitCommand)
-  .de(de_PostCommentForComparedCommitCommand)
+  .sc(PostCommentForComparedCommit)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

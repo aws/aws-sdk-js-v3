@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateProvisionedModelThroughputRequest, CreateProvisionedModelThroughputResponse } from "../models/models_1";
-import {
-  de_CreateProvisionedModelThroughputCommand,
-  se_CreateProvisionedModelThroughputCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateProvisionedModelThroughput } from "../schemas/schemas_4_Model";
 
 /**
  * @public
@@ -106,16 +102,11 @@ export class CreateProvisionedModelThroughputCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "CreateProvisionedModelThroughput", {})
   .n("BedrockClient", "CreateProvisionedModelThroughputCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateProvisionedModelThroughputCommand)
-  .de(de_CreateProvisionedModelThroughputCommand)
+  .sc(CreateProvisionedModelThroughput)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

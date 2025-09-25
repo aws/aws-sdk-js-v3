@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetBucketAccessKeysRequest,
-  GetBucketAccessKeysResult,
-  GetBucketAccessKeysResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetBucketAccessKeysCommand, se_GetBucketAccessKeysCommand } from "../protocols/Aws_json1_1";
+import { GetBucketAccessKeysRequest, GetBucketAccessKeysResult } from "../models/models_0";
+import { GetBucketAccessKeys } from "../schemas/schemas_1_Bucket";
 
 /**
  * @public
@@ -118,16 +113,11 @@ export class GetBucketAccessKeysCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "GetBucketAccessKeys", {})
   .n("LightsailClient", "GetBucketAccessKeysCommand")
-  .f(void 0, GetBucketAccessKeysResultFilterSensitiveLog)
-  .ser(se_GetBucketAccessKeysCommand)
-  .de(de_GetBucketAccessKeysCommand)
+  .sc(GetBucketAccessKeys)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

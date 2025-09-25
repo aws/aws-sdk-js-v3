@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateAppRequest,
-  CreateAppRequestFilterSensitiveLog,
-  CreateAppResult,
-  CreateAppResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateAppCommand, se_CreateAppCommand } from "../protocols/Aws_restJson1";
+import { CreateAppRequest, CreateAppResult } from "../models/models_0";
+import { CreateApp } from "../schemas/schemas_2_Domain";
 
 /**
  * @public
@@ -210,16 +204,11 @@ export class CreateAppCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Amplify", "CreateApp", {})
   .n("AmplifyClient", "CreateAppCommand")
-  .f(CreateAppRequestFilterSensitiveLog, CreateAppResultFilterSensitiveLog)
-  .ser(se_CreateAppCommand)
-  .de(de_CreateAppCommand)
+  .sc(CreateApp)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,13 +7,9 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListAccountsWithInvalidEffectivePolicyRequest,
   ListAccountsWithInvalidEffectivePolicyResponse,
-  ListAccountsWithInvalidEffectivePolicyResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  de_ListAccountsWithInvalidEffectivePolicyCommand,
-  se_ListAccountsWithInvalidEffectivePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAccountsWithInvalidEffectivePolicy } from "../schemas/schemas_7_Account";
 
 /**
  * @public
@@ -493,16 +488,11 @@ export class ListAccountsWithInvalidEffectivePolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "ListAccountsWithInvalidEffectivePolicy", {})
   .n("OrganizationsClient", "ListAccountsWithInvalidEffectivePolicyCommand")
-  .f(void 0, ListAccountsWithInvalidEffectivePolicyResponseFilterSensitiveLog)
-  .ser(se_ListAccountsWithInvalidEffectivePolicyCommand)
-  .de(de_ListAccountsWithInvalidEffectivePolicyCommand)
+  .sc(ListAccountsWithInvalidEffectivePolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

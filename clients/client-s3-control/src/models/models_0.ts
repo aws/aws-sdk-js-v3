@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
 
@@ -7841,21 +7841,3 @@ export interface ObjectLambdaAccessPoint {
    */
   Alias?: ObjectLambdaAccessPointAlias | undefined;
 }
-
-/**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
-  ...obj,
-  ...(obj.AccessKeyId && { AccessKeyId: SENSITIVE_STRING }),
-  ...(obj.SecretAccessKey && { SecretAccessKey: SENSITIVE_STRING }),
-  ...(obj.SessionToken && { SessionToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetDataAccessResultFilterSensitiveLog = (obj: GetDataAccessResult): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-});

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ModifyTransitGatewayPrefixListReferenceRequest,
   ModifyTransitGatewayPrefixListReferenceResult,
 } from "../models/models_7";
-import {
-  de_ModifyTransitGatewayPrefixListReferenceCommand,
-  se_ModifyTransitGatewayPrefixListReferenceCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyTransitGatewayPrefixListReference } from "../schemas/schemas_19_Prefix";
 
 /**
  * @public
@@ -94,16 +90,11 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ModifyTransitGatewayPrefixListReference", {})
   .n("EC2Client", "ModifyTransitGatewayPrefixListReferenceCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyTransitGatewayPrefixListReferenceCommand)
-  .de(de_ModifyTransitGatewayPrefixListReferenceCommand)
+  .sc(ModifyTransitGatewayPrefixListReference)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

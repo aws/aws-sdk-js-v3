@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateClusterSoftwareRequest, UpdateClusterSoftwareResponse } from "../models/models_5";
-import { de_UpdateClusterSoftwareCommand, se_UpdateClusterSoftwareCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { UpdateClusterSoftware } from "../schemas/schemas_20_Cluster";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class UpdateClusterSoftwareCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "UpdateClusterSoftware", {})
   .n("SageMakerClient", "UpdateClusterSoftwareCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateClusterSoftwareCommand)
-  .de(de_UpdateClusterSoftwareCommand)
+  .sc(UpdateClusterSoftware)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

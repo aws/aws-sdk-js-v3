@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeEventSourcesConfigRequest, DescribeEventSourcesConfigResponse } from "../models/models_0";
-import { de_DescribeEventSourcesConfigCommand, se_DescribeEventSourcesConfigCommand } from "../protocols/Aws_restJson1";
+import { DescribeEventSourcesConfig } from "../schemas/schemas_12_SourcesConfig";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class DescribeEventSourcesConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CapstoneControlPlaneService", "DescribeEventSourcesConfig", {})
   .n("DevOpsGuruClient", "DescribeEventSourcesConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeEventSourcesConfigCommand)
-  .de(de_DescribeEventSourcesConfigCommand)
+  .sc(DescribeEventSourcesConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

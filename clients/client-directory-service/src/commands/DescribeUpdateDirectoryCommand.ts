@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeUpdateDirectoryRequest, DescribeUpdateDirectoryResult } from "../models/models_0";
-import { de_DescribeUpdateDirectoryCommand, se_DescribeUpdateDirectoryCommand } from "../protocols/Aws_json1_1";
+import { DescribeUpdateDirectory } from "../schemas/schemas_1_Describe";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class DescribeUpdateDirectoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "DescribeUpdateDirectory", {})
   .n("DirectoryServiceClient", "DescribeUpdateDirectoryCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeUpdateDirectoryCommand)
-  .de(de_DescribeUpdateDirectoryCommand)
+  .sc(DescribeUpdateDirectory)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/models_1";
-import { de_DescribeAuditFindingCommand, se_DescribeAuditFindingCommand } from "../protocols/Aws_restJson1";
+import { DescribeAuditFinding } from "../schemas/schemas_14_Audit";
 
 /**
  * @public
@@ -149,16 +148,11 @@ export class DescribeAuditFindingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "DescribeAuditFinding", {})
   .n("IoTClient", "DescribeAuditFindingCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAuditFindingCommand)
-  .de(de_DescribeAuditFindingCommand)
+  .sc(DescribeAuditFinding)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

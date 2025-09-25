@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
 import { DeleteRescoreExecutionPlanRequest } from "../models/models_0";
-import { de_DeleteRescoreExecutionPlanCommand, se_DeleteRescoreExecutionPlanCommand } from "../protocols/Aws_json1_0";
+import { DeleteRescoreExecutionPlan } from "../schemas/schemas_1_Rescore";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class DeleteRescoreExecutionPlanCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraRankingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSKendraRerankingFrontendService", "DeleteRescoreExecutionPlan", {})
   .n("KendraRankingClient", "DeleteRescoreExecutionPlanCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteRescoreExecutionPlanCommand)
-  .de(de_DeleteRescoreExecutionPlanCommand)
+  .sc(DeleteRescoreExecutionPlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

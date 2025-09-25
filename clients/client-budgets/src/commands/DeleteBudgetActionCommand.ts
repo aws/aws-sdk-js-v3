@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DeleteBudgetActionRequest,
-  DeleteBudgetActionResponse,
-  DeleteBudgetActionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DeleteBudgetActionCommand, se_DeleteBudgetActionCommand } from "../protocols/Aws_json1_1";
+import { DeleteBudgetActionRequest, DeleteBudgetActionResponse } from "../models/models_0";
+import { DeleteBudgetAction } from "../schemas/schemas_1_Budget";
 
 /**
  * @public
@@ -145,16 +140,11 @@ export class DeleteBudgetActionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBudgetServiceGateway", "DeleteBudgetAction", {})
   .n("BudgetsClient", "DeleteBudgetActionCommand")
-  .f(void 0, DeleteBudgetActionResponseFilterSensitiveLog)
-  .ser(se_DeleteBudgetActionCommand)
-  .de(de_DeleteBudgetActionCommand)
+  .sc(DeleteBudgetAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

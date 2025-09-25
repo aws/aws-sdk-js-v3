@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
@@ -8,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetIntrospectionSchemaRequest, GetIntrospectionSchemaResponse } from "../models/models_0";
-import { de_GetIntrospectionSchemaCommand, se_GetIntrospectionSchemaCommand } from "../protocols/Aws_restJson1";
+import { GetIntrospectionSchema } from "../schemas/schemas_15_Schema";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class GetIntrospectionSchemaCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepdishControlPlaneService", "GetIntrospectionSchema", {})
   .n("AppSyncClient", "GetIntrospectionSchemaCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIntrospectionSchemaCommand)
-  .de(de_GetIntrospectionSchemaCommand)
+  .sc(GetIntrospectionSchema)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

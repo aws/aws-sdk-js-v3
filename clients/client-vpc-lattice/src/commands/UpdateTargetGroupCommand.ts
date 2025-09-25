@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateTargetGroupRequest, UpdateTargetGroupResponse } from "../models/models_0";
-import { de_UpdateTargetGroupCommand, se_UpdateTargetGroupCommand } from "../protocols/Aws_restJson1";
+import { UpdateTargetGroup } from "../schemas/schemas_6_Target";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -133,16 +132,11 @@ export class UpdateTargetGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MercuryControlPlane", "UpdateTargetGroup", {})
   .n("VPCLatticeClient", "UpdateTargetGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateTargetGroupCommand)
-  .de(de_UpdateTargetGroupCommand)
+  .sc(UpdateTargetGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

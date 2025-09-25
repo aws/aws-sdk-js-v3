@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteResourceDataSyncRequest, DeleteResourceDataSyncResult } from "../models/models_0";
-import { de_DeleteResourceDataSyncCommand, se_DeleteResourceDataSyncCommand } from "../protocols/Aws_json1_1";
+import { DeleteResourceDataSync } from "../schemas/schemas_13_ResourceData";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -80,16 +79,11 @@ export class DeleteResourceDataSyncCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "DeleteResourceDataSync", {})
   .n("SSMClient", "DeleteResourceDataSyncCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteResourceDataSyncCommand)
-  .de(de_DeleteResourceDataSyncCommand)
+  .sc(DeleteResourceDataSync)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

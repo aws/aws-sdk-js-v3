@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteTenantResourceAssociationRequest, DeleteTenantResourceAssociationResponse } from "../models/models_0";
-import {
-  de_DeleteTenantResourceAssociationCommand,
-  se_DeleteTenantResourceAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteTenantResourceAssociation } from "../schemas/schemas_1_Tenant";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -86,16 +82,11 @@ export class DeleteTenantResourceAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "DeleteTenantResourceAssociation", {})
   .n("SESv2Client", "DeleteTenantResourceAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteTenantResourceAssociationCommand)
-  .de(de_DeleteTenantResourceAssociationCommand)
+  .sc(DeleteTenantResourceAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

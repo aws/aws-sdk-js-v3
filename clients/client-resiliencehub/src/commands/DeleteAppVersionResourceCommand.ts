@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAppVersionResourceRequest, DeleteAppVersionResourceResponse } from "../models/models_0";
-import { de_DeleteAppVersionResourceCommand, se_DeleteAppVersionResourceCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
+import { DeleteAppVersionResource } from "../schemas/schemas_15_App";
 
 /**
  * @public
@@ -160,16 +159,11 @@ export class DeleteAppVersionResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsResilienceHub", "DeleteAppVersionResource", {})
   .n("ResiliencehubClient", "DeleteAppVersionResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAppVersionResourceCommand)
-  .de(de_DeleteAppVersionResourceCommand)
+  .sc(DeleteAppVersionResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

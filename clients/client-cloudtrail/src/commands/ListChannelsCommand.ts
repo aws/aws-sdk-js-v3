@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListChannelsRequest, ListChannelsResponse } from "../models/models_0";
-import { de_ListChannelsCommand, se_ListChannelsCommand } from "../protocols/Aws_json1_1";
+import { ListChannels } from "../schemas/schemas_8_List";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class ListChannelsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudTrail_20131101", "ListChannels", {})
   .n("CloudTrailClient", "ListChannelsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListChannelsCommand)
-  .de(de_ListChannelsCommand)
+  .sc(ListChannels)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

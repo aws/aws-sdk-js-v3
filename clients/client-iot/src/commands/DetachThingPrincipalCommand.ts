@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DetachThingPrincipalRequest, DetachThingPrincipalResponse } from "../models/models_1";
-import { de_DetachThingPrincipalCommand, se_DetachThingPrincipalCommand } from "../protocols/Aws_restJson1";
+import { DetachThingPrincipal } from "../schemas/schemas_17_Principal";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class DetachThingPrincipalCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "DetachThingPrincipal", {})
   .n("IoTClient", "DetachThingPrincipalCommand")
-  .f(void 0, void 0)
-  .ser(se_DetachThingPrincipalCommand)
-  .de(de_DetachThingPrincipalCommand)
+  .sc(DetachThingPrincipal)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType } from "@smithy/types";
 
@@ -13,9 +13,7 @@ import {
   AnalyticsMetadataType,
   AssetType,
   AttributeType,
-  AttributeTypeFilterSensitiveLog,
   AuthenticationResultType,
-  AuthenticationResultTypeFilterSensitiveLog,
   AuthFactorType,
   AuthFlowType,
   ChallengeNameType,
@@ -44,7 +42,6 @@ import {
   ResourceServerScopeType,
   ResourceServerType,
   RiskConfigurationType,
-  RiskConfigurationTypeFilterSensitiveLog,
   RiskExceptionConfigurationType,
   SmsConfigurationType,
   SMSMfaSettingsType,
@@ -53,19 +50,16 @@ import {
   TermsEnforcementType,
   TermsSourceType,
   TermsType,
-  TermsTypeFilterSensitiveLog,
   TokenValidityUnitsType,
   UserAttributeUpdateSettingsType,
   UserContextDataType,
   UserImportJobType,
   UserPoolAddOnsType,
   UserPoolClientType,
-  UserPoolClientTypeFilterSensitiveLog,
   UserPoolMfaType,
   UserPoolPolicyType,
   UserPoolTierType,
   UserType,
-  UserTypeFilterSensitiveLog,
   VerificationMessageTemplateType,
   VerifiedAttributeType,
 } from "./models_0";
@@ -4518,372 +4512,3 @@ export interface VerifyUserAttributeRequest {
  * @public
  */
 export interface VerifyUserAttributeResponse {}
-
-/**
- * @internal
- */
-export const GetTokensFromRefreshTokenResponseFilterSensitiveLog = (obj: GetTokensFromRefreshTokenResponse): any => ({
-  ...obj,
-  ...(obj.AuthenticationResult && {
-    AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetUICustomizationRequestFilterSensitiveLog = (obj: GetUICustomizationRequest): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UICustomizationTypeFilterSensitiveLog = (obj: UICustomizationType): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetUICustomizationResponseFilterSensitiveLog = (obj: GetUICustomizationResponse): any => ({
-  ...obj,
-  ...(obj.UICustomization && { UICustomization: UICustomizationTypeFilterSensitiveLog(obj.UICustomization) }),
-});
-
-/**
- * @internal
- */
-export const GetUserRequestFilterSensitiveLog = (obj: GetUserRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetUserResponseFilterSensitiveLog = (obj: GetUserResponse): any => ({
-  ...obj,
-  ...(obj.Username && { Username: SENSITIVE_STRING }),
-  ...(obj.UserAttributes && {
-    UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetUserAttributeVerificationCodeRequestFilterSensitiveLog = (
-  obj: GetUserAttributeVerificationCodeRequest
-): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetUserAuthFactorsRequestFilterSensitiveLog = (obj: GetUserAuthFactorsRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetUserAuthFactorsResponseFilterSensitiveLog = (obj: GetUserAuthFactorsResponse): any => ({
-  ...obj,
-  ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GlobalSignOutRequestFilterSensitiveLog = (obj: GlobalSignOutRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InitiateAuthRequestFilterSensitiveLog = (obj: InitiateAuthRequest): any => ({
-  ...obj,
-  ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InitiateAuthResponseFilterSensitiveLog = (obj: InitiateAuthResponse): any => ({
-  ...obj,
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
-  ...(obj.AuthenticationResult && {
-    AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
-  }),
-});
-
-/**
- * @internal
- */
-export const ListDevicesRequestFilterSensitiveLog = (obj: ListDevicesRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListDevicesResponseFilterSensitiveLog = (obj: ListDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserPoolClientDescriptionFilterSensitiveLog = (obj: UserPoolClientDescription): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListUserPoolClientsResponseFilterSensitiveLog = (obj: ListUserPoolClientsResponse): any => ({
-  ...obj,
-  ...(obj.UserPoolClients && {
-    UserPoolClients: obj.UserPoolClients.map((item) => UserPoolClientDescriptionFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
-  ...obj,
-  ...(obj.Users && { Users: obj.Users.map((item) => UserTypeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListUsersInGroupResponseFilterSensitiveLog = (obj: ListUsersInGroupResponse): any => ({
-  ...obj,
-  ...(obj.Users && { Users: obj.Users.map((item) => UserTypeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListWebAuthnCredentialsRequestFilterSensitiveLog = (obj: ListWebAuthnCredentialsRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ResendConfirmationCodeRequestFilterSensitiveLog = (obj: ResendConfirmationCodeRequest): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
-  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
-  ...(obj.Username && { Username: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RespondToAuthChallengeRequestFilterSensitiveLog = (obj: RespondToAuthChallengeRequest): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
-  ...(obj.ChallengeResponses && { ChallengeResponses: SENSITIVE_STRING }),
-  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RespondToAuthChallengeResponseFilterSensitiveLog = (obj: RespondToAuthChallengeResponse): any => ({
-  ...obj,
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
-  ...(obj.AuthenticationResult && {
-    AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
-  }),
-});
-
-/**
- * @internal
- */
-export const RevokeTokenRequestFilterSensitiveLog = (obj: RevokeTokenRequest): any => ({
-  ...obj,
-  ...(obj.Token && { Token: SENSITIVE_STRING }),
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetRiskConfigurationRequestFilterSensitiveLog = (obj: SetRiskConfigurationRequest): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetRiskConfigurationResponseFilterSensitiveLog = (obj: SetRiskConfigurationResponse): any => ({
-  ...obj,
-  ...(obj.RiskConfiguration && { RiskConfiguration: RiskConfigurationTypeFilterSensitiveLog(obj.RiskConfiguration) }),
-});
-
-/**
- * @internal
- */
-export const SetUICustomizationRequestFilterSensitiveLog = (obj: SetUICustomizationRequest): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetUICustomizationResponseFilterSensitiveLog = (obj: SetUICustomizationResponse): any => ({
-  ...obj,
-  ...(obj.UICustomization && { UICustomization: UICustomizationTypeFilterSensitiveLog(obj.UICustomization) }),
-});
-
-/**
- * @internal
- */
-export const SetUserMFAPreferenceRequestFilterSensitiveLog = (obj: SetUserMFAPreferenceRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetUserSettingsRequestFilterSensitiveLog = (obj: SetUserSettingsRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SignUpRequestFilterSensitiveLog = (obj: SignUpRequest): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
-  ...(obj.Username && { Username: SENSITIVE_STRING }),
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-  ...(obj.UserAttributes && {
-    UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
-  }),
-  ...(obj.ValidationData && {
-    ValidationData: obj.ValidationData.map((item) => AttributeTypeFilterSensitiveLog(item)),
-  }),
-  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SignUpResponseFilterSensitiveLog = (obj: SignUpResponse): any => ({
-  ...obj,
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartWebAuthnRegistrationRequestFilterSensitiveLog = (obj: StartWebAuthnRegistrationRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAuthEventFeedbackRequestFilterSensitiveLog = (obj: UpdateAuthEventFeedbackRequest): any => ({
-  ...obj,
-  ...(obj.Username && { Username: SENSITIVE_STRING }),
-  ...(obj.FeedbackToken && { FeedbackToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateDeviceStatusRequestFilterSensitiveLog = (obj: UpdateDeviceStatusRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateTermsResponseFilterSensitiveLog = (obj: UpdateTermsResponse): any => ({
-  ...obj,
-  ...(obj.Terms && { Terms: TermsTypeFilterSensitiveLog(obj.Terms) }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserAttributesRequestFilterSensitiveLog = (obj: UpdateUserAttributesRequest): any => ({
-  ...obj,
-  ...(obj.UserAttributes && {
-    UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
-  }),
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserPoolClientRequestFilterSensitiveLog = (obj: UpdateUserPoolClientRequest): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserPoolClientResponseFilterSensitiveLog = (obj: UpdateUserPoolClientResponse): any => ({
-  ...obj,
-  ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientTypeFilterSensitiveLog(obj.UserPoolClient) }),
-});
-
-/**
- * @internal
- */
-export const VerifySoftwareTokenRequestFilterSensitiveLog = (obj: VerifySoftwareTokenRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
-  ...(obj.UserCode && { UserCode: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VerifySoftwareTokenResponseFilterSensitiveLog = (obj: VerifySoftwareTokenResponse): any => ({
-  ...obj,
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VerifyUserAttributeRequestFilterSensitiveLog = (obj: VerifyUserAttributeRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});

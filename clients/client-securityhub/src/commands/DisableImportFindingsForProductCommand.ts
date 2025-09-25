@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisableImportFindingsForProductRequest, DisableImportFindingsForProductResponse } from "../models/models_2";
-import {
-  de_DisableImportFindingsForProductCommand,
-  se_DisableImportFindingsForProductCommand,
-} from "../protocols/Aws_restJson1";
+import { DisableImportFindingsForProduct } from "../schemas/schemas_53_DisableImportFindingsForProduct";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -104,16 +100,11 @@ export class DisableImportFindingsForProductCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "DisableImportFindingsForProduct", {})
   .n("SecurityHubClient", "DisableImportFindingsForProductCommand")
-  .f(void 0, void 0)
-  .ser(se_DisableImportFindingsForProductCommand)
-  .de(de_DisableImportFindingsForProductCommand)
+  .sc(DisableImportFindingsForProduct)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

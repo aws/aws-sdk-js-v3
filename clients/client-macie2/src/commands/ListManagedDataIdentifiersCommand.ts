@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { ListManagedDataIdentifiersRequest, ListManagedDataIdentifiersResponse } from "../models/models_1";
-import { de_ListManagedDataIdentifiersCommand, se_ListManagedDataIdentifiersCommand } from "../protocols/Aws_restJson1";
+import { ListManagedDataIdentifiers } from "../schemas/schemas_2_";
 
 /**
  * @public
@@ -76,16 +75,11 @@ export class ListManagedDataIdentifiersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Macie2", "ListManagedDataIdentifiers", {})
   .n("Macie2Client", "ListManagedDataIdentifiersCommand")
-  .f(void 0, void 0)
-  .ser(se_ListManagedDataIdentifiersCommand)
-  .de(de_ListManagedDataIdentifiersCommand)
+  .sc(ListManagedDataIdentifiers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

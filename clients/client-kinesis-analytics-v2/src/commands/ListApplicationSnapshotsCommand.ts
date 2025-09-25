@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import { ListApplicationSnapshotsRequest, ListApplicationSnapshotsResponse } from "../models/models_0";
-import { de_ListApplicationSnapshotsCommand, se_ListApplicationSnapshotsCommand } from "../protocols/Aws_json1_1";
+import { ListApplicationSnapshots } from "../schemas/schemas_3_Application";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class ListApplicationSnapshotsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KinesisAnalytics_20180523", "ListApplicationSnapshots", {})
   .n("KinesisAnalyticsV2Client", "ListApplicationSnapshotsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListApplicationSnapshotsCommand)
-  .de(de_ListApplicationSnapshotsCommand)
+  .sc(ListApplicationSnapshots)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

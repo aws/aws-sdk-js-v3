@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
@@ -8,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { GetThingShadowRequest, GetThingShadowResponse } from "../models/models_0";
-import { de_GetThingShadowCommand, se_GetThingShadowCommand } from "../protocols/Aws_restJson1";
+import { GetThingShadow } from "../schemas/schemas_1_Thing";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class GetThingShadowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTDataPlaneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotMoonrakerService", "GetThingShadow", {})
   .n("IoTDataPlaneClient", "GetThingShadowCommand")
-  .f(void 0, void 0)
-  .ser(se_GetThingShadowCommand)
-  .de(de_GetThingShadowCommand)
+  .sc(GetThingShadow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

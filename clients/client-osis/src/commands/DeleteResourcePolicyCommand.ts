@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
 import { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "../protocols/Aws_restJson1";
+import { DeleteResourcePolicy } from "../schemas/schemas_2_Resource";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class DeleteResourcePolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchIngestionService", "DeleteResourcePolicy", {})
   .n("OSISClient", "DeleteResourcePolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteResourcePolicyCommand)
-  .de(de_DeleteResourcePolicyCommand)
+  .sc(DeleteResourcePolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

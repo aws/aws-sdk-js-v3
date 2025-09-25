@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { UpdateBucketRequest, UpdateBucketResult } from "../models/models_1";
-import { de_UpdateBucketCommand, se_UpdateBucketCommand } from "../protocols/Aws_json1_1";
+import { UpdateBucket } from "../schemas/schemas_1_Bucket";
 
 /**
  * @public
@@ -173,16 +172,11 @@ export class UpdateBucketCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "UpdateBucket", {})
   .n("LightsailClient", "UpdateBucketCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateBucketCommand)
-  .de(de_UpdateBucketCommand)
+  .sc(UpdateBucket)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

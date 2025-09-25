@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import { GetTableAutoScalingSettingsRequest, GetTableAutoScalingSettingsResponse } from "../models/models_0";
-import { de_GetTableAutoScalingSettingsCommand, se_GetTableAutoScalingSettingsCommand } from "../protocols/Aws_json1_0";
+import { GetTableAutoScalingSettings } from "../schemas/schemas_2_Table";
 
 /**
  * @public
@@ -151,16 +150,11 @@ export class GetTableAutoScalingSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KeyspacesService", "GetTableAutoScalingSettings", {})
   .n("KeyspacesClient", "GetTableAutoScalingSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTableAutoScalingSettingsCommand)
-  .de(de_GetTableAutoScalingSettingsCommand)
+  .sc(GetTableAutoScalingSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

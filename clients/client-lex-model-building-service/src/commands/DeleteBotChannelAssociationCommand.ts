@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { DeleteBotChannelAssociationRequest } from "../models/models_0";
-import {
-  de_DeleteBotChannelAssociationCommand,
-  se_DeleteBotChannelAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBotChannelAssociation } from "../schemas/schemas_5_Bot";
 
 /**
  * @public
@@ -99,16 +95,11 @@ export class DeleteBotChannelAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepSenseModelBuildingService", "DeleteBotChannelAssociation", {})
   .n("LexModelBuildingServiceClient", "DeleteBotChannelAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteBotChannelAssociationCommand)
-  .de(de_DeleteBotChannelAssociationCommand)
+  .sc(DeleteBotChannelAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  CreateDatasetGroupRequest,
-  CreateDatasetGroupRequestFilterSensitiveLog,
-  CreateDatasetGroupResponse,
-} from "../models/models_0";
-import { de_CreateDatasetGroupCommand, se_CreateDatasetGroupCommand } from "../protocols/Aws_json1_1";
+import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/models_0";
+import { CreateDatasetGroup } from "../schemas/schemas_13_Dataset";
 
 /**
  * @public
@@ -110,16 +105,11 @@ export class CreateDatasetGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecast", "CreateDatasetGroup", {})
   .n("ForecastClient", "CreateDatasetGroupCommand")
-  .f(CreateDatasetGroupRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateDatasetGroupCommand)
-  .de(de_CreateDatasetGroupCommand)
+  .sc(CreateDatasetGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

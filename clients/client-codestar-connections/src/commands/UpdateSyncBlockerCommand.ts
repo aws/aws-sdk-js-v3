@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateSyncBlockerInput, UpdateSyncBlockerOutput } from "../models/models_0";
-import { de_UpdateSyncBlockerCommand, se_UpdateSyncBlockerCommand } from "../protocols/Aws_json1_0";
+import { UpdateSyncBlocker } from "../schemas/schemas_5_Sync";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class UpdateSyncBlockerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeStar_connections_20191201", "UpdateSyncBlocker", {})
   .n("CodeStarConnectionsClient", "UpdateSyncBlockerCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSyncBlockerCommand)
-  .de(de_UpdateSyncBlockerCommand)
+  .sc(UpdateSyncBlocker)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

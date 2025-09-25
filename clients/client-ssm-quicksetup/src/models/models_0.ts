@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SSMQuickSetupServiceException as __BaseException } from "./SSMQuickSetupServiceException";
 
@@ -2330,42 +2330,3 @@ export interface UpdateServiceSettingsInput {
    */
   ExplorerEnablingRoleArn?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateConfigurationManagerInputFilterSensitiveLog = (obj: CreateConfigurationManagerInput): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetConfigurationManagerOutputFilterSensitiveLog = (obj: GetConfigurationManagerOutput): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagEntryFilterSensitiveLog = (obj: TagEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});

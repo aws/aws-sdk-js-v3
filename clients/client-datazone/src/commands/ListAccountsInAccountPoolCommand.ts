@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAccountsInAccountPoolInput,
-  ListAccountsInAccountPoolOutput,
-  ListAccountsInAccountPoolOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ListAccountsInAccountPoolCommand, se_ListAccountsInAccountPoolCommand } from "../protocols/Aws_restJson1";
+import { ListAccountsInAccountPoolInput, ListAccountsInAccountPoolOutput } from "../models/models_1";
+import { ListAccountsInAccountPool } from "../schemas/schemas_17_AccountPool";
 
 /**
  * @public
@@ -104,16 +99,11 @@ export class ListAccountsInAccountPoolCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "ListAccountsInAccountPool", {})
   .n("DataZoneClient", "ListAccountsInAccountPoolCommand")
-  .f(void 0, ListAccountsInAccountPoolOutputFilterSensitiveLog)
-  .ser(se_ListAccountsInAccountPoolCommand)
-  .de(de_ListAccountsInAccountPoolCommand)
+  .sc(ListAccountsInAccountPool)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

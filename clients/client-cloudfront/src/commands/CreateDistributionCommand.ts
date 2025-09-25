@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateDistributionRequest,
-  CreateDistributionRequestFilterSensitiveLog,
-  CreateDistributionResult,
-  CreateDistributionResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateDistributionCommand, se_CreateDistributionCommand } from "../protocols/Aws_restXml";
+import { CreateDistributionRequest, CreateDistributionResult } from "../models/models_0";
+import { CreateDistribution } from "../schemas/schemas_11_Distribution";
 
 /**
  * @public
@@ -956,16 +950,11 @@ export class CreateDistributionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "CreateDistribution", {})
   .n("CloudFrontClient", "CreateDistributionCommand")
-  .f(CreateDistributionRequestFilterSensitiveLog, CreateDistributionResultFilterSensitiveLog)
-  .ser(se_CreateDistributionCommand)
-  .de(de_CreateDistributionCommand)
+  .sc(CreateDistribution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

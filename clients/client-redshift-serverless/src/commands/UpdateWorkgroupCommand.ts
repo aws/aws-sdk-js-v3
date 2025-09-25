@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateWorkgroupRequest, UpdateWorkgroupResponse } from "../models/models_0";
-import { de_UpdateWorkgroupCommand, se_UpdateWorkgroupCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
+import { UpdateWorkgroup } from "../schemas/schemas_4_CustomDomain";
 
 /**
  * @public
@@ -192,16 +191,11 @@ export class UpdateWorkgroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServerless", "UpdateWorkgroup", {})
   .n("RedshiftServerlessClient", "UpdateWorkgroupCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateWorkgroupCommand)
-  .de(de_UpdateWorkgroupCommand)
+  .sc(UpdateWorkgroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

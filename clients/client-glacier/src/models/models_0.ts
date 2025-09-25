@@ -2666,24 +2666,3 @@ export interface UploadMultipartPartOutput {
    */
   checksum?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const GetJobOutputOutputFilterSensitiveLog = (obj: GetJobOutputOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadArchiveInputFilterSensitiveLog = (obj: UploadArchiveInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadMultipartPartInputFilterSensitiveLog = (obj: UploadMultipartPartInput): any => ({
-  ...obj,
-});

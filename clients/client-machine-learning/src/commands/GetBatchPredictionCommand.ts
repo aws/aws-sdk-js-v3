@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { GetBatchPredictionInput, GetBatchPredictionOutput } from "../models/models_0";
-import { de_GetBatchPredictionCommand, se_GetBatchPredictionCommand } from "../protocols/Aws_json1_1";
+import { GetBatchPrediction } from "../schemas/schemas_3_Describe";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class GetBatchPredictionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonML_20141212", "GetBatchPrediction", {})
   .n("MachineLearningClient", "GetBatchPredictionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetBatchPredictionCommand)
-  .de(de_GetBatchPredictionCommand)
+  .sc(GetBatchPrediction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

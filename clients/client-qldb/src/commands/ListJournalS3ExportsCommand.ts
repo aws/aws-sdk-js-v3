@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListJournalS3ExportsRequest, ListJournalS3ExportsResponse } from "../models/models_0";
-import { de_ListJournalS3ExportsCommand, se_ListJournalS3ExportsCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
+import { ListJournalS3Exports } from "../schemas/schemas_1_Ledger";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class ListJournalS3ExportsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QLDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonQLDB", "ListJournalS3Exports", {})
   .n("QLDBClient", "ListJournalS3ExportsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListJournalS3ExportsCommand)
-  .de(de_ListJournalS3ExportsCommand)
+  .sc(ListJournalS3Exports)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

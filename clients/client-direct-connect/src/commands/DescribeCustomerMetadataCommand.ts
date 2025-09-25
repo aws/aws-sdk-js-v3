@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeCustomerMetadataResponse } from "../models/models_0";
-import { de_DescribeCustomerMetadataCommand, se_DescribeCustomerMetadataCommand } from "../protocols/Aws_json1_1";
+import { DescribeCustomerMetadata } from "../schemas/schemas_16_Customer";
 
 /**
  * @public
@@ -80,16 +79,11 @@ export class DescribeCustomerMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OvertureService", "DescribeCustomerMetadata", {})
   .n("DirectConnectClient", "DescribeCustomerMetadataCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeCustomerMetadataCommand)
-  .de(de_DescribeCustomerMetadataCommand)
+  .sc(DescribeCustomerMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

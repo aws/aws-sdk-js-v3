@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse } from "../models/models_1";
-import {
-  de_UpdateContainerInstancesStateCommand,
-  se_UpdateContainerInstancesStateCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateContainerInstancesState } from "../schemas/schemas_9_Container";
 
 /**
  * @public
@@ -403,16 +399,11 @@ export class UpdateContainerInstancesStateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerServiceV20141113", "UpdateContainerInstancesState", {})
   .n("ECSClient", "UpdateContainerInstancesStateCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateContainerInstancesStateCommand)
-  .de(de_UpdateContainerInstancesStateCommand)
+  .sc(UpdateContainerInstancesState)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

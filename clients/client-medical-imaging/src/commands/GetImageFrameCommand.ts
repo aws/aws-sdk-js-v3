@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
-import {
-  GetImageFrameRequest,
-  GetImageFrameResponse,
-  GetImageFrameResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetImageFrameCommand, se_GetImageFrameCommand } from "../protocols/Aws_restJson1";
+import { GetImageFrameRequest, GetImageFrameResponse } from "../models/models_0";
+import { GetImageFrame } from "../schemas/schemas_1_Image";
 
 /**
  * @public
@@ -104,16 +99,11 @@ export class GetImageFrameCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AHIGatewayService", "GetImageFrame", {})
   .n("MedicalImagingClient", "GetImageFrameCommand")
-  .f(void 0, GetImageFrameResponseFilterSensitiveLog)
-  .ser(se_GetImageFrameCommand)
-  .de(de_GetImageFrameCommand)
+  .sc(GetImageFrame)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   AddApplicationInputProcessingConfigurationRequest,
   AddApplicationInputProcessingConfigurationResponse,
 } from "../models/models_0";
-import {
-  de_AddApplicationInputProcessingConfigurationCommand,
-  se_AddApplicationInputProcessingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { AddApplicationInputProcessingConfiguration } from "../schemas/schemas_2_Application";
 
 /**
  * @public
@@ -105,16 +101,11 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KinesisAnalytics_20150814", "AddApplicationInputProcessingConfiguration", {})
   .n("KinesisAnalyticsClient", "AddApplicationInputProcessingConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_AddApplicationInputProcessingConfigurationCommand)
-  .de(de_AddApplicationInputProcessingConfigurationCommand)
+  .sc(AddApplicationInputProcessingConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AggregationRequest,
   AggregationResponse,
@@ -3528,49 +3526,3 @@ export interface UpdateOrgEc2DeepInspectionConfigurationRequest {
  * @public
  */
 export interface UpdateOrgEc2DeepInspectionConfigurationResponse {}
-
-/**
- * @internal
- */
-export const GetCodeSecurityIntegrationResponseFilterSensitiveLog = (obj: GetCodeSecurityIntegrationResponse): any => ({
-  ...obj,
-  ...(obj.authorizationUrl && { authorizationUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateGitHubIntegrationDetailFilterSensitiveLog = (obj: UpdateGitHubIntegrationDetail): any => ({
-  ...obj,
-  ...(obj.code && { code: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateGitLabSelfManagedIntegrationDetailFilterSensitiveLog = (
-  obj: UpdateGitLabSelfManagedIntegrationDetail
-): any => ({
-  ...obj,
-  ...(obj.authCode && { authCode: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateIntegrationDetailsFilterSensitiveLog = (obj: UpdateIntegrationDetails): any => {
-  if (obj.gitlabSelfManaged !== undefined)
-    return { gitlabSelfManaged: UpdateGitLabSelfManagedIntegrationDetailFilterSensitiveLog(obj.gitlabSelfManaged) };
-  if (obj.github !== undefined) return { github: UpdateGitHubIntegrationDetailFilterSensitiveLog(obj.github) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const UpdateCodeSecurityIntegrationRequestFilterSensitiveLog = (
-  obj: UpdateCodeSecurityIntegrationRequest
-): any => ({
-  ...obj,
-  ...(obj.details && { details: UpdateIntegrationDetailsFilterSensitiveLog(obj.details) }),
-});

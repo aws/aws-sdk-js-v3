@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import {
-  CreateManagedThingRequest,
-  CreateManagedThingRequestFilterSensitiveLog,
-  CreateManagedThingResponse,
-} from "../models/models_0";
-import { de_CreateManagedThingCommand, se_CreateManagedThingCommand } from "../protocols/Aws_restJson1";
+import { CreateManagedThingRequest, CreateManagedThingResponse } from "../models/models_0";
+import { CreateManagedThing } from "../schemas/schemas_3_Credential";
 
 /**
  * @public
@@ -158,16 +153,11 @@ export class CreateManagedThingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "CreateManagedThing", {})
   .n("IoTManagedIntegrationsClient", "CreateManagedThingCommand")
-  .f(CreateManagedThingRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateManagedThingCommand)
-  .de(de_CreateManagedThingCommand)
+  .sc(CreateManagedThing)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

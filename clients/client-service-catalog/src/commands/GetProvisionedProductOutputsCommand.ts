@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetProvisionedProductOutputsInput, GetProvisionedProductOutputsOutput } from "../models/models_0";
-import {
-  de_GetProvisionedProductOutputsCommand,
-  se_GetProvisionedProductOutputsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetProvisionedProductOutputs } from "../schemas/schemas_15_Describe";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -95,16 +91,11 @@ export class GetProvisionedProductOutputsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242ServiceCatalogService", "GetProvisionedProductOutputs", {})
   .n("ServiceCatalogClient", "GetProvisionedProductOutputsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetProvisionedProductOutputsCommand)
-  .de(de_GetProvisionedProductOutputsCommand)
+  .sc(GetProvisionedProductOutputs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

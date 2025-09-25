@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdatePatchBaselineRequest,
-  UpdatePatchBaselineRequestFilterSensitiveLog,
-  UpdatePatchBaselineResult,
-  UpdatePatchBaselineResultFilterSensitiveLog,
-} from "../models/models_2";
-import { de_UpdatePatchBaselineCommand, se_UpdatePatchBaselineCommand } from "../protocols/Aws_json1_1";
+import { UpdatePatchBaselineRequest, UpdatePatchBaselineResult } from "../models/models_2";
+import { UpdatePatchBaseline } from "../schemas/schemas_19_Patch";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -195,16 +189,11 @@ export class UpdatePatchBaselineCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "UpdatePatchBaseline", {})
   .n("SSMClient", "UpdatePatchBaselineCommand")
-  .f(UpdatePatchBaselineRequestFilterSensitiveLog, UpdatePatchBaselineResultFilterSensitiveLog)
-  .ser(se_UpdatePatchBaselineCommand)
-  .de(de_UpdatePatchBaselineCommand)
+  .sc(UpdatePatchBaseline)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

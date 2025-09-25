@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import {
-  de_DisableHealthServiceAccessForOrganizationCommand,
-  se_DisableHealthServiceAccessForOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableHealthServiceAccessForOrganization } from "../schemas/schemas_2_Describe";
 
 /**
  * @public
@@ -86,16 +82,11 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHealth_20160804", "DisableHealthServiceAccessForOrganization", {})
   .n("HealthClient", "DisableHealthServiceAccessForOrganizationCommand")
-  .f(void 0, void 0)
-  .ser(se_DisableHealthServiceAccessForOrganizationCommand)
-  .de(de_DisableHealthServiceAccessForOrganizationCommand)
+  .sc(DisableHealthServiceAccessForOrganization)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

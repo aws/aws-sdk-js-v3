@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateKnowledgeBaseRequest,
-  UpdateKnowledgeBaseRequestFilterSensitiveLog,
-  UpdateKnowledgeBaseResponse,
-  UpdateKnowledgeBaseResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_UpdateKnowledgeBaseCommand, se_UpdateKnowledgeBaseCommand } from "../protocols/Aws_restJson1";
+import { UpdateKnowledgeBaseRequest, UpdateKnowledgeBaseResponse } from "../models/models_1";
+import { UpdateKnowledgeBase } from "../schemas/schemas_7_Knowledge";
 
 /**
  * @public
@@ -440,16 +434,11 @@ export class UpdateKnowledgeBaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "UpdateKnowledgeBase", {})
   .n("BedrockAgentClient", "UpdateKnowledgeBaseCommand")
-  .f(UpdateKnowledgeBaseRequestFilterSensitiveLog, UpdateKnowledgeBaseResponseFilterSensitiveLog)
-  .ser(se_UpdateKnowledgeBaseCommand)
-  .de(de_UpdateKnowledgeBaseCommand)
+  .sc(UpdateKnowledgeBase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

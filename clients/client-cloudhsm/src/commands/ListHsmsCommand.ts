@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListHsmsRequest, ListHsmsResponse } from "../models/models_0";
-import { de_ListHsmsCommand, se_ListHsmsCommand } from "../protocols/Aws_json1_1";
+import { ListHsms } from "../schemas/schemas_2_Hsm";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class ListHsmsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudHsmFrontendService", "ListHsms", {})
   .n("CloudHSMClient", "ListHsmsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListHsmsCommand)
-  .de(de_ListHsmsCommand)
+  .sc(ListHsms)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

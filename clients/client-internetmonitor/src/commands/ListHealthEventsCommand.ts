@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
 import { ListHealthEventsInput, ListHealthEventsOutput } from "../models/models_0";
-import { de_ListHealthEventsCommand, se_ListHealthEventsCommand } from "../protocols/Aws_restJson1";
+import { ListHealthEvents } from "../schemas/schemas_2_Monitor";
 
 /**
  * @public
@@ -157,16 +156,11 @@ export class ListHealthEventsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("InternetMonitor20210603", "ListHealthEvents", {})
   .n("InternetMonitorClient", "ListHealthEventsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListHealthEventsCommand)
-  .de(de_ListHealthEventsCommand)
+  .sc(ListHealthEvents)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

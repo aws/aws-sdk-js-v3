@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PutAccountDetailsRequest,
-  PutAccountDetailsRequestFilterSensitiveLog,
-  PutAccountDetailsResponse,
-} from "../models/models_1";
-import { de_PutAccountDetailsCommand, se_PutAccountDetailsCommand } from "../protocols/Aws_restJson1";
+import { PutAccountDetailsRequest, PutAccountDetailsResponse } from "../models/models_1";
+import { PutAccountDetails } from "../schemas/schemas_30_Entity";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -88,16 +83,11 @@ export class PutAccountDetailsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "PutAccountDetails", {})
   .n("SESv2Client", "PutAccountDetailsCommand")
-  .f(PutAccountDetailsRequestFilterSensitiveLog, void 0)
-  .ser(se_PutAccountDetailsCommand)
-  .de(de_PutAccountDetailsCommand)
+  .sc(PutAccountDetails)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

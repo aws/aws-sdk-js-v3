@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeConnectionRequest,
-  DescribeConnectionResponse,
-  DescribeConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeConnectionCommand, se_DescribeConnectionCommand } from "../protocols/Aws_json1_1";
+import { DescribeConnectionRequest, DescribeConnectionResponse } from "../models/models_0";
+import { DescribeConnection } from "../schemas/schemas_6_Connection";
 
 /**
  * @public
@@ -150,16 +145,11 @@ export class DescribeConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSEvents", "DescribeConnection", {})
   .n("CloudWatchEventsClient", "DescribeConnectionCommand")
-  .f(void 0, DescribeConnectionResponseFilterSensitiveLog)
-  .ser(se_DescribeConnectionCommand)
-  .de(de_DescribeConnectionCommand)
+  .sc(DescribeConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

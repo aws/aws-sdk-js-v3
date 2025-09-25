@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { FinspaceServiceException as __BaseException } from "./FinspaceServiceException";
 
@@ -6412,29 +6412,3 @@ export interface UpdateKxVolumeResponse {
    */
   attachedClusters?: KxAttachedCluster[] | undefined;
 }
-
-/**
- * @internal
- */
-export const SuperuserParametersFilterSensitiveLog = (obj: SuperuserParameters): any => ({
-  ...obj,
-  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateEnvironmentRequestFilterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
-  ...obj,
-  ...(obj.superuserParameters && {
-    superuserParameters: SuperuserParametersFilterSensitiveLog(obj.superuserParameters),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetKxConnectionStringResponseFilterSensitiveLog = (obj: GetKxConnectionStringResponse): any => ({
-  ...obj,
-  ...(obj.signedConnectionString && { signedConnectionString: SENSITIVE_STRING }),
-});

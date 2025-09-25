@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,12 +8,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetAutomatedReasoningPolicyAnnotationsRequest,
   GetAutomatedReasoningPolicyAnnotationsResponse,
-  GetAutomatedReasoningPolicyAnnotationsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_GetAutomatedReasoningPolicyAnnotationsCommand,
-  se_GetAutomatedReasoningPolicyAnnotationsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAutomatedReasoningPolicyAnnotations } from "../schemas/schemas_2_Policy";
 
 /**
  * @public
@@ -180,16 +175,11 @@ export class GetAutomatedReasoningPolicyAnnotationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyAnnotations", {})
   .n("BedrockClient", "GetAutomatedReasoningPolicyAnnotationsCommand")
-  .f(void 0, GetAutomatedReasoningPolicyAnnotationsResponseFilterSensitiveLog)
-  .ser(se_GetAutomatedReasoningPolicyAnnotationsCommand)
-  .de(de_GetAutomatedReasoningPolicyAnnotationsCommand)
+  .sc(GetAutomatedReasoningPolicyAnnotations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

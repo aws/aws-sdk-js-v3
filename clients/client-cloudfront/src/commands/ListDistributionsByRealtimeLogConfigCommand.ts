@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,12 +8,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListDistributionsByRealtimeLogConfigRequest,
   ListDistributionsByRealtimeLogConfigResult,
-  ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  de_ListDistributionsByRealtimeLogConfigCommand,
-  se_ListDistributionsByRealtimeLogConfigCommand,
-} from "../protocols/Aws_restXml";
+import { ListDistributionsByRealtimeLogConfig } from "../schemas/schemas_14_Distribution";
 
 /**
  * @public
@@ -400,16 +395,11 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByRealtimeLogConfig", {})
   .n("CloudFrontClient", "ListDistributionsByRealtimeLogConfigCommand")
-  .f(void 0, ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog)
-  .ser(se_ListDistributionsByRealtimeLogConfigCommand)
-  .de(de_ListDistributionsByRealtimeLogConfigCommand)
+  .sc(ListDistributionsByRealtimeLogConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

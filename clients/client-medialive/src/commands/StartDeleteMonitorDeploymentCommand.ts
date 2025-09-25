@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { StartDeleteMonitorDeploymentRequest, StartDeleteMonitorDeploymentResponse } from "../models/models_2";
-import {
-  de_StartDeleteMonitorDeploymentCommand,
-  se_StartDeleteMonitorDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { StartDeleteMonitorDeployment } from "../schemas/schemas_3_List";
 
 /**
  * @public
@@ -155,16 +151,11 @@ export class StartDeleteMonitorDeploymentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "StartDeleteMonitorDeployment", {})
   .n("MediaLiveClient", "StartDeleteMonitorDeploymentCommand")
-  .f(void 0, void 0)
-  .ser(se_StartDeleteMonitorDeploymentCommand)
-  .de(de_StartDeleteMonitorDeploymentCommand)
+  .sc(StartDeleteMonitorDeployment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

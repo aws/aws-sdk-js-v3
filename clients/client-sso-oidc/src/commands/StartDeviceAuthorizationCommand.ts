@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartDeviceAuthorizationRequest,
-  StartDeviceAuthorizationRequestFilterSensitiveLog,
-  StartDeviceAuthorizationResponse,
-} from "../models/models_0";
-import { de_StartDeviceAuthorizationCommand, se_StartDeviceAuthorizationCommand } from "../protocols/Aws_restJson1";
+import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/models_0";
+import { StartDeviceAuthorization } from "../schemas/schemas_1_Create";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
@@ -125,16 +120,11 @@ export class StartDeviceAuthorizationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSSOOIDCService", "StartDeviceAuthorization", {})
   .n("SSOOIDCClient", "StartDeviceAuthorizationCommand")
-  .f(StartDeviceAuthorizationRequestFilterSensitiveLog, void 0)
-  .ser(se_StartDeviceAuthorizationCommand)
-  .de(de_StartDeviceAuthorizationCommand)
+  .sc(StartDeviceAuthorization)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

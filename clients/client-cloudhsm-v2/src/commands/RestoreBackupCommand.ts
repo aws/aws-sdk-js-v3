@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreBackupRequest, RestoreBackupResponse } from "../models/models_0";
-import { de_RestoreBackupCommand, se_RestoreBackupCommand } from "../protocols/Aws_json1_1";
+import { RestoreBackup } from "../schemas/schemas_2_Backup";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class RestoreBackupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BaldrApiService", "RestoreBackup", {})
   .n("CloudHSMV2Client", "RestoreBackupCommand")
-  .f(void 0, void 0)
-  .ser(se_RestoreBackupCommand)
-  .de(de_RestoreBackupCommand)
+  .sc(RestoreBackup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

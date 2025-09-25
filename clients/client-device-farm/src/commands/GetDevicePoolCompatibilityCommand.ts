@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDevicePoolCompatibilityRequest, GetDevicePoolCompatibilityResult } from "../models/models_0";
-import { de_GetDevicePoolCompatibilityCommand, se_GetDevicePoolCompatibilityCommand } from "../protocols/Aws_json1_1";
+import { GetDevicePoolCompatibility } from "../schemas/schemas_4_Get";
 
 /**
  * @public
@@ -270,16 +269,11 @@ export class GetDevicePoolCompatibilityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "GetDevicePoolCompatibility", {})
   .n("DeviceFarmClient", "GetDevicePoolCompatibilityCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDevicePoolCompatibilityCommand)
-  .de(de_GetDevicePoolCompatibilityCommand)
+  .sc(GetDevicePoolCompatibility)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_PutSellingSystemSettingsCommand, se_PutSellingSystemSettingsCommand } from "../protocols/Aws_json1_0";
+import { PutSellingSystemSettings } from "../schemas/schemas_6_SellingSystem";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class PutSellingSystemSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSPartnerCentralSelling", "PutSellingSystemSettings", {})
   .n("PartnerCentralSellingClient", "PutSellingSystemSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_PutSellingSystemSettingsCommand)
-  .de(de_PutSellingSystemSettingsCommand)
+  .sc(PutSellingSystemSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

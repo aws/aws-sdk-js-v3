@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import {
-  CreateDeliveryStreamInput,
-  CreateDeliveryStreamInputFilterSensitiveLog,
-  CreateDeliveryStreamOutput,
-} from "../models/models_0";
-import { de_CreateDeliveryStreamCommand, se_CreateDeliveryStreamCommand } from "../protocols/Aws_json1_1";
+import { CreateDeliveryStreamInput, CreateDeliveryStreamOutput } from "../models/models_0";
+import { CreateDeliveryStream } from "../schemas/schemas_1_DeliveryStream";
 
 /**
  * @public
@@ -713,16 +708,11 @@ export class CreateDeliveryStreamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Firehose_20150804", "CreateDeliveryStream", {})
   .n("FirehoseClient", "CreateDeliveryStreamCommand")
-  .f(CreateDeliveryStreamInputFilterSensitiveLog, void 0)
-  .ser(se_CreateDeliveryStreamCommand)
-  .de(de_CreateDeliveryStreamCommand)
+  .sc(CreateDeliveryStream)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

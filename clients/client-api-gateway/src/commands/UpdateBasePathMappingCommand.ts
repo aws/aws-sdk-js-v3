@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BasePathMapping, UpdateBasePathMappingRequest } from "../models/models_0";
-import { de_UpdateBasePathMappingCommand, se_UpdateBasePathMappingCommand } from "../protocols/Aws_restJson1";
+import { UpdateBasePathMapping } from "../schemas/schemas_29_Path";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class UpdateBasePathMappingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackplaneControlService", "UpdateBasePathMapping", {})
   .n("APIGatewayClient", "UpdateBasePathMappingCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateBasePathMappingCommand)
-  .de(de_UpdateBasePathMappingCommand)
+  .sc(UpdateBasePathMapping)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

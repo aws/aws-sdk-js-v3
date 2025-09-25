@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ACMServiceException as __BaseException } from "./ACMServiceException";
 
@@ -1608,27 +1608,3 @@ export interface UpdateCertificateOptionsRequest {
    */
   Options: CertificateOptions | undefined;
 }
-
-/**
- * @internal
- */
-export const ExportCertificateRequestFilterSensitiveLog = (obj: ExportCertificateRequest): any => ({
-  ...obj,
-  ...(obj.Passphrase && { Passphrase: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ExportCertificateResponseFilterSensitiveLog = (obj: ExportCertificateResponse): any => ({
-  ...obj,
-  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportCertificateRequestFilterSensitiveLog = (obj: ImportCertificateRequest): any => ({
-  ...obj,
-  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-});

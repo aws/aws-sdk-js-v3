@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdatePipelineRequest, UpdatePipelineResponse } from "../models/models_5";
-import { de_UpdatePipelineCommand, se_UpdatePipelineCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { UpdatePipeline } from "../schemas/schemas_59_Pipeline";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class UpdatePipelineCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "UpdatePipeline", {})
   .n("SageMakerClient", "UpdatePipelineCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdatePipelineCommand)
-  .de(de_UpdatePipelineCommand)
+  .sc(UpdatePipeline)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

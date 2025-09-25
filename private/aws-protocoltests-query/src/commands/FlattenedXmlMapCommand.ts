@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FlattenedXmlMapOutput } from "../models/models_0";
-import { de_FlattenedXmlMapCommand, se_FlattenedXmlMapCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
+import { FlattenedXmlMap } from "../schemas/schemas_1_Xml";
 
 /**
  * @public
@@ -70,16 +69,11 @@ export class FlattenedXmlMapCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsQuery", "FlattenedXmlMap", {})
   .n("QueryProtocolClient", "FlattenedXmlMapCommand")
-  .f(void 0, void 0)
-  .ser(se_FlattenedXmlMapCommand)
-  .de(de_FlattenedXmlMapCommand)
+  .sc(FlattenedXmlMap)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

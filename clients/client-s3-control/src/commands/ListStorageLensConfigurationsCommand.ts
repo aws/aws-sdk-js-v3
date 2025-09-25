@@ -1,17 +1,13 @@
 // smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListStorageLensConfigurationsRequest, ListStorageLensConfigurationsResult } from "../models/models_1";
-import {
-  de_ListStorageLensConfigurationsCommand,
-  se_ListStorageLensConfigurationsCommand,
-} from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { ListStorageLensConfigurations } from "../schemas/schemas_6_StorageLens";
 
 /**
  * @public
@@ -104,17 +100,11 @@ export class ListStorageLensConfigurationsCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
   })
   .s("AWSS3ControlServiceV20180820", "ListStorageLensConfigurations", {})
   .n("S3ControlClient", "ListStorageLensConfigurationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListStorageLensConfigurationsCommand)
-  .de(de_ListStorageLensConfigurationsCommand)
+  .sc(ListStorageLensConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

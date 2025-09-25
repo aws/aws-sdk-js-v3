@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeactivateMessageTemplateRequest, DeactivateMessageTemplateResponse } from "../models/models_1";
-import { de_DeactivateMessageTemplateCommand, se_DeactivateMessageTemplateCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { DeactivateMessageTemplate } from "../schemas/schemas_14_Message";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class DeactivateMessageTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "DeactivateMessageTemplate", {})
   .n("QConnectClient", "DeactivateMessageTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_DeactivateMessageTemplateCommand)
-  .de(de_DeactivateMessageTemplateCommand)
+  .sc(DeactivateMessageTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import { GetIngressPointRequest, GetIngressPointResponse } from "../models/models_0";
-import { de_GetIngressPointCommand, se_GetIngressPointCommand } from "../protocols/Aws_json1_0";
+import { GetIngressPoint } from "../schemas/schemas_6_Traffic";
 
 /**
  * @public
@@ -144,16 +143,11 @@ export class GetIngressPointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "GetIngressPoint", {})
   .n("MailManagerClient", "GetIngressPointCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIngressPointCommand)
-  .de(de_GetIngressPointCommand)
+  .sc(GetIngressPoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

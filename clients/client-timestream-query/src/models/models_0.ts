@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { TimestreamQueryServiceException as __BaseException } from "./TimestreamQueryServiceException";
 
@@ -2258,61 +2258,3 @@ export interface PrepareQueryResponse {
    */
   Parameters: ParameterMapping[] | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateScheduledQueryRequestFilterSensitiveLog = (obj: CreateScheduledQueryRequest): any => ({
-  ...obj,
-  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ScheduledQueryDescriptionFilterSensitiveLog = (obj: ScheduledQueryDescription): any => ({
-  ...obj,
-  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeScheduledQueryResponseFilterSensitiveLog = (obj: DescribeScheduledQueryResponse): any => ({
-  ...obj,
-  ...(obj.ScheduledQuery && { ScheduledQuery: ScheduledQueryDescriptionFilterSensitiveLog(obj.ScheduledQuery) }),
-});
-
-/**
- * @internal
- */
-export const ExecuteScheduledQueryRequestFilterSensitiveLog = (obj: ExecuteScheduledQueryRequest): any => ({
-  ...obj,
-  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PrepareQueryRequestFilterSensitiveLog = (obj: PrepareQueryRequest): any => ({
-  ...obj,
-  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const QueryRequestFilterSensitiveLog = (obj: QueryRequest): any => ({
-  ...obj,
-  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PrepareQueryResponseFilterSensitiveLog = (obj: PrepareQueryResponse): any => ({
-  ...obj,
-  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-});

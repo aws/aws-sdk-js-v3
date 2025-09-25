@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import { CreateExperimentTemplateRequest, CreateExperimentTemplateResponse } from "../models/models_0";
-import { de_CreateExperimentTemplateCommand, se_CreateExperimentTemplateCommand } from "../protocols/Aws_restJson1";
+import { CreateExperimentTemplate } from "../schemas/schemas_1_Experiment";
 
 /**
  * @public
@@ -270,16 +269,11 @@ export class CreateExperimentTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FaultInjectionSimulator", "CreateExperimentTemplate", {})
   .n("FisClient", "CreateExperimentTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateExperimentTemplateCommand)
-  .de(de_CreateExperimentTemplateCommand)
+  .sc(CreateExperimentTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

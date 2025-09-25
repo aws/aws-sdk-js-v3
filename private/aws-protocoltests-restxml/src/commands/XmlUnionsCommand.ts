@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { XmlUnionsRequest, XmlUnionsResponse } from "../models/models_0";
-import { de_XmlUnionsCommand, se_XmlUnionsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { XmlUnions } from "../schemas/schemas_17_Xml";
 
 /**
  * @public
@@ -150,16 +149,11 @@ export class XmlUnionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestXml", "XmlUnions", {})
   .n("RestXmlProtocolClient", "XmlUnionsCommand")
-  .f(void 0, void 0)
-  .ser(se_XmlUnionsCommand)
-  .de(de_XmlUnionsCommand)
+  .sc(XmlUnions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SearchProfilesRequest,
-  SearchProfilesResponse,
-  SearchProfilesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_SearchProfilesCommand, se_SearchProfilesCommand } from "../protocols/Aws_restJson1";
+import { SearchProfilesRequest, SearchProfilesResponse } from "../models/models_1";
+import { SearchProfiles } from "../schemas/schemas_4_Segment";
 
 /**
  * @public
@@ -210,16 +205,11 @@ export class SearchProfilesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "SearchProfiles", {})
   .n("CustomerProfilesClient", "SearchProfilesCommand")
-  .f(void 0, SearchProfilesResponseFilterSensitiveLog)
-  .ser(se_SearchProfilesCommand)
-  .de(de_SearchProfilesCommand)
+  .sc(SearchProfiles)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

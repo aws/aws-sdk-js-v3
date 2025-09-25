@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetInferenceProfileRequest,
-  GetInferenceProfileResponse,
-  GetInferenceProfileResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetInferenceProfileCommand, se_GetInferenceProfileCommand } from "../protocols/Aws_restJson1";
+import { GetInferenceProfileRequest, GetInferenceProfileResponse } from "../models/models_1";
+import { GetInferenceProfile } from "../schemas/schemas_13_Model";
 
 /**
  * @public
@@ -101,16 +96,11 @@ export class GetInferenceProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "GetInferenceProfile", {})
   .n("BedrockClient", "GetInferenceProfileCommand")
-  .f(void 0, GetInferenceProfileResponseFilterSensitiveLog)
-  .ser(se_GetInferenceProfileCommand)
-  .de(de_GetInferenceProfileCommand)
+  .sc(GetInferenceProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

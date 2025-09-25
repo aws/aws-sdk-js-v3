@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RemoveResourcePermissionRequest, RemoveResourcePermissionRequestFilterSensitiveLog } from "../models/models_0";
-import { de_RemoveResourcePermissionCommand, se_RemoveResourcePermissionCommand } from "../protocols/Aws_restJson1";
+import { RemoveResourcePermissionRequest } from "../models/models_0";
+import { RemoveResourcePermission } from "../schemas/schemas_15_Resource";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -86,16 +85,11 @@ export class RemoveResourcePermissionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "RemoveResourcePermission", {})
   .n("WorkDocsClient", "RemoveResourcePermissionCommand")
-  .f(RemoveResourcePermissionRequestFilterSensitiveLog, void 0)
-  .ser(se_RemoveResourcePermissionCommand)
-  .de(de_RemoveResourcePermissionCommand)
+  .sc(RemoveResourcePermission)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DisableOrganizationsRootCredentialsManagementRequest,
   DisableOrganizationsRootCredentialsManagementResponse,
 } from "../models/models_0";
-import {
-  de_DisableOrganizationsRootCredentialsManagementCommand,
-  se_DisableOrganizationsRootCredentialsManagementCommand,
-} from "../protocols/Aws_query";
+import { DisableOrganizationsRootCredentialsManagement } from "../schemas/schemas_26_Organizations";
 
 /**
  * @public
@@ -115,16 +111,11 @@ export class DisableOrganizationsRootCredentialsManagementCommand extends $Comma
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "DisableOrganizationsRootCredentialsManagement", {})
   .n("IAMClient", "DisableOrganizationsRootCredentialsManagementCommand")
-  .f(void 0, void 0)
-  .ser(se_DisableOrganizationsRootCredentialsManagementCommand)
-  .de(de_DisableOrganizationsRootCredentialsManagementCommand)
+  .sc(DisableOrganizationsRootCredentialsManagement)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

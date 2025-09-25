@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { GetImageRecipeRequest, GetImageRecipeResponse } from "../models/models_0";
-import { de_GetImageRecipeCommand, se_GetImageRecipeCommand } from "../protocols/Aws_restJson1";
+import { GetImageRecipe } from "../schemas/schemas_31_Image";
 
 /**
  * @public
@@ -142,16 +141,11 @@ export class GetImageRecipeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("imagebuilder", "GetImageRecipe", {})
   .n("ImagebuilderClient", "GetImageRecipeCommand")
-  .f(void 0, void 0)
-  .ser(se_GetImageRecipeCommand)
-  .de(de_GetImageRecipeCommand)
+  .sc(GetImageRecipe)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

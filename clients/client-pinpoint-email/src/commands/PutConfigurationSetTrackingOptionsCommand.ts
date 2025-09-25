@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   PutConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  de_PutConfigurationSetTrackingOptionsCommand,
-  se_PutConfigurationSetTrackingOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { PutConfigurationSetTrackingOptions } from "../schemas/schemas_8_ConfigurationSet";
 
 /**
  * @public
@@ -87,16 +83,11 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPinpointEmailService", "PutConfigurationSetTrackingOptions", {})
   .n("PinpointEmailClient", "PutConfigurationSetTrackingOptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_PutConfigurationSetTrackingOptionsCommand)
-  .de(de_PutConfigurationSetTrackingOptionsCommand)
+  .sc(PutConfigurationSetTrackingOptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

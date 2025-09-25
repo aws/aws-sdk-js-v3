@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GeneratePinDataInput,
-  GeneratePinDataInputFilterSensitiveLog,
-  GeneratePinDataOutput,
-  GeneratePinDataOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GeneratePinDataInput, GeneratePinDataOutput } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { de_GeneratePinDataCommand, se_GeneratePinDataCommand } from "../protocols/Aws_restJson1";
+import { GeneratePinData } from "../schemas/schemas_1_Data";
 
 /**
  * @public
@@ -151,16 +145,11 @@ export class GeneratePinDataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PaymentCryptographyDataPlane", "GeneratePinData", {})
   .n("PaymentCryptographyDataClient", "GeneratePinDataCommand")
-  .f(GeneratePinDataInputFilterSensitiveLog, GeneratePinDataOutputFilterSensitiveLog)
-  .ser(se_GeneratePinDataCommand)
-  .de(de_GeneratePinDataCommand)
+  .sc(GeneratePinData)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

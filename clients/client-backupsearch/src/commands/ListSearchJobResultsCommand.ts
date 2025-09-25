@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListSearchJobResultsInput,
-  ListSearchJobResultsOutput,
-  ListSearchJobResultsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListSearchJobResultsCommand, se_ListSearchJobResultsCommand } from "../protocols/Aws_restJson1";
+import { ListSearchJobResultsInput, ListSearchJobResultsOutput } from "../models/models_0";
+import { ListSearchJobResults } from "../schemas/schemas_1_Search";
 
 /**
  * @public
@@ -115,16 +110,11 @@ export class ListSearchJobResultsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoBackupSearchService", "ListSearchJobResults", {})
   .n("BackupSearchClient", "ListSearchJobResultsCommand")
-  .f(void 0, ListSearchJobResultsOutputFilterSensitiveLog)
-  .ser(se_ListSearchJobResultsCommand)
-  .de(de_ListSearchJobResultsCommand)
+  .sc(ListSearchJobResults)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

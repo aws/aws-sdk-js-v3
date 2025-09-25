@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SetRiskConfigurationRequest,
-  SetRiskConfigurationRequestFilterSensitiveLog,
-  SetRiskConfigurationResponse,
-  SetRiskConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_SetRiskConfigurationCommand, se_SetRiskConfigurationCommand } from "../protocols/Aws_json1_1";
+import { SetRiskConfigurationRequest, SetRiskConfigurationResponse } from "../models/models_1";
+import { SetRiskConfiguration } from "../schemas/schemas_27_User";
 
 /**
  * @public
@@ -240,16 +234,11 @@ export class SetRiskConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "SetRiskConfiguration", {})
   .n("CognitoIdentityProviderClient", "SetRiskConfigurationCommand")
-  .f(SetRiskConfigurationRequestFilterSensitiveLog, SetRiskConfigurationResponseFilterSensitiveLog)
-  .ser(se_SetRiskConfigurationCommand)
-  .de(de_SetRiskConfigurationCommand)
+  .sc(SetRiskConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListCloudFrontOriginAccessIdentitiesRequest,
   ListCloudFrontOriginAccessIdentitiesResult,
 } from "../models/models_1";
-import {
-  de_ListCloudFrontOriginAccessIdentitiesCommand,
-  se_ListCloudFrontOriginAccessIdentitiesCommand,
-} from "../protocols/Aws_restXml";
+import { ListCloudFrontOriginAccessIdentities } from "../schemas/schemas_49_ListCloudFrontOriginAccessIdentities";
 
 /**
  * @public
@@ -95,16 +91,11 @@ export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "ListCloudFrontOriginAccessIdentities", {})
   .n("CloudFrontClient", "ListCloudFrontOriginAccessIdentitiesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCloudFrontOriginAccessIdentitiesCommand)
-  .de(de_ListCloudFrontOriginAccessIdentitiesCommand)
+  .sc(ListCloudFrontOriginAccessIdentities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

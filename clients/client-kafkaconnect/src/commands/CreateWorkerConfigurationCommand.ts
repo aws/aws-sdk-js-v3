@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  CreateWorkerConfigurationRequest,
-  CreateWorkerConfigurationRequestFilterSensitiveLog,
-  CreateWorkerConfigurationResponse,
-} from "../models/models_0";
-import { de_CreateWorkerConfigurationCommand, se_CreateWorkerConfigurationCommand } from "../protocols/Aws_restJson1";
+import { CreateWorkerConfigurationRequest, CreateWorkerConfigurationResponse } from "../models/models_0";
+import { CreateWorkerConfiguration } from "../schemas/schemas_2_Describe";
 
 /**
  * @public
@@ -118,16 +113,11 @@ export class CreateWorkerConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KafkaConnect", "CreateWorkerConfiguration", {})
   .n("KafkaConnectClient", "CreateWorkerConfigurationCommand")
-  .f(CreateWorkerConfigurationRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateWorkerConfigurationCommand)
-  .de(de_CreateWorkerConfigurationCommand)
+  .sc(CreateWorkerConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

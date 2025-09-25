@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListStackRefactorsInput, ListStackRefactorsOutput } from "../models/models_0";
-import { de_ListStackRefactorsCommand, se_ListStackRefactorsCommand } from "../protocols/Aws_query";
+import { ListStackRefactors } from "../schemas/schemas_2_Stack";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class ListStackRefactorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudFormation", "ListStackRefactors", {})
   .n("CloudFormationClient", "ListStackRefactorsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListStackRefactorsCommand)
-  .de(de_ListStackRefactorsCommand)
+  .sc(ListStackRefactors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

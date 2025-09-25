@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CostOptimizationHubClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdatePreferencesRequest, UpdatePreferencesResponse } from "../models/models_0";
-import { de_UpdatePreferencesCommand, se_UpdatePreferencesCommand } from "../protocols/Aws_json1_0";
+import { UpdatePreferences } from "../schemas/schemas_1_List";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class UpdatePreferencesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CostOptimizationHubService", "UpdatePreferences", {})
   .n("CostOptimizationHubClient", "UpdatePreferencesCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdatePreferencesCommand)
-  .de(de_UpdatePreferencesCommand)
+  .sc(UpdatePreferences)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

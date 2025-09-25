@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListOpenCypherQueriesInput, ListOpenCypherQueriesOutput } from "../models/models_0";
 import { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { de_ListOpenCypherQueriesCommand, se_ListOpenCypherQueriesCommand } from "../protocols/Aws_restJson1";
+import { ListOpenCypherQueries } from "../schemas/schemas_5_Query";
 
 /**
  * @public
@@ -134,16 +133,11 @@ export class ListOpenCypherQueriesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneDataplane", "ListOpenCypherQueries", {})
   .n("NeptunedataClient", "ListOpenCypherQueriesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListOpenCypherQueriesCommand)
-  .de(de_ListOpenCypherQueriesCommand)
+  .sc(ListOpenCypherQueries)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

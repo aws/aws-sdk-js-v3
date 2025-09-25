@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateStudioSessionMappingInput } from "../models/models_0";
-import { de_CreateStudioSessionMappingCommand, se_CreateStudioSessionMappingCommand } from "../protocols/Aws_json1_1";
+import { CreateStudioSessionMapping } from "../schemas/schemas_11_StudioSession";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class CreateStudioSessionMappingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticMapReduce", "CreateStudioSessionMapping", {})
   .n("EMRClient", "CreateStudioSessionMappingCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateStudioSessionMappingCommand)
-  .de(de_CreateStudioSessionMappingCommand)
+  .sc(CreateStudioSessionMapping)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

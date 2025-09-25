@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetFileInput, GetFileOutput } from "../models/models_0";
-import { de_GetFileCommand, se_GetFileCommand } from "../protocols/Aws_json1_1";
+import { GetFile } from "../schemas/schemas_17_Merge";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class GetFileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCommit_20150413", "GetFile", {})
   .n("CodeCommitClient", "GetFileCommand")
-  .f(void 0, void 0)
-  .ser(se_GetFileCommand)
-  .de(de_GetFileCommand)
+  .sc(GetFile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

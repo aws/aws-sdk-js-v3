@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { DeletePublishingDestinationRequest, DeletePublishingDestinationResponse } from "../models/models_0";
-import {
-  de_DeletePublishingDestinationCommand,
-  se_DeletePublishingDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeletePublishingDestination } from "../schemas/schemas_46_DeletePublishingDestination";
 
 /**
  * @public
@@ -80,16 +76,11 @@ export class DeletePublishingDestinationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GuardDutyAPIService", "DeletePublishingDestination", {})
   .n("GuardDutyClient", "DeletePublishingDestinationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePublishingDestinationCommand)
-  .de(de_DeletePublishingDestinationCommand)
+  .sc(DeletePublishingDestination)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateOrderInput, CreateOrderOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { de_CreateOrderCommand, se_CreateOrderCommand } from "../protocols/Aws_restJson1";
+import { CreateOrder } from "../schemas/schemas_4_Capacity";
 
 /**
  * @public
@@ -127,16 +126,11 @@ export class CreateOrderCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OutpostsOlafService", "CreateOrder", {})
   .n("OutpostsClient", "CreateOrderCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateOrderCommand)
-  .de(de_CreateOrderCommand)
+  .sc(CreateOrder)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

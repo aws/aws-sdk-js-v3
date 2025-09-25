@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeStudioInput, DescribeStudioOutput } from "../models/models_0";
-import { de_DescribeStudioCommand, se_DescribeStudioCommand } from "../protocols/Aws_json1_1";
+import { DescribeStudio } from "../schemas/schemas_15_Describe";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class DescribeStudioCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticMapReduce", "DescribeStudio", {})
   .n("EMRClient", "DescribeStudioCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeStudioCommand)
-  .de(de_DescribeStudioCommand)
+  .sc(DescribeStudio)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

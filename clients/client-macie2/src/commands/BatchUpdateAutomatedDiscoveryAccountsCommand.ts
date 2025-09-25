@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   BatchUpdateAutomatedDiscoveryAccountsRequest,
   BatchUpdateAutomatedDiscoveryAccountsResponse,
 } from "../models/models_0";
-import {
-  de_BatchUpdateAutomatedDiscoveryAccountsCommand,
-  se_BatchUpdateAutomatedDiscoveryAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchUpdateAutomatedDiscoveryAccounts } from "../schemas/schemas_33_Automated";
 
 /**
  * @public
@@ -104,16 +100,11 @@ export class BatchUpdateAutomatedDiscoveryAccountsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Macie2", "BatchUpdateAutomatedDiscoveryAccounts", {})
   .n("Macie2Client", "BatchUpdateAutomatedDiscoveryAccountsCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchUpdateAutomatedDiscoveryAccountsCommand)
-  .de(de_BatchUpdateAutomatedDiscoveryAccountsCommand)
+  .sc(BatchUpdateAutomatedDiscoveryAccounts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

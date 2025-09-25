@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeChapCredentialsInput,
-  DescribeChapCredentialsOutput,
-  DescribeChapCredentialsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeChapCredentialsCommand, se_DescribeChapCredentialsCommand } from "../protocols/Aws_json1_1";
+import { DescribeChapCredentialsInput, DescribeChapCredentialsOutput } from "../models/models_0";
+import { DescribeChapCredentials } from "../schemas/schemas_8_SCSI";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -113,16 +108,11 @@ export class DescribeChapCredentialsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "DescribeChapCredentials", {})
   .n("StorageGatewayClient", "DescribeChapCredentialsCommand")
-  .f(void 0, DescribeChapCredentialsOutputFilterSensitiveLog)
-  .ser(se_DescribeChapCredentialsCommand)
-  .de(de_DescribeChapCredentialsCommand)
+  .sc(DescribeChapCredentials)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateVolumeRequest, CreateVolumeRequestFilterSensitiveLog, CreateVolumeResponse } from "../models/models_0";
-import { de_CreateVolumeCommand, se_CreateVolumeCommand } from "../protocols/Aws_json1_0";
+import { CreateVolumeRequest, CreateVolumeResponse } from "../models/models_0";
+import { CreateVolume } from "../schemas/schemas_3_Volume";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -111,16 +110,11 @@ export class CreateVolumeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkspacesInstancesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("EUCMIFrontendAPIService", "CreateVolume", {})
   .n("WorkspacesInstancesClient", "CreateVolumeCommand")
-  .f(CreateVolumeRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateVolumeCommand)
-  .de(de_CreateVolumeCommand)
+  .sc(CreateVolume)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

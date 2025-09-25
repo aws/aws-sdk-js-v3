@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
 import { DescribeObjectRequest, DescribeObjectResponse } from "../models/models_0";
-import { de_DescribeObjectCommand, se_DescribeObjectCommand } from "../protocols/Aws_restJson1";
+import { DescribeObject } from "../schemas/schemas_1_Object";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class DescribeObjectCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaStoreObject_20170901", "DescribeObject", {})
   .n("MediaStoreDataClient", "DescribeObjectCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeObjectCommand)
-  .de(de_DescribeObjectCommand)
+  .sc(DescribeObject)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateApiRequest, UpdateApiResponse } from "../models/models_0";
-import { de_UpdateApiCommand, se_UpdateApiCommand } from "../protocols/Aws_restJson1";
+import { UpdateApi } from "../schemas/schemas_8_Channel";
 
 /**
  * @public
@@ -191,16 +190,11 @@ export class UpdateApiCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepdishControlPlaneService", "UpdateApi", {})
   .n("AppSyncClient", "UpdateApiCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateApiCommand)
-  .de(de_UpdateApiCommand)
+  .sc(UpdateApi)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

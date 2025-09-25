@@ -1,20 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartFraudsterRegistrationJobRequest,
-  StartFraudsterRegistrationJobRequestFilterSensitiveLog,
-  StartFraudsterRegistrationJobResponse,
-  StartFraudsterRegistrationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_StartFraudsterRegistrationJobCommand,
-  se_StartFraudsterRegistrationJobCommand,
-} from "../protocols/Aws_json1_0";
+import { StartFraudsterRegistrationJobRequest, StartFraudsterRegistrationJobResponse } from "../models/models_0";
+import { StartFraudsterRegistrationJob } from "../schemas/schemas_3_Job";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -154,16 +145,11 @@ export class StartFraudsterRegistrationJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VoiceID", "StartFraudsterRegistrationJob", {})
   .n("VoiceIDClient", "StartFraudsterRegistrationJobCommand")
-  .f(StartFraudsterRegistrationJobRequestFilterSensitiveLog, StartFraudsterRegistrationJobResponseFilterSensitiveLog)
-  .ser(se_StartFraudsterRegistrationJobCommand)
-  .de(de_StartFraudsterRegistrationJobCommand)
+  .sc(StartFraudsterRegistrationJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

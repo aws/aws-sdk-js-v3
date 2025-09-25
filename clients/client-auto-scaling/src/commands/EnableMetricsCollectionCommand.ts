@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EnableMetricsCollectionQuery } from "../models/models_0";
-import { de_EnableMetricsCollectionCommand, se_EnableMetricsCollectionCommand } from "../protocols/Aws_query";
+import { EnableMetricsCollection } from "../schemas/schemas_21_Metrics";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class EnableMetricsCollectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AutoScaling_2011_01_01", "EnableMetricsCollection", {})
   .n("AutoScalingClient", "EnableMetricsCollectionCommand")
-  .f(void 0, void 0)
-  .ser(se_EnableMetricsCollectionCommand)
-  .de(de_EnableMetricsCollectionCommand)
+  .sc(EnableMetricsCollection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

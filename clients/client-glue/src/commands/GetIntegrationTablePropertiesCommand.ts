@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetIntegrationTablePropertiesRequest, GetIntegrationTablePropertiesResponse } from "../models/models_2";
-import {
-  de_GetIntegrationTablePropertiesCommand,
-  se_GetIntegrationTablePropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetIntegrationTableProperties } from "../schemas/schemas_19_Integration";
 
 /**
  * @public
@@ -119,16 +115,11 @@ export class GetIntegrationTablePropertiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "GetIntegrationTableProperties", {})
   .n("GlueClient", "GetIntegrationTablePropertiesCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIntegrationTablePropertiesCommand)
-  .de(de_GetIntegrationTablePropertiesCommand)
+  .sc(GetIntegrationTableProperties)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

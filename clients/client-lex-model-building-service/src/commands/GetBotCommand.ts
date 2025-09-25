@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { GetBotRequest, GetBotResponse } from "../models/models_0";
-import { de_GetBotCommand, se_GetBotCommand } from "../protocols/Aws_restJson1";
+import { GetBot } from "../schemas/schemas_6_Intent";
 
 /**
  * @public
@@ -190,16 +189,11 @@ export class GetBotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepSenseModelBuildingService", "GetBot", {})
   .n("LexModelBuildingServiceClient", "GetBotCommand")
-  .f(void 0, void 0)
-  .ser(se_GetBotCommand)
-  .de(de_GetBotCommand)
+  .sc(GetBot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

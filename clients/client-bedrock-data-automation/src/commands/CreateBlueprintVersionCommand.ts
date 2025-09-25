@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockDataAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateBlueprintVersionRequest,
-  CreateBlueprintVersionResponse,
-  CreateBlueprintVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateBlueprintVersionCommand, se_CreateBlueprintVersionCommand } from "../protocols/Aws_restJson1";
+import { CreateBlueprintVersionRequest, CreateBlueprintVersionResponse } from "../models/models_0";
+import { CreateBlueprintVersion } from "../schemas/schemas_1_Automation";
 
 /**
  * @public
@@ -110,16 +105,11 @@ export class CreateBlueprintVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockDataAutomationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockKeystoneBuildTimeService", "CreateBlueprintVersion", {})
   .n("BedrockDataAutomationClient", "CreateBlueprintVersionCommand")
-  .f(void 0, CreateBlueprintVersionResponseFilterSensitiveLog)
-  .ser(se_CreateBlueprintVersionCommand)
-  .de(de_CreateBlueprintVersionCommand)
+  .sc(CreateBlueprintVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

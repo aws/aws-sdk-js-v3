@@ -1,0 +1,145 @@
+export const _ADE = "AccessDeniedException";
+export const _AOA = "ArrayOfArray";
+export const _AV = "ArrayValue";
+export const _AVL = "ArrayValueList";
+export const _BES = "BatchExecuteStatement";
+export const _BESR = "BatchExecuteStatementRequest";
+export const _BESRa = "BatchExecuteStatementResponse";
+export const _BRE = "BadRequestException";
+export const _BT = "BeginTransaction";
+export const _BTR = "BeginTransactionRequest";
+export const _BTRe = "BeginTransactionResponse";
+export const _CM = "ColumnMetadata";
+export const _CT = "CommitTransaction";
+export const _CTR = "CommitTransactionRequest";
+export const _CTRo = "CommitTransactionResponse";
+export const _DEE = "DatabaseErrorException";
+export const _DNFE = "DatabaseNotFoundException";
+export const _DRE = "DatabaseResumingException";
+export const _DUE = "DatabaseUnavailableException";
+export const _ES = "ExecuteSql";
+export const _ESR = "ExecuteSqlRequest";
+export const _ESRx = "ExecuteSqlResponse";
+export const _ESRxe = "ExecuteStatementRequest";
+export const _ESRxec = "ExecuteStatementResponse";
+export const _ESx = "ExecuteStatement";
+export const _F = "Field";
+export const _FE = "ForbiddenException";
+export const _FL = "FieldList";
+export const _HENEE = "HttpEndpointNotEnabledException";
+export const _IRSE = "InvalidResourceStateException";
+export const _ISE = "InvalidSecretException";
+export const _ISEE = "InternalServerErrorException";
+export const _M = "Metadata";
+export const _NFE = "NotFoundException";
+export const _R = "Record";
+export const _RF = "ResultFrame";
+export const _RSM = "ResultSetMetadata";
+export const _RSO = "ResultSetOptions";
+export const _RT = "RollbackTransaction";
+export const _RTR = "RollbackTransactionRequest";
+export const _RTRo = "RollbackTransactionResponse";
+export const _Re = "Records";
+export const _Ro = "Row";
+export const _SEE = "SecretsErrorException";
+export const _SP = "SqlParameter";
+export const _SPL = "SqlParametersList";
+export const _SPS = "SqlParameterSets";
+export const _SR = "SqlRecords";
+export const _SSR = "SqlStatementResult";
+export const _SSRq = "SqlStatementResults";
+export const _STE = "StatementTimeoutException";
+export const _SUE = "ServiceUnavailableError";
+export const _SV = "StructValue";
+export const _TNFE = "TransactionNotFoundException";
+export const _UR = "UpdateResult";
+export const _URE = "UnsupportedResultException";
+export const _URp = "UpdateResults";
+export const _V = "Value";
+export const _a = "attributes";
+export const _aBCT = "arrayBaseColumnType";
+export const _aSSA = "awsSecretStoreArn";
+export const _aV = "arrayValues";
+export const _aVr = "arrayValue";
+export const _bIV = "bigIntValue";
+export const _bV = "booleanValues";
+export const _bVi = "bitValue";
+export const _bVl = "blobValue";
+export const _bVo = "booleanValue";
+export const _c = "client";
+export const _cAT = "continueAfterTimeout";
+export const _cC = "columnCount";
+export const _cM = "columnMetadata";
+export const _d = "database";
+export const _dCI = "dbConnectionId";
+export const _dCOIA = "dbClusterOrInstanceArn";
+export const _dRT = "decimalReturnType";
+export const _dV = "doubleValues";
+export const _dVo = "doubleValue";
+export const _e = "error";
+export const _fR = "formattedRecords";
+export const _fRA = "formatRecordsAs";
+export const _gF = "generatedFields";
+export const _h = "http";
+export const _hE = "httpError";
+export const _iAI = "isAutoIncrement";
+export const _iC = "isCurrency";
+export const _iCS = "isCaseSensitive";
+export const _iN = "isNull";
+export const _iRM = "includeResultMetadata";
+export const _iS = "isSigned";
+export const _iV = "intValue";
+export const _l = "label";
+export const _lRT = "longReturnType";
+export const _lV = "longValues";
+export const _lVo = "longValue";
+export const _m = "message";
+export const _n = "name";
+export const _nORU = "numberOfRecordsUpdated";
+export const _nu = "nullable";
+export const _p = "precision";
+export const _pS = "parameterSets";
+export const _pa = "parameters";
+export const _r = "records";
+export const _rA = "resourceArn";
+export const _rF = "resultFrame";
+export const _rSM = "resultSetMetadata";
+export const _rSO = "resultSetOptions";
+export const _rV = "realValue";
+export const _s = "sql";
+export const _sA = "secretArn";
+export const _sN = "schemaName";
+export const _sS = "sqlStatements";
+export const _sSR = "sqlStatementResults";
+export const _sV = "stringValues";
+export const _sVt = "stringValue";
+export const _sVtr = "structValue";
+export const _sc = "schema";
+export const _sca = "scale";
+export const _se = "server";
+export const _t = "type";
+export const _tH = "typeHint";
+export const _tI = "transactionId";
+export const _tN = "typeName";
+export const _tNa = "tableName";
+export const _tS = "transactionStatus";
+export const _uR = "updateResults";
+export const _v = "values";
+export const _va = "value";
+export const n0 = "com.amazonaws.rdsdata";
+
+// smithy-typescript generated code
+import { error } from "@smithy/core/schema";
+
+import { RDSDataServiceException as __RDSDataServiceException } from "../models/RDSDataServiceException";
+
+/* eslint no-var: 0 */
+
+export var RDSDataServiceException = error(
+  "smithy.ts.sdk.synthetic.com.amazonaws.rdsdata",
+  "RDSDataServiceException",
+  0,
+  [],
+  [],
+  __RDSDataServiceException
+);

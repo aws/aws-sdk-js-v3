@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteIdentityProviderRequest, DeleteIdentityProviderResponse } from "../models/models_0";
-import { de_DeleteIdentityProviderCommand, se_DeleteIdentityProviderCommand } from "../protocols/Aws_restJson1";
+import { DeleteIdentityProvider } from "../schemas/schemas_26_Identity";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -83,16 +82,11 @@ export class DeleteIdentityProviderCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "DeleteIdentityProvider", {})
   .n("WorkSpacesWebClient", "DeleteIdentityProviderCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteIdentityProviderCommand)
-  .de(de_DeleteIdentityProviderCommand)
+  .sc(DeleteIdentityProvider)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

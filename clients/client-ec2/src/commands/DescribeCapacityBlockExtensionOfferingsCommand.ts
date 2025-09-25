@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeCapacityBlockExtensionOfferingsRequest,
   DescribeCapacityBlockExtensionOfferingsResult,
 } from "../models/models_3";
-import {
-  de_DescribeCapacityBlockExtensionOfferingsCommand,
-  se_DescribeCapacityBlockExtensionOfferingsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeCapacityBlockExtensionOfferings } from "../schemas/schemas_92_Capacity";
 
 /**
  * @public
@@ -100,16 +96,11 @@ export class DescribeCapacityBlockExtensionOfferingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeCapacityBlockExtensionOfferings", {})
   .n("EC2Client", "DescribeCapacityBlockExtensionOfferingsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeCapacityBlockExtensionOfferingsCommand)
-  .de(de_DescribeCapacityBlockExtensionOfferingsCommand)
+  .sc(DescribeCapacityBlockExtensionOfferings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

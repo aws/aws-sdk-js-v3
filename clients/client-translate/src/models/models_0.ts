@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { TranslateServiceException as __BaseException } from "./TranslateServiceException";
 
@@ -2343,51 +2343,3 @@ export interface UpdateParallelDataResponse {
    */
   LatestUpdateAttemptAt?: Date | undefined;
 }
-
-/**
- * @internal
- */
-export const TerminologyDataFilterSensitiveLog = (obj: TerminologyData): any => ({
-  ...obj,
-  ...(obj.File && { File: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportTerminologyRequestFilterSensitiveLog = (obj: ImportTerminologyRequest): any => ({
-  ...obj,
-  ...(obj.TerminologyData && { TerminologyData: TerminologyDataFilterSensitiveLog(obj.TerminologyData) }),
-});
-
-/**
- * @internal
- */
-export const DocumentFilterSensitiveLog = (obj: Document): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TranslateDocumentRequestFilterSensitiveLog = (obj: TranslateDocumentRequest): any => ({
-  ...obj,
-  ...(obj.Document && { Document: DocumentFilterSensitiveLog(obj.Document) }),
-});
-
-/**
- * @internal
- */
-export const TranslatedDocumentFilterSensitiveLog = (obj: TranslatedDocument): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TranslateDocumentResponseFilterSensitiveLog = (obj: TranslateDocumentResponse): any => ({
-  ...obj,
-  ...(obj.TranslatedDocument && { TranslatedDocument: TranslatedDocumentFilterSensitiveLog(obj.TranslatedDocument) }),
-});

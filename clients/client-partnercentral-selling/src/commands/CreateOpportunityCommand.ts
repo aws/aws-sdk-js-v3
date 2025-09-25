@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateOpportunityRequest,
-  CreateOpportunityRequestFilterSensitiveLog,
-  CreateOpportunityResponse,
-} from "../models/models_0";
+import { CreateOpportunityRequest, CreateOpportunityResponse } from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_CreateOpportunityCommand, se_CreateOpportunityCommand } from "../protocols/Aws_json1_0";
+import { CreateOpportunity } from "../schemas/schemas_3_Engagement";
 
 /**
  * @public
@@ -210,16 +205,11 @@ export class CreateOpportunityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSPartnerCentralSelling", "CreateOpportunity", {})
   .n("PartnerCentralSellingClient", "CreateOpportunityCommand")
-  .f(CreateOpportunityRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateOpportunityCommand)
-  .de(de_CreateOpportunityCommand)
+  .sc(CreateOpportunity)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

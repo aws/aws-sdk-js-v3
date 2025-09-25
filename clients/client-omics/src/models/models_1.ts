@@ -502,10 +502,3 @@ export interface UpdateWorkflowVersionRequest {
    */
   readmeMarkdown?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const UploadReadSetPartRequestFilterSensitiveLog = (obj: UploadReadSetPartRequest): any => ({
-  ...obj,
-});

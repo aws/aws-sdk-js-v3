@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdatePortfolioInput, UpdatePortfolioOutput } from "../models/models_0";
-import { de_UpdatePortfolioCommand, se_UpdatePortfolioCommand } from "../protocols/Aws_json1_1";
+import { UpdatePortfolio } from "../schemas/schemas_19_Portfolio";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -112,16 +111,11 @@ export class UpdatePortfolioCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242ServiceCatalogService", "UpdatePortfolio", {})
   .n("ServiceCatalogClient", "UpdatePortfolioCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdatePortfolioCommand)
-  .de(de_UpdatePortfolioCommand)
+  .sc(UpdatePortfolio)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

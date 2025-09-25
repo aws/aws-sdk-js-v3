@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteChatResponseConfigurationRequest, DeleteChatResponseConfigurationResponse } from "../models/models_0";
-import {
-  de_DeleteChatResponseConfigurationCommand,
-  se_DeleteChatResponseConfigurationCommand,
-} from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import { DeleteChatResponseConfiguration } from "../schemas/schemas_1_Response";
 
 /**
  * @public
@@ -92,16 +88,11 @@ export class DeleteChatResponseConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ExpertQ", "DeleteChatResponseConfiguration", {})
   .n("QBusinessClient", "DeleteChatResponseConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteChatResponseConfigurationCommand)
-  .de(de_DeleteChatResponseConfigurationCommand)
+  .sc(DeleteChatResponseConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { DescribePartnerEventSourceRequest, DescribePartnerEventSourceResponse } from "../models/models_0";
-import { de_DescribePartnerEventSourceCommand, se_DescribePartnerEventSourceCommand } from "../protocols/Aws_json1_1";
+import { DescribePartnerEventSource } from "../schemas/schemas_2_Event";
 
 /**
  * @public
@@ -82,16 +81,11 @@ export class DescribePartnerEventSourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSEvents", "DescribePartnerEventSource", {})
   .n("EventBridgeClient", "DescribePartnerEventSourceCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribePartnerEventSourceCommand)
-  .de(de_DescribePartnerEventSourceCommand)
+  .sc(DescribePartnerEventSource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

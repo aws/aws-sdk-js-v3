@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsQueryProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -30,6 +31,13 @@ export const getRuntimeConfig = (config: CloudWatchClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsQueryProtocol({
+        defaultNamespace: "com.amazonaws.cloudwatch",
+        xmlNamespace: "http://monitoring.amazonaws.com/doc/2010-08-01/",
+        version: "2010-08-01",
+      }),
     serviceId: config?.serviceId ?? "CloudWatch",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

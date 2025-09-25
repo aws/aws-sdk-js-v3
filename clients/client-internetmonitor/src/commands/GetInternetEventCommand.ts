@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
 import { GetInternetEventInput, GetInternetEventOutput } from "../models/models_0";
-import { de_GetInternetEventCommand, se_GetInternetEventCommand } from "../protocols/Aws_restJson1";
+import { GetInternetEvent } from "../schemas/schemas_1_Monitor";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class GetInternetEventCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("InternetMonitor20210603", "GetInternetEvent", {})
   .n("InternetMonitorClient", "GetInternetEventCommand")
-  .f(void 0, void 0)
-  .ser(se_GetInternetEventCommand)
-  .de(de_GetInternetEventCommand)
+  .sc(GetInternetEvent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

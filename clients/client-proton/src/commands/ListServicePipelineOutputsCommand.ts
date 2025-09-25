@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListServicePipelineOutputsInput,
-  ListServicePipelineOutputsOutput,
-  ListServicePipelineOutputsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListServicePipelineOutputsCommand, se_ListServicePipelineOutputsCommand } from "../protocols/Aws_json1_0";
+import { ListServicePipelineOutputsInput, ListServicePipelineOutputsOutput } from "../models/models_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { ListServicePipelineOutputs } from "../schemas/schemas_1_List";
 
 /**
  * @public
@@ -97,16 +92,11 @@ export class ListServicePipelineOutputsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "ListServicePipelineOutputs", {})
   .n("ProtonClient", "ListServicePipelineOutputsCommand")
-  .f(void 0, ListServicePipelineOutputsOutputFilterSensitiveLog)
-  .ser(se_ListServicePipelineOutputsCommand)
-  .de(de_ListServicePipelineOutputsCommand)
+  .sc(ListServicePipelineOutputs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

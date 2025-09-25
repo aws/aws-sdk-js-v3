@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListConnectorEntitiesRequest, ListConnectorEntitiesResponse } from "../models/models_0";
-import { de_ListConnectorEntitiesCommand, se_ListConnectorEntitiesCommand } from "../protocols/Aws_restJson1";
+import { ListConnectorEntities } from "../schemas/schemas_1_Connector";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class ListConnectorEntitiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SandstoneConfigurationServiceLambda", "ListConnectorEntities", {})
   .n("AppflowClient", "ListConnectorEntitiesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListConnectorEntitiesCommand)
-  .de(de_ListConnectorEntitiesCommand)
+  .sc(ListConnectorEntities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

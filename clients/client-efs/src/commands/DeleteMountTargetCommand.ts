@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteMountTargetRequest } from "../models/models_0";
-import { de_DeleteMountTargetCommand, se_DeleteMountTargetCommand } from "../protocols/Aws_restJson1";
+import { DeleteMountTarget } from "../schemas/schemas_8_Mount";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class DeleteMountTargetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MagnolioAPIService_v20150201", "DeleteMountTarget", {})
   .n("EFSClient", "DeleteMountTargetCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteMountTargetCommand)
-  .de(de_DeleteMountTargetCommand)
+  .sc(DeleteMountTarget)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreatePackageRequest, CreatePackageResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { de_CreatePackageCommand, se_CreatePackageCommand } from "../protocols/Aws_restJson1";
+import { CreatePackage } from "../schemas/schemas_5_Package";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class CreatePackageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OmniCloudServiceLambda", "CreatePackage", {})
   .n("PanoramaClient", "CreatePackageCommand")
-  .f(void 0, void 0)
-  .ser(se_CreatePackageCommand)
-  .de(de_CreatePackageCommand)
+  .sc(CreatePackage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

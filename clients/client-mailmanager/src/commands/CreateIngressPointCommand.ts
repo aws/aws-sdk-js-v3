@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  CreateIngressPointRequest,
-  CreateIngressPointRequestFilterSensitiveLog,
-  CreateIngressPointResponse,
-} from "../models/models_0";
-import { de_CreateIngressPointCommand, se_CreateIngressPointCommand } from "../protocols/Aws_json1_0";
+import { CreateIngressPointRequest, CreateIngressPointResponse } from "../models/models_0";
+import { CreateIngressPoint } from "../schemas/schemas_4_Create";
 
 /**
  * @public
@@ -183,16 +178,11 @@ export class CreateIngressPointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "CreateIngressPoint", {})
   .n("MailManagerClient", "CreateIngressPointCommand")
-  .f(CreateIngressPointRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateIngressPointCommand)
-  .de(de_CreateIngressPointCommand)
+  .sc(CreateIngressPoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

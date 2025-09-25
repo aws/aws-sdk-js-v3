@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
 import { CreateKxUserRequest, CreateKxUserResponse } from "../models/models_0";
-import { de_CreateKxUserCommand, se_CreateKxUserCommand } from "../protocols/Aws_restJson1";
+import { CreateKxUser } from "../schemas/schemas_3_Create";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class CreateKxUserCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroManagementService", "CreateKxUser", {})
   .n("FinspaceClient", "CreateKxUserCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateKxUserCommand)
-  .de(de_CreateKxUserCommand)
+  .sc(CreateKxUser)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

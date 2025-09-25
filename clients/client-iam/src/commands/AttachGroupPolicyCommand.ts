@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { AttachGroupPolicyRequest } from "../models/models_0";
-import { de_AttachGroupPolicyCommand, se_AttachGroupPolicyCommand } from "../protocols/Aws_query";
+import { AttachGroupPolicy } from "../schemas/schemas_45_Policy";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class AttachGroupPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "AttachGroupPolicy", {})
   .n("IAMClient", "AttachGroupPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_AttachGroupPolicyCommand)
-  .de(de_AttachGroupPolicyCommand)
+  .sc(AttachGroupPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

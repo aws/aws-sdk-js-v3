@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetPrimaryEmailRequest,
-  GetPrimaryEmailResponse,
-  GetPrimaryEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetPrimaryEmailCommand, se_GetPrimaryEmailCommand } from "../protocols/Aws_restJson1";
+import { GetPrimaryEmailRequest, GetPrimaryEmailResponse } from "../models/models_0";
+import { GetPrimaryEmail } from "../schemas/schemas_3_Email";
 
 /**
  * @public
@@ -89,16 +84,11 @@ export class GetPrimaryEmailCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Account", "GetPrimaryEmail", {})
   .n("AccountClient", "GetPrimaryEmailCommand")
-  .f(void 0, GetPrimaryEmailResponseFilterSensitiveLog)
-  .ser(se_GetPrimaryEmailCommand)
-  .de(de_GetPrimaryEmailCommand)
+  .sc(GetPrimaryEmail)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

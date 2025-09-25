@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SupplyChainServiceException as __BaseException } from "./SupplyChainServiceException";
 
@@ -2613,85 +2613,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const DataIntegrationFlowSQLTransformationConfigurationFilterSensitiveLog = (
-  obj: DataIntegrationFlowSQLTransformationConfiguration
-): any => ({
-  ...obj,
-  ...(obj.query && { query: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DataIntegrationFlowTransformationFilterSensitiveLog = (obj: DataIntegrationFlowTransformation): any => ({
-  ...obj,
-  ...(obj.sqlTransformation && {
-    sqlTransformation: DataIntegrationFlowSQLTransformationConfigurationFilterSensitiveLog(obj.sqlTransformation),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateDataIntegrationFlowRequestFilterSensitiveLog = (obj: CreateDataIntegrationFlowRequest): any => ({
-  ...obj,
-  ...(obj.transformation && {
-    transformation: DataIntegrationFlowTransformationFilterSensitiveLog(obj.transformation),
-  }),
-});
-
-/**
- * @internal
- */
-export const DataIntegrationFlowFilterSensitiveLog = (obj: DataIntegrationFlow): any => ({
-  ...obj,
-  ...(obj.transformation && {
-    transformation: DataIntegrationFlowTransformationFilterSensitiveLog(obj.transformation),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetDataIntegrationFlowResponseFilterSensitiveLog = (obj: GetDataIntegrationFlowResponse): any => ({
-  ...obj,
-  ...(obj.flow && { flow: DataIntegrationFlowFilterSensitiveLog(obj.flow) }),
-});
-
-/**
- * @internal
- */
-export const ListDataIntegrationFlowsResponseFilterSensitiveLog = (obj: ListDataIntegrationFlowsResponse): any => ({
-  ...obj,
-  ...(obj.flows && { flows: obj.flows.map((item) => DataIntegrationFlowFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDataIntegrationFlowRequestFilterSensitiveLog = (obj: UpdateDataIntegrationFlowRequest): any => ({
-  ...obj,
-  ...(obj.transformation && {
-    transformation: DataIntegrationFlowTransformationFilterSensitiveLog(obj.transformation),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateDataIntegrationFlowResponseFilterSensitiveLog = (obj: UpdateDataIntegrationFlowResponse): any => ({
-  ...obj,
-  ...(obj.flow && { flow: DataIntegrationFlowFilterSensitiveLog(obj.flow) }),
-});
-
-/**
- * @internal
- */
-export const SendDataIntegrationEventRequestFilterSensitiveLog = (obj: SendDataIntegrationEventRequest): any => ({
-  ...obj,
-  ...(obj.data && { data: SENSITIVE_STRING }),
-});

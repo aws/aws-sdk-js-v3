@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SageMakerRuntimeServiceException as __BaseException } from "./SageMakerRuntimeServiceException";
 
@@ -756,69 +756,3 @@ export interface InvokeEndpointWithResponseStreamOutput {
    */
   CustomAttributes?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const InvokeEndpointInputFilterSensitiveLog = (obj: InvokeEndpointInput): any => ({
-  ...obj,
-  ...(obj.Body && { Body: SENSITIVE_STRING }),
-  ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InvokeEndpointOutputFilterSensitiveLog = (obj: InvokeEndpointOutput): any => ({
-  ...obj,
-  ...(obj.Body && { Body: SENSITIVE_STRING }),
-  ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InvokeEndpointAsyncInputFilterSensitiveLog = (obj: InvokeEndpointAsyncInput): any => ({
-  ...obj,
-  ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InvokeEndpointWithResponseStreamInputFilterSensitiveLog = (
-  obj: InvokeEndpointWithResponseStreamInput
-): any => ({
-  ...obj,
-  ...(obj.Body && { Body: SENSITIVE_STRING }),
-  ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PayloadPartFilterSensitiveLog = (obj: PayloadPart): any => ({
-  ...obj,
-  ...(obj.Bytes && { Bytes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ResponseStreamFilterSensitiveLog = (obj: ResponseStream): any => {
-  if (obj.PayloadPart !== undefined) return { PayloadPart: PayloadPartFilterSensitiveLog(obj.PayloadPart) };
-  if (obj.ModelStreamError !== undefined) return { ModelStreamError: obj.ModelStreamError };
-  if (obj.InternalStreamFailure !== undefined) return { InternalStreamFailure: obj.InternalStreamFailure };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const InvokeEndpointWithResponseStreamOutputFilterSensitiveLog = (
-  obj: InvokeEndpointWithResponseStreamOutput
-): any => ({
-  ...obj,
-  ...(obj.Body && { Body: "STREAMING_CONTENT" }),
-  ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
-});

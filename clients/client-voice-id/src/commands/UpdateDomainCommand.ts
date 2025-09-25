@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateDomainRequest,
-  UpdateDomainRequestFilterSensitiveLog,
-  UpdateDomainResponse,
-  UpdateDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateDomainCommand, se_UpdateDomainCommand } from "../protocols/Aws_json1_0";
+import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_0";
+import { UpdateDomain } from "../schemas/schemas_3_Job";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -126,16 +120,11 @@ export class UpdateDomainCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VoiceID", "UpdateDomain", {})
   .n("VoiceIDClient", "UpdateDomainCommand")
-  .f(UpdateDomainRequestFilterSensitiveLog, UpdateDomainResponseFilterSensitiveLog)
-  .ser(se_UpdateDomainCommand)
-  .de(de_UpdateDomainCommand)
+  .sc(UpdateDomain)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

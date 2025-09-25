@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeRulesetRequest, DescribeRulesetResponse } from "../models/models_0";
-import { de_DescribeRulesetCommand, se_DescribeRulesetCommand } from "../protocols/Aws_restJson1";
+import { DescribeRuleset } from "../schemas/schemas_11_Job";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class DescribeRulesetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlueDataBrew", "DescribeRuleset", {})
   .n("DataBrewClient", "DescribeRulesetCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeRulesetCommand)
-  .de(de_DescribeRulesetCommand)
+  .sc(DescribeRuleset)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

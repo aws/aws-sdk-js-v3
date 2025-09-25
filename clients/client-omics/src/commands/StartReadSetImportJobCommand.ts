@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartReadSetImportJobRequest, StartReadSetImportJobResponse } from "../models/models_1";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_StartReadSetImportJobCommand, se_StartReadSetImportJobCommand } from "../protocols/Aws_restJson1";
+import { StartReadSetImportJob } from "../schemas/schemas_30_Set";
 
 /**
  * @public
@@ -115,16 +114,11 @@ export class StartReadSetImportJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Omics", "StartReadSetImportJob", {})
   .n("OmicsClient", "StartReadSetImportJobCommand")
-  .f(void 0, void 0)
-  .ser(se_StartReadSetImportJobCommand)
-  .de(de_StartReadSetImportJobCommand)
+  .sc(StartReadSetImportJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

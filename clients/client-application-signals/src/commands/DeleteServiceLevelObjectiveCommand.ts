@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
 } from "../ApplicationSignalsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteServiceLevelObjectiveInput, DeleteServiceLevelObjectiveOutput } from "../models/models_0";
-import {
-  de_DeleteServiceLevelObjectiveCommand,
-  se_DeleteServiceLevelObjectiveCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteServiceLevelObjective } from "../schemas/schemas_1_ServiceLevel";
 
 /**
  * @public
@@ -84,16 +80,11 @@ export class DeleteServiceLevelObjectiveCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationSignalsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationSignals", "DeleteServiceLevelObjective", {})
   .n("ApplicationSignalsClient", "DeleteServiceLevelObjectiveCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteServiceLevelObjectiveCommand)
-  .de(de_DeleteServiceLevelObjectiveCommand)
+  .sc(DeleteServiceLevelObjective)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

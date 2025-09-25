@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeTemplateRequest,
-  DescribeTemplateResponse,
-  DescribeTemplateResponseFilterSensitiveLog,
-} from "../models/models_4";
-import { de_DescribeTemplateCommand, se_DescribeTemplateCommand } from "../protocols/Aws_restJson1";
+import { DescribeTemplateRequest, DescribeTemplateResponse } from "../models/models_4";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DescribeTemplate } from "../schemas/schemas_58_Describe";
 
 /**
  * @public
@@ -243,16 +238,11 @@ export class DescribeTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "DescribeTemplate", {})
   .n("QuickSightClient", "DescribeTemplateCommand")
-  .f(void 0, DescribeTemplateResponseFilterSensitiveLog)
-  .ser(se_DescribeTemplateCommand)
-  .de(de_DescribeTemplateCommand)
+  .sc(DescribeTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

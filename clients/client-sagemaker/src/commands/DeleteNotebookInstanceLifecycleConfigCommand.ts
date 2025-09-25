@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_2";
-import {
-  de_DeleteNotebookInstanceLifecycleConfigCommand,
-  se_DeleteNotebookInstanceLifecycleConfigCommand,
-} from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DeleteNotebookInstanceLifecycleConfig } from "../schemas/schemas_7_Notebook";
 
 /**
  * @public
@@ -71,16 +67,11 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "DeleteNotebookInstanceLifecycleConfig", {})
   .n("SageMakerClient", "DeleteNotebookInstanceLifecycleConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteNotebookInstanceLifecycleConfigCommand)
-  .de(de_DeleteNotebookInstanceLifecycleConfigCommand)
+  .sc(DeleteNotebookInstanceLifecycleConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

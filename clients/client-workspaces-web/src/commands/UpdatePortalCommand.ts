@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdatePortalRequest,
-  UpdatePortalRequestFilterSensitiveLog,
-  UpdatePortalResponse,
-  UpdatePortalResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdatePortalCommand, se_UpdatePortalCommand } from "../protocols/Aws_restJson1";
+import { UpdatePortalRequest, UpdatePortalResponse } from "../models/models_0";
+import { UpdatePortal } from "../schemas/schemas_12_AccessSettings";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -124,16 +118,11 @@ export class UpdatePortalCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "UpdatePortal", {})
   .n("WorkSpacesWebClient", "UpdatePortalCommand")
-  .f(UpdatePortalRequestFilterSensitiveLog, UpdatePortalResponseFilterSensitiveLog)
-  .ser(se_UpdatePortalCommand)
-  .de(de_UpdatePortalCommand)
+  .sc(UpdatePortal)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

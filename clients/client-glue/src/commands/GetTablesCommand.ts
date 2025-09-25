@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetTablesRequest } from "../models/models_2";
 import { GetTablesResponse } from "../models/models_3";
-import { de_GetTablesCommand, se_GetTablesCommand } from "../protocols/Aws_json1_1";
+import { GetTables } from "../schemas/schemas_9_Get";
 
 /**
  * @public
@@ -362,16 +361,11 @@ export class GetTablesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "GetTables", {})
   .n("GlueClient", "GetTablesCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTablesCommand)
-  .de(de_GetTablesCommand)
+  .sc(GetTables)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateSubscriptionsToEventBridgeMessage, UpdateSubscriptionsToEventBridgeResponse } from "../models/models_1";
-import {
-  de_UpdateSubscriptionsToEventBridgeCommand,
-  se_UpdateSubscriptionsToEventBridgeCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSubscriptionsToEventBridge } from "../schemas/schemas_44_UpdateSubscriptionsToEventBridge";
 
 /**
  * @public
@@ -96,16 +92,11 @@ export class UpdateSubscriptionsToEventBridgeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "UpdateSubscriptionsToEventBridge", {})
   .n("DatabaseMigrationServiceClient", "UpdateSubscriptionsToEventBridgeCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSubscriptionsToEventBridgeCommand)
-  .de(de_UpdateSubscriptionsToEventBridgeCommand)
+  .sc(UpdateSubscriptionsToEventBridge)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

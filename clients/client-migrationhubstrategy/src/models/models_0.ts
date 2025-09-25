@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { MigrationHubStrategyServiceException as __BaseException } from "./MigrationHubStrategyServiceException";
 
@@ -3455,13 +3455,3 @@ export interface UpdateServerConfigRequest {
  * @public
  */
 export interface UpdateServerConfigResponse {}
-
-/**
- * @internal
- */
-export const UpdateApplicationComponentConfigRequestFilterSensitiveLog = (
-  obj: UpdateApplicationComponentConfigRequest
-): any => ({
-  ...obj,
-  ...(obj.secretsManagerKey && { secretsManagerKey: SENSITIVE_STRING }),
-});

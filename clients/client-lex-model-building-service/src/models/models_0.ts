@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { LexModelBuildingServiceServiceException as __BaseException } from "./LexModelBuildingServiceServiceException";
 
@@ -5239,29 +5239,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const GetBotChannelAssociationResponseFilterSensitiveLog = (obj: GetBotChannelAssociationResponse): any => ({
-  ...obj,
-  ...(obj.botConfiguration && { botConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BotChannelAssociationFilterSensitiveLog = (obj: BotChannelAssociation): any => ({
-  ...obj,
-  ...(obj.botConfiguration && { botConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetBotChannelAssociationsResponseFilterSensitiveLog = (obj: GetBotChannelAssociationsResponse): any => ({
-  ...obj,
-  ...(obj.botChannelAssociations && {
-    botChannelAssociations: obj.botChannelAssociations.map((item) => BotChannelAssociationFilterSensitiveLog(item)),
-  }),
-});

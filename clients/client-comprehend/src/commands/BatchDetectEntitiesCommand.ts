@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchDetectEntitiesRequest,
-  BatchDetectEntitiesRequestFilterSensitiveLog,
-  BatchDetectEntitiesResponse,
-  BatchDetectEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchDetectEntitiesCommand, se_BatchDetectEntitiesCommand } from "../protocols/Aws_json1_1";
+import { BatchDetectEntitiesRequest, BatchDetectEntitiesResponse } from "../models/models_0";
+import { BatchDetectEntities } from "../schemas/schemas_2_Batch";
 
 /**
  * @public
@@ -133,16 +127,11 @@ export class BatchDetectEntitiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Comprehend_20171127", "BatchDetectEntities", {})
   .n("ComprehendClient", "BatchDetectEntitiesCommand")
-  .f(BatchDetectEntitiesRequestFilterSensitiveLog, BatchDetectEntitiesResponseFilterSensitiveLog)
-  .ser(se_BatchDetectEntitiesCommand)
-  .de(de_BatchDetectEntitiesCommand)
+  .sc(BatchDetectEntities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

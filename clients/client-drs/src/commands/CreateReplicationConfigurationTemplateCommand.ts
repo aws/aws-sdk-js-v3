@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateReplicationConfigurationTemplateRequest,
-  CreateReplicationConfigurationTemplateRequestFilterSensitiveLog,
-  ReplicationConfigurationTemplate,
-  ReplicationConfigurationTemplateFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_CreateReplicationConfigurationTemplateCommand,
-  se_CreateReplicationConfigurationTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateReplicationConfigurationTemplateRequest, ReplicationConfigurationTemplate } from "../models/models_0";
+import { CreateReplicationConfigurationTemplate } from "../schemas/schemas_1_Describe";
 
 /**
  * @public
@@ -157,19 +148,11 @@ export class CreateReplicationConfigurationTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticDisasterRecoveryService", "CreateReplicationConfigurationTemplate", {})
   .n("DrsClient", "CreateReplicationConfigurationTemplateCommand")
-  .f(
-    CreateReplicationConfigurationTemplateRequestFilterSensitiveLog,
-    ReplicationConfigurationTemplateFilterSensitiveLog
-  )
-  .ser(se_CreateReplicationConfigurationTemplateCommand)
-  .de(de_CreateReplicationConfigurationTemplateCommand)
+  .sc(CreateReplicationConfigurationTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateContactResponse } from "../models/models_2";
-import { UpdateContactRequest, UpdateContactRequestFilterSensitiveLog } from "../models/models_3";
-import { de_UpdateContactCommand, se_UpdateContactCommand } from "../protocols/Aws_restJson1";
+import { UpdateContactRequest } from "../models/models_3";
+import { UpdateContact } from "../schemas/schemas_15_Contact";
 
 /**
  * @public
@@ -146,16 +145,11 @@ export class UpdateContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "UpdateContact", {})
   .n("ConnectClient", "UpdateContactCommand")
-  .f(UpdateContactRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateContactCommand)
-  .de(de_UpdateContactCommand)
+  .sc(UpdateContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

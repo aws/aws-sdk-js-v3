@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { PutGroupPolicyRequest } from "../models/models_0";
-import { de_PutGroupPolicyCommand, se_PutGroupPolicyCommand } from "../protocols/Aws_query";
+import { PutGroupPolicy } from "../schemas/schemas_47_Policy";
 
 /**
  * @public
@@ -119,16 +118,11 @@ export class PutGroupPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "PutGroupPolicy", {})
   .n("IAMClient", "PutGroupPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_PutGroupPolicyCommand)
-  .de(de_PutGroupPolicyCommand)
+  .sc(PutGroupPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

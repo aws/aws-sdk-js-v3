@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeDataSetRequest,
-  DescribeDataSetResponse,
-  DescribeDataSetResponseFilterSensitiveLog,
-} from "../models/models_4";
-import { de_DescribeDataSetCommand, se_DescribeDataSetCommand } from "../protocols/Aws_restJson1";
+import { DescribeDataSetRequest, DescribeDataSetResponse } from "../models/models_4";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DescribeDataSet } from "../schemas/schemas_13_Data";
 
 /**
  * @public
@@ -355,16 +350,11 @@ export class DescribeDataSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "DescribeDataSet", {})
   .n("QuickSightClient", "DescribeDataSetCommand")
-  .f(void 0, DescribeDataSetResponseFilterSensitiveLog)
-  .ser(se_DescribeDataSetCommand)
-  .de(de_DescribeDataSetCommand)
+  .sc(DescribeDataSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

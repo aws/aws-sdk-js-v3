@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartProjectSessionRequest,
-  StartProjectSessionResponse,
-  StartProjectSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartProjectSessionCommand, se_StartProjectSessionCommand } from "../protocols/Aws_restJson1";
+import { StartProjectSessionRequest, StartProjectSessionResponse } from "../models/models_0";
+import { StartProjectSession } from "../schemas/schemas_2_Create";
 
 /**
  * @public
@@ -89,16 +84,11 @@ export class StartProjectSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlueDataBrew", "StartProjectSession", {})
   .n("DataBrewClient", "StartProjectSessionCommand")
-  .f(void 0, StartProjectSessionResponseFilterSensitiveLog)
-  .ser(se_StartProjectSessionCommand)
-  .de(de_StartProjectSessionCommand)
+  .sc(StartProjectSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   BehaviorOnMxFailure,
   BulkEmailContent,
@@ -9,7 +7,6 @@ import {
   ContactLanguage,
   Destination,
   DkimSigningAttributes,
-  DkimSigningAttributesFilterSensitiveLog,
   DkimSigningAttributesOrigin,
   DkimStatus,
   DomainDeliverabilityTrackingOption,
@@ -1767,23 +1764,3 @@ export interface UpdateReputationEntityPolicyRequest {
  * @public
  */
 export interface UpdateReputationEntityPolicyResponse {}
-
-/**
- * @internal
- */
-export const PutAccountDetailsRequestFilterSensitiveLog = (obj: PutAccountDetailsRequest): any => ({
-  ...obj,
-  ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
-  ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
-  ...(obj.AdditionalContactEmailAddresses && { AdditionalContactEmailAddresses: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog = (
-  obj: PutEmailIdentityDkimSigningAttributesRequest
-): any => ({
-  ...obj,
-  ...(obj.SigningAttributes && { SigningAttributes: DkimSigningAttributesFilterSensitiveLog(obj.SigningAttributes) }),
-});

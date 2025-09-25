@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GenerateMappingRequest, GenerateMappingResponse } from "../models/models_0";
-import { de_GenerateMappingCommand, se_GenerateMappingCommand } from "../protocols/Aws_json1_0";
+import { GenerateMapping } from "../schemas/schemas_4_Mapping";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class GenerateMappingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("B2BI", "GenerateMapping", {})
   .n("B2biClient", "GenerateMappingCommand")
-  .f(void 0, void 0)
-  .ser(se_GenerateMappingCommand)
-  .de(de_GenerateMappingCommand)
+  .sc(GenerateMapping)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

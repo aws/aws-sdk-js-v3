@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListBrowsersRequest, ListBrowsersResponse, ListBrowsersResponseFilterSensitiveLog } from "../models/models_0";
-import { de_ListBrowsersCommand, se_ListBrowsersCommand } from "../protocols/Aws_restJson1";
+import { ListBrowsersRequest, ListBrowsersResponse } from "../models/models_0";
+import { ListBrowsers } from "../schemas/schemas_8_Code";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class ListBrowsersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCoreControl", "ListBrowsers", {})
   .n("BedrockAgentCoreControlClient", "ListBrowsersCommand")
-  .f(void 0, ListBrowsersResponseFilterSensitiveLog)
-  .ser(se_ListBrowsersCommand)
-  .de(de_ListBrowsersCommand)
+  .sc(ListBrowsers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

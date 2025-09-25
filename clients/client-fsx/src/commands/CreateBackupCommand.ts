@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { CreateBackupRequest } from "../models/models_0";
-import { CreateBackupResponse, CreateBackupResponseFilterSensitiveLog } from "../models/models_1";
-import { de_CreateBackupCommand, se_CreateBackupCommand } from "../protocols/Aws_json1_1";
+import { CreateBackupResponse } from "../models/models_1";
+import { CreateBackup } from "../schemas/schemas_10_Volume";
 
 /**
  * @public
@@ -778,16 +777,11 @@ export class CreateBackupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSimbaAPIService_v20180301", "CreateBackup", {})
   .n("FSxClient", "CreateBackupCommand")
-  .f(void 0, CreateBackupResponseFilterSensitiveLog)
-  .ser(se_CreateBackupCommand)
-  .de(de_CreateBackupCommand)
+  .sc(CreateBackup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

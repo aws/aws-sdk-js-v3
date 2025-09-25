@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse } from "../models/models_0";
-import {
-  de_DescribeSavingsPlansOfferingsCommand,
-  se_DescribeSavingsPlansOfferingsCommand,
-} from "../protocols/Aws_restJson1";
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
+import { DescribeSavingsPlansOfferings } from "../schemas/schemas_1_Savings";
 
 /**
  * @public
@@ -140,16 +136,11 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SavingsplansClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSavingsPlan", "DescribeSavingsPlansOfferings", {})
   .n("SavingsplansClient", "DescribeSavingsPlansOfferingsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeSavingsPlansOfferingsCommand)
-  .de(de_DescribeSavingsPlansOfferingsCommand)
+  .sc(DescribeSavingsPlansOfferings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CodeCatalystServiceException as __BaseException } from "./CodeCatalystServiceException";
 
@@ -3181,28 +3181,3 @@ export interface VerifySessionResponse {
    */
   identity?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateAccessTokenResponseFilterSensitiveLog = (obj: CreateAccessTokenResponse): any => ({
-  ...obj,
-  ...(obj.secret && { secret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DevEnvironmentAccessDetailsFilterSensitiveLog = (obj: DevEnvironmentAccessDetails): any => ({
-  ...obj,
-  ...(obj.streamUrl && { streamUrl: SENSITIVE_STRING }),
-  ...(obj.tokenValue && { tokenValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartDevEnvironmentSessionResponseFilterSensitiveLog = (obj: StartDevEnvironmentSessionResponse): any => ({
-  ...obj,
-  ...(obj.accessDetails && { accessDetails: SENSITIVE_STRING }),
-});

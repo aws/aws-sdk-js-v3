@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DisassociateGlobalReplicationGroupMessage,
   DisassociateGlobalReplicationGroupResult,
 } from "../models/models_0";
-import {
-  de_DisassociateGlobalReplicationGroupCommand,
-  se_DisassociateGlobalReplicationGroupCommand,
-} from "../protocols/Aws_query";
+import { DisassociateGlobalReplicationGroup } from "../schemas/schemas_7_Group";
 
 /**
  * @public
@@ -121,16 +117,11 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElastiCacheV9", "DisassociateGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "DisassociateGlobalReplicationGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateGlobalReplicationGroupCommand)
-  .de(de_DisassociateGlobalReplicationGroupCommand)
+  .sc(DisassociateGlobalReplicationGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

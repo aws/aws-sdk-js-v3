@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListEnvironmentsRequest,
-  ListEnvironmentsResponse,
-  ListEnvironmentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_restJson1";
+import { ListEnvironmentsRequest, ListEnvironmentsResponse } from "../models/models_0";
+import { ListEnvironments } from "../schemas/schemas_2_Environment";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -119,16 +114,11 @@ export class ListEnvironmentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ThinClient", "ListEnvironments", {})
   .n("WorkSpacesThinClientClient", "ListEnvironmentsCommand")
-  .f(void 0, ListEnvironmentsResponseFilterSensitiveLog)
-  .ser(se_ListEnvironmentsCommand)
-  .de(de_ListEnvironmentsCommand)
+  .sc(ListEnvironments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

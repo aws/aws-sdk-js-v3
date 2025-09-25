@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { de_PutDedicatedIpInPoolCommand, se_PutDedicatedIpInPoolCommand } from "../protocols/Aws_restJson1";
+import { PutDedicatedIpInPool } from "../schemas/schemas_9_Dedicated";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class PutDedicatedIpInPoolCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPinpointEmailService", "PutDedicatedIpInPool", {})
   .n("PinpointEmailClient", "PutDedicatedIpInPoolCommand")
-  .f(void 0, void 0)
-  .ser(se_PutDedicatedIpInPoolCommand)
-  .de(de_PutDedicatedIpInPoolCommand)
+  .sc(PutDedicatedIpInPool)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

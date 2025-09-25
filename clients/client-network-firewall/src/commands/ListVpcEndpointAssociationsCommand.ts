@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListVpcEndpointAssociationsRequest, ListVpcEndpointAssociationsResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import { de_ListVpcEndpointAssociationsCommand, se_ListVpcEndpointAssociationsCommand } from "../protocols/Aws_json1_0";
+import { ListVpcEndpointAssociations } from "../schemas/schemas_4_List";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class ListVpcEndpointAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkFirewall_20201112", "ListVpcEndpointAssociations", {})
   .n("NetworkFirewallClient", "ListVpcEndpointAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListVpcEndpointAssociationsCommand)
-  .de(de_ListVpcEndpointAssociationsCommand)
+  .sc(ListVpcEndpointAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

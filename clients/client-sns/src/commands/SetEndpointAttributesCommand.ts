@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SetEndpointAttributesInput } from "../models/models_0";
-import { de_SetEndpointAttributesCommand, se_SetEndpointAttributesCommand } from "../protocols/Aws_query";
+import { SetEndpointAttributes } from "../schemas/schemas_3_Platform";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -86,16 +85,11 @@ export class SetEndpointAttributesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSimpleNotificationService", "SetEndpointAttributes", {})
   .n("SNSClient", "SetEndpointAttributesCommand")
-  .f(void 0, void 0)
-  .ser(se_SetEndpointAttributesCommand)
-  .de(de_SetEndpointAttributesCommand)
+  .sc(SetEndpointAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateSubscriptionRequest, CreateSubscriptionResponse } from "../models/models_0";
-import { de_CreateSubscriptionCommand, se_CreateSubscriptionCommand } from "../protocols/Aws_json1_1";
+import { CreateSubscription } from "../schemas/schemas_11_Create";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -77,16 +76,11 @@ export class CreateSubscriptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSShield_20160616", "CreateSubscription", {})
   .n("ShieldClient", "CreateSubscriptionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateSubscriptionCommand)
-  .de(de_CreateSubscriptionCommand)
+  .sc(CreateSubscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

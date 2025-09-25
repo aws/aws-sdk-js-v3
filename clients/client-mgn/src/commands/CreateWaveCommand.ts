@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  CreateWaveRequest,
-  CreateWaveRequestFilterSensitiveLog,
-  Wave,
-  WaveFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateWaveCommand, se_CreateWaveCommand } from "../protocols/Aws_restJson1";
+import { CreateWaveRequest, Wave } from "../models/models_0";
+import { CreateWave } from "../schemas/schemas_6_Wave";
 
 /**
  * @public
@@ -105,16 +99,11 @@ export class CreateWaveCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationMigrationService", "CreateWave", {})
   .n("MgnClient", "CreateWaveCommand")
-  .f(CreateWaveRequestFilterSensitiveLog, WaveFilterSensitiveLog)
-  .ser(se_CreateWaveCommand)
-  .de(de_CreateWaveCommand)
+  .sc(CreateWave)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

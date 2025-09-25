@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetBlockRequest,
-  GetBlockRequestFilterSensitiveLog,
-  GetBlockResponse,
-  GetBlockResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetBlockCommand, se_GetBlockCommand } from "../protocols/Aws_restJson1";
+import { GetBlockRequest, GetBlockResponse } from "../models/models_0";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
+import { GetBlock } from "../schemas/schemas_4_Journal";
 
 /**
  * @public
@@ -104,16 +98,11 @@ export class GetBlockCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QLDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonQLDB", "GetBlock", {})
   .n("QLDBClient", "GetBlockCommand")
-  .f(GetBlockRequestFilterSensitiveLog, GetBlockResponseFilterSensitiveLog)
-  .ser(se_GetBlockCommand)
-  .de(de_GetBlockCommand)
+  .sc(GetBlock)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

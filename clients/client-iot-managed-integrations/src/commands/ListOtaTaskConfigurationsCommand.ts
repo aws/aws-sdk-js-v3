@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import {
-  ListOtaTaskConfigurationsRequest,
-  ListOtaTaskConfigurationsResponse,
-  ListOtaTaskConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListOtaTaskConfigurationsCommand, se_ListOtaTaskConfigurationsCommand } from "../protocols/Aws_restJson1";
+import { ListOtaTaskConfigurationsRequest, ListOtaTaskConfigurationsResponse } from "../models/models_0";
+import { ListOtaTaskConfigurations } from "../schemas/schemas_13_Ota";
 
 /**
  * @public
@@ -98,16 +93,11 @@ export class ListOtaTaskConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "ListOtaTaskConfigurations", {})
   .n("IoTManagedIntegrationsClient", "ListOtaTaskConfigurationsCommand")
-  .f(void 0, ListOtaTaskConfigurationsResponseFilterSensitiveLog)
-  .ser(se_ListOtaTaskConfigurationsCommand)
-  .de(de_ListOtaTaskConfigurationsCommand)
+  .sc(ListOtaTaskConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

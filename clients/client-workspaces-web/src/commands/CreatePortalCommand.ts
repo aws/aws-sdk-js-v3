@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreatePortalRequest, CreatePortalRequestFilterSensitiveLog, CreatePortalResponse } from "../models/models_0";
-import { de_CreatePortalCommand, se_CreatePortalCommand } from "../protocols/Aws_restJson1";
+import { CreatePortalRequest, CreatePortalResponse } from "../models/models_0";
+import { CreatePortal } from "../schemas/schemas_12_AccessSettings";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -106,16 +105,11 @@ export class CreatePortalCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "CreatePortal", {})
   .n("WorkSpacesWebClient", "CreatePortalCommand")
-  .f(CreatePortalRequestFilterSensitiveLog, void 0)
-  .ser(se_CreatePortalCommand)
-  .de(de_CreatePortalCommand)
+  .sc(CreatePortal)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

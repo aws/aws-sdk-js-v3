@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AddressAttribute,
   AddressAttributeName,
@@ -82,9 +80,7 @@ import {
   ScheduledInstance,
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
-  SpotFleetRequestConfigDataFilterSensitiveLog,
   SpotInstanceRequest,
-  SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
 } from "./models_5";
 
@@ -5372,74 +5368,3 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr | undefined;
 }
-
-/**
- * @internal
- */
-export const ReportInstanceStatusRequestFilterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotFleetRequestFilterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
-  ...obj,
-  ...(obj.SpotFleetRequestConfig && {
-    SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
-  }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotLaunchSpecificationFilterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotInstancesRequestFilterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && {
-    LaunchSpecification: RequestSpotLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
-  }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotInstancesResultFilterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
-  ...obj,
-  ...(obj.SpotInstanceRequests && {
-    SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const RunInstancesRequestFilterSensitiveLog = (obj: RunInstancesRequest): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ScheduledInstancesLaunchSpecificationFilterSensitiveLog = (
-  obj: ScheduledInstancesLaunchSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunScheduledInstancesRequestFilterSensitiveLog = (obj: RunScheduledInstancesRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && { LaunchSpecification: SENSITIVE_STRING }),
-});

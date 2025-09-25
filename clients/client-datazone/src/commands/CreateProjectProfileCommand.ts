@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateProjectProfileInput,
-  CreateProjectProfileInputFilterSensitiveLog,
-  CreateProjectProfileOutput,
-  CreateProjectProfileOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateProjectProfileCommand, se_CreateProjectProfileCommand } from "../protocols/Aws_restJson1";
+import { CreateProjectProfileInput, CreateProjectProfileOutput } from "../models/models_0";
+import { CreateProjectProfile } from "../schemas/schemas_13_Project";
 
 /**
  * @public
@@ -187,16 +181,11 @@ export class CreateProjectProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "CreateProjectProfile", {})
   .n("DataZoneClient", "CreateProjectProfileCommand")
-  .f(CreateProjectProfileInputFilterSensitiveLog, CreateProjectProfileOutputFilterSensitiveLog)
-  .ser(se_CreateProjectProfileCommand)
-  .de(de_CreateProjectProfileCommand)
+  .sc(CreateProjectProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

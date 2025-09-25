@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteFileSystemPolicyRequest } from "../models/models_0";
-import { de_DeleteFileSystemPolicyCommand, se_DeleteFileSystemPolicyCommand } from "../protocols/Aws_restJson1";
+import { DeleteFileSystemPolicy } from "../schemas/schemas_5_FileSystem";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class DeleteFileSystemPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MagnolioAPIService_v20150201", "DeleteFileSystemPolicy", {})
   .n("EFSClient", "DeleteFileSystemPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteFileSystemPolicyCommand)
-  .de(de_DeleteFileSystemPolicyCommand)
+  .sc(DeleteFileSystemPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

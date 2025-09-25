@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { NeptuneServiceException as __BaseException } from "./NeptuneServiceException";
 
@@ -9320,19 +9320,3 @@ export interface SwitchoverGlobalClusterResult {
    */
   GlobalCluster?: GlobalCluster | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateDBInstanceMessageFilterSensitiveLog = (obj: CreateDBInstanceMessage): any => ({
-  ...obj,
-  ...(obj.TdeCredentialPassword && { TdeCredentialPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyDBInstanceMessageFilterSensitiveLog = (obj: ModifyDBInstanceMessage): any => ({
-  ...obj,
-  ...(obj.TdeCredentialPassword && { TdeCredentialPassword: SENSITIVE_STRING }),
-});

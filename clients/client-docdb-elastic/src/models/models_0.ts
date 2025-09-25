@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DocDBElasticServiceException as __BaseException } from "./DocDBElasticServiceException";
 
@@ -1521,19 +1521,3 @@ export interface UpdateClusterOutput {
    */
   cluster: Cluster | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateClusterInputFilterSensitiveLog = (obj: CreateClusterInput): any => ({
-  ...obj,
-  ...(obj.adminUserPassword && { adminUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateClusterInputFilterSensitiveLog = (obj: UpdateClusterInput): any => ({
-  ...obj,
-  ...(obj.adminUserPassword && { adminUserPassword: SENSITIVE_STRING }),
-});

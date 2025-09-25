@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { Inspector2ServiceException as __BaseException } from "./Inspector2ServiceException";
 
@@ -8072,43 +8072,3 @@ export interface EnableDelegatedAdminAccountResponse {
    */
   delegatedAdminAccountId: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateGitLabSelfManagedIntegrationDetailFilterSensitiveLog = (
-  obj: CreateGitLabSelfManagedIntegrationDetail
-): any => ({
-  ...obj,
-  ...(obj.instanceUrl && { instanceUrl: SENSITIVE_STRING }),
-  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateIntegrationDetailFilterSensitiveLog = (obj: CreateIntegrationDetail): any => {
-  if (obj.gitlabSelfManaged !== undefined)
-    return { gitlabSelfManaged: CreateGitLabSelfManagedIntegrationDetailFilterSensitiveLog(obj.gitlabSelfManaged) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateCodeSecurityIntegrationRequestFilterSensitiveLog = (
-  obj: CreateCodeSecurityIntegrationRequest
-): any => ({
-  ...obj,
-  ...(obj.details && { details: CreateIntegrationDetailFilterSensitiveLog(obj.details) }),
-});
-
-/**
- * @internal
- */
-export const CreateCodeSecurityIntegrationResponseFilterSensitiveLog = (
-  obj: CreateCodeSecurityIntegrationResponse
-): any => ({
-  ...obj,
-  ...(obj.authorizationUrl && { authorizationUrl: SENSITIVE_STRING }),
-});

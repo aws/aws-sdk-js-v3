@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyVolumeRequest, ModifyVolumeResult } from "../models/models_7";
-import { de_ModifyVolumeCommand, se_ModifyVolumeCommand } from "../protocols/Aws_ec2";
+import { ModifyVolume } from "../schemas/schemas_267_Volume";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class ModifyVolumeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ModifyVolume", {})
   .n("EC2Client", "ModifyVolumeCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyVolumeCommand)
-  .de(de_ModifyVolumeCommand)
+  .sc(ModifyVolume)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

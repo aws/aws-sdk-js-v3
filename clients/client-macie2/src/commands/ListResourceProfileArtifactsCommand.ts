@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { ListResourceProfileArtifactsRequest, ListResourceProfileArtifactsResponse } from "../models/models_1";
-import {
-  de_ListResourceProfileArtifactsCommand,
-  se_ListResourceProfileArtifactsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListResourceProfileArtifacts } from "../schemas/schemas_20_ListResourceProfileArtifacts";
 
 /**
  * @public
@@ -98,16 +94,11 @@ export class ListResourceProfileArtifactsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Macie2", "ListResourceProfileArtifacts", {})
   .n("Macie2Client", "ListResourceProfileArtifactsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListResourceProfileArtifactsCommand)
-  .de(de_ListResourceProfileArtifactsCommand)
+  .sc(ListResourceProfileArtifacts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

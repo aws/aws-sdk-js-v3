@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateLocationObjectStorageRequest,
-  UpdateLocationObjectStorageRequestFilterSensitiveLog,
-  UpdateLocationObjectStorageResponse,
-} from "../models/models_0";
-import { de_UpdateLocationObjectStorageCommand, se_UpdateLocationObjectStorageCommand } from "../protocols/Aws_json1_1";
+import { UpdateLocationObjectStorageRequest, UpdateLocationObjectStorageResponse } from "../models/models_0";
+import { UpdateLocationObjectStorage } from "../schemas/schemas_22_Task";
 
 /**
  * @public
@@ -102,16 +97,11 @@ export class UpdateLocationObjectStorageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FmrsService", "UpdateLocationObjectStorage", {})
   .n("DataSyncClient", "UpdateLocationObjectStorageCommand")
-  .f(UpdateLocationObjectStorageRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateLocationObjectStorageCommand)
-  .de(de_UpdateLocationObjectStorageCommand)
+  .sc(UpdateLocationObjectStorage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAuthenticationProfileRequest, DescribeAuthenticationProfileResponse } from "../models/models_1";
-import {
-  de_DescribeAuthenticationProfileCommand,
-  se_DescribeAuthenticationProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAuthenticationProfile } from "../schemas/schemas_43_Authentication";
 
 /**
  * @public
@@ -110,16 +106,11 @@ export class DescribeAuthenticationProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "DescribeAuthenticationProfile", {})
   .n("ConnectClient", "DescribeAuthenticationProfileCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAuthenticationProfileCommand)
-  .de(de_DescribeAuthenticationProfileCommand)
+  .sc(DescribeAuthenticationProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

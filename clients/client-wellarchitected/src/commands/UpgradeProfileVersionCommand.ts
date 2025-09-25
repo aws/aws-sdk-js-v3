@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpgradeProfileVersionInput } from "../models/models_0";
-import { de_UpgradeProfileVersionCommand, se_UpgradeProfileVersionCommand } from "../protocols/Aws_restJson1";
+import { UpgradeProfileVersion } from "../schemas/schemas_5_Milestone";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -92,16 +91,11 @@ export class UpgradeProfileVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WellArchitectedApiServiceLambda", "UpgradeProfileVersion", {})
   .n("WellArchitectedClient", "UpgradeProfileVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpgradeProfileVersionCommand)
-  .de(de_UpgradeProfileVersionCommand)
+  .sc(UpgradeProfileVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

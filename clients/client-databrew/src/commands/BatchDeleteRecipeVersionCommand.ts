@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchDeleteRecipeVersionRequest, BatchDeleteRecipeVersionResponse } from "../models/models_0";
-import { de_BatchDeleteRecipeVersionCommand, se_BatchDeleteRecipeVersionCommand } from "../protocols/Aws_restJson1";
+import { BatchDeleteRecipeVersion } from "../schemas/schemas_7_Recipe";
 
 /**
  * @public
@@ -127,16 +126,11 @@ export class BatchDeleteRecipeVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlueDataBrew", "BatchDeleteRecipeVersion", {})
   .n("DataBrewClient", "BatchDeleteRecipeVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchDeleteRecipeVersionCommand)
-  .de(de_BatchDeleteRecipeVersionCommand)
+  .sc(BatchDeleteRecipeVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

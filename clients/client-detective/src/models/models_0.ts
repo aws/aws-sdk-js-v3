@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DetectiveServiceException as __BaseException } from "./DetectiveServiceException";
 
@@ -2114,60 +2114,3 @@ export interface UpdateOrganizationConfigurationRequest {
    */
   AutoEnable?: boolean | undefined;
 }
-
-/**
- * @internal
- */
-export const AccountFilterSensitiveLog = (obj: Account): any => ({
-  ...obj,
-  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateMembersRequestFilterSensitiveLog = (obj: CreateMembersRequest): any => ({
-  ...obj,
-  ...(obj.Message && { Message: SENSITIVE_STRING }),
-  ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => AccountFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const MemberDetailFilterSensitiveLog = (obj: MemberDetail): any => ({
-  ...obj,
-  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateMembersResponseFilterSensitiveLog = (obj: CreateMembersResponse): any => ({
-  ...obj,
-  ...(obj.Members && { Members: obj.Members.map((item) => MemberDetailFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
-  ...obj,
-  ...(obj.MemberDetails && { MemberDetails: obj.MemberDetails.map((item) => MemberDetailFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListInvitationsResponseFilterSensitiveLog = (obj: ListInvitationsResponse): any => ({
-  ...obj,
-  ...(obj.Invitations && { Invitations: obj.Invitations.map((item) => MemberDetailFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
-  ...obj,
-  ...(obj.MemberDetails && { MemberDetails: obj.MemberDetails.map((item) => MemberDetailFilterSensitiveLog(item)) }),
-});

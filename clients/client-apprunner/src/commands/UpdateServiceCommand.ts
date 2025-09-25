@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateServiceRequest,
-  UpdateServiceRequestFilterSensitiveLog,
-  UpdateServiceResponse,
-  UpdateServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/Aws_json1_0";
+import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
+import { UpdateService } from "../schemas/schemas_2_Service";
 
 /**
  * @public
@@ -257,16 +251,11 @@ export class UpdateServiceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AppRunner", "UpdateService", {})
   .n("AppRunnerClient", "UpdateServiceCommand")
-  .f(UpdateServiceRequestFilterSensitiveLog, UpdateServiceResponseFilterSensitiveLog)
-  .ser(se_UpdateServiceCommand)
-  .de(de_UpdateServiceCommand)
+  .sc(UpdateService)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

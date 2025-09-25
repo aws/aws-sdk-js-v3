@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateAccountPoolInput,
-  UpdateAccountPoolInputFilterSensitiveLog,
-  UpdateAccountPoolOutput,
-  UpdateAccountPoolOutputFilterSensitiveLog,
-} from "../models/models_2";
-import { de_UpdateAccountPoolCommand, se_UpdateAccountPoolCommand } from "../protocols/Aws_restJson1";
+import { UpdateAccountPoolInput, UpdateAccountPoolOutput } from "../models/models_2";
+import { UpdateAccountPool } from "../schemas/schemas_17_AccountPool";
 
 /**
  * @public
@@ -142,16 +136,11 @@ export class UpdateAccountPoolCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "UpdateAccountPool", {})
   .n("DataZoneClient", "UpdateAccountPoolCommand")
-  .f(UpdateAccountPoolInputFilterSensitiveLog, UpdateAccountPoolOutputFilterSensitiveLog)
-  .ser(se_UpdateAccountPoolCommand)
-  .de(de_UpdateAccountPoolCommand)
+  .sc(UpdateAccountPool)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

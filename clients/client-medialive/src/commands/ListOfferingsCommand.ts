@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { ListOfferingsRequest, ListOfferingsResponse } from "../models/models_2";
-import { de_ListOfferingsCommand, se_ListOfferingsCommand } from "../protocols/Aws_restJson1";
+import { ListOfferings } from "../schemas/schemas_11_Reservation";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class ListOfferingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "ListOfferings", {})
   .n("MediaLiveClient", "ListOfferingsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListOfferingsCommand)
-  .de(de_ListOfferingsCommand)
+  .sc(ListOfferings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

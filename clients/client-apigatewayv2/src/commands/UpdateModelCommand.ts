@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateModelRequest, UpdateModelResponse } from "../models/models_0";
-import { de_UpdateModelCommand, se_UpdateModelCommand } from "../protocols/Aws_restJson1";
+import { UpdateModel } from "../schemas/schemas_9_Model";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class UpdateModelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApiGatewayV2", "UpdateModel", {})
   .n("ApiGatewayV2Client", "UpdateModelCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateModelCommand)
-  .de(de_UpdateModelCommand)
+  .sc(UpdateModel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

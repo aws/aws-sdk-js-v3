@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListSigningCertificatesRequest, ListSigningCertificatesResponse } from "../models/models_0";
-import { de_ListSigningCertificatesCommand, se_ListSigningCertificatesCommand } from "../protocols/Aws_query";
+import { ListSigningCertificates } from "../schemas/schemas_1_Certificate";
 
 /**
  * @public
@@ -122,16 +121,11 @@ export class ListSigningCertificatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "ListSigningCertificates", {})
   .n("IAMClient", "ListSigningCertificatesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSigningCertificatesCommand)
-  .de(de_ListSigningCertificatesCommand)
+  .sc(ListSigningCertificates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

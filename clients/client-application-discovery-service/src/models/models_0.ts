@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ApplicationDiscoveryServiceServiceException as __BaseException } from "./ApplicationDiscoveryServiceServiceException";
 
@@ -2836,26 +2836,3 @@ export interface UpdateApplicationRequest {
  * @public
  */
 export interface UpdateApplicationResponse {}
-
-/**
- * @internal
- */
-export const AgentNetworkInfoFilterSensitiveLog = (obj: AgentNetworkInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AgentInfoFilterSensitiveLog = (obj: AgentInfo): any => ({
-  ...obj,
-  ...(obj.agentNetworkInfoList && { agentNetworkInfoList: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeAgentsResponseFilterSensitiveLog = (obj: DescribeAgentsResponse): any => ({
-  ...obj,
-  ...(obj.agentsInfo && { agentsInfo: obj.agentsInfo.map((item) => AgentInfoFilterSensitiveLog(item)) }),
-});

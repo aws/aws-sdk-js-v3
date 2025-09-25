@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAttachedLinksInput, ListAttachedLinksOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import { de_ListAttachedLinksCommand, se_ListAttachedLinksCommand } from "../protocols/Aws_restJson1";
+import { ListAttachedLinks } from "../schemas/schemas_1_Sink";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class ListAttachedLinksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("oamservice", "ListAttachedLinks", {})
   .n("OAMClient", "ListAttachedLinksCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAttachedLinksCommand)
-  .de(de_ListAttachedLinksCommand)
+  .sc(ListAttachedLinks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

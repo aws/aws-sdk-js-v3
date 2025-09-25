@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteSourceRepositoryRequest, DeleteSourceRepositoryResponse } from "../models/models_0";
-import { de_DeleteSourceRepositoryCommand, se_DeleteSourceRepositoryCommand } from "../protocols/Aws_restJson1";
+import { DeleteSourceRepository } from "../schemas/schemas_23_DeleteSourceRepository";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class DeleteSourceRepositoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCatalyst", "DeleteSourceRepository", {})
   .n("CodeCatalystClient", "DeleteSourceRepositoryCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteSourceRepositoryCommand)
-  .de(de_DeleteSourceRepositoryCommand)
+  .sc(DeleteSourceRepository)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

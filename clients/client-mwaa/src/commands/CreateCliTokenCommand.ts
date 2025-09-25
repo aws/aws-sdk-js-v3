@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateCliTokenRequest,
-  CreateCliTokenResponse,
-  CreateCliTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCliTokenRequest, CreateCliTokenResponse } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import { de_CreateCliTokenCommand, se_CreateCliTokenCommand } from "../protocols/Aws_restJson1";
+import { CreateCliToken } from "../schemas/schemas_2_Resource";
 
 /**
  * @public
@@ -78,16 +73,11 @@ export class CreateCliTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonMWAA", "CreateCliToken", {})
   .n("MWAAClient", "CreateCliTokenCommand")
-  .f(void 0, CreateCliTokenResponseFilterSensitiveLog)
-  .ser(se_CreateCliTokenCommand)
-  .de(de_CreateCliTokenCommand)
+  .sc(CreateCliToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

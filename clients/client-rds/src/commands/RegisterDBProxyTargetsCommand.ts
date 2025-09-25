@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RegisterDBProxyTargetsRequest, RegisterDBProxyTargetsResponse } from "../models/models_1";
-import { de_RegisterDBProxyTargetsCommand, se_RegisterDBProxyTargetsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { RegisterDBProxyTargets } from "../schemas/schemas_11_Proxy";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class RegisterDBProxyTargetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "RegisterDBProxyTargets", {})
   .n("RDSClient", "RegisterDBProxyTargetsCommand")
-  .f(void 0, void 0)
-  .ser(se_RegisterDBProxyTargetsCommand)
-  .de(de_RegisterDBProxyTargetsCommand)
+  .sc(RegisterDBProxyTargets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

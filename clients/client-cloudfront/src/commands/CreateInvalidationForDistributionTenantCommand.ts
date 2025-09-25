@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   CreateInvalidationForDistributionTenantRequest,
   CreateInvalidationForDistributionTenantResult,
 } from "../models/models_0";
-import {
-  de_CreateInvalidationForDistributionTenantCommand,
-  se_CreateInvalidationForDistributionTenantCommand,
-} from "../protocols/Aws_restXml";
+import { CreateInvalidationForDistributionTenant } from "../schemas/schemas_15_Invalidation";
 
 /**
  * @public
@@ -123,16 +119,11 @@ export class CreateInvalidationForDistributionTenantCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "CreateInvalidationForDistributionTenant", {})
   .n("CloudFrontClient", "CreateInvalidationForDistributionTenantCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateInvalidationForDistributionTenantCommand)
-  .de(de_CreateInvalidationForDistributionTenantCommand)
+  .sc(CreateInvalidationForDistributionTenant)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

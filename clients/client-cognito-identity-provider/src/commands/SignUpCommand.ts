@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SignUpRequest,
-  SignUpRequestFilterSensitiveLog,
-  SignUpResponse,
-  SignUpResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_SignUpCommand, se_SignUpCommand } from "../protocols/Aws_json1_1";
+import { SignUpRequest, SignUpResponse } from "../models/models_1";
+import { SignUp } from "../schemas/schemas_7_Auth";
 
 /**
  * @public
@@ -202,16 +196,11 @@ export class SignUpCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "SignUp", {})
   .n("CognitoIdentityProviderClient", "SignUpCommand")
-  .f(SignUpRequestFilterSensitiveLog, SignUpResponseFilterSensitiveLog)
-  .ser(se_SignUpCommand)
-  .de(de_SignUpCommand)
+  .sc(SignUp)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

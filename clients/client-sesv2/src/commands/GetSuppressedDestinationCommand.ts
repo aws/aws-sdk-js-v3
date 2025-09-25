@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSuppressedDestinationRequest, GetSuppressedDestinationResponse } from "../models/models_0";
-import { de_GetSuppressedDestinationCommand, se_GetSuppressedDestinationCommand } from "../protocols/Aws_restJson1";
+import { GetSuppressedDestination } from "../schemas/schemas_4_ConfigurationSet";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -88,16 +87,11 @@ export class GetSuppressedDestinationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "GetSuppressedDestination", {})
   .n("SESv2Client", "GetSuppressedDestinationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSuppressedDestinationCommand)
-  .de(de_GetSuppressedDestinationCommand)
+  .sc(GetSuppressedDestination)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateTeamsChannelConfigurationRequest,
-  UpdateTeamsChannelConfigurationRequestFilterSensitiveLog,
-  UpdateTeamsChannelConfigurationResult,
-  UpdateTeamsChannelConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_UpdateMicrosoftTeamsChannelConfigurationCommand,
-  se_UpdateMicrosoftTeamsChannelConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateTeamsChannelConfigurationRequest, UpdateTeamsChannelConfigurationResult } from "../models/models_0";
+import { UpdateMicrosoftTeamsChannelConfiguration } from "../schemas/schemas_1_Configuration";
 
 /**
  * @public
@@ -128,16 +119,11 @@ export class UpdateMicrosoftTeamsChannelConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WheatleyOrchestration_20171011", "UpdateMicrosoftTeamsChannelConfiguration", {})
   .n("ChatbotClient", "UpdateMicrosoftTeamsChannelConfigurationCommand")
-  .f(UpdateTeamsChannelConfigurationRequestFilterSensitiveLog, UpdateTeamsChannelConfigurationResultFilterSensitiveLog)
-  .ser(se_UpdateMicrosoftTeamsChannelConfigurationCommand)
-  .de(de_UpdateMicrosoftTeamsChannelConfigurationCommand)
+  .sc(UpdateMicrosoftTeamsChannelConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

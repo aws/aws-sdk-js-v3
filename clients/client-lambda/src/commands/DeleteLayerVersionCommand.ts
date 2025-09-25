@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { DeleteLayerVersionRequest } from "../models/models_0";
-import { de_DeleteLayerVersionCommand, se_DeleteLayerVersionCommand } from "../protocols/Aws_restJson1";
+import { DeleteLayerVersion } from "../schemas/schemas_4_Layer";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class DeleteLayerVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGirApiService", "DeleteLayerVersion", {})
   .n("LambdaClient", "DeleteLayerVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteLayerVersionCommand)
-  .de(de_DeleteLayerVersionCommand)
+  .sc(DeleteLayerVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

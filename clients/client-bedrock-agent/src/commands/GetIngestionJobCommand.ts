@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetIngestionJobRequest } from "../models/models_0";
 import { GetIngestionJobResponse } from "../models/models_1";
-import { de_GetIngestionJobCommand, se_GetIngestionJobCommand } from "../protocols/Aws_restJson1";
+import { GetIngestionJob } from "../schemas/schemas_14_Ingestion";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class GetIngestionJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "GetIngestionJob", {})
   .n("BedrockAgentClient", "GetIngestionJobCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIngestionJobCommand)
-  .de(de_GetIngestionJobCommand)
+  .sc(GetIngestionJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

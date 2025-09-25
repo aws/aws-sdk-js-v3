@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
@@ -18,6 +19,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "example.weather" }),
     signingName: config?.signingName ?? "weather",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

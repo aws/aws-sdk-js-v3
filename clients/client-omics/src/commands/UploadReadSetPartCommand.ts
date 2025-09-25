@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UploadReadSetPartRequest,
-  UploadReadSetPartRequestFilterSensitiveLog,
-  UploadReadSetPartResponse,
-} from "../models/models_1";
+import { UploadReadSetPartRequest, UploadReadSetPartResponse } from "../models/models_1";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_UploadReadSetPartCommand, se_UploadReadSetPartCommand } from "../protocols/Aws_restJson1";
+import { UploadReadSetPart } from "../schemas/schemas_21_Set";
 
 /**
  * @public
@@ -105,16 +100,11 @@ export class UploadReadSetPartCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Omics", "UploadReadSetPart", {})
   .n("OmicsClient", "UploadReadSetPartCommand")
-  .f(UploadReadSetPartRequestFilterSensitiveLog, void 0)
-  .ser(se_UploadReadSetPartCommand)
-  .de(de_UploadReadSetPartCommand)
+  .sc(UploadReadSetPart)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

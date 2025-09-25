@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,10 +7,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeCapacityReservationBillingRequestsRequest } from "../models/models_3";
 import { DescribeCapacityReservationBillingRequestsResult } from "../models/models_4";
-import {
-  de_DescribeCapacityReservationBillingRequestsCommand,
-  se_DescribeCapacityReservationBillingRequestsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeCapacityReservationBillingRequests } from "../schemas/schemas_92_Capacity";
 
 /**
  * @public
@@ -109,16 +105,11 @@ export class DescribeCapacityReservationBillingRequestsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeCapacityReservationBillingRequests", {})
   .n("EC2Client", "DescribeCapacityReservationBillingRequestsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeCapacityReservationBillingRequestsCommand)
-  .de(de_DescribeCapacityReservationBillingRequestsCommand)
+  .sc(DescribeCapacityReservationBillingRequests)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

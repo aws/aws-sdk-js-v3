@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeTargetHealthInput, DescribeTargetHealthOutput } from "../models/models_0";
-import { de_DescribeTargetHealthCommand, se_DescribeTargetHealthCommand } from "../protocols/Aws_query";
+import { DescribeTargetHealth } from "../schemas/schemas_1_Target";
 
 /**
  * @public
@@ -187,16 +186,11 @@ export class DescribeTargetHealthCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticLoadBalancing_v10", "DescribeTargetHealth", {})
   .n("ElasticLoadBalancingV2Client", "DescribeTargetHealthCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeTargetHealthCommand)
-  .de(de_DescribeTargetHealthCommand)
+  .sc(DescribeTargetHealth)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

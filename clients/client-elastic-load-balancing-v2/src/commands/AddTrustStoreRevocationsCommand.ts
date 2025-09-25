@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AddTrustStoreRevocationsInput, AddTrustStoreRevocationsOutput } from "../models/models_0";
-import { de_AddTrustStoreRevocationsCommand, se_AddTrustStoreRevocationsCommand } from "../protocols/Aws_query";
+import { AddTrustStoreRevocations } from "../schemas/schemas_10_Store";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class AddTrustStoreRevocationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticLoadBalancing_v10", "AddTrustStoreRevocations", {})
   .n("ElasticLoadBalancingV2Client", "AddTrustStoreRevocationsCommand")
-  .f(void 0, void 0)
-  .ser(se_AddTrustStoreRevocationsCommand)
-  .de(de_AddTrustStoreRevocationsCommand)
+  .sc(AddTrustStoreRevocations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

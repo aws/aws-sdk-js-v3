@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateNetworkSettingsRequest, UpdateNetworkSettingsResponse } from "../models/models_0";
-import { de_UpdateNetworkSettingsCommand, se_UpdateNetworkSettingsCommand } from "../protocols/Aws_restJson1";
+import { UpdateNetworkSettings } from "../schemas/schemas_15_NetworkSettings";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -105,16 +104,11 @@ export class UpdateNetworkSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "UpdateNetworkSettings", {})
   .n("WorkSpacesWebClient", "UpdateNetworkSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateNetworkSettingsCommand)
-  .de(de_UpdateNetworkSettingsCommand)
+  .sc(UpdateNetworkSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

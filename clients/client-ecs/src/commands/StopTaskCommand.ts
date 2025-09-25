@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopTaskRequest } from "../models/models_0";
 import { StopTaskResponse } from "../models/models_1";
-import { de_StopTaskCommand, se_StopTaskCommand } from "../protocols/Aws_json1_1";
+import { StopTask } from "../schemas/schemas_1_Task";
 
 /**
  * @public
@@ -326,16 +325,11 @@ export class StopTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerServiceV20141113", "StopTask", {})
   .n("ECSClient", "StopTaskCommand")
-  .f(void 0, void 0)
-  .ser(se_StopTaskCommand)
-  .de(de_StopTaskCommand)
+  .sc(StopTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

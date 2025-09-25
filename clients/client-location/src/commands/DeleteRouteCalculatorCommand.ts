@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { DeleteRouteCalculatorRequest, DeleteRouteCalculatorResponse } from "../models/models_0";
-import { de_DeleteRouteCalculatorCommand, se_DeleteRouteCalculatorCommand } from "../protocols/Aws_restJson1";
+import { DeleteRouteCalculator } from "../schemas/schemas_11_DeleteRouteCalculator";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class DeleteRouteCalculatorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LocationService", "DeleteRouteCalculator", {})
   .n("LocationClient", "DeleteRouteCalculatorCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteRouteCalculatorCommand)
-  .de(de_DeleteRouteCalculatorCommand)
+  .sc(DeleteRouteCalculator)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

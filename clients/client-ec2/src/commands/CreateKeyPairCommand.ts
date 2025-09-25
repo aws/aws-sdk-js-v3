@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateKeyPairRequest, KeyPair, KeyPairFilterSensitiveLog } from "../models/models_1";
-import { de_CreateKeyPairCommand, se_CreateKeyPairCommand } from "../protocols/Aws_ec2";
+import { CreateKeyPairRequest, KeyPair } from "../models/models_1";
+import { CreateKeyPair } from "../schemas/schemas_268_Spot";
 
 /**
  * @public
@@ -116,16 +115,11 @@ export class CreateKeyPairCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "CreateKeyPair", {})
   .n("EC2Client", "CreateKeyPairCommand")
-  .f(void 0, KeyPairFilterSensitiveLog)
-  .ser(se_CreateKeyPairCommand)
-  .de(de_CreateKeyPairCommand)
+  .sc(CreateKeyPair)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateChannelModeratorRequest,
-  CreateChannelModeratorResponse,
-  CreateChannelModeratorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateChannelModeratorCommand, se_CreateChannelModeratorCommand } from "../protocols/Aws_restJson1";
+import { CreateChannelModeratorRequest, CreateChannelModeratorResponse } from "../models/models_0";
+import { CreateChannelModerator } from "../schemas/schemas_8_CreateChannel";
 
 /**
  * @public
@@ -131,16 +126,11 @@ export class CreateChannelModeratorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMessagingService", "CreateChannelModerator", {})
   .n("ChimeSDKMessagingClient", "CreateChannelModeratorCommand")
-  .f(void 0, CreateChannelModeratorResponseFilterSensitiveLog)
-  .ser(se_CreateChannelModeratorCommand)
-  .de(de_CreateChannelModeratorCommand)
+  .sc(CreateChannelModerator)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

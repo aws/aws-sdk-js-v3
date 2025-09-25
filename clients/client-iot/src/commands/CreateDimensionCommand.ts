@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateDimensionRequest, CreateDimensionResponse } from "../models/models_0";
-import { de_CreateDimensionCommand, se_CreateDimensionCommand } from "../protocols/Aws_restJson1";
+import { CreateDimension } from "../schemas/schemas_36_Create";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class CreateDimensionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "CreateDimension", {})
   .n("IoTClient", "CreateDimensionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDimensionCommand)
-  .de(de_CreateDimensionCommand)
+  .sc(CreateDimension)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IoTSiteWiseServiceException as __BaseException } from "./IoTSiteWiseServiceException";
 
@@ -8299,29 +8299,3 @@ export interface Location {
    */
   uri?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreatePortalRequestFilterSensitiveLog = (obj: CreatePortalRequest): any => ({
-  ...obj,
-  ...(obj.portalContactEmail && { portalContactEmail: SENSITIVE_STRING }),
-  ...(obj.notificationSenderEmail && { notificationSenderEmail: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribePortalResponseFilterSensitiveLog = (obj: DescribePortalResponse): any => ({
-  ...obj,
-  ...(obj.portalContactEmail && { portalContactEmail: SENSITIVE_STRING }),
-  ...(obj.notificationSenderEmail && { notificationSenderEmail: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InvokeAssistantRequestFilterSensitiveLog = (obj: InvokeAssistantRequest): any => ({
-  ...obj,
-  ...(obj.message && { message: SENSITIVE_STRING }),
-});

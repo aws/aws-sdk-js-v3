@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PutVoiceConnectorTerminationRequest,
-  PutVoiceConnectorTerminationRequestFilterSensitiveLog,
-  PutVoiceConnectorTerminationResponse,
-  PutVoiceConnectorTerminationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_PutVoiceConnectorTerminationCommand,
-  se_PutVoiceConnectorTerminationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutVoiceConnectorTerminationRequest, PutVoiceConnectorTerminationResponse } from "../models/models_0";
+import { PutVoiceConnectorTermination } from "../schemas/schemas_29_Connector";
 
 /**
  * @public
@@ -125,16 +116,11 @@ export class PutVoiceConnectorTerminationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "PutVoiceConnectorTermination", {})
   .n("ChimeSDKVoiceClient", "PutVoiceConnectorTerminationCommand")
-  .f(PutVoiceConnectorTerminationRequestFilterSensitiveLog, PutVoiceConnectorTerminationResponseFilterSensitiveLog)
-  .ser(se_PutVoiceConnectorTerminationCommand)
-  .de(de_PutVoiceConnectorTerminationCommand)
+  .sc(PutVoiceConnectorTermination)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

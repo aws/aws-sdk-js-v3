@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListFileTransferResultsRequest, ListFileTransferResultsResponse } from "../models/models_0";
-import { de_ListFileTransferResultsCommand, se_ListFileTransferResultsCommand } from "../protocols/Aws_json1_1";
+import { ListFileTransferResults } from "../schemas/schemas_6_Connector";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -93,16 +92,11 @@ export class ListFileTransferResultsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TransferService", "ListFileTransferResults", {})
   .n("TransferClient", "ListFileTransferResultsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListFileTransferResultsCommand)
-  .de(de_ListFileTransferResultsCommand)
+  .sc(ListFileTransferResults)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

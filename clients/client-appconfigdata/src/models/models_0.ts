@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AppConfigDataServiceException as __BaseException } from "./AppConfigDataServiceException";
 
@@ -364,11 +364,3 @@ export interface GetLatestConfigurationResponse {
    */
   VersionLabel?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const GetLatestConfigurationResponseFilterSensitiveLog = (obj: GetLatestConfigurationResponse): any => ({
-  ...obj,
-  ...(obj.Configuration && { Configuration: SENSITIVE_STRING }),
-});

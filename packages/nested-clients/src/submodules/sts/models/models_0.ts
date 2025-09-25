@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { STSServiceException as __BaseException } from "./STSServiceException";
 
@@ -355,14 +355,6 @@ export interface Credentials {
 }
 
 /**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
-  ...obj,
-  ...(obj.SecretAccessKey && { SecretAccessKey: SENSITIVE_STRING }),
-});
-
-/**
  * <p>Contains the response to a successful <a>AssumeRole</a> request, including
  *       temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. </p>
  * @public
@@ -415,14 +407,6 @@ export interface AssumeRoleResponse {
    */
   SourceIdentity?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const AssumeRoleResponseFilterSensitiveLog = (obj: AssumeRoleResponse): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});
 
 /**
  * <p>The web identity token that was passed is expired or is not valid. Get a new identity
@@ -701,14 +685,6 @@ export interface AssumeRoleWithWebIdentityRequest {
 }
 
 /**
- * @internal
- */
-export const AssumeRoleWithWebIdentityRequestFilterSensitiveLog = (obj: AssumeRoleWithWebIdentityRequest): any => ({
-  ...obj,
-  ...(obj.WebIdentityToken && { WebIdentityToken: SENSITIVE_STRING }),
-});
-
-/**
  * <p>Contains the response to a successful <a>AssumeRoleWithWebIdentity</a>
  *       request, including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. </p>
  * @public
@@ -793,14 +769,6 @@ export interface AssumeRoleWithWebIdentityResponse {
    */
   SourceIdentity?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const AssumeRoleWithWebIdentityResponseFilterSensitiveLog = (obj: AssumeRoleWithWebIdentityResponse): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});
 
 /**
  * <p>The request could not be fulfilled because the identity provider (IDP) that was asked

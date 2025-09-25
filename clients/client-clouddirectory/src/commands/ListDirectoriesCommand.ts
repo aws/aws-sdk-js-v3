@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDirectoriesRequest, ListDirectoriesResponse } from "../models/models_0";
-import { de_ListDirectoriesCommand, se_ListDirectoriesCommand } from "../protocols/Aws_restJson1";
+import { ListDirectories } from "../schemas/schemas_11_Directory";
 
 /**
  * @public
@@ -146,16 +145,11 @@ export class ListDirectoriesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonCloudDirectory_20170111", "ListDirectories", {})
   .n("CloudDirectoryClient", "ListDirectoriesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDirectoriesCommand)
-  .de(de_ListDirectoriesCommand)
+  .sc(ListDirectories)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateConnectionInput,
-  UpdateConnectionInputFilterSensitiveLog,
-  UpdateConnectionOutput,
-  UpdateConnectionOutputFilterSensitiveLog,
-} from "../models/models_2";
-import { de_UpdateConnectionCommand, se_UpdateConnectionCommand } from "../protocols/Aws_restJson1";
+import { UpdateConnectionInput, UpdateConnectionOutput } from "../models/models_2";
+import { UpdateConnection } from "../schemas/schemas_8_Connection";
 
 /**
  * @public
@@ -330,16 +324,11 @@ export class UpdateConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "UpdateConnection", {})
   .n("DataZoneClient", "UpdateConnectionCommand")
-  .f(UpdateConnectionInputFilterSensitiveLog, UpdateConnectionOutputFilterSensitiveLog)
-  .ser(se_UpdateConnectionCommand)
-  .de(de_UpdateConnectionCommand)
+  .sc(UpdateConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

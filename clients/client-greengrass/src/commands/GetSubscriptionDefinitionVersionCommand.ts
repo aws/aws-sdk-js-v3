@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { GetSubscriptionDefinitionVersionRequest, GetSubscriptionDefinitionVersionResponse } from "../models/models_0";
-import {
-  de_GetSubscriptionDefinitionVersionCommand,
-  se_GetSubscriptionDefinitionVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSubscriptionDefinitionVersion } from "../schemas/schemas_10_SubscriptionDefinition";
 
 /**
  * @public
@@ -94,16 +90,11 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Greengrass", "GetSubscriptionDefinitionVersion", {})
   .n("GreengrassClient", "GetSubscriptionDefinitionVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSubscriptionDefinitionVersionCommand)
-  .de(de_GetSubscriptionDefinitionVersionCommand)
+  .sc(GetSubscriptionDefinitionVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

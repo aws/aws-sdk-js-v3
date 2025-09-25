@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse } from "../models/models_0";
-import { de_SetIdentityDkimEnabledCommand, se_SetIdentityDkimEnabledCommand } from "../protocols/Aws_query";
+import { SetIdentityDkimEnabled } from "../schemas/schemas_9_SetIdentityDkimEnabled";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -96,16 +95,11 @@ export class SetIdentityDkimEnabledCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService", "SetIdentityDkimEnabled", {})
   .n("SESClient", "SetIdentityDkimEnabledCommand")
-  .f(void 0, void 0)
-  .ser(se_SetIdentityDkimEnabledCommand)
-  .de(de_SetIdentityDkimEnabledCommand)
+  .sc(SetIdentityDkimEnabled)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateGlossaryTermInput,
-  CreateGlossaryTermInputFilterSensitiveLog,
-  CreateGlossaryTermOutput,
-  CreateGlossaryTermOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateGlossaryTermCommand, se_CreateGlossaryTermCommand } from "../protocols/Aws_restJson1";
+import { CreateGlossaryTermInput, CreateGlossaryTermOutput } from "../models/models_0";
+import { CreateGlossaryTerm } from "../schemas/schemas_18_Glossary";
 
 /**
  * @public
@@ -130,16 +124,11 @@ export class CreateGlossaryTermCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "CreateGlossaryTerm", {})
   .n("DataZoneClient", "CreateGlossaryTermCommand")
-  .f(CreateGlossaryTermInputFilterSensitiveLog, CreateGlossaryTermOutputFilterSensitiveLog)
-  .ser(se_CreateGlossaryTermCommand)
-  .de(de_CreateGlossaryTermCommand)
+  .sc(CreateGlossaryTerm)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

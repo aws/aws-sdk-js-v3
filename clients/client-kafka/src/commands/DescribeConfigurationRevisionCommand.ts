@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/models_0";
-import {
-  de_DescribeConfigurationRevisionCommand,
-  se_DescribeConfigurationRevisionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeConfigurationRevision } from "../schemas/schemas_12_Configuration";
 
 /**
  * @public
@@ -98,16 +94,11 @@ export class DescribeConfigurationRevisionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Kafka", "DescribeConfigurationRevision", {})
   .n("KafkaClient", "DescribeConfigurationRevisionCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeConfigurationRevisionCommand)
-  .de(de_DescribeConfigurationRevisionCommand)
+  .sc(DescribeConfigurationRevision)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

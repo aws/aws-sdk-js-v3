@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { GetResourceDefinitionRequest, GetResourceDefinitionResponse } from "../models/models_0";
-import { de_GetResourceDefinitionCommand, se_GetResourceDefinitionCommand } from "../protocols/Aws_restJson1";
+import { GetResourceDefinition } from "../schemas/schemas_33_GetResourceDefinition";
 
 /**
  * @public
@@ -82,16 +81,11 @@ export class GetResourceDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Greengrass", "GetResourceDefinition", {})
   .n("GreengrassClient", "GetResourceDefinitionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetResourceDefinitionCommand)
-  .de(de_GetResourceDefinitionCommand)
+  .sc(GetResourceDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

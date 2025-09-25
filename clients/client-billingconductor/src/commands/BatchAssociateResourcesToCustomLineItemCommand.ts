@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   BatchAssociateResourcesToCustomLineItemInput,
   BatchAssociateResourcesToCustomLineItemOutput,
 } from "../models/models_0";
-import {
-  de_BatchAssociateResourcesToCustomLineItemCommand,
-  se_BatchAssociateResourcesToCustomLineItemCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchAssociateResourcesToCustomLineItem } from "../schemas/schemas_2_CustomLine";
 
 /**
  * @public
@@ -132,16 +128,11 @@ export class BatchAssociateResourcesToCustomLineItemCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBillingConductor", "BatchAssociateResourcesToCustomLineItem", {})
   .n("BillingconductorClient", "BatchAssociateResourcesToCustomLineItemCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchAssociateResourcesToCustomLineItemCommand)
-  .de(de_BatchAssociateResourcesToCustomLineItemCommand)
+  .sc(BatchAssociateResourcesToCustomLineItem)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

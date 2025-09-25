@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateGroupRequest } from "../models/models_1";
-import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_query";
+import { UpdateGroup } from "../schemas/schemas_28_UpdateGroup";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class UpdateGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "UpdateGroup", {})
   .n("IAMClient", "UpdateGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateGroupCommand)
-  .de(de_UpdateGroupCommand)
+  .sc(UpdateGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

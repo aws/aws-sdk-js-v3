@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetInstanceMetricDataRequest, GetInstanceMetricDataResult } from "../models/models_1";
-import { de_GetInstanceMetricDataCommand, se_GetInstanceMetricDataCommand } from "../protocols/Aws_json1_1";
+import { GetInstanceMetricData } from "../schemas/schemas_5_Get";
 
 /**
  * @public
@@ -127,16 +126,11 @@ export class GetInstanceMetricDataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "GetInstanceMetricData", {})
   .n("LightsailClient", "GetInstanceMetricDataCommand")
-  .f(void 0, void 0)
-  .ser(se_GetInstanceMetricDataCommand)
-  .de(de_GetInstanceMetricDataCommand)
+  .sc(GetInstanceMetricData)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

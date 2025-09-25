@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import { DeleteTargetAccountConfigurationRequest, DeleteTargetAccountConfigurationResponse } from "../models/models_0";
-import {
-  de_DeleteTargetAccountConfigurationCommand,
-  se_DeleteTargetAccountConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteTargetAccountConfiguration } from "../schemas/schemas_2_Account";
 
 /**
  * @public
@@ -86,16 +82,11 @@ export class DeleteTargetAccountConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FaultInjectionSimulator", "DeleteTargetAccountConfiguration", {})
   .n("FisClient", "DeleteTargetAccountConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteTargetAccountConfigurationCommand)
-  .de(de_DeleteTargetAccountConfigurationCommand)
+  .sc(DeleteTargetAccountConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

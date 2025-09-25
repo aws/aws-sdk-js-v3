@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Environment, GetEnvironmentRequest } from "../models/models_0";
-import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols/Aws_restJson1";
+import { GetEnvironment } from "../schemas/schemas_2_Environment";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class GetEnvironmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAppConfig", "GetEnvironment", {})
   .n("AppConfigClient", "GetEnvironmentCommand")
-  .f(void 0, void 0)
-  .ser(se_GetEnvironmentCommand)
-  .de(de_GetEnvironmentCommand)
+  .sc(GetEnvironment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

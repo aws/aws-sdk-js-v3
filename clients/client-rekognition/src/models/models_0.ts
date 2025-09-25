@@ -2,7 +2,6 @@
 import {
   AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  SENSITIVE_STRING,
 } from "@smithy/smithy-client";
 
 import { RekognitionServiceException as __BaseException } from "./RekognitionServiceException";
@@ -8241,22 +8240,3 @@ export interface ListTagsForResourceResponse {
    */
   Tags?: Record<string, string> | undefined;
 }
-
-/**
- * @internal
- */
-export const AuditImageFilterSensitiveLog = (obj: AuditImage): any => ({
-  ...obj,
-  ...(obj.Bytes && { Bytes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetFaceLivenessSessionResultsResponseFilterSensitiveLog = (
-  obj: GetFaceLivenessSessionResultsResponse
-): any => ({
-  ...obj,
-  ...(obj.ReferenceImage && { ReferenceImage: AuditImageFilterSensitiveLog(obj.ReferenceImage) }),
-  ...(obj.AuditImages && { AuditImages: obj.AuditImages.map((item) => AuditImageFilterSensitiveLog(item)) }),
-});

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { LexModelsV2ServiceException as __BaseException } from "./LexModelsV2ServiceException";
 
@@ -8177,11 +8177,3 @@ export interface DescribeBotResponse {
    */
   errorLogSettings?: ErrorLogSettings | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateExportRequestFilterSensitiveLog = (obj: CreateExportRequest): any => ({
-  ...obj,
-  ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-});

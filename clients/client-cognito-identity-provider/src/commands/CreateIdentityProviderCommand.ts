@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateIdentityProviderRequest, CreateIdentityProviderResponse } from "../models/models_0";
-import { de_CreateIdentityProviderCommand, se_CreateIdentityProviderCommand } from "../protocols/Aws_json1_1";
+import { CreateIdentityProvider } from "../schemas/schemas_1_Provider";
 
 /**
  * @public
@@ -148,16 +147,11 @@ export class CreateIdentityProviderCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "CreateIdentityProvider", {})
   .n("CognitoIdentityProviderClient", "CreateIdentityProviderCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateIdentityProviderCommand)
-  .de(de_CreateIdentityProviderCommand)
+  .sc(CreateIdentityProvider)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

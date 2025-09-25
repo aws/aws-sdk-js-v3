@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListConnectorsV2Request, ListConnectorsV2Response } from "../models/models_3";
-import { de_ListConnectorsV2Command, se_ListConnectorsV2Command } from "../protocols/Aws_restJson1";
+import { ListConnectorsV2 } from "../schemas/schemas_18_Connector";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -108,16 +107,11 @@ export class ListConnectorsV2Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "ListConnectorsV2", {})
   .n("SecurityHubClient", "ListConnectorsV2Command")
-  .f(void 0, void 0)
-  .ser(se_ListConnectorsV2Command)
-  .de(de_ListConnectorsV2Command)
+  .sc(ListConnectorsV2)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

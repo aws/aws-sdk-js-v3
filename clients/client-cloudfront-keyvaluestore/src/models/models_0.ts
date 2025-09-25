@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CloudFrontKeyValueStoreServiceException as __BaseException } from "./CloudFrontKeyValueStoreServiceException";
 
@@ -488,51 +488,3 @@ export interface UpdateKeysResponse {
    */
   ETag: string | undefined;
 }
-
-/**
- * @internal
- */
-export const GetKeyResponseFilterSensitiveLog = (obj: GetKeyResponse): any => ({
-  ...obj,
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListKeysResponseListItemFilterSensitiveLog = (obj: ListKeysResponseListItem): any => ({
-  ...obj,
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListKeysResponseFilterSensitiveLog = (obj: ListKeysResponse): any => ({
-  ...obj,
-  ...(obj.Items && { Items: obj.Items.map((item) => ListKeysResponseListItemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const PutKeyRequestFilterSensitiveLog = (obj: PutKeyRequest): any => ({
-  ...obj,
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutKeyRequestListItemFilterSensitiveLog = (obj: PutKeyRequestListItem): any => ({
-  ...obj,
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateKeysRequestFilterSensitiveLog = (obj: UpdateKeysRequest): any => ({
-  ...obj,
-  ...(obj.Puts && { Puts: obj.Puts.map((item) => PutKeyRequestListItemFilterSensitiveLog(item)) }),
-});

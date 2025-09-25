@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListSessionLoggersRequest,
-  ListSessionLoggersResponse,
-  ListSessionLoggersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListSessionLoggersCommand, se_ListSessionLoggersCommand } from "../protocols/Aws_restJson1";
+import { ListSessionLoggersRequest, ListSessionLoggersResponse } from "../models/models_0";
+import { ListSessionLoggers } from "../schemas/schemas_10_ProtectionSettings";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -177,16 +172,11 @@ export class ListSessionLoggersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "ListSessionLoggers", {})
   .n("WorkSpacesWebClient", "ListSessionLoggersCommand")
-  .f(void 0, ListSessionLoggersResponseFilterSensitiveLog)
-  .ser(se_ListSessionLoggersCommand)
-  .de(de_ListSessionLoggersCommand)
+  .sc(ListSessionLoggers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  VerifySoftwareTokenRequest,
-  VerifySoftwareTokenRequestFilterSensitiveLog,
-  VerifySoftwareTokenResponse,
-  VerifySoftwareTokenResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_VerifySoftwareTokenCommand, se_VerifySoftwareTokenCommand } from "../protocols/Aws_json1_1";
+import { VerifySoftwareTokenRequest, VerifySoftwareTokenResponse } from "../models/models_1";
+import { VerifySoftwareToken } from "../schemas/schemas_37_Auth";
 
 /**
  * @public
@@ -138,16 +132,11 @@ export class VerifySoftwareTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "VerifySoftwareToken", {})
   .n("CognitoIdentityProviderClient", "VerifySoftwareTokenCommand")
-  .f(VerifySoftwareTokenRequestFilterSensitiveLog, VerifySoftwareTokenResponseFilterSensitiveLog)
-  .ser(se_VerifySoftwareTokenCommand)
-  .de(de_VerifySoftwareTokenCommand)
+  .sc(VerifySoftwareToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

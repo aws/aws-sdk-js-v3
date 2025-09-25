@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetEventTriggerRequest,
-  GetEventTriggerResponse,
-  GetEventTriggerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetEventTriggerCommand, se_GetEventTriggerCommand } from "../protocols/Aws_restJson1";
+import { GetEventTriggerRequest, GetEventTriggerResponse } from "../models/models_0";
+import { GetEventTrigger } from "../schemas/schemas_3_ProfileObject";
 
 /**
  * @public
@@ -128,16 +123,11 @@ export class GetEventTriggerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "GetEventTrigger", {})
   .n("CustomerProfilesClient", "GetEventTriggerCommand")
-  .f(void 0, GetEventTriggerResponseFilterSensitiveLog)
-  .ser(se_GetEventTriggerCommand)
-  .de(de_GetEventTriggerCommand)
+  .sc(GetEventTrigger)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetMetricWidgetImageInput, GetMetricWidgetImageOutput } from "../models/models_0";
-import { de_GetMetricWidgetImageCommand, se_GetMetricWidgetImageCommand } from "../protocols/Aws_query";
+import { GetMetricWidgetImage } from "../schemas/schemas_8_GetMetricWidgetImage";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class GetMetricWidgetImageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GraniteServiceVersion20100801", "GetMetricWidgetImage", {})
   .n("CloudWatchClient", "GetMetricWidgetImageCommand")
-  .f(void 0, void 0)
-  .ser(se_GetMetricWidgetImageCommand)
-  .de(de_GetMetricWidgetImageCommand)
+  .sc(GetMetricWidgetImage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

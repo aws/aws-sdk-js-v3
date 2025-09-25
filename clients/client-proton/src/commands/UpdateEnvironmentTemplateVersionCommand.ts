@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateEnvironmentTemplateVersionInput,
-  UpdateEnvironmentTemplateVersionInputFilterSensitiveLog,
-  UpdateEnvironmentTemplateVersionOutput,
-  UpdateEnvironmentTemplateVersionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_UpdateEnvironmentTemplateVersionCommand,
-  se_UpdateEnvironmentTemplateVersionCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateEnvironmentTemplateVersionInput, UpdateEnvironmentTemplateVersionOutput } from "../models/models_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { UpdateEnvironmentTemplateVersion } from "../schemas/schemas_5_Template";
 
 /**
  * @public
@@ -114,16 +105,11 @@ export class UpdateEnvironmentTemplateVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "UpdateEnvironmentTemplateVersion", {})
   .n("ProtonClient", "UpdateEnvironmentTemplateVersionCommand")
-  .f(UpdateEnvironmentTemplateVersionInputFilterSensitiveLog, UpdateEnvironmentTemplateVersionOutputFilterSensitiveLog)
-  .ser(se_UpdateEnvironmentTemplateVersionCommand)
-  .de(de_UpdateEnvironmentTemplateVersionCommand)
+  .sc(UpdateEnvironmentTemplateVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

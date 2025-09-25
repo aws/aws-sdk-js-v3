@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ConfirmCustomerAgreementRequest, ConfirmCustomerAgreementResponse } from "../models/models_0";
-import { de_ConfirmCustomerAgreementCommand, se_ConfirmCustomerAgreementCommand } from "../protocols/Aws_json1_1";
+import { ConfirmCustomerAgreement } from "../schemas/schemas_16_Customer";
 
 /**
  * @public
@@ -78,16 +77,11 @@ export class ConfirmCustomerAgreementCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OvertureService", "ConfirmCustomerAgreement", {})
   .n("DirectConnectClient", "ConfirmCustomerAgreementCommand")
-  .f(void 0, void 0)
-  .ser(se_ConfirmCustomerAgreementCommand)
-  .de(de_ConfirmCustomerAgreementCommand)
+  .sc(ConfirmCustomerAgreement)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

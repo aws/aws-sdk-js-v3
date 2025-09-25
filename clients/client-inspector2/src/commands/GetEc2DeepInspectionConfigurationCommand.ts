@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   GetEc2DeepInspectionConfigurationRequest,
   GetEc2DeepInspectionConfigurationResponse,
 } from "../models/models_1";
-import {
-  de_GetEc2DeepInspectionConfigurationCommand,
-  se_GetEc2DeepInspectionConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetEc2DeepInspectionConfiguration } from "../schemas/schemas_34_Inspection";
 
 /**
  * @public
@@ -99,16 +95,11 @@ export class GetEc2DeepInspectionConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Inspector2", "GetEc2DeepInspectionConfiguration", {})
   .n("Inspector2Client", "GetEc2DeepInspectionConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetEc2DeepInspectionConfigurationCommand)
-  .de(de_GetEc2DeepInspectionConfigurationCommand)
+  .sc(GetEc2DeepInspectionConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

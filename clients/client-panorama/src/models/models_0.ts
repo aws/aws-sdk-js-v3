@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { PanoramaServiceException as __BaseException } from "./PanoramaServiceException";
 
@@ -3597,21 +3597,3 @@ export interface UpdateDeviceMetadataResponse {
    */
   DeviceId?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateNodeFromTemplateJobRequestFilterSensitiveLog = (obj: CreateNodeFromTemplateJobRequest): any => ({
-  ...obj,
-  ...(obj.TemplateParameters && { TemplateParameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeNodeFromTemplateJobResponseFilterSensitiveLog = (
-  obj: DescribeNodeFromTemplateJobResponse
-): any => ({
-  ...obj,
-  ...(obj.TemplateParameters && { TemplateParameters: SENSITIVE_STRING }),
-});

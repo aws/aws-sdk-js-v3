@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateDataLakeRequest, UpdateDataLakeResponse } from "../models/models_0";
-import { de_UpdateDataLakeCommand, se_UpdateDataLakeCommand } from "../protocols/Aws_restJson1";
+import { UpdateDataLake } from "../schemas/schemas_1_Subscriber";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -165,16 +164,11 @@ export class UpdateDataLakeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityLake", "UpdateDataLake", {})
   .n("SecurityLakeClient", "UpdateDataLakeCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateDataLakeCommand)
-  .de(de_UpdateDataLakeCommand)
+  .sc(UpdateDataLake)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

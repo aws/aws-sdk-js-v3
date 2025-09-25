@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetSessionTokenRequest,
-  GetSessionTokenResponse,
-  GetSessionTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetSessionTokenCommand, se_GetSessionTokenCommand } from "../protocols/Aws_query";
+import { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/models_0";
+import { GetSessionToken } from "../schemas/schemas_1_Assume";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -168,16 +163,11 @@ export class GetSessionTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: STSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSecurityTokenServiceV20110615", "GetSessionToken", {})
   .n("STSClient", "GetSessionTokenCommand")
-  .f(void 0, GetSessionTokenResponseFilterSensitiveLog)
-  .ser(se_GetSessionTokenCommand)
-  .de(de_GetSessionTokenCommand)
+  .sc(GetSessionToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

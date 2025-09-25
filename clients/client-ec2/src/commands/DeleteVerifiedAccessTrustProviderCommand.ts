@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DeleteVerifiedAccessTrustProviderRequest,
-  DeleteVerifiedAccessTrustProviderResult,
-  DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  de_DeleteVerifiedAccessTrustProviderCommand,
-  se_DeleteVerifiedAccessTrustProviderCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteVerifiedAccessTrustProviderRequest, DeleteVerifiedAccessTrustProviderResult } from "../models/models_3";
+import { DeleteVerifiedAccessTrustProvider } from "../schemas/schemas_77_Access";
 
 /**
  * @public
@@ -122,16 +114,11 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DeleteVerifiedAccessTrustProvider", {})
   .n("EC2Client", "DeleteVerifiedAccessTrustProviderCommand")
-  .f(void 0, DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog)
-  .ser(se_DeleteVerifiedAccessTrustProviderCommand)
-  .de(de_DeleteVerifiedAccessTrustProviderCommand)
+  .sc(DeleteVerifiedAccessTrustProvider)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

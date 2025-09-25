@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   DescribePendingMaintenanceActionsMessage,
   DescribePendingMaintenanceActionsResponse,
 } from "../models/models_0";
-import {
-  de_DescribePendingMaintenanceActionsCommand,
-  se_DescribePendingMaintenanceActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePendingMaintenanceActions } from "../schemas/schemas_24_PendingMaintenance";
 
 /**
  * @public
@@ -111,16 +107,11 @@ export class DescribePendingMaintenanceActionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "DescribePendingMaintenanceActions", {})
   .n("DatabaseMigrationServiceClient", "DescribePendingMaintenanceActionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribePendingMaintenanceActionsCommand)
-  .de(de_DescribePendingMaintenanceActionsCommand)
+  .sc(DescribePendingMaintenanceActions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

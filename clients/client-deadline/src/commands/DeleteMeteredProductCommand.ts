@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteMeteredProductRequest, DeleteMeteredProductResponse } from "../models/models_1";
-import { de_DeleteMeteredProductCommand, se_DeleteMeteredProductCommand } from "../protocols/Aws_restJson1";
+import { DeleteMeteredProduct } from "../schemas/schemas_16_License";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class DeleteMeteredProductCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "DeleteMeteredProduct", {})
   .n("DeadlineClient", "DeleteMeteredProductCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteMeteredProductCommand)
-  .de(de_DeleteMeteredProductCommand)
+  .sc(DeleteMeteredProduct)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

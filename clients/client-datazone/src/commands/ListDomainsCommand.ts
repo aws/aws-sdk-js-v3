@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDomainsInput, ListDomainsOutput, ListDomainsOutputFilterSensitiveLog } from "../models/models_1";
-import { de_ListDomainsCommand, se_ListDomainsCommand } from "../protocols/Aws_restJson1";
+import { ListDomainsInput, ListDomainsOutput } from "../models/models_1";
+import { ListDomains } from "../schemas/schemas_24_List";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class ListDomainsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "ListDomains", {})
   .n("DataZoneClient", "ListDomainsCommand")
-  .f(void 0, ListDomainsOutputFilterSensitiveLog)
-  .ser(se_ListDomainsCommand)
-  .de(de_ListDomainsCommand)
+  .sc(ListDomains)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

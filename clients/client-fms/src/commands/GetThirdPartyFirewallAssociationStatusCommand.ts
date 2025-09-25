@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   GetThirdPartyFirewallAssociationStatusRequest,
   GetThirdPartyFirewallAssociationStatusResponse,
 } from "../models/models_0";
-import {
-  de_GetThirdPartyFirewallAssociationStatusCommand,
-  se_GetThirdPartyFirewallAssociationStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { GetThirdPartyFirewallAssociationStatus } from "../schemas/schemas_6_Party";
 
 /**
  * @public
@@ -97,16 +93,11 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFMS_20180101", "GetThirdPartyFirewallAssociationStatus", {})
   .n("FMSClient", "GetThirdPartyFirewallAssociationStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_GetThirdPartyFirewallAssociationStatusCommand)
-  .de(de_GetThirdPartyFirewallAssociationStatusCommand)
+  .sc(GetThirdPartyFirewallAssociationStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

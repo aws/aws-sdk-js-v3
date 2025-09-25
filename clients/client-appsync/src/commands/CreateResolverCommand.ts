@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateResolverRequest, CreateResolverResponse } from "../models/models_0";
-import { de_CreateResolverCommand, se_CreateResolverCommand } from "../protocols/Aws_restJson1";
+import { CreateResolver } from "../schemas/schemas_3_Function";
 
 /**
  * @public
@@ -154,16 +153,11 @@ export class CreateResolverCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepdishControlPlaneService", "CreateResolver", {})
   .n("AppSyncClient", "CreateResolverCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateResolverCommand)
-  .de(de_CreateResolverCommand)
+  .sc(CreateResolver)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

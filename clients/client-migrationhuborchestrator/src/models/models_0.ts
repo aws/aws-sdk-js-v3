@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { MigrationHubOrchestratorServiceException as __BaseException } from "./MigrationHubOrchestratorServiceException";
 
@@ -3084,43 +3084,3 @@ export interface UpdateWorkflowStepGroupResponse {
    */
   lastModifiedTime?: Date | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateMigrationWorkflowRequestFilterSensitiveLog = (obj: CreateMigrationWorkflowRequest): any => ({
-  ...obj,
-  ...(obj.inputParameters && { inputParameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateMigrationWorkflowResponseFilterSensitiveLog = (obj: CreateMigrationWorkflowResponse): any => ({
-  ...obj,
-  ...(obj.workflowInputs && { workflowInputs: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetMigrationWorkflowResponseFilterSensitiveLog = (obj: GetMigrationWorkflowResponse): any => ({
-  ...obj,
-  ...(obj.workflowInputs && { workflowInputs: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateMigrationWorkflowRequestFilterSensitiveLog = (obj: UpdateMigrationWorkflowRequest): any => ({
-  ...obj,
-  ...(obj.inputParameters && { inputParameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateMigrationWorkflowResponseFilterSensitiveLog = (obj: UpdateMigrationWorkflowResponse): any => ({
-  ...obj,
-  ...(obj.workflowInputs && { workflowInputs: SENSITIVE_STRING }),
-});

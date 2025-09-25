@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { CreateBulkImportJobRequest, CreateBulkImportJobResponse } from "../models/models_0";
-import { de_CreateBulkImportJobCommand, se_CreateBulkImportJobCommand } from "../protocols/Aws_restJson1";
+import { CreateBulkImportJob } from "../schemas/schemas_15_BulkImport";
 
 /**
  * @public
@@ -143,16 +142,11 @@ export class CreateBulkImportJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "CreateBulkImportJob", {})
   .n("IoTSiteWiseClient", "CreateBulkImportJobCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateBulkImportJobCommand)
-  .de(de_CreateBulkImportJobCommand)
+  .sc(CreateBulkImportJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

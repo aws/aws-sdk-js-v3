@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateFlowRequest,
-  UpdateFlowRequestFilterSensitiveLog,
-  UpdateFlowResponse,
-  UpdateFlowResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_UpdateFlowCommand, se_UpdateFlowCommand } from "../protocols/Aws_restJson1";
+import { UpdateFlowRequest, UpdateFlowResponse } from "../models/models_1";
+import { UpdateFlow } from "../schemas/schemas_10_Flow";
 
 /**
  * @public
@@ -991,16 +985,11 @@ export class UpdateFlowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "UpdateFlow", {})
   .n("BedrockAgentClient", "UpdateFlowCommand")
-  .f(UpdateFlowRequestFilterSensitiveLog, UpdateFlowResponseFilterSensitiveLog)
-  .ser(se_UpdateFlowCommand)
-  .de(de_UpdateFlowCommand)
+  .sc(UpdateFlow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

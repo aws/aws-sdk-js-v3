@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateGovCloudAccountRequest,
-  CreateGovCloudAccountRequestFilterSensitiveLog,
-  CreateGovCloudAccountResponse,
-  CreateGovCloudAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateGovCloudAccountRequest, CreateGovCloudAccountResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { de_CreateGovCloudAccountCommand, se_CreateGovCloudAccountCommand } from "../protocols/Aws_json1_1";
+import { CreateGovCloudAccount } from "../schemas/schemas_7_Account";
 
 /**
  * @public
@@ -578,16 +572,11 @@ export class CreateGovCloudAccountCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "CreateGovCloudAccount", {})
   .n("OrganizationsClient", "CreateGovCloudAccountCommand")
-  .f(CreateGovCloudAccountRequestFilterSensitiveLog, CreateGovCloudAccountResponseFilterSensitiveLog)
-  .ser(se_CreateGovCloudAccountCommand)
-  .de(de_CreateGovCloudAccountCommand)
+  .sc(CreateGovCloudAccount)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

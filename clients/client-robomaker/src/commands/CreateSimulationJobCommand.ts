@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateSimulationJobRequest, CreateSimulationJobResponse } from "../models/models_0";
-import { de_CreateSimulationJobCommand, se_CreateSimulationJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
+import { CreateSimulationJob } from "../schemas/schemas_8_Create";
 
 /**
  * @public
@@ -378,16 +377,11 @@ export class CreateSimulationJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("robomaker", "CreateSimulationJob", {})
   .n("RoboMakerClient", "CreateSimulationJobCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateSimulationJobCommand)
-  .de(de_CreateSimulationJobCommand)
+  .sc(CreateSimulationJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

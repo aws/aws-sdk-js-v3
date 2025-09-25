@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeCommunicationsRequest, DescribeCommunicationsResponse } from "../models/models_0";
-import { de_DescribeCommunicationsCommand, se_DescribeCommunicationsCommand } from "../protocols/Aws_json1_1";
+import { DescribeCommunications } from "../schemas/schemas_5_Case";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -117,16 +116,11 @@ export class DescribeCommunicationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSupport_20130415", "DescribeCommunications", {})
   .n("SupportClient", "DescribeCommunicationsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeCommunicationsCommand)
-  .de(de_DescribeCommunicationsCommand)
+  .sc(DescribeCommunications)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

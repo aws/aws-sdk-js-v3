@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListStreamingDistributionsRequest } from "../models/models_1";
 import { ListStreamingDistributionsResult } from "../models/models_2";
-import { de_ListStreamingDistributionsCommand, se_ListStreamingDistributionsCommand } from "../protocols/Aws_restXml";
+import { ListStreamingDistributions } from "../schemas/schemas_2_Streaming";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class ListStreamingDistributionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "ListStreamingDistributions", {})
   .n("CloudFrontClient", "ListStreamingDistributionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListStreamingDistributionsCommand)
-  .de(de_ListStreamingDistributionsCommand)
+  .sc(ListStreamingDistributions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

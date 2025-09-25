@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -30,6 +31,8 @@ export const getRuntimeConfig = (config: KinesisVideoWebRTCStorageClientConfig) 
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.kinesisvideowebrtcstorage" }),
     serviceId: config?.serviceId ?? "Kinesis Video WebRTC Storage",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

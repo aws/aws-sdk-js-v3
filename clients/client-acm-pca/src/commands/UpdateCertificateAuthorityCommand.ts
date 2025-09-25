@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateCertificateAuthorityRequest } from "../models/models_0";
-import { de_UpdateCertificateAuthorityCommand, se_UpdateCertificateAuthorityCommand } from "../protocols/Aws_json1_1";
+import { UpdateCertificateAuthority } from "../schemas/schemas_2_Certificate";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class UpdateCertificateAuthorityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ACMPrivateCA", "UpdateCertificateAuthority", {})
   .n("ACMPCAClient", "UpdateCertificateAuthorityCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateCertificateAuthorityCommand)
-  .de(de_UpdateCertificateAuthorityCommand)
+  .sc(UpdateCertificateAuthority)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

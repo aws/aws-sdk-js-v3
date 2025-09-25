@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteUsagePlanRequest } from "../models/models_0";
-import { de_DeleteUsagePlanCommand, se_DeleteUsagePlanCommand } from "../protocols/Aws_restJson1";
+import { DeleteUsagePlan } from "../schemas/schemas_39_DeleteUsagePlan";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class DeleteUsagePlanCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackplaneControlService", "DeleteUsagePlan", {})
   .n("APIGatewayClient", "DeleteUsagePlanCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteUsagePlanCommand)
-  .de(de_DeleteUsagePlanCommand)
+  .sc(DeleteUsagePlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

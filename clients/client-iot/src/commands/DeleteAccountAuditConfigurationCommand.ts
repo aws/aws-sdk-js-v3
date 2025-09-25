@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteAccountAuditConfigurationRequest, DeleteAccountAuditConfigurationResponse } from "../models/models_1";
-import {
-  de_DeleteAccountAuditConfigurationCommand,
-  se_DeleteAccountAuditConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAccountAuditConfiguration } from "../schemas/schemas_86_DeleteAccountAuditConfiguration";
 
 /**
  * @public
@@ -88,16 +84,11 @@ export class DeleteAccountAuditConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "DeleteAccountAuditConfiguration", {})
   .n("IoTClient", "DeleteAccountAuditConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAccountAuditConfigurationCommand)
-  .de(de_DeleteAccountAuditConfigurationCommand)
+  .sc(DeleteAccountAuditConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

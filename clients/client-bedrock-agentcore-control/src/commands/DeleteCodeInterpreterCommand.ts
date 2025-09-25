@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteCodeInterpreterRequest, DeleteCodeInterpreterResponse } from "../models/models_0";
-import { de_DeleteCodeInterpreterCommand, se_DeleteCodeInterpreterCommand } from "../protocols/Aws_restJson1";
+import { DeleteCodeInterpreter } from "../schemas/schemas_7_Create";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class DeleteCodeInterpreterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteCodeInterpreter", {})
   .n("BedrockAgentCoreControlClient", "DeleteCodeInterpreterCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCodeInterpreterCommand)
-  .de(de_DeleteCodeInterpreterCommand)
+  .sc(DeleteCodeInterpreter)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

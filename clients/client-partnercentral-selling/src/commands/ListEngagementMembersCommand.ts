@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListEngagementMembersRequest,
-  ListEngagementMembersResponse,
-  ListEngagementMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEngagementMembersRequest, ListEngagementMembersResponse } from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_ListEngagementMembersCommand, se_ListEngagementMembersCommand } from "../protocols/Aws_json1_0";
+import { ListEngagementMembers } from "../schemas/schemas_5_Engagement";
 
 /**
  * @public
@@ -100,16 +95,11 @@ export class ListEngagementMembersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSPartnerCentralSelling", "ListEngagementMembers", {})
   .n("PartnerCentralSellingClient", "ListEngagementMembersCommand")
-  .f(void 0, ListEngagementMembersResponseFilterSensitiveLog)
-  .ser(se_ListEngagementMembersCommand)
-  .de(de_ListEngagementMembersCommand)
+  .sc(ListEngagementMembers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

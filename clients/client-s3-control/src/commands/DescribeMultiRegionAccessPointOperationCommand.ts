@@ -2,7 +2,6 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,11 +10,8 @@ import {
   DescribeMultiRegionAccessPointOperationRequest,
   DescribeMultiRegionAccessPointOperationResult,
 } from "../models/models_0";
-import {
-  de_DescribeMultiRegionAccessPointOperationCommand,
-  se_DescribeMultiRegionAccessPointOperationCommand,
-} from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { DescribeMultiRegionAccessPointOperation } from "../schemas/schemas_1_Access";
 
 /**
  * @public
@@ -163,7 +159,6 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getProcessArnablesPlugin(config),
       getApplyMd5BodyChecksumPlugin(config),
@@ -171,9 +166,7 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "DescribeMultiRegionAccessPointOperation", {})
   .n("S3ControlClient", "DescribeMultiRegionAccessPointOperationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeMultiRegionAccessPointOperationCommand)
-  .de(de_DescribeMultiRegionAccessPointOperationCommand)
+  .sc(DescribeMultiRegionAccessPointOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

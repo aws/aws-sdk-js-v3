@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PredictQAppInput, PredictQAppOutput } from "../models/models_0";
-import { de_PredictQAppCommand, se_PredictQAppCommand } from "../protocols/Aws_restJson1";
 import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
+import { PredictQApp } from "../schemas/schemas_2_App";
 
 /**
  * @public
@@ -225,16 +224,11 @@ export class PredictQAppCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QAppsService", "PredictQApp", {})
   .n("QAppsClient", "PredictQAppCommand")
-  .f(void 0, void 0)
-  .ser(se_PredictQAppCommand)
-  .de(de_PredictQAppCommand)
+  .sc(PredictQApp)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

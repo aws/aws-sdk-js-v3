@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  TransferDomainRequest,
-  TransferDomainRequestFilterSensitiveLog,
-  TransferDomainResponse,
-} from "../models/models_0";
-import { de_TransferDomainCommand, se_TransferDomainCommand } from "../protocols/Aws_json1_1";
+import { TransferDomainRequest, TransferDomainResponse } from "../models/models_0";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
+import { TransferDomain } from "../schemas/schemas_2_Domain";
 
 /**
  * @public
@@ -233,16 +228,11 @@ export class TransferDomainCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Domains_v20140515", "TransferDomain", {})
   .n("Route53DomainsClient", "TransferDomainCommand")
-  .f(TransferDomainRequestFilterSensitiveLog, void 0)
-  .ser(se_TransferDomainCommand)
-  .de(de_TransferDomainCommand)
+  .sc(TransferDomain)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateMapRunInput, UpdateMapRunOutput } from "../models/models_0";
-import { de_UpdateMapRunCommand, se_UpdateMapRunCommand } from "../protocols/Aws_json1_0";
+import { UpdateMapRun } from "../schemas/schemas_2_StateMachine";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -80,16 +79,11 @@ export class UpdateMapRunCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "UpdateMapRun", {})
   .n("SFNClient", "UpdateMapRunCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateMapRunCommand)
-  .de(de_UpdateMapRunCommand)
+  .sc(UpdateMapRun)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

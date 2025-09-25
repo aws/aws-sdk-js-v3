@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { ExecuteActionRequest, ExecuteActionResponse } from "../models/models_0";
-import { de_ExecuteActionCommand, se_ExecuteActionCommand } from "../protocols/Aws_restJson1";
+import { ExecuteAction } from "../schemas/schemas_17_Describe";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class ExecuteActionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "ExecuteAction", {})
   .n("IoTSiteWiseClient", "ExecuteActionCommand")
-  .f(void 0, void 0)
-  .ser(se_ExecuteActionCommand)
-  .de(de_ExecuteActionCommand)
+  .sc(ExecuteAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

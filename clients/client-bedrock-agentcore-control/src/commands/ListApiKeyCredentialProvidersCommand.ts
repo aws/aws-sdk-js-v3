@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListApiKeyCredentialProvidersRequest, ListApiKeyCredentialProvidersResponse } from "../models/models_0";
-import {
-  de_ListApiKeyCredentialProvidersCommand,
-  se_ListApiKeyCredentialProvidersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListApiKeyCredentialProviders } from "../schemas/schemas_6_Credential";
 
 /**
  * @public
@@ -106,16 +102,11 @@ export class ListApiKeyCredentialProvidersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCoreControl", "ListApiKeyCredentialProviders", {})
   .n("BedrockAgentCoreControlClient", "ListApiKeyCredentialProvidersCommand")
-  .f(void 0, void 0)
-  .ser(se_ListApiKeyCredentialProvidersCommand)
-  .de(de_ListApiKeyCredentialProvidersCommand)
+  .sc(ListApiKeyCredentialProviders)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

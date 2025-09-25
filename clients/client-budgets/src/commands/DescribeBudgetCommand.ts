@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeBudgetRequest, DescribeBudgetResponse } from "../models/models_0";
-import { de_DescribeBudgetCommand, se_DescribeBudgetCommand } from "../protocols/Aws_json1_1";
+import { DescribeBudget } from "../schemas/schemas_2_Budget";
 
 /**
  * @public
@@ -223,16 +222,11 @@ export class DescribeBudgetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBudgetServiceGateway", "DescribeBudget", {})
   .n("BudgetsClient", "DescribeBudgetCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeBudgetCommand)
-  .de(de_DescribeBudgetCommand)
+  .sc(DescribeBudget)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

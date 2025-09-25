@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import {
   ActionExecution,
@@ -2285,55 +2285,3 @@ export interface UpdateDataAccessorRequest {
    */
   displayName?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const ChatInputStreamFilterSensitiveLog = (obj: ChatInputStream): any => {
-  if (obj.configurationEvent !== undefined) return { configurationEvent: obj.configurationEvent };
-  if (obj.textEvent !== undefined) return { textEvent: obj.textEvent };
-  if (obj.attachmentEvent !== undefined) return { attachmentEvent: obj.attachmentEvent };
-  if (obj.actionExecutionEvent !== undefined) return { actionExecutionEvent: obj.actionExecutionEvent };
-  if (obj.endOfInputEvent !== undefined) return { endOfInputEvent: obj.endOfInputEvent };
-  if (obj.authChallengeResponseEvent !== undefined)
-    return { authChallengeResponseEvent: obj.authChallengeResponseEvent };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ChatInputFilterSensitiveLog = (obj: ChatInput): any => ({
-  ...obj,
-  ...(obj.inputStream && { inputStream: "STREAMING_CONTENT" }),
-});
-
-/**
- * @internal
- */
-export const CreateDataAccessorRequestFilterSensitiveLog = (obj: CreateDataAccessorRequest): any => ({
-  ...obj,
-  ...(obj.actionConfigurations && { actionConfigurations: obj.actionConfigurations.map((item) => item) }),
-  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-  ...(obj.authenticationDetail && { authenticationDetail: obj.authenticationDetail }),
-});
-
-/**
- * @internal
- */
-export const GetDataAccessorResponseFilterSensitiveLog = (obj: GetDataAccessorResponse): any => ({
-  ...obj,
-  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-  ...(obj.actionConfigurations && { actionConfigurations: obj.actionConfigurations.map((item) => item) }),
-  ...(obj.authenticationDetail && { authenticationDetail: obj.authenticationDetail }),
-});
-
-/**
- * @internal
- */
-export const UpdateDataAccessorRequestFilterSensitiveLog = (obj: UpdateDataAccessorRequest): any => ({
-  ...obj,
-  ...(obj.actionConfigurations && { actionConfigurations: obj.actionConfigurations.map((item) => item) }),
-  ...(obj.authenticationDetail && { authenticationDetail: obj.authenticationDetail }),
-  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-});

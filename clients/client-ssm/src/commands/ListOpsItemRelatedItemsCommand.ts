@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListOpsItemRelatedItemsRequest, ListOpsItemRelatedItemsResponse } from "../models/models_1";
-import { de_ListOpsItemRelatedItemsCommand, se_ListOpsItemRelatedItemsCommand } from "../protocols/Aws_json1_1";
+import { ListOpsItemRelatedItems } from "../schemas/schemas_43_Item";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -106,16 +105,11 @@ export class ListOpsItemRelatedItemsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "ListOpsItemRelatedItems", {})
   .n("SSMClient", "ListOpsItemRelatedItemsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListOpsItemRelatedItemsCommand)
-  .de(de_ListOpsItemRelatedItemsCommand)
+  .sc(ListOpsItemRelatedItems)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

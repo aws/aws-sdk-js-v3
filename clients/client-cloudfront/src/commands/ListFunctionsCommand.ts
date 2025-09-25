@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListFunctionsRequest, ListFunctionsResult } from "../models/models_1";
-import { de_ListFunctionsCommand, se_ListFunctionsCommand } from "../protocols/Aws_restXml";
+import { ListFunctions } from "../schemas/schemas_4_Function";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class ListFunctionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "ListFunctions", {})
   .n("CloudFrontClient", "ListFunctionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListFunctionsCommand)
-  .de(de_ListFunctionsCommand)
+  .sc(ListFunctions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

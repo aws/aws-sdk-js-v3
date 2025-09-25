@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ModifyVpnTunnelCertificateRequest,
-  ModifyVpnTunnelCertificateResult,
-  ModifyVpnTunnelCertificateResultFilterSensitiveLog,
-} from "../models/models_7";
-import { de_ModifyVpnTunnelCertificateCommand, se_ModifyVpnTunnelCertificateCommand } from "../protocols/Aws_ec2";
+import { ModifyVpnTunnelCertificateRequest, ModifyVpnTunnelCertificateResult } from "../models/models_7";
+import { ModifyVpnTunnelCertificate } from "../schemas/schemas_90_Vpn";
 
 /**
  * @public
@@ -182,16 +177,11 @@ export class ModifyVpnTunnelCertificateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ModifyVpnTunnelCertificate", {})
   .n("EC2Client", "ModifyVpnTunnelCertificateCommand")
-  .f(void 0, ModifyVpnTunnelCertificateResultFilterSensitiveLog)
-  .ser(se_ModifyVpnTunnelCertificateCommand)
-  .de(de_ModifyVpnTunnelCertificateCommand)
+  .sc(ModifyVpnTunnelCertificate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

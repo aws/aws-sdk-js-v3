@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartFleetRequest, StartFleetResult } from "../models/models_0";
-import { de_StartFleetCommand, se_StartFleetCommand } from "../protocols/Aws_json1_1";
+import { StartFleet } from "../schemas/schemas_15_Create";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class StartFleetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "StartFleet", {})
   .n("AppStreamClient", "StartFleetCommand")
-  .f(void 0, void 0)
-  .ser(se_StartFleetCommand)
-  .de(de_StartFleetCommand)
+  .sc(StartFleet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

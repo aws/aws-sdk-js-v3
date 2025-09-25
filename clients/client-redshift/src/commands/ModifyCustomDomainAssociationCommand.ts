@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyCustomDomainAssociationMessage, ModifyCustomDomainAssociationResult } from "../models/models_1";
-import {
-  de_ModifyCustomDomainAssociationCommand,
-  se_ModifyCustomDomainAssociationCommand,
-} from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { ModifyCustomDomainAssociation } from "../schemas/schemas_17_Association";
 
 /**
  * @public
@@ -93,16 +89,11 @@ export class ModifyCustomDomainAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "ModifyCustomDomainAssociation", {})
   .n("RedshiftClient", "ModifyCustomDomainAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyCustomDomainAssociationCommand)
-  .de(de_ModifyCustomDomainAssociationCommand)
+  .sc(ModifyCustomDomainAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

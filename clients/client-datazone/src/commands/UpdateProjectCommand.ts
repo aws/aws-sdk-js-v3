@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateProjectInput,
-  UpdateProjectInputFilterSensitiveLog,
-  UpdateProjectOutput,
-  UpdateProjectOutputFilterSensitiveLog,
-} from "../models/models_2";
-import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_restJson1";
+import { UpdateProjectInput, UpdateProjectOutput } from "../models/models_2";
+import { UpdateProject } from "../schemas/schemas_13_Project";
 
 /**
  * @public
@@ -181,16 +175,11 @@ export class UpdateProjectCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "UpdateProject", {})
   .n("DataZoneClient", "UpdateProjectCommand")
-  .f(UpdateProjectInputFilterSensitiveLog, UpdateProjectOutputFilterSensitiveLog)
-  .ser(se_UpdateProjectCommand)
-  .de(de_UpdateProjectCommand)
+  .sc(UpdateProject)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

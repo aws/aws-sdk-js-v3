@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAdapterVersionRequest, DeleteAdapterVersionResponse } from "../models/models_0";
-import { de_DeleteAdapterVersionCommand, se_DeleteAdapterVersionCommand } from "../protocols/Aws_json1_1";
+import { DeleteAdapterVersion } from "../schemas/schemas_3_Adapter";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -100,16 +99,11 @@ export class DeleteAdapterVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Textract", "DeleteAdapterVersion", {})
   .n("TextractClient", "DeleteAdapterVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAdapterVersionCommand)
-  .de(de_DeleteAdapterVersionCommand)
+  .sc(DeleteAdapterVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

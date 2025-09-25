@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListApprovalTeamsRequest,
-  ListApprovalTeamsResponse,
-  ListApprovalTeamsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListApprovalTeamsRequest, ListApprovalTeamsResponse } from "../models/models_0";
 import { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { de_ListApprovalTeamsCommand, se_ListApprovalTeamsCommand } from "../protocols/Aws_restJson1";
+import { ListApprovalTeams } from "../schemas/schemas_2_Get";
 
 /**
  * @public
@@ -104,16 +99,11 @@ export class ListApprovalTeamsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MPAClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFluffyCoreService", "ListApprovalTeams", {})
   .n("MPAClient", "ListApprovalTeamsCommand")
-  .f(void 0, ListApprovalTeamsResponseFilterSensitiveLog)
-  .ser(se_ListApprovalTeamsCommand)
-  .de(de_ListApprovalTeamsCommand)
+  .sc(ListApprovalTeams)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

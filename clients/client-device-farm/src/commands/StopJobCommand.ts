@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopJobRequest, StopJobResult } from "../models/models_0";
-import { de_StopJobCommand, se_StopJobCommand } from "../protocols/Aws_json1_1";
+import { StopJob } from "../schemas/schemas_4_Get";
 
 /**
  * @public
@@ -162,16 +161,11 @@ export class StopJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "StopJob", {})
   .n("DeviceFarmClient", "StopJobCommand")
-  .f(void 0, void 0)
-  .ser(se_StopJobCommand)
-  .de(de_StopJobCommand)
+  .sc(StopJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

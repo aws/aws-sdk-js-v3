@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  CreateWhatIfAnalysisRequest,
-  CreateWhatIfAnalysisRequestFilterSensitiveLog,
-  CreateWhatIfAnalysisResponse,
-} from "../models/models_0";
-import { de_CreateWhatIfAnalysisCommand, se_CreateWhatIfAnalysisCommand } from "../protocols/Aws_json1_1";
+import { CreateWhatIfAnalysisRequest, CreateWhatIfAnalysisResponse } from "../models/models_0";
+import { CreateWhatIfAnalysis } from "../schemas/schemas_8_Describe";
 
 /**
  * @public
@@ -130,16 +125,11 @@ export class CreateWhatIfAnalysisCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecast", "CreateWhatIfAnalysis", {})
   .n("ForecastClient", "CreateWhatIfAnalysisCommand")
-  .f(CreateWhatIfAnalysisRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateWhatIfAnalysisCommand)
-  .de(de_CreateWhatIfAnalysisCommand)
+  .sc(CreateWhatIfAnalysis)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

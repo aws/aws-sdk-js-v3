@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateMlflowTrackingServerRequest, CreateMlflowTrackingServerResponse } from "../models/models_2";
-import { de_CreateMlflowTrackingServerCommand, se_CreateMlflowTrackingServerCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { CreateMlflowTrackingServer } from "../schemas/schemas_32_Tracking";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class CreateMlflowTrackingServerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "CreateMlflowTrackingServer", {})
   .n("SageMakerClient", "CreateMlflowTrackingServerCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateMlflowTrackingServerCommand)
-  .de(de_CreateMlflowTrackingServerCommand)
+  .sc(CreateMlflowTrackingServer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

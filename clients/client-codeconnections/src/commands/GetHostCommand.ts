@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeConnectionsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetHostInput, GetHostOutput } from "../models/models_0";
-import { de_GetHostCommand, se_GetHostCommand } from "../protocols/Aws_json1_0";
+import { GetHost } from "../schemas/schemas_3_Host";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class GetHostCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeConnections_20231201", "GetHost", {})
   .n("CodeConnectionsClient", "GetHostCommand")
-  .f(void 0, void 0)
-  .ser(se_GetHostCommand)
-  .de(de_GetHostCommand)
+  .sc(GetHost)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

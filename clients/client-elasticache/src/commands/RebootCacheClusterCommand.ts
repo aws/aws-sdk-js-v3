@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RebootCacheClusterMessage, RebootCacheClusterResult } from "../models/models_0";
-import { de_RebootCacheClusterCommand, se_RebootCacheClusterCommand } from "../protocols/Aws_query";
+import { RebootCacheCluster } from "../schemas/schemas_24_Replica";
 
 /**
  * @public
@@ -248,16 +247,11 @@ export class RebootCacheClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElastiCacheV9", "RebootCacheCluster", {})
   .n("ElastiCacheClient", "RebootCacheClusterCommand")
-  .f(void 0, void 0)
-  .ser(se_RebootCacheClusterCommand)
-  .de(de_RebootCacheClusterCommand)
+  .sc(RebootCacheCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

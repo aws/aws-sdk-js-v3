@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateControlPanelRequest, UpdateControlPanelResponse } from "../models/models_0";
-import { de_UpdateControlPanelCommand, se_UpdateControlPanelCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
+import { UpdateControlPanel } from "../schemas/schemas_2_Control";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class UpdateControlPanelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53RecoveryControlConfig", "UpdateControlPanel", {})
   .n("Route53RecoveryControlConfigClient", "UpdateControlPanelCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateControlPanelCommand)
-  .de(de_UpdateControlPanelCommand)
+  .sc(UpdateControlPanel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

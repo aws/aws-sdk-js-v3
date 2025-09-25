@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RestoreFromClusterSnapshotMessage,
-  RestoreFromClusterSnapshotResult,
-  RestoreFromClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_RestoreFromClusterSnapshotCommand, se_RestoreFromClusterSnapshotCommand } from "../protocols/Aws_query";
+import { RestoreFromClusterSnapshotMessage, RestoreFromClusterSnapshotResult } from "../models/models_1";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { RestoreFromClusterSnapshot } from "../schemas/schemas_14_Reserved";
 
 /**
  * @public
@@ -454,16 +449,11 @@ export class RestoreFromClusterSnapshotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "RestoreFromClusterSnapshot", {})
   .n("RedshiftClient", "RestoreFromClusterSnapshotCommand")
-  .f(void 0, RestoreFromClusterSnapshotResultFilterSensitiveLog)
-  .ser(se_RestoreFromClusterSnapshotCommand)
-  .de(de_RestoreFromClusterSnapshotCommand)
+  .sc(RestoreFromClusterSnapshot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

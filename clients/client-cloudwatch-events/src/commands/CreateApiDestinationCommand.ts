@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateApiDestinationRequest, CreateApiDestinationResponse } from "../models/models_0";
-import { de_CreateApiDestinationCommand, se_CreateApiDestinationCommand } from "../protocols/Aws_json1_1";
+import { CreateApiDestination } from "../schemas/schemas_4_Create";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class CreateApiDestinationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSEvents", "CreateApiDestination", {})
   .n("CloudWatchEventsClient", "CreateApiDestinationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateApiDestinationCommand)
-  .de(de_CreateApiDestinationCommand)
+  .sc(CreateApiDestination)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

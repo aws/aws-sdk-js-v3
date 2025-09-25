@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,12 +8,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListVoiceConnectorTerminationCredentialsRequest,
   ListVoiceConnectorTerminationCredentialsResponse,
-  ListVoiceConnectorTerminationCredentialsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_ListVoiceConnectorTerminationCredentialsCommand,
-  se_ListVoiceConnectorTerminationCredentialsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListVoiceConnectorTerminationCredentials } from "../schemas/schemas_15_Connector";
 
 /**
  * @public
@@ -103,16 +98,11 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "ListVoiceConnectorTerminationCredentials", {})
   .n("ChimeSDKVoiceClient", "ListVoiceConnectorTerminationCredentialsCommand")
-  .f(void 0, ListVoiceConnectorTerminationCredentialsResponseFilterSensitiveLog)
-  .ser(se_ListVoiceConnectorTerminationCredentialsCommand)
-  .de(de_ListVoiceConnectorTerminationCredentialsCommand)
+  .sc(ListVoiceConnectorTerminationCredentials)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

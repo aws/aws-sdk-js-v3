@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CodestarNotificationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/models_0";
-import { de_DeleteNotificationRuleCommand, se_DeleteNotificationRuleCommand } from "../protocols/Aws_restJson1";
+import { DeleteNotificationRule } from "../schemas/schemas_2_Notification";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class DeleteNotificationRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeStarNotifications_20191015", "DeleteNotificationRule", {})
   .n("CodestarNotificationsClient", "DeleteNotificationRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteNotificationRuleCommand)
-  .de(de_DeleteNotificationRuleCommand)
+  .sc(DeleteNotificationRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

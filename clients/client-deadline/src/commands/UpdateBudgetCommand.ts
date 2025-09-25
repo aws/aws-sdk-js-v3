@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateBudgetRequest, UpdateBudgetRequestFilterSensitiveLog, UpdateBudgetResponse } from "../models/models_0";
-import { de_UpdateBudgetCommand, se_UpdateBudgetCommand } from "../protocols/Aws_restJson1";
+import { UpdateBudgetRequest, UpdateBudgetResponse } from "../models/models_0";
+import { UpdateBudget } from "../schemas/schemas_12_Budget";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class UpdateBudgetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "UpdateBudget", {})
   .n("DeadlineClient", "UpdateBudgetCommand")
-  .f(UpdateBudgetRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateBudgetCommand)
-  .de(de_UpdateBudgetCommand)
+  .sc(UpdateBudget)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

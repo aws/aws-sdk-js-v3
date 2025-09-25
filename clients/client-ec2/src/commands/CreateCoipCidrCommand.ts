@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateCoipCidrRequest, CreateCoipCidrResult } from "../models/models_1";
-import { de_CreateCoipCidrCommand, se_CreateCoipCidrCommand } from "../protocols/Aws_ec2";
+import { CreateCoipCidr } from "../schemas/schemas_255_Coip";
 
 /**
  * @public
@@ -78,16 +77,11 @@ export class CreateCoipCidrCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "CreateCoipCidr", {})
   .n("EC2Client", "CreateCoipCidrCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateCoipCidrCommand)
-  .de(de_CreateCoipCidrCommand)
+  .sc(CreateCoipCidr)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

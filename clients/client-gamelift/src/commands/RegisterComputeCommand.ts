@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  RegisterComputeInput,
-  RegisterComputeInputFilterSensitiveLog,
-  RegisterComputeOutput,
-  RegisterComputeOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_RegisterComputeCommand, se_RegisterComputeCommand } from "../protocols/Aws_json1_1";
+import { RegisterComputeInput, RegisterComputeOutput } from "../models/models_1";
+import { RegisterCompute } from "../schemas/schemas_10_Describe";
 
 /**
  * @public
@@ -162,16 +156,11 @@ export class RegisterComputeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "RegisterCompute", {})
   .n("GameLiftClient", "RegisterComputeCommand")
-  .f(RegisterComputeInputFilterSensitiveLog, RegisterComputeOutputFilterSensitiveLog)
-  .ser(se_RegisterComputeCommand)
-  .de(de_RegisterComputeCommand)
+  .sc(RegisterCompute)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

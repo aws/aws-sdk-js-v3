@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,16 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PutChannelMembershipPreferencesRequest,
-  PutChannelMembershipPreferencesRequestFilterSensitiveLog,
-  PutChannelMembershipPreferencesResponse,
-  PutChannelMembershipPreferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_PutChannelMembershipPreferencesCommand,
-  se_PutChannelMembershipPreferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { PutChannelMembershipPreferencesRequest, PutChannelMembershipPreferencesResponse } from "../models/models_0";
+import { PutChannelMembershipPreferences } from "../schemas/schemas_12_Channel";
 
 /**
  * @public
@@ -133,19 +124,11 @@ export class PutChannelMembershipPreferencesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMessagingService", "PutChannelMembershipPreferences", {})
   .n("ChimeSDKMessagingClient", "PutChannelMembershipPreferencesCommand")
-  .f(
-    PutChannelMembershipPreferencesRequestFilterSensitiveLog,
-    PutChannelMembershipPreferencesResponseFilterSensitiveLog
-  )
-  .ser(se_PutChannelMembershipPreferencesCommand)
-  .de(de_PutChannelMembershipPreferencesCommand)
+  .sc(PutChannelMembershipPreferences)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

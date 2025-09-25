@@ -349,10 +349,3 @@ export class ResourceNotFoundException extends __BaseException {
     this.Message = opts.Message;
   }
 }
-
-/**
- * @internal
- */
-export const GetMediaOutputFilterSensitiveLog = (obj: GetMediaOutput): any => ({
-  ...obj,
-});

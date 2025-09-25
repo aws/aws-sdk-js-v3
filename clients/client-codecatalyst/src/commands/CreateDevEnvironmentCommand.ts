@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDevEnvironmentRequest, CreateDevEnvironmentResponse } from "../models/models_0";
-import { de_CreateDevEnvironmentCommand, se_CreateDevEnvironmentCommand } from "../protocols/Aws_restJson1";
+import { CreateDevEnvironment } from "../schemas/schemas_2_List";
 
 /**
  * @public
@@ -119,16 +118,11 @@ export class CreateDevEnvironmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCatalyst", "CreateDevEnvironment", {})
   .n("CodeCatalystClient", "CreateDevEnvironmentCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDevEnvironmentCommand)
-  .de(de_CreateDevEnvironmentCommand)
+  .sc(CreateDevEnvironment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

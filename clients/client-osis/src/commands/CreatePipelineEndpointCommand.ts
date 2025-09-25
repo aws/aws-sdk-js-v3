@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreatePipelineEndpointRequest, CreatePipelineEndpointResponse } from "../models/models_0";
 import { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { de_CreatePipelineEndpointCommand, se_CreatePipelineEndpointCommand } from "../protocols/Aws_restJson1";
+import { CreatePipelineEndpoint } from "../schemas/schemas_2_Resource";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class CreatePipelineEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchIngestionService", "CreatePipelineEndpoint", {})
   .n("OSISClient", "CreatePipelineEndpointCommand")
-  .f(void 0, void 0)
-  .ser(se_CreatePipelineEndpointCommand)
-  .de(de_CreatePipelineEndpointCommand)
+  .sc(CreatePipelineEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

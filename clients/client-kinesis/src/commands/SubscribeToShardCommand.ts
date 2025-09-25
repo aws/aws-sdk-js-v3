@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  SubscribeToShardInput,
-  SubscribeToShardOutput,
-  SubscribeToShardOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_SubscribeToShardCommand, se_SubscribeToShardCommand } from "../protocols/Aws_json1_1";
+import { SubscribeToShardInput, SubscribeToShardOutput } from "../models/models_0";
+import { SubscribeToShard } from "../schemas/schemas_3_Stream";
 
 /**
  * @public
@@ -179,10 +174,7 @@ export class SubscribeToShardCommand extends $Command
     ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Kinesis_20131202", "SubscribeToShard", {
     /**
@@ -193,9 +185,7 @@ export class SubscribeToShardCommand extends $Command
     },
   })
   .n("KinesisClient", "SubscribeToShardCommand")
-  .f(void 0, SubscribeToShardOutputFilterSensitiveLog)
-  .ser(se_SubscribeToShardCommand)
-  .de(de_SubscribeToShardCommand)
+  .sc(SubscribeToShard)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

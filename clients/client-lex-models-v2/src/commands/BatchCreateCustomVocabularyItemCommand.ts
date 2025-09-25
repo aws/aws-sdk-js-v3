@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { BatchCreateCustomVocabularyItemRequest, BatchCreateCustomVocabularyItemResponse } from "../models/models_0";
-import {
-  de_BatchCreateCustomVocabularyItemCommand,
-  se_BatchCreateCustomVocabularyItemCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchCreateCustomVocabularyItem } from "../schemas/schemas_3_Vocabulary";
 
 /**
  * @public
@@ -121,16 +117,11 @@ export class BatchCreateCustomVocabularyItemCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LexModelBuildingServiceV2", "BatchCreateCustomVocabularyItem", {})
   .n("LexModelsV2Client", "BatchCreateCustomVocabularyItemCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchCreateCustomVocabularyItemCommand)
-  .de(de_BatchCreateCustomVocabularyItemCommand)
+  .sc(BatchCreateCustomVocabularyItem)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

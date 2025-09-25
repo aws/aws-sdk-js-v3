@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 
@@ -6793,21 +6793,3 @@ export interface ValidateSecurityProfileBehaviorsResponse {
    */
   validationErrors?: ValidationError[] | undefined;
 }
-
-/**
- * @internal
- */
-export const UpdatePackageRequestFilterSensitiveLog = (obj: UpdatePackageRequest): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdatePackageVersionRequestFilterSensitiveLog = (obj: UpdatePackageVersionRequest): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
-  ...(obj.recipe && { recipe: SENSITIVE_STRING }),
-});

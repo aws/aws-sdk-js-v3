@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListDelegatedAdministratorsRequest,
-  ListDelegatedAdministratorsResponse,
-  ListDelegatedAdministratorsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDelegatedAdministratorsRequest, ListDelegatedAdministratorsResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { de_ListDelegatedAdministratorsCommand, se_ListDelegatedAdministratorsCommand } from "../protocols/Aws_json1_1";
+import { ListDelegatedAdministrators } from "../schemas/schemas_7_Account";
 
 /**
  * @public
@@ -444,16 +439,11 @@ export class ListDelegatedAdministratorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "ListDelegatedAdministrators", {})
   .n("OrganizationsClient", "ListDelegatedAdministratorsCommand")
-  .f(void 0, ListDelegatedAdministratorsResponseFilterSensitiveLog)
-  .ser(se_ListDelegatedAdministratorsCommand)
-  .de(de_ListDelegatedAdministratorsCommand)
+  .sc(ListDelegatedAdministrators)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

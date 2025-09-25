@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateCaseCommentRequest,
-  UpdateCaseCommentRequestFilterSensitiveLog,
-  UpdateCaseCommentResponse,
-  UpdateCaseCommentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateCaseCommentCommand, se_UpdateCaseCommentCommand } from "../protocols/Aws_restJson1";
+import { UpdateCaseCommentRequest, UpdateCaseCommentResponse } from "../models/models_0";
+import { UpdateCaseComment } from "../schemas/schemas_5_Comment";
 import { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
@@ -123,16 +117,11 @@ export class UpdateCaseCommentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityIncidentResponse", "UpdateCaseComment", {})
   .n("SecurityIRClient", "UpdateCaseCommentCommand")
-  .f(UpdateCaseCommentRequestFilterSensitiveLog, UpdateCaseCommentResponseFilterSensitiveLog)
-  .ser(se_UpdateCaseCommentCommand)
-  .de(de_UpdateCaseCommentCommand)
+  .sc(UpdateCaseComment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

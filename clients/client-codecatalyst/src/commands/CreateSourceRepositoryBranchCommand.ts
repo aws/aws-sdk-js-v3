@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateSourceRepositoryBranchRequest, CreateSourceRepositoryBranchResponse } from "../models/models_0";
-import {
-  de_CreateSourceRepositoryBranchCommand,
-  se_CreateSourceRepositoryBranchCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSourceRepositoryBranch } from "../schemas/schemas_8_Dev";
 
 /**
  * @public
@@ -105,16 +101,11 @@ export class CreateSourceRepositoryBranchCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCatalyst", "CreateSourceRepositoryBranch", {})
   .n("CodeCatalystClient", "CreateSourceRepositoryBranchCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateSourceRepositoryBranchCommand)
-  .de(de_CreateSourceRepositoryBranchCommand)
+  .sc(CreateSourceRepositoryBranch)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

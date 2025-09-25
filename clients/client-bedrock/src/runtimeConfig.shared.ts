@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { HttpBearerAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
@@ -36,6 +37,7 @@ export const getRuntimeConfig = (config: BedrockClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.bedrock" }),
     serviceId: config?.serviceId ?? "Bedrock",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

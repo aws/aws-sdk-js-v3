@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MalformedContentTypeWithPayloadInput } from "../models/models_0";
-import {
-  de_MalformedContentTypeWithPayloadCommand,
-  se_MalformedContentTypeWithPayloadCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { MalformedContentTypeWithPayload } from "../schemas/schemas_4_WithPayload";
 
 /**
  * @public
@@ -78,16 +74,11 @@ export class MalformedContentTypeWithPayloadCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RestJson", "MalformedContentTypeWithPayload", {})
   .n("RestJsonProtocolClient", "MalformedContentTypeWithPayloadCommand")
-  .f(void 0, void 0)
-  .ser(se_MalformedContentTypeWithPayloadCommand)
-  .de(de_MalformedContentTypeWithPayloadCommand)
+  .sc(MalformedContentTypeWithPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

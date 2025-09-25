@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { ListAnomalyGroupTimeSeriesRequest, ListAnomalyGroupTimeSeriesResponse } from "../models/models_0";
-import { de_ListAnomalyGroupTimeSeriesCommand, se_ListAnomalyGroupTimeSeriesCommand } from "../protocols/Aws_restJson1";
+import { ListAnomalyGroupTimeSeries } from "../schemas/schemas_1_Group";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class ListAnomalyGroupTimeSeriesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LookoutMetrics", "ListAnomalyGroupTimeSeries", {})
   .n("LookoutMetricsClient", "ListAnomalyGroupTimeSeriesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAnomalyGroupTimeSeriesCommand)
-  .de(de_ListAnomalyGroupTimeSeriesCommand)
+  .sc(ListAnomalyGroupTimeSeries)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

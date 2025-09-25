@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchIsAuthorizedWithTokenInput,
-  BatchIsAuthorizedWithTokenInputFilterSensitiveLog,
-  BatchIsAuthorizedWithTokenOutput,
-  BatchIsAuthorizedWithTokenOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchIsAuthorizedWithTokenCommand, se_BatchIsAuthorizedWithTokenCommand } from "../protocols/Aws_json1_0";
+import { BatchIsAuthorizedWithTokenInput, BatchIsAuthorizedWithTokenOutput } from "../models/models_0";
+import { BatchIsAuthorizedWithToken } from "../schemas/schemas_3_Policy";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -359,16 +353,11 @@ export class BatchIsAuthorizedWithTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VerifiedPermissions", "BatchIsAuthorizedWithToken", {})
   .n("VerifiedPermissionsClient", "BatchIsAuthorizedWithTokenCommand")
-  .f(BatchIsAuthorizedWithTokenInputFilterSensitiveLog, BatchIsAuthorizedWithTokenOutputFilterSensitiveLog)
-  .ser(se_BatchIsAuthorizedWithTokenCommand)
-  .de(de_BatchIsAuthorizedWithTokenCommand)
+  .sc(BatchIsAuthorizedWithToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

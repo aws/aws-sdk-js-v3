@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetIPSetRequest, GetIPSetResponse } from "../models/models_0";
-import { de_GetIPSetCommand, se_GetIPSetCommand } from "../protocols/Aws_json1_1";
+import { GetIPSet } from "../schemas/schemas_22_IPSet";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -120,16 +119,11 @@ export class GetIPSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20150824", "GetIPSet", {})
   .n("WAFClient", "GetIPSetCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIPSetCommand)
-  .de(de_GetIPSetCommand)
+  .sc(GetIPSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

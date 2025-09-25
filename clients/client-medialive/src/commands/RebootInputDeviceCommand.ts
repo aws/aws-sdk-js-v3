@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { RebootInputDeviceRequest, RebootInputDeviceResponse } from "../models/models_2";
-import { de_RebootInputDeviceCommand, se_RebootInputDeviceCommand } from "../protocols/Aws_restJson1";
+import { RebootInputDevice } from "../schemas/schemas_33_RebootInputDevice";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class RebootInputDeviceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "RebootInputDevice", {})
   .n("MediaLiveClient", "RebootInputDeviceCommand")
-  .f(void 0, void 0)
-  .ser(se_RebootInputDeviceCommand)
-  .de(de_RebootInputDeviceCommand)
+  .sc(RebootInputDevice)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

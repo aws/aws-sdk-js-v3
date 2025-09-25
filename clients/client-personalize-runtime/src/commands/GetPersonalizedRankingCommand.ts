@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetPersonalizedRankingRequest,
-  GetPersonalizedRankingRequestFilterSensitiveLog,
-  GetPersonalizedRankingResponse,
-  GetPersonalizedRankingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPersonalizedRankingRequest, GetPersonalizedRankingResponse } from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient";
-import { de_GetPersonalizedRankingCommand, se_GetPersonalizedRankingCommand } from "../protocols/Aws_restJson1";
+import { GetPersonalizedRanking } from "../schemas/schemas_1_Get";
 
 /**
  * @public
@@ -119,16 +113,11 @@ export class GetPersonalizedRankingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPersonalizeRuntime", "GetPersonalizedRanking", {})
   .n("PersonalizeRuntimeClient", "GetPersonalizedRankingCommand")
-  .f(GetPersonalizedRankingRequestFilterSensitiveLog, GetPersonalizedRankingResponseFilterSensitiveLog)
-  .ser(se_GetPersonalizedRankingCommand)
-  .de(de_GetPersonalizedRankingCommand)
+  .sc(GetPersonalizedRanking)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchUserHierarchyGroupsResponse } from "../models/models_2";
 import { SearchUserHierarchyGroupsRequest } from "../models/models_3";
-import { de_SearchUserHierarchyGroupsCommand, se_SearchUserHierarchyGroupsCommand } from "../protocols/Aws_restJson1";
+import { SearchUserHierarchyGroups } from "../schemas/schemas_13_Hierarchy";
 
 /**
  * @public
@@ -192,16 +191,11 @@ export class SearchUserHierarchyGroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "SearchUserHierarchyGroups", {})
   .n("ConnectClient", "SearchUserHierarchyGroupsCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchUserHierarchyGroupsCommand)
-  .de(de_SearchUserHierarchyGroupsCommand)
+  .sc(SearchUserHierarchyGroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateAccountSettingsInput, UpdateAccountSettingsOutput } from "../models/models_0";
-import { de_UpdateAccountSettingsCommand, se_UpdateAccountSettingsCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
+import { UpdateAccountSettings } from "../schemas/schemas_5_AccountSettings";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class UpdateAccountSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Ardi", "UpdateAccountSettings", {})
   .n("ResourceGroupsClient", "UpdateAccountSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateAccountSettingsCommand)
-  .de(de_UpdateAccountSettingsCommand)
+  .sc(UpdateAccountSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

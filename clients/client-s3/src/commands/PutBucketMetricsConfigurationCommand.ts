@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutBucketMetricsConfigurationRequest } from "../models/models_1";
-import {
-  de_PutBucketMetricsConfigurationCommand,
-  se_PutBucketMetricsConfigurationCommand,
-} from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { PutBucketMetricsConfiguration } from "../schemas/schemas_40_Metrics";
 
 /**
  * @public
@@ -145,16 +141,11 @@ export class PutBucketMetricsConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonS3", "PutBucketMetricsConfiguration", {})
   .n("S3Client", "PutBucketMetricsConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_PutBucketMetricsConfigurationCommand)
-  .de(de_PutBucketMetricsConfigurationCommand)
+  .sc(PutBucketMetricsConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

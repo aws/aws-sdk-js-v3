@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { CreateDistributionConfigurationRequest, CreateDistributionConfigurationResponse } from "../models/models_0";
-import {
-  de_CreateDistributionConfigurationCommand,
-  se_CreateDistributionConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDistributionConfiguration } from "../schemas/schemas_6_Create";
 
 /**
  * @public
@@ -202,16 +198,11 @@ export class CreateDistributionConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("imagebuilder", "CreateDistributionConfiguration", {})
   .n("ImagebuilderClient", "CreateDistributionConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDistributionConfigurationCommand)
-  .de(de_CreateDistributionConfigurationCommand)
+  .sc(CreateDistributionConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

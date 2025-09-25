@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAssetTypeInput, DeleteAssetTypeOutput } from "../models/models_0";
-import { de_DeleteAssetTypeCommand, se_DeleteAssetTypeCommand } from "../protocols/Aws_restJson1";
+import { DeleteAssetType } from "../schemas/schemas_2_Asset";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class DeleteAssetTypeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "DeleteAssetType", {})
   .n("DataZoneClient", "DeleteAssetTypeCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAssetTypeCommand)
-  .de(de_DeleteAssetTypeCommand)
+  .sc(DeleteAssetType)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

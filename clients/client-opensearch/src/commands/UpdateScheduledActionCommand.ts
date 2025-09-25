@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateScheduledActionRequest, UpdateScheduledActionResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { de_UpdateScheduledActionCommand, se_UpdateScheduledActionCommand } from "../protocols/Aws_restJson1";
+import { UpdateScheduledAction } from "../schemas/schemas_26_Package";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class UpdateScheduledActionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchService", "UpdateScheduledAction", {})
   .n("OpenSearchClient", "UpdateScheduledActionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateScheduledActionCommand)
-  .de(de_UpdateScheduledActionCommand)
+  .sc(UpdateScheduledAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

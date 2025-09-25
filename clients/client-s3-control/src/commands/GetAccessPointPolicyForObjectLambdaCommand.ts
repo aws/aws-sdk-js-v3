@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,11 +9,8 @@ import {
   GetAccessPointPolicyForObjectLambdaRequest,
   GetAccessPointPolicyForObjectLambdaResult,
 } from "../models/models_0";
-import {
-  de_GetAccessPointPolicyForObjectLambdaCommand,
-  se_GetAccessPointPolicyForObjectLambdaCommand,
-} from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { GetAccessPointPolicyForObjectLambda } from "../schemas/schemas_3_Access";
 
 /**
  * @public
@@ -104,17 +100,11 @@ export class GetAccessPointPolicyForObjectLambdaCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
   })
   .s("AWSS3ControlServiceV20180820", "GetAccessPointPolicyForObjectLambda", {})
   .n("S3ControlClient", "GetAccessPointPolicyForObjectLambdaCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAccessPointPolicyForObjectLambdaCommand)
-  .de(de_GetAccessPointPolicyForObjectLambdaCommand)
+  .sc(GetAccessPointPolicyForObjectLambda)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

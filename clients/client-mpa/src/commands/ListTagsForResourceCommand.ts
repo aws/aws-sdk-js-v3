@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTagsForResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
 import { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { ListTagsForResource } from "../schemas/schemas_4_Resource";
 
 /**
  * @public
@@ -91,16 +86,11 @@ export class ListTagsForResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MPAClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFluffyCoreService", "ListTagsForResource", {})
   .n("MPAClient", "ListTagsForResourceCommand")
-  .f(void 0, ListTagsForResourceResponseFilterSensitiveLog)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .sc(ListTagsForResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  GetWorkUnitResultsRequest,
-  GetWorkUnitResultsRequestFilterSensitiveLog,
-  GetWorkUnitResultsResponse,
-  GetWorkUnitResultsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetWorkUnitResultsCommand, se_GetWorkUnitResultsCommand } from "../protocols/Aws_restJson1";
+import { GetWorkUnitResultsRequest, GetWorkUnitResultsResponse } from "../models/models_0";
+import { GetWorkUnitResults } from "../schemas/schemas_5_Query";
 
 /**
  * @public
@@ -101,16 +95,11 @@ export class GetWorkUnitResultsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLakeFormation", "GetWorkUnitResults", {})
   .n("LakeFormationClient", "GetWorkUnitResultsCommand")
-  .f(GetWorkUnitResultsRequestFilterSensitiveLog, GetWorkUnitResultsResponseFilterSensitiveLog)
-  .ser(se_GetWorkUnitResultsCommand)
-  .de(de_GetWorkUnitResultsCommand)
+  .sc(GetWorkUnitResults)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

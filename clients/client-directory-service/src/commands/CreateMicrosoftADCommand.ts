@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateMicrosoftADRequest,
-  CreateMicrosoftADRequestFilterSensitiveLog,
-  CreateMicrosoftADResult,
-} from "../models/models_0";
-import { de_CreateMicrosoftADCommand, se_CreateMicrosoftADCommand } from "../protocols/Aws_json1_1";
+import { CreateMicrosoftADRequest, CreateMicrosoftADResult } from "../models/models_0";
+import { CreateMicrosoftAD } from "../schemas/schemas_6_Describe";
 
 /**
  * @public
@@ -135,16 +130,11 @@ export class CreateMicrosoftADCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "CreateMicrosoftAD", {})
   .n("DirectoryServiceClient", "CreateMicrosoftADCommand")
-  .f(CreateMicrosoftADRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateMicrosoftADCommand)
-  .de(de_CreateMicrosoftADCommand)
+  .sc(CreateMicrosoftAD)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

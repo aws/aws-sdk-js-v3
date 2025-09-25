@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateWorkspaceApplicationRequest, DisassociateWorkspaceApplicationResult } from "../models/models_0";
-import {
-  de_DisassociateWorkspaceApplicationCommand,
-  se_DisassociateWorkspaceApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateWorkspaceApplication } from "../schemas/schemas_13_Describe";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -102,16 +98,11 @@ export class DisassociateWorkspaceApplicationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkspacesService", "DisassociateWorkspaceApplication", {})
   .n("WorkSpacesClient", "DisassociateWorkspaceApplicationCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateWorkspaceApplicationCommand)
-  .de(de_DisassociateWorkspaceApplicationCommand)
+  .sc(DisassociateWorkspaceApplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

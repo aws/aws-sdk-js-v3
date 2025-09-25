@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateVpcLinkRequest, VpcLink } from "../models/models_0";
-import { de_CreateVpcLinkCommand, se_CreateVpcLinkCommand } from "../protocols/Aws_restJson1";
+import { CreateVpcLink } from "../schemas/schemas_30_Vpc";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class CreateVpcLinkCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackplaneControlService", "CreateVpcLink", {})
   .n("APIGatewayClient", "CreateVpcLinkCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateVpcLinkCommand)
-  .de(de_CreateVpcLinkCommand)
+  .sc(CreateVpcLink)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

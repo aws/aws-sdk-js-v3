@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateTrustStoreRequest, DisassociateTrustStoreResponse } from "../models/models_0";
-import { de_DisassociateTrustStoreCommand, se_DisassociateTrustStoreCommand } from "../protocols/Aws_restJson1";
+import { DisassociateTrustStore } from "../schemas/schemas_38_DisassociateTrustStore";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -86,16 +85,11 @@ export class DisassociateTrustStoreCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "DisassociateTrustStore", {})
   .n("WorkSpacesWebClient", "DisassociateTrustStoreCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateTrustStoreCommand)
-  .de(de_DisassociateTrustStoreCommand)
+  .sc(DisassociateTrustStore)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetFolderRequest,
-  GetFolderRequestFilterSensitiveLog,
-  GetFolderResponse,
-  GetFolderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetFolderCommand, se_GetFolderCommand } from "../protocols/Aws_restJson1";
+import { GetFolderRequest, GetFolderResponse } from "../models/models_0";
+import { GetFolder } from "../schemas/schemas_1_Folder";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -117,16 +111,11 @@ export class GetFolderCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "GetFolder", {})
   .n("WorkDocsClient", "GetFolderCommand")
-  .f(GetFolderRequestFilterSensitiveLog, GetFolderResponseFilterSensitiveLog)
-  .ser(se_GetFolderCommand)
-  .de(de_GetFolderCommand)
+  .sc(GetFolder)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

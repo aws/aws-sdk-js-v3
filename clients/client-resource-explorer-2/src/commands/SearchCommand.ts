@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchInput, SearchInputFilterSensitiveLog, SearchOutput } from "../models/models_0";
-import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_restJson1";
+import { SearchInput, SearchOutput } from "../models/models_0";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
+import { Search } from "../schemas/schemas_1_View";
 
 /**
  * @public
@@ -135,16 +134,11 @@ export class SearchCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ResourceExplorer", "Search", {})
   .n("ResourceExplorer2Client", "SearchCommand")
-  .f(SearchInputFilterSensitiveLog, void 0)
-  .ser(se_SearchCommand)
-  .de(de_SearchCommand)
+  .sc(Search)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

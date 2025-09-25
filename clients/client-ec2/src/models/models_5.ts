@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActiveInstance,
   ActivityStatus,
@@ -28,7 +26,6 @@ import {
   UserIdGroupPair,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
-  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 
 import {
@@ -64,7 +61,6 @@ import {
   GroupIdentifier,
   InstanceIpv6Address,
   LaunchTemplateVersion,
-  LaunchTemplateVersionFilterSensitiveLog,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
@@ -12588,92 +12584,3 @@ export const VpcAttributeName = {
  * @public
  */
 export type VpcAttributeName = (typeof VpcAttributeName)[keyof typeof VpcAttributeName];
-
-/**
- * @internal
- */
-export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
-  obj: DescribeLaunchTemplateVersionsResult
-): any => ({
-  ...obj,
-  ...(obj.LaunchTemplateVersions && {
-    LaunchTemplateVersions: obj.LaunchTemplateVersions.map((item) => LaunchTemplateVersionFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const SpotFleetLaunchSpecificationFilterSensitiveLog = (obj: SpotFleetLaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SpotFleetRequestConfigDataFilterSensitiveLog = (obj: SpotFleetRequestConfigData): any => ({
-  ...obj,
-  ...(obj.LaunchSpecifications && {
-    LaunchSpecifications: obj.LaunchSpecifications.map((item) => SpotFleetLaunchSpecificationFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const SpotFleetRequestConfigFilterSensitiveLog = (obj: SpotFleetRequestConfig): any => ({
-  ...obj,
-  ...(obj.SpotFleetRequestConfig && {
-    SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeSpotFleetRequestsResponseFilterSensitiveLog = (obj: DescribeSpotFleetRequestsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchSpecificationFilterSensitiveLog = (obj: LaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SpotInstanceRequestFilterSensitiveLog = (obj: SpotInstanceRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && {
-    LaunchSpecification: LaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeSpotInstanceRequestsResultFilterSensitiveLog = (obj: DescribeSpotInstanceRequestsResult): any => ({
-  ...obj,
-  ...(obj.SpotInstanceRequests && {
-    SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessTrustProvidersResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProviders && {
-    VerifiedAccessTrustProviders: obj.VerifiedAccessTrustProviders.map((item) =>
-      VerifiedAccessTrustProviderFilterSensitiveLog(item)
-    ),
-  }),
-});

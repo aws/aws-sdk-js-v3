@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetUserProfileInput, GetUserProfileOutput, GetUserProfileOutputFilterSensitiveLog } from "../models/models_1";
-import { de_GetUserProfileCommand, se_GetUserProfileCommand } from "../protocols/Aws_restJson1";
+import { GetUserProfileInput, GetUserProfileOutput } from "../models/models_1";
+import { GetUserProfile } from "../schemas/schemas_11_Policy";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class GetUserProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "GetUserProfile", {})
   .n("DataZoneClient", "GetUserProfileCommand")
-  .f(void 0, GetUserProfileOutputFilterSensitiveLog)
-  .ser(se_GetUserProfileCommand)
-  .de(de_GetUserProfileCommand)
+  .sc(GetUserProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

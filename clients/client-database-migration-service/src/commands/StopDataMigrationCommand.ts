@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StopDataMigrationMessage,
-  StopDataMigrationResponse,
-  StopDataMigrationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_StopDataMigrationCommand, se_StopDataMigrationCommand } from "../protocols/Aws_json1_1";
+import { StopDataMigrationMessage, StopDataMigrationResponse } from "../models/models_1";
+import { StopDataMigration } from "../schemas/schemas_14_Data";
 
 /**
  * @public
@@ -134,16 +129,11 @@ export class StopDataMigrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "StopDataMigration", {})
   .n("DatabaseMigrationServiceClient", "StopDataMigrationCommand")
-  .f(void 0, StopDataMigrationResponseFilterSensitiveLog)
-  .ser(se_StopDataMigrationCommand)
-  .de(de_StopDataMigrationCommand)
+  .sc(StopDataMigration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetJobsRequest } from "../models/models_2";
-import { GetJobsResponse, GetJobsResponseFilterSensitiveLog } from "../models/models_3";
-import { de_GetJobsCommand, se_GetJobsCommand } from "../protocols/Aws_json1_1";
+import { GetJobsResponse } from "../models/models_3";
+import { GetJobs } from "../schemas/schemas_10_Get";
 
 /**
  * @public
@@ -1339,16 +1338,11 @@ export class GetJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "GetJobs", {})
   .n("GlueClient", "GetJobsCommand")
-  .f(void 0, GetJobsResponseFilterSensitiveLog)
-  .ser(se_GetJobsCommand)
-  .de(de_GetJobsCommand)
+  .sc(GetJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

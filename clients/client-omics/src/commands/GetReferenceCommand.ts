@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetReferenceRequest, GetReferenceResponse, GetReferenceResponseFilterSensitiveLog } from "../models/models_0";
+import { GetReferenceRequest, GetReferenceResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_GetReferenceCommand, se_GetReferenceCommand } from "../protocols/Aws_restJson1";
+import { GetReference } from "../schemas/schemas_6_Reference";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class GetReferenceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Omics", "GetReference", {})
   .n("OmicsClient", "GetReferenceCommand")
-  .f(void 0, GetReferenceResponseFilterSensitiveLog)
-  .ser(se_GetReferenceCommand)
-  .de(de_GetReferenceCommand)
+  .sc(GetReference)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

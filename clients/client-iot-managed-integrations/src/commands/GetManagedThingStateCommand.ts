@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import {
-  GetManagedThingStateRequest,
-  GetManagedThingStateResponse,
-  GetManagedThingStateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetManagedThingStateCommand, se_GetManagedThingStateCommand } from "../protocols/Aws_restJson1";
+import { GetManagedThingStateRequest, GetManagedThingStateResponse } from "../models/models_0";
+import { GetManagedThingState } from "../schemas/schemas_6_ManagedThing";
 
 /**
  * @public
@@ -111,16 +106,11 @@ export class GetManagedThingStateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "GetManagedThingState", {})
   .n("IoTManagedIntegrationsClient", "GetManagedThingStateCommand")
-  .f(void 0, GetManagedThingStateResponseFilterSensitiveLog)
-  .ser(se_GetManagedThingStateCommand)
-  .de(de_GetManagedThingStateCommand)
+  .sc(GetManagedThingState)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

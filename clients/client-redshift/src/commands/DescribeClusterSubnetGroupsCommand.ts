@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ClusterSubnetGroupMessage } from "../models/models_0";
 import { DescribeClusterSubnetGroupsMessage } from "../models/models_1";
-import { de_DescribeClusterSubnetGroupsCommand, se_DescribeClusterSubnetGroupsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { DescribeClusterSubnetGroups } from "../schemas/schemas_16_Cluster";
 
 /**
  * @public
@@ -127,16 +126,11 @@ export class DescribeClusterSubnetGroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "DescribeClusterSubnetGroups", {})
   .n("RedshiftClient", "DescribeClusterSubnetGroupsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeClusterSubnetGroupsCommand)
-  .de(de_DescribeClusterSubnetGroupsCommand)
+  .sc(DescribeClusterSubnetGroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsQueryProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -30,6 +31,13 @@ export const getRuntimeConfig = (config: ElasticBeanstalkClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsQueryProtocol({
+        defaultNamespace: "com.amazonaws.elasticbeanstalk",
+        xmlNamespace: "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/",
+        version: "2010-12-01",
+      }),
     serviceId: config?.serviceId ?? "Elastic Beanstalk",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

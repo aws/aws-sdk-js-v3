@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,15 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateParticipantConnectionRequest,
-  CreateParticipantConnectionResponse,
-  CreateParticipantConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_CreateParticipantConnectionCommand,
-  se_CreateParticipantConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateParticipantConnectionRequest, CreateParticipantConnectionResponse } from "../models/models_0";
+import { CreateParticipantConnection } from "../schemas/schemas_1_Participant";
 
 /**
  * @public
@@ -183,16 +175,11 @@ export class CreateParticipantConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectParticipantServiceLambda", "CreateParticipantConnection", {})
   .n("ConnectParticipantClient", "CreateParticipantConnectionCommand")
-  .f(void 0, CreateParticipantConnectionResponseFilterSensitiveLog)
-  .ser(se_CreateParticipantConnectionCommand)
-  .de(de_CreateParticipantConnectionCommand)
+  .sc(CreateParticipantConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

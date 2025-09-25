@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  TestHypervisorConfigurationInput,
-  TestHypervisorConfigurationInputFilterSensitiveLog,
-  TestHypervisorConfigurationOutput,
-} from "../models/models_0";
-import { de_TestHypervisorConfigurationCommand, se_TestHypervisorConfigurationCommand } from "../protocols/Aws_json1_0";
+import { TestHypervisorConfigurationInput, TestHypervisorConfigurationOutput } from "../models/models_0";
+import { TestHypervisorConfiguration } from "../schemas/schemas_6_Hypervisor";
 
 /**
  * @public
@@ -92,16 +87,11 @@ export class TestHypervisorConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackupOnPremises_v20210101", "TestHypervisorConfiguration", {})
   .n("BackupGatewayClient", "TestHypervisorConfigurationCommand")
-  .f(TestHypervisorConfigurationInputFilterSensitiveLog, void 0)
-  .ser(se_TestHypervisorConfigurationCommand)
-  .de(de_TestHypervisorConfigurationCommand)
+  .sc(TestHypervisorConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

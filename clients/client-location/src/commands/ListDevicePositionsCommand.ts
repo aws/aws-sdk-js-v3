@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ListDevicePositionsRequest,
-  ListDevicePositionsRequestFilterSensitiveLog,
-  ListDevicePositionsResponse,
-  ListDevicePositionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListDevicePositionsCommand, se_ListDevicePositionsCommand } from "../protocols/Aws_restJson1";
+import { ListDevicePositionsRequest, ListDevicePositionsResponse } from "../models/models_0";
+import { ListDevicePositions } from "../schemas/schemas_1_Device";
 
 /**
  * @public
@@ -114,16 +108,11 @@ export class ListDevicePositionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LocationService", "ListDevicePositions", {})
   .n("LocationClient", "ListDevicePositionsCommand")
-  .f(ListDevicePositionsRequestFilterSensitiveLog, ListDevicePositionsResponseFilterSensitiveLog)
-  .ser(se_ListDevicePositionsCommand)
-  .de(de_ListDevicePositionsCommand)
+  .sc(ListDevicePositions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

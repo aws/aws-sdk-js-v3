@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import { ListEventLogConfigurationsRequest, ListEventLogConfigurationsResponse } from "../models/models_0";
-import { de_ListEventLogConfigurationsCommand, se_ListEventLogConfigurationsCommand } from "../protocols/Aws_restJson1";
+import { ListEventLogConfigurations } from "../schemas/schemas_7_Log";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class ListEventLogConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "ListEventLogConfigurations", {})
   .n("IoTManagedIntegrationsClient", "ListEventLogConfigurationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListEventLogConfigurationsCommand)
-  .de(de_ListEventLogConfigurationsCommand)
+  .sc(ListEventLogConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

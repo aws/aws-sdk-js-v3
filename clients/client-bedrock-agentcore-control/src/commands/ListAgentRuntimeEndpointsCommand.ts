@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAgentRuntimeEndpointsRequest,
-  ListAgentRuntimeEndpointsResponse,
-  ListAgentRuntimeEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListAgentRuntimeEndpointsCommand, se_ListAgentRuntimeEndpointsCommand } from "../protocols/Aws_restJson1";
+import { ListAgentRuntimeEndpointsRequest, ListAgentRuntimeEndpointsResponse } from "../models/models_0";
+import { ListAgentRuntimeEndpoints } from "../schemas/schemas_4_Agent";
 
 /**
  * @public
@@ -106,16 +101,11 @@ export class ListAgentRuntimeEndpointsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCoreControl", "ListAgentRuntimeEndpoints", {})
   .n("BedrockAgentCoreControlClient", "ListAgentRuntimeEndpointsCommand")
-  .f(void 0, ListAgentRuntimeEndpointsResponseFilterSensitiveLog)
-  .ser(se_ListAgentRuntimeEndpointsCommand)
-  .de(de_ListAgentRuntimeEndpointsCommand)
+  .sc(ListAgentRuntimeEndpoints)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

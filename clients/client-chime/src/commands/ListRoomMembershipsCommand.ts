@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListRoomMembershipsRequest,
-  ListRoomMembershipsResponse,
-  ListRoomMembershipsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListRoomMembershipsCommand, se_ListRoomMembershipsCommand } from "../protocols/Aws_restJson1";
+import { ListRoomMembershipsRequest, ListRoomMembershipsResponse } from "../models/models_0";
+import { ListRoomMemberships } from "../schemas/schemas_19_List";
 
 /**
  * @public
@@ -114,16 +109,11 @@ export class ListRoomMembershipsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("UCBuzzConsoleService", "ListRoomMemberships", {})
   .n("ChimeClient", "ListRoomMembershipsCommand")
-  .f(void 0, ListRoomMembershipsResponseFilterSensitiveLog)
-  .ser(se_ListRoomMembershipsCommand)
-  .de(de_ListRoomMembershipsCommand)
+  .sc(ListRoomMemberships)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ControlCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlCatalogClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetControlRequest, GetControlResponse } from "../models/models_0";
-import { de_GetControlCommand, se_GetControlCommand } from "../protocols/Aws_restJson1";
+import { GetControl } from "../schemas/schemas_1_List";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class GetControlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ControlCatalog", "GetControl", {})
   .n("ControlCatalogClient", "GetControlCommand")
-  .f(void 0, void 0)
-  .ser(se_GetControlCommand)
-  .de(de_GetControlCommand)
+  .sc(GetControl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

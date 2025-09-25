@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ValidatePipelineRequest, ValidatePipelineResponse } from "../models/models_0";
 import { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { de_ValidatePipelineCommand, se_ValidatePipelineCommand } from "../protocols/Aws_restJson1";
+import { ValidatePipeline } from "../schemas/schemas_7_Pipeline";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class ValidatePipelineCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchIngestionService", "ValidatePipeline", {})
   .n("OSISClient", "ValidatePipelineCommand")
-  .f(void 0, void 0)
-  .ser(se_ValidatePipelineCommand)
-  .de(de_ValidatePipelineCommand)
+  .sc(ValidatePipeline)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

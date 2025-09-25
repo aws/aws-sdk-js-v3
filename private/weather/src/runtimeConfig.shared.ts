@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { defaultWeatherHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { HttpApiKeyAuthSigner, HttpBearerAuthSigner, NoAuthSigner } from "@smithy/core";
 import { SigV4Signer } from "@smithy/experimental-identity-and-auth";
 import { NoOpLogger } from "@smithy/smithy-client";
@@ -46,6 +47,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "example.weather" }),
     signingName: config?.signingName ?? "weather",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

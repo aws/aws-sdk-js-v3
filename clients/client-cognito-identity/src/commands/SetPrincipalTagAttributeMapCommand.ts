@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SetPrincipalTagAttributeMapInput, SetPrincipalTagAttributeMapResponse } from "../models/models_0";
-import { de_SetPrincipalTagAttributeMapCommand, se_SetPrincipalTagAttributeMapCommand } from "../protocols/Aws_json1_1";
+import { SetPrincipalTagAttributeMap } from "../schemas/schemas_3_PrincipalTag";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class SetPrincipalTagAttributeMapCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityService", "SetPrincipalTagAttributeMap", {})
   .n("CognitoIdentityClient", "SetPrincipalTagAttributeMapCommand")
-  .f(void 0, void 0)
-  .ser(se_SetPrincipalTagAttributeMapCommand)
-  .de(de_SetPrincipalTagAttributeMapCommand)
+  .sc(SetPrincipalTagAttributeMap)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

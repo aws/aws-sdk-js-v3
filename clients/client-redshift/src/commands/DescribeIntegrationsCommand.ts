@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeIntegrationsMessage, IntegrationsMessage } from "../models/models_1";
-import { de_DescribeIntegrationsCommand, se_DescribeIntegrationsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { DescribeIntegrations } from "../schemas/schemas_22_Integration";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class DescribeIntegrationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "DescribeIntegrations", {})
   .n("RedshiftClient", "DescribeIntegrationsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeIntegrationsCommand)
-  .de(de_DescribeIntegrationsCommand)
+  .sc(DescribeIntegrations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

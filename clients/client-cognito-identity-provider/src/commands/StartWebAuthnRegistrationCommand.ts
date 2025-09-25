@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartWebAuthnRegistrationRequest,
-  StartWebAuthnRegistrationRequestFilterSensitiveLog,
-  StartWebAuthnRegistrationResponse,
-} from "../models/models_1";
-import { de_StartWebAuthnRegistrationCommand, se_StartWebAuthnRegistrationCommand } from "../protocols/Aws_json1_1";
+import { StartWebAuthnRegistrationRequest, StartWebAuthnRegistrationResponse } from "../models/models_1";
+import { StartWebAuthnRegistration } from "../schemas/schemas_4_ManagedLogin";
 
 /**
  * @public
@@ -112,16 +107,11 @@ export class StartWebAuthnRegistrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "StartWebAuthnRegistration", {})
   .n("CognitoIdentityProviderClient", "StartWebAuthnRegistrationCommand")
-  .f(StartWebAuthnRegistrationRequestFilterSensitiveLog, void 0)
-  .ser(se_StartWebAuthnRegistrationCommand)
-  .de(de_StartWebAuthnRegistrationCommand)
+  .sc(StartWebAuthnRegistration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

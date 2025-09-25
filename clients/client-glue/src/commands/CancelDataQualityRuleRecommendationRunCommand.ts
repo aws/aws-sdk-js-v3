@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   CancelDataQualityRuleRecommendationRunRequest,
   CancelDataQualityRuleRecommendationRunResponse,
 } from "../models/models_1";
-import {
-  de_CancelDataQualityRuleRecommendationRunCommand,
-  se_CancelDataQualityRuleRecommendationRunCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelDataQualityRuleRecommendationRun } from "../schemas/schemas_121_CancelDataQualityRuleRecommendationRun";
 
 /**
  * @public
@@ -89,16 +85,11 @@ export class CancelDataQualityRuleRecommendationRunCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "CancelDataQualityRuleRecommendationRun", {})
   .n("GlueClient", "CancelDataQualityRuleRecommendationRunCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelDataQualityRuleRecommendationRunCommand)
-  .de(de_CancelDataQualityRuleRecommendationRunCommand)
+  .sc(CancelDataQualityRuleRecommendationRun)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

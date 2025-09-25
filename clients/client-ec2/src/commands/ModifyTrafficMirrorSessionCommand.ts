@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyTrafficMirrorSessionRequest, ModifyTrafficMirrorSessionResult } from "../models/models_7";
-import { de_ModifyTrafficMirrorSessionCommand, se_ModifyTrafficMirrorSessionCommand } from "../protocols/Aws_ec2";
+import { ModifyTrafficMirrorSession } from "../schemas/schemas_182_Traffic";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class ModifyTrafficMirrorSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ModifyTrafficMirrorSession", {})
   .n("EC2Client", "ModifyTrafficMirrorSessionCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyTrafficMirrorSessionCommand)
-  .de(de_ModifyTrafficMirrorSessionCommand)
+  .sc(ModifyTrafficMirrorSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

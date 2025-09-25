@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
 import { CreateFHIRDatastoreRequest, CreateFHIRDatastoreResponse } from "../models/models_0";
-import { de_CreateFHIRDatastoreCommand, se_CreateFHIRDatastoreCommand } from "../protocols/Aws_json1_0";
+import { CreateFHIRDatastore } from "../schemas/schemas_2_FHI";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class CreateFHIRDatastoreCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("HealthLake", "CreateFHIRDatastore", {})
   .n("HealthLakeClient", "CreateFHIRDatastoreCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateFHIRDatastoreCommand)
-  .de(de_CreateFHIRDatastoreCommand)
+  .sc(CreateFHIRDatastore)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

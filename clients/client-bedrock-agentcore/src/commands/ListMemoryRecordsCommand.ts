@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListMemoryRecordsInput,
-  ListMemoryRecordsOutput,
-  ListMemoryRecordsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListMemoryRecordsCommand, se_ListMemoryRecordsCommand } from "../protocols/Aws_restJson1";
+import { ListMemoryRecordsInput, ListMemoryRecordsOutput } from "../models/models_0";
+import { ListMemoryRecords } from "../schemas/schemas_1_Memory";
 
 /**
  * @public
@@ -113,16 +108,11 @@ export class ListMemoryRecordsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCore", "ListMemoryRecords", {})
   .n("BedrockAgentCoreClient", "ListMemoryRecordsCommand")
-  .f(void 0, ListMemoryRecordsOutputFilterSensitiveLog)
-  .ser(se_ListMemoryRecordsCommand)
-  .de(de_ListMemoryRecordsCommand)
+  .sc(ListMemoryRecords)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

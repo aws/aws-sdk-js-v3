@@ -31,7 +31,6 @@
     "@aws-sdk/util-endpoints": "*",
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
-    "@aws-sdk/xml-builder": "*",
     "@smithy/config-resolver": "^4.2.2",
     "@smithy/core": "^3.12.0",
     "@smithy/fetch-http-handler": "^5.2.1",

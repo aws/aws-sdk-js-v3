@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchGetDataQualityResultRequest,
-  BatchGetDataQualityResultResponse,
-  BatchGetDataQualityResultResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchGetDataQualityResultCommand, se_BatchGetDataQualityResultCommand } from "../protocols/Aws_json1_1";
+import { BatchGetDataQualityResultRequest, BatchGetDataQualityResultResponse } from "../models/models_0";
+import { BatchGetDataQualityResult } from "../schemas/schemas_21_Quality";
 
 /**
  * @public
@@ -173,16 +168,11 @@ export class BatchGetDataQualityResultCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "BatchGetDataQualityResult", {})
   .n("GlueClient", "BatchGetDataQualityResultCommand")
-  .f(void 0, BatchGetDataQualityResultResponseFilterSensitiveLog)
-  .ser(se_BatchGetDataQualityResultCommand)
-  .de(de_BatchGetDataQualityResultCommand)
+  .sc(BatchGetDataQualityResult)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

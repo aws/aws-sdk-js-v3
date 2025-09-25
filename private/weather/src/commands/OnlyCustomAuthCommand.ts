@@ -1,9 +1,8 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { de_OnlyCustomAuthCommand, se_OnlyCustomAuthCommand } from "../protocols/Aws_restJson1";
+import { OnlyCustomAuth } from "../schemas/schemas_2_OnlyCustomAuth";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -64,16 +63,11 @@ export class OnlyCustomAuthCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Weather", "OnlyCustomAuth", {})
   .n("WeatherClient", "OnlyCustomAuthCommand")
-  .f(void 0, void 0)
-  .ser(se_OnlyCustomAuthCommand)
-  .de(de_OnlyCustomAuthCommand)
+  .sc(OnlyCustomAuth)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

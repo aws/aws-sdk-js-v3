@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetCoreNetworkRequest, GetCoreNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { de_GetCoreNetworkCommand, se_GetCoreNetworkCommand } from "../protocols/Aws_restJson1";
+import { GetCoreNetwork } from "../schemas/schemas_1_Network";
 
 /**
  * @public
@@ -134,16 +133,11 @@ export class GetCoreNetworkCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkManager", "GetCoreNetwork", {})
   .n("NetworkManagerClient", "GetCoreNetworkCommand")
-  .f(void 0, void 0)
-  .ser(se_GetCoreNetworkCommand)
-  .de(de_GetCoreNetworkCommand)
+  .sc(GetCoreNetwork)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

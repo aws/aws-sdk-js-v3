@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListServerCertificateTagsRequest, ListServerCertificateTagsResponse } from "../models/models_0";
-import { de_ListServerCertificateTagsCommand, se_ListServerCertificateTagsCommand } from "../protocols/Aws_query";
+import { ListServerCertificateTags } from "../schemas/schemas_20_Server";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class ListServerCertificateTagsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "ListServerCertificateTags", {})
   .n("IAMClient", "ListServerCertificateTagsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListServerCertificateTagsCommand)
-  .de(de_ListServerCertificateTagsCommand)
+  .sc(ListServerCertificateTags)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

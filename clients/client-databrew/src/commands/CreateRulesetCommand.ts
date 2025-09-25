@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateRulesetRequest, CreateRulesetResponse } from "../models/models_0";
-import { de_CreateRulesetCommand, se_CreateRulesetCommand } from "../protocols/Aws_restJson1";
+import { CreateRuleset } from "../schemas/schemas_2_Create";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class CreateRulesetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlueDataBrew", "CreateRuleset", {})
   .n("DataBrewClient", "CreateRulesetCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateRulesetCommand)
-  .de(de_CreateRulesetCommand)
+  .sc(CreateRuleset)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

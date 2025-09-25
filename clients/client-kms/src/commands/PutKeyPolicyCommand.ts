@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { PutKeyPolicyRequest } from "../models/models_0";
-import { de_PutKeyPolicyCommand, se_PutKeyPolicyCommand } from "../protocols/Aws_json1_1";
+import { PutKeyPolicy } from "../schemas/schemas_12_Key";
 
 /**
  * @public
@@ -224,16 +223,11 @@ export class PutKeyPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TrentService", "PutKeyPolicy", {})
   .n("KMSClient", "PutKeyPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_PutKeyPolicyCommand)
-  .de(de_PutKeyPolicyCommand)
+  .sc(PutKeyPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

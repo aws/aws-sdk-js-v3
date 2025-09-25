@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListStagingAccountsRequest, ListStagingAccountsResponse } from "../models/models_0";
-import { de_ListStagingAccountsCommand, se_ListStagingAccountsCommand } from "../protocols/Aws_restJson1";
+import { ListStagingAccounts } from "../schemas/schemas_6_Describe";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class ListStagingAccountsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticDisasterRecoveryService", "ListStagingAccounts", {})
   .n("DrsClient", "ListStagingAccountsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListStagingAccountsCommand)
-  .de(de_ListStagingAccountsCommand)
+  .sc(ListStagingAccounts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

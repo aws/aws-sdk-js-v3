@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListFeatureGroupsRequest, ListFeatureGroupsResponse } from "../models/models_4";
-import { de_ListFeatureGroupsCommand, se_ListFeatureGroupsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListFeatureGroups } from "../schemas/schemas_19_Feature";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class ListFeatureGroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "ListFeatureGroups", {})
   .n("SageMakerClient", "ListFeatureGroupsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListFeatureGroupsCommand)
-  .de(de_ListFeatureGroupsCommand)
+  .sc(ListFeatureGroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

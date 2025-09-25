@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ManagedBlockchainServiceException as __BaseException } from "./ManagedBlockchainServiceException";
 
@@ -2900,49 +2900,3 @@ export interface VoteOnProposalInput {
  * @public
  */
 export interface VoteOnProposalOutput {}
-
-/**
- * @internal
- */
-export const MemberFabricConfigurationFilterSensitiveLog = (obj: MemberFabricConfiguration): any => ({
-  ...obj,
-  ...(obj.AdminPassword && { AdminPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const MemberFrameworkConfigurationFilterSensitiveLog = (obj: MemberFrameworkConfiguration): any => ({
-  ...obj,
-  ...(obj.Fabric && { Fabric: MemberFabricConfigurationFilterSensitiveLog(obj.Fabric) }),
-});
-
-/**
- * @internal
- */
-export const MemberConfigurationFilterSensitiveLog = (obj: MemberConfiguration): any => ({
-  ...obj,
-  ...(obj.FrameworkConfiguration && {
-    FrameworkConfiguration: MemberFrameworkConfigurationFilterSensitiveLog(obj.FrameworkConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateMemberInputFilterSensitiveLog = (obj: CreateMemberInput): any => ({
-  ...obj,
-  ...(obj.MemberConfiguration && {
-    MemberConfiguration: MemberConfigurationFilterSensitiveLog(obj.MemberConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateNetworkInputFilterSensitiveLog = (obj: CreateNetworkInput): any => ({
-  ...obj,
-  ...(obj.MemberConfiguration && {
-    MemberConfiguration: MemberConfigurationFilterSensitiveLog(obj.MemberConfiguration),
-  }),
-});

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsRestXmlProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -30,6 +31,12 @@ export const getRuntimeConfig = (config: Route53ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsRestXmlProtocol({
+        defaultNamespace: "com.amazonaws.route53",
+        xmlNamespace: "https://route53.amazonaws.com/doc/2013-04-01/",
+      }),
     serviceId: config?.serviceId ?? "Route 53",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

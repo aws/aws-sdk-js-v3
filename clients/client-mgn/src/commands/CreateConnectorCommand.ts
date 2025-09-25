@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  Connector,
-  ConnectorFilterSensitiveLog,
-  CreateConnectorRequest,
-  CreateConnectorRequestFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateConnectorCommand, se_CreateConnectorCommand } from "../protocols/Aws_restJson1";
+import { Connector, CreateConnectorRequest } from "../models/models_0";
+import { CreateConnector } from "../schemas/schemas_15_LaunchConfiguration";
 
 /**
  * @public
@@ -103,16 +97,11 @@ export class CreateConnectorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationMigrationService", "CreateConnector", {})
   .n("MgnClient", "CreateConnectorCommand")
-  .f(CreateConnectorRequestFilterSensitiveLog, ConnectorFilterSensitiveLog)
-  .ser(se_CreateConnectorCommand)
-  .de(de_CreateConnectorCommand)
+  .sc(CreateConnector)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

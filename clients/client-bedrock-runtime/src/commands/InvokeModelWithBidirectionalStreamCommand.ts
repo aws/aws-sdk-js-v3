@@ -2,7 +2,6 @@
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,14 +9,9 @@ import { BedrockRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   InvokeModelWithBidirectionalStreamRequest,
-  InvokeModelWithBidirectionalStreamRequestFilterSensitiveLog,
   InvokeModelWithBidirectionalStreamResponse,
-  InvokeModelWithBidirectionalStreamResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_InvokeModelWithBidirectionalStreamCommand,
-  se_InvokeModelWithBidirectionalStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { InvokeModelWithBidirectionalStream } from "../schemas/schemas_1_Invoke";
 
 /**
  * @public
@@ -145,7 +139,6 @@ export class InvokeModelWithBidirectionalStreamCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockRuntimeClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
@@ -163,12 +156,7 @@ export class InvokeModelWithBidirectionalStreamCommand extends $Command
     },
   })
   .n("BedrockRuntimeClient", "InvokeModelWithBidirectionalStreamCommand")
-  .f(
-    InvokeModelWithBidirectionalStreamRequestFilterSensitiveLog,
-    InvokeModelWithBidirectionalStreamResponseFilterSensitiveLog
-  )
-  .ser(se_InvokeModelWithBidirectionalStreamCommand)
-  .de(de_InvokeModelWithBidirectionalStreamCommand)
+  .sc(InvokeModelWithBidirectionalStream)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

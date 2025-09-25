@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreatePatchBaselineRequest,
-  CreatePatchBaselineRequestFilterSensitiveLog,
-  CreatePatchBaselineResult,
-} from "../models/models_0";
-import { de_CreatePatchBaselineCommand, se_CreatePatchBaselineCommand } from "../protocols/Aws_json1_1";
+import { CreatePatchBaselineRequest, CreatePatchBaselineResult } from "../models/models_0";
+import { CreatePatchBaseline } from "../schemas/schemas_19_Patch";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -149,16 +144,11 @@ export class CreatePatchBaselineCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "CreatePatchBaseline", {})
   .n("SSMClient", "CreatePatchBaselineCommand")
-  .f(CreatePatchBaselineRequestFilterSensitiveLog, void 0)
-  .ser(se_CreatePatchBaselineCommand)
-  .de(de_CreatePatchBaselineCommand)
+  .sc(CreatePatchBaseline)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

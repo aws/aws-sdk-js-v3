@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListStateMachinesInput, ListStateMachinesOutput } from "../models/models_0";
-import { de_ListStateMachinesCommand, se_ListStateMachinesCommand } from "../protocols/Aws_json1_0";
+import { ListStateMachines } from "../schemas/schemas_6_List";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -87,16 +86,11 @@ export class ListStateMachinesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "ListStateMachines", {})
   .n("SFNClient", "ListStateMachinesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListStateMachinesCommand)
-  .de(de_ListStateMachinesCommand)
+  .sc(ListStateMachines)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

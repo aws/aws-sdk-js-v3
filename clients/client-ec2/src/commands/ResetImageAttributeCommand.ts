@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ResetImageAttributeRequest } from "../models/models_8";
-import { de_ResetImageAttributeCommand, se_ResetImageAttributeCommand } from "../protocols/Aws_ec2";
+import { ResetImageAttribute } from "../schemas/schemas_307_ResetImageAttribute";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class ResetImageAttributeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ResetImageAttribute", {})
   .n("EC2Client", "ResetImageAttributeCommand")
-  .f(void 0, void 0)
-  .ser(se_ResetImageAttributeCommand)
-  .de(de_ResetImageAttributeCommand)
+  .sc(ResetImageAttribute)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

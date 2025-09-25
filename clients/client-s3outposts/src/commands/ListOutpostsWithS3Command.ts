@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListOutpostsWithS3Request, ListOutpostsWithS3Result } from "../models/models_0";
-import { de_ListOutpostsWithS3Command, se_ListOutpostsWithS3Command } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
+import { ListOutpostsWithS3 } from "../schemas/schemas_1_Endpoint";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class ListOutpostsWithS3Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: S3OutpostsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("S3Outposts", "ListOutpostsWithS3", {})
   .n("S3OutpostsClient", "ListOutpostsWithS3Command")
-  .f(void 0, void 0)
-  .ser(se_ListOutpostsWithS3Command)
-  .de(de_ListOutpostsWithS3Command)
+  .sc(ListOutpostsWithS3)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

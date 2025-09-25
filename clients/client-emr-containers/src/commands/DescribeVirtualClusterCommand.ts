@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeVirtualClusterRequest, DescribeVirtualClusterResponse } from "../models/models_0";
-import { de_DescribeVirtualClusterCommand, se_DescribeVirtualClusterCommand } from "../protocols/Aws_restJson1";
+import { DescribeVirtualCluster } from "../schemas/schemas_4_Virtual";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class DescribeVirtualClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsChicagoWebService", "DescribeVirtualCluster", {})
   .n("EMRContainersClient", "DescribeVirtualClusterCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeVirtualClusterCommand)
-  .de(de_DescribeVirtualClusterCommand)
+  .sc(DescribeVirtualCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

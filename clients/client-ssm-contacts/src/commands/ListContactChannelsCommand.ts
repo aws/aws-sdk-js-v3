@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListContactChannelsRequest, ListContactChannelsResult } from "../models/models_0";
-import { de_ListContactChannelsCommand, se_ListContactChannelsCommand } from "../protocols/Aws_json1_1";
+import { ListContactChannels } from "../schemas/schemas_2_List";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -103,16 +102,11 @@ export class ListContactChannelsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SSMContacts", "ListContactChannels", {})
   .n("SSMContactsClient", "ListContactChannelsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListContactChannelsCommand)
-  .de(de_ListContactChannelsCommand)
+  .sc(ListContactChannels)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

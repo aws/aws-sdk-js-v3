@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { de_ListKeysCommand, se_ListKeysCommand } from "../protocols/Aws_json1_0";
+import { ListKeys } from "../schemas/schemas_2_Key";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class ListKeysCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PaymentCryptographyControlPlane", "ListKeys", {})
   .n("PaymentCryptographyClient", "ListKeysCommand")
-  .f(void 0, void 0)
-  .ser(se_ListKeysCommand)
-  .de(de_ListKeysCommand)
+  .sc(ListKeys)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

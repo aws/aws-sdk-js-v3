@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PutSecretValueRequest,
-  PutSecretValueRequestFilterSensitiveLog,
-  PutSecretValueResponse,
-} from "../models/models_0";
-import { de_PutSecretValueCommand, se_PutSecretValueCommand } from "../protocols/Aws_json1_1";
+import { PutSecretValueRequest, PutSecretValueResponse } from "../models/models_0";
+import { PutSecretValue } from "../schemas/schemas_1_Secret";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -179,16 +174,11 @@ export class PutSecretValueCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("secretsmanager", "PutSecretValue", {})
   .n("SecretsManagerClient", "PutSecretValueCommand")
-  .f(PutSecretValueRequestFilterSensitiveLog, void 0)
-  .ser(se_PutSecretValueCommand)
-  .de(de_PutSecretValueCommand)
+  .sc(PutSecretValue)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

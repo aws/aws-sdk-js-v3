@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateBillingViewRequest,
-  CreateBillingViewRequestFilterSensitiveLog,
-  CreateBillingViewResponse,
-} from "../models/models_0";
-import { de_CreateBillingViewCommand, se_CreateBillingViewCommand } from "../protocols/Aws_json1_0";
+import { CreateBillingViewRequest, CreateBillingViewResponse } from "../models/models_0";
+import { CreateBillingView } from "../schemas/schemas_1_Billing";
 
 /**
  * @public
@@ -146,16 +141,11 @@ export class CreateBillingViewCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBilling", "CreateBillingView", {})
   .n("BillingClient", "CreateBillingViewCommand")
-  .f(CreateBillingViewRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateBillingViewCommand)
-  .de(de_CreateBillingViewCommand)
+  .sc(CreateBillingView)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

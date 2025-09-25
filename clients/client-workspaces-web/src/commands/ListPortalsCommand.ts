@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPortalsRequest, ListPortalsResponse, ListPortalsResponseFilterSensitiveLog } from "../models/models_0";
-import { de_ListPortalsCommand, se_ListPortalsCommand } from "../protocols/Aws_restJson1";
+import { ListPortalsRequest, ListPortalsResponse } from "../models/models_0";
+import { ListPortals } from "../schemas/schemas_12_AccessSettings";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -105,16 +104,11 @@ export class ListPortalsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "ListPortals", {})
   .n("WorkSpacesWebClient", "ListPortalsCommand")
-  .f(void 0, ListPortalsResponseFilterSensitiveLog)
-  .ser(se_ListPortalsCommand)
-  .de(de_ListPortalsCommand)
+  .sc(ListPortals)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

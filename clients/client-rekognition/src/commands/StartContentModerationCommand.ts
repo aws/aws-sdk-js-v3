@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartContentModerationRequest, StartContentModerationResponse } from "../models/models_1";
-import { de_StartContentModerationCommand, se_StartContentModerationCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { StartContentModeration } from "../schemas/schemas_13_Start";
 
 /**
  * @public
@@ -128,16 +127,11 @@ export class StartContentModerationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RekognitionService", "StartContentModeration", {})
   .n("RekognitionClient", "StartContentModerationCommand")
-  .f(void 0, void 0)
-  .ser(se_StartContentModerationCommand)
-  .de(de_StartContentModerationCommand)
+  .sc(StartContentModeration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteStateMachineAliasInput, DeleteStateMachineAliasOutput } from "../models/models_0";
-import { de_DeleteStateMachineAliasCommand, se_DeleteStateMachineAliasCommand } from "../protocols/Aws_json1_0";
+import { DeleteStateMachineAlias } from "../schemas/schemas_2_StateMachine";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -109,16 +108,11 @@ export class DeleteStateMachineAliasCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "DeleteStateMachineAlias", {})
   .n("SFNClient", "DeleteStateMachineAliasCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteStateMachineAliasCommand)
-  .de(de_DeleteStateMachineAliasCommand)
+  .sc(DeleteStateMachineAlias)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

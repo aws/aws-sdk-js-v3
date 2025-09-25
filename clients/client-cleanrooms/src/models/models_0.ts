@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType } from "@smithy/types";
 
@@ -7827,96 +7827,15 @@ export interface MembershipPaymentConfiguration {
 }
 
 /**
- * @internal
+ * @public
+ * @enum
  */
-export const AnalysisParameterFilterSensitiveLog = (obj: AnalysisParameter): any => ({
-  ...obj,
-});
+export const MembershipQueryLogStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
- * @internal
+ * @public
  */
-export const AnalysisSourceFilterSensitiveLog = (obj: AnalysisSource): any => {
-  if (obj.text !== undefined) return { text: SENSITIVE_STRING };
-  if (obj.artifacts !== undefined) return { artifacts: obj.artifacts };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const AnalysisTemplateFilterSensitiveLog = (obj: AnalysisTemplate): any => ({
-  ...obj,
-  ...(obj.source && { source: AnalysisSourceFilterSensitiveLog(obj.source) }),
-  ...(obj.sourceMetadata && { sourceMetadata: obj.sourceMetadata }),
-  ...(obj.analysisParameters && { analysisParameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateAnalysisTemplateInputFilterSensitiveLog = (obj: CreateAnalysisTemplateInput): any => ({
-  ...obj,
-  ...(obj.source && { source: AnalysisSourceFilterSensitiveLog(obj.source) }),
-  ...(obj.analysisParameters && { analysisParameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateAnalysisTemplateOutputFilterSensitiveLog = (obj: CreateAnalysisTemplateOutput): any => ({
-  ...obj,
-  ...(obj.analysisTemplate && { analysisTemplate: AnalysisTemplateFilterSensitiveLog(obj.analysisTemplate) }),
-});
-
-/**
- * @internal
- */
-export const GetAnalysisTemplateOutputFilterSensitiveLog = (obj: GetAnalysisTemplateOutput): any => ({
-  ...obj,
-  ...(obj.analysisTemplate && { analysisTemplate: AnalysisTemplateFilterSensitiveLog(obj.analysisTemplate) }),
-});
-
-/**
- * @internal
- */
-export const UpdateAnalysisTemplateOutputFilterSensitiveLog = (obj: UpdateAnalysisTemplateOutput): any => ({
-  ...obj,
-  ...(obj.analysisTemplate && { analysisTemplate: AnalysisTemplateFilterSensitiveLog(obj.analysisTemplate) }),
-});
-
-/**
- * @internal
- */
-export const CollaborationAnalysisTemplateFilterSensitiveLog = (obj: CollaborationAnalysisTemplate): any => ({
-  ...obj,
-  ...(obj.source && { source: AnalysisSourceFilterSensitiveLog(obj.source) }),
-  ...(obj.sourceMetadata && { sourceMetadata: obj.sourceMetadata }),
-  ...(obj.analysisParameters && { analysisParameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BatchGetCollaborationAnalysisTemplateOutputFilterSensitiveLog = (
-  obj: BatchGetCollaborationAnalysisTemplateOutput
-): any => ({
-  ...obj,
-  ...(obj.collaborationAnalysisTemplates && {
-    collaborationAnalysisTemplates: obj.collaborationAnalysisTemplates.map((item) =>
-      CollaborationAnalysisTemplateFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetCollaborationAnalysisTemplateOutputFilterSensitiveLog = (
-  obj: GetCollaborationAnalysisTemplateOutput
-): any => ({
-  ...obj,
-  ...(obj.collaborationAnalysisTemplate && {
-    collaborationAnalysisTemplate: CollaborationAnalysisTemplateFilterSensitiveLog(obj.collaborationAnalysisTemplate),
-  }),
-});
+export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof typeof MembershipQueryLogStatus];

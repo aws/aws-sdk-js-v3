@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { KafkaConnectServiceException as __BaseException } from "./KafkaConnectServiceException";
 
@@ -2480,66 +2480,3 @@ export interface UpdateConnectorResponse {
    */
   connectorOperationArn?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateConnectorRequestFilterSensitiveLog = (obj: CreateConnectorRequest): any => ({
-  ...obj,
-  ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateWorkerConfigurationRequestFilterSensitiveLog = (obj: CreateWorkerConfigurationRequest): any => ({
-  ...obj,
-  ...(obj.propertiesFileContent && { propertiesFileContent: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeConnectorResponseFilterSensitiveLog = (obj: DescribeConnectorResponse): any => ({
-  ...obj,
-  ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeConnectorOperationResponseFilterSensitiveLog = (obj: DescribeConnectorOperationResponse): any => ({
-  ...obj,
-  ...(obj.originConnectorConfiguration && { originConnectorConfiguration: SENSITIVE_STRING }),
-  ...(obj.targetConnectorConfiguration && { targetConnectorConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const WorkerConfigurationRevisionDescriptionFilterSensitiveLog = (
-  obj: WorkerConfigurationRevisionDescription
-): any => ({
-  ...obj,
-  ...(obj.propertiesFileContent && { propertiesFileContent: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeWorkerConfigurationResponseFilterSensitiveLog = (
-  obj: DescribeWorkerConfigurationResponse
-): any => ({
-  ...obj,
-  ...(obj.latestRevision && {
-    latestRevision: WorkerConfigurationRevisionDescriptionFilterSensitiveLog(obj.latestRevision),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateConnectorRequestFilterSensitiveLog = (obj: UpdateConnectorRequest): any => ({
-  ...obj,
-  ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
-});
