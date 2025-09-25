@@ -1437,7 +1437,7 @@ export interface Connection {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure
+   *                   <code>JDBC_ENFORCE_SSL</code> - A case-insensitive Boolean string (true, false) specifying whether Secure
    *           Sockets Layer (SSL) with hostname matching is enforced for the JDBC connection on the
    *           client. The default is false.</p>
    *             </li>
