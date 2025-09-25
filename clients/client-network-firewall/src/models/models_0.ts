@@ -2137,8 +2137,10 @@ export interface ReferenceSets {
  * @enum
  */
 export const GeneratedRulesType = {
+  ALERTLIST: "ALERTLIST",
   ALLOWLIST: "ALLOWLIST",
   DENYLIST: "DENYLIST",
+  REJECTLIST: "REJECTLIST",
 } as const;
 
 /**
@@ -2189,7 +2191,11 @@ export interface RulesSourceList {
   TargetTypes: TargetType[] | undefined;
 
   /**
-   * <p>Whether you want to allow or deny access to the domains in your target list.</p>
+   * <p>Whether you want to apply allow, reject, alert, or drop behavior to the domains in your target list.</p>
+   *          <note>
+   *             <p>When logging is enabled and you choose Alert, traffic that matches the domain specifications
+   *             generates an alert in the firewall's logs. Then, traffic either passes, is rejected, or drops based on other rules in the firewall policy.</p>
+   *          </note>
    * @public
    */
   GeneratedRulesType: GeneratedRulesType | undefined;

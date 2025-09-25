@@ -80,7 +80,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * //         TargetTypes: [ // TargetTypes // required
  * //           "TLS_SNI" || "HTTP_HOST",
  * //         ],
- * //         GeneratedRulesType: "ALLOWLIST" || "DENYLIST", // required
+ * //         GeneratedRulesType: "ALLOWLIST" || "DENYLIST" || "REJECTLIST" || "ALERTLIST", // required
  * //       },
  * //       StatefulRules: [ // StatefulRules
  * //         { // StatefulRule

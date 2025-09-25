@@ -75,7 +75,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *         TargetTypes: [ // TargetTypes // required
  *           "TLS_SNI" || "HTTP_HOST",
  *         ],
- *         GeneratedRulesType: "ALLOWLIST" || "DENYLIST", // required
+ *         GeneratedRulesType: "ALLOWLIST" || "DENYLIST" || "REJECTLIST" || "ALERTLIST", // required
  *       },
  *       StatefulRules: [ // StatefulRules
  *         { // StatefulRule
