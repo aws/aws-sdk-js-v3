@@ -8175,7 +8175,11 @@ export interface ModifyVolumeRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
+   *                   <code>gp2</code>: 1 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 1 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8212,7 +8216,7 @@ export interface ModifyVolumeRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 80,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8234,10 +8238,10 @@ export interface ModifyVolumeRequest {
 
   /**
    * <p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes.
-   *       The maximum value is 1,000.</p>
+   *       The maximum value is 2,000.</p>
    *          <p>Default: The existing value is retained if the source and target volume type is <code>gp3</code>.
    *       Otherwise, the default value is 125.</p>
-   *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
    * @public
    */
   Throughput?: number | undefined;

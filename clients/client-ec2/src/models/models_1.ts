@@ -4708,7 +4708,7 @@ export interface FleetEbsBlockDeviceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 80,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4731,7 +4731,7 @@ export interface FleetEbsBlockDeviceRequest {
   /**
    * <p>The throughput that the volume supports, in MiB/s.</p>
    *          <p>This parameter is valid only for <code>gp3</code> volumes.</p>
-   *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
    * @public
    */
   Throughput?: number | undefined;
@@ -4759,7 +4759,11 @@ export interface FleetEbsBlockDeviceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
+   *                   <code>gp2</code>: 1 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 1 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8037,7 +8041,7 @@ export interface EbsBlockDevice {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 80,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8071,7 +8075,11 @@ export interface EbsBlockDevice {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
+   *                   <code>gp2</code>: 1 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 1 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8114,7 +8122,7 @@ export interface EbsBlockDevice {
   /**
    * <p>The throughput that the volume supports, in MiB/s.</p>
    *          <p>This parameter is valid only for <code>gp3</code> volumes.</p>
-   *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
    * @public
    */
   Throughput?: number | undefined;
@@ -10635,7 +10643,7 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 80,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10672,7 +10680,11 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
+   *                   <code>gp2</code>: 1 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 1 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10703,9 +10715,9 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
   VolumeType?: VolumeType | undefined;
 
   /**
-   * <p>The throughput to provision for a <code>gp3</code> volume, with a maximum of 1,000
+   * <p>The throughput to provision for a <code>gp3</code> volume, with a maximum of 2,000
    *             MiB/s.</p>
-   *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
    * @public
    */
   Throughput?: number | undefined;
@@ -10940,8 +10952,7 @@ export interface LaunchTemplateElasticInferenceAccelerator {
   Type: string | undefined;
 
   /**
-   * <p> The number of elastic inference accelerators to attach to the instance. </p>
-   *          <p>Default: 1</p>
+   * <p>The number of elastic inference accelerators to attach to the instance. </p>
    * @public
    */
   Count?: number | undefined;
@@ -12664,15 +12675,14 @@ export interface ElasticGpuSpecificationResponse {
  */
 export interface LaunchTemplateElasticInferenceAcceleratorResponse {
   /**
-   * <p> The type of elastic inference accelerator. The possible values are eia1.medium,
+   * <p>The type of elastic inference accelerator. The possible values are eia1.medium,
    *             eia1.large, and eia1.xlarge. </p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p> The number of elastic inference accelerators to attach to the instance. </p>
-   *          <p>Default: 1</p>
+   * <p>The number of elastic inference accelerators to attach to the instance. </p>
    * @public
    */
   Count?: number | undefined;
