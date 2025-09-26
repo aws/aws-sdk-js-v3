@@ -125,6 +125,16 @@ export interface CreateDataAutomationProjectCommandOutput
  *           types: [ // AudioExtractionCategoryTypes
  *             "AUDIO_CONTENT_MODERATION" || "TRANSCRIPT" || "TOPIC_CONTENT_MODERATION",
  *           ],
+ *           typeConfiguration: { // AudioExtractionCategoryTypeConfiguration
+ *             transcript: { // TranscriptConfiguration
+ *               speakerLabeling: { // SpeakerLabelingConfiguration
+ *                 state: "ENABLED" || "DISABLED", // required
+ *               },
+ *               channelLabeling: { // ChannelLabelingConfiguration
+ *                 state: "ENABLED" || "DISABLED", // required
+ *               },
+ *             },
+ *           },
  *         },
  *       },
  *       generativeField: { // AudioStandardGenerativeField
