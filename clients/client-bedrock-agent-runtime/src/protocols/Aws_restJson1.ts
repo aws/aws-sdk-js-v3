@@ -106,7 +106,6 @@ import {
   ByteContentDoc,
   ByteContentFile,
   Citation,
-  CitationEvent,
   CodeInterpreterInvocationOutput,
   CollaboratorConfiguration,
   ConditionResultEvent,
@@ -116,9 +115,7 @@ import {
   ConversationHistory,
   CustomOrchestration,
   DependencyFailedException,
-  ExternalSource,
   ExternalSourcesGenerationConfiguration,
-  ExternalSourcesRetrieveAndGenerateConfiguration,
   FailureTrace,
   FieldForReranking,
   FilePart,
@@ -143,6 +140,7 @@ import {
   FlowResponseStream,
   FlowTrace,
   FlowTraceConditionNodeResultEvent,
+  FlowTraceDependencyEvent,
   FlowTraceEvent,
   FlowTraceNodeActionEvent,
   FlowTraceNodeInputContent,
@@ -154,10 +152,8 @@ import {
   FunctionDefinition,
   FunctionResult,
   FunctionSchema,
-  GenerationConfiguration,
   GuardrailConfiguration,
   GuardrailConfigurationWithArn,
-  GuardrailEvent,
   GuardrailTrace,
   ImageInput,
   ImageInputSource,
@@ -186,16 +182,18 @@ import {
   ModelInvocationInput,
   ModelNotReadyException,
   ModelPerformanceConfiguration,
+  NodeActionEvent,
+  NodeDependencyEvent,
   NodeExecutionContent,
   NodeFailureEvent,
   NodeInputEvent,
   NodeInputField,
   NodeOutputEvent,
   NodeOutputField,
+  NodeTraceElements,
   Observation,
   OptimizedPromptEvent,
   OptimizedPromptStream,
-  OrchestrationConfiguration,
   OrchestrationExecutor,
   OrchestrationModelInvocationOutput,
   OrchestrationTrace,
@@ -212,7 +210,6 @@ import {
   PromptOverrideConfiguration,
   PromptTemplate,
   QueryGenerationInput,
-  QueryTransformationConfiguration,
   ReasoningContentBlock,
   RerankDocument,
   RerankingConfiguration,
@@ -224,7 +221,6 @@ import {
   ResourceNotFoundException,
   ResponseStream,
   RetrieveAndGenerateInput,
-  RetrieveAndGenerateSessionConfiguration,
   RetrievedReference,
   ReturnControlPayload,
   ReturnControlResults,
@@ -241,6 +237,7 @@ import {
   TextToSqlKnowledgeBaseConfiguration,
   ThrottlingException,
   Trace,
+  TraceElements,
   TracePart,
   TransformationConfiguration,
   ValidationException,
@@ -250,7 +247,12 @@ import {
 } from "../models/models_0";
 import {
   BedrockSessionContentBlock,
+  CitationEvent,
   Collaborator,
+  ExternalSource,
+  ExternalSourcesRetrieveAndGenerateConfiguration,
+  GenerationConfiguration,
+  GuardrailEvent,
   ImageBlock,
   ImageSource,
   InvocationStep,
@@ -264,9 +266,12 @@ import {
   KnowledgeBaseRetrievalResult,
   KnowledgeBaseRetrieveAndGenerateConfiguration,
   KnowledgeBaseVectorSearchConfiguration,
+  OrchestrationConfiguration,
+  QueryTransformationConfiguration,
   RetrievalFilter,
   RetrieveAndGenerateConfiguration,
   RetrieveAndGenerateOutputEvent,
+  RetrieveAndGenerateSessionConfiguration,
   RetrieveAndGenerateStreamResponseOutput,
   S3Location,
   SessionState,
@@ -3392,6 +3397,18 @@ const de_AgentCollaboratorInvocationOutput = (
 
 // de_AgentCollaboratorOutputPayload omitted.
 
+/**
+ * deserializeAws_restJson1AgentTraces
+ */
+const de_AgentTraces = (output: any, context: __SerdeContext): TracePart[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TracePart(entry, context);
+    });
+  return retVal;
+};
+
 // de_AnalyzePromptEvent omitted.
 
 // de_ApiContentMap omitted.
@@ -3610,6 +3627,16 @@ const de_FlowExecutionEvent = (output: any, context: __SerdeContext): FlowExecut
       flowOutputEvent: de_FlowExecutionOutputEvent(output.flowOutputEvent, context),
     };
   }
+  if (output.nodeActionEvent != null) {
+    return {
+      nodeActionEvent: de_NodeActionEvent(output.nodeActionEvent, context),
+    };
+  }
+  if (output.nodeDependencyEvent != null) {
+    return {
+      nodeDependencyEvent: de_NodeDependencyEvent(output.nodeDependencyEvent, context),
+    };
+  }
   if (output.nodeFailureEvent != null) {
     return {
       nodeFailureEvent: de_NodeFailureEvent(output.nodeFailureEvent, context),
@@ -3804,6 +3831,11 @@ const de_FlowTrace = (output: any, context: __SerdeContext): FlowTrace => {
       nodeActionTrace: de_FlowTraceNodeActionEvent(output.nodeActionTrace, context),
     };
   }
+  if (output.nodeDependencyTrace != null) {
+    return {
+      nodeDependencyTrace: de_FlowTraceDependencyEvent(output.nodeDependencyTrace, context),
+    };
+  }
   if (output.nodeInputTrace != null) {
     return {
       nodeInputTrace: de_FlowTraceNodeInputEvent(output.nodeInputTrace, context),
@@ -3836,6 +3868,17 @@ const de_FlowTraceConditionNodeResultEvent = (
 // de_FlowTraceConditions omitted.
 
 /**
+ * deserializeAws_restJson1FlowTraceDependencyEvent
+ */
+const de_FlowTraceDependencyEvent = (output: any, context: __SerdeContext): FlowTraceDependencyEvent => {
+  return take(output, {
+    nodeName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    traceElements: (_: any) => de_TraceElements(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1FlowTraceEvent
  */
 const de_FlowTraceEvent = (output: any, context: __SerdeContext): FlowTraceEvent => {
@@ -3851,6 +3894,8 @@ const de_FlowTraceNodeActionEvent = (output: any, context: __SerdeContext): Flow
   return take(output, {
     nodeName: __expectString,
     operationName: __expectString,
+    operationRequest: (_: any) => de_Document(_, context),
+    operationResponse: (_: any) => de_Document(_, context),
     requestId: __expectString,
     serviceName: __expectString,
     timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -3880,13 +3925,21 @@ const de_FlowTraceNodeInputEvent = (output: any, context: __SerdeContext): FlowT
   }) as any;
 };
 
+// de_FlowTraceNodeInputExecutionChain omitted.
+
+// de_FlowTraceNodeInputExecutionChainItem omitted.
+
 /**
  * deserializeAws_restJson1FlowTraceNodeInputField
  */
 const de_FlowTraceNodeInputField = (output: any, context: __SerdeContext): FlowTraceNodeInputField => {
   return take(output, {
+    category: __expectString,
     content: (_: any) => de_FlowTraceNodeInputContent(__expectUnion(_), context),
+    executionChain: _json,
     nodeInputName: __expectString,
+    source: _json,
+    type: __expectString,
   }) as any;
 };
 
@@ -3901,6 +3954,8 @@ const de_FlowTraceNodeInputFields = (output: any, context: __SerdeContext): Flow
     });
   return retVal;
 };
+
+// de_FlowTraceNodeInputSource omitted.
 
 /**
  * deserializeAws_restJson1FlowTraceNodeOutputContent
@@ -3931,7 +3986,9 @@ const de_FlowTraceNodeOutputEvent = (output: any, context: __SerdeContext): Flow
 const de_FlowTraceNodeOutputField = (output: any, context: __SerdeContext): FlowTraceNodeOutputField => {
   return take(output, {
     content: (_: any) => de_FlowTraceNodeOutputContent(__expectUnion(_), context),
+    next: _json,
     nodeOutputName: __expectString,
+    type: __expectString,
   }) as any;
 };
 
@@ -3946,6 +4003,10 @@ const de_FlowTraceNodeOutputFields = (output: any, context: __SerdeContext): Flo
     });
   return retVal;
 };
+
+// de_FlowTraceNodeOutputNext omitted.
+
+// de_FlowTraceNodeOutputNextList omitted.
 
 // de_FunctionInvocationInput omitted.
 
@@ -4343,6 +4404,32 @@ const de_ModelInvocationInput = (output: any, context: __SerdeContext): ModelInv
 };
 
 /**
+ * deserializeAws_restJson1NodeActionEvent
+ */
+const de_NodeActionEvent = (output: any, context: __SerdeContext): NodeActionEvent => {
+  return take(output, {
+    nodeName: __expectString,
+    operationName: __expectString,
+    operationRequest: (_: any) => de_Document(_, context),
+    operationResponse: (_: any) => de_Document(_, context),
+    requestId: __expectString,
+    serviceName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NodeDependencyEvent
+ */
+const de_NodeDependencyEvent = (output: any, context: __SerdeContext): NodeDependencyEvent => {
+  return take(output, {
+    nodeName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    traceElements: (_: any) => de_NodeTraceElements(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1NodeExecutionContent
  */
 const de_NodeExecutionContent = (output: any, context: __SerdeContext): NodeExecutionContent => {
@@ -4377,13 +4464,21 @@ const de_NodeInputEvent = (output: any, context: __SerdeContext): NodeInputEvent
   }) as any;
 };
 
+// de_NodeInputExecutionChain omitted.
+
+// de_NodeInputExecutionChainItem omitted.
+
 /**
  * deserializeAws_restJson1NodeInputField
  */
 const de_NodeInputField = (output: any, context: __SerdeContext): NodeInputField => {
   return take(output, {
+    category: __expectString,
     content: (_: any) => de_NodeExecutionContent(__expectUnion(_), context),
+    executionChain: _json,
     name: __expectString,
+    source: _json,
+    type: __expectString,
   }) as any;
 };
 
@@ -4398,6 +4493,8 @@ const de_NodeInputFields = (output: any, context: __SerdeContext): NodeInputFiel
     });
   return retVal;
 };
+
+// de_NodeInputSource omitted.
 
 /**
  * deserializeAws_restJson1NodeOutputEvent
@@ -4417,6 +4514,8 @@ const de_NodeOutputField = (output: any, context: __SerdeContext): NodeOutputFie
   return take(output, {
     content: (_: any) => de_NodeExecutionContent(__expectUnion(_), context),
     name: __expectString,
+    next: _json,
+    type: __expectString,
   }) as any;
 };
 
@@ -4430,6 +4529,22 @@ const de_NodeOutputFields = (output: any, context: __SerdeContext): NodeOutputFi
       return de_NodeOutputField(entry, context);
     });
   return retVal;
+};
+
+// de_NodeOutputNext omitted.
+
+// de_NodeOutputNextList omitted.
+
+/**
+ * deserializeAws_restJson1NodeTraceElements
+ */
+const de_NodeTraceElements = (output: any, context: __SerdeContext): NodeTraceElements => {
+  if (output.agentTraces != null) {
+    return {
+      agentTraces: de_AgentTraces(output.agentTraces, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 /**
@@ -4902,6 +5017,18 @@ const de_Trace = (output: any, context: __SerdeContext): Trace => {
   if (output.routingClassifierTrace != null) {
     return {
       routingClassifierTrace: de_RoutingClassifierTrace(__expectUnion(output.routingClassifierTrace), context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1TraceElements
+ */
+const de_TraceElements = (output: any, context: __SerdeContext): TraceElements => {
+  if (output.agentTraces != null) {
+    return {
+      agentTraces: de_AgentTraces(output.agentTraces, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };

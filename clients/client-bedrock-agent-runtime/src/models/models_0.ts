@@ -1209,6 +1209,2016 @@ export interface AgentCollaboratorInvocationOutput {
 }
 
 /**
+ * <p>Details about a caller.</p>
+ * @public
+ */
+export type Caller = Caller.AgentAliasArnMember | Caller.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Caller {
+  /**
+   * <p>The caller's agent alias ARN.</p>
+   * @public
+   */
+  export interface AgentAliasArnMember {
+    agentAliasArn: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentAliasArn?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    agentAliasArn: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Caller, visitor: Visitor<T>): T => {
+    if (value.agentAliasArn !== undefined) return visitor.agentAliasArn(value.agentAliasArn);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p> The event in the custom orchestration sequence. Events are the responses which the custom orchestration Lambda function sends as response to the agent. </p>
+ * @public
+ */
+export interface CustomOrchestrationTraceEvent {
+  /**
+   * <p> The text that prompted the event at this step. </p>
+   * @public
+   */
+  text?: string | undefined;
+}
+
+/**
+ * <p> The trace behavior for the custom orchestration. </p>
+ * @public
+ */
+export interface CustomOrchestrationTrace {
+  /**
+   * <p> The unique identifier of the trace. </p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p> The event details used with the custom orchestration. </p>
+   * @public
+   */
+  event?: CustomOrchestrationTraceEvent | undefined;
+}
+
+/**
+ * <p>Contains information about the failure of the interaction.</p>
+ * @public
+ */
+export interface FailureTrace {
+  /**
+   * <p>The unique identifier of the trace.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The reason the interaction failed.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+
+  /**
+   * <p>The failure code for the trace.</p>
+   * @public
+   */
+  failureCode?: number | undefined;
+
+  /**
+   * <p>Information about the failure that occurred.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailAction = {
+  INTERVENED: "INTERVENED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentPolicyAction =
+  (typeof GuardrailContentPolicyAction)[keyof typeof GuardrailContentPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentFilterConfidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterConfidence =
+  (typeof GuardrailContentFilterConfidence)[keyof typeof GuardrailContentFilterConfidence];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentFilterType = {
+  HATE: "HATE",
+  INSULTS: "INSULTS",
+  MISCONDUCT: "MISCONDUCT",
+  PROMPT_ATTACK: "PROMPT_ATTACK",
+  SEXUAL: "SEXUAL",
+  VIOLENCE: "VIOLENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
+
+/**
+ * <p>Details of the content filter used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailContentFilter {
+  /**
+   * <p>The type of content detected in the filter by the Guardrail.</p>
+   * @public
+   */
+  type?: GuardrailContentFilterType | undefined;
+
+  /**
+   * <p>The confidence level regarding the content detected in the filter by the Guardrail.</p>
+   * @public
+   */
+  confidence?: GuardrailContentFilterConfidence | undefined;
+
+  /**
+   * <p>The action placed on the content by the Guardrail filter.</p>
+   * @public
+   */
+  action?: GuardrailContentPolicyAction | undefined;
+}
+
+/**
+ * <p>The details of the policy assessment in the Guardrails filter.</p>
+ * @public
+ */
+export interface GuardrailContentPolicyAssessment {
+  /**
+   * <p>The filter details of the policy assessment used in the Guardrails filter.</p>
+   * @public
+   */
+  filters?: GuardrailContentFilter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailSensitiveInformationPolicyAction = {
+  ANONYMIZED: "ANONYMIZED",
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailSensitiveInformationPolicyAction =
+  (typeof GuardrailSensitiveInformationPolicyAction)[keyof typeof GuardrailSensitiveInformationPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailPiiEntityType = {
+  ADDRESS: "ADDRESS",
+  AGE: "AGE",
+  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
+  AWS_SECRET_KEY: "AWS_SECRET_KEY",
+  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
+  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
+  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
+  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
+  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
+  DRIVER_ID: "DRIVER_ID",
+  EMAIL: "EMAIL",
+  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+  IP_ADDRESS: "IP_ADDRESS",
+  LICENSE_PLATE: "LICENSE_PLATE",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  NAME: "NAME",
+  PASSWORD: "PASSWORD",
+  PHONE: "PHONE",
+  PIN: "PIN",
+  SWIFT_CODE: "SWIFT_CODE",
+  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
+  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+  URL: "URL",
+  USERNAME: "USERNAME",
+  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
+  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
+  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
+  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
+  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
+
+/**
+ * <p>The Guardrail filter to identify and remove personally identifiable information (PII).</p>
+ * @public
+ */
+export interface GuardrailPiiEntityFilter {
+  /**
+   * <p>The type of PII the Guardrail filter has identified and removed.</p>
+   * @public
+   */
+  type?: GuardrailPiiEntityType | undefined;
+
+  /**
+   * <p>The match to settings in the Guardrail filter to identify and remove PII.</p>
+   * @public
+   */
+  match?: string | undefined;
+
+  /**
+   * <p>The action of the Guardrail filter to identify and remove PII.</p>
+   * @public
+   */
+  action?: GuardrailSensitiveInformationPolicyAction | undefined;
+}
+
+/**
+ * <p>The details for the regex filter used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailRegexFilter {
+  /**
+   * <p>The name details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The regex details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  regex?: string | undefined;
+
+  /**
+   * <p>The match details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  match?: string | undefined;
+
+  /**
+   * <p>The action details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailSensitiveInformationPolicyAction | undefined;
+}
+
+/**
+ * <p>The details of the sensitive policy assessment used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailSensitiveInformationPolicyAssessment {
+  /**
+   * <p>The details of the PII entities used in the sensitive policy assessment for the Guardrail.</p>
+   * @public
+   */
+  piiEntities?: GuardrailPiiEntityFilter[] | undefined;
+
+  /**
+   * <p>The details of the regexes used in the sensitive policy assessment for the Guardrail.</p>
+   * @public
+   */
+  regexes?: GuardrailRegexFilter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailTopicPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicPolicyAction = (typeof GuardrailTopicPolicyAction)[keyof typeof GuardrailTopicPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailTopicType = {
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
+
+/**
+ * <p>The details for a specific topic defined in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailTopic {
+  /**
+   * <p>The name details on a specific topic in the Guardrail.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The type details on a specific topic in the Guardrail.</p>
+   * @public
+   */
+  type?: GuardrailTopicType | undefined;
+
+  /**
+   * <p>The action details on a specific topic in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailTopicPolicyAction | undefined;
+}
+
+/**
+ * <p>The details of the policy assessment used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailTopicPolicyAssessment {
+  /**
+   * <p>The topic details of the policy assessment used in the Guardrail.</p>
+   * @public
+   */
+  topics?: GuardrailTopic[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailWordPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailWordPolicyAction = (typeof GuardrailWordPolicyAction)[keyof typeof GuardrailWordPolicyAction];
+
+/**
+ * <p>The custom word details for the filter in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailCustomWord {
+  /**
+   * <p>The match details for the custom word filter in the Guardrail.</p>
+   * @public
+   */
+  match?: string | undefined;
+
+  /**
+   * <p>The action details for the custom word filter in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailWordPolicyAction | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailManagedWordType = {
+  PROFANITY: "PROFANITY",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailManagedWordType = (typeof GuardrailManagedWordType)[keyof typeof GuardrailManagedWordType];
+
+/**
+ * <p>The managed word details for the filter in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailManagedWord {
+  /**
+   * <p>The match details for the managed word filter in the Guardrail.</p>
+   * @public
+   */
+  match?: string | undefined;
+
+  /**
+   * <p>The type details for the managed word filter in the Guardrail.</p>
+   * @public
+   */
+  type?: GuardrailManagedWordType | undefined;
+
+  /**
+   * <p>The action details for the managed word filter in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailWordPolicyAction | undefined;
+}
+
+/**
+ * <p>The assessment details for words defined in the Guardrail filter.</p>
+ * @public
+ */
+export interface GuardrailWordPolicyAssessment {
+  /**
+   * <p>The custom word details for words defined in the Guardrail filter.</p>
+   * @public
+   */
+  customWords?: GuardrailCustomWord[] | undefined;
+
+  /**
+   * <p>The managed word lists for words defined in the Guardrail filter.</p>
+   * @public
+   */
+  managedWordLists?: GuardrailManagedWord[] | undefined;
+}
+
+/**
+ * <p>Assessment details of the content analyzed by Guardrails.</p>
+ * @public
+ */
+export interface GuardrailAssessment {
+  /**
+   * <p>Topic policy details of the Guardrail.</p>
+   * @public
+   */
+  topicPolicy?: GuardrailTopicPolicyAssessment | undefined;
+
+  /**
+   * <p>Content policy details of the Guardrail.</p>
+   * @public
+   */
+  contentPolicy?: GuardrailContentPolicyAssessment | undefined;
+
+  /**
+   * <p>Word policy details of the Guardrail.</p>
+   * @public
+   */
+  wordPolicy?: GuardrailWordPolicyAssessment | undefined;
+
+  /**
+   * <p>Sensitive Information policy details of Guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicyAssessment | undefined;
+}
+
+/**
+ * <p>The trace details used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailTrace {
+  /**
+   * <p>The trace action details used with the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailAction | undefined;
+
+  /**
+   * <p>The details of the trace Id used in the Guardrail Trace.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The details of the input assessments used in the Guardrail Trace.</p>
+   * @public
+   */
+  inputAssessments?: GuardrailAssessment[] | undefined;
+
+  /**
+   * <p>The details of the output assessments used in the Guardrail Trace.</p>
+   * @public
+   */
+  outputAssessments?: GuardrailAssessment[] | undefined;
+
+  /**
+   * <p>Contains information about the Guardrail output.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
+}
+
+/**
+ * <p>Contains information about the code interpreter being invoked.</p>
+ * @public
+ */
+export interface CodeInterpreterInvocationInput {
+  /**
+   * <p>The code for the code interpreter to use.</p>
+   * @public
+   */
+  code?: string | undefined;
+
+  /**
+   * <p>Files that are uploaded for code interpreter to use.</p>
+   * @public
+   */
+  files?: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InvocationType = {
+  ACTION_GROUP: "ACTION_GROUP",
+  ACTION_GROUP_CODE_INTERPRETER: "ACTION_GROUP_CODE_INTERPRETER",
+  AGENT_COLLABORATOR: "AGENT_COLLABORATOR",
+  FINISH: "FINISH",
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+} as const;
+
+/**
+ * @public
+ */
+export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
+
+/**
+ * <p>Contains details about the knowledge base to look up and the query to be made.</p>
+ * @public
+ */
+export interface KnowledgeBaseLookupInput {
+  /**
+   * <p>The query made to the knowledge base.</p>
+   * @public
+   */
+  text?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the knowledge base to look up.</p>
+   * @public
+   */
+  knowledgeBaseId?: string | undefined;
+}
+
+/**
+ * <p>Contains information pertaining to the action group or knowledge base that is being invoked.</p>
+ * @public
+ */
+export interface InvocationInput {
+  /**
+   * <p>The unique identifier of the trace.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>Specifies whether the agent is invoking an action group or a knowledge base.</p>
+   * @public
+   */
+  invocationType?: InvocationType | undefined;
+
+  /**
+   * <p>Contains information about the action group to be invoked.</p>
+   * @public
+   */
+  actionGroupInvocationInput?: ActionGroupInvocationInput | undefined;
+
+  /**
+   * <p>Contains details about the knowledge base to look up and the query to be made.</p>
+   * @public
+   */
+  knowledgeBaseLookupInput?: KnowledgeBaseLookupInput | undefined;
+
+  /**
+   * <p>Contains information about the code interpreter to be invoked.</p>
+   * @public
+   */
+  codeInterpreterInvocationInput?: CodeInterpreterInvocationInput | undefined;
+
+  /**
+   * <p>The collaborator's invocation input.</p>
+   * @public
+   */
+  agentCollaboratorInvocationInput?: AgentCollaboratorInvocationInput | undefined;
+}
+
+/**
+ * <p>Specifications about the inference parameters that were provided alongside the prompt. These are specified in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
+ * @public
+ */
+export interface InferenceConfiguration {
+  /**
+   * <p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>Top P</code> determines the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topP</code> to 0.8, the model only selects the next token from the top 80% of the probability distribution of next tokens.</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>topK</code> is the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topK</code> to 50, the model selects the next token from among the top 50 most likely choices.</p>
+   * @public
+   */
+  topK?: number | undefined;
+
+  /**
+   * <p>The maximum number of tokens allowed in the generated response.</p>
+   * @public
+   */
+  maximumLength?: number | undefined;
+
+  /**
+   * <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
+   * @public
+   */
+  stopSequences?: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CreationMode = {
+  DEFAULT: "DEFAULT",
+  OVERRIDDEN: "OVERRIDDEN",
+} as const;
+
+/**
+ * @public
+ */
+export type CreationMode = (typeof CreationMode)[keyof typeof CreationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PromptType = {
+  KNOWLEDGE_BASE_RESPONSE_GENERATION: "KNOWLEDGE_BASE_RESPONSE_GENERATION",
+  ORCHESTRATION: "ORCHESTRATION",
+  POST_PROCESSING: "POST_PROCESSING",
+  PRE_PROCESSING: "PRE_PROCESSING",
+  ROUTING_CLASSIFIER: "ROUTING_CLASSIFIER",
+} as const;
+
+/**
+ * @public
+ */
+export type PromptType = (typeof PromptType)[keyof typeof PromptType];
+
+/**
+ * <p>The input for the pre-processing step.</p> <ul> <li> <p>The <code>type</code> matches the agent step.</p> </li> <li> <p>The <code>text</code> contains the prompt.</p> </li> <li> <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p> </li> </ul>
+ * @public
+ */
+export interface ModelInvocationInput {
+  /**
+   * <p>The unique identifier of the trace.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The text that prompted the agent at this step.</p>
+   * @public
+   */
+  text?: string | undefined;
+
+  /**
+   * <p>The step in the agent sequence.</p>
+   * @public
+   */
+  type?: PromptType | undefined;
+
+  /**
+   * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence.</p>
+   * @public
+   */
+  overrideLambda?: string | undefined;
+
+  /**
+   * <p>Specifies whether the default prompt template was <code>OVERRIDDEN</code>. If it was, the <code>basePromptTemplate</code> that was set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object when the agent was created or updated is used instead.</p>
+   * @public
+   */
+  promptCreationMode?: CreationMode | undefined;
+
+  /**
+   * <p>Specifications about the inference parameters that were provided alongside the prompt. These are specified in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
+   * @public
+   */
+  inferenceConfiguration?: InferenceConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>.</p>
+   * @public
+   */
+  parserMode?: CreationMode | undefined;
+
+  /**
+   * <p>The identifier of a foundation model.</p>
+   * @public
+   */
+  foundationModel?: string | undefined;
+}
+
+/**
+ * <p>Contains the raw output from the foundation model.</p>
+ * @public
+ */
+export interface RawResponse {
+  /**
+   * <p>The foundation model's raw output content.</p>
+   * @public
+   */
+  content?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the reasoning that the model used to return the content in the content block.</p>
+ * @public
+ */
+export interface ReasoningTextBlock {
+  /**
+   * <p>Text describing the reasoning that the model used to return the content in the content block.</p>
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * <p>A hash of all the messages in the conversation to ensure that the content in the reasoning text block isn't tampered with. You must submit the signature in subsequent <code>Converse</code> requests, in addition to the previous messages. If the previous messages are tampered with, the response throws an error.</p>
+   * @public
+   */
+  signature?: string | undefined;
+}
+
+/**
+ * <p>Contains content regarding the reasoning that the foundation model made with respect to the content in the content block. Reasoning refers to a Chain of Thought (CoT) that the model generates to enhance the accuracy of its final response.</p>
+ * @public
+ */
+export type ReasoningContentBlock =
+  | ReasoningContentBlock.ReasoningTextMember
+  | ReasoningContentBlock.RedactedContentMember
+  | ReasoningContentBlock.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ReasoningContentBlock {
+  /**
+   * <p>Contains information about the reasoning that the model used to return the content in the content block.</p>
+   * @public
+   */
+  export interface ReasoningTextMember {
+    reasoningText: ReasoningTextBlock;
+    redactedContent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The content in the reasoning that was encrypted by the model provider for trust and safety reasons.</p>
+   * @public
+   */
+  export interface RedactedContentMember {
+    reasoningText?: never;
+    redactedContent: Uint8Array;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    reasoningText?: never;
+    redactedContent?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    reasoningText: (value: ReasoningTextBlock) => T;
+    redactedContent: (value: Uint8Array) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ReasoningContentBlock, visitor: Visitor<T>): T => {
+    if (value.reasoningText !== undefined) return visitor.reasoningText(value.reasoningText);
+    if (value.redactedContent !== undefined) return visitor.redactedContent(value.redactedContent);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The foundation model output from the orchestration step.</p>
+ * @public
+ */
+export interface OrchestrationModelInvocationOutput {
+  /**
+   * <p>The unique identifier of the trace.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>Contains details of the raw response from the foundation model output.</p>
+   * @public
+   */
+  rawResponse?: RawResponse | undefined;
+
+  /**
+   * <p>Contains information about the foundation model output from the orchestration step.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
+
+  /**
+   * <p>Contains content about the reasoning that the model made during the orchestration step. </p>
+   * @public
+   */
+  reasoningContent?: ReasoningContentBlock | undefined;
+}
+
+/**
+ * <p>Contains the JSON-formatted string returned by the API invoked by the code interpreter.</p>
+ * @public
+ */
+export interface CodeInterpreterInvocationOutput {
+  /**
+   * <p>Contains the successful output returned from code execution</p>
+   * @public
+   */
+  executionOutput?: string | undefined;
+
+  /**
+   * <p>Contains the error returned from code execution.</p>
+   * @public
+   */
+  executionError?: string | undefined;
+
+  /**
+   * <p>Contains output files, if generated by code execution.</p>
+   * @public
+   */
+  files?: string[] | undefined;
+
+  /**
+   * <p>Indicates if the execution of the code timed out.</p>
+   * @public
+   */
+  executionTimeout?: boolean | undefined;
+
+  /**
+   * <p>Contains information about the output from the code interpreter.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
+}
+
+/**
+ * <p>Contains details about the response to the user.</p>
+ * @public
+ */
+export interface FinalResponse {
+  /**
+   * <p>The text in the response to the user.</p>
+   * @public
+   */
+  text?: string | undefined;
+
+  /**
+   * <p>Contains information about the invoke agent operation.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrievalResultContentColumnType = {
+  BLOB: "BLOB",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  LONG: "LONG",
+  NULL: "NULL",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type RetrievalResultContentColumnType =
+  (typeof RetrievalResultContentColumnType)[keyof typeof RetrievalResultContentColumnType];
+
+/**
+ * <p>Contains information about a column with a cell to return in retrieval.</p>
+ * @public
+ */
+export interface RetrievalResultContentColumn {
+  /**
+   * <p>The name of the column.</p>
+   * @public
+   */
+  columnName?: string | undefined;
+
+  /**
+   * <p>The value in the column.</p>
+   * @public
+   */
+  columnValue?: string | undefined;
+
+  /**
+   * <p>The data type of the value.</p>
+   * @public
+   */
+  type?: RetrievalResultContentColumnType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrievalResultContentType = {
+  IMAGE: "IMAGE",
+  ROW: "ROW",
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type RetrievalResultContentType = (typeof RetrievalResultContentType)[keyof typeof RetrievalResultContentType];
+
+/**
+ * <p>Contains information about a chunk of text from a data source in the knowledge base. If the result is from a structured data source, the cell in the database and the type of the value is also identified.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>content</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>content</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>content</code> field</p> </li> </ul>
+ * @public
+ */
+export interface RetrievalResultContent {
+  /**
+   * <p>The type of content in the retrieval result.</p>
+   * @public
+   */
+  type?: RetrievalResultContentType | undefined;
+
+  /**
+   * <p>The cited text from the data source.</p>
+   * @public
+   */
+  text?: string | undefined;
+
+  /**
+   * <p>A data URI with base64-encoded content from the data source. The URI is in the following format: returned in the following format: <code>data:image/jpeg;base64,$\{base64-encoded string\}</code>.</p>
+   * @public
+   */
+  byteContent?: string | undefined;
+
+  /**
+   * <p>Specifies information about the rows with the cells to return in retrieval.</p>
+   * @public
+   */
+  row?: RetrievalResultContentColumn[] | undefined;
+}
+
+/**
+ * <p>The Confluence data source location.</p>
+ * @public
+ */
+export interface RetrievalResultConfluenceLocation {
+  /**
+   * <p>The Confluence host URL for the data source location.</p>
+   * @public
+   */
+  url?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the location of a document in a custom data source.</p>
+ * @public
+ */
+export interface RetrievalResultCustomDocumentLocation {
+  /**
+   * <p>The ID of the document.</p>
+   * @public
+   */
+  id?: string | undefined;
+}
+
+/**
+ * <p>The location of a result in Amazon Kendra.</p>
+ * @public
+ */
+export interface RetrievalResultKendraDocumentLocation {
+  /**
+   * <p>The document's uri.</p>
+   * @public
+   */
+  uri?: string | undefined;
+}
+
+/**
+ * <p>The S3 data source location.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>s3Location</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>s3Location</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>s3Location</code> field</p> </li> </ul>
+ * @public
+ */
+export interface RetrievalResultS3Location {
+  /**
+   * <p>The S3 URI for the data source location.</p>
+   * @public
+   */
+  uri?: string | undefined;
+}
+
+/**
+ * <p>The Salesforce data source location.</p>
+ * @public
+ */
+export interface RetrievalResultSalesforceLocation {
+  /**
+   * <p>The Salesforce host URL for the data source location.</p>
+   * @public
+   */
+  url?: string | undefined;
+}
+
+/**
+ * <p>The SharePoint data source location.</p>
+ * @public
+ */
+export interface RetrievalResultSharePointLocation {
+  /**
+   * <p>The SharePoint site URL for the data source location.</p>
+   * @public
+   */
+  url?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the SQL query used to retrieve the result.</p>
+ * @public
+ */
+export interface RetrievalResultSqlLocation {
+  /**
+   * <p>The SQL query used to retrieve the result.</p>
+   * @public
+   */
+  query?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrievalResultLocationType = {
+  CONFLUENCE: "CONFLUENCE",
+  CUSTOM: "CUSTOM",
+  KENDRA: "KENDRA",
+  S3: "S3",
+  SALESFORCE: "SALESFORCE",
+  SHAREPOINT: "SHAREPOINT",
+  SQL: "SQL",
+  WEB: "WEB",
+} as const;
+
+/**
+ * @public
+ */
+export type RetrievalResultLocationType =
+  (typeof RetrievalResultLocationType)[keyof typeof RetrievalResultLocationType];
+
+/**
+ * <p>The web URL/URLs data source location.</p>
+ * @public
+ */
+export interface RetrievalResultWebLocation {
+  /**
+   * <p>The web URL/URLs for the data source location.</p>
+   * @public
+   */
+  url?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the data source location.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>location</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>location</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>location</code> field</p> </li> </ul>
+ * @public
+ */
+export interface RetrievalResultLocation {
+  /**
+   * <p>The type of data source location.</p>
+   * @public
+   */
+  type: RetrievalResultLocationType | undefined;
+
+  /**
+   * <p>The S3 data source location.</p>
+   * @public
+   */
+  s3Location?: RetrievalResultS3Location | undefined;
+
+  /**
+   * <p>The web URL/URLs data source location.</p>
+   * @public
+   */
+  webLocation?: RetrievalResultWebLocation | undefined;
+
+  /**
+   * <p>The Confluence data source location.</p>
+   * @public
+   */
+  confluenceLocation?: RetrievalResultConfluenceLocation | undefined;
+
+  /**
+   * <p>The Salesforce data source location.</p>
+   * @public
+   */
+  salesforceLocation?: RetrievalResultSalesforceLocation | undefined;
+
+  /**
+   * <p>The SharePoint data source location.</p>
+   * @public
+   */
+  sharePointLocation?: RetrievalResultSharePointLocation | undefined;
+
+  /**
+   * <p>Specifies the location of a document in a custom data source.</p>
+   * @public
+   */
+  customDocumentLocation?: RetrievalResultCustomDocumentLocation | undefined;
+
+  /**
+   * <p>The location of a document in Amazon Kendra.</p>
+   * @public
+   */
+  kendraDocumentLocation?: RetrievalResultKendraDocumentLocation | undefined;
+
+  /**
+   * <p>Specifies information about the SQL query used to retrieve the result.</p>
+   * @public
+   */
+  sqlLocation?: RetrievalResultSqlLocation | undefined;
+}
+
+/**
+ * <p>Contains metadata about a source cited for the generated response.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>retrievedReferences</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>retrievedReferences</code> field</p> </li> </ul>
+ * @public
+ */
+export interface RetrievedReference {
+  /**
+   * <p>Contains the cited text from the data source.</p>
+   * @public
+   */
+  content?: RetrievalResultContent | undefined;
+
+  /**
+   * <p>Contains information about the location of the data source.</p>
+   * @public
+   */
+  location?: RetrievalResultLocation | undefined;
+
+  /**
+   * <p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata">Metadata and filtering</a>.</p>
+   * @public
+   */
+  metadata?: Record<string, __DocumentType> | undefined;
+}
+
+/**
+ * <p>Contains details about the results from looking up the knowledge base.</p>
+ * @public
+ */
+export interface KnowledgeBaseLookupOutput {
+  /**
+   * <p>Contains metadata about the sources cited for the generated response.</p>
+   * @public
+   */
+  retrievedReferences?: RetrievedReference[] | undefined;
+
+  /**
+   * <p>Contains information about the knowledge base output.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Source = {
+  ACTION_GROUP: "ACTION_GROUP",
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+  PARSER: "PARSER",
+} as const;
+
+/**
+ * @public
+ */
+export type Source = (typeof Source)[keyof typeof Source];
+
+/**
+ * <p>Contains details about the agent's response to reprompt the input.</p>
+ * @public
+ */
+export interface RepromptResponse {
+  /**
+   * <p>The text reprompting the input.</p>
+   * @public
+   */
+  text?: string | undefined;
+
+  /**
+   * <p>Specifies what output is prompting the agent to reprompt the input.</p>
+   * @public
+   */
+  source?: Source | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  ACTION_GROUP: "ACTION_GROUP",
+  AGENT_COLLABORATOR: "AGENT_COLLABORATOR",
+  ASK_USER: "ASK_USER",
+  FINISH: "FINISH",
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+  REPROMPT: "REPROMPT",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * <p>Contains the result or output of an action group or knowledge base, or the response to the user.</p>
+ * @public
+ */
+export interface Observation {
+  /**
+   * <p>The unique identifier of the trace.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>Specifies what kind of information the agent returns in the observation. The following values are possible.</p> <ul> <li> <p> <code>ACTION_GROUP</code> – The agent returns the result of an action group.</p> </li> <li> <p> <code>KNOWLEDGE_BASE</code> – The agent returns information from a knowledge base.</p> </li> <li> <p> <code>FINISH</code> – The agent returns a final response to the user with no follow-up.</p> </li> <li> <p> <code>ASK_USER</code> – The agent asks the user a question.</p> </li> <li> <p> <code>REPROMPT</code> – The agent prompts the user again for the same information.</p> </li> </ul>
+   * @public
+   */
+  type?: Type | undefined;
+
+  /**
+   * <p>Contains the JSON-formatted string returned by the API invoked by the action group.</p>
+   * @public
+   */
+  actionGroupInvocationOutput?: ActionGroupInvocationOutput | undefined;
+
+  /**
+   * <p>A collaborator's invocation output.</p>
+   * @public
+   */
+  agentCollaboratorInvocationOutput?: AgentCollaboratorInvocationOutput | undefined;
+
+  /**
+   * <p>Contains details about the results from looking up the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseLookupOutput?: KnowledgeBaseLookupOutput | undefined;
+
+  /**
+   * <p>Contains details about the response to the user.</p>
+   * @public
+   */
+  finalResponse?: FinalResponse | undefined;
+
+  /**
+   * <p>Contains details about the response to reprompt the input.</p>
+   * @public
+   */
+  repromptResponse?: RepromptResponse | undefined;
+
+  /**
+   * <p>Contains the JSON-formatted string returned by the API invoked by the code interpreter.</p>
+   * @public
+   */
+  codeInterpreterInvocationOutput?: CodeInterpreterInvocationOutput | undefined;
+}
+
+/**
+ * <p>Contains the reasoning, based on the input, that the agent uses to justify carrying out an action group or getting information from a knowledge base.</p>
+ * @public
+ */
+export interface Rationale {
+  /**
+   * <p>The unique identifier of the trace step.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The reasoning or thought process of the agent, based on the input.</p>
+   * @public
+   */
+  text?: string | undefined;
+}
+
+/**
+ * <p>Details about the orchestration step, in which the agent determines the order in which actions are executed and which knowledge bases are retrieved.</p>
+ * @public
+ */
+export type OrchestrationTrace =
+  | OrchestrationTrace.InvocationInputMember
+  | OrchestrationTrace.ModelInvocationInputMember
+  | OrchestrationTrace.ModelInvocationOutputMember
+  | OrchestrationTrace.ObservationMember
+  | OrchestrationTrace.RationaleMember
+  | OrchestrationTrace.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OrchestrationTrace {
+  /**
+   * <p>Details about the reasoning, based on the input, that the agent uses to justify carrying out an action group or getting information from a knowledge base.</p>
+   * @public
+   */
+  export interface RationaleMember {
+    rationale: Rationale;
+    invocationInput?: never;
+    observation?: never;
+    modelInvocationInput?: never;
+    modelInvocationOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information pertaining to the action group or knowledge base that is being invoked.</p>
+   * @public
+   */
+  export interface InvocationInputMember {
+    rationale?: never;
+    invocationInput: InvocationInput;
+    observation?: never;
+    modelInvocationInput?: never;
+    modelInvocationOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about the observation (the output of the action group Lambda or knowledge base) made by the agent.</p>
+   * @public
+   */
+  export interface ObservationMember {
+    rationale?: never;
+    invocationInput?: never;
+    observation: Observation;
+    modelInvocationInput?: never;
+    modelInvocationOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The input for the orchestration step.</p> <ul> <li> <p>The <code>type</code> is <code>ORCHESTRATION</code>.</p> </li> <li> <p>The <code>text</code> contains the prompt.</p> </li> <li> <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p> </li> </ul>
+   * @public
+   */
+  export interface ModelInvocationInputMember {
+    rationale?: never;
+    invocationInput?: never;
+    observation?: never;
+    modelInvocationInput: ModelInvocationInput;
+    modelInvocationOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information pertaining to the output from the foundation model that is being invoked.</p>
+   * @public
+   */
+  export interface ModelInvocationOutputMember {
+    rationale?: never;
+    invocationInput?: never;
+    observation?: never;
+    modelInvocationInput?: never;
+    modelInvocationOutput: OrchestrationModelInvocationOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    rationale?: never;
+    invocationInput?: never;
+    observation?: never;
+    modelInvocationInput?: never;
+    modelInvocationOutput?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    rationale: (value: Rationale) => T;
+    invocationInput: (value: InvocationInput) => T;
+    observation: (value: Observation) => T;
+    modelInvocationInput: (value: ModelInvocationInput) => T;
+    modelInvocationOutput: (value: OrchestrationModelInvocationOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OrchestrationTrace, visitor: Visitor<T>): T => {
+    if (value.rationale !== undefined) return visitor.rationale(value.rationale);
+    if (value.invocationInput !== undefined) return visitor.invocationInput(value.invocationInput);
+    if (value.observation !== undefined) return visitor.observation(value.observation);
+    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
+    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Details about the response from the Lambda parsing of the output from the post-processing step.</p>
+ * @public
+ */
+export interface PostProcessingParsedResponse {
+  /**
+   * <p>The text returned by the parser.</p>
+   * @public
+   */
+  text?: string | undefined;
+}
+
+/**
+ * <p>The foundation model output from the post-processing step.</p>
+ * @public
+ */
+export interface PostProcessingModelInvocationOutput {
+  /**
+   * <p>The unique identifier of the trace.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>Details about the response from the Lambda parsing of the output of the post-processing step.</p>
+   * @public
+   */
+  parsedResponse?: PostProcessingParsedResponse | undefined;
+
+  /**
+   * <p> Details of the raw response from the foundation model output. </p>
+   * @public
+   */
+  rawResponse?: RawResponse | undefined;
+
+  /**
+   * <p> Contains information about the foundation model output from the post-processing step. </p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
+
+  /**
+   * <p>Contains content about the reasoning that the model made during the post-processing step.</p>
+   * @public
+   */
+  reasoningContent?: ReasoningContentBlock | undefined;
+}
+
+/**
+ * <p>Details about the post-processing step, in which the agent shapes the response.</p>
+ * @public
+ */
+export type PostProcessingTrace =
+  | PostProcessingTrace.ModelInvocationInputMember
+  | PostProcessingTrace.ModelInvocationOutputMember
+  | PostProcessingTrace.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PostProcessingTrace {
+  /**
+   * <p>The input for the post-processing step.</p> <ul> <li> <p>The <code>type</code> is <code>POST_PROCESSING</code>.</p> </li> <li> <p>The <code>text</code> contains the prompt.</p> </li> <li> <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p> </li> </ul>
+   * @public
+   */
+  export interface ModelInvocationInputMember {
+    modelInvocationInput: ModelInvocationInput;
+    modelInvocationOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The foundation model output from the post-processing step.</p>
+   * @public
+   */
+  export interface ModelInvocationOutputMember {
+    modelInvocationInput?: never;
+    modelInvocationOutput: PostProcessingModelInvocationOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    modelInvocationInput?: never;
+    modelInvocationOutput?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    modelInvocationInput: (value: ModelInvocationInput) => T;
+    modelInvocationOutput: (value: PostProcessingModelInvocationOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PostProcessingTrace, visitor: Visitor<T>): T => {
+    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
+    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Details about the response from the Lambda parsing of the output from the pre-processing step.</p>
+ * @public
+ */
+export interface PreProcessingParsedResponse {
+  /**
+   * <p>The text returned by the parsing of the pre-processing step, explaining the steps that the agent plans to take in orchestration, if the user input is valid.</p>
+   * @public
+   */
+  rationale?: string | undefined;
+
+  /**
+   * <p>Whether the user input is valid or not. If <code>false</code>, the agent doesn't proceed to orchestration.</p>
+   * @public
+   */
+  isValid?: boolean | undefined;
+}
+
+/**
+ * <p>The foundation model output from the pre-processing step.</p>
+ * @public
+ */
+export interface PreProcessingModelInvocationOutput {
+  /**
+   * <p>The unique identifier of the trace.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>Details about the response from the Lambda parsing of the output of the pre-processing step.</p>
+   * @public
+   */
+  parsedResponse?: PreProcessingParsedResponse | undefined;
+
+  /**
+   * <p> Details of the raw response from the foundation model output. </p>
+   * @public
+   */
+  rawResponse?: RawResponse | undefined;
+
+  /**
+   * <p> Contains information about the foundation model output from the pre-processing step. </p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
+
+  /**
+   * <p>Contains content about the reasoning that the model made during the pre-processing step. </p>
+   * @public
+   */
+  reasoningContent?: ReasoningContentBlock | undefined;
+}
+
+/**
+ * <p>Details about the pre-processing step, in which the agent contextualizes and categorizes user inputs.</p>
+ * @public
+ */
+export type PreProcessingTrace =
+  | PreProcessingTrace.ModelInvocationInputMember
+  | PreProcessingTrace.ModelInvocationOutputMember
+  | PreProcessingTrace.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PreProcessingTrace {
+  /**
+   * <p>The input for the pre-processing step.</p> <ul> <li> <p>The <code>type</code> is <code>PRE_PROCESSING</code>.</p> </li> <li> <p>The <code>text</code> contains the prompt.</p> </li> <li> <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p> </li> </ul>
+   * @public
+   */
+  export interface ModelInvocationInputMember {
+    modelInvocationInput: ModelInvocationInput;
+    modelInvocationOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The foundation model output from the pre-processing step.</p>
+   * @public
+   */
+  export interface ModelInvocationOutputMember {
+    modelInvocationInput?: never;
+    modelInvocationOutput: PreProcessingModelInvocationOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    modelInvocationInput?: never;
+    modelInvocationOutput?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    modelInvocationInput: (value: ModelInvocationInput) => T;
+    modelInvocationOutput: (value: PreProcessingModelInvocationOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PreProcessingTrace, visitor: Visitor<T>): T => {
+    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
+    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Invocation output from a routing classifier model.</p>
+ * @public
+ */
+export interface RoutingClassifierModelInvocationOutput {
+  /**
+   * <p>The invocation's trace ID.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The invocation's raw response.</p>
+   * @public
+   */
+  rawResponse?: RawResponse | undefined;
+
+  /**
+   * <p>The invocation's metadata.</p>
+   * @public
+   */
+  metadata?: Metadata | undefined;
+}
+
+/**
+ * <p>A trace for a routing classifier.</p>
+ * @public
+ */
+export type RoutingClassifierTrace =
+  | RoutingClassifierTrace.InvocationInputMember
+  | RoutingClassifierTrace.ModelInvocationInputMember
+  | RoutingClassifierTrace.ModelInvocationOutputMember
+  | RoutingClassifierTrace.ObservationMember
+  | RoutingClassifierTrace.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RoutingClassifierTrace {
+  /**
+   * <p>The classifier's invocation input.</p>
+   * @public
+   */
+  export interface InvocationInputMember {
+    invocationInput: InvocationInput;
+    observation?: never;
+    modelInvocationInput?: never;
+    modelInvocationOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The classifier's observation.</p>
+   * @public
+   */
+  export interface ObservationMember {
+    invocationInput?: never;
+    observation: Observation;
+    modelInvocationInput?: never;
+    modelInvocationOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The classifier's model invocation input.</p>
+   * @public
+   */
+  export interface ModelInvocationInputMember {
+    invocationInput?: never;
+    observation?: never;
+    modelInvocationInput: ModelInvocationInput;
+    modelInvocationOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The classifier's model invocation output.</p>
+   * @public
+   */
+  export interface ModelInvocationOutputMember {
+    invocationInput?: never;
+    observation?: never;
+    modelInvocationInput?: never;
+    modelInvocationOutput: RoutingClassifierModelInvocationOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    invocationInput?: never;
+    observation?: never;
+    modelInvocationInput?: never;
+    modelInvocationOutput?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    invocationInput: (value: InvocationInput) => T;
+    observation: (value: Observation) => T;
+    modelInvocationInput: (value: ModelInvocationInput) => T;
+    modelInvocationOutput: (value: RoutingClassifierModelInvocationOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RoutingClassifierTrace, visitor: Visitor<T>): T => {
+    if (value.invocationInput !== undefined) return visitor.invocationInput(value.invocationInput);
+    if (value.observation !== undefined) return visitor.observation(value.observation);
+    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
+    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
+ * @public
+ */
+export type Trace =
+  | Trace.CustomOrchestrationTraceMember
+  | Trace.FailureTraceMember
+  | Trace.GuardrailTraceMember
+  | Trace.OrchestrationTraceMember
+  | Trace.PostProcessingTraceMember
+  | Trace.PreProcessingTraceMember
+  | Trace.RoutingClassifierTraceMember
+  | Trace.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Trace {
+  /**
+   * <p>The trace details for a trace defined in the Guardrail filter.</p>
+   * @public
+   */
+  export interface GuardrailTraceMember {
+    guardrailTrace: GuardrailTrace;
+    preProcessingTrace?: never;
+    orchestrationTrace?: never;
+    postProcessingTrace?: never;
+    routingClassifierTrace?: never;
+    failureTrace?: never;
+    customOrchestrationTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about the pre-processing step, in which the agent contextualizes and categorizes user inputs.</p>
+   * @public
+   */
+  export interface PreProcessingTraceMember {
+    guardrailTrace?: never;
+    preProcessingTrace: PreProcessingTrace;
+    orchestrationTrace?: never;
+    postProcessingTrace?: never;
+    routingClassifierTrace?: never;
+    failureTrace?: never;
+    customOrchestrationTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about the orchestration step, in which the agent determines the order in which actions are executed and which knowledge bases are retrieved.</p>
+   * @public
+   */
+  export interface OrchestrationTraceMember {
+    guardrailTrace?: never;
+    preProcessingTrace?: never;
+    orchestrationTrace: OrchestrationTrace;
+    postProcessingTrace?: never;
+    routingClassifierTrace?: never;
+    failureTrace?: never;
+    customOrchestrationTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about the post-processing step, in which the agent shapes the response..</p>
+   * @public
+   */
+  export interface PostProcessingTraceMember {
+    guardrailTrace?: never;
+    preProcessingTrace?: never;
+    orchestrationTrace?: never;
+    postProcessingTrace: PostProcessingTrace;
+    routingClassifierTrace?: never;
+    failureTrace?: never;
+    customOrchestrationTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A routing classifier's trace.</p>
+   * @public
+   */
+  export interface RoutingClassifierTraceMember {
+    guardrailTrace?: never;
+    preProcessingTrace?: never;
+    orchestrationTrace?: never;
+    postProcessingTrace?: never;
+    routingClassifierTrace: RoutingClassifierTrace;
+    failureTrace?: never;
+    customOrchestrationTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about the failure of the interaction.</p>
+   * @public
+   */
+  export interface FailureTraceMember {
+    guardrailTrace?: never;
+    preProcessingTrace?: never;
+    orchestrationTrace?: never;
+    postProcessingTrace?: never;
+    routingClassifierTrace?: never;
+    failureTrace: FailureTrace;
+    customOrchestrationTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Details about the custom orchestration step in which the agent determines the order in which actions are executed. </p>
+   * @public
+   */
+  export interface CustomOrchestrationTraceMember {
+    guardrailTrace?: never;
+    preProcessingTrace?: never;
+    orchestrationTrace?: never;
+    postProcessingTrace?: never;
+    routingClassifierTrace?: never;
+    failureTrace?: never;
+    customOrchestrationTrace: CustomOrchestrationTrace;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    guardrailTrace?: never;
+    preProcessingTrace?: never;
+    orchestrationTrace?: never;
+    postProcessingTrace?: never;
+    routingClassifierTrace?: never;
+    failureTrace?: never;
+    customOrchestrationTrace?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    guardrailTrace: (value: GuardrailTrace) => T;
+    preProcessingTrace: (value: PreProcessingTrace) => T;
+    orchestrationTrace: (value: OrchestrationTrace) => T;
+    postProcessingTrace: (value: PostProcessingTrace) => T;
+    routingClassifierTrace: (value: RoutingClassifierTrace) => T;
+    failureTrace: (value: FailureTrace) => T;
+    customOrchestrationTrace: (value: CustomOrchestrationTrace) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Trace, visitor: Visitor<T>): T => {
+    if (value.guardrailTrace !== undefined) return visitor.guardrailTrace(value.guardrailTrace);
+    if (value.preProcessingTrace !== undefined) return visitor.preProcessingTrace(value.preProcessingTrace);
+    if (value.orchestrationTrace !== undefined) return visitor.orchestrationTrace(value.orchestrationTrace);
+    if (value.postProcessingTrace !== undefined) return visitor.postProcessingTrace(value.postProcessingTrace);
+    if (value.routingClassifierTrace !== undefined) return visitor.routingClassifierTrace(value.routingClassifierTrace);
+    if (value.failureTrace !== undefined) return visitor.failureTrace(value.failureTrace);
+    if (value.customOrchestrationTrace !== undefined)
+      return visitor.customOrchestrationTrace(value.customOrchestrationTrace);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains information about the agent and session, alongside the agent's reasoning process and results from calling API actions and querying knowledge bases and metadata about the trace. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
+ * @public
+ */
+export interface TracePart {
+  /**
+   * <p>The unique identifier of the session with the agent.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
+   * @public
+   */
+  trace?: Trace | undefined;
+
+  /**
+   * <p>The part's caller chain.</p>
+   * @public
+   */
+  callerChain?: Caller[] | undefined;
+
+  /**
+   * <p> The time of the trace. </p>
+   * @public
+   */
+  eventTime?: Date | undefined;
+
+  /**
+   * <p>The part's collaborator name.</p>
+   * @public
+   */
+  collaboratorName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent.</p>
+   * @public
+   */
+  agentId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the alias of the agent.</p>
+   * @public
+   */
+  agentAliasId?: string | undefined;
+
+  /**
+   * <p>The version of the agent.</p>
+   * @public
+   */
+  agentVersion?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetExecutionFlowSnapshotRequest {
@@ -1742,6 +3752,116 @@ export interface FlowExecutionOutputEvent {
 }
 
 /**
+ * <p>Contains information about an action (operation) called by a node during execution.</p>
+ * @public
+ */
+export interface NodeActionEvent {
+  /**
+   * <p>The name of the node that called the operation.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The date and time that the operation was called.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The ID of the request that the node made to the operation.</p>
+   * @public
+   */
+  requestId: string | undefined;
+
+  /**
+   * <p>The name of the service that the node called.</p>
+   * @public
+   */
+  serviceName: string | undefined;
+
+  /**
+   * <p>The name of the operation that the node called.</p>
+   * @public
+   */
+  operationName: string | undefined;
+
+  /**
+   * <p>The request payload sent to the downstream service.</p>
+   * @public
+   */
+  operationRequest?: __DocumentType | undefined;
+
+  /**
+   * <p>The response payload received from the downstream service.</p>
+   * @public
+   */
+  operationResponse?: __DocumentType | undefined;
+}
+
+/**
+ * <p>Contains trace elements for node execution tracking.</p>
+ * @public
+ */
+export type NodeTraceElements = NodeTraceElements.AgentTracesMember | NodeTraceElements.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace NodeTraceElements {
+  /**
+   * <p>Agent trace information for the node execution.</p>
+   * @public
+   */
+  export interface AgentTracesMember {
+    agentTraces: TracePart[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentTraces?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    agentTraces: (value: TracePart[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: NodeTraceElements, visitor: Visitor<T>): T => {
+    if (value.agentTraces !== undefined) return visitor.agentTraces(value.agentTraces);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains information about an internal trace of a specific node during execution.</p>
+ * @public
+ */
+export interface NodeDependencyEvent {
+  /**
+   * <p>The name of the node that generated the dependency trace.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The date and time that the dependency trace was generated.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The trace elements containing detailed information about the node execution.</p>
+   * @public
+   */
+  traceElements: NodeTraceElements | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1788,6 +3908,21 @@ export interface NodeFailureEvent {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const FlowNodeInputCategory = {
+  EXIT_LOOP: "ExitLoop",
+  LOOP_CONDITION: "LoopCondition",
+  RETURN_VALUE_TO_LOOP_START: "ReturnValueToLoopStart",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowNodeInputCategory = (typeof FlowNodeInputCategory)[keyof typeof FlowNodeInputCategory];
+
+/**
  * <p>Contains the content of a flow node's input or output field for a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
@@ -1826,6 +3961,85 @@ export namespace NodeExecutionContent {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const FlowControlNodeType = {
+  ITERATOR: "Iterator",
+  LOOP: "Loop",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowControlNodeType = (typeof FlowControlNodeType)[keyof typeof FlowControlNodeType];
+
+/**
+ * <p>Represents an item in the execution chain for node input tracking.</p>
+ * @public
+ */
+export interface NodeInputExecutionChainItem {
+  /**
+   * <p>The name of the node in the execution chain.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The index position of this item in the execution chain.</p>
+   * @public
+   */
+  index?: number | undefined;
+
+  /**
+   * <p>The type of execution chain item. Supported values are Iterator and Loop.</p>
+   * @public
+   */
+  type: FlowControlNodeType | undefined;
+}
+
+/**
+ * <p>Represents the source of input data for a node field.</p>
+ * @public
+ */
+export interface NodeInputSource {
+  /**
+   * <p>The name of the source node that provides the input data.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The name of the output field from the source node.</p>
+   * @public
+   */
+  outputFieldName: string | undefined;
+
+  /**
+   * <p>The expression used to extract data from the source.</p>
+   * @public
+   */
+  expression: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowNodeIODataType = {
+  ARRAY: "Array",
+  BOOLEAN: "Boolean",
+  NUMBER: "Number",
+  OBJECT: "Object",
+  STRING: "String",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowNodeIODataType = (typeof FlowNodeIODataType)[keyof typeof FlowNodeIODataType];
+
+/**
  * <p>Represents an input field provided to a node during a flow execution.</p>
  * @public
  */
@@ -1841,6 +4055,30 @@ export interface NodeInputField {
    * @public
    */
   content: NodeExecutionContent | undefined;
+
+  /**
+   * <p>The source node that provides input data to this field.</p>
+   * @public
+   */
+  source?: NodeInputSource | undefined;
+
+  /**
+   * <p>The data type of the input field for compatibility validation.</p>
+   * @public
+   */
+  type?: FlowNodeIODataType | undefined;
+
+  /**
+   * <p>The category of the input field.</p>
+   * @public
+   */
+  category?: FlowNodeInputCategory | undefined;
+
+  /**
+   * <p>The execution path through nested nodes like iterators and loops.</p>
+   * @public
+   */
+  executionChain?: NodeInputExecutionChainItem[] | undefined;
 }
 
 /**
@@ -1868,6 +4106,24 @@ export interface NodeInputEvent {
 }
 
 /**
+ * <p>Represents the next node that receives output data.</p>
+ * @public
+ */
+export interface NodeOutputNext {
+  /**
+   * <p>The name of the next node that receives the output data.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The name of the input field in the next node that receives the data.</p>
+   * @public
+   */
+  inputFieldName: string | undefined;
+}
+
+/**
  * <p>Represents an output field produced by a node during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
@@ -1883,6 +4139,18 @@ export interface NodeOutputField {
    * @public
    */
   content: NodeExecutionContent | undefined;
+
+  /**
+   * <p>The next node that receives output data from this field.</p>
+   * @public
+   */
+  next?: NodeOutputNext[] | undefined;
+
+  /**
+   * <p>The data type of the output field for compatibility validation.</p>
+   * @public
+   */
+  type?: FlowNodeIODataType | undefined;
 }
 
 /**
@@ -1918,6 +4186,8 @@ export type FlowExecutionEvent =
   | FlowExecutionEvent.FlowFailureEventMember
   | FlowExecutionEvent.FlowInputEventMember
   | FlowExecutionEvent.FlowOutputEventMember
+  | FlowExecutionEvent.NodeActionEventMember
+  | FlowExecutionEvent.NodeDependencyEventMember
   | FlowExecutionEvent.NodeFailureEventMember
   | FlowExecutionEvent.NodeInputEventMember
   | FlowExecutionEvent.NodeOutputEventMember
@@ -1939,6 +4209,8 @@ export namespace FlowExecutionEvent {
     conditionResultEvent?: never;
     nodeFailureEvent?: never;
     flowFailureEvent?: never;
+    nodeActionEvent?: never;
+    nodeDependencyEvent?: never;
     $unknown?: never;
   }
 
@@ -1954,6 +4226,8 @@ export namespace FlowExecutionEvent {
     conditionResultEvent?: never;
     nodeFailureEvent?: never;
     flowFailureEvent?: never;
+    nodeActionEvent?: never;
+    nodeDependencyEvent?: never;
     $unknown?: never;
   }
 
@@ -1969,6 +4243,8 @@ export namespace FlowExecutionEvent {
     conditionResultEvent?: never;
     nodeFailureEvent?: never;
     flowFailureEvent?: never;
+    nodeActionEvent?: never;
+    nodeDependencyEvent?: never;
     $unknown?: never;
   }
 
@@ -1984,6 +4260,8 @@ export namespace FlowExecutionEvent {
     conditionResultEvent?: never;
     nodeFailureEvent?: never;
     flowFailureEvent?: never;
+    nodeActionEvent?: never;
+    nodeDependencyEvent?: never;
     $unknown?: never;
   }
 
@@ -1999,6 +4277,8 @@ export namespace FlowExecutionEvent {
     conditionResultEvent: ConditionResultEvent;
     nodeFailureEvent?: never;
     flowFailureEvent?: never;
+    nodeActionEvent?: never;
+    nodeDependencyEvent?: never;
     $unknown?: never;
   }
 
@@ -2014,6 +4294,8 @@ export namespace FlowExecutionEvent {
     conditionResultEvent?: never;
     nodeFailureEvent: NodeFailureEvent;
     flowFailureEvent?: never;
+    nodeActionEvent?: never;
+    nodeDependencyEvent?: never;
     $unknown?: never;
   }
 
@@ -2029,6 +4311,42 @@ export namespace FlowExecutionEvent {
     conditionResultEvent?: never;
     nodeFailureEvent?: never;
     flowFailureEvent: FlowFailureEvent;
+    nodeActionEvent?: never;
+    nodeDependencyEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about an action (operation) called by a node during execution.</p>
+   * @public
+   */
+  export interface NodeActionEventMember {
+    flowInputEvent?: never;
+    flowOutputEvent?: never;
+    nodeInputEvent?: never;
+    nodeOutputEvent?: never;
+    conditionResultEvent?: never;
+    nodeFailureEvent?: never;
+    flowFailureEvent?: never;
+    nodeActionEvent: NodeActionEvent;
+    nodeDependencyEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about an internal trace of a specific node during execution.</p>
+   * @public
+   */
+  export interface NodeDependencyEventMember {
+    flowInputEvent?: never;
+    flowOutputEvent?: never;
+    nodeInputEvent?: never;
+    nodeOutputEvent?: never;
+    conditionResultEvent?: never;
+    nodeFailureEvent?: never;
+    flowFailureEvent?: never;
+    nodeActionEvent?: never;
+    nodeDependencyEvent: NodeDependencyEvent;
     $unknown?: never;
   }
 
@@ -2043,6 +4361,8 @@ export namespace FlowExecutionEvent {
     conditionResultEvent?: never;
     nodeFailureEvent?: never;
     flowFailureEvent?: never;
+    nodeActionEvent?: never;
+    nodeDependencyEvent?: never;
     $unknown: [string, any];
   }
 
@@ -2054,6 +4374,8 @@ export namespace FlowExecutionEvent {
     conditionResultEvent: (value: ConditionResultEvent) => T;
     nodeFailureEvent: (value: NodeFailureEvent) => T;
     flowFailureEvent: (value: FlowFailureEvent) => T;
+    nodeActionEvent: (value: NodeActionEvent) => T;
+    nodeDependencyEvent: (value: NodeDependencyEvent) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2065,6 +4387,8 @@ export namespace FlowExecutionEvent {
     if (value.conditionResultEvent !== undefined) return visitor.conditionResultEvent(value.conditionResultEvent);
     if (value.nodeFailureEvent !== undefined) return visitor.nodeFailureEvent(value.nodeFailureEvent);
     if (value.flowFailureEvent !== undefined) return visitor.flowFailureEvent(value.flowFailureEvent);
+    if (value.nodeActionEvent !== undefined) return visitor.nodeActionEvent(value.nodeActionEvent);
+    if (value.nodeDependencyEvent !== undefined) return visitor.nodeDependencyEvent(value.nodeDependencyEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2748,6 +5072,80 @@ export interface FlowTraceNodeActionEvent {
    * @public
    */
   operationName: string | undefined;
+
+  /**
+   * <p>The request payload sent to the downstream service.</p>
+   * @public
+   */
+  operationRequest?: __DocumentType | undefined;
+
+  /**
+   * <p>The response payload received from the downstream service.</p>
+   * @public
+   */
+  operationResponse?: __DocumentType | undefined;
+}
+
+/**
+ * <p>Contains trace elements for flow execution tracking.</p>
+ * @public
+ */
+export type TraceElements = TraceElements.AgentTracesMember | TraceElements.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TraceElements {
+  /**
+   * <p>Agent trace information for the flow execution.</p>
+   * @public
+   */
+  export interface AgentTracesMember {
+    agentTraces: TracePart[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentTraces?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    agentTraces: (value: TracePart[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TraceElements, visitor: Visitor<T>): T => {
+    if (value.agentTraces !== undefined) return visitor.agentTraces(value.agentTraces);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains information about a dependency trace event in the flow.</p>
+ * @public
+ */
+export interface FlowTraceDependencyEvent {
+  /**
+   * <p>The name of the node that generated the dependency trace.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The date and time that the dependency trace was generated.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The trace elements containing detailed information about the dependency.</p>
+   * @public
+   */
+  traceElements: TraceElements | undefined;
 }
 
 /**
@@ -2791,6 +5189,54 @@ export namespace FlowTraceNodeInputContent {
 }
 
 /**
+ * <p>Represents an item in the execution chain for flow trace node input tracking.</p>
+ * @public
+ */
+export interface FlowTraceNodeInputExecutionChainItem {
+  /**
+   * <p>The name of the node in the execution chain.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The index position of this item in the execution chain.</p>
+   * @public
+   */
+  index?: number | undefined;
+
+  /**
+   * <p>The type of execution chain item. Supported values are Iterator and Loop.</p>
+   * @public
+   */
+  type: FlowControlNodeType | undefined;
+}
+
+/**
+ * <p>Represents the source of input data for a flow trace node field.</p>
+ * @public
+ */
+export interface FlowTraceNodeInputSource {
+  /**
+   * <p>The name of the source node that provides the input data.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The name of the output field from the source node.</p>
+   * @public
+   */
+  outputFieldName: string | undefined;
+
+  /**
+   * <p>The expression used to extract data from the source.</p>
+   * @public
+   */
+  expression: string | undefined;
+}
+
+/**
  * <p>Contains information about a field in the input into a node. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
  * @public
  */
@@ -2806,6 +5252,30 @@ export interface FlowTraceNodeInputField {
    * @public
    */
   content: FlowTraceNodeInputContent | undefined;
+
+  /**
+   * <p>The source node that provides input data to this field.</p>
+   * @public
+   */
+  source?: FlowTraceNodeInputSource | undefined;
+
+  /**
+   * <p>The data type of the input field for compatibility validation.</p>
+   * @public
+   */
+  type?: FlowNodeIODataType | undefined;
+
+  /**
+   * <p>The category of the input field.</p>
+   * @public
+   */
+  category?: FlowNodeInputCategory | undefined;
+
+  /**
+   * <p>The execution path through nested nodes like iterators and loops.</p>
+   * @public
+   */
+  executionChain?: FlowTraceNodeInputExecutionChainItem[] | undefined;
 }
 
 /**
@@ -2873,6 +5343,24 @@ export namespace FlowTraceNodeOutputContent {
 }
 
 /**
+ * <p>Represents the next node that receives output data from a flow trace.</p>
+ * @public
+ */
+export interface FlowTraceNodeOutputNext {
+  /**
+   * <p>The name of the next node that receives the output data.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The name of the input field in the next node that receives the data.</p>
+   * @public
+   */
+  inputFieldName: string | undefined;
+}
+
+/**
  * <p>Contains information about a field in the output from a node. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
  * @public
  */
@@ -2888,6 +5376,18 @@ export interface FlowTraceNodeOutputField {
    * @public
    */
   content: FlowTraceNodeOutputContent | undefined;
+
+  /**
+   * <p>The next node that receives output data from this field.</p>
+   * @public
+   */
+  next?: FlowTraceNodeOutputNext[] | undefined;
+
+  /**
+   * <p>The data type of the output field for compatibility validation.</p>
+   * @public
+   */
+  type?: FlowNodeIODataType | undefined;
 }
 
 /**
@@ -2921,6 +5421,7 @@ export interface FlowTraceNodeOutputEvent {
 export type FlowTrace =
   | FlowTrace.ConditionNodeResultTraceMember
   | FlowTrace.NodeActionTraceMember
+  | FlowTrace.NodeDependencyTraceMember
   | FlowTrace.NodeInputTraceMember
   | FlowTrace.NodeOutputTraceMember
   | FlowTrace.$UnknownMember;
@@ -2938,6 +5439,7 @@ export namespace FlowTrace {
     nodeOutputTrace?: never;
     conditionNodeResultTrace?: never;
     nodeActionTrace?: never;
+    nodeDependencyTrace?: never;
     $unknown?: never;
   }
 
@@ -2950,6 +5452,7 @@ export namespace FlowTrace {
     nodeOutputTrace: FlowTraceNodeOutputEvent;
     conditionNodeResultTrace?: never;
     nodeActionTrace?: never;
+    nodeDependencyTrace?: never;
     $unknown?: never;
   }
 
@@ -2962,11 +5465,12 @@ export namespace FlowTrace {
     nodeOutputTrace?: never;
     conditionNodeResultTrace: FlowTraceConditionNodeResultEvent;
     nodeActionTrace?: never;
+    nodeDependencyTrace?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Contains information about an action (operation) called by a node. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+   * <p>Contains information about an action (operation) called by a node.</p>
    * @public
    */
   export interface NodeActionTraceMember {
@@ -2974,6 +5478,20 @@ export namespace FlowTrace {
     nodeOutputTrace?: never;
     conditionNodeResultTrace?: never;
     nodeActionTrace: FlowTraceNodeActionEvent;
+    nodeDependencyTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about an internal trace of a node.</p>
+   * @public
+   */
+  export interface NodeDependencyTraceMember {
+    nodeInputTrace?: never;
+    nodeOutputTrace?: never;
+    conditionNodeResultTrace?: never;
+    nodeActionTrace?: never;
+    nodeDependencyTrace: FlowTraceDependencyEvent;
     $unknown?: never;
   }
 
@@ -2985,6 +5503,7 @@ export namespace FlowTrace {
     nodeOutputTrace?: never;
     conditionNodeResultTrace?: never;
     nodeActionTrace?: never;
+    nodeDependencyTrace?: never;
     $unknown: [string, any];
   }
 
@@ -2993,6 +5512,7 @@ export namespace FlowTrace {
     nodeOutputTrace: (value: FlowTraceNodeOutputEvent) => T;
     conditionNodeResultTrace: (value: FlowTraceConditionNodeResultEvent) => T;
     nodeActionTrace: (value: FlowTraceNodeActionEvent) => T;
+    nodeDependencyTrace: (value: FlowTraceDependencyEvent) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -3002,6 +5522,7 @@ export namespace FlowTrace {
     if (value.conditionNodeResultTrace !== undefined)
       return visitor.conditionNodeResultTrace(value.conditionNodeResultTrace);
     if (value.nodeActionTrace !== undefined) return visitor.nodeActionTrace(value.nodeActionTrace);
+    if (value.nodeDependencyTrace !== undefined) return visitor.nodeDependencyTrace(value.nodeDependencyTrace);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4105,295 +6626,6 @@ export interface GeneratedResponsePart {
 }
 
 /**
- * @public
- * @enum
- */
-export const RetrievalResultContentColumnType = {
-  BLOB: "BLOB",
-  BOOLEAN: "BOOLEAN",
-  DOUBLE: "DOUBLE",
-  LONG: "LONG",
-  NULL: "NULL",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type RetrievalResultContentColumnType =
-  (typeof RetrievalResultContentColumnType)[keyof typeof RetrievalResultContentColumnType];
-
-/**
- * <p>Contains information about a column with a cell to return in retrieval.</p>
- * @public
- */
-export interface RetrievalResultContentColumn {
-  /**
-   * <p>The name of the column.</p>
-   * @public
-   */
-  columnName?: string | undefined;
-
-  /**
-   * <p>The value in the column.</p>
-   * @public
-   */
-  columnValue?: string | undefined;
-
-  /**
-   * <p>The data type of the value.</p>
-   * @public
-   */
-  type?: RetrievalResultContentColumnType | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RetrievalResultContentType = {
-  IMAGE: "IMAGE",
-  ROW: "ROW",
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type RetrievalResultContentType = (typeof RetrievalResultContentType)[keyof typeof RetrievalResultContentType];
-
-/**
- * <p>Contains information about a chunk of text from a data source in the knowledge base. If the result is from a structured data source, the cell in the database and the type of the value is also identified.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>content</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>content</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>content</code> field</p> </li> </ul>
- * @public
- */
-export interface RetrievalResultContent {
-  /**
-   * <p>The type of content in the retrieval result.</p>
-   * @public
-   */
-  type?: RetrievalResultContentType | undefined;
-
-  /**
-   * <p>The cited text from the data source.</p>
-   * @public
-   */
-  text?: string | undefined;
-
-  /**
-   * <p>A data URI with base64-encoded content from the data source. The URI is in the following format: returned in the following format: <code>data:image/jpeg;base64,$\{base64-encoded string\}</code>.</p>
-   * @public
-   */
-  byteContent?: string | undefined;
-
-  /**
-   * <p>Specifies information about the rows with the cells to return in retrieval.</p>
-   * @public
-   */
-  row?: RetrievalResultContentColumn[] | undefined;
-}
-
-/**
- * <p>The Confluence data source location.</p>
- * @public
- */
-export interface RetrievalResultConfluenceLocation {
-  /**
-   * <p>The Confluence host URL for the data source location.</p>
-   * @public
-   */
-  url?: string | undefined;
-}
-
-/**
- * <p>Contains information about the location of a document in a custom data source.</p>
- * @public
- */
-export interface RetrievalResultCustomDocumentLocation {
-  /**
-   * <p>The ID of the document.</p>
-   * @public
-   */
-  id?: string | undefined;
-}
-
-/**
- * <p>The location of a result in Amazon Kendra.</p>
- * @public
- */
-export interface RetrievalResultKendraDocumentLocation {
-  /**
-   * <p>The document's uri.</p>
-   * @public
-   */
-  uri?: string | undefined;
-}
-
-/**
- * <p>The S3 data source location.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>s3Location</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>s3Location</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>s3Location</code> field</p> </li> </ul>
- * @public
- */
-export interface RetrievalResultS3Location {
-  /**
-   * <p>The S3 URI for the data source location.</p>
-   * @public
-   */
-  uri?: string | undefined;
-}
-
-/**
- * <p>The Salesforce data source location.</p>
- * @public
- */
-export interface RetrievalResultSalesforceLocation {
-  /**
-   * <p>The Salesforce host URL for the data source location.</p>
-   * @public
-   */
-  url?: string | undefined;
-}
-
-/**
- * <p>The SharePoint data source location.</p>
- * @public
- */
-export interface RetrievalResultSharePointLocation {
-  /**
-   * <p>The SharePoint site URL for the data source location.</p>
-   * @public
-   */
-  url?: string | undefined;
-}
-
-/**
- * <p>Contains information about the SQL query used to retrieve the result.</p>
- * @public
- */
-export interface RetrievalResultSqlLocation {
-  /**
-   * <p>The SQL query used to retrieve the result.</p>
-   * @public
-   */
-  query?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RetrievalResultLocationType = {
-  CONFLUENCE: "CONFLUENCE",
-  CUSTOM: "CUSTOM",
-  KENDRA: "KENDRA",
-  S3: "S3",
-  SALESFORCE: "SALESFORCE",
-  SHAREPOINT: "SHAREPOINT",
-  SQL: "SQL",
-  WEB: "WEB",
-} as const;
-
-/**
- * @public
- */
-export type RetrievalResultLocationType =
-  (typeof RetrievalResultLocationType)[keyof typeof RetrievalResultLocationType];
-
-/**
- * <p>The web URL/URLs data source location.</p>
- * @public
- */
-export interface RetrievalResultWebLocation {
-  /**
-   * <p>The web URL/URLs for the data source location.</p>
-   * @public
-   */
-  url?: string | undefined;
-}
-
-/**
- * <p>Contains information about the data source location.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>location</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>location</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>location</code> field</p> </li> </ul>
- * @public
- */
-export interface RetrievalResultLocation {
-  /**
-   * <p>The type of data source location.</p>
-   * @public
-   */
-  type: RetrievalResultLocationType | undefined;
-
-  /**
-   * <p>The S3 data source location.</p>
-   * @public
-   */
-  s3Location?: RetrievalResultS3Location | undefined;
-
-  /**
-   * <p>The web URL/URLs data source location.</p>
-   * @public
-   */
-  webLocation?: RetrievalResultWebLocation | undefined;
-
-  /**
-   * <p>The Confluence data source location.</p>
-   * @public
-   */
-  confluenceLocation?: RetrievalResultConfluenceLocation | undefined;
-
-  /**
-   * <p>The Salesforce data source location.</p>
-   * @public
-   */
-  salesforceLocation?: RetrievalResultSalesforceLocation | undefined;
-
-  /**
-   * <p>The SharePoint data source location.</p>
-   * @public
-   */
-  sharePointLocation?: RetrievalResultSharePointLocation | undefined;
-
-  /**
-   * <p>Specifies the location of a document in a custom data source.</p>
-   * @public
-   */
-  customDocumentLocation?: RetrievalResultCustomDocumentLocation | undefined;
-
-  /**
-   * <p>The location of a document in Amazon Kendra.</p>
-   * @public
-   */
-  kendraDocumentLocation?: RetrievalResultKendraDocumentLocation | undefined;
-
-  /**
-   * <p>Specifies information about the SQL query used to retrieve the result.</p>
-   * @public
-   */
-  sqlLocation?: RetrievalResultSqlLocation | undefined;
-}
-
-/**
- * <p>Contains metadata about a source cited for the generated response.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>retrievedReferences</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>retrievedReferences</code> field</p> </li> </ul>
- * @public
- */
-export interface RetrievedReference {
-  /**
-   * <p>Contains the cited text from the data source.</p>
-   * @public
-   */
-  content?: RetrievalResultContent | undefined;
-
-  /**
-   * <p>Contains information about the location of the data source.</p>
-   * @public
-   */
-  location?: RetrievalResultLocation | undefined;
-
-  /**
-   * <p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata">Metadata and filtering</a>.</p>
-   * @public
-   */
-  metadata?: Record<string, __DocumentType> | undefined;
-}
-
-/**
  * <p>An object containing a segment of the generated response that is based on a source in the knowledge base, alongside information about the source.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>citations</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>citations</code> field</p> </li> </ul>
  * @public
  */
@@ -4495,1727 +6727,6 @@ export class ModelNotReadyException extends __BaseException {
     });
     Object.setPrototypeOf(this, ModelNotReadyException.prototype);
   }
-}
-
-/**
- * <p>Details about a caller.</p>
- * @public
- */
-export type Caller = Caller.AgentAliasArnMember | Caller.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Caller {
-  /**
-   * <p>The caller's agent alias ARN.</p>
-   * @public
-   */
-  export interface AgentAliasArnMember {
-    agentAliasArn: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    agentAliasArn?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    agentAliasArn: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: Caller, visitor: Visitor<T>): T => {
-    if (value.agentAliasArn !== undefined) return visitor.agentAliasArn(value.agentAliasArn);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p> The event in the custom orchestration sequence. Events are the responses which the custom orchestration Lambda function sends as response to the agent. </p>
- * @public
- */
-export interface CustomOrchestrationTraceEvent {
-  /**
-   * <p> The text that prompted the event at this step. </p>
-   * @public
-   */
-  text?: string | undefined;
-}
-
-/**
- * <p> The trace behavior for the custom orchestration. </p>
- * @public
- */
-export interface CustomOrchestrationTrace {
-  /**
-   * <p> The unique identifier of the trace. </p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p> The event details used with the custom orchestration. </p>
-   * @public
-   */
-  event?: CustomOrchestrationTraceEvent | undefined;
-}
-
-/**
- * <p>Contains information about the failure of the interaction.</p>
- * @public
- */
-export interface FailureTrace {
-  /**
-   * <p>The unique identifier of the trace.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>The reason the interaction failed.</p>
-   * @public
-   */
-  failureReason?: string | undefined;
-
-  /**
-   * <p>The failure code for the trace.</p>
-   * @public
-   */
-  failureCode?: number | undefined;
-
-  /**
-   * <p>Information about the failure that occurred.</p>
-   * @public
-   */
-  metadata?: Metadata | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GuardrailAction = {
-  INTERVENED: "INTERVENED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentPolicyAction = {
-  BLOCKED: "BLOCKED",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentPolicyAction =
-  (typeof GuardrailContentPolicyAction)[keyof typeof GuardrailContentPolicyAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentFilterConfidence = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFilterConfidence =
-  (typeof GuardrailContentFilterConfidence)[keyof typeof GuardrailContentFilterConfidence];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentFilterType = {
-  HATE: "HATE",
-  INSULTS: "INSULTS",
-  MISCONDUCT: "MISCONDUCT",
-  PROMPT_ATTACK: "PROMPT_ATTACK",
-  SEXUAL: "SEXUAL",
-  VIOLENCE: "VIOLENCE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
-
-/**
- * <p>Details of the content filter used in the Guardrail.</p>
- * @public
- */
-export interface GuardrailContentFilter {
-  /**
-   * <p>The type of content detected in the filter by the Guardrail.</p>
-   * @public
-   */
-  type?: GuardrailContentFilterType | undefined;
-
-  /**
-   * <p>The confidence level regarding the content detected in the filter by the Guardrail.</p>
-   * @public
-   */
-  confidence?: GuardrailContentFilterConfidence | undefined;
-
-  /**
-   * <p>The action placed on the content by the Guardrail filter.</p>
-   * @public
-   */
-  action?: GuardrailContentPolicyAction | undefined;
-}
-
-/**
- * <p>The details of the policy assessment in the Guardrails filter.</p>
- * @public
- */
-export interface GuardrailContentPolicyAssessment {
-  /**
-   * <p>The filter details of the policy assessment used in the Guardrails filter.</p>
-   * @public
-   */
-  filters?: GuardrailContentFilter[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GuardrailSensitiveInformationPolicyAction = {
-  ANONYMIZED: "ANONYMIZED",
-  BLOCKED: "BLOCKED",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailSensitiveInformationPolicyAction =
-  (typeof GuardrailSensitiveInformationPolicyAction)[keyof typeof GuardrailSensitiveInformationPolicyAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailPiiEntityType = {
-  ADDRESS: "ADDRESS",
-  AGE: "AGE",
-  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
-  AWS_SECRET_KEY: "AWS_SECRET_KEY",
-  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
-  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
-  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
-  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
-  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
-  DRIVER_ID: "DRIVER_ID",
-  EMAIL: "EMAIL",
-  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
-  IP_ADDRESS: "IP_ADDRESS",
-  LICENSE_PLATE: "LICENSE_PLATE",
-  MAC_ADDRESS: "MAC_ADDRESS",
-  NAME: "NAME",
-  PASSWORD: "PASSWORD",
-  PHONE: "PHONE",
-  PIN: "PIN",
-  SWIFT_CODE: "SWIFT_CODE",
-  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
-  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
-  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
-  URL: "URL",
-  USERNAME: "USERNAME",
-  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
-  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
-  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
-  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
-  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
-  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
-
-/**
- * <p>The Guardrail filter to identify and remove personally identifiable information (PII).</p>
- * @public
- */
-export interface GuardrailPiiEntityFilter {
-  /**
-   * <p>The type of PII the Guardrail filter has identified and removed.</p>
-   * @public
-   */
-  type?: GuardrailPiiEntityType | undefined;
-
-  /**
-   * <p>The match to settings in the Guardrail filter to identify and remove PII.</p>
-   * @public
-   */
-  match?: string | undefined;
-
-  /**
-   * <p>The action of the Guardrail filter to identify and remove PII.</p>
-   * @public
-   */
-  action?: GuardrailSensitiveInformationPolicyAction | undefined;
-}
-
-/**
- * <p>The details for the regex filter used in the Guardrail.</p>
- * @public
- */
-export interface GuardrailRegexFilter {
-  /**
-   * <p>The name details for the regex filter used in the Guardrail.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The regex details for the regex filter used in the Guardrail.</p>
-   * @public
-   */
-  regex?: string | undefined;
-
-  /**
-   * <p>The match details for the regex filter used in the Guardrail.</p>
-   * @public
-   */
-  match?: string | undefined;
-
-  /**
-   * <p>The action details for the regex filter used in the Guardrail.</p>
-   * @public
-   */
-  action?: GuardrailSensitiveInformationPolicyAction | undefined;
-}
-
-/**
- * <p>The details of the sensitive policy assessment used in the Guardrail.</p>
- * @public
- */
-export interface GuardrailSensitiveInformationPolicyAssessment {
-  /**
-   * <p>The details of the PII entities used in the sensitive policy assessment for the Guardrail.</p>
-   * @public
-   */
-  piiEntities?: GuardrailPiiEntityFilter[] | undefined;
-
-  /**
-   * <p>The details of the regexes used in the sensitive policy assessment for the Guardrail.</p>
-   * @public
-   */
-  regexes?: GuardrailRegexFilter[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GuardrailTopicPolicyAction = {
-  BLOCKED: "BLOCKED",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTopicPolicyAction = (typeof GuardrailTopicPolicyAction)[keyof typeof GuardrailTopicPolicyAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailTopicType = {
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
-
-/**
- * <p>The details for a specific topic defined in the Guardrail.</p>
- * @public
- */
-export interface GuardrailTopic {
-  /**
-   * <p>The name details on a specific topic in the Guardrail.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The type details on a specific topic in the Guardrail.</p>
-   * @public
-   */
-  type?: GuardrailTopicType | undefined;
-
-  /**
-   * <p>The action details on a specific topic in the Guardrail.</p>
-   * @public
-   */
-  action?: GuardrailTopicPolicyAction | undefined;
-}
-
-/**
- * <p>The details of the policy assessment used in the Guardrail.</p>
- * @public
- */
-export interface GuardrailTopicPolicyAssessment {
-  /**
-   * <p>The topic details of the policy assessment used in the Guardrail.</p>
-   * @public
-   */
-  topics?: GuardrailTopic[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GuardrailWordPolicyAction = {
-  BLOCKED: "BLOCKED",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailWordPolicyAction = (typeof GuardrailWordPolicyAction)[keyof typeof GuardrailWordPolicyAction];
-
-/**
- * <p>The custom word details for the filter in the Guardrail.</p>
- * @public
- */
-export interface GuardrailCustomWord {
-  /**
-   * <p>The match details for the custom word filter in the Guardrail.</p>
-   * @public
-   */
-  match?: string | undefined;
-
-  /**
-   * <p>The action details for the custom word filter in the Guardrail.</p>
-   * @public
-   */
-  action?: GuardrailWordPolicyAction | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GuardrailManagedWordType = {
-  PROFANITY: "PROFANITY",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailManagedWordType = (typeof GuardrailManagedWordType)[keyof typeof GuardrailManagedWordType];
-
-/**
- * <p>The managed word details for the filter in the Guardrail.</p>
- * @public
- */
-export interface GuardrailManagedWord {
-  /**
-   * <p>The match details for the managed word filter in the Guardrail.</p>
-   * @public
-   */
-  match?: string | undefined;
-
-  /**
-   * <p>The type details for the managed word filter in the Guardrail.</p>
-   * @public
-   */
-  type?: GuardrailManagedWordType | undefined;
-
-  /**
-   * <p>The action details for the managed word filter in the Guardrail.</p>
-   * @public
-   */
-  action?: GuardrailWordPolicyAction | undefined;
-}
-
-/**
- * <p>The assessment details for words defined in the Guardrail filter.</p>
- * @public
- */
-export interface GuardrailWordPolicyAssessment {
-  /**
-   * <p>The custom word details for words defined in the Guardrail filter.</p>
-   * @public
-   */
-  customWords?: GuardrailCustomWord[] | undefined;
-
-  /**
-   * <p>The managed word lists for words defined in the Guardrail filter.</p>
-   * @public
-   */
-  managedWordLists?: GuardrailManagedWord[] | undefined;
-}
-
-/**
- * <p>Assessment details of the content analyzed by Guardrails.</p>
- * @public
- */
-export interface GuardrailAssessment {
-  /**
-   * <p>Topic policy details of the Guardrail.</p>
-   * @public
-   */
-  topicPolicy?: GuardrailTopicPolicyAssessment | undefined;
-
-  /**
-   * <p>Content policy details of the Guardrail.</p>
-   * @public
-   */
-  contentPolicy?: GuardrailContentPolicyAssessment | undefined;
-
-  /**
-   * <p>Word policy details of the Guardrail.</p>
-   * @public
-   */
-  wordPolicy?: GuardrailWordPolicyAssessment | undefined;
-
-  /**
-   * <p>Sensitive Information policy details of Guardrail.</p>
-   * @public
-   */
-  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicyAssessment | undefined;
-}
-
-/**
- * <p>The trace details used in the Guardrail.</p>
- * @public
- */
-export interface GuardrailTrace {
-  /**
-   * <p>The trace action details used with the Guardrail.</p>
-   * @public
-   */
-  action?: GuardrailAction | undefined;
-
-  /**
-   * <p>The details of the trace Id used in the Guardrail Trace.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>The details of the input assessments used in the Guardrail Trace.</p>
-   * @public
-   */
-  inputAssessments?: GuardrailAssessment[] | undefined;
-
-  /**
-   * <p>The details of the output assessments used in the Guardrail Trace.</p>
-   * @public
-   */
-  outputAssessments?: GuardrailAssessment[] | undefined;
-
-  /**
-   * <p>Contains information about the Guardrail output.</p>
-   * @public
-   */
-  metadata?: Metadata | undefined;
-}
-
-/**
- * <p>Contains information about the code interpreter being invoked.</p>
- * @public
- */
-export interface CodeInterpreterInvocationInput {
-  /**
-   * <p>The code for the code interpreter to use.</p>
-   * @public
-   */
-  code?: string | undefined;
-
-  /**
-   * <p>Files that are uploaded for code interpreter to use.</p>
-   * @public
-   */
-  files?: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const InvocationType = {
-  ACTION_GROUP: "ACTION_GROUP",
-  ACTION_GROUP_CODE_INTERPRETER: "ACTION_GROUP_CODE_INTERPRETER",
-  AGENT_COLLABORATOR: "AGENT_COLLABORATOR",
-  FINISH: "FINISH",
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-} as const;
-
-/**
- * @public
- */
-export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
-
-/**
- * <p>Contains details about the knowledge base to look up and the query to be made.</p>
- * @public
- */
-export interface KnowledgeBaseLookupInput {
-  /**
-   * <p>The query made to the knowledge base.</p>
-   * @public
-   */
-  text?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the knowledge base to look up.</p>
-   * @public
-   */
-  knowledgeBaseId?: string | undefined;
-}
-
-/**
- * <p>Contains information pertaining to the action group or knowledge base that is being invoked.</p>
- * @public
- */
-export interface InvocationInput {
-  /**
-   * <p>The unique identifier of the trace.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>Specifies whether the agent is invoking an action group or a knowledge base.</p>
-   * @public
-   */
-  invocationType?: InvocationType | undefined;
-
-  /**
-   * <p>Contains information about the action group to be invoked.</p>
-   * @public
-   */
-  actionGroupInvocationInput?: ActionGroupInvocationInput | undefined;
-
-  /**
-   * <p>Contains details about the knowledge base to look up and the query to be made.</p>
-   * @public
-   */
-  knowledgeBaseLookupInput?: KnowledgeBaseLookupInput | undefined;
-
-  /**
-   * <p>Contains information about the code interpreter to be invoked.</p>
-   * @public
-   */
-  codeInterpreterInvocationInput?: CodeInterpreterInvocationInput | undefined;
-
-  /**
-   * <p>The collaborator's invocation input.</p>
-   * @public
-   */
-  agentCollaboratorInvocationInput?: AgentCollaboratorInvocationInput | undefined;
-}
-
-/**
- * <p>Specifications about the inference parameters that were provided alongside the prompt. These are specified in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
- * @public
- */
-export interface InferenceConfiguration {
-  /**
-   * <p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>
-   * @public
-   */
-  temperature?: number | undefined;
-
-  /**
-   * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>Top P</code> determines the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topP</code> to 0.8, the model only selects the next token from the top 80% of the probability distribution of next tokens.</p>
-   * @public
-   */
-  topP?: number | undefined;
-
-  /**
-   * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>topK</code> is the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topK</code> to 50, the model selects the next token from among the top 50 most likely choices.</p>
-   * @public
-   */
-  topK?: number | undefined;
-
-  /**
-   * <p>The maximum number of tokens allowed in the generated response.</p>
-   * @public
-   */
-  maximumLength?: number | undefined;
-
-  /**
-   * <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
-   * @public
-   */
-  stopSequences?: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CreationMode = {
-  DEFAULT: "DEFAULT",
-  OVERRIDDEN: "OVERRIDDEN",
-} as const;
-
-/**
- * @public
- */
-export type CreationMode = (typeof CreationMode)[keyof typeof CreationMode];
-
-/**
- * @public
- * @enum
- */
-export const PromptType = {
-  KNOWLEDGE_BASE_RESPONSE_GENERATION: "KNOWLEDGE_BASE_RESPONSE_GENERATION",
-  ORCHESTRATION: "ORCHESTRATION",
-  POST_PROCESSING: "POST_PROCESSING",
-  PRE_PROCESSING: "PRE_PROCESSING",
-  ROUTING_CLASSIFIER: "ROUTING_CLASSIFIER",
-} as const;
-
-/**
- * @public
- */
-export type PromptType = (typeof PromptType)[keyof typeof PromptType];
-
-/**
- * <p>The input for the pre-processing step.</p> <ul> <li> <p>The <code>type</code> matches the agent step.</p> </li> <li> <p>The <code>text</code> contains the prompt.</p> </li> <li> <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p> </li> </ul>
- * @public
- */
-export interface ModelInvocationInput {
-  /**
-   * <p>The unique identifier of the trace.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>The text that prompted the agent at this step.</p>
-   * @public
-   */
-  text?: string | undefined;
-
-  /**
-   * <p>The step in the agent sequence.</p>
-   * @public
-   */
-  type?: PromptType | undefined;
-
-  /**
-   * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence.</p>
-   * @public
-   */
-  overrideLambda?: string | undefined;
-
-  /**
-   * <p>Specifies whether the default prompt template was <code>OVERRIDDEN</code>. If it was, the <code>basePromptTemplate</code> that was set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object when the agent was created or updated is used instead.</p>
-   * @public
-   */
-  promptCreationMode?: CreationMode | undefined;
-
-  /**
-   * <p>Specifications about the inference parameters that were provided alongside the prompt. These are specified in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
-   * @public
-   */
-  inferenceConfiguration?: InferenceConfiguration | undefined;
-
-  /**
-   * <p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>.</p>
-   * @public
-   */
-  parserMode?: CreationMode | undefined;
-
-  /**
-   * <p>The identifier of a foundation model.</p>
-   * @public
-   */
-  foundationModel?: string | undefined;
-}
-
-/**
- * <p>Contains the raw output from the foundation model.</p>
- * @public
- */
-export interface RawResponse {
-  /**
-   * <p>The foundation model's raw output content.</p>
-   * @public
-   */
-  content?: string | undefined;
-}
-
-/**
- * <p>Contains information about the reasoning that the model used to return the content in the content block.</p>
- * @public
- */
-export interface ReasoningTextBlock {
-  /**
-   * <p>Text describing the reasoning that the model used to return the content in the content block.</p>
-   * @public
-   */
-  text: string | undefined;
-
-  /**
-   * <p>A hash of all the messages in the conversation to ensure that the content in the reasoning text block isn't tampered with. You must submit the signature in subsequent <code>Converse</code> requests, in addition to the previous messages. If the previous messages are tampered with, the response throws an error.</p>
-   * @public
-   */
-  signature?: string | undefined;
-}
-
-/**
- * <p>Contains content regarding the reasoning that the foundation model made with respect to the content in the content block. Reasoning refers to a Chain of Thought (CoT) that the model generates to enhance the accuracy of its final response.</p>
- * @public
- */
-export type ReasoningContentBlock =
-  | ReasoningContentBlock.ReasoningTextMember
-  | ReasoningContentBlock.RedactedContentMember
-  | ReasoningContentBlock.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ReasoningContentBlock {
-  /**
-   * <p>Contains information about the reasoning that the model used to return the content in the content block.</p>
-   * @public
-   */
-  export interface ReasoningTextMember {
-    reasoningText: ReasoningTextBlock;
-    redactedContent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The content in the reasoning that was encrypted by the model provider for trust and safety reasons.</p>
-   * @public
-   */
-  export interface RedactedContentMember {
-    reasoningText?: never;
-    redactedContent: Uint8Array;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    reasoningText?: never;
-    redactedContent?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    reasoningText: (value: ReasoningTextBlock) => T;
-    redactedContent: (value: Uint8Array) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ReasoningContentBlock, visitor: Visitor<T>): T => {
-    if (value.reasoningText !== undefined) return visitor.reasoningText(value.reasoningText);
-    if (value.redactedContent !== undefined) return visitor.redactedContent(value.redactedContent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>The foundation model output from the orchestration step.</p>
- * @public
- */
-export interface OrchestrationModelInvocationOutput {
-  /**
-   * <p>The unique identifier of the trace.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>Contains details of the raw response from the foundation model output.</p>
-   * @public
-   */
-  rawResponse?: RawResponse | undefined;
-
-  /**
-   * <p>Contains information about the foundation model output from the orchestration step.</p>
-   * @public
-   */
-  metadata?: Metadata | undefined;
-
-  /**
-   * <p>Contains content about the reasoning that the model made during the orchestration step. </p>
-   * @public
-   */
-  reasoningContent?: ReasoningContentBlock | undefined;
-}
-
-/**
- * <p>Contains the JSON-formatted string returned by the API invoked by the code interpreter.</p>
- * @public
- */
-export interface CodeInterpreterInvocationOutput {
-  /**
-   * <p>Contains the successful output returned from code execution</p>
-   * @public
-   */
-  executionOutput?: string | undefined;
-
-  /**
-   * <p>Contains the error returned from code execution.</p>
-   * @public
-   */
-  executionError?: string | undefined;
-
-  /**
-   * <p>Contains output files, if generated by code execution.</p>
-   * @public
-   */
-  files?: string[] | undefined;
-
-  /**
-   * <p>Indicates if the execution of the code timed out.</p>
-   * @public
-   */
-  executionTimeout?: boolean | undefined;
-
-  /**
-   * <p>Contains information about the output from the code interpreter.</p>
-   * @public
-   */
-  metadata?: Metadata | undefined;
-}
-
-/**
- * <p>Contains details about the response to the user.</p>
- * @public
- */
-export interface FinalResponse {
-  /**
-   * <p>The text in the response to the user.</p>
-   * @public
-   */
-  text?: string | undefined;
-
-  /**
-   * <p>Contains information about the invoke agent operation.</p>
-   * @public
-   */
-  metadata?: Metadata | undefined;
-}
-
-/**
- * <p>Contains details about the results from looking up the knowledge base.</p>
- * @public
- */
-export interface KnowledgeBaseLookupOutput {
-  /**
-   * <p>Contains metadata about the sources cited for the generated response.</p>
-   * @public
-   */
-  retrievedReferences?: RetrievedReference[] | undefined;
-
-  /**
-   * <p>Contains information about the knowledge base output.</p>
-   * @public
-   */
-  metadata?: Metadata | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Source = {
-  ACTION_GROUP: "ACTION_GROUP",
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-  PARSER: "PARSER",
-} as const;
-
-/**
- * @public
- */
-export type Source = (typeof Source)[keyof typeof Source];
-
-/**
- * <p>Contains details about the agent's response to reprompt the input.</p>
- * @public
- */
-export interface RepromptResponse {
-  /**
-   * <p>The text reprompting the input.</p>
-   * @public
-   */
-  text?: string | undefined;
-
-  /**
-   * <p>Specifies what output is prompting the agent to reprompt the input.</p>
-   * @public
-   */
-  source?: Source | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Type = {
-  ACTION_GROUP: "ACTION_GROUP",
-  AGENT_COLLABORATOR: "AGENT_COLLABORATOR",
-  ASK_USER: "ASK_USER",
-  FINISH: "FINISH",
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-  REPROMPT: "REPROMPT",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
-
-/**
- * <p>Contains the result or output of an action group or knowledge base, or the response to the user.</p>
- * @public
- */
-export interface Observation {
-  /**
-   * <p>The unique identifier of the trace.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>Specifies what kind of information the agent returns in the observation. The following values are possible.</p> <ul> <li> <p> <code>ACTION_GROUP</code> – The agent returns the result of an action group.</p> </li> <li> <p> <code>KNOWLEDGE_BASE</code> – The agent returns information from a knowledge base.</p> </li> <li> <p> <code>FINISH</code> – The agent returns a final response to the user with no follow-up.</p> </li> <li> <p> <code>ASK_USER</code> – The agent asks the user a question.</p> </li> <li> <p> <code>REPROMPT</code> – The agent prompts the user again for the same information.</p> </li> </ul>
-   * @public
-   */
-  type?: Type | undefined;
-
-  /**
-   * <p>Contains the JSON-formatted string returned by the API invoked by the action group.</p>
-   * @public
-   */
-  actionGroupInvocationOutput?: ActionGroupInvocationOutput | undefined;
-
-  /**
-   * <p>A collaborator's invocation output.</p>
-   * @public
-   */
-  agentCollaboratorInvocationOutput?: AgentCollaboratorInvocationOutput | undefined;
-
-  /**
-   * <p>Contains details about the results from looking up the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseLookupOutput?: KnowledgeBaseLookupOutput | undefined;
-
-  /**
-   * <p>Contains details about the response to the user.</p>
-   * @public
-   */
-  finalResponse?: FinalResponse | undefined;
-
-  /**
-   * <p>Contains details about the response to reprompt the input.</p>
-   * @public
-   */
-  repromptResponse?: RepromptResponse | undefined;
-
-  /**
-   * <p>Contains the JSON-formatted string returned by the API invoked by the code interpreter.</p>
-   * @public
-   */
-  codeInterpreterInvocationOutput?: CodeInterpreterInvocationOutput | undefined;
-}
-
-/**
- * <p>Contains the reasoning, based on the input, that the agent uses to justify carrying out an action group or getting information from a knowledge base.</p>
- * @public
- */
-export interface Rationale {
-  /**
-   * <p>The unique identifier of the trace step.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>The reasoning or thought process of the agent, based on the input.</p>
-   * @public
-   */
-  text?: string | undefined;
-}
-
-/**
- * <p>Details about the orchestration step, in which the agent determines the order in which actions are executed and which knowledge bases are retrieved.</p>
- * @public
- */
-export type OrchestrationTrace =
-  | OrchestrationTrace.InvocationInputMember
-  | OrchestrationTrace.ModelInvocationInputMember
-  | OrchestrationTrace.ModelInvocationOutputMember
-  | OrchestrationTrace.ObservationMember
-  | OrchestrationTrace.RationaleMember
-  | OrchestrationTrace.$UnknownMember;
-
-/**
- * @public
- */
-export namespace OrchestrationTrace {
-  /**
-   * <p>Details about the reasoning, based on the input, that the agent uses to justify carrying out an action group or getting information from a knowledge base.</p>
-   * @public
-   */
-  export interface RationaleMember {
-    rationale: Rationale;
-    invocationInput?: never;
-    observation?: never;
-    modelInvocationInput?: never;
-    modelInvocationOutput?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains information pertaining to the action group or knowledge base that is being invoked.</p>
-   * @public
-   */
-  export interface InvocationInputMember {
-    rationale?: never;
-    invocationInput: InvocationInput;
-    observation?: never;
-    modelInvocationInput?: never;
-    modelInvocationOutput?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Details about the observation (the output of the action group Lambda or knowledge base) made by the agent.</p>
-   * @public
-   */
-  export interface ObservationMember {
-    rationale?: never;
-    invocationInput?: never;
-    observation: Observation;
-    modelInvocationInput?: never;
-    modelInvocationOutput?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The input for the orchestration step.</p> <ul> <li> <p>The <code>type</code> is <code>ORCHESTRATION</code>.</p> </li> <li> <p>The <code>text</code> contains the prompt.</p> </li> <li> <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p> </li> </ul>
-   * @public
-   */
-  export interface ModelInvocationInputMember {
-    rationale?: never;
-    invocationInput?: never;
-    observation?: never;
-    modelInvocationInput: ModelInvocationInput;
-    modelInvocationOutput?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains information pertaining to the output from the foundation model that is being invoked.</p>
-   * @public
-   */
-  export interface ModelInvocationOutputMember {
-    rationale?: never;
-    invocationInput?: never;
-    observation?: never;
-    modelInvocationInput?: never;
-    modelInvocationOutput: OrchestrationModelInvocationOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    rationale?: never;
-    invocationInput?: never;
-    observation?: never;
-    modelInvocationInput?: never;
-    modelInvocationOutput?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    rationale: (value: Rationale) => T;
-    invocationInput: (value: InvocationInput) => T;
-    observation: (value: Observation) => T;
-    modelInvocationInput: (value: ModelInvocationInput) => T;
-    modelInvocationOutput: (value: OrchestrationModelInvocationOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: OrchestrationTrace, visitor: Visitor<T>): T => {
-    if (value.rationale !== undefined) return visitor.rationale(value.rationale);
-    if (value.invocationInput !== undefined) return visitor.invocationInput(value.invocationInput);
-    if (value.observation !== undefined) return visitor.observation(value.observation);
-    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
-    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Details about the response from the Lambda parsing of the output from the post-processing step.</p>
- * @public
- */
-export interface PostProcessingParsedResponse {
-  /**
-   * <p>The text returned by the parser.</p>
-   * @public
-   */
-  text?: string | undefined;
-}
-
-/**
- * <p>The foundation model output from the post-processing step.</p>
- * @public
- */
-export interface PostProcessingModelInvocationOutput {
-  /**
-   * <p>The unique identifier of the trace.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>Details about the response from the Lambda parsing of the output of the post-processing step.</p>
-   * @public
-   */
-  parsedResponse?: PostProcessingParsedResponse | undefined;
-
-  /**
-   * <p> Details of the raw response from the foundation model output. </p>
-   * @public
-   */
-  rawResponse?: RawResponse | undefined;
-
-  /**
-   * <p> Contains information about the foundation model output from the post-processing step. </p>
-   * @public
-   */
-  metadata?: Metadata | undefined;
-
-  /**
-   * <p>Contains content about the reasoning that the model made during the post-processing step.</p>
-   * @public
-   */
-  reasoningContent?: ReasoningContentBlock | undefined;
-}
-
-/**
- * <p>Details about the post-processing step, in which the agent shapes the response.</p>
- * @public
- */
-export type PostProcessingTrace =
-  | PostProcessingTrace.ModelInvocationInputMember
-  | PostProcessingTrace.ModelInvocationOutputMember
-  | PostProcessingTrace.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PostProcessingTrace {
-  /**
-   * <p>The input for the post-processing step.</p> <ul> <li> <p>The <code>type</code> is <code>POST_PROCESSING</code>.</p> </li> <li> <p>The <code>text</code> contains the prompt.</p> </li> <li> <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p> </li> </ul>
-   * @public
-   */
-  export interface ModelInvocationInputMember {
-    modelInvocationInput: ModelInvocationInput;
-    modelInvocationOutput?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The foundation model output from the post-processing step.</p>
-   * @public
-   */
-  export interface ModelInvocationOutputMember {
-    modelInvocationInput?: never;
-    modelInvocationOutput: PostProcessingModelInvocationOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    modelInvocationInput?: never;
-    modelInvocationOutput?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    modelInvocationInput: (value: ModelInvocationInput) => T;
-    modelInvocationOutput: (value: PostProcessingModelInvocationOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: PostProcessingTrace, visitor: Visitor<T>): T => {
-    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
-    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Details about the response from the Lambda parsing of the output from the pre-processing step.</p>
- * @public
- */
-export interface PreProcessingParsedResponse {
-  /**
-   * <p>The text returned by the parsing of the pre-processing step, explaining the steps that the agent plans to take in orchestration, if the user input is valid.</p>
-   * @public
-   */
-  rationale?: string | undefined;
-
-  /**
-   * <p>Whether the user input is valid or not. If <code>false</code>, the agent doesn't proceed to orchestration.</p>
-   * @public
-   */
-  isValid?: boolean | undefined;
-}
-
-/**
- * <p>The foundation model output from the pre-processing step.</p>
- * @public
- */
-export interface PreProcessingModelInvocationOutput {
-  /**
-   * <p>The unique identifier of the trace.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>Details about the response from the Lambda parsing of the output of the pre-processing step.</p>
-   * @public
-   */
-  parsedResponse?: PreProcessingParsedResponse | undefined;
-
-  /**
-   * <p> Details of the raw response from the foundation model output. </p>
-   * @public
-   */
-  rawResponse?: RawResponse | undefined;
-
-  /**
-   * <p> Contains information about the foundation model output from the pre-processing step. </p>
-   * @public
-   */
-  metadata?: Metadata | undefined;
-
-  /**
-   * <p>Contains content about the reasoning that the model made during the pre-processing step. </p>
-   * @public
-   */
-  reasoningContent?: ReasoningContentBlock | undefined;
-}
-
-/**
- * <p>Details about the pre-processing step, in which the agent contextualizes and categorizes user inputs.</p>
- * @public
- */
-export type PreProcessingTrace =
-  | PreProcessingTrace.ModelInvocationInputMember
-  | PreProcessingTrace.ModelInvocationOutputMember
-  | PreProcessingTrace.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PreProcessingTrace {
-  /**
-   * <p>The input for the pre-processing step.</p> <ul> <li> <p>The <code>type</code> is <code>PRE_PROCESSING</code>.</p> </li> <li> <p>The <code>text</code> contains the prompt.</p> </li> <li> <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p> </li> </ul>
-   * @public
-   */
-  export interface ModelInvocationInputMember {
-    modelInvocationInput: ModelInvocationInput;
-    modelInvocationOutput?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The foundation model output from the pre-processing step.</p>
-   * @public
-   */
-  export interface ModelInvocationOutputMember {
-    modelInvocationInput?: never;
-    modelInvocationOutput: PreProcessingModelInvocationOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    modelInvocationInput?: never;
-    modelInvocationOutput?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    modelInvocationInput: (value: ModelInvocationInput) => T;
-    modelInvocationOutput: (value: PreProcessingModelInvocationOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: PreProcessingTrace, visitor: Visitor<T>): T => {
-    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
-    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Invocation output from a routing classifier model.</p>
- * @public
- */
-export interface RoutingClassifierModelInvocationOutput {
-  /**
-   * <p>The invocation's trace ID.</p>
-   * @public
-   */
-  traceId?: string | undefined;
-
-  /**
-   * <p>The invocation's raw response.</p>
-   * @public
-   */
-  rawResponse?: RawResponse | undefined;
-
-  /**
-   * <p>The invocation's metadata.</p>
-   * @public
-   */
-  metadata?: Metadata | undefined;
-}
-
-/**
- * <p>A trace for a routing classifier.</p>
- * @public
- */
-export type RoutingClassifierTrace =
-  | RoutingClassifierTrace.InvocationInputMember
-  | RoutingClassifierTrace.ModelInvocationInputMember
-  | RoutingClassifierTrace.ModelInvocationOutputMember
-  | RoutingClassifierTrace.ObservationMember
-  | RoutingClassifierTrace.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RoutingClassifierTrace {
-  /**
-   * <p>The classifier's invocation input.</p>
-   * @public
-   */
-  export interface InvocationInputMember {
-    invocationInput: InvocationInput;
-    observation?: never;
-    modelInvocationInput?: never;
-    modelInvocationOutput?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The classifier's observation.</p>
-   * @public
-   */
-  export interface ObservationMember {
-    invocationInput?: never;
-    observation: Observation;
-    modelInvocationInput?: never;
-    modelInvocationOutput?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The classifier's model invocation input.</p>
-   * @public
-   */
-  export interface ModelInvocationInputMember {
-    invocationInput?: never;
-    observation?: never;
-    modelInvocationInput: ModelInvocationInput;
-    modelInvocationOutput?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The classifier's model invocation output.</p>
-   * @public
-   */
-  export interface ModelInvocationOutputMember {
-    invocationInput?: never;
-    observation?: never;
-    modelInvocationInput?: never;
-    modelInvocationOutput: RoutingClassifierModelInvocationOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    invocationInput?: never;
-    observation?: never;
-    modelInvocationInput?: never;
-    modelInvocationOutput?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    invocationInput: (value: InvocationInput) => T;
-    observation: (value: Observation) => T;
-    modelInvocationInput: (value: ModelInvocationInput) => T;
-    modelInvocationOutput: (value: RoutingClassifierModelInvocationOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: RoutingClassifierTrace, visitor: Visitor<T>): T => {
-    if (value.invocationInput !== undefined) return visitor.invocationInput(value.invocationInput);
-    if (value.observation !== undefined) return visitor.observation(value.observation);
-    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
-    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
- * @public
- */
-export type Trace =
-  | Trace.CustomOrchestrationTraceMember
-  | Trace.FailureTraceMember
-  | Trace.GuardrailTraceMember
-  | Trace.OrchestrationTraceMember
-  | Trace.PostProcessingTraceMember
-  | Trace.PreProcessingTraceMember
-  | Trace.RoutingClassifierTraceMember
-  | Trace.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Trace {
-  /**
-   * <p>The trace details for a trace defined in the Guardrail filter.</p>
-   * @public
-   */
-  export interface GuardrailTraceMember {
-    guardrailTrace: GuardrailTrace;
-    preProcessingTrace?: never;
-    orchestrationTrace?: never;
-    postProcessingTrace?: never;
-    routingClassifierTrace?: never;
-    failureTrace?: never;
-    customOrchestrationTrace?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Details about the pre-processing step, in which the agent contextualizes and categorizes user inputs.</p>
-   * @public
-   */
-  export interface PreProcessingTraceMember {
-    guardrailTrace?: never;
-    preProcessingTrace: PreProcessingTrace;
-    orchestrationTrace?: never;
-    postProcessingTrace?: never;
-    routingClassifierTrace?: never;
-    failureTrace?: never;
-    customOrchestrationTrace?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Details about the orchestration step, in which the agent determines the order in which actions are executed and which knowledge bases are retrieved.</p>
-   * @public
-   */
-  export interface OrchestrationTraceMember {
-    guardrailTrace?: never;
-    preProcessingTrace?: never;
-    orchestrationTrace: OrchestrationTrace;
-    postProcessingTrace?: never;
-    routingClassifierTrace?: never;
-    failureTrace?: never;
-    customOrchestrationTrace?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Details about the post-processing step, in which the agent shapes the response..</p>
-   * @public
-   */
-  export interface PostProcessingTraceMember {
-    guardrailTrace?: never;
-    preProcessingTrace?: never;
-    orchestrationTrace?: never;
-    postProcessingTrace: PostProcessingTrace;
-    routingClassifierTrace?: never;
-    failureTrace?: never;
-    customOrchestrationTrace?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A routing classifier's trace.</p>
-   * @public
-   */
-  export interface RoutingClassifierTraceMember {
-    guardrailTrace?: never;
-    preProcessingTrace?: never;
-    orchestrationTrace?: never;
-    postProcessingTrace?: never;
-    routingClassifierTrace: RoutingClassifierTrace;
-    failureTrace?: never;
-    customOrchestrationTrace?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains information about the failure of the interaction.</p>
-   * @public
-   */
-  export interface FailureTraceMember {
-    guardrailTrace?: never;
-    preProcessingTrace?: never;
-    orchestrationTrace?: never;
-    postProcessingTrace?: never;
-    routingClassifierTrace?: never;
-    failureTrace: FailureTrace;
-    customOrchestrationTrace?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> Details about the custom orchestration step in which the agent determines the order in which actions are executed. </p>
-   * @public
-   */
-  export interface CustomOrchestrationTraceMember {
-    guardrailTrace?: never;
-    preProcessingTrace?: never;
-    orchestrationTrace?: never;
-    postProcessingTrace?: never;
-    routingClassifierTrace?: never;
-    failureTrace?: never;
-    customOrchestrationTrace: CustomOrchestrationTrace;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    guardrailTrace?: never;
-    preProcessingTrace?: never;
-    orchestrationTrace?: never;
-    postProcessingTrace?: never;
-    routingClassifierTrace?: never;
-    failureTrace?: never;
-    customOrchestrationTrace?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    guardrailTrace: (value: GuardrailTrace) => T;
-    preProcessingTrace: (value: PreProcessingTrace) => T;
-    orchestrationTrace: (value: OrchestrationTrace) => T;
-    postProcessingTrace: (value: PostProcessingTrace) => T;
-    routingClassifierTrace: (value: RoutingClassifierTrace) => T;
-    failureTrace: (value: FailureTrace) => T;
-    customOrchestrationTrace: (value: CustomOrchestrationTrace) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: Trace, visitor: Visitor<T>): T => {
-    if (value.guardrailTrace !== undefined) return visitor.guardrailTrace(value.guardrailTrace);
-    if (value.preProcessingTrace !== undefined) return visitor.preProcessingTrace(value.preProcessingTrace);
-    if (value.orchestrationTrace !== undefined) return visitor.orchestrationTrace(value.orchestrationTrace);
-    if (value.postProcessingTrace !== undefined) return visitor.postProcessingTrace(value.postProcessingTrace);
-    if (value.routingClassifierTrace !== undefined) return visitor.routingClassifierTrace(value.routingClassifierTrace);
-    if (value.failureTrace !== undefined) return visitor.failureTrace(value.failureTrace);
-    if (value.customOrchestrationTrace !== undefined)
-      return visitor.customOrchestrationTrace(value.customOrchestrationTrace);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Contains information about the agent and session, alongside the agent's reasoning process and results from calling API actions and querying knowledge bases and metadata about the trace. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
- * @public
- */
-export interface TracePart {
-  /**
-   * <p>The unique identifier of the session with the agent.</p>
-   * @public
-   */
-  sessionId?: string | undefined;
-
-  /**
-   * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
-   * @public
-   */
-  trace?: Trace | undefined;
-
-  /**
-   * <p>The part's caller chain.</p>
-   * @public
-   */
-  callerChain?: Caller[] | undefined;
-
-  /**
-   * <p> The time of the trace. </p>
-   * @public
-   */
-  eventTime?: Date | undefined;
-
-  /**
-   * <p>The part's collaborator name.</p>
-   * @public
-   */
-  collaboratorName?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the agent.</p>
-   * @public
-   */
-  agentId?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the alias of the agent.</p>
-   * @public
-   */
-  agentAliasId?: string | undefined;
-
-  /**
-   * <p>The version of the agent.</p>
-   * @public
-   */
-  agentVersion?: string | undefined;
 }
 
 /**
@@ -8285,284 +8796,6 @@ export interface S3ObjectDoc {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExternalSourceType = {
-  BYTE_CONTENT: "BYTE_CONTENT",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ExternalSourceType = (typeof ExternalSourceType)[keyof typeof ExternalSourceType];
-
-/**
- * <p>The unique external source of the content contained in the wrapper object.</p>
- * @public
- */
-export interface ExternalSource {
-  /**
-   * <p>The source type of the external source wrapper object.</p>
-   * @public
-   */
-  sourceType: ExternalSourceType | undefined;
-
-  /**
-   * <p>The S3 location of the external source wrapper object.</p>
-   * @public
-   */
-  s3Location?: S3ObjectDoc | undefined;
-
-  /**
-   * <p>The identifier, contentType, and data of the external source wrapper object.</p>
-   * @public
-   */
-  byteContent?: ByteContentDoc | undefined;
-}
-
-/**
- * <p>The configurations of the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
- * @public
- */
-export interface ExternalSourcesRetrieveAndGenerateConfiguration {
-  /**
-   * <p>The model Amazon Resource Name (ARN) for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
-   * @public
-   */
-  modelArn: string | undefined;
-
-  /**
-   * <p>The document for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
-   * @public
-   */
-  sources: ExternalSource[] | undefined;
-
-  /**
-   * <p>The prompt used with the external source wrapper object with the <code>retrieveAndGenerate</code> function.</p>
-   * @public
-   */
-  generationConfiguration?: ExternalSourcesGenerationConfiguration | undefined;
-}
-
-/**
- * <p>Contains configurations for response generation based on the knowledge base query results.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> </p> </li> </ul>
- * @public
- */
-export interface GenerationConfiguration {
-  /**
-   * <p>Contains the template for the prompt that's sent to the model for response generation. Generation prompts must include the <code>$search_results$</code> variable. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
-   * @public
-   */
-  promptTemplate?: PromptTemplate | undefined;
-
-  /**
-   * <p>The configuration details for the guardrail.</p>
-   * @public
-   */
-  guardrailConfiguration?: GuardrailConfiguration | undefined;
-
-  /**
-   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
-   * @public
-   */
-  inferenceConfig?: InferenceConfig | undefined;
-
-  /**
-   * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
-   * @public
-   */
-  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
-
-  /**
-   * <p>The latency configuration for the model.</p>
-   * @public
-   */
-  performanceConfig?: PerformanceConfiguration | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const QueryTransformationType = {
-  QUERY_DECOMPOSITION: "QUERY_DECOMPOSITION",
-} as const;
-
-/**
- * @public
- */
-export type QueryTransformationType = (typeof QueryTransformationType)[keyof typeof QueryTransformationType];
-
-/**
- * <p>To split up the prompt and retrieve multiple sources, set the transformation type to <code>QUERY_DECOMPOSITION</code>.</p>
- * @public
- */
-export interface QueryTransformationConfiguration {
-  /**
-   * <p>The type of transformation to apply to the prompt.</p>
-   * @public
-   */
-  type: QueryTransformationType | undefined;
-}
-
-/**
- * <p>Settings for how the model processes the prompt prior to retrieval and generation.</p>
- * @public
- */
-export interface OrchestrationConfiguration {
-  /**
-   * <p>Contains the template for the prompt that's sent to the model. Orchestration prompts must include the <code>$conversation_history$</code> and <code>$output_format_instructions$</code> variables. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
-   * @public
-   */
-  promptTemplate?: PromptTemplate | undefined;
-
-  /**
-   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
-   * @public
-   */
-  inferenceConfig?: InferenceConfig | undefined;
-
-  /**
-   * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
-   * @public
-   */
-  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
-
-  /**
-   * <p>To split up the prompt and retrieve multiple sources, set the transformation type to <code>QUERY_DECOMPOSITION</code>.</p>
-   * @public
-   */
-  queryTransformationConfiguration?: QueryTransformationConfiguration | undefined;
-
-  /**
-   * <p>The latency configuration for the model.</p>
-   * @public
-   */
-  performanceConfig?: PerformanceConfiguration | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RetrieveAndGenerateType = {
-  EXTERNAL_SOURCES: "EXTERNAL_SOURCES",
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-} as const;
-
-/**
- * @public
- */
-export type RetrieveAndGenerateType = (typeof RetrieveAndGenerateType)[keyof typeof RetrieveAndGenerateType];
-
-/**
- * <p>Contains configuration about the session with the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>sessionConfiguration</code> field</p> </li> </ul>
- * @public
- */
-export interface RetrieveAndGenerateSessionConfiguration {
-  /**
-   * <p>The ARN of the KMS key encrypting the session.</p>
-   * @public
-   */
-  kmsKeyArn: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GuadrailAction = {
-  INTERVENED: "INTERVENED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuadrailAction = (typeof GuadrailAction)[keyof typeof GuadrailAction];
-
-/**
- * <p>Contains the response generated from querying the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>output</code> field</p> </li> </ul>
- * @public
- */
-export interface RetrieveAndGenerateOutput {
-  /**
-   * <p>The response generated from querying the knowledge base.</p>
-   * @public
-   */
-  text: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RetrieveAndGenerateResponse {
-  /**
-   * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>Contains the response generated from querying the knowledge base.</p>
-   * @public
-   */
-  output: RetrieveAndGenerateOutput | undefined;
-
-  /**
-   * <p>A list of segments of the generated response that are based on sources in the knowledge base, alongside information about the sources.</p>
-   * @public
-   */
-  citations?: Citation[] | undefined;
-
-  /**
-   * <p>Specifies if there is a guardrail intervention in the response.</p>
-   * @public
-   */
-  guardrailAction?: GuadrailAction | undefined;
-}
-
-/**
- * <p>A citation event.</p>
- * @public
- */
-export interface CitationEvent {
-  /**
-   * <p>The citation.</p>
-   *
-   * @deprecated
-   * @public
-   */
-  citation?: Citation | undefined;
-
-  /**
-   * <p>The generated response to the citation event.</p>
-   * @public
-   */
-  generatedResponsePart?: GeneratedResponsePart | undefined;
-
-  /**
-   * <p>The retrieved references of the citation event.</p>
-   * @public
-   */
-  retrievedReferences?: RetrievedReference[] | undefined;
-}
-
-/**
- * <p>A guardrail event.</p>
- * @public
- */
-export interface GuardrailEvent {
-  /**
-   * <p>The guardrail action.</p>
-   * @public
-   */
-  action?: GuadrailAction | undefined;
-}
-
-/**
  * @internal
  */
 export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInvocationInput): any => ({
@@ -8743,537 +8976,6 @@ export const AgentCollaboratorInvocationOutputFilterSensitiveLog = (obj: AgentCo
   ...obj,
   ...(obj.output && { output: AgentCollaboratorOutputPayloadFilterSensitiveLog(obj.output) }),
   ...(obj.metadata && { metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SatisfiedConditionFilterSensitiveLog = (obj: SatisfiedCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionResultEventFilterSensitiveLog = (obj: ConditionResultEvent): any => ({
-  ...obj,
-  ...(obj.satisfiedConditions && { satisfiedConditions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowFailureEventFilterSensitiveLog = (obj: FlowFailureEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowExecutionContentFilterSensitiveLog = (obj: FlowExecutionContent): any => {
-  if (obj.document !== undefined) return { document: obj.document };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const FlowInputFieldFilterSensitiveLog = (obj: FlowInputField): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowExecutionInputEventFilterSensitiveLog = (obj: FlowExecutionInputEvent): any => ({
-  ...obj,
-  ...(obj.fields && { fields: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowOutputFieldFilterSensitiveLog = (obj: FlowOutputField): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowExecutionOutputEventFilterSensitiveLog = (obj: FlowExecutionOutputEvent): any => ({
-  ...obj,
-  ...(obj.fields && { fields: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const NodeFailureEventFilterSensitiveLog = (obj: NodeFailureEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeExecutionContentFilterSensitiveLog = (obj: NodeExecutionContent): any => {
-  if (obj.document !== undefined) return { document: obj.document };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const NodeInputFieldFilterSensitiveLog = (obj: NodeInputField): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const NodeInputEventFilterSensitiveLog = (obj: NodeInputEvent): any => ({
-  ...obj,
-  ...(obj.fields && { fields: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const NodeOutputFieldFilterSensitiveLog = (obj: NodeOutputField): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const NodeOutputEventFilterSensitiveLog = (obj: NodeOutputEvent): any => ({
-  ...obj,
-  ...(obj.fields && { fields: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowExecutionEventFilterSensitiveLog = (obj: FlowExecutionEvent): any => {
-  if (obj.flowInputEvent !== undefined) return { flowInputEvent: SENSITIVE_STRING };
-  if (obj.flowOutputEvent !== undefined) return { flowOutputEvent: SENSITIVE_STRING };
-  if (obj.nodeInputEvent !== undefined) return { nodeInputEvent: SENSITIVE_STRING };
-  if (obj.nodeOutputEvent !== undefined) return { nodeOutputEvent: SENSITIVE_STRING };
-  if (obj.conditionResultEvent !== undefined) return { conditionResultEvent: SENSITIVE_STRING };
-  if (obj.nodeFailureEvent !== undefined) return { nodeFailureEvent: SENSITIVE_STRING };
-  if (obj.flowFailureEvent !== undefined) return { flowFailureEvent: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ListFlowExecutionEventsResponseFilterSensitiveLog = (obj: ListFlowExecutionEventsResponse): any => ({
-  ...obj,
-  ...(obj.flowExecutionEvents && {
-    flowExecutionEvents: obj.flowExecutionEvents.map((item) => FlowExecutionEventFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const FlowInputContentFilterSensitiveLog = (obj: FlowInputContent): any => {
-  if (obj.document !== undefined) return { document: obj.document };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const FlowInputFilterSensitiveLog = (obj: FlowInput): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartFlowExecutionRequestFilterSensitiveLog = (obj: StartFlowExecutionRequest): any => ({
-  ...obj,
-  ...(obj.inputs && { inputs: obj.inputs.map((item) => FlowInputFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const InvokeFlowRequestFilterSensitiveLog = (obj: InvokeFlowRequest): any => ({
-  ...obj,
-  ...(obj.inputs && { inputs: obj.inputs.map((item) => FlowInputFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const FlowCompletionEventFilterSensitiveLog = (obj: FlowCompletionEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowMultiTurnInputRequestEventFilterSensitiveLog = (obj: FlowMultiTurnInputRequestEvent): any => ({
-  ...obj,
-  ...(obj.content && { content: obj.content }),
-});
-
-/**
- * @internal
- */
-export const FlowOutputEventFilterSensitiveLog = (obj: FlowOutputEvent): any => ({
-  ...obj,
-  ...(obj.content && { content: obj.content }),
-});
-
-/**
- * @internal
- */
-export const FlowTraceConditionFilterSensitiveLog = (obj: FlowTraceCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowTraceConditionNodeResultEventFilterSensitiveLog = (obj: FlowTraceConditionNodeResultEvent): any => ({
-  ...obj,
-  ...(obj.satisfiedConditions && { satisfiedConditions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowTraceNodeActionEventFilterSensitiveLog = (obj: FlowTraceNodeActionEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowTraceNodeInputContentFilterSensitiveLog = (obj: FlowTraceNodeInputContent): any => {
-  if (obj.document !== undefined) return { document: obj.document };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const FlowTraceNodeInputFieldFilterSensitiveLog = (obj: FlowTraceNodeInputField): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowTraceNodeInputEventFilterSensitiveLog = (obj: FlowTraceNodeInputEvent): any => ({
-  ...obj,
-  ...(obj.fields && { fields: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowTraceNodeOutputFieldFilterSensitiveLog = (obj: FlowTraceNodeOutputField): any => ({
-  ...obj,
-  ...(obj.content && { content: obj.content }),
-});
-
-/**
- * @internal
- */
-export const FlowTraceNodeOutputEventFilterSensitiveLog = (obj: FlowTraceNodeOutputEvent): any => ({
-  ...obj,
-  ...(obj.fields && { fields: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowTraceFilterSensitiveLog = (obj: FlowTrace): any => {
-  if (obj.nodeInputTrace !== undefined) return { nodeInputTrace: SENSITIVE_STRING };
-  if (obj.nodeOutputTrace !== undefined) return { nodeOutputTrace: SENSITIVE_STRING };
-  if (obj.conditionNodeResultTrace !== undefined) return { conditionNodeResultTrace: SENSITIVE_STRING };
-  if (obj.nodeActionTrace !== undefined) return { nodeActionTrace: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const FlowTraceEventFilterSensitiveLog = (obj: FlowTraceEvent): any => ({
-  ...obj,
-  ...(obj.trace && { trace: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FlowResponseStreamFilterSensitiveLog = (obj: FlowResponseStream): any => {
-  if (obj.flowOutputEvent !== undefined) return { flowOutputEvent: SENSITIVE_STRING };
-  if (obj.flowCompletionEvent !== undefined) return { flowCompletionEvent: SENSITIVE_STRING };
-  if (obj.flowTraceEvent !== undefined) return { flowTraceEvent: FlowTraceEventFilterSensitiveLog(obj.flowTraceEvent) };
-  if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
-  if (obj.validationException !== undefined) return { validationException: obj.validationException };
-  if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };
-  if (obj.serviceQuotaExceededException !== undefined)
-    return { serviceQuotaExceededException: obj.serviceQuotaExceededException };
-  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
-  if (obj.accessDeniedException !== undefined) return { accessDeniedException: obj.accessDeniedException };
-  if (obj.conflictException !== undefined) return { conflictException: obj.conflictException };
-  if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
-  if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
-  if (obj.flowMultiTurnInputRequestEvent !== undefined) return { flowMultiTurnInputRequestEvent: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const InvokeFlowResponseFilterSensitiveLog = (obj: InvokeFlowResponse): any => ({
-  ...obj,
-  ...(obj.responseStream && { responseStream: "STREAMING_CONTENT" }),
-});
-
-/**
- * @internal
- */
-export const QueryGenerationInputFilterSensitiveLog = (obj: QueryGenerationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateQueryRequestFilterSensitiveLog = (obj: GenerateQueryRequest): any => ({
-  ...obj,
-  ...(obj.queryGenerationInput && { queryGenerationInput: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GeneratedQueryFilterSensitiveLog = (obj: GeneratedQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateQueryResponseFilterSensitiveLog = (obj: GenerateQueryResponse): any => ({
-  ...obj,
-  ...(obj.queries && { queries: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ContentBlockFilterSensitiveLog = (obj: ContentBlock): any => {
-  if (obj.text !== undefined) return { text: obj.text };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const MessageFilterSensitiveLog = (obj: Message): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ConversationHistoryFilterSensitiveLog = (obj: ConversationHistory): any => ({
-  ...obj,
-  ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ByteContentFileFilterSensitiveLog = (obj: ByteContentFile): any => ({
-  ...obj,
-  ...(obj.data && { data: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FileSourceFilterSensitiveLog = (obj: FileSource): any => ({
-  ...obj,
-  ...(obj.byteContent && { byteContent: ByteContentFileFilterSensitiveLog(obj.byteContent) }),
-});
-
-/**
- * @internal
- */
-export const InputFileFilterSensitiveLog = (obj: InputFile): any => ({
-  ...obj,
-  ...(obj.source && { source: FileSourceFilterSensitiveLog(obj.source) }),
-});
-
-/**
- * @internal
- */
-export const MetadataAttributeSchemaFilterSensitiveLog = (obj: MetadataAttributeSchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImplicitFilterConfigurationFilterSensitiveLog = (obj: ImplicitFilterConfiguration): any => ({
-  ...obj,
-  ...(obj.metadataAttributes && { metadataAttributes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RerankingMetadataSelectiveModeConfigurationFilterSensitiveLog = (
-  obj: RerankingMetadataSelectiveModeConfiguration
-): any => {
-  if (obj.fieldsToInclude !== undefined) return { fieldsToInclude: SENSITIVE_STRING };
-  if (obj.fieldsToExclude !== undefined) return { fieldsToExclude: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const MetadataConfigurationForRerankingFilterSensitiveLog = (obj: MetadataConfigurationForReranking): any => ({
-  ...obj,
-  ...(obj.selectiveModeConfiguration && {
-    selectiveModeConfiguration: RerankingMetadataSelectiveModeConfigurationFilterSensitiveLog(
-      obj.selectiveModeConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const VectorSearchBedrockRerankingConfigurationFilterSensitiveLog = (
-  obj: VectorSearchBedrockRerankingConfiguration
-): any => ({
-  ...obj,
-  ...(obj.metadataConfiguration && {
-    metadataConfiguration: MetadataConfigurationForRerankingFilterSensitiveLog(obj.metadataConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const VectorSearchRerankingConfigurationFilterSensitiveLog = (obj: VectorSearchRerankingConfiguration): any => ({
-  ...obj,
-  ...(obj.bedrockRerankingConfiguration && {
-    bedrockRerankingConfiguration: VectorSearchBedrockRerankingConfigurationFilterSensitiveLog(
-      obj.bedrockRerankingConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const TextResponsePartFilterSensitiveLog = (obj: TextResponsePart): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeneratedResponsePartFilterSensitiveLog = (obj: GeneratedResponsePart): any => ({
-  ...obj,
-  ...(obj.textResponsePart && { textResponsePart: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RetrievalResultContentColumnFilterSensitiveLog = (obj: RetrievalResultContentColumn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetrievalResultContentFilterSensitiveLog = (obj: RetrievalResultContent): any => ({
-  ...obj,
-  ...(obj.row && { row: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RetrievalResultLocationFilterSensitiveLog = (obj: RetrievalResultLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetrievedReferenceFilterSensitiveLog = (obj: RetrievedReference): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-  ...(obj.location && { location: SENSITIVE_STRING }),
-  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CitationFilterSensitiveLog = (obj: Citation): any => ({
-  ...obj,
-  ...(obj.generatedResponsePart && {
-    generatedResponsePart: GeneratedResponsePartFilterSensitiveLog(obj.generatedResponsePart),
-  }),
-  ...(obj.retrievedReferences && {
-    retrievedReferences: obj.retrievedReferences.map((item) => RetrievedReferenceFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const AttributionFilterSensitiveLog = (obj: Attribution): any => ({
-  ...obj,
-  ...(obj.citations && { citations: obj.citations.map((item) => CitationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const PayloadPartFilterSensitiveLog = (obj: PayloadPart): any => ({
-  ...obj,
-  ...(obj.bytes && { bytes: SENSITIVE_STRING }),
-  ...(obj.attribution && { attribution: AttributionFilterSensitiveLog(obj.attribution) }),
-});
-
-/**
- * @internal
- */
-export const OutputFileFilterSensitiveLog = (obj: OutputFile): any => ({
-  ...obj,
-  ...(obj.bytes && { bytes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FilePartFilterSensitiveLog = (obj: FilePart): any => ({
-  ...obj,
-  ...(obj.files && { files: SENSITIVE_STRING }),
 });
 
 /**
@@ -9487,6 +9189,38 @@ export const FinalResponseFilterSensitiveLog = (obj: FinalResponse): any => ({
 /**
  * @internal
  */
+export const RetrievalResultContentColumnFilterSensitiveLog = (obj: RetrievalResultContentColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrievalResultContentFilterSensitiveLog = (obj: RetrievalResultContent): any => ({
+  ...obj,
+  ...(obj.row && { row: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RetrievalResultLocationFilterSensitiveLog = (obj: RetrievalResultLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrievedReferenceFilterSensitiveLog = (obj: RetrievedReference): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+  ...(obj.location && { location: SENSITIVE_STRING }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const KnowledgeBaseLookupOutputFilterSensitiveLog = (obj: KnowledgeBaseLookupOutput): any => ({
   ...obj,
   ...(obj.retrievedReferences && {
@@ -9650,6 +9384,591 @@ export const TracePartFilterSensitiveLog = (obj: TracePart): any => ({
   ...(obj.trace && { trace: SENSITIVE_STRING }),
   ...(obj.callerChain && { callerChain: obj.callerChain.map((item) => item) }),
   ...(obj.collaboratorName && { collaboratorName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SatisfiedConditionFilterSensitiveLog = (obj: SatisfiedCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConditionResultEventFilterSensitiveLog = (obj: ConditionResultEvent): any => ({
+  ...obj,
+  ...(obj.satisfiedConditions && { satisfiedConditions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowFailureEventFilterSensitiveLog = (obj: FlowFailureEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowExecutionContentFilterSensitiveLog = (obj: FlowExecutionContent): any => {
+  if (obj.document !== undefined) return { document: obj.document };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FlowInputFieldFilterSensitiveLog = (obj: FlowInputField): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowExecutionInputEventFilterSensitiveLog = (obj: FlowExecutionInputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowOutputFieldFilterSensitiveLog = (obj: FlowOutputField): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowExecutionOutputEventFilterSensitiveLog = (obj: FlowExecutionOutputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NodeActionEventFilterSensitiveLog = (obj: NodeActionEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeTraceElementsFilterSensitiveLog = (obj: NodeTraceElements): any => {
+  if (obj.agentTraces !== undefined) return { agentTraces: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const NodeDependencyEventFilterSensitiveLog = (obj: NodeDependencyEvent): any => ({
+  ...obj,
+  ...(obj.traceElements && { traceElements: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NodeFailureEventFilterSensitiveLog = (obj: NodeFailureEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeExecutionContentFilterSensitiveLog = (obj: NodeExecutionContent): any => {
+  if (obj.document !== undefined) return { document: obj.document };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const NodeInputSourceFilterSensitiveLog = (obj: NodeInputSource): any => ({
+  ...obj,
+  ...(obj.expression && { expression: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NodeInputFieldFilterSensitiveLog = (obj: NodeInputField): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+  ...(obj.source && { source: NodeInputSourceFilterSensitiveLog(obj.source) }),
+});
+
+/**
+ * @internal
+ */
+export const NodeInputEventFilterSensitiveLog = (obj: NodeInputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NodeOutputNextFilterSensitiveLog = (obj: NodeOutputNext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeOutputFieldFilterSensitiveLog = (obj: NodeOutputField): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+  ...(obj.next && { next: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NodeOutputEventFilterSensitiveLog = (obj: NodeOutputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowExecutionEventFilterSensitiveLog = (obj: FlowExecutionEvent): any => {
+  if (obj.flowInputEvent !== undefined) return { flowInputEvent: SENSITIVE_STRING };
+  if (obj.flowOutputEvent !== undefined) return { flowOutputEvent: SENSITIVE_STRING };
+  if (obj.nodeInputEvent !== undefined) return { nodeInputEvent: SENSITIVE_STRING };
+  if (obj.nodeOutputEvent !== undefined) return { nodeOutputEvent: SENSITIVE_STRING };
+  if (obj.conditionResultEvent !== undefined) return { conditionResultEvent: SENSITIVE_STRING };
+  if (obj.nodeFailureEvent !== undefined) return { nodeFailureEvent: SENSITIVE_STRING };
+  if (obj.flowFailureEvent !== undefined) return { flowFailureEvent: SENSITIVE_STRING };
+  if (obj.nodeActionEvent !== undefined) return { nodeActionEvent: SENSITIVE_STRING };
+  if (obj.nodeDependencyEvent !== undefined) return { nodeDependencyEvent: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ListFlowExecutionEventsResponseFilterSensitiveLog = (obj: ListFlowExecutionEventsResponse): any => ({
+  ...obj,
+  ...(obj.flowExecutionEvents && {
+    flowExecutionEvents: obj.flowExecutionEvents.map((item) => FlowExecutionEventFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const FlowInputContentFilterSensitiveLog = (obj: FlowInputContent): any => {
+  if (obj.document !== undefined) return { document: obj.document };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FlowInputFilterSensitiveLog = (obj: FlowInput): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartFlowExecutionRequestFilterSensitiveLog = (obj: StartFlowExecutionRequest): any => ({
+  ...obj,
+  ...(obj.inputs && { inputs: obj.inputs.map((item) => FlowInputFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeFlowRequestFilterSensitiveLog = (obj: InvokeFlowRequest): any => ({
+  ...obj,
+  ...(obj.inputs && { inputs: obj.inputs.map((item) => FlowInputFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const FlowCompletionEventFilterSensitiveLog = (obj: FlowCompletionEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowMultiTurnInputRequestEventFilterSensitiveLog = (obj: FlowMultiTurnInputRequestEvent): any => ({
+  ...obj,
+  ...(obj.content && { content: obj.content }),
+});
+
+/**
+ * @internal
+ */
+export const FlowOutputEventFilterSensitiveLog = (obj: FlowOutputEvent): any => ({
+  ...obj,
+  ...(obj.content && { content: obj.content }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceConditionFilterSensitiveLog = (obj: FlowTraceCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceConditionNodeResultEventFilterSensitiveLog = (obj: FlowTraceConditionNodeResultEvent): any => ({
+  ...obj,
+  ...(obj.satisfiedConditions && { satisfiedConditions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeActionEventFilterSensitiveLog = (obj: FlowTraceNodeActionEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TraceElementsFilterSensitiveLog = (obj: TraceElements): any => {
+  if (obj.agentTraces !== undefined) return { agentTraces: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FlowTraceDependencyEventFilterSensitiveLog = (obj: FlowTraceDependencyEvent): any => ({
+  ...obj,
+  ...(obj.traceElements && { traceElements: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeInputContentFilterSensitiveLog = (obj: FlowTraceNodeInputContent): any => {
+  if (obj.document !== undefined) return { document: obj.document };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeInputExecutionChainItemFilterSensitiveLog = (
+  obj: FlowTraceNodeInputExecutionChainItem
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeInputSourceFilterSensitiveLog = (obj: FlowTraceNodeInputSource): any => ({
+  ...obj,
+  ...(obj.expression && { expression: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeInputFieldFilterSensitiveLog = (obj: FlowTraceNodeInputField): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+  ...(obj.source && { source: SENSITIVE_STRING }),
+  ...(obj.executionChain && { executionChain: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeInputEventFilterSensitiveLog = (obj: FlowTraceNodeInputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeOutputNextFilterSensitiveLog = (obj: FlowTraceNodeOutputNext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeOutputFieldFilterSensitiveLog = (obj: FlowTraceNodeOutputField): any => ({
+  ...obj,
+  ...(obj.content && { content: obj.content }),
+  ...(obj.next && { next: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceNodeOutputEventFilterSensitiveLog = (obj: FlowTraceNodeOutputEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowTraceFilterSensitiveLog = (obj: FlowTrace): any => {
+  if (obj.nodeInputTrace !== undefined) return { nodeInputTrace: SENSITIVE_STRING };
+  if (obj.nodeOutputTrace !== undefined) return { nodeOutputTrace: SENSITIVE_STRING };
+  if (obj.conditionNodeResultTrace !== undefined) return { conditionNodeResultTrace: SENSITIVE_STRING };
+  if (obj.nodeActionTrace !== undefined) return { nodeActionTrace: SENSITIVE_STRING };
+  if (obj.nodeDependencyTrace !== undefined) return { nodeDependencyTrace: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FlowTraceEventFilterSensitiveLog = (obj: FlowTraceEvent): any => ({
+  ...obj,
+  ...(obj.trace && { trace: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FlowResponseStreamFilterSensitiveLog = (obj: FlowResponseStream): any => {
+  if (obj.flowOutputEvent !== undefined) return { flowOutputEvent: SENSITIVE_STRING };
+  if (obj.flowCompletionEvent !== undefined) return { flowCompletionEvent: SENSITIVE_STRING };
+  if (obj.flowTraceEvent !== undefined) return { flowTraceEvent: FlowTraceEventFilterSensitiveLog(obj.flowTraceEvent) };
+  if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
+  if (obj.validationException !== undefined) return { validationException: obj.validationException };
+  if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };
+  if (obj.serviceQuotaExceededException !== undefined)
+    return { serviceQuotaExceededException: obj.serviceQuotaExceededException };
+  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
+  if (obj.accessDeniedException !== undefined) return { accessDeniedException: obj.accessDeniedException };
+  if (obj.conflictException !== undefined) return { conflictException: obj.conflictException };
+  if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
+  if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
+  if (obj.flowMultiTurnInputRequestEvent !== undefined) return { flowMultiTurnInputRequestEvent: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const InvokeFlowResponseFilterSensitiveLog = (obj: InvokeFlowResponse): any => ({
+  ...obj,
+  ...(obj.responseStream && { responseStream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const QueryGenerationInputFilterSensitiveLog = (obj: QueryGenerationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateQueryRequestFilterSensitiveLog = (obj: GenerateQueryRequest): any => ({
+  ...obj,
+  ...(obj.queryGenerationInput && { queryGenerationInput: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GeneratedQueryFilterSensitiveLog = (obj: GeneratedQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateQueryResponseFilterSensitiveLog = (obj: GenerateQueryResponse): any => ({
+  ...obj,
+  ...(obj.queries && { queries: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ContentBlockFilterSensitiveLog = (obj: ContentBlock): any => {
+  if (obj.text !== undefined) return { text: obj.text };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConversationHistoryFilterSensitiveLog = (obj: ConversationHistory): any => ({
+  ...obj,
+  ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ByteContentFileFilterSensitiveLog = (obj: ByteContentFile): any => ({
+  ...obj,
+  ...(obj.data && { data: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FileSourceFilterSensitiveLog = (obj: FileSource): any => ({
+  ...obj,
+  ...(obj.byteContent && { byteContent: ByteContentFileFilterSensitiveLog(obj.byteContent) }),
+});
+
+/**
+ * @internal
+ */
+export const InputFileFilterSensitiveLog = (obj: InputFile): any => ({
+  ...obj,
+  ...(obj.source && { source: FileSourceFilterSensitiveLog(obj.source) }),
+});
+
+/**
+ * @internal
+ */
+export const MetadataAttributeSchemaFilterSensitiveLog = (obj: MetadataAttributeSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImplicitFilterConfigurationFilterSensitiveLog = (obj: ImplicitFilterConfiguration): any => ({
+  ...obj,
+  ...(obj.metadataAttributes && { metadataAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RerankingMetadataSelectiveModeConfigurationFilterSensitiveLog = (
+  obj: RerankingMetadataSelectiveModeConfiguration
+): any => {
+  if (obj.fieldsToInclude !== undefined) return { fieldsToInclude: SENSITIVE_STRING };
+  if (obj.fieldsToExclude !== undefined) return { fieldsToExclude: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MetadataConfigurationForRerankingFilterSensitiveLog = (obj: MetadataConfigurationForReranking): any => ({
+  ...obj,
+  ...(obj.selectiveModeConfiguration && {
+    selectiveModeConfiguration: RerankingMetadataSelectiveModeConfigurationFilterSensitiveLog(
+      obj.selectiveModeConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const VectorSearchBedrockRerankingConfigurationFilterSensitiveLog = (
+  obj: VectorSearchBedrockRerankingConfiguration
+): any => ({
+  ...obj,
+  ...(obj.metadataConfiguration && {
+    metadataConfiguration: MetadataConfigurationForRerankingFilterSensitiveLog(obj.metadataConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const VectorSearchRerankingConfigurationFilterSensitiveLog = (obj: VectorSearchRerankingConfiguration): any => ({
+  ...obj,
+  ...(obj.bedrockRerankingConfiguration && {
+    bedrockRerankingConfiguration: VectorSearchBedrockRerankingConfigurationFilterSensitiveLog(
+      obj.bedrockRerankingConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const TextResponsePartFilterSensitiveLog = (obj: TextResponsePart): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeneratedResponsePartFilterSensitiveLog = (obj: GeneratedResponsePart): any => ({
+  ...obj,
+  ...(obj.textResponsePart && { textResponsePart: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CitationFilterSensitiveLog = (obj: Citation): any => ({
+  ...obj,
+  ...(obj.generatedResponsePart && {
+    generatedResponsePart: GeneratedResponsePartFilterSensitiveLog(obj.generatedResponsePart),
+  }),
+  ...(obj.retrievedReferences && {
+    retrievedReferences: obj.retrievedReferences.map((item) => RetrievedReferenceFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AttributionFilterSensitiveLog = (obj: Attribution): any => ({
+  ...obj,
+  ...(obj.citations && { citations: obj.citations.map((item) => CitationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PayloadPartFilterSensitiveLog = (obj: PayloadPart): any => ({
+  ...obj,
+  ...(obj.bytes && { bytes: SENSITIVE_STRING }),
+  ...(obj.attribution && { attribution: AttributionFilterSensitiveLog(obj.attribution) }),
+});
+
+/**
+ * @internal
+ */
+export const OutputFileFilterSensitiveLog = (obj: OutputFile): any => ({
+  ...obj,
+  ...(obj.bytes && { bytes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FilePartFilterSensitiveLog = (obj: FilePart): any => ({
+  ...obj,
+  ...(obj.files && { files: SENSITIVE_STRING }),
 });
 
 /**
@@ -9948,71 +10267,4 @@ export const ByteContentDocFilterSensitiveLog = (obj: ByteContentDoc): any => ({
   ...obj,
   ...(obj.identifier && { identifier: SENSITIVE_STRING }),
   ...(obj.data && { data: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ExternalSourceFilterSensitiveLog = (obj: ExternalSource): any => ({
-  ...obj,
-  ...(obj.byteContent && { byteContent: ByteContentDocFilterSensitiveLog(obj.byteContent) }),
-});
-
-/**
- * @internal
- */
-export const ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog = (
-  obj: ExternalSourcesRetrieveAndGenerateConfiguration
-): any => ({
-  ...obj,
-  ...(obj.sources && { sources: obj.sources.map((item) => ExternalSourceFilterSensitiveLog(item)) }),
-  ...(obj.generationConfiguration && {
-    generationConfiguration: ExternalSourcesGenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const GenerationConfigurationFilterSensitiveLog = (obj: GenerationConfiguration): any => ({
-  ...obj,
-  ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
-});
-
-/**
- * @internal
- */
-export const OrchestrationConfigurationFilterSensitiveLog = (obj: OrchestrationConfiguration): any => ({
-  ...obj,
-  ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateOutputFilterSensitiveLog = (obj: RetrieveAndGenerateOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateResponseFilterSensitiveLog = (obj: RetrieveAndGenerateResponse): any => ({
-  ...obj,
-  ...(obj.output && { output: SENSITIVE_STRING }),
-  ...(obj.citations && { citations: obj.citations.map((item) => CitationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CitationEventFilterSensitiveLog = (obj: CitationEvent): any => ({
-  ...obj,
-  ...(obj.citation && { citation: CitationFilterSensitiveLog(obj.citation) }),
-  ...(obj.generatedResponsePart && {
-    generatedResponsePart: GeneratedResponsePartFilterSensitiveLog(obj.generatedResponsePart),
-  }),
-  ...(obj.retrievedReferences && {
-    retrievedReferences: obj.retrievedReferences.map((item) => RetrievedReferenceFilterSensitiveLog(item)),
-  }),
 });

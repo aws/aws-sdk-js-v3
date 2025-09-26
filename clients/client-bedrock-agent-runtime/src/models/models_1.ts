@@ -10,8 +10,10 @@ import {
   AgentCollaboration,
   BadGatewayException,
   BedrockModelConfigurations,
-  CitationEvent,
-  CitationEventFilterSensitiveLog,
+  ByteContentDoc,
+  ByteContentDocFilterSensitiveLog,
+  Citation,
+  CitationFilterSensitiveLog,
   CollaboratorConfiguration,
   CollaboratorConfigurationFilterSensitiveLog,
   ConflictException,
@@ -19,17 +21,16 @@ import {
   ConversationHistoryFilterSensitiveLog,
   CustomOrchestration,
   DependencyFailedException,
-  ExternalSourcesRetrieveAndGenerateConfiguration,
-  ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog,
+  ExternalSourcesGenerationConfiguration,
+  ExternalSourcesGenerationConfigurationFilterSensitiveLog,
   FilterAttribute,
-  GenerationConfiguration,
-  GenerationConfigurationFilterSensitiveLog,
-  GuadrailAction,
+  GeneratedResponsePart,
+  GeneratedResponsePartFilterSensitiveLog,
   GuardrailConfiguration,
   GuardrailConfigurationWithArn,
-  GuardrailEvent,
   ImplicitFilterConfiguration,
   ImplicitFilterConfigurationFilterSensitiveLog,
+  InferenceConfig,
   InlineBedrockModelConfigurations,
   InlineSessionState,
   InlineSessionStateFilterSensitiveLog,
@@ -38,17 +39,19 @@ import {
   InternalServerException,
   InvocationResultMember,
   InvocationResultMemberFilterSensitiveLog,
-  OrchestrationConfiguration,
-  OrchestrationConfigurationFilterSensitiveLog,
   OrchestrationType,
+  PerformanceConfiguration,
   PromptCreationConfigurations,
   PromptOverrideConfiguration,
+  PromptTemplate,
+  PromptTemplateFilterSensitiveLog,
   ResourceNotFoundException,
   RetrievalResultContent,
   RetrievalResultLocation,
   RetrieveAndGenerateInput,
-  RetrieveAndGenerateSessionConfiguration,
-  RetrieveAndGenerateType,
+  RetrievedReference,
+  RetrievedReferenceFilterSensitiveLog,
+  S3ObjectDoc,
   SearchType,
   ServiceQuotaExceededException,
   StreamingConfigurations,
@@ -57,6 +60,284 @@ import {
   VectorSearchRerankingConfiguration,
   VectorSearchRerankingConfigurationFilterSensitiveLog,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalSourceType = {
+  BYTE_CONTENT: "BYTE_CONTENT",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalSourceType = (typeof ExternalSourceType)[keyof typeof ExternalSourceType];
+
+/**
+ * <p>The unique external source of the content contained in the wrapper object.</p>
+ * @public
+ */
+export interface ExternalSource {
+  /**
+   * <p>The source type of the external source wrapper object.</p>
+   * @public
+   */
+  sourceType: ExternalSourceType | undefined;
+
+  /**
+   * <p>The S3 location of the external source wrapper object.</p>
+   * @public
+   */
+  s3Location?: S3ObjectDoc | undefined;
+
+  /**
+   * <p>The identifier, contentType, and data of the external source wrapper object.</p>
+   * @public
+   */
+  byteContent?: ByteContentDoc | undefined;
+}
+
+/**
+ * <p>The configurations of the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+ * @public
+ */
+export interface ExternalSourcesRetrieveAndGenerateConfiguration {
+  /**
+   * <p>The model Amazon Resource Name (ARN) for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The document for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  sources: ExternalSource[] | undefined;
+
+  /**
+   * <p>The prompt used with the external source wrapper object with the <code>retrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  generationConfiguration?: ExternalSourcesGenerationConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for response generation based on the knowledge base query results.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> </p> </li> </ul>
+ * @public
+ */
+export interface GenerationConfiguration {
+  /**
+   * <p>Contains the template for the prompt that's sent to the model for response generation. Generation prompts must include the <code>$search_results$</code> variable. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
+   * @public
+   */
+  promptTemplate?: PromptTemplate | undefined;
+
+  /**
+   * <p>The configuration details for the guardrail.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
+
+  /**
+   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
+   * @public
+   */
+  inferenceConfig?: InferenceConfig | undefined;
+
+  /**
+   * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>The latency configuration for the model.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryTransformationType = {
+  QUERY_DECOMPOSITION: "QUERY_DECOMPOSITION",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryTransformationType = (typeof QueryTransformationType)[keyof typeof QueryTransformationType];
+
+/**
+ * <p>To split up the prompt and retrieve multiple sources, set the transformation type to <code>QUERY_DECOMPOSITION</code>.</p>
+ * @public
+ */
+export interface QueryTransformationConfiguration {
+  /**
+   * <p>The type of transformation to apply to the prompt.</p>
+   * @public
+   */
+  type: QueryTransformationType | undefined;
+}
+
+/**
+ * <p>Settings for how the model processes the prompt prior to retrieval and generation.</p>
+ * @public
+ */
+export interface OrchestrationConfiguration {
+  /**
+   * <p>Contains the template for the prompt that's sent to the model. Orchestration prompts must include the <code>$conversation_history$</code> and <code>$output_format_instructions$</code> variables. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
+   * @public
+   */
+  promptTemplate?: PromptTemplate | undefined;
+
+  /**
+   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
+   * @public
+   */
+  inferenceConfig?: InferenceConfig | undefined;
+
+  /**
+   * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>To split up the prompt and retrieve multiple sources, set the transformation type to <code>QUERY_DECOMPOSITION</code>.</p>
+   * @public
+   */
+  queryTransformationConfiguration?: QueryTransformationConfiguration | undefined;
+
+  /**
+   * <p>The latency configuration for the model.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrieveAndGenerateType = {
+  EXTERNAL_SOURCES: "EXTERNAL_SOURCES",
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+} as const;
+
+/**
+ * @public
+ */
+export type RetrieveAndGenerateType = (typeof RetrieveAndGenerateType)[keyof typeof RetrieveAndGenerateType];
+
+/**
+ * <p>Contains configuration about the session with the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>sessionConfiguration</code> field</p> </li> </ul>
+ * @public
+ */
+export interface RetrieveAndGenerateSessionConfiguration {
+  /**
+   * <p>The ARN of the KMS key encrypting the session.</p>
+   * @public
+   */
+  kmsKeyArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuadrailAction = {
+  INTERVENED: "INTERVENED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuadrailAction = (typeof GuadrailAction)[keyof typeof GuadrailAction];
+
+/**
+ * <p>Contains the response generated from querying the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>output</code> field</p> </li> </ul>
+ * @public
+ */
+export interface RetrieveAndGenerateOutput {
+  /**
+   * <p>The response generated from querying the knowledge base.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveAndGenerateResponse {
+  /**
+   * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Contains the response generated from querying the knowledge base.</p>
+   * @public
+   */
+  output: RetrieveAndGenerateOutput | undefined;
+
+  /**
+   * <p>A list of segments of the generated response that are based on sources in the knowledge base, alongside information about the sources.</p>
+   * @public
+   */
+  citations?: Citation[] | undefined;
+
+  /**
+   * <p>Specifies if there is a guardrail intervention in the response.</p>
+   * @public
+   */
+  guardrailAction?: GuadrailAction | undefined;
+}
+
+/**
+ * <p>A citation event.</p>
+ * @public
+ */
+export interface CitationEvent {
+  /**
+   * <p>The citation.</p>
+   *
+   * @deprecated
+   * @public
+   */
+  citation?: Citation | undefined;
+
+  /**
+   * <p>The generated response to the citation event.</p>
+   * @public
+   */
+  generatedResponsePart?: GeneratedResponsePart | undefined;
+
+  /**
+   * <p>The retrieved references of the citation event.</p>
+   * @public
+   */
+  retrievedReferences?: RetrievedReference[] | undefined;
+}
+
+/**
+ * <p>A guardrail event.</p>
+ * @public
+ */
+export interface GuardrailEvent {
+  /**
+   * <p>The guardrail action.</p>
+   * @public
+   */
+  action?: GuadrailAction | undefined;
+}
 
 /**
  * <p>A retrieve and generate output event.</p>
@@ -2255,6 +2536,73 @@ export interface InvokeInlineAgentRequest {
    */
   customOrchestration?: CustomOrchestration | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ExternalSourceFilterSensitiveLog = (obj: ExternalSource): any => ({
+  ...obj,
+  ...(obj.byteContent && { byteContent: ByteContentDocFilterSensitiveLog(obj.byteContent) }),
+});
+
+/**
+ * @internal
+ */
+export const ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog = (
+  obj: ExternalSourcesRetrieveAndGenerateConfiguration
+): any => ({
+  ...obj,
+  ...(obj.sources && { sources: obj.sources.map((item) => ExternalSourceFilterSensitiveLog(item)) }),
+  ...(obj.generationConfiguration && {
+    generationConfiguration: ExternalSourcesGenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GenerationConfigurationFilterSensitiveLog = (obj: GenerationConfiguration): any => ({
+  ...obj,
+  ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const OrchestrationConfigurationFilterSensitiveLog = (obj: OrchestrationConfiguration): any => ({
+  ...obj,
+  ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateOutputFilterSensitiveLog = (obj: RetrieveAndGenerateOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateResponseFilterSensitiveLog = (obj: RetrieveAndGenerateResponse): any => ({
+  ...obj,
+  ...(obj.output && { output: SENSITIVE_STRING }),
+  ...(obj.citations && { citations: obj.citations.map((item) => CitationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CitationEventFilterSensitiveLog = (obj: CitationEvent): any => ({
+  ...obj,
+  ...(obj.citation && { citation: CitationFilterSensitiveLog(obj.citation) }),
+  ...(obj.generatedResponsePart && {
+    generatedResponsePart: GeneratedResponsePartFilterSensitiveLog(obj.generatedResponsePart),
+  }),
+  ...(obj.retrievedReferences && {
+    retrievedReferences: obj.retrievedReferences.map((item) => RetrievedReferenceFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal
