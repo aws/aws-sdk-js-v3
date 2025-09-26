@@ -109,6 +109,15 @@ export interface ModifyRedshiftIdcApplicationCommandOutput
  * //         ],
  * //       },
  * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     SsoTagKeys: [ // TagKeyList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

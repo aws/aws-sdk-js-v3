@@ -9587,6 +9587,26 @@ const se_CreateRedshiftIdcApplicationMessage = (
       entries[loc] = value;
     });
   }
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_STK] != null) {
+    const memberEntries = se_TagKeyList(input[_STK], context);
+    if (input[_STK]?.length === 0) {
+      entries.SsoTagKeys = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SsoTagKeys.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -17600,6 +17620,16 @@ const de_RedshiftIdcApplication = (output: any, context: __SerdeContext): Redshi
   } else if (output[_SIe] != null && output[_SIe][_me] != null) {
     contents[_SIe] = de_ServiceIntegrationList(__getArrayIfSingleItem(output[_SIe][_me]), context);
   }
+  if (String(output.Tags).trim() === "") {
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_Ta] != null) {
+    contents[_T] = de_TagList(__getArrayIfSingleItem(output[_T][_Ta]), context);
+  }
+  if (String(output.SsoTagKeys).trim() === "") {
+    contents[_STK] = [];
+  } else if (output[_STK] != null && output[_STK][_TKa] != null) {
+    contents[_STK] = de_TagKeyList(__getArrayIfSingleItem(output[_STK][_TKa]), context);
+  }
   return contents;
 };
 
@@ -19308,6 +19338,17 @@ const de_TaggedResourceListMessage = (output: any, context: __SerdeContext): Tag
 };
 
 /**
+ * deserializeAws_queryTagKeyList
+ */
+const de_TagKeyList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_queryTagLimitExceededFault
  */
 const de_TagLimitExceededFault = (output: any, context: __SerdeContext): TagLimitExceededFault => {
@@ -20205,6 +20246,7 @@ const _SSn = "SnapshotSchedule";
 const _SSu = "SubnetStatus";
 const _ST = "SourceType";
 const _STA = "SnsTopicArn";
+const _STK = "SsoTagKeys";
 const _STN = "SourceTableName";
 const _STn = "SnapshotType";
 const _STna = "SnapshotTime";
@@ -20228,6 +20270,7 @@ const _TDIMB = "TotalDataInMegaBytes";
 const _TDN = "TargetDatabaseName";
 const _TET = "TargetEncryptionType";
 const _TK = "TagKeys";
+const _TKa = "TagKey";
 const _TL = "TagList";
 const _TNON = "TargetNumberOfNodes";
 const _TNT = "TargetNodeType";

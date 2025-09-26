@@ -6812,6 +6812,20 @@ export interface CreateRedshiftIdcApplicationMessage {
    * @public
    */
   ServiceIntegrations?: ServiceIntegrationsUnion[] | undefined;
+
+  /**
+   * <p>A list of tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A list of tags keys that Redshift Identity Center applications copy to IAM Identity
+   *             Center. For each input key, the tag corresponding to the key-value pair is
+   *             propagated.</p>
+   * @public
+   */
+  SsoTagKeys?: string[] | undefined;
 }
 
 /**
@@ -6878,6 +6892,20 @@ export interface RedshiftIdcApplication {
    * @public
    */
   ServiceIntegrations?: ServiceIntegrationsUnion[] | undefined;
+
+  /**
+   * <p>A list of tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A list of tags keys that Redshift Identity Center applications copy to IAM Identity
+   *             Center. For each input key, the tag corresponding to the key-value pair is
+   *             propagated.</p>
+   * @public
+   */
+  SsoTagKeys?: string[] | undefined;
 }
 
 /**
