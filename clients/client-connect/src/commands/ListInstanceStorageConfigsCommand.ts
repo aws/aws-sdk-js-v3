@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListInstanceStorageConfigsRequest } from "../models/models_1";
-import { ListInstanceStorageConfigsResponse } from "../models/models_2";
+import { ListInstanceStorageConfigsRequest, ListInstanceStorageConfigsResponse } from "../models/models_2";
 import { de_ListInstanceStorageConfigsCommand, se_ListInstanceStorageConfigsCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -67,6 +67,10 @@ import {
 } from "./commands/AssociateApprovedOriginCommand";
 import { AssociateBotCommandInput, AssociateBotCommandOutput } from "./commands/AssociateBotCommand";
 import {
+  AssociateContactWithUserCommandInput,
+  AssociateContactWithUserCommandOutput,
+} from "./commands/AssociateContactWithUserCommand";
+import {
   AssociateDefaultVocabularyCommandInput,
   AssociateDefaultVocabularyCommandOutput,
 } from "./commands/AssociateDefaultVocabularyCommand";
@@ -517,6 +521,10 @@ import {
   ListRealtimeContactAnalysisSegmentsV2CommandOutput,
 } from "./commands/ListRealtimeContactAnalysisSegmentsV2Command";
 import {
+  ListRoutingProfileManualAssignmentQueuesCommandInput,
+  ListRoutingProfileManualAssignmentQueuesCommandOutput,
+} from "./commands/ListRoutingProfileManualAssignmentQueuesCommand";
+import {
   ListRoutingProfileQueuesCommandInput,
   ListRoutingProfileQueuesCommandOutput,
 } from "./commands/ListRoutingProfileQueuesCommand";
@@ -877,6 +885,7 @@ export type ServiceInputTypes =
   | AssociateAnalyticsDataSetCommandInput
   | AssociateApprovedOriginCommandInput
   | AssociateBotCommandInput
+  | AssociateContactWithUserCommandInput
   | AssociateDefaultVocabularyCommandInput
   | AssociateFlowCommandInput
   | AssociateInstanceStorageConfigCommandInput
@@ -1039,6 +1048,7 @@ export type ServiceInputTypes =
   | ListQueuesCommandInput
   | ListQuickConnectsCommandInput
   | ListRealtimeContactAnalysisSegmentsV2CommandInput
+  | ListRoutingProfileManualAssignmentQueuesCommandInput
   | ListRoutingProfileQueuesCommandInput
   | ListRoutingProfilesCommandInput
   | ListRulesCommandInput
@@ -1165,6 +1175,7 @@ export type ServiceOutputTypes =
   | AssociateAnalyticsDataSetCommandOutput
   | AssociateApprovedOriginCommandOutput
   | AssociateBotCommandOutput
+  | AssociateContactWithUserCommandOutput
   | AssociateDefaultVocabularyCommandOutput
   | AssociateFlowCommandOutput
   | AssociateInstanceStorageConfigCommandOutput
@@ -1327,6 +1338,7 @@ export type ServiceOutputTypes =
   | ListQueuesCommandOutput
   | ListQuickConnectsCommandOutput
   | ListRealtimeContactAnalysisSegmentsV2CommandOutput
+  | ListRoutingProfileManualAssignmentQueuesCommandOutput
   | ListRoutingProfileQueuesCommandOutput
   | ListRoutingProfilesCommandOutput
   | ListRulesCommandOutput

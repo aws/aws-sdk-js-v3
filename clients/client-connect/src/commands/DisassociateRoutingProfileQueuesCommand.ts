@@ -45,8 +45,14 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  * const input = { // DisassociateRoutingProfileQueuesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   RoutingProfileId: "STRING_VALUE", // required
- *   QueueReferences: [ // RoutingProfileQueueReferenceList // required
+ *   QueueReferences: [ // RoutingProfileQueueReferenceList
  *     { // RoutingProfileQueueReference
+ *       QueueId: "STRING_VALUE", // required
+ *       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
+ *     },
+ *   ],
+ *   ManualAssignmentQueueReferences: [
+ *     {
  *       QueueId: "STRING_VALUE", // required
  *       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  *     },

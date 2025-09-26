@@ -50,6 +50,10 @@ import {
 } from "../commands/AssociateApprovedOriginCommand";
 import { AssociateBotCommandInput, AssociateBotCommandOutput } from "../commands/AssociateBotCommand";
 import {
+  AssociateContactWithUserCommandInput,
+  AssociateContactWithUserCommandOutput,
+} from "../commands/AssociateContactWithUserCommand";
+import {
   AssociateDefaultVocabularyCommandInput,
   AssociateDefaultVocabularyCommandOutput,
 } from "../commands/AssociateDefaultVocabularyCommand";
@@ -500,6 +504,10 @@ import {
   ListRealtimeContactAnalysisSegmentsV2CommandOutput,
 } from "../commands/ListRealtimeContactAnalysisSegmentsV2Command";
 import {
+  ListRoutingProfileManualAssignmentQueuesCommandInput,
+  ListRoutingProfileManualAssignmentQueuesCommandOutput,
+} from "../commands/ListRoutingProfileManualAssignmentQueuesCommand";
+import {
   ListRoutingProfileQueuesCommandInput,
   ListRoutingProfileQueuesCommandOutput,
 } from "../commands/ListRoutingProfileQueuesCommand";
@@ -930,6 +938,7 @@ import {
   ResourceInUseException,
   ResourceNotFoundException,
   ResourceNotReadyException,
+  RoutingProfileManualAssignmentQueueConfig,
   RoutingProfileQueueConfig,
   RoutingProfileQueueReference,
   RuleAction,
@@ -1004,7 +1013,6 @@ import {
   HoursOfOperation,
   HoursOfOperationSummary,
   Instance,
-  InstanceSummary,
   IntervalDetails,
   MatchCriteria,
   MetricDataV2,
@@ -1045,12 +1053,10 @@ import {
   ChatMessage,
   ChatStreamingConfiguration,
   Condition,
-  ConditionalOperationFailedException,
   ContactAnalysis,
   ContactFlowModuleSearchFilter,
   ContactFlowSearchFilter,
   ContactNotFoundException,
-  ContactSearchSummary,
   ContactSearchSummaryAgentInfo,
   ContactSearchSummaryQueueInfo,
   ControlPlaneTagFilter,
@@ -1068,8 +1074,10 @@ import {
   InboundAdditionalRecipients,
   InboundEmailContent,
   InboundRawMessage,
+  InstanceSummary,
   ListCondition,
   MaximumResultReturnedException,
+  NameCriteria,
   NewSessionDetails,
   NumberCondition,
   OutboundAdditionalRecipients,
@@ -1098,11 +1106,17 @@ import {
   RoutingProfileSearchFilter,
   RoutingProfileSummary,
   RuleSummary,
+  SearchableAgentCriteriaStep,
   SearchableContactAttributes,
   SearchableContactAttributesCriteria,
+  SearchableRoutingCriteria,
+  SearchableRoutingCriteriaStep,
   SearchableSegmentAttributes,
   SearchableSegmentAttributesCriteria,
+  SearchContactsAdditionalTimeRange,
+  SearchContactsAdditionalTimeRangeCriteria,
   SearchContactsTimeRange,
+  SearchContactsTimestampCondition,
   SearchCriteria,
   SecurityKey,
   SecurityProfilesSearchFilter,
@@ -1124,9 +1138,12 @@ import {
 import {
   AgentStatusSearchCriteria,
   ChatParticipantRoleConfig,
+  ConditionalOperationFailedException,
   Contact,
   ContactFlowModuleSearchCriteria,
   ContactFlowSearchCriteria,
+  ContactSearchSummary,
+  ContactSearchSummarySegmentAttributeValue,
   EmailAddressSearchCriteria,
   EvaluationForm,
   EvaluationFormContent,
@@ -1249,6 +1266,30 @@ export const se_AssociateBotCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateContactWithUserCommand
+ */
+export const se_AssociateContactWithUserCommand = async (
+  input: AssociateContactWithUserCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contacts/{InstanceId}/{ContactId}/associate-user");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      UserId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1439,6 +1480,7 @@ export const se_AssociateRoutingProfileQueuesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ManualAssignmentQueueConfigs: (_) => _json(_),
       QueueConfigs: (_) => _json(_),
     })
   );
@@ -2202,6 +2244,7 @@ export const se_CreateRoutingProfileCommand = async (
       AgentAvailabilityTimer: [],
       DefaultOutboundQueueId: [],
       Description: [],
+      ManualAssignmentQueueConfigs: (_) => _json(_),
       MediaConcurrencies: (_) => _json(_),
       Name: [],
       QueueConfigs: (_) => _json(_),
@@ -3657,6 +3700,7 @@ export const se_DisassociateRoutingProfileQueuesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ManualAssignmentQueueReferences: (_) => _json(_),
       QueueReferences: (_) => _json(_),
     })
   );
@@ -4739,6 +4783,27 @@ export const se_ListRealtimeContactAnalysisSegmentsV2Command = async (
 };
 
 /**
+ * serializeAws_restJson1ListRoutingProfileManualAssignmentQueuesCommand
+ */
+export const se_ListRoutingProfileManualAssignmentQueuesCommand = async (
+  input: ListRoutingProfileManualAssignmentQueuesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}/manual-assignment-queues");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListRoutingProfileQueuesCommand
  */
 export const se_ListRoutingProfileQueuesCommand = async (
@@ -5376,7 +5441,7 @@ export const se_SearchContactsCommand = async (
       InstanceId: [],
       MaxResults: [],
       NextToken: [],
-      SearchCriteria: (_) => _json(_),
+      SearchCriteria: (_) => se_SearchCriteria(_, context),
       Sort: (_) => _json(_),
       TimeRange: (_) => se_SearchContactsTimeRange(_, context),
     })
@@ -7740,6 +7805,23 @@ export const de_AssociateBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateBotCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateContactWithUserCommand
+ */
+export const de_AssociateContactWithUserCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateContactWithUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -11069,6 +11151,30 @@ export const de_ListRealtimeContactAnalysisSegmentsV2Command = async (
     NextToken: __expectString,
     Segments: (_) => de_RealtimeContactAnalysisSegments(_, context),
     Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRoutingProfileManualAssignmentQueuesCommand
+ */
+export const de_ListRoutingProfileManualAssignmentQueuesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRoutingProfileManualAssignmentQueuesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextToken: __expectString,
+    RoutingProfileManualAssignmentQueueConfigSummaryList: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -14625,6 +14731,8 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
   });
 };
 
+// se_NameCriteria omitted.
+
 // se_NewSessionDetails omitted.
 
 // se_NotificationRecipientType omitted.
@@ -14848,6 +14956,10 @@ const se_RoutingCriteriaInputSteps = (input: RoutingCriteriaInputStep[], context
 
 // se_RoutingExpressions omitted.
 
+// se_RoutingProfileManualAssignmentQueueConfig omitted.
+
+// se_RoutingProfileManualAssignmentQueueConfigList omitted.
+
 // se_RoutingProfileQueueConfig omitted.
 
 // se_RoutingProfileQueueConfigList omitted.
@@ -14915,6 +15027,8 @@ const se_RuleActions = (input: RuleAction[], context: __SerdeContext): any => {
 
 // se_S3Config omitted.
 
+// se_SearchableAgentCriteriaStep omitted.
+
 // se_SearchableContactAttributes omitted.
 
 // se_SearchableContactAttributesCriteria omitted.
@@ -14923,6 +15037,12 @@ const se_RuleActions = (input: RuleAction[], context: __SerdeContext): any => {
 
 // se_SearchableContactAttributeValueList omitted.
 
+// se_SearchableRoutingCriteria omitted.
+
+// se_SearchableRoutingCriteriaStep omitted.
+
+// se_SearchableRoutingCriteriaStepList omitted.
+
 // se_SearchableSegmentAttributes omitted.
 
 // se_SearchableSegmentAttributesCriteria omitted.
@@ -14930,6 +15050,46 @@ const se_RuleActions = (input: RuleAction[], context: __SerdeContext): any => {
 // se_SearchableSegmentAttributesCriteriaList omitted.
 
 // se_SearchableSegmentAttributeValueList omitted.
+
+/**
+ * serializeAws_restJson1SearchContactsAdditionalTimeRange
+ */
+const se_SearchContactsAdditionalTimeRange = (
+  input: SearchContactsAdditionalTimeRange,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Criteria: (_) => se_SearchContactsAdditionalTimeRangeCriteriaList(_, context),
+    MatchType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1SearchContactsAdditionalTimeRangeCriteria
+ */
+const se_SearchContactsAdditionalTimeRangeCriteria = (
+  input: SearchContactsAdditionalTimeRangeCriteria,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    TimeRange: (_) => se_SearchContactsTimeRange(_, context),
+    TimestampCondition: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1SearchContactsAdditionalTimeRangeCriteriaList
+ */
+const se_SearchContactsAdditionalTimeRangeCriteriaList = (
+  input: SearchContactsAdditionalTimeRangeCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SearchContactsAdditionalTimeRangeCriteria(entry, context);
+    });
+};
 
 /**
  * serializeAws_restJson1SearchContactsTimeRange
@@ -14942,7 +15102,26 @@ const se_SearchContactsTimeRange = (input: SearchContactsTimeRange, context: __S
   });
 };
 
-// se_SearchCriteria omitted.
+// se_SearchContactsTimestampCondition omitted.
+
+/**
+ * serializeAws_restJson1SearchCriteria
+ */
+const se_SearchCriteria = (input: SearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AdditionalTimeRange: (_) => se_SearchContactsAdditionalTimeRange(_, context),
+    AgentHierarchyGroups: _json,
+    AgentIds: _json,
+    Channels: _json,
+    ContactAnalysis: _json,
+    InitiationMethods: _json,
+    Name: _json,
+    QueueIds: _json,
+    RoutingCriteria: _json,
+    SearchableContactAttributes: _json,
+    SearchableSegmentAttributes: _json,
+  });
+};
 
 // se_SearchTextList omitted.
 
@@ -15770,10 +15949,12 @@ const de_ContactSearchSummary = (output: any, context: __SerdeContext): ContactS
     InitialContactId: __expectString,
     InitiationMethod: __expectString,
     InitiationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
     PreviousContactId: __expectString,
     QueueInfo: (_: any) => de_ContactSearchSummaryQueueInfo(_, context),
+    RoutingCriteria: (_: any) => de_RoutingCriteria(_, context),
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    SegmentAttributes: _json,
+    SegmentAttributes: (_: any) => de_ContactSearchSummarySegmentAttributes(_, context),
   }) as any;
 };
 
@@ -15797,9 +15978,37 @@ const de_ContactSearchSummaryQueueInfo = (output: any, context: __SerdeContext):
   }) as any;
 };
 
-// de_ContactSearchSummarySegmentAttributes omitted.
+/**
+ * deserializeAws_restJson1ContactSearchSummarySegmentAttributes
+ */
+const de_ContactSearchSummarySegmentAttributes = (
+  output: any,
+  context: __SerdeContext
+): Record<string, ContactSearchSummarySegmentAttributeValue> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, ContactSearchSummarySegmentAttributeValue>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key as string] = de_ContactSearchSummarySegmentAttributeValue(value, context);
+      return acc;
+    },
+    {} as Record<string, ContactSearchSummarySegmentAttributeValue>
+  );
+};
 
-// de_ContactSearchSummarySegmentAttributeValue omitted.
+/**
+ * deserializeAws_restJson1ContactSearchSummarySegmentAttributeValue
+ */
+const de_ContactSearchSummarySegmentAttributeValue = (
+  output: any,
+  context: __SerdeContext
+): ContactSearchSummarySegmentAttributeValue => {
+  return take(output, {
+    ValueMap: (_: any) => de_SegmentAttributeValueMap(_, context),
+    ValueString: __expectString,
+  }) as any;
+};
 
 // de_ContactTagMap omitted.
 
@@ -17252,6 +17461,7 @@ const de_RoutingCriteria = (output: any, context: __SerdeContext): RoutingCriter
 const de_RoutingProfile = (output: any, context: __SerdeContext): RoutingProfile => {
   return take(output, {
     AgentAvailabilityTimer: __expectString,
+    AssociatedManualAssignmentQueueIds: _json,
     AssociatedQueueIds: _json,
     DefaultOutboundQueueId: __expectString,
     Description: __expectString,
@@ -17261,6 +17471,7 @@ const de_RoutingProfile = (output: any, context: __SerdeContext): RoutingProfile
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     MediaConcurrencies: _json,
     Name: __expectString,
+    NumberOfAssociatedManualAssignmentQueues: __expectLong,
     NumberOfAssociatedQueues: __expectLong,
     NumberOfAssociatedUsers: __expectLong,
     RoutingProfileArn: __expectString,
@@ -17280,6 +17491,10 @@ const de_RoutingProfileList = (output: any, context: __SerdeContext): RoutingPro
     });
   return retVal;
 };
+
+// de_RoutingProfileManualAssignmentQueueConfigSummary omitted.
+
+// de_RoutingProfileManualAssignmentQueueConfigSummaryList omitted.
 
 // de_RoutingProfileQueueConfigSummary omitted.
 

@@ -52,6 +52,14 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  *       Delay: Number("int"), // required
  *     },
  *   ],
+ *   ManualAssignmentQueueConfigs: [ // RoutingProfileManualAssignmentQueueConfigList
+ *     { // RoutingProfileManualAssignmentQueueConfig
+ *       QueueReference: {
+ *         QueueId: "STRING_VALUE", // required
+ *         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
+ *       },
+ *     },
+ *   ],
  *   MediaConcurrencies: [ // MediaConcurrencies // required
  *     { // MediaConcurrency
  *       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required

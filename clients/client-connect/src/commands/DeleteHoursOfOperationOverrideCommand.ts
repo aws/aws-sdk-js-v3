@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteHoursOfOperationOverrideRequest } from "../models/models_0";
+import { DeleteHoursOfOperationOverrideRequest } from "../models/models_1";
 import {
   de_DeleteHoursOfOperationOverrideCommand,
   se_DeleteHoursOfOperationOverrideCommand,

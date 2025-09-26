@@ -23,6 +23,11 @@ import {
   AssociateBotCommandOutput,
 } from "./commands/AssociateBotCommand";
 import {
+  AssociateContactWithUserCommand,
+  AssociateContactWithUserCommandInput,
+  AssociateContactWithUserCommandOutput,
+} from "./commands/AssociateContactWithUserCommand";
+import {
   AssociateDefaultVocabularyCommand,
   AssociateDefaultVocabularyCommandInput,
   AssociateDefaultVocabularyCommandOutput,
@@ -785,6 +790,11 @@ import {
   ListRealtimeContactAnalysisSegmentsV2CommandOutput,
 } from "./commands/ListRealtimeContactAnalysisSegmentsV2Command";
 import {
+  ListRoutingProfileManualAssignmentQueuesCommand,
+  ListRoutingProfileManualAssignmentQueuesCommandInput,
+  ListRoutingProfileManualAssignmentQueuesCommandOutput,
+} from "./commands/ListRoutingProfileManualAssignmentQueuesCommand";
+import {
   ListRoutingProfileQueuesCommand,
   ListRoutingProfileQueuesCommandInput,
   ListRoutingProfileQueuesCommandOutput,
@@ -1344,6 +1354,7 @@ const commands = {
   AssociateAnalyticsDataSetCommand,
   AssociateApprovedOriginCommand,
   AssociateBotCommand,
+  AssociateContactWithUserCommand,
   AssociateDefaultVocabularyCommand,
   AssociateFlowCommand,
   AssociateInstanceStorageConfigCommand,
@@ -1506,6 +1517,7 @@ const commands = {
   ListQueuesCommand,
   ListQuickConnectsCommand,
   ListRealtimeContactAnalysisSegmentsV2Command,
+  ListRoutingProfileManualAssignmentQueuesCommand,
   ListRoutingProfileQueuesCommand,
   ListRoutingProfilesCommand,
   ListRulesCommand,
@@ -1686,6 +1698,23 @@ export interface Connect {
     args: AssociateBotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateBotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateContactWithUserCommand}
+   */
+  associateContactWithUser(
+    args: AssociateContactWithUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateContactWithUserCommandOutput>;
+  associateContactWithUser(
+    args: AssociateContactWithUserCommandInput,
+    cb: (err: any, data?: AssociateContactWithUserCommandOutput) => void
+  ): void;
+  associateContactWithUser(
+    args: AssociateContactWithUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateContactWithUserCommandOutput) => void
   ): void;
 
   /**
@@ -4262,6 +4291,23 @@ export interface Connect {
     args: ListRealtimeContactAnalysisSegmentsV2CommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRealtimeContactAnalysisSegmentsV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRoutingProfileManualAssignmentQueuesCommand}
+   */
+  listRoutingProfileManualAssignmentQueues(
+    args: ListRoutingProfileManualAssignmentQueuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoutingProfileManualAssignmentQueuesCommandOutput>;
+  listRoutingProfileManualAssignmentQueues(
+    args: ListRoutingProfileManualAssignmentQueuesCommandInput,
+    cb: (err: any, data?: ListRoutingProfileManualAssignmentQueuesCommandOutput) => void
+  ): void;
+  listRoutingProfileManualAssignmentQueues(
+    args: ListRoutingProfileManualAssignmentQueuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoutingProfileManualAssignmentQueuesCommandOutput) => void
   ): void;
 
   /**

@@ -10,7 +10,7 @@ import {
   UpdateEmailAddressMetadataRequest,
   UpdateEmailAddressMetadataRequestFilterSensitiveLog,
   UpdateEmailAddressMetadataResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_UpdateEmailAddressMetadataCommand, se_UpdateEmailAddressMetadataCommand } from "../protocols/Aws_restJson1";
 
 /**

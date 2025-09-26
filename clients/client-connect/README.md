@@ -260,6 +260,14 @@ AssociateBot
 </details>
 <details>
 <summary>
+AssociateContactWithUser
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/AssociateContactWithUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/AssociateContactWithUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/AssociateContactWithUserCommandOutput/)
+
+</details>
+<details>
+<summary>
 AssociateDefaultVocabulary
 </summary>
 
@@ -1552,6 +1560,14 @@ ListRealtimeContactAnalysisSegmentsV2
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListRealtimeContactAnalysisSegmentsV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListRealtimeContactAnalysisSegmentsV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListRealtimeContactAnalysisSegmentsV2CommandOutput/)
+
+</details>
+<details>
+<summary>
+ListRoutingProfileManualAssignmentQueues
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListRoutingProfileManualAssignmentQueuesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListRoutingProfileManualAssignmentQueuesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListRoutingProfileManualAssignmentQueuesCommandOutput/)
 
 </details>
 <details>

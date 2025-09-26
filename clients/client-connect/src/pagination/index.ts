@@ -36,6 +36,7 @@ export * from "./ListQueueQuickConnectsPaginator";
 export * from "./ListQueuesPaginator";
 export * from "./ListQuickConnectsPaginator";
 export * from "./ListRealtimeContactAnalysisSegmentsV2Paginator";
+export * from "./ListRoutingProfileManualAssignmentQueuesPaginator";
 export * from "./ListRoutingProfileQueuesPaginator";
 export * from "./ListRoutingProfilesPaginator";
 export * from "./ListRulesPaginator";

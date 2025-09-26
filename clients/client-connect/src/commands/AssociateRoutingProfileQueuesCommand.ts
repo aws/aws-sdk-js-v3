@@ -43,7 +43,7 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  * const input = { // AssociateRoutingProfileQueuesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   RoutingProfileId: "STRING_VALUE", // required
- *   QueueConfigs: [ // RoutingProfileQueueConfigList // required
+ *   QueueConfigs: [ // RoutingProfileQueueConfigList
  *     { // RoutingProfileQueueConfig
  *       QueueReference: { // RoutingProfileQueueReference
  *         QueueId: "STRING_VALUE", // required
@@ -51,6 +51,14 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  *       },
  *       Priority: Number("int"), // required
  *       Delay: Number("int"), // required
+ *     },
+ *   ],
+ *   ManualAssignmentQueueConfigs: [ // RoutingProfileManualAssignmentQueueConfigList
+ *     { // RoutingProfileManualAssignmentQueueConfig
+ *       QueueReference: {
+ *         QueueId: "STRING_VALUE", // required
+ *         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
+ *       },
  *     },
  *   ],
  * };

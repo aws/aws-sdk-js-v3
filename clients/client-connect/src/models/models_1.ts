@@ -68,6 +68,66 @@ import {
 /**
  * @public
  */
+export interface DeleteHoursOfOperationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHoursOfOperationOverrideRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation override.</p>
+   * @public
+   */
+  HoursOfOperationOverrideId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstanceRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteIntegrationAssociationRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3262,6 +3322,12 @@ export interface RoutingProfile {
   NumberOfAssociatedQueues?: number | undefined;
 
   /**
+   * <p>The number of associated manual assignment queues in routing profile.</p>
+   * @public
+   */
+  NumberOfAssociatedManualAssignmentQueues?: number | undefined;
+
+  /**
    * <p>The number of associated users in routing profile.</p>
    * @public
    */
@@ -3298,6 +3364,12 @@ export interface RoutingProfile {
    * @public
    */
   AssociatedQueueIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the associated manual assignment queues.</p>
+   * @public
+   */
+  AssociatedManualAssignmentQueueIds?: string[] | undefined;
 }
 
 /**
@@ -4409,7 +4481,13 @@ export interface DisassociateRoutingProfileQueuesRequest {
    * <p>The queues to disassociate from this routing profile.</p>
    * @public
    */
-  QueueReferences: RoutingProfileQueueReference[] | undefined;
+  QueueReferences?: RoutingProfileQueueReference[] | undefined;
+
+  /**
+   * <p>The manual assignment queues to disassociate with this routing profile.</p>
+   * @public
+   */
+  ManualAssignmentQueueReferences?: RoutingProfileQueueReference[] | undefined;
 }
 
 /**
@@ -10270,119 +10348,6 @@ export interface ListInstancesRequest {
 }
 
 /**
- * <p>Information about the instance.</p>
- * @public
- */
-export interface InstanceSummary {
-  /**
-   * <p>The identifier of the instance.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The identity management type of the instance.</p>
-   * @public
-   */
-  IdentityManagementType?: DirectoryType | undefined;
-
-  /**
-   * <p>The alias of the instance.</p>
-   * @public
-   */
-  InstanceAlias?: string | undefined;
-
-  /**
-   * <p>When the instance was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The service role of the instance.</p>
-   * @public
-   */
-  ServiceRole?: string | undefined;
-
-  /**
-   * <p>The state of the instance.</p>
-   * @public
-   */
-  InstanceStatus?: InstanceStatus | undefined;
-
-  /**
-   * <p>Whether inbound calls are enabled.</p>
-   * @public
-   */
-  InboundCallsEnabled?: boolean | undefined;
-
-  /**
-   * <p>Whether outbound calls are enabled.</p>
-   * @public
-   */
-  OutboundCallsEnabled?: boolean | undefined;
-
-  /**
-   * <p>This URL allows contact center users to access the Amazon Connect admin website.</p>
-   * @public
-   */
-  InstanceAccessUrl?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInstancesResponse {
-  /**
-   * <p>Information about the instances.</p>
-   * @public
-   */
-  InstanceSummaryList?: InstanceSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInstanceStorageConfigsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A valid resource type.</p>
-   * @public
-   */
-  ResourceType: InstanceStorageResourceType | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
  * @internal
  */
 export const DescribeEmailAddressResponseFilterSensitiveLog = (obj: DescribeEmailAddressResponse): any => ({
@@ -10447,22 +10412,4 @@ export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
 export const GetFederationTokenResponseFilterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
   ...obj,
   ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InstanceSummaryFilterSensitiveLog = (obj: InstanceSummary): any => ({
-  ...obj,
-  ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListInstancesResponseFilterSensitiveLog = (obj: ListInstancesResponse): any => ({
-  ...obj,
-  ...(obj.InstanceSummaryList && {
-    InstanceSummaryList: obj.InstanceSummaryList.map((item) => InstanceSummaryFilterSensitiveLog(item)),
-  }),
 });

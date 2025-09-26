@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContactScheduleRequest, UpdateContactScheduleResponse } from "../models/models_2";
+import { UpdateContactScheduleRequest, UpdateContactScheduleResponse } from "../models/models_3";
 import { de_UpdateContactScheduleCommand, se_UpdateContactScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**

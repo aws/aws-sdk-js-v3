@@ -57,8 +57,8 @@ export interface GetContactMetricsCommandOutput extends GetContactMetricsRespons
  *      can't retrieve the position by using flows and attributes.</p>
  *             </li>
  *             <li>
- *                <p>For more information, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Position in queue</a> metric in the
- *        <i>Amazon Connect Administrator Guide</i>. </p>
+ *                <p>For more information, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Position in queue</a> metric in
+ *      the <i>Amazon Connect Administrator Guide</i>. </p>
  *             </li>
  *          </ul>
  *          <p>

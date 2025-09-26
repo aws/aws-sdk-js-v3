@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEvaluationFormResponse } from "../models/models_2";
-import { UpdateEvaluationFormRequest } from "../models/models_3";
+import { UpdateEvaluationFormRequest, UpdateEvaluationFormResponse } from "../models/models_3";
 import { de_UpdateEvaluationFormCommand, se_UpdateEvaluationFormCommand } from "../protocols/Aws_restJson1";
 
 /**
