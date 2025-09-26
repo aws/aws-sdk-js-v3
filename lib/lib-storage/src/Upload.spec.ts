@@ -862,6 +862,23 @@ describe(Upload.name, () => {
       }).toThrow(`The byte size for part number 1, size 0 does not match expected size ${MOCK_PART_SIZE}`);
     });
 
+    it("should use the user-specified partSize when provided, taking precedence over calculated partSize", () => {
+      const bigBuffer = Buffer.alloc(10);
+      const customPartSize = 50 * 1024 * 1024; // 50 MB
+
+      const upload = new Upload({
+        params: {
+          Key: "big-file",
+          Bucket: "bucket",
+          Body: bigBuffer,
+        },
+        partSize: customPartSize,
+        client: new S3({}),
+      });
+
+      expect((upload as any).partSize).toBe(customPartSize);
+    });
+
     it("should skip validation for single-part uploads", () => {
       const upload = new Upload({
         params,

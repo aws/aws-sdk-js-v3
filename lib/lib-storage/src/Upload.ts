@@ -93,7 +93,8 @@ export class Upload extends EventEmitter {
     this.bytesUploadedSoFar = 0;
     this.abortController = options.abortController ?? new AbortController();
 
-    this.partSize = Math.max(Upload.MIN_PART_SIZE, Math.floor((this.totalBytes || 0) / this.MAX_PARTS));
+    this.partSize =
+      options.partSize || Math.max(Upload.MIN_PART_SIZE, Math.floor((this.totalBytes || 0) / this.MAX_PARTS));
     this.expectedPartsCount = this.totalBytes !== undefined ? Math.ceil(this.totalBytes / this.partSize) : undefined;
 
     this.__validateInput();
