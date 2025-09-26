@@ -20,20 +20,15 @@ export const _pL = "predictedLabel";
 export const _pS = "predictedScores";
 export const _pV = "predictedValue";
 export const _s = "server";
+export const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.machinelearning";
 export const n0 = "com.amazonaws.machinelearning";
 
 // smithy-typescript generated code
-import { error } from "@smithy/core/schema";
+import { error, TypeRegistry } from "@smithy/core/schema";
 
 import { MachineLearningServiceException as __MachineLearningServiceException } from "../models/MachineLearningServiceException";
 
 /* eslint no-var: 0 */
 
-export var MachineLearningServiceException = error(
-  "smithy.ts.sdk.synthetic.com.amazonaws.machinelearning",
-  "MachineLearningServiceException",
-  0,
-  [],
-  [],
-  __MachineLearningServiceException
-);
+export var MachineLearningServiceException = error(_sm, "MachineLearningServiceException", 0, [], [], null);
+TypeRegistry.for(_sm).registerError(MachineLearningServiceException, __MachineLearningServiceException);
