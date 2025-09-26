@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.898.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.897.0...v3.898.0) (2025-09-26)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release enhances the information provided through Flow Traces. New information includes source/next node tracking, execution chains for complex nodes, dependency action (operation) details, and dependency traces. ([0444d5c](https://github.com/aws/aws-sdk-js-v3/commit/0444d5c2eaf52cb94e5afc8541b9bcf48abf16e8))
+
+
+
+
+
 # [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

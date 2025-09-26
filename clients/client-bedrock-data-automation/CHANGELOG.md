@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.898.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.897.0...v3.898.0) (2025-09-26)
+
+
+### Features
+
+* **client-bedrock-data-automation:** Added support for configurable Speaker Labeling and Channel Labeling features for Audio modality. ([c81765a](https://github.com/aws/aws-sdk-js-v3/commit/c81765a45af3bc12404df36deae130ab3021aef7))
+
+
+
+
+
 # [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-data-automation

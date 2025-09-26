@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.898.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.897.0...v3.898.0) (2025-09-26)
+
+
+### Features
+
+* **client-cost-explorer:** Support for payer account dimension and billing view health status. ([8ddf547](https://github.com/aws/aws-sdk-js-v3/commit/8ddf547e5444197fa0fd8f6a4907e07f60da4406))
+
+
+
+
+
 # [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-explorer

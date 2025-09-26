@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.898.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.897.0...v3.898.0) (2025-09-26)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release enhances the information provided through Flow Traces. New information includes source/next node tracking, execution chains for complex nodes, dependency action (operation) details, and dependency traces. ([0444d5c](https://github.com/aws/aws-sdk-js-v3/commit/0444d5c2eaf52cb94e5afc8541b9bcf48abf16e8))
+* **client-bedrock-data-automation:** Added support for configurable Speaker Labeling and Channel Labeling features for Audio modality. ([c81765a](https://github.com/aws/aws-sdk-js-v3/commit/c81765a45af3bc12404df36deae130ab3021aef7))
+* **client-billing:** Add ability to combine custom billing views to create new consolidated views. ([dcc6ea3](https://github.com/aws/aws-sdk-js-v3/commit/dcc6ea33d51f3c64a408ecd606a36af355cea337))
+* **client-connect:** Adds supports for manual contact picking (WorkList) operations on Routing Profiles, Agent Management and SearchContacts APIs. ([3dbdb5f](https://github.com/aws/aws-sdk-js-v3/commit/3dbdb5f080f484392bd5f71d13b67f266714a220))
+* **client-cost-explorer:** Support for payer account dimension and billing view health status. ([8ddf547](https://github.com/aws/aws-sdk-js-v3/commit/8ddf547e5444197fa0fd8f6a4907e07f60da4406))
+* **client-dynamodb-streams:** Added support for IPv6 compatible endpoints for DynamoDB Streams. ([c763e40](https://github.com/aws/aws-sdk-js-v3/commit/c763e4054d1d7f88889313d91e0ae60d61c74015))
+* **client-redshift:** Support tagging and tag propagation to IAM Identity Center for Redshift Idc Applications ([82795e3](https://github.com/aws/aws-sdk-js-v3/commit/82795e3ad412684bb0d02a0c8184aff356118f5c))
+* **clients:** update client endpoints as of 2025-09-26 ([6ffe6c1](https://github.com/aws/aws-sdk-js-v3/commit/6ffe6c111bde657e81af1be6b1d13c326ff1fda0))
+
+
+
+
+
 # [3.897.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.896.0...v3.897.0) (2025-09-25)
 
 
