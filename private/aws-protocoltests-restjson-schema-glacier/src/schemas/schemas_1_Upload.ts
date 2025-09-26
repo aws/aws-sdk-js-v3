@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { error, op, sim, struct } from "@smithy/core/schema";
+import { error, op, sim, struct, TypeRegistry } from "@smithy/core/schema";
 
 import {
   InvalidParameterValueException as __InvalidParameterValueException,
@@ -88,9 +88,10 @@ export var InvalidParameterValueException = error(
   },
   [_t, _co, _m],
   [0, 0, 0],
-
-  __InvalidParameterValueException
+  null
 );
+TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
+
 export var MissingParameterValueException = error(
   n0,
   _MPVE,
@@ -100,9 +101,10 @@ export var MissingParameterValueException = error(
   },
   [_t, _co, _m],
   [0, 0, 0],
-
-  __MissingParameterValueException
+  null
 );
+TypeRegistry.for(n0).registerError(MissingParameterValueException, __MissingParameterValueException);
+
 export var RequestTimeoutException = error(
   n0,
   _RTE,
@@ -112,9 +114,10 @@ export var RequestTimeoutException = error(
   },
   [_t, _co, _m],
   [0, 0, 0],
-
-  __RequestTimeoutException
+  null
 );
+TypeRegistry.for(n0).registerError(RequestTimeoutException, __RequestTimeoutException);
+
 export var ResourceNotFoundException = error(
   n0,
   _RNFE,
@@ -124,9 +127,10 @@ export var ResourceNotFoundException = error(
   },
   [_t, _co, _m],
   [0, 0, 0],
-
-  __ResourceNotFoundException
+  null
 );
+TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
+
 export var ServiceUnavailableException = error(
   n0,
   _SUE,
@@ -136,9 +140,10 @@ export var ServiceUnavailableException = error(
   },
   [_t, _co, _m],
   [0, 0, 0],
-
-  __ServiceUnavailableException
+  null
 );
+TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
+
 export var UploadArchiveInput = struct(
   n0,
   _UAI,

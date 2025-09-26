@@ -540,6 +540,7 @@ export const _sVt = "structureValue";
 export const _sa = "salutation";
 export const _se = "server";
 export const _sh = "short";
+export const _sm = "smithy.ts.sdk.synthetic.aws.protocoltests.restjson";
 export const _sp = "sparse";
 export const _st = "string";
 export const _str = "str";
@@ -573,17 +574,11 @@ export const n1 = "aws.protocoltests.shared";
 export const n2 = "aws.protocoltests.restjson.nested";
 
 // smithy-typescript generated code
-import { error } from "@smithy/core/schema";
+import { error, TypeRegistry } from "@smithy/core/schema";
 
 import { RestJsonProtocolServiceException as __RestJsonProtocolServiceException } from "../models/RestJsonProtocolServiceException";
 
 /* eslint no-var: 0 */
 
-export var RestJsonProtocolServiceException = error(
-  "smithy.ts.sdk.synthetic.aws.protocoltests.restjson",
-  "RestJsonProtocolServiceException",
-  0,
-  [],
-  [],
-  __RestJsonProtocolServiceException
-);
+export var RestJsonProtocolServiceException = error(_sm, "RestJsonProtocolServiceException", 0, [], [], null);
+TypeRegistry.for(_sm).registerError(RestJsonProtocolServiceException, __RestJsonProtocolServiceException);

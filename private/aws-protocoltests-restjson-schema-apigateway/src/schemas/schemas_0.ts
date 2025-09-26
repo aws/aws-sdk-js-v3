@@ -31,6 +31,7 @@ export const _n = "name";
 export const _p = "position";
 export const _po = "policy";
 export const _rAS = "retryAfterSeconds";
+export const _s = "smithy.ts.sdk.synthetic.com.amazonaws.apigateway";
 export const _t = "types";
 export const _ta = "tags";
 export const _v = "version";
@@ -39,17 +40,11 @@ export const _w = "warnings";
 export const n0 = "com.amazonaws.apigateway";
 
 // smithy-typescript generated code
-import { error } from "@smithy/core/schema";
+import { error, TypeRegistry } from "@smithy/core/schema";
 
 import { APIGatewayServiceException as __APIGatewayServiceException } from "../models/APIGatewayServiceException";
 
 /* eslint no-var: 0 */
 
-export var APIGatewayServiceException = error(
-  "smithy.ts.sdk.synthetic.com.amazonaws.apigateway",
-  "APIGatewayServiceException",
-  0,
-  [],
-  [],
-  __APIGatewayServiceException
-);
+export var APIGatewayServiceException = error(_s, "APIGatewayServiceException", 0, [], [], null);
+TypeRegistry.for(_s).registerError(APIGatewayServiceException, __APIGatewayServiceException);

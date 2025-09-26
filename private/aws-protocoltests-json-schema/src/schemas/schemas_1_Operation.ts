@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { error, list, map, op, sim, struct, struct as uni } from "@smithy/core/schema";
+import { error, list, map, op, sim, struct, struct as uni, TypeRegistry } from "@smithy/core/schema";
 
 import {
   ComplexError as __ComplexError,
@@ -141,9 +141,10 @@ export var ComplexError = error(
   },
   [_TL, _N],
   [0, [() => ComplexNestedErrorData, 0]],
-
-  __ComplexError
+  null
 );
+TypeRegistry.for(n0).registerError(ComplexError, __ComplexError);
+
 export var ComplexNestedErrorData = struct(
   n0,
   _CNED,
@@ -167,9 +168,10 @@ export var ErrorWithMembers = error(
   },
   [_C, _CD, _IF, _LF, _MF, _M, _SF],
   [0, [() => KitchenSink, 0], 1, 64 | 0, 128 | 0, 0, 0],
-
-  __ErrorWithMembers
+  null
 );
+TypeRegistry.for(n0).registerError(ErrorWithMembers, __ErrorWithMembers);
+
 export var ErrorWithoutMembers = error(
   n0,
   _EWMr,
@@ -178,9 +180,10 @@ export var ErrorWithoutMembers = error(
   },
   [],
   [],
-
-  __ErrorWithoutMembers
+  null
 );
+TypeRegistry.for(n0).registerError(ErrorWithoutMembers, __ErrorWithoutMembers);
+
 export var FooError = error(
   n0,
   _FE,
@@ -189,9 +192,10 @@ export var FooError = error(
   },
   [],
   [],
-
-  __FooError
+  null
 );
+TypeRegistry.for(n0).registerError(FooError, __FooError);
+
 export var GreetingWithErrorsOutput = struct(n0, _GWEO, 0, [_g], [0]);
 export var HostLabelInput = struct(
   n0,
@@ -215,9 +219,10 @@ export var InvalidGreeting = error(
   },
   [_M],
   [0],
-
-  __InvalidGreeting
+  null
 );
+TypeRegistry.for(n0).registerError(InvalidGreeting, __InvalidGreeting);
+
 export var JsonEnumsInputOutput = struct(
   n0,
   _JEIO,

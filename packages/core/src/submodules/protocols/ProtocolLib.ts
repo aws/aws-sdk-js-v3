@@ -85,9 +85,10 @@ export class ProtocolLib {
       return { errorSchema, errorMetadata };
     } catch (e) {
       dataObject.message = dataObject.message ?? dataObject.Message ?? "UnknownError";
-      const baseExceptionSchema = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace).getBaseException();
+      const synthetic = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace);
+      const baseExceptionSchema = synthetic.getBaseException();
       if (baseExceptionSchema) {
-        const ErrorCtor = baseExceptionSchema.ctor;
+        const ErrorCtor = synthetic.getErrorCtor(baseExceptionSchema) ?? Error;
         throw Object.assign(new ErrorCtor({ name: errorName }), errorMetadata, dataObject);
       }
       throw Object.assign(new Error(errorName), errorMetadata, dataObject);

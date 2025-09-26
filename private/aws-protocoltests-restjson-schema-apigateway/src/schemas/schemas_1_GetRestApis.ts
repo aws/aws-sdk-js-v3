@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { error, list, op, struct } from "@smithy/core/schema";
+import { error, list, op, struct, TypeRegistry } from "@smithy/core/schema";
 
 import {
   BadRequestException as __BadRequestException,
@@ -59,9 +59,10 @@ export var BadRequestException = error(
   },
   [_m],
   [0],
-
-  __BadRequestException
+  null
 );
+TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
+
 export var EndpointConfiguration = struct(n0, _EC, 0, [_t, _vEI], [64 | 0, 64 | 0]);
 export var GetRestApisRequest = struct(
   n0,
@@ -122,9 +123,10 @@ export var TooManyRequestsException = error(
     ],
     0,
   ],
-
-  __TooManyRequestsException
+  null
 );
+TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
+
 export var UnauthorizedException = error(
   n0,
   _UE,
@@ -134,9 +136,10 @@ export var UnauthorizedException = error(
   },
   [_m],
   [0],
-
-  __UnauthorizedException
+  null
 );
+TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
+
 export var Unit = "unit" as const;
 
 export var ListOfEndpointType = 64 | 0;

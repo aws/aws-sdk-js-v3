@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { error, op, struct } from "@smithy/core/schema";
+import { error, op, struct, TypeRegistry } from "@smithy/core/schema";
 
 import {
   ComplexError as __ComplexError,
@@ -53,9 +53,10 @@ export var ComplexError = error(
     0,
     [() => ComplexNestedErrorData, 0],
   ],
-
-  __ComplexError
+  null
 );
+TypeRegistry.for(n0).registerError(ComplexError, __ComplexError);
+
 export var ComplexNestedErrorData = struct(
   n0,
   _CNED,
@@ -79,9 +80,10 @@ export var FooError = error(
   },
   [],
   [],
-
-  __FooError
+  null
 );
+TypeRegistry.for(n0).registerError(FooError, __FooError);
+
 export var GreetingWithErrorsOutput = struct(
   n0,
   _GWEO,
@@ -105,9 +107,10 @@ export var InvalidGreeting = error(
   },
   [_M],
   [0],
-
-  __InvalidGreeting
+  null
 );
+TypeRegistry.for(n0).registerError(InvalidGreeting, __InvalidGreeting);
+
 export var GreetingWithErrors = op(
   n0,
   _GWE,

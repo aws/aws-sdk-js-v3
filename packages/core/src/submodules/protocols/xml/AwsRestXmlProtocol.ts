@@ -3,7 +3,7 @@ import {
   HttpInterceptingShapeDeserializer,
   HttpInterceptingShapeSerializer,
 } from "@smithy/core/protocols";
-import { NormalizedSchema, OperationSchema, SCHEMA } from "@smithy/core/schema";
+import { NormalizedSchema, OperationSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -107,7 +107,8 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
     const ns = NormalizedSchema.of(errorSchema);
     const message =
       dataObject.Error?.message ?? dataObject.Error?.Message ?? dataObject.message ?? dataObject.Message ?? "Unknown";
-    const exception = new errorSchema.ctor(message);
+    const ErrorCtor = TypeRegistry.for(errorSchema.namespace).getErrorCtor(errorSchema) ?? Error;
+    const exception = new ErrorCtor(message);
 
     await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;

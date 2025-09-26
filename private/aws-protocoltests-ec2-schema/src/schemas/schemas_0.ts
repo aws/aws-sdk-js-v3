@@ -159,6 +159,7 @@ export const _o = "other";
 export const _r = "renamed";
 export const _rLM = "renamedListMembers";
 export const _rM = "recursiveMember";
+export const _s = "smithy.ts.sdk.synthetic.aws.protocoltests.ec2";
 export const _sL = "stringList";
 export const _sLt = "structureList";
 export const _sS = "stringSet";
@@ -177,17 +178,11 @@ export const n0 = "aws.protocoltests.ec2";
 export const n1 = "aws.protocoltests.shared";
 
 // smithy-typescript generated code
-import { error } from "@smithy/core/schema";
+import { error, TypeRegistry } from "@smithy/core/schema";
 
 import { EC2ProtocolServiceException as __EC2ProtocolServiceException } from "../models/EC2ProtocolServiceException";
 
 /* eslint no-var: 0 */
 
-export var EC2ProtocolServiceException = error(
-  "smithy.ts.sdk.synthetic.aws.protocoltests.ec2",
-  "EC2ProtocolServiceException",
-  0,
-  [],
-  [],
-  __EC2ProtocolServiceException
-);
+export var EC2ProtocolServiceException = error(_s, "EC2ProtocolServiceException", 0, [], [], null);
+TypeRegistry.for(_s).registerError(EC2ProtocolServiceException, __EC2ProtocolServiceException);

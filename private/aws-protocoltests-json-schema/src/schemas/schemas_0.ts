@@ -128,6 +128,7 @@ export const _sSL = "sparseStringList";
 export const _sSM = "sparseStringMap";
 export const _sV = "stringValue";
 export const _sVt = "structureValue";
+export const _sm = "smithy.ts.sdk.synthetic.aws.protocoltests.json";
 export const _sp = "sparse";
 export const _st = "string";
 export const _tV = "timestampValue";
@@ -136,17 +137,11 @@ export const n0 = "aws.protocoltests.json";
 export const n1 = "aws.protocoltests.shared";
 
 // smithy-typescript generated code
-import { error } from "@smithy/core/schema";
+import { error, TypeRegistry } from "@smithy/core/schema";
 
 import { JsonProtocolServiceException as __JsonProtocolServiceException } from "../models/JsonProtocolServiceException";
 
 /* eslint no-var: 0 */
 
-export var JsonProtocolServiceException = error(
-  "smithy.ts.sdk.synthetic.aws.protocoltests.json",
-  "JsonProtocolServiceException",
-  0,
-  [],
-  [],
-  __JsonProtocolServiceException
-);
+export var JsonProtocolServiceException = error(_sm, "JsonProtocolServiceException", 0, [], [], null);
+TypeRegistry.for(_sm).registerError(JsonProtocolServiceException, __JsonProtocolServiceException);

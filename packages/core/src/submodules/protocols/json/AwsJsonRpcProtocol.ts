@@ -1,5 +1,5 @@
 import { RpcProtocol } from "@smithy/core/protocols";
-import { deref, NormalizedSchema, SCHEMA } from "@smithy/core/schema";
+import { deref, NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -106,7 +106,8 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
 
     const ns = NormalizedSchema.of(errorSchema);
     const message = dataObject.message ?? dataObject.Message ?? "Unknown";
-    const exception = new errorSchema.ctor(message);
+    const ErrorCtor = TypeRegistry.for(errorSchema.namespace).getErrorCtor(errorSchema) ?? Error;
+    const exception = new ErrorCtor(message);
 
     const output = {} as any;
     for (const [name, member] of ns.structIterator()) {

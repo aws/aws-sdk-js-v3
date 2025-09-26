@@ -28,6 +28,7 @@ export const _m = "message";
 export const _r = "range";
 export const _s = "streaming";
 export const _se = "server";
+export const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.glacier";
 export const _t = "type";
 export const _uI = "uploadId";
 export const _vN = "vaultName";
@@ -37,17 +38,11 @@ export const _xasth = "x-amz-sha256-tree-hash";
 export const n0 = "com.amazonaws.glacier";
 
 // smithy-typescript generated code
-import { error } from "@smithy/core/schema";
+import { error, TypeRegistry } from "@smithy/core/schema";
 
 import { GlacierServiceException as __GlacierServiceException } from "../models/GlacierServiceException";
 
 /* eslint no-var: 0 */
 
-export var GlacierServiceException = error(
-  "smithy.ts.sdk.synthetic.com.amazonaws.glacier",
-  "GlacierServiceException",
-  0,
-  [],
-  [],
-  __GlacierServiceException
-);
+export var GlacierServiceException = error(_sm, "GlacierServiceException", 0, [], [], null);
+TypeRegistry.for(_sm).registerError(GlacierServiceException, __GlacierServiceException);

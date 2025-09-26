@@ -401,6 +401,7 @@ export const _sV = "stringValue";
 export const _sVh = "shortValue";
 export const _sVt = "structValue";
 export const _sh = "short";
+export const _sm = "smithy.ts.sdk.synthetic.aws.protocoltests.restxml";
 export const _t = "text/plain";
 export const _tBV = "trueBooleanValue";
 export const _tDT = "targetDateTime";
@@ -423,17 +424,11 @@ export const n0 = "aws.protocoltests.shared";
 export const n1 = "aws.protocoltests.restxml";
 
 // smithy-typescript generated code
-import { error } from "@smithy/core/schema";
+import { error, TypeRegistry } from "@smithy/core/schema";
 
 import { RestXmlProtocolServiceException as __RestXmlProtocolServiceException } from "../models/RestXmlProtocolServiceException";
 
 /* eslint no-var: 0 */
 
-export var RestXmlProtocolServiceException = error(
-  "smithy.ts.sdk.synthetic.aws.protocoltests.restxml",
-  "RestXmlProtocolServiceException",
-  0,
-  [],
-  [],
-  __RestXmlProtocolServiceException
-);
+export var RestXmlProtocolServiceException = error(_sm, "RestXmlProtocolServiceException", 0, [], [], null);
+TypeRegistry.for(_sm).registerError(RestXmlProtocolServiceException, __RestXmlProtocolServiceException);
