@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateBillingViewRequest,
-  UpdateBillingViewRequestFilterSensitiveLog,
-  UpdateBillingViewResponse,
-} from "../models/models_0";
-import { de_UpdateBillingViewCommand, se_UpdateBillingViewCommand } from "../protocols/Aws_json1_0";
+import { AssociateSourceViewsRequest, AssociateSourceViewsResponse } from "../models/models_0";
+import { de_AssociateSourceViewsCommand, se_AssociateSourceViewsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -21,62 +17,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateBillingViewCommand}.
+ * The input for {@link AssociateSourceViewsCommand}.
  */
-export interface UpdateBillingViewCommandInput extends UpdateBillingViewRequest {}
+export interface AssociateSourceViewsCommandInput extends AssociateSourceViewsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateBillingViewCommand}.
+ * The output of {@link AssociateSourceViewsCommand}.
  */
-export interface UpdateBillingViewCommandOutput extends UpdateBillingViewResponse, __MetadataBearer {}
+export interface AssociateSourceViewsCommandOutput extends AssociateSourceViewsResponse, __MetadataBearer {}
 
 /**
- * <p>An API to update the attributes of the billing view. </p>
+ * <p> Associates one or more source billing views with an existing billing view. This allows creating aggregate billing views that combine data from multiple sources. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingClient, UpdateBillingViewCommand } from "@aws-sdk/client-billing"; // ES Modules import
- * // const { BillingClient, UpdateBillingViewCommand } = require("@aws-sdk/client-billing"); // CommonJS import
+ * import { BillingClient, AssociateSourceViewsCommand } from "@aws-sdk/client-billing"; // ES Modules import
+ * // const { BillingClient, AssociateSourceViewsCommand } = require("@aws-sdk/client-billing"); // CommonJS import
  * // import type { BillingClientConfig } from "@aws-sdk/client-billing";
  * const config = {}; // type is BillingClientConfig
  * const client = new BillingClient(config);
- * const input = { // UpdateBillingViewRequest
+ * const input = { // AssociateSourceViewsRequest
  *   arn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   dataFilterExpression: { // Expression
- *     dimensions: { // DimensionValues
- *       key: "LINKED_ACCOUNT", // required
- *       values: [ // Values // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *     tags: { // TagValues
- *       key: "STRING_VALUE", // required
- *       values: [ // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *     timeRange: { // TimeRange
- *       beginDateInclusive: new Date("TIMESTAMP"),
- *       endDateInclusive: new Date("TIMESTAMP"),
- *     },
- *   },
+ *   sourceViews: [ // BillingViewSourceViewsList // required
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new UpdateBillingViewCommand(input);
+ * const command = new AssociateSourceViewsCommand(input);
  * const response = await client.send(command);
- * // { // UpdateBillingViewResponse
+ * // { // AssociateSourceViewsResponse
  * //   arn: "STRING_VALUE", // required
- * //   updatedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param UpdateBillingViewCommandInput - {@link UpdateBillingViewCommandInput}
- * @returns {@link UpdateBillingViewCommandOutput}
- * @see {@link UpdateBillingViewCommandInput} for command's `input` shape.
- * @see {@link UpdateBillingViewCommandOutput} for command's `response` shape.
+ * @param AssociateSourceViewsCommandInput - {@link AssociateSourceViewsCommandInput}
+ * @returns {@link AssociateSourceViewsCommandOutput}
+ * @see {@link AssociateSourceViewsCommandInput} for command's `input` shape.
+ * @see {@link AssociateSourceViewsCommandOutput} for command's `response` shape.
  * @see {@link BillingClientResolvedConfig | config} for BillingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -107,38 +85,31 @@ export interface UpdateBillingViewCommandOutput extends UpdateBillingViewRespons
  * <p>Base exception class for all service exceptions from Billing service.</p>
  *
  *
- * @example Invoke UpdateBillingView
+ * @example Invoke AssociateSourceViews
  * ```javascript
  * //
  * const input = {
- *   arn: "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899",
- *   dataFilterExpression: {
- *     dimensions: {
- *       key: "LINKED_ACCOUNT",
- *       values: [
- *         "000000000000"
- *       ]
- *     }
- *   },
- *   description: "Custom Billing View Example -- updated description",
- *   name: "Example Custom Billing View"
+ *   arn: "arn:aws:billing::123456789012:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899",
+ *   sourceViews: [
+ *     "arn:aws:billing::123456789012:billingview/primary",
+ *     "arn:aws:billing::123456789012:billingview/custom-d3f9c7e4-8b2f-4a6e-9d3b-2f7c8a1e5f6d"
+ *   ]
  * };
- * const command = new UpdateBillingViewCommand(input);
+ * const command = new AssociateSourceViewsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   arn: "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899",
- *   updatedAt: 1719792001
+ *   arn: "arn:aws:billing::123456789012:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899"
  * }
  * *\/
  * ```
  *
  * @public
  */
-export class UpdateBillingViewCommand extends $Command
+export class AssociateSourceViewsCommand extends $Command
   .classBuilder<
-    UpdateBillingViewCommandInput,
-    UpdateBillingViewCommandOutput,
+    AssociateSourceViewsCommandInput,
+    AssociateSourceViewsCommandOutput,
     BillingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -150,21 +121,21 @@ export class UpdateBillingViewCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSBilling", "UpdateBillingView", {})
-  .n("BillingClient", "UpdateBillingViewCommand")
-  .f(UpdateBillingViewRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateBillingViewCommand)
-  .de(de_UpdateBillingViewCommand)
+  .s("AWSBilling", "AssociateSourceViews", {})
+  .n("BillingClient", "AssociateSourceViewsCommand")
+  .f(void 0, void 0)
+  .ser(se_AssociateSourceViewsCommand)
+  .de(de_AssociateSourceViewsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateBillingViewRequest;
-      output: UpdateBillingViewResponse;
+      input: AssociateSourceViewsRequest;
+      output: AssociateSourceViewsResponse;
     };
     sdk: {
-      input: UpdateBillingViewCommandInput;
-      output: UpdateBillingViewCommandOutput;
+      input: AssociateSourceViewsCommandInput;
+      output: AssociateSourceViewsCommandOutput;
     };
   };
 }

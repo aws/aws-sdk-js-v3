@@ -5,6 +5,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -20,8 +21,16 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
+import {
+  AssociateSourceViewsCommandInput,
+  AssociateSourceViewsCommandOutput,
+} from "../commands/AssociateSourceViewsCommand";
 import { CreateBillingViewCommandInput, CreateBillingViewCommandOutput } from "../commands/CreateBillingViewCommand";
 import { DeleteBillingViewCommandInput, DeleteBillingViewCommandOutput } from "../commands/DeleteBillingViewCommand";
+import {
+  DisassociateSourceViewsCommandInput,
+  DisassociateSourceViewsCommandOutput,
+} from "../commands/DisassociateSourceViewsCommand";
 import { GetBillingViewCommandInput, GetBillingViewCommandOutput } from "../commands/GetBillingViewCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { ListBillingViewsCommandInput, ListBillingViewsCommandOutput } from "../commands/ListBillingViewsCommand";
@@ -40,13 +49,16 @@ import { BillingServiceException as __BaseException } from "../models/BillingSer
 import {
   AccessDeniedException,
   ActiveTimeRange,
+  AssociateSourceViewsRequest,
   BillingViewElement,
+  BillingViewHealthStatusException,
   BillingViewType,
   ConflictException,
   CreateBillingViewRequest,
   CreateBillingViewResponse,
   DeleteBillingViewRequest,
   DimensionValues,
+  DisassociateSourceViewsRequest,
   Expression,
   GetBillingViewRequest,
   GetBillingViewResponse,
@@ -61,11 +73,25 @@ import {
   TagResourceRequest,
   TagValues,
   ThrottlingException,
+  TimeRange,
   UntagResourceRequest,
   UpdateBillingViewRequest,
   UpdateBillingViewResponse,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_json1_0AssociateSourceViewsCommand
+ */
+export const se_AssociateSourceViewsCommand = async (
+  input: AssociateSourceViewsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AssociateSourceViews");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_0CreateBillingViewCommand
@@ -88,6 +114,19 @@ export const se_DeleteBillingViewCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteBillingView");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DisassociateSourceViewsCommand
+ */
+export const se_DisassociateSourceViewsCommand = async (
+  input: DisassociateSourceViewsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisassociateSourceViews");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -193,8 +232,28 @@ export const se_UpdateBillingViewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateBillingView");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdateBillingViewRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_0AssociateSourceViewsCommand
+ */
+export const de_AssociateSourceViewsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSourceViewsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AssociateSourceViewsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
 };
 
 /**
@@ -231,6 +290,26 @@ export const de_DeleteBillingViewCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteBillingViewCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DisassociateSourceViewsCommand
+ */
+export const de_DisassociateSourceViewsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSourceViewsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateSourceViewsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -410,12 +489,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.billing#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BillingViewHealthStatusException":
+    case "com.amazonaws.billing#BillingViewHealthStatusException":
+      throw await de_BillingViewHealthStatusExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.billing#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.billing#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.billing#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.billing#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -425,9 +510,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.billing#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.billing#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -448,6 +530,22 @@ const de_AccessDeniedExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0BillingViewHealthStatusExceptionRes
+ */
+const de_BillingViewHealthStatusExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BillingViewHealthStatusException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new BillingViewHealthStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -551,6 +649,8 @@ const se_ActiveTimeRange = (input: ActiveTimeRange, context: __SerdeContext): an
   });
 };
 
+// se_AssociateSourceViewsRequest omitted.
+
 // se_BillingViewArnList omitted.
 
 // se_BillingViewSourceViewsList omitted.
@@ -563,7 +663,7 @@ const se_ActiveTimeRange = (input: ActiveTimeRange, context: __SerdeContext): an
 const se_CreateBillingViewRequest = (input: CreateBillingViewRequest, context: __SerdeContext): any => {
   return take(input, {
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
-    dataFilterExpression: _json,
+    dataFilterExpression: (_) => se_Expression(_, context),
     description: [],
     name: [],
     resourceTags: _json,
@@ -575,7 +675,18 @@ const se_CreateBillingViewRequest = (input: CreateBillingViewRequest, context: _
 
 // se_DimensionValues omitted.
 
-// se_Expression omitted.
+// se_DisassociateSourceViewsRequest omitted.
+
+/**
+ * serializeAws_json1_0Expression
+ */
+const se_Expression = (input: Expression, context: __SerdeContext): any => {
+  return take(input, {
+    dimensions: _json,
+    tags: _json,
+    timeRange: (_) => se_TimeRange(_, context),
+  });
+};
 
 // se_GetBillingViewRequest omitted.
 
@@ -592,6 +703,7 @@ const se_ListBillingViewsRequest = (input: ListBillingViewsRequest, context: __S
     maxResults: [],
     nextToken: [],
     ownerAccountId: [],
+    sourceAccountId: [],
   });
 };
 
@@ -609,13 +721,35 @@ const se_ListBillingViewsRequest = (input: ListBillingViewsRequest, context: __S
 
 // se_TagValues omitted.
 
+/**
+ * serializeAws_json1_0TimeRange
+ */
+const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
+  return take(input, {
+    beginDateInclusive: (_) => _.getTime() / 1_000,
+    endDateInclusive: (_) => _.getTime() / 1_000,
+  });
+};
+
 // se_UntagResourceRequest omitted.
 
-// se_UpdateBillingViewRequest omitted.
+/**
+ * serializeAws_json1_0UpdateBillingViewRequest
+ */
+const se_UpdateBillingViewRequest = (input: UpdateBillingViewRequest, context: __SerdeContext): any => {
+  return take(input, {
+    arn: [],
+    dataFilterExpression: (_) => se_Expression(_, context),
+    description: [],
+    name: [],
+  });
+};
 
 // se_Values omitted.
 
 // de_AccessDeniedException omitted.
+
+// de_AssociateSourceViewsResponse omitted.
 
 /**
  * deserializeAws_json1_0BillingViewElement
@@ -625,19 +759,30 @@ const de_BillingViewElement = (output: any, context: __SerdeContext): BillingVie
     arn: __expectString,
     billingViewType: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    dataFilterExpression: _json,
+    dataFilterExpression: (_: any) => de_Expression(_, context),
+    derivedViewCount: __expectInt32,
     description: __expectString,
+    healthStatus: _json,
     name: __expectString,
     ownerAccountId: __expectString,
+    sourceAccountId: __expectString,
+    sourceViewCount: __expectInt32,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    viewDefinitionLastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_BillingViewHealthStatus omitted.
+
+// de_BillingViewHealthStatusException omitted.
 
 // de_BillingViewList omitted.
 
 // de_BillingViewListElement omitted.
 
 // de_BillingViewSourceViewsList omitted.
+
+// de_BillingViewStatusReasons omitted.
 
 // de_ConflictException omitted.
 
@@ -655,7 +800,18 @@ const de_CreateBillingViewResponse = (output: any, context: __SerdeContext): Cre
 
 // de_DimensionValues omitted.
 
-// de_Expression omitted.
+// de_DisassociateSourceViewsResponse omitted.
+
+/**
+ * deserializeAws_json1_0Expression
+ */
+const de_Expression = (output: any, context: __SerdeContext): Expression => {
+  return take(output, {
+    dimensions: _json,
+    tags: _json,
+    timeRange: (_: any) => de_TimeRange(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0GetBillingViewResponse
@@ -689,6 +845,16 @@ const de_GetBillingViewResponse = (output: any, context: __SerdeContext): GetBil
 // de_TagValues omitted.
 
 // de_ThrottlingException omitted.
+
+/**
+ * deserializeAws_json1_0TimeRange
+ */
+const de_TimeRange = (output: any, context: __SerdeContext): TimeRange => {
+  return take(output, {
+    beginDateInclusive: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    endDateInclusive: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
 
 // de_UntagResourceResponse omitted.
 

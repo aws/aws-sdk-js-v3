@@ -42,6 +42,54 @@ export interface ActiveTimeRange {
 }
 
 /**
+ * @public
+ */
+export interface AssociateSourceViewsRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the billing view to associate source views with. </p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p> A list of ARNs of the source billing views to associate. </p>
+   * @public
+   */
+  sourceViews: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateSourceViewsResponse {
+  /**
+   * <p> The ARN of the billing view that the source views were associated with. </p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
+ * @public
+ */
+export class BillingViewHealthStatusException extends __BaseException {
+  readonly name: "BillingViewHealthStatusException" = "BillingViewHealthStatusException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BillingViewHealthStatusException, __BaseException>) {
+    super({
+      name: "BillingViewHealthStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BillingViewHealthStatusException.prototype);
+  }
+}
+
+/**
  * <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
  * @public
  */
@@ -76,149 +124,6 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
- * @enum
- */
-export const Dimension = {
-  LINKED_ACCOUNT: "LINKED_ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type Dimension = (typeof Dimension)[keyof typeof Dimension];
-
-/**
- * <p> The metadata that you can use to filter and group your results. </p>
- * @public
- */
-export interface DimensionValues {
-  /**
-   * <p> The names of the metadata types that you can use to filter and group your results. </p>
-   * @public
-   */
-  key: Dimension | undefined;
-
-  /**
-   * <p> The metadata values that you can use to filter and group your results. </p>
-   * @public
-   */
-  values: string[] | undefined;
-}
-
-/**
- * <p> The values that are available for a tag. </p>
- * @public
- */
-export interface TagValues {
-  /**
-   * <p> The key for the tag. </p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p> The specific value of the tag. </p>
-   * @public
-   */
-  values: string[] | undefined;
-}
-
-/**
- * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
- * @public
- */
-export interface Expression {
-  /**
-   * <p> The specific <code>Dimension</code> to use for <code>Expression</code>. </p>
-   * @public
-   */
-  dimensions?: DimensionValues | undefined;
-
-  /**
-   * <p> The specific <code>Tag</code> to use for <code>Expression</code>. </p>
-   * @public
-   */
-  tags?: TagValues | undefined;
-}
-
-/**
- * <p> The tag structure that contains a tag key and value. </p>
- * @public
- */
-export interface ResourceTag {
-  /**
-   * <p> The key that's associated with the tag. </p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p> The value that's associated with the tag. </p>
-   * @public
-   */
-  value?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateBillingViewRequest {
-  /**
-   * <p> The name of the billing view. </p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p> The description of the billing view. </p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>A list of billing views used as the data source for the custom billing view.</p>
-   * @public
-   */
-  sourceViews: string[] | undefined;
-
-  /**
-   * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
-   * @public
-   */
-  dataFilterExpression?: Expression | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. If the original request completes successfully, any subsequent retries complete successfully without performing any further actions with an idempotent request. </p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>A list of key value map specifying tags associated to the billing view being created. </p>
-   * @public
-   */
-  resourceTags?: ResourceTag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateBillingViewResponse {
-  /**
-   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p> The time when the billing view was created. </p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-}
-
-/**
  * <p>The request processing failed because of an unknown error, exception, or failure. </p>
  * @public
  */
@@ -235,6 +140,40 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p> The specified ARN in the request doesn't exist. </p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p> Value is a list of resource IDs that were not found. </p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p> Value is the type of resource that was not found. </p>
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
   }
 }
 
@@ -376,8 +315,192 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const Dimension = {
+  LINKED_ACCOUNT: "LINKED_ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type Dimension = (typeof Dimension)[keyof typeof Dimension];
+
+/**
+ * <p> The metadata that you can use to filter and group your results. </p>
+ * @public
+ */
+export interface DimensionValues {
+  /**
+   * <p> The names of the metadata types that you can use to filter and group your results. </p>
+   * @public
+   */
+  key: Dimension | undefined;
+
+  /**
+   * <p> The metadata values that you can use to filter and group your results. </p>
+   * @public
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * <p> The values that are available for a tag. </p>
+ * @public
+ */
+export interface TagValues {
+  /**
+   * <p> The key for the tag. </p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p> The specific value of the tag. </p>
+   * @public
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * <p> Specifies a time range with inclusive begin and end dates. </p>
+ * @public
+ */
+export interface TimeRange {
+  /**
+   * <p> The inclusive start date of the time range. </p>
+   * @public
+   */
+  beginDateInclusive?: Date | undefined;
+
+  /**
+   * <p> The inclusive end date of the time range. </p>
+   * @public
+   */
+  endDateInclusive?: Date | undefined;
+}
+
+/**
+ * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
+ * @public
+ */
+export interface Expression {
+  /**
+   * <p> The specific <code>Dimension</code> to use for <code>Expression</code>. </p>
+   * @public
+   */
+  dimensions?: DimensionValues | undefined;
+
+  /**
+   * <p> The specific <code>Tag</code> to use for <code>Expression</code>. </p>
+   * @public
+   */
+  tags?: TagValues | undefined;
+
+  /**
+   * <p> Specifies a time range filter for the billing view data. </p>
+   * @public
+   */
+  timeRange?: TimeRange | undefined;
+}
+
+/**
+ * <p> The tag structure that contains a tag key and value. </p>
+ * @public
+ */
+export interface ResourceTag {
+  /**
+   * <p> The key that's associated with the tag. </p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p> The value that's associated with the tag. </p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBillingViewRequest {
+  /**
+   * <p> The name of the billing view. </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p> The description of the billing view. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A list of billing views used as the data source for the custom billing view.</p>
+   * @public
+   */
+  sourceViews: string[] | undefined;
+
+  /**
+   * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
+   * @public
+   */
+  dataFilterExpression?: Expression | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. If the original request completes successfully, any subsequent retries complete successfully without performing any further actions with an idempotent request. </p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A list of key value map specifying tags associated to the billing view being created. </p>
+   * @public
+   */
+  resourceTags?: ResourceTag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBillingViewResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p> The time when the billing view was created. </p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+}
+
+/**
+ * @public
  */
 export interface DeleteBillingViewRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p> If set to true, forces deletion of the billing view even if it has derived resources (e.g. other billing views or budgets). Use with caution as this may break dependent resources. </p>
+   * @public
+   */
+  force?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBillingViewResponse {
   /**
    * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
    * @public
@@ -388,9 +511,26 @@ export interface DeleteBillingViewRequest {
 /**
  * @public
  */
-export interface DeleteBillingViewResponse {
+export interface DisassociateSourceViewsRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
+   * <p> The Amazon Resource Name (ARN) of the billing view to disassociate source views from. </p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p> A list of ARNs of the source billing views to disassociate. </p>
+   * @public
+   */
+  sourceViews: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSourceViewsResponse {
+  /**
+   * <p> The ARN of the billing view that the source views were disassociated from. </p>
    * @public
    */
   arn: string | undefined;
@@ -421,6 +561,60 @@ export const BillingViewType = {
  * @public
  */
 export type BillingViewType = (typeof BillingViewType)[keyof typeof BillingViewType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BillingViewStatus = {
+  CREATING: "CREATING",
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type BillingViewStatus = (typeof BillingViewStatus)[keyof typeof BillingViewStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BillingViewStatusReason = {
+  AGGREGATE_SOURCE: "AGGREGATE_SOURCE",
+  CYCLIC_DEPENDENCY: "CYCLIC_DEPENDENCY",
+  SOURCE_VIEW_ACCESS_DENIED: "SOURCE_VIEW_ACCESS_DENIED",
+  SOURCE_VIEW_DEPTH_EXCEEDED: "SOURCE_VIEW_DEPTH_EXCEEDED",
+  SOURCE_VIEW_NOT_FOUND: "SOURCE_VIEW_NOT_FOUND",
+  SOURCE_VIEW_UNHEALTHY: "SOURCE_VIEW_UNHEALTHY",
+  SOURCE_VIEW_UPDATING: "SOURCE_VIEW_UPDATING",
+  VIEW_OWNER_NOT_MANAGEMENT_ACCOUNT: "VIEW_OWNER_NOT_MANAGEMENT_ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type BillingViewStatusReason = (typeof BillingViewStatusReason)[keyof typeof BillingViewStatusReason];
+
+/**
+ * <p> Represents the health status of a billing view, including a status code and optional reasons for the status. </p>
+ * @public
+ */
+export interface BillingViewHealthStatus {
+  /**
+   * <p>The current health status code of the billing view.</p>
+   * @public
+   */
+  statusCode?: BillingViewStatus | undefined;
+
+  /**
+   * <p>A list of reasons explaining the current health status, if applicable.</p>
+   * @public
+   */
+  statusReasons?: BillingViewStatusReason[] | undefined;
+}
 
 /**
  * <p>The metadata associated to the billing view. </p>
@@ -458,6 +652,12 @@ export interface BillingViewElement {
   ownerAccountId?: string | undefined;
 
   /**
+   * <p> The Amazon Web Services account ID that owns the source billing view, if this is a derived billing view. </p>
+   * @public
+   */
+  sourceAccountId?: string | undefined;
+
+  /**
    * <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p>
    * @public
    */
@@ -474,6 +674,30 @@ export interface BillingViewElement {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p> The number of billing views that use this billing view as a source. </p>
+   * @public
+   */
+  derivedViewCount?: number | undefined;
+
+  /**
+   * <p> The number of source views associated with this billing view. </p>
+   * @public
+   */
+  sourceViewCount?: number | undefined;
+
+  /**
+   * <p> The timestamp of when the billing view definition was last updated. </p>
+   * @public
+   */
+  viewDefinitionLastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p> The current health status of the billing view. </p>
+   * @public
+   */
+  healthStatus?: BillingViewHealthStatus | undefined;
 }
 
 /**
@@ -485,40 +709,6 @@ export interface GetBillingViewResponse {
    * @public
    */
   billingView: BillingViewElement | undefined;
-}
-
-/**
- * <p> The specified ARN in the request doesn't exist. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p> Value is a list of resource IDs that were not found. </p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p> Value is the type of resource that was not found. </p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
 }
 
 /**
@@ -578,6 +768,12 @@ export interface ListBillingViewsRequest {
   ownerAccountId?: string | undefined;
 
   /**
+   * <p> Filters the results to include only billing views that use the specified account as a source. </p>
+   * @public
+   */
+  sourceAccountId?: string | undefined;
+
+  /**
    * <p>The maximum number of billing views to retrieve. Default is 100. </p>
    * @public
    */
@@ -620,10 +816,22 @@ export interface BillingViewListElement {
   ownerAccountId?: string | undefined;
 
   /**
+   * <p> The Amazon Web Services account ID that owns the source billing view, if this is a derived billing view. </p>
+   * @public
+   */
+  sourceAccountId?: string | undefined;
+
+  /**
    * <p>The type of billing view.</p>
    * @public
    */
   billingViewType?: BillingViewType | undefined;
+
+  /**
+   * <p> The current health status of the billing view. </p>
+   * @public
+   */
+  healthStatus?: BillingViewHealthStatus | undefined;
 }
 
 /**

@@ -4,6 +4,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { BillingClient, BillingClientConfig } from "./BillingClient";
 import {
+  AssociateSourceViewsCommand,
+  AssociateSourceViewsCommandInput,
+  AssociateSourceViewsCommandOutput,
+} from "./commands/AssociateSourceViewsCommand";
+import {
   CreateBillingViewCommand,
   CreateBillingViewCommandInput,
   CreateBillingViewCommandOutput,
@@ -13,6 +18,11 @@ import {
   DeleteBillingViewCommandInput,
   DeleteBillingViewCommandOutput,
 } from "./commands/DeleteBillingViewCommand";
+import {
+  DisassociateSourceViewsCommand,
+  DisassociateSourceViewsCommandInput,
+  DisassociateSourceViewsCommandOutput,
+} from "./commands/DisassociateSourceViewsCommand";
 import {
   GetBillingViewCommand,
   GetBillingViewCommandInput,
@@ -51,8 +61,10 @@ import {
 } from "./commands/UpdateBillingViewCommand";
 
 const commands = {
+  AssociateSourceViewsCommand,
   CreateBillingViewCommand,
   DeleteBillingViewCommand,
+  DisassociateSourceViewsCommand,
   GetBillingViewCommand,
   GetResourcePolicyCommand,
   ListBillingViewsCommand,
@@ -64,6 +76,23 @@ const commands = {
 };
 
 export interface Billing {
+  /**
+   * @see {@link AssociateSourceViewsCommand}
+   */
+  associateSourceViews(
+    args: AssociateSourceViewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSourceViewsCommandOutput>;
+  associateSourceViews(
+    args: AssociateSourceViewsCommandInput,
+    cb: (err: any, data?: AssociateSourceViewsCommandOutput) => void
+  ): void;
+  associateSourceViews(
+    args: AssociateSourceViewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSourceViewsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateBillingViewCommand}
    */
@@ -96,6 +125,23 @@ export interface Billing {
     args: DeleteBillingViewCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBillingViewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateSourceViewsCommand}
+   */
+  disassociateSourceViews(
+    args: DisassociateSourceViewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSourceViewsCommandOutput>;
+  disassociateSourceViews(
+    args: DisassociateSourceViewsCommandInput,
+    cb: (err: any, data?: DisassociateSourceViewsCommandOutput) => void
+  ): void;
+  disassociateSourceViews(
+    args: DisassociateSourceViewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSourceViewsCommandOutput) => void
   ): void;
 
   /**

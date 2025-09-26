@@ -60,6 +60,10 @@ export interface CreateBillingViewCommandOutput extends CreateBillingViewRespons
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     timeRange: { // TimeRange
+ *       beginDateInclusive: new Date("TIMESTAMP"),
+ *       endDateInclusive: new Date("TIMESTAMP"),
+ *     },
  *   },
  *   clientToken: "STRING_VALUE",
  *   resourceTags: [ // ResourceTagList
@@ -87,11 +91,17 @@ export interface CreateBillingViewCommandOutput extends CreateBillingViewRespons
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access to perform this action.</p>
  *
+ * @throws {@link BillingViewHealthStatusException} (client fault)
+ *  <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
+ *
  * @throws {@link ConflictException} (client fault)
  *  <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing failed because of an unknown error, exception, or failure. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p> You've reached the limit of resources you can create, or exceeded the size of an individual resource. </p>

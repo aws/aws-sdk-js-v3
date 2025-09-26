@@ -53,8 +53,16 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  AssociateSourceViewsCommandInput,
+  AssociateSourceViewsCommandOutput,
+} from "./commands/AssociateSourceViewsCommand";
 import { CreateBillingViewCommandInput, CreateBillingViewCommandOutput } from "./commands/CreateBillingViewCommand";
 import { DeleteBillingViewCommandInput, DeleteBillingViewCommandOutput } from "./commands/DeleteBillingViewCommand";
+import {
+  DisassociateSourceViewsCommandInput,
+  DisassociateSourceViewsCommandOutput,
+} from "./commands/DisassociateSourceViewsCommand";
 import { GetBillingViewCommandInput, GetBillingViewCommandOutput } from "./commands/GetBillingViewCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { ListBillingViewsCommandInput, ListBillingViewsCommandOutput } from "./commands/ListBillingViewsCommand";
@@ -84,8 +92,10 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateSourceViewsCommandInput
   | CreateBillingViewCommandInput
   | DeleteBillingViewCommandInput
+  | DisassociateSourceViewsCommandInput
   | GetBillingViewCommandInput
   | GetResourcePolicyCommandInput
   | ListBillingViewsCommandInput
@@ -99,8 +109,10 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateSourceViewsCommandOutput
   | CreateBillingViewCommandOutput
   | DeleteBillingViewCommandOutput
+  | DisassociateSourceViewsCommandOutput
   | GetBillingViewCommandOutput
   | GetResourcePolicyCommandOutput
   | ListBillingViewsCommandOutput

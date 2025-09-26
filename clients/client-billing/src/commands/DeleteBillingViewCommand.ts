@@ -39,6 +39,7 @@ export interface DeleteBillingViewCommandOutput extends DeleteBillingViewRespons
  * const client = new BillingClient(config);
  * const input = { // DeleteBillingViewRequest
  *   arn: "STRING_VALUE", // required
+ *   force: true || false,
  * };
  * const command = new DeleteBillingViewCommand(input);
  * const response = await client.send(command);
