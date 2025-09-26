@@ -804,6 +804,7 @@ export const Dimension = {
   LINKED_ACCOUNT_NAME: "LINKED_ACCOUNT_NAME",
   OPERATING_SYSTEM: "OPERATING_SYSTEM",
   OPERATION: "OPERATION",
+  PAYER_ACCOUNT: "PAYER_ACCOUNT",
   PAYMENT_OPTION: "PAYMENT_OPTION",
   PLATFORM: "PLATFORM",
   PURCHASE_TYPE: "PURCHASE_TYPE",
@@ -1815,6 +1816,30 @@ export class BillExpirationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, BillExpirationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>
+ *             The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>.
+ *         </p>
+ * @public
+ */
+export class BillingViewHealthStatusException extends __BaseException {
+  readonly name: "BillingViewHealthStatusException" = "BillingViewHealthStatusException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BillingViewHealthStatusException, __BaseException>) {
+    super({
+      name: "BillingViewHealthStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BillingViewHealthStatusException.prototype);
     this.Message = opts.Message;
   }
 }
