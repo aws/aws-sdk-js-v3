@@ -3895,6 +3895,7 @@ export const StopReason = {
   END_TURN: "end_turn",
   GUARDRAIL_INTERVENED: "guardrail_intervened",
   MAX_TOKENS: "max_tokens",
+  MODEL_CONTEXT_WINDOW_EXCEEDED: "model_context_window_exceeded",
   STOP_SEQUENCE: "stop_sequence",
   TOOL_USE: "tool_use",
 } as const;

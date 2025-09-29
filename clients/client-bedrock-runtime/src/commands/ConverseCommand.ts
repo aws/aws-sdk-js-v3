@@ -443,7 +443,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //       ],
  * //     },
  * //   },
- * //   stopReason: "end_turn" || "tool_use" || "max_tokens" || "stop_sequence" || "guardrail_intervened" || "content_filtered", // required
+ * //   stopReason: "end_turn" || "tool_use" || "max_tokens" || "stop_sequence" || "guardrail_intervened" || "content_filtered" || "model_context_window_exceeded", // required
  * //   usage: { // TokenUsage
  * //     inputTokens: Number("int"), // required
  * //     outputTokens: Number("int"), // required
