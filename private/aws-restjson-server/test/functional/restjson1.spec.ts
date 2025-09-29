@@ -4340,7 +4340,9 @@ it("RestJsonStringPayloadUnsatisfiableAccept:MalformedRequest", async () => {
 it("RestJsonIgnoreQueryParamsInResponse:ServerResponse", async () => {
   class TestService implements Partial<RestJsonService<{}>> {
     IgnoreQueryParamsInResponse(input: any, ctx: {}): Promise<IgnoreQueryParamsInResponseServerOutput> {
-      const response = {} as any;
+      const response = {
+        baz: "bam",
+      } as any;
       return Promise.resolve({ ...response, $metadata: {} });
     }
   }
@@ -4382,7 +4384,7 @@ it("RestJsonIgnoreQueryParamsInResponse:ServerResponse", async () => {
 
   expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{}`;
+  const bodyString = `{\"baz\":\"bam\"}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });

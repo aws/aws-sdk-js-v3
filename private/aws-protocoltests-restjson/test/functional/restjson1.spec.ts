@@ -2241,6 +2241,50 @@ it("RestJsonFooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", asy
 });
 
 /**
+ * Some services serialize errors using __type, and if the response includes additional shapes that belong to a different namespace there'll be a nested __type property that must not be considered when determining which error to be surfaced.
+ *
+ * For an example service see Amazon DynamoDB.
+ */
+it("RestJsonFooErrorWithNestedTypeProperty:Error:GreetingWithErrors", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      500,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "__type": "aws.protocoltests.restjson#FooError",
+          "ErrorDetails": [
+            {
+                "__type": "com.amazon.internal#ErrorDetails",
+                "reason": "Some reason"
+            }
+          ]
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
  * Custom endpoints supplied by users can have paths
  */
 it("RestJsonHostWithPath:Request", async () => {
@@ -3577,7 +3621,7 @@ it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
       {
         "content-type": "application/json",
       },
-      `{}`
+      `{"baz":"bam"}`
     ),
   });
 
@@ -3592,30 +3636,18 @@ it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
-});
-
-/**
- * This test is similar to RestJsonIgnoreQueryParamsInResponse,
- * but it ensures that clients gracefully handle responses from
- * the server that do not serialize an empty JSON object.
- */
-it("RestJsonIgnoreQueryParamsInResponseNoPayload:Response", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
+  const paramsToValidate: any = [
+    {
+      baz: "bam",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
-
-  const params: any = {};
-  const command = new IgnoreQueryParamsInResponseCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
