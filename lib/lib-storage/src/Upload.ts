@@ -88,14 +88,18 @@ export class Upload extends EventEmitter {
     this.client = options.client;
     this.params = options.params;
 
+    if (!this.params) {
+      throw new Error(`InputError: Upload requires params to be passed to upload.`);
+    }
+
     // set progress defaults
     this.totalBytes = byteLength(this.params.Body);
     this.bytesUploadedSoFar = 0;
     this.abortController = options.abortController ?? new AbortController();
 
-    this.partSize = Math.max(Upload.MIN_PART_SIZE, Math.floor((this.totalBytes || 0) / this.MAX_PARTS));
+    this.partSize =
+      options.partSize || Math.max(Upload.MIN_PART_SIZE, Math.floor((this.totalBytes || 0) / this.MAX_PARTS));
     this.expectedPartsCount = this.totalBytes !== undefined ? Math.ceil(this.totalBytes / this.partSize) : undefined;
-
     this.__validateInput();
   }
 
@@ -460,10 +464,6 @@ export class Upload extends EventEmitter {
   }
 
   private __validateInput(): void {
-    if (!this.params) {
-      throw new Error(`InputError: Upload requires params to be passed to upload.`);
-    }
-
     if (!this.client) {
       throw new Error(`InputError: Upload requires a AWS client to do uploads with.`);
     }
