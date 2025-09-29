@@ -1,9 +1,9 @@
-import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
+import { runtimeConfig as browserConfig } from "./runtimeConfig.browser";
 
 /**
  * @internal
  */
-export const ClientDefaultValues = {
-  ...BrowserDefaults,
+export const runtimeConfig = {
+  ...browserConfig,
   runtime: "react-native",
 };

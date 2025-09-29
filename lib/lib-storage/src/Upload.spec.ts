@@ -969,7 +969,7 @@ describe(Upload.name, () => {
           partSize: 1024, // Too small
           client: new S3({}),
         });
-      }).toThrow(/EntityTooSmall: Your proposed upload partsize/);
+      }).toThrow(/EntityTooSmall: Your proposed upload part size/);
     });
 
     it("should validate minimum queueSize", () => {

@@ -2,6 +2,7 @@ import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import { randomBytes } from "crypto";
+import fs from "node:fs";
 import { Readable } from "stream";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
@@ -179,4 +180,59 @@ describe("@aws-sdk/lib-storage", () => {
       });
     }
   );
+
+  describe("inferring the byte length of the input", () => {
+    beforeAll(async () => {
+      const e2eTestResourcesEnv = await getE2eTestResources();
+      Object.assign(process.env, e2eTestResourcesEnv);
+    });
+
+    it("should throw an informative error about the correct override if the SDK infers the byte count incorrectly", async () => {
+      const s3 = new S3({
+        region: process.env.AWS_SMOKE_TEST_REGION,
+      });
+
+      const pseudoFileReadStream = fs.createReadStream("/dev/urandom", { end: 6 * 1024 * 1024 });
+
+      const upload = new Upload({
+        client: s3,
+        params: {
+          Key: `/dev/urandom`,
+          Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+          Body: pseudoFileReadStream,
+        },
+      });
+
+      const error = await upload.done().catch((e) => e);
+
+      expect(error).toBeInstanceOf(Error);
+      expect(error.message).toEqual(`Expected 0 part(s) but uploaded 2 part(s).
+The expected part count is based on the byte-count of the input.params.Body,
+which was read from the size of the file given by Body.path on disk as reported by lstatSync and is 0.
+If this is not correct, provide an override value by setting a number
+to input.params.ContentLength in bytes.
+`);
+    });
+
+    it("should use the input ContentLength as the total byte count if supplied by the caller", async () => {
+      const s3 = new S3({
+        region: process.env.AWS_SMOKE_TEST_REGION,
+      });
+
+      const pseudoFileReadStream = fs.createReadStream("/dev/urandom", { end: 6 * 1024 * 1024 });
+
+      const upload = new Upload({
+        client: s3,
+        params: {
+          Key: `/dev/urandom`,
+          Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+          Body: pseudoFileReadStream,
+          ContentLength: 6 * 1024 * 1024,
+        },
+      });
+
+      await upload.done();
+      // no thrown error is sufficient.
+    });
+  });
 }, 60_000);
