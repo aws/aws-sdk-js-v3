@@ -116,25 +116,11 @@ describe(Upload.name, () => {
   };
 
   it("uses the input parameters for object length if provided", async () => {
-    const falseFileStream = Object.assign(Readable.from("abcd"), {
-      path: "/dev/null",
-    });
     let upload = new Upload({
       params: {
         Bucket: "",
         Key: "",
-        Body: falseFileStream,
-        MpuObjectSize: 6 * 1024 * 1024,
-      },
-      client: s3MockInstance,
-    }) as unknown as VisibleForTesting;
-    expect(upload.totalBytes).toEqual(6 * 1024 * 1024);
-
-    upload = new Upload({
-      params: {
-        Bucket: "",
-        Key: "",
-        Body: falseFileStream,
+        Body: Buffer.from("a".repeat(256)),
         ContentLength: 6 * 1024 * 1024,
       },
       client: s3MockInstance,
@@ -145,11 +131,11 @@ describe(Upload.name, () => {
       params: {
         Bucket: "",
         Key: "",
-        Body: falseFileStream,
+        Body: Buffer.from("a".repeat(256)),
       },
       client: s3MockInstance,
     }) as unknown as VisibleForTesting;
-    expect(upload.totalBytes).toEqual(0);
+    expect(upload.totalBytes).toEqual(256);
   });
 
   it("correctly exposes the event emitter API", () => {

@@ -97,7 +97,7 @@ export class Upload extends EventEmitter {
     }
 
     // set progress defaults
-    this.totalBytes = this.params.MpuObjectSize ?? this.params.ContentLength ?? byteLength(this.params.Body);
+    this.totalBytes = this.params.ContentLength ?? byteLength(this.params.Body);
     this.bytesUploadedSoFar = 0;
     this.abortController = options.abortController ?? new AbortController();
 
