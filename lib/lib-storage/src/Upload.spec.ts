@@ -1,14 +1,3 @@
-import {
-  CompleteMultipartUploadCommand,
-  CompleteMultipartUploadCommandOutput,
-  CreateMultipartUploadCommand,
-  PutObjectCommand,
-  PutObjectTaggingCommand,
-  S3,
-  S3Client,
-  UploadPartCommand,
-} from "@aws-sdk/client-s3";
-import { AbortController } from "@smithy/abort-controller";
 import { EventEmitter, Readable } from "stream";
 import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -72,6 +61,18 @@ vi.mock("@aws-sdk/client-s3", async () => {
     }),
   };
 });
+
+import {
+  CompleteMultipartUploadCommand,
+  CompleteMultipartUploadCommandOutput,
+  CreateMultipartUploadCommand,
+  PutObjectCommand,
+  PutObjectTaggingCommand,
+  S3,
+  S3Client,
+  UploadPartCommand,
+} from "@aws-sdk/client-s3";
+import { AbortController } from "@smithy/abort-controller";
 
 const DEFAULT_PART_SIZE = 1024 * 1024 * 5;
 
