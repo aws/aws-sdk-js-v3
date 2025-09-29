@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
+
+
+### Bug Fixes
+
+* **lib-storage:** respect user-provided partSize option for Upload ([#7381](https://github.com/aws/aws-sdk-js-v3/issues/7381)) ([31fc996](https://github.com/aws/aws-sdk-js-v3/commit/31fc9967a50f66c50963f387144681149484e0ea))
+
+
+
+
+
 # [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
 
 

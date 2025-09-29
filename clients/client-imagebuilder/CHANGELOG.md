@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
+
+
+### Features
+
+* **client-imagebuilder:** This release introduces several new features and improvements to enhance pipeline management, logging, and resource configuration. ([3659afe](https://github.com/aws/aws-sdk-js-v3/commit/3659afe3968b8af84caa5f9b45b58ee96993b391))
+
+
+
+
+
 # [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
 
 **Note:** Version bump only for package @aws-sdk/client-imagebuilder

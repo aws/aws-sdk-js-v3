@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
+
+
+### Bug Fixes
+
+* **lib-storage:** respect user-provided partSize option for Upload ([#7381](https://github.com/aws/aws-sdk-js-v3/issues/7381)) ([31fc996](https://github.com/aws/aws-sdk-js-v3/commit/31fc9967a50f66c50963f387144681149484e0ea))
+
+
+### Features
+
+* **client-bedrock-runtime:** New stop reason for Converse and ConverseStream ([323c12b](https://github.com/aws/aws-sdk-js-v3/commit/323c12bda4acf0b68452acf6d0e0e21216cd63d8))
+* **client-bedrock:** Release for fixing GetFoundationModel API behavior. Imported and custom models have their own exclusive API and GetFM should not accept those ARNS as input ([e8e4a5d](https://github.com/aws/aws-sdk-js-v3/commit/e8e4a5d63f1e93a0c8058d8e5c41c29641982d59))
+* **client-imagebuilder:** This release introduces several new features and improvements to enhance pipeline management, logging, and resource configuration. ([3659afe](https://github.com/aws/aws-sdk-js-v3/commit/3659afe3968b8af84caa5f9b45b58ee96993b391))
+* **client-vpc-lattice:** Adds support for specifying the number of IPv4 addresses in each ENI for the resource gateway for VPC Lattice. ([7baea90](https://github.com/aws/aws-sdk-js-v3/commit/7baea902494c7a35dd26b6fe253dab2a8454ec25))
+* **clients:** update client endpoints as of 2025-09-29 ([341145b](https://github.com/aws/aws-sdk-js-v3/commit/341145bf3cea48d2a75aaff75246ef21864f7143))
+
+
+
+
+
 # [3.898.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.897.0...v3.898.0) (2025-09-26)
 
 

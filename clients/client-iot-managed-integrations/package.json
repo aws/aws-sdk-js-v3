@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-iot-managed-integrations",
   "description": "AWS SDK for JavaScript Iot Managed Integrations Client for Node.js, Browser and React Native",
-  "version": "3.896.0",
+  "version": "3.899.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-iot-managed-integrations",

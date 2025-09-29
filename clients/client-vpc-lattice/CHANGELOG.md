@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
+
+
+### Features
+
+* **client-vpc-lattice:** Adds support for specifying the number of IPv4 addresses in each ENI for the resource gateway for VPC Lattice. ([7baea90](https://github.com/aws/aws-sdk-js-v3/commit/7baea902494c7a35dd26b6fe253dab2a8454ec25))
+
+
+
+
+
 # [3.896.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.895.0...v3.896.0) (2025-09-24)
 
 **Note:** Version bump only for package @aws-sdk/client-vpc-lattice
