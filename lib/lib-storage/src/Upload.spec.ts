@@ -1,10 +1,22 @@
+import {
+  CompleteMultipartUploadCommand,
+  CompleteMultipartUploadCommandOutput,
+  CreateMultipartUploadCommand,
+  PutObjectCommand,
+  PutObjectTaggingCommand,
+  S3,
+  S3Client,
+  UploadPartCommand,
+} from "@aws-sdk/client-s3";
+import { AbortController } from "@smithy/abort-controller";
+import { EventEmitter, Readable } from "stream";
 import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
+import { Progress, Upload } from "./index";
 
 /* eslint-disable no-var */
 var hostname = "s3.region.amazonaws.com";
 var port: number | undefined;
-
-import { EventEmitter, Readable } from "stream";
 
 vi.mock("@aws-sdk/client-s3", async () => {
   const sendMock = vi.fn().mockImplementation(async (x) => x);
@@ -61,24 +73,20 @@ vi.mock("@aws-sdk/client-s3", async () => {
   };
 });
 
-import {
-  CompleteMultipartUploadCommand,
-  CompleteMultipartUploadCommandOutput,
-  CreateMultipartUploadCommand,
-  PutObjectCommand,
-  PutObjectTaggingCommand,
-  S3,
-  S3Client,
-  UploadPartCommand,
-} from "@aws-sdk/client-s3";
-import { AbortController } from "@smithy/abort-controller";
-
-import { Progress, Upload } from "./index";
-
 const DEFAULT_PART_SIZE = 1024 * 1024 * 5;
 
+type Expose = {
+  totalBytes: number | undefined;
+};
+type VisibleForTesting = Omit<Upload, keyof Expose> & Expose;
+
 describe(Upload.name, () => {
-  const s3MockInstance = new S3Client();
+  const s3MockInstance = new S3Client({
+    credentials: {
+      accessKeyId: "UNIT",
+      secretAccessKey: "UNIT",
+    },
+  });
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -106,6 +114,43 @@ describe(Upload.name, () => {
     Bucket: "example-bucket",
     Body: "this-is-a-sample-payload",
   };
+
+  it("uses the input parameters for object length if provided", async () => {
+    const falseFileStream = Object.assign(Readable.from("abcd"), {
+      path: "/dev/null",
+    });
+    let upload = new Upload({
+      params: {
+        Bucket: "",
+        Key: "",
+        Body: falseFileStream,
+        MpuObjectSize: 6 * 1024 * 1024,
+      },
+      client: s3MockInstance,
+    }) as unknown as VisibleForTesting;
+    expect(upload.totalBytes).toEqual(6 * 1024 * 1024);
+
+    upload = new Upload({
+      params: {
+        Bucket: "",
+        Key: "",
+        Body: falseFileStream,
+        ContentLength: 6 * 1024 * 1024,
+      },
+      client: s3MockInstance,
+    }) as unknown as VisibleForTesting;
+    expect(upload.totalBytes).toEqual(6 * 1024 * 1024);
+
+    upload = new Upload({
+      params: {
+        Bucket: "",
+        Key: "",
+        Body: falseFileStream,
+      },
+      client: s3MockInstance,
+    }) as unknown as VisibleForTesting;
+    expect(upload.totalBytes).toEqual(0);
+  });
 
   it("correctly exposes the event emitter API", () => {
     const upload = new Upload({

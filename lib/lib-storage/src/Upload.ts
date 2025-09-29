@@ -3,8 +3,10 @@ import {
   ChecksumAlgorithm,
   CompletedPart,
   CompleteMultipartUploadCommand,
+  CompleteMultipartUploadCommandInput,
   CompleteMultipartUploadCommandOutput,
   CreateMultipartUploadCommand,
+  CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput,
   PutObjectCommand,
   PutObjectCommandInput,
@@ -12,6 +14,7 @@ import {
   S3Client,
   Tag,
   UploadPartCommand,
+  UploadPartCommandInput,
 } from "@aws-sdk/client-s3";
 import { AbortController } from "@smithy/abort-controller";
 import {
@@ -52,7 +55,8 @@ export class Upload extends EventEmitter {
   private readonly tags: Tag[] = [];
 
   private readonly client: S3Client;
-  private readonly params: PutObjectCommandInput;
+  private readonly params: PutObjectCommandInput &
+    Partial<CreateMultipartUploadCommandInput & UploadPartCommandInput & CompleteMultipartUploadCommandInput>;
 
   // used for reporting progress.
   private totalBytes?: number;
@@ -93,13 +97,17 @@ export class Upload extends EventEmitter {
     }
 
     // set progress defaults
-    this.totalBytes = byteLength(this.params.Body);
+    this.totalBytes = this.params.MpuObjectSize ?? this.params.ContentLength ?? byteLength(this.params.Body);
     this.bytesUploadedSoFar = 0;
     this.abortController = options.abortController ?? new AbortController();
 
     this.partSize =
       options.partSize || Math.max(Upload.MIN_PART_SIZE, Math.floor((this.totalBytes || 0) / this.MAX_PARTS));
-    this.expectedPartsCount = this.totalBytes !== undefined ? Math.ceil(this.totalBytes / this.partSize) : undefined;
+
+    if (this.totalBytes !== undefined) {
+      this.expectedPartsCount = Math.ceil(this.totalBytes / this.partSize);
+    }
+
     this.__validateInput();
   }
 
