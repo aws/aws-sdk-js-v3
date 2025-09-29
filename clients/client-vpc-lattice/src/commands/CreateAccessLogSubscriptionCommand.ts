@@ -33,12 +33,7 @@ export interface CreateAccessLogSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner
- *    can use the access logs to audit the services in the network. The service network owner can only
- *    see access logs from clients and services that are associated with their service network. Access
- *    log entries represent traffic originated from VPCs associated with that network. For more
- *    information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-access-logs.html">Access logs</a> in the
- *     <i>Amazon VPC Lattice User Guide</i>.</p>
+ * <p>Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner can only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-access-logs.html">Access logs</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +74,7 @@ export interface CreateAccessLogSubscriptionCommandOutput
  *  <p>The user does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. Updating or deleting a
- *    resource can cause an inconsistent state.</p>
+ *  <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred while processing the request.</p>
@@ -92,8 +86,7 @@ export interface CreateAccessLogSubscriptionCommandOutput
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

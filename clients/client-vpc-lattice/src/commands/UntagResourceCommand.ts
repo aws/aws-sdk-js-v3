@@ -65,8 +65,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

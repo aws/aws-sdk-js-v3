@@ -55,6 +55,7 @@ export interface GetResourceGatewayCommandOutput extends GetResourceGatewayRespo
  * //     "STRING_VALUE",
  * //   ],
  * //   ipAddressType: "STRING_VALUE",
+ * //   ipv4AddressesPerEni: Number("int"),
  * //   createdAt: new Date("TIMESTAMP"),
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
  * // };
@@ -80,8 +81,7 @@ export interface GetResourceGatewayCommandOutput extends GetResourceGatewayRespo
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

@@ -28,11 +28,7 @@ export interface DeleteServiceNetworkCommandInput extends DeleteServiceNetworkRe
 export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a service network. You can only delete the service network if there is no service or
- *    VPC associated with it. If you delete a service network, all resources related to the service
- *    network, such as the resource policy, auth policy, and access log subscriptions, are also
- *    deleted. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network">Delete a service
- *     network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+ * <p>Deletes a service network. You can only delete the service network if there is no service or VPC associated with it. If you delete a service network, all resources related to the service network, such as the resource policy, auth policy, and access log subscriptions, are also deleted. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network">Delete a service network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +56,7 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  *  <p>The user does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. Updating or deleting a
- *    resource can cause an inconsistent state.</p>
+ *  <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred while processing the request.</p>
@@ -73,8 +68,7 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

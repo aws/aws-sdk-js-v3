@@ -28,8 +28,7 @@ export interface DeleteTargetGroupCommandInput extends DeleteTargetGroupRequest 
 export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a target group. You can't delete a target group if it is used in a listener rule or
- *    if the target group creation is in progress.</p>
+ * <p>Deletes a target group. You can't delete a target group if it is used in a listener rule or if the target group creation is in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +57,7 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupRespons
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. Updating or deleting a
- *    resource can cause an inconsistent state.</p>
+ *  <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred while processing the request.</p>
@@ -71,8 +69,7 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupRespons
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

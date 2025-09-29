@@ -28,10 +28,7 @@ export interface DeleteAuthPolicyCommandInput extends DeleteAuthPolicyRequest {}
 export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified auth policy. If an auth is set to <code>AWS_IAM</code> and the auth
- *    policy is deleted, all requests are denied. If you are trying to remove the auth policy
- *    completely, you must set the auth type to <code>NONE</code>. If auth is enabled on the resource,
- *    but no auth policy is set, all requests are denied.</p>
+ * <p>Deletes the specified auth policy. If an auth is set to <code>AWS_IAM</code> and the auth policy is deleted, all requests are denied. If you are trying to remove the auth policy completely, you must set the auth type to <code>NONE</code>. If auth is enabled on the resource, but no auth policy is set, all requests are denied.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +65,7 @@ export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse,
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

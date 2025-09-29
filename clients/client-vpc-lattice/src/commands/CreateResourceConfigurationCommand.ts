@@ -33,8 +33,7 @@ export interface CreateResourceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a resource configuration. A resource configuration defines a specific resource. You
- *    can associate a resource configuration with a service network or a VPC endpoint.</p>
+ * <p>Creates a resource configuration. A resource configuration defines a specific resource. You can associate a resource configuration with a service network or a VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,8 +112,7 @@ export interface CreateResourceConfigurationCommandOutput
  *  <p>The user does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. Updating or deleting a
- *    resource can cause an inconsistent state.</p>
+ *  <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred while processing the request.</p>
@@ -129,8 +127,7 @@ export interface CreateResourceConfigurationCommandOutput
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

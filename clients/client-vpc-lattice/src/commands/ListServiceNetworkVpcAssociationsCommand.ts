@@ -36,8 +36,7 @@ export interface ListServiceNetworkVpcAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the associations between a service network and a VPC. You can filter the list either by VPC or
- *    service network. You must provide either the ID of the service network identifier or the ID of the VPC.</p>
+ * <p>Lists the associations between a service network and a VPC. You can filter the list either by VPC or service network. You must provide either the ID of the service network identifier or the ID of the VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,8 +89,7 @@ export interface ListServiceNetworkVpcAssociationsCommandOutput
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

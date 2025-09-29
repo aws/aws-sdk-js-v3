@@ -28,10 +28,7 @@ export interface CreateTargetGroupCommandInput extends CreateTargetGroupRequest 
 export interface CreateTargetGroupCommandOutput extends CreateTargetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a target group. A target group is a collection of targets, or compute resources,
- *    that run your application or service. A target group can only be used by a single service.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html">Target groups</a> in the
- *     <i>Amazon VPC Lattice User Guide</i>.</p>
+ * <p>Creates a target group. A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html">Target groups</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,8 +111,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  *  <p>The user does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. Updating or deleting a
- *    resource can cause an inconsistent state.</p>
+ *  <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred while processing the request.</p>
@@ -130,8 +126,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
