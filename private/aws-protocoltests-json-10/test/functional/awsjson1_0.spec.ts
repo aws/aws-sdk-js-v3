@@ -803,6 +803,50 @@ it("AwsJson10FooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", as
 });
 
 /**
+ * Some services serialize errors using __type, and if the response includes additional shapes that belong to a different namespace there'll be a nested __type property that must not be considered when determining which error to be surfaced.
+ *
+ * For an example service see Amazon DynamoDB.
+ */
+it("AwsJson10FooErrorWithNestedTypeProperty:Error:GreetingWithErrors", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      500,
+      {
+        "content-type": "application/x-amz-json-1.0",
+      },
+      `{
+          "__type": "aws.protocoltests.json10#FooError",
+          "ErrorDetails": [
+            {
+                "__type": "com.amazon.internal#ErrorDetails",
+                "reason": "Some reason"
+            }
+          ]
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
  * Custom endpoints supplied by users can have paths
  */
 it("AwsJson10HostWithPath:Request", async () => {
