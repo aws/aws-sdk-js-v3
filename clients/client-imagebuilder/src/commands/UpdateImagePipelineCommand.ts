@@ -60,6 +60,9 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  *     scheduleExpression: "STRING_VALUE",
  *     timezone: "STRING_VALUE",
  *     pipelineExecutionStartCondition: "EXPRESSION_MATCH_ONLY" || "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+ *     autoDisablePolicy: { // AutoDisablePolicy
+ *       failureCount: Number("int"), // required
+ *     },
  *   },
  *   status: "DISABLED" || "ENABLED",
  *   clientToken: "STRING_VALUE", // required
@@ -87,6 +90,10 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  *       onFailure: "CONTINUE" || "ABORT",
  *     },
  *   ],
+ *   loggingConfiguration: { // PipelineLoggingConfiguration
+ *     imageLogGroupName: "STRING_VALUE",
+ *     pipelineLogGroupName: "STRING_VALUE",
+ *   },
  *   executionRole: "STRING_VALUE",
  * };
  * const command = new UpdateImagePipelineCommand(input);

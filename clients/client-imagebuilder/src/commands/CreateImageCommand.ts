@@ -79,6 +79,9 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  *     },
  *   ],
  *   executionRole: "STRING_VALUE",
+ *   loggingConfiguration: { // ImageLoggingConfiguration
+ *     logGroupName: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);

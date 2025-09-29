@@ -72,11 +72,15 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  * //         scheduleExpression: "STRING_VALUE",
  * //         timezone: "STRING_VALUE",
  * //         pipelineExecutionStartCondition: "EXPRESSION_MATCH_ONLY" || "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+ * //         autoDisablePolicy: { // AutoDisablePolicy
+ * //           failureCount: Number("int"), // required
+ * //         },
  * //       },
  * //       status: "DISABLED" || "ENABLED",
  * //       dateCreated: "STRING_VALUE",
  * //       dateUpdated: "STRING_VALUE",
  * //       dateLastRun: "STRING_VALUE",
+ * //       lastRunStatus: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
  * //       dateNextRun: "STRING_VALUE",
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
@@ -106,6 +110,11 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  * //           onFailure: "CONTINUE" || "ABORT",
  * //         },
  * //       ],
+ * //       loggingConfiguration: { // PipelineLoggingConfiguration
+ * //         imageLogGroupName: "STRING_VALUE",
+ * //         pipelineLogGroupName: "STRING_VALUE",
+ * //       },
+ * //       consecutiveFailures: Number("int"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

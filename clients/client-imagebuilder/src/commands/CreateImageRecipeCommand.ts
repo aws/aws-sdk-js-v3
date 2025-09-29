@@ -83,6 +83,9 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  *     },
  *     userDataOverride: "STRING_VALUE",
  *   },
+ *   amiTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   clientToken: "STRING_VALUE", // required
  * };
  * const command = new CreateImageRecipeCommand(input);

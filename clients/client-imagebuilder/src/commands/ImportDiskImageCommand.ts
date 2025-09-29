@@ -52,6 +52,9 @@ export interface ImportDiskImageCommandOutput extends ImportDiskImageResponse, _
  *   executionRole: "STRING_VALUE",
  *   infrastructureConfigurationArn: "STRING_VALUE", // required
  *   uri: "STRING_VALUE", // required
+ *   loggingConfiguration: { // ImageLoggingConfiguration
+ *     logGroupName: "STRING_VALUE",
+ *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

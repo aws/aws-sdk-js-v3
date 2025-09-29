@@ -94,6 +94,9 @@ export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __M
  * //       },
  * //       userDataOverride: "STRING_VALUE",
  * //     },
+ * //     amiTags: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

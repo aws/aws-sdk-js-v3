@@ -51,6 +51,9 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  *   platform: "Windows" || "Linux" || "macOS", // required
  *   osVersion: "STRING_VALUE",
  *   vmImportTaskId: "STRING_VALUE", // required
+ *   loggingConfiguration: { // ImageLoggingConfiguration
+ *     logGroupName: "STRING_VALUE",
+ *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

@@ -106,6 +106,9 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //         },
  * //         userDataOverride: "STRING_VALUE",
  * //       },
+ * //       amiTags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //     containerRecipe: { // ContainerRecipe
  * //       arn: "STRING_VALUE",
@@ -289,9 +292,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       timeoutMinutes: Number("int"), // required
  * //       dateCreated: "STRING_VALUE",
  * //       dateUpdated: "STRING_VALUE",
- * //       tags: {
- * //         "<keys>": "STRING_VALUE",
- * //       },
+ * //       tags: "<TagMap>",
  * //     },
  * //     imageTestsConfiguration: { // ImageTestsConfiguration
  * //       imageTestsEnabled: true || false,
@@ -351,6 +352,9 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //         onFailure: "CONTINUE" || "ABORT",
  * //       },
  * //     ],
+ * //     loggingConfiguration: { // ImageLoggingConfiguration
+ * //       logGroupName: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -9,7 +9,7 @@ import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import {
   UpdateInfrastructureConfigurationRequest,
   UpdateInfrastructureConfigurationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_UpdateInfrastructureConfigurationCommand,
   se_UpdateInfrastructureConfigurationCommand,

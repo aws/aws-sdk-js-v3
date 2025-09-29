@@ -63,6 +63,7 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * //       owner: "STRING_VALUE",
  * //       parentImage: "STRING_VALUE",
  * //       dateCreated: "STRING_VALUE",
+ * //       instanceImage: "STRING_VALUE",
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

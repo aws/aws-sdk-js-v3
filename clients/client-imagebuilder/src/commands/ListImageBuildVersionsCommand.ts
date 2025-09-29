@@ -98,6 +98,9 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
  * //       deprecationTime: new Date("TIMESTAMP"),
  * //       lifecycleExecutionId: "STRING_VALUE",
+ * //       loggingConfiguration: { // ImageLoggingConfiguration
+ * //         logGroupName: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

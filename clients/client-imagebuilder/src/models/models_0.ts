@@ -65,7 +65,8 @@ export interface SystemsManagerAgent {
    * <p>Controls whether the Systems Manager agent is removed from your final build image, prior to
    * 			creating the new AMI. If this is set to true, then the agent is removed from the final
    * 			image. If it's set to false, then the agent is left in, so that it is included in the
-   * 			new AMI. The default value is false.</p>
+   * 			new AMI. default value is false.</p>
+   *          <p>The default behavior of uninstallAfterBuild is to remove the SSM Agent if it was installed by EC2 Image Builder</p>
    * @public
    */
   uninstallAfterBuild?: boolean | undefined;
@@ -266,7 +267,9 @@ export interface AmiDistributionConfiguration {
   amiTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The KMS key identifier used to encrypt the distributed image.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt the distributed image.
+   * 			This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -277,6 +280,19 @@ export interface AmiDistributionConfiguration {
    * @public
    */
   launchPermission?: LaunchPermissionConfiguration | undefined;
+}
+
+/**
+ * <p>Defines the rules by which an image pipeline is automatically disabled when it fails.</p>
+ * @public
+ */
+export interface AutoDisablePolicy {
+  /**
+   * <p>The number of consecutive scheduled image pipeline executions that must fail before Image Builder
+   * 			automatically disables the pipeline.</p>
+   * @public
+   */
+  failureCount: number | undefined;
 }
 
 /**
@@ -744,7 +760,8 @@ export interface Component {
   data?: string | undefined;
 
   /**
-   * <p>The KMS key identifier used to encrypt the component.</p>
+   * <p>The KMS key identifier used to encrypt the component. This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -1174,7 +1191,9 @@ export interface EbsInstanceBlockDeviceSpecification {
   iops?: number | undefined;
 
   /**
-   * <p>Use to configure the KMS key to use when encrypting the device.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key to use when encrypting the device.
+   * 			This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -1364,8 +1383,9 @@ export interface ContainerRecipe {
   dockerfileTemplateData?: string | undefined;
 
   /**
-   * <p>Identifies which KMS key is used to encrypt the container image for distribution to
-   * 			the target Region.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies which KMS key is used to encrypt the container image
+   * 			for distribution to the target Region. This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -1457,6 +1477,15 @@ export interface ContainerRecipeSummary {
   dateCreated?: string | undefined;
 
   /**
+   * <p>The base image for a container build and test instance. This can contain an AMI ID
+   * 		or it can specify an Amazon Web Services Systems Manager (SSM) Parameter Store Parameter, prefixed by <code>ssm:</code>,
+   * 		followed by the parameter name or ARN.</p>
+   *          <p>If not specified, Image Builder uses the appropriate ECS-optimized AMI as a base image.</p>
+   * @public
+   */
+  instanceImage?: string | undefined;
+
+  /**
    * <p>Tags that are attached to the container recipe.</p>
    * @public
    */
@@ -1540,7 +1569,8 @@ export interface CreateComponentRequest {
   uri?: string | undefined;
 
   /**
-   * <p>The ID of the KMS key that is used to encrypt this component.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this component. This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -1752,7 +1782,9 @@ export interface CreateContainerRecipeRequest {
   targetRepository: TargetContainerRepository | undefined;
 
   /**
-   * <p>Identifies which KMS key is used to encrypt the Dockerfile template.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies which KMS key is used to encrypt the Dockerfile
+   * 			template. This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -2217,6 +2249,20 @@ export interface ImageTestsConfiguration {
 }
 
 /**
+ * <p>The logging configuration that's defined for the image. Image Builder uses the defined settings
+ * 			to direct execution log output during image creation.</p>
+ * @public
+ */
+export interface ImageLoggingConfiguration {
+  /**
+   * <p>The log group name that Image Builder uses for image creation. If not specified, the log group
+   * 			name defaults to <code>/aws/imagebuilder/image-name</code>.</p>
+   * @public
+   */
+  logGroupName?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2363,6 +2409,12 @@ export interface CreateImageRequest {
    * @public
    */
   executionRole?: string | undefined;
+
+  /**
+   * <p>Define logging configuration for the image build process.</p>
+   * @public
+   */
+  loggingConfiguration?: ImageLoggingConfiguration | undefined;
 }
 
 /**
@@ -2386,6 +2438,27 @@ export interface CreateImageResponse {
    * @public
    */
   imageBuildVersionArn?: string | undefined;
+}
+
+/**
+ * <p>The logging configuration that's defined for pipeline execution.</p>
+ * @public
+ */
+export interface PipelineLoggingConfiguration {
+  /**
+   * <p>The log group name that Image Builder uses for image creation. If not specified, the log group
+   * 			name defaults to <code>/aws/imagebuilder/image-name</code>.</p>
+   * @public
+   */
+  imageLogGroupName?: string | undefined;
+
+  /**
+   * <p>The log group name that Image Builder uses for the log output during creation of a new pipeline.
+   * 			If not specified, the pipeline log group name defaults to
+   * 			<code>/aws/imagebuilder/pipeline/pipeline-name</code>.</p>
+   * @public
+   */
+  pipelineLogGroupName?: string | undefined;
 }
 
 /**
@@ -2449,6 +2522,13 @@ export interface Schedule {
    * @public
    */
   pipelineExecutionStartCondition?: PipelineExecutionStartCondition | undefined;
+
+  /**
+   * <p>The policy that configures when Image Builder should automatically disable a pipeline that
+   * 			is failing.</p>
+   * @public
+   */
+  autoDisablePolicy?: AutoDisablePolicy | undefined;
 }
 
 /**
@@ -2567,6 +2647,12 @@ export interface CreateImagePipelineRequest {
    * @public
    */
   executionRole?: string | undefined;
+
+  /**
+   * <p>Define logging configuration for the image build process.</p>
+   * @public
+   */
+  loggingConfiguration?: PipelineLoggingConfiguration | undefined;
 }
 
 /**
@@ -2681,6 +2767,13 @@ export interface CreateImageRecipeRequest {
    * @public
    */
   additionalInstanceConfiguration?: AdditionalInstanceConfiguration | undefined;
+
+  /**
+   * <p>Tags that are applied to the AMI that Image Builder creates during the Build phase
+   * 			prior to image distribution.</p>
+   * @public
+   */
+  amiTags?: Record<string, string> | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure
@@ -3439,7 +3532,9 @@ export interface CreateWorkflowRequest {
   uri?: string | undefined;
 
   /**
-   * <p>The ID of the KMS key that is used to encrypt this workflow resource.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this workflow resource.
+   * 			This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -4264,6 +4359,13 @@ export interface ImageRecipe {
    * @public
    */
   additionalInstanceConfiguration?: AdditionalInstanceConfiguration | undefined;
+
+  /**
+   * <p>Tags that are applied to the AMI that Image Builder creates during the Build phase
+   * 			prior to image distribution.</p>
+   * @public
+   */
+  amiTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4456,8 +4558,9 @@ export interface ImageScanState {
 }
 
 /**
- * <p>An Image Builder image. You must specify exactly one recipe for the image – either a
- * 			container recipe (<code>containerRecipe</code>), which creates a container image, or an
+ * <p>An Image Builder image resource that keeps track of all of the settings used to create, configure,
+ * 			and distribute output for that image. You must specify exactly one recipe for the image –
+ * 			either a container recipe (<code>containerRecipe</code>), which creates a container image, or an
  * 			image recipe (<code>imageRecipe</code>), which creates an AMI.</p>
  * @public
  */
@@ -4678,6 +4781,13 @@ export interface Image {
    * @public
    */
   workflows?: WorkflowConfiguration[] | undefined;
+
+  /**
+   * <p>The logging configuration that's defined for the image. Image Builder uses the defined settings
+   * 			to direct execution log output during image creation.</p>
+   * @public
+   */
+  loggingConfiguration?: ImageLoggingConfiguration | undefined;
 }
 
 /**
@@ -4810,6 +4920,14 @@ export interface ImagePipeline {
   dateLastRun?: string | undefined;
 
   /**
+   * <p>The status of the last image that this pipeline built, such as
+   * 			<code>BUILDING</code>, <code>TESTING</code>, <code>FAILED</code>,
+   * 			or <code>AVAILABLE</code>.</p>
+   * @public
+   */
+  lastRunStatus?: ImageStatus | undefined;
+
+  /**
    * <p>The next date when the pipeline is scheduled to run.</p>
    * @public
    */
@@ -4839,6 +4957,42 @@ export interface ImagePipeline {
    * @public
    */
   workflows?: WorkflowConfiguration[] | undefined;
+
+  /**
+   * <p>Defines logging configuration for the output image.</p>
+   * @public
+   */
+  loggingConfiguration?: PipelineLoggingConfiguration | undefined;
+
+  /**
+   * <p>Image Builder tracks the number of consecutive failures for scheduled pipeline
+   * 			executions and takes one of the following actions each time it runs on a schedule:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the pipeline execution is successful, the number of consecutive
+   * 					failures resets to zero.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the pipeline execution fails, Image Builder increments the number of
+   * 					consecutive failures. If the failure count exceeds the limit defined in the
+   * 					<code>AutoDisablePolicy</code>, Image Builder disables the pipeline.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The consecutive failure count is also reset to zero under the following
+   * 			conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The pipeline runs manually and succeeds.</p>
+   *             </li>
+   *             <li>
+   *                <p>The pipeline configuration is updated.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If the pipeline runs manually and fails, the count remains the same. The next
+   * 			scheduled run continues to increment where it left off before.</p>
+   * @public
+   */
+  consecutiveFailures?: number | undefined;
 }
 
 /**
@@ -5391,7 +5545,8 @@ export interface Workflow {
   data?: string | undefined;
 
   /**
-   * <p>The KMS key identifier used to encrypt the workflow resource.</p>
+   * <p>The KMS key identifier used to encrypt the workflow resource. This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -5813,7 +5968,8 @@ export interface ImportComponentRequest {
   uri?: string | undefined;
 
   /**
-   * <p>The ID of the KMS key that should be used to encrypt this component.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this component. This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -5914,6 +6070,12 @@ export interface ImportDiskImageRequest {
   uri: string | undefined;
 
   /**
+   * <p>Define logging configuration for the image build process.</p>
+   * @public
+   */
+  loggingConfiguration?: ImageLoggingConfiguration | undefined;
+
+  /**
    * <p>Tags that are attached to image resources created from the import.</p>
    * @public
    */
@@ -6001,6 +6163,12 @@ export interface ImportVmImageRequest {
   vmImportTaskId: string | undefined;
 
   /**
+   * <p>Define logging configuration for the image build process.</p>
+   * @public
+   */
+  loggingConfiguration?: ImageLoggingConfiguration | undefined;
+
+  /**
    * <p>Tags that are attached to the import resources.</p>
    * @public
    */
@@ -6071,7 +6239,7 @@ export interface ListComponentBuildVersionsRequest {
   componentVersionArn?: string | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6184,7 +6352,7 @@ export interface ListComponentsRequest {
   byName?: boolean | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6267,7 +6435,7 @@ export interface ListContainerRecipesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6316,7 +6484,7 @@ export interface ListDistributionConfigurationsRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6399,7 +6567,7 @@ export interface ListImageBuildVersionsRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6530,6 +6698,12 @@ export interface ImageSummary {
    * @public
    */
   lifecycleExecutionId?: string | undefined;
+
+  /**
+   * <p>The logging configuration that's defined for the image.</p>
+   * @public
+   */
+  loggingConfiguration?: ImageLoggingConfiguration | undefined;
 }
 
 /**
@@ -6568,7 +6742,7 @@ export interface ListImagePackagesRequest {
   imageBuildVersionArn: string | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6657,7 +6831,7 @@ export interface ListImagePipelineImagesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6738,7 +6912,7 @@ export interface ListImagePipelinesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6781,10 +6955,9 @@ export interface ListImagePipelinesResponse {
  */
 export interface ListImageRecipesRequest {
   /**
-   * <p>The owner defines which image recipes you want to list. By default, this request will
-   * 			only show image recipes owned by your account. You can use this field to specify if you
-   * 			want to view image recipes owned by yourself, by Amazon, or those image recipes that
-   * 			have been shared with you by other customers.</p>
+   * <p>You can specify the recipe owner to filter results by that owner. By default, this request will
+   * 			only show image recipes owned by your account. To filter by a different owner, specify one of the
+   * 			<code>Valid Values</code> that are listed for this parameter.</p>
    * @public
    */
   owner?: Ownership | undefined;
@@ -6813,7 +6986,7 @@ export interface ListImageRecipesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -6885,7 +7058,8 @@ export interface ListImageRecipesResponse {
   requestId?: string | undefined;
 
   /**
-   * <p>The list of image pipelines.</p>
+   * <p>A list of <code>ImageRecipeSummary</code> objects that contain identifying characteristics for the
+   * 			image recipe, such as the name, the Amazon Resource Name (ARN), and the date created, along with other key details.</p>
    * @public
    */
   imageRecipeSummaryList?: ImageRecipeSummary[] | undefined;
@@ -6952,7 +7126,7 @@ export interface ListImagesRequest {
   byName?: boolean | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7327,7 +7501,7 @@ export interface ListImageScanFindingsRequest {
   filters?: ImageScanFindingsFilter[] | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7654,7 +7828,7 @@ export interface ListInfrastructureConfigurationsRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7779,7 +7953,7 @@ export interface ListLifecycleExecutionResourcesRequest {
   parentResourceId?: string | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -7994,7 +8168,7 @@ export interface ListLifecycleExecutionResourcesResponse {
  */
 export interface ListLifecycleExecutionsRequest {
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8044,7 +8218,7 @@ export interface ListLifecyclePoliciesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8193,7 +8367,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListWaitingWorkflowStepsRequest {
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8288,7 +8462,7 @@ export interface ListWorkflowBuildVersionsRequest {
   workflowVersionArn?: string | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8393,7 +8567,7 @@ export interface ListWorkflowBuildVersionsResponse {
  */
 export interface ListWorkflowExecutionsRequest {
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8555,7 +8729,7 @@ export interface ListWorkflowsRequest {
   byName?: boolean | undefined;
 
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -8641,7 +8815,7 @@ export interface ListWorkflowsResponse {
  */
 export interface ListWorkflowStepExecutionsRequest {
   /**
-   * <p>The maximum items to return in a request.</p>
+   * <p>Specify the maximum number of items to return in a request.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -9043,6 +9217,13 @@ export interface StartImagePipelineExecutionRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>Specify tags for Image Builder to apply to the image resource that's created
+   * 			When it starts pipeline execution.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -9391,6 +9572,13 @@ export interface UpdateImagePipelineRequest {
   workflows?: WorkflowConfiguration[] | undefined;
 
   /**
+   * <p>Update logging configuration for the output image that's created when
+   * 			the pipeline runs.</p>
+   * @public
+   */
+  loggingConfiguration?: PipelineLoggingConfiguration | undefined;
+
+  /**
    * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
    * 			Image Builder access to perform workflow actions.</p>
    * @public
@@ -9420,208 +9608,4 @@ export interface UpdateImagePipelineResponse {
    * @public
    */
   imagePipelineArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInfrastructureConfigurationRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
-   * 			update.</p>
-   * @public
-   */
-  infrastructureConfigurationArn: string | undefined;
-
-  /**
-   * <p>The description of the infrastructure configuration.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The instance types of the infrastructure configuration. You can specify one or more
-   * 			instance types to use for this build. The service will pick one of these instance types
-   * 			based on availability.</p>
-   * @public
-   */
-  instanceTypes?: string[] | undefined;
-
-  /**
-   * <p>The instance profile to associate with the instance used to customize your Amazon EC2
-   * 			AMI.</p>
-   * @public
-   */
-  instanceProfileName: string | undefined;
-
-  /**
-   * <p>The security group IDs to associate with the instance used to customize your Amazon EC2
-   * 			AMI.</p>
-   * @public
-   */
-  securityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>The subnet ID to place the instance used to customize your Amazon EC2 AMI in.</p>
-   * @public
-   */
-  subnetId?: string | undefined;
-
-  /**
-   * <p>The logging configuration of the infrastructure configuration.</p>
-   * @public
-   */
-  logging?: Logging | undefined;
-
-  /**
-   * <p>The key pair of the infrastructure configuration. You can use this to log on to and
-   * 			debug the instance used to create your image.</p>
-   * @public
-   */
-  keyPair?: string | undefined;
-
-  /**
-   * <p>The terminate instance on failure setting of the infrastructure configuration. Set to
-   * 			false if you want Image Builder to retain the instance used to configure your AMI if the build or
-   * 			test phase of your workflow fails.</p>
-   * @public
-   */
-  terminateInstanceOnFailure?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event
-   * 			notifications.</p>
-   *          <note>
-   *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
-   * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
-   * 				account that the Image Builder service runs under.</p>
-   *          </note>
-   * @public
-   */
-  snsTopicArn?: string | undefined;
-
-  /**
-   * <p>The tags attached to the resource created by Image Builder.</p>
-   * @public
-   */
-  resourceTags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The instance metadata options that you can set for the HTTP requests that pipeline
-   * 			builds use to launch EC2 build and test instances. For more information about instance
-   * 			metadata options, see one of the following links:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
-   * 						<i>
-   *                      <i>Amazon EC2 User Guide</i>
-   *                   </i> for Linux instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
-   * 						<i>
-   *                      <i>Amazon EC2 Windows Guide</i>
-   *                   </i> for Windows instances.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  instanceMetadataOptions?: InstanceMetadataOptions | undefined;
-
-  /**
-   * <p>The instance placement settings that define where the instances that are launched
-   * 			from your image will run.</p>
-   * @public
-   */
-  placement?: Placement | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
-   *        in the <i>Amazon EC2 API Reference</i>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInfrastructureConfigurationResponse {
-  /**
-   * <p>The request ID that uniquely identifies this request.</p>
-   * @public
-   */
-  requestId?: string | undefined;
-
-  /**
-   * <p>The client token that uniquely identifies the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was updated by
-   * 			this request.</p>
-   * @public
-   */
-  infrastructureConfigurationArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateLifecyclePolicyRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lifecycle policy resource.</p>
-   * @public
-   */
-  lifecyclePolicyArn: string | undefined;
-
-  /**
-   * <p>Optional description for the lifecycle policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Indicates whether the lifecycle policy resource is enabled.</p>
-   * @public
-   */
-  status?: LifecyclePolicyStatus | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to update the
-   * 			lifecycle policy.</p>
-   * @public
-   */
-  executionRole: string | undefined;
-
-  /**
-   * <p>The type of image resource that the lifecycle policy applies to.</p>
-   * @public
-   */
-  resourceType: LifecyclePolicyResourceType | undefined;
-
-  /**
-   * <p>The configuration details for a lifecycle policy resource.</p>
-   * @public
-   */
-  policyDetails: LifecyclePolicyDetail[] | undefined;
-
-  /**
-   * <p>Selection criteria for resources that the lifecycle policy applies to.</p>
-   * @public
-   */
-  resourceSelection: LifecyclePolicyResourceSelection | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
-   *        in the <i>Amazon EC2 API Reference</i>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
 }

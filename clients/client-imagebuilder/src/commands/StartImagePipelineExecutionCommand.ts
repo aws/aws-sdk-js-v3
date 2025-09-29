@@ -45,6 +45,9 @@ export interface StartImagePipelineExecutionCommandOutput
  * const input = { // StartImagePipelineExecutionRequest
  *   imagePipelineArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new StartImagePipelineExecutionCommand(input);
  * const response = await client.send(command);

@@ -54,6 +54,9 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  *     scheduleExpression: "STRING_VALUE",
  *     timezone: "STRING_VALUE",
  *     pipelineExecutionStartCondition: "EXPRESSION_MATCH_ONLY" || "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+ *     autoDisablePolicy: { // AutoDisablePolicy
+ *       failureCount: Number("int"), // required
+ *     },
  *   },
  *   status: "DISABLED" || "ENABLED",
  *   tags: { // TagMap
@@ -85,6 +88,10 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  *     },
  *   ],
  *   executionRole: "STRING_VALUE",
+ *   loggingConfiguration: { // PipelineLoggingConfiguration
+ *     imageLogGroupName: "STRING_VALUE",
+ *     pipelineLogGroupName: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateImagePipelineCommand(input);
  * const response = await client.send(command);
