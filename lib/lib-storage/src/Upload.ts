@@ -3,8 +3,10 @@ import {
   ChecksumAlgorithm,
   CompletedPart,
   CompleteMultipartUploadCommand,
+  CompleteMultipartUploadCommandInput,
   CompleteMultipartUploadCommandOutput,
   CreateMultipartUploadCommand,
+  CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput,
   PutObjectCommand,
   PutObjectCommandInput,
@@ -12,6 +14,7 @@ import {
   S3Client,
   Tag,
   UploadPartCommand,
+  UploadPartCommandInput,
 } from "@aws-sdk/client-s3";
 import { AbortController } from "@smithy/abort-controller";
 import {
@@ -24,7 +27,8 @@ import { extendedEncodeURIComponent } from "@smithy/smithy-client";
 import type { AbortController as IAbortController, AbortSignal as IAbortSignal, Endpoint } from "@smithy/types";
 import { EventEmitter } from "events";
 
-import { byteLength } from "./bytelength";
+import { byteLength } from "./byteLength";
+import { BYTE_LENGTH_SOURCE, byteLengthSource } from "./byteLengthSource";
 import { getChunk } from "./chunker";
 import { BodyDataTypes, Options, Progress } from "./types";
 
@@ -52,10 +56,12 @@ export class Upload extends EventEmitter {
   private readonly tags: Tag[] = [];
 
   private readonly client: S3Client;
-  private readonly params: PutObjectCommandInput;
+  private readonly params: PutObjectCommandInput &
+    Partial<CreateMultipartUploadCommandInput & UploadPartCommandInput & CompleteMultipartUploadCommandInput>;
 
   // used for reporting progress.
   private totalBytes?: number;
+  private readonly totalBytesSource?: BYTE_LENGTH_SOURCE;
   private bytesUploadedSoFar: number;
 
   // used in the upload.
@@ -93,13 +99,18 @@ export class Upload extends EventEmitter {
     }
 
     // set progress defaults
-    this.totalBytes = byteLength(this.params.Body);
+    this.totalBytes = this.params.ContentLength ?? byteLength(this.params.Body);
+    this.totalBytesSource = byteLengthSource(this.params.Body, this.params.ContentLength);
     this.bytesUploadedSoFar = 0;
     this.abortController = options.abortController ?? new AbortController();
 
     this.partSize =
       options.partSize || Math.max(Upload.MIN_PART_SIZE, Math.floor((this.totalBytes || 0) / this.MAX_PARTS));
-    this.expectedPartsCount = this.totalBytes !== undefined ? Math.ceil(this.totalBytes / this.partSize) : undefined;
+
+    if (this.totalBytes !== undefined) {
+      this.expectedPartsCount = Math.ceil(this.totalBytes / this.partSize);
+    }
+
     this.__validateInput();
   }
 
@@ -373,9 +384,14 @@ export class Upload extends EventEmitter {
 
     let result;
     if (this.isMultiPart) {
-      const { expectedPartsCount, uploadedParts } = this;
-      if (expectedPartsCount !== undefined && uploadedParts.length !== expectedPartsCount) {
-        throw new Error(`Expected ${expectedPartsCount} part(s) but uploaded ${uploadedParts.length} part(s).`);
+      const { expectedPartsCount, uploadedParts, totalBytes, totalBytesSource } = this;
+      if (totalBytes !== undefined && expectedPartsCount !== undefined && uploadedParts.length !== expectedPartsCount) {
+        throw new Error(`Expected ${expectedPartsCount} part(s) but uploaded ${uploadedParts.length} part(s).
+The expected part count is based on the byte-count of the input.params.Body,
+which was read from ${totalBytesSource} and is ${totalBytes}.
+If this is not correct, provide an override value by setting a number
+to input.params.ContentLength in bytes.
+`);
       }
 
       this.uploadedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
@@ -470,7 +486,7 @@ export class Upload extends EventEmitter {
 
     if (this.partSize < Upload.MIN_PART_SIZE) {
       throw new Error(
-        `EntityTooSmall: Your proposed upload partsize [${this.partSize}] is smaller than the minimum allowed size [${Upload.MIN_PART_SIZE}] (5MB)`
+        `EntityTooSmall: Your proposed upload part size [${this.partSize}] is smaller than the minimum allowed size [${Upload.MIN_PART_SIZE}] (5MB)`
       );
     }
 

@@ -1,10 +1,11 @@
+import { EventEmitter, Readable } from "stream";
 import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
+import { Progress, Upload } from "./index";
 
 /* eslint-disable no-var */
 var hostname = "s3.region.amazonaws.com";
 var port: number | undefined;
-
-import { EventEmitter, Readable } from "stream";
 
 vi.mock("@aws-sdk/client-s3", async () => {
   const sendMock = vi.fn().mockImplementation(async (x) => x);
@@ -73,12 +74,20 @@ import {
 } from "@aws-sdk/client-s3";
 import { AbortController } from "@smithy/abort-controller";
 
-import { Progress, Upload } from "./index";
-
 const DEFAULT_PART_SIZE = 1024 * 1024 * 5;
 
+type Expose = {
+  totalBytes: number | undefined;
+};
+type VisibleForTesting = Omit<Upload, keyof Expose> & Expose;
+
 describe(Upload.name, () => {
-  const s3MockInstance = new S3Client();
+  const s3MockInstance = new S3Client({
+    credentials: {
+      accessKeyId: "UNIT",
+      secretAccessKey: "UNIT",
+    },
+  });
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -106,6 +115,29 @@ describe(Upload.name, () => {
     Bucket: "example-bucket",
     Body: "this-is-a-sample-payload",
   };
+
+  it("uses the input parameters for object length if provided", async () => {
+    let upload = new Upload({
+      params: {
+        Bucket: "",
+        Key: "",
+        Body: Buffer.from("a".repeat(256)),
+        ContentLength: 6 * 1024 * 1024,
+      },
+      client: s3MockInstance,
+    }) as unknown as VisibleForTesting;
+    expect(upload.totalBytes).toEqual(6 * 1024 * 1024);
+
+    upload = new Upload({
+      params: {
+        Bucket: "",
+        Key: "",
+        Body: Buffer.from("a".repeat(256)),
+      },
+      client: s3MockInstance,
+    }) as unknown as VisibleForTesting;
+    expect(upload.totalBytes).toEqual(256);
+  });
 
   it("correctly exposes the event emitter API", () => {
     const upload = new Upload({
@@ -937,7 +969,7 @@ describe(Upload.name, () => {
           partSize: 1024, // Too small
           client: new S3({}),
         });
-      }).toThrow(/EntityTooSmall: Your proposed upload partsize/);
+      }).toThrow(/EntityTooSmall: Your proposed upload part size/);
     });
 
     it("should validate minimum queueSize", () => {

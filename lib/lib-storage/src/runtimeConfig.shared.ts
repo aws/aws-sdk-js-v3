@@ -1,6 +1,6 @@
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const runtimeConfigShared = {
   lstatSync: () => {},
 };
