@@ -32,7 +32,7 @@ export interface DescribeCertificateCommandInput extends DescribeCertificateRequ
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the certificate that's identified by the <code>CertificateId</code>.</p>
+ * <p>Describes the certificate that's identified by the <code>CertificateId</code>.</p> <note> <p>Transfer Family automatically publishes a Amazon CloudWatch metric called <code>DaysUntilExpiry</code> for imported certificates. This metric tracks the number of days until the certificate expires based on the <code>InactiveDate</code>. The metric is available in the <code>AWS/Transfer</code> namespace and includes the <code>CertificateId</code> as a dimension.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -98,6 +98,7 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *     DirectoryListingOptimization: "ENABLED" || "DISABLED",
  *   },
  *   IpAddressType: "IPV4" || "DUALSTACK",
+ *   IdentityProviderType: "SERVICE_MANAGED" || "API_GATEWAY" || "AWS_DIRECTORY_SERVICE" || "AWS_LAMBDA",
  * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);
