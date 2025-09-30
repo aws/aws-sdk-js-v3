@@ -45,6 +45,10 @@ dependencies {
 // This project doesn't produce a JAR.
 tasks["jar"].enabled = false
 
+// Run the SmithyBuild task manually since this project needs the built JAR
+// from smithy-aws-typescript-codegen.
+tasks["smithyBuild"].enabled = false
+
 val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
     models.set(files("model/"))
     smithyBuildConfigs.set(files("smithy-build.json"))
