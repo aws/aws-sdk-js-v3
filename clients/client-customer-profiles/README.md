@@ -520,6 +520,14 @@ GetMatches
 </details>
 <details>
 <summary>
+GetProfileHistoryRecord
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetProfileHistoryRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetProfileHistoryRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetProfileHistoryRecordCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetProfileObjectType
 </summary>
 
@@ -692,6 +700,14 @@ ListProfileAttributeValues
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/ListProfileAttributeValuesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListProfileAttributeValuesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListProfileAttributeValuesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListProfileHistoryRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/ListProfileHistoryRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListProfileHistoryRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListProfileHistoryRecordsCommandOutput/)
 
 </details>
 <details>

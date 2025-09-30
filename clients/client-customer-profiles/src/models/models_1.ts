@@ -8,6 +8,8 @@ import {
   EngagementPreferences,
   EventTriggerCondition,
   EventTriggerLimits,
+  FieldSourceProfileIds,
+  FlowDefinition,
   Gender,
   LayoutType,
   MatchingRequest,
@@ -24,6 +26,216 @@ import {
   RuleBasedMatchingResponse,
   Statistic,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface MergeProfilesRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The identifier of the profile to be taken.</p>
+   * @public
+   */
+  MainProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the profile to be merged into MainProfileId.</p>
+   * @public
+   */
+  ProfileIdsToBeMerged: string[] | undefined;
+
+  /**
+   * <p>The identifiers of the fields in the profile that has the information you want to apply
+   *          to the merge. For example, say you want to merge EmailAddress from Profile1 into
+   *          MainProfile. This would be the identifier of the EmailAddress field in Profile1. </p>
+   * @public
+   */
+  FieldSourceProfileIds?: FieldSourceProfileIds | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeProfilesResponse {
+  /**
+   * <p>A message that indicates the merge request is complete.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutIntegrationRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   * @public
+   */
+  Uri?: string | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration that controls how Customer Profiles retrieves data from the
+   *          source.</p>
+   * @public
+   */
+  FlowDefinition?: FlowDefinition | undefined;
+
+  /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   * @public
+   */
+  ObjectTypeNames?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
+   *          Customer Profiles requests on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>A list of unique names for active event triggers associated with the integration.</p>
+   * @public
+   */
+  EventTriggerNames?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutIntegrationResponse {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   * @public
+   */
+  Uri: string | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   * @public
+   */
+  ObjectTypeNames?: Record<string, string> | undefined;
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   * @public
+   */
+  WorkflowId?: string | undefined;
+
+  /**
+   * <p>Boolean that shows if the Flow that's associated with the Integration is created in
+   *          Amazon Appflow, or with ObjectTypeName equals _unstructured via API/CLI in
+   *          flowDefinition.</p>
+   * @public
+   */
+  IsUnstructured?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
+   *          Customer Profiles requests on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>A list of unique names for active event triggers associated with the integration. This
+   *          list would be empty if no Event Trigger is associated with the integration.</p>
+   * @public
+   */
+  EventTriggerNames?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProfileObjectRequest {
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>A string that is serialized from a JSON object.</p>
+   * @public
+   */
+  Object: string | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProfileObjectResponse {
+  /**
+   * <p>The unique identifier of the profile object generated by the service.</p>
+   * @public
+   */
+  ProfileObjectUniqueKey?: string | undefined;
+}
 
 /**
  * @public
@@ -1140,6 +1352,22 @@ export interface UpdateProfileResponse {
    */
   ProfileId: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const PutIntegrationRequestFilterSensitiveLog = (obj: PutIntegrationRequest): any => ({
+  ...obj,
+  ...(obj.FlowDefinition && { FlowDefinition: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutProfileObjectRequestFilterSensitiveLog = (obj: PutProfileObjectRequest): any => ({
+  ...obj,
+  ...(obj.Object && { Object: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

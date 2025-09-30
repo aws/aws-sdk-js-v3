@@ -136,6 +136,10 @@ import {
 import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
 import { GetMatchesCommandInput, GetMatchesCommandOutput } from "./commands/GetMatchesCommand";
 import {
+  GetProfileHistoryRecordCommandInput,
+  GetProfileHistoryRecordCommandOutput,
+} from "./commands/GetProfileHistoryRecordCommand";
+import {
   GetProfileObjectTypeCommandInput,
   GetProfileObjectTypeCommandOutput,
 } from "./commands/GetProfileObjectTypeCommand";
@@ -187,6 +191,10 @@ import {
   ListProfileAttributeValuesCommandInput,
   ListProfileAttributeValuesCommandOutput,
 } from "./commands/ListProfileAttributeValuesCommand";
+import {
+  ListProfileHistoryRecordsCommandInput,
+  ListProfileHistoryRecordsCommandOutput,
+} from "./commands/ListProfileHistoryRecordsCommand";
 import { ListProfileObjectsCommandInput, ListProfileObjectsCommandOutput } from "./commands/ListProfileObjectsCommand";
 import {
   ListProfileObjectTypesCommandInput,
@@ -282,6 +290,7 @@ export type ServiceInputTypes =
   | GetIdentityResolutionJobCommandInput
   | GetIntegrationCommandInput
   | GetMatchesCommandInput
+  | GetProfileHistoryRecordCommandInput
   | GetProfileObjectTypeCommandInput
   | GetProfileObjectTypeTemplateCommandInput
   | GetSegmentDefinitionCommandInput
@@ -304,6 +313,7 @@ export type ServiceInputTypes =
   | ListIntegrationsCommandInput
   | ListObjectTypeAttributesCommandInput
   | ListProfileAttributeValuesCommandInput
+  | ListProfileHistoryRecordsCommandInput
   | ListProfileObjectTypeTemplatesCommandInput
   | ListProfileObjectTypesCommandInput
   | ListProfileObjectsCommandInput
@@ -368,6 +378,7 @@ export type ServiceOutputTypes =
   | GetIdentityResolutionJobCommandOutput
   | GetIntegrationCommandOutput
   | GetMatchesCommandOutput
+  | GetProfileHistoryRecordCommandOutput
   | GetProfileObjectTypeCommandOutput
   | GetProfileObjectTypeTemplateCommandOutput
   | GetSegmentDefinitionCommandOutput
@@ -390,6 +401,7 @@ export type ServiceOutputTypes =
   | ListIntegrationsCommandOutput
   | ListObjectTypeAttributesCommandOutput
   | ListProfileAttributeValuesCommandOutput
+  | ListProfileHistoryRecordsCommandOutput
   | ListProfileObjectTypeTemplatesCommandOutput
   | ListProfileObjectTypesCommandOutput
   | ListProfileObjectsCommandOutput

@@ -10,7 +10,7 @@ import {
   PutIntegrationRequest,
   PutIntegrationRequestFilterSensitiveLog,
   PutIntegrationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_PutIntegrationCommand, se_PutIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**

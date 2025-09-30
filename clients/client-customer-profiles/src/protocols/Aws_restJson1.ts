@@ -116,6 +116,10 @@ import {
 import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "../commands/GetIntegrationCommand";
 import { GetMatchesCommandInput, GetMatchesCommandOutput } from "../commands/GetMatchesCommand";
 import {
+  GetProfileHistoryRecordCommandInput,
+  GetProfileHistoryRecordCommandOutput,
+} from "../commands/GetProfileHistoryRecordCommand";
+import {
   GetProfileObjectTypeCommandInput,
   GetProfileObjectTypeCommandOutput,
 } from "../commands/GetProfileObjectTypeCommand";
@@ -167,6 +171,10 @@ import {
   ListProfileAttributeValuesCommandInput,
   ListProfileAttributeValuesCommandOutput,
 } from "../commands/ListProfileAttributeValuesCommand";
+import {
+  ListProfileHistoryRecordsCommandInput,
+  ListProfileHistoryRecordsCommandOutput,
+} from "../commands/ListProfileHistoryRecordsCommand";
 import { ListProfileObjectsCommandInput, ListProfileObjectsCommandOutput } from "../commands/ListProfileObjectsCommand";
 import {
   ListProfileObjectTypesCommandInput,
@@ -278,6 +286,7 @@ import {
   Period,
   ProfileAttributes,
   ProfileDimension,
+  ProfileHistoryRecord,
   ProfileQueryFailures,
   ProfileQueryResult,
   ProfileType,
@@ -1145,6 +1154,24 @@ export const se_GetMatchesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetProfileHistoryRecordCommand
+ */
+export const se_GetProfileHistoryRecordCommand = async (
+  input: GetProfileHistoryRecordCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/profiles/{ProfileId}/history-records/{Id}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("ProfileId", () => input.ProfileId!, "{ProfileId}", false);
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetProfileObjectTypeCommand
  */
 export const se_GetProfileObjectTypeCommand = async (
@@ -1577,6 +1604,36 @@ export const se_ListProfileAttributeValuesCommand = async (
   b.p("AttributeName", () => input.AttributeName!, "{AttributeName}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListProfileHistoryRecordsCommand
+ */
+export const se_ListProfileHistoryRecordsCommand = async (
+  input: ListProfileHistoryRecordsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/domains/{DomainName}/profiles/history-records");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ActionType: [],
+      ObjectTypeName: [],
+      PerformedBy: [],
+      ProfileId: [],
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3021,6 +3078,34 @@ export const de_GetMatchesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetProfileHistoryRecordCommand
+ */
+export const de_GetProfileHistoryRecordCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProfileHistoryRecordCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ActionType: __expectString,
+    Content: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ObjectTypeName: __expectString,
+    PerformedBy: __expectString,
+    ProfileObjectUniqueKey: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetProfileObjectTypeCommand
  */
 export const de_GetProfileObjectTypeCommand = async (
@@ -3560,6 +3645,28 @@ export const de_ListProfileAttributeValuesCommand = async (
   map(contents, {
     StatusCode: [, output.statusCode],
   });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListProfileHistoryRecordsCommand
+ */
+export const de_ListProfileHistoryRecordsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProfileHistoryRecordsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProfileHistoryRecords: (_) => de_ProfileHistoryRecords(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5426,6 +5533,33 @@ const de_ProfileDimension = (output: any, context: __SerdeContext): ProfileDimen
     DimensionType: [, __expectString, `DimensionType`],
     Values: [, _json, `Values`],
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ProfileHistoryRecord
+ */
+const de_ProfileHistoryRecord = (output: any, context: __SerdeContext): ProfileHistoryRecord => {
+  return take(output, {
+    ActionType: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ObjectTypeName: __expectString,
+    PerformedBy: __expectString,
+    ProfileObjectUniqueKey: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ProfileHistoryRecords
+ */
+const de_ProfileHistoryRecords = (output: any, context: __SerdeContext): ProfileHistoryRecord[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ProfileHistoryRecord(entry, context);
+    });
+  return retVal;
 };
 
 // de_ProfileIdList omitted.

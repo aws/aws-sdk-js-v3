@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MergeProfilesRequest, MergeProfilesResponse } from "../models/models_0";
+import { MergeProfilesRequest, MergeProfilesResponse } from "../models/models_1";
 import { de_MergeProfilesCommand, se_MergeProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
