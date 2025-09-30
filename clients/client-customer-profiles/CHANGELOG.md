@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.900.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.899.0...v3.900.0) (2025-09-30)
+
+
+### Features
+
+* **client-customer-profiles:** This release introduces ListProfileHistoryRecords and GetProfileHistoryRecord APIs for comprehensive profile history tracking with complete audit trails of creation, updates, merges, deletions, and data ingestion events. ([a39cb12](https://github.com/aws/aws-sdk-js-v3/commit/a39cb1276808462911f1250083e6d3c48859c24c))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

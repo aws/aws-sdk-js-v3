@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.900.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.899.0...v3.900.0) (2025-09-30)
+
+
+### Features
+
+* **client-connectcases:** This release adds support for two new related item types: ConnectCase for linking Amazon Connect cases and Custom for user-defined related items with configurable fields. ([33e1ed5](https://github.com/aws/aws-sdk-js-v3/commit/33e1ed5e4027b01c0bbc70bcf0d766276ccad41d))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcases

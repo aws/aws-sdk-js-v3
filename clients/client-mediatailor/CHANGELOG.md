@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.900.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.899.0...v3.900.0) (2025-09-30)
+
+
+### Features
+
+* **client-mediatailor:** Adding TPS Traffic Shaping to Prefetch Schedules ([ede18c3](https://github.com/aws/aws-sdk-js-v3/commit/ede18c36c145dfadf542a6a00a8cecc81f313438))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

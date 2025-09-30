@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.900.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.899.0...v3.900.0) (2025-09-30)
+
+
+### Features
+
+* **client-chime-sdk-voice:** Added support for IPv4-only and dual-stack network configurations for VoiceConnector and CreateVoiceConnector API. ([4a87d36](https://github.com/aws/aws-sdk-js-v3/commit/4a87d363539aac5d1a5575f933f91026e70efdc1))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-voice

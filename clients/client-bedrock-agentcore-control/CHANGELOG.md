@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.900.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.899.0...v3.900.0) (2025-09-30)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Tagging support for AgentCore Gateway ([2e2a7ca](https://github.com/aws/aws-sdk-js-v3/commit/2e2a7ca4c02c3182dbc15cb8cddfdf8bcd0d3373))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

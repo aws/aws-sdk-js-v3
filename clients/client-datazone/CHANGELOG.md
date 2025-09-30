@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.900.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.899.0...v3.900.0) (2025-09-30)
+
+
+### Features
+
+* **client-datazone:** This release adds support for creation of EMR on EKS Connections in Amazon DataZone. ([1e5c5b8](https://github.com/aws/aws-sdk-js-v3/commit/1e5c5b88a8dfd456535eea6eeb9b6ade70089dfb))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

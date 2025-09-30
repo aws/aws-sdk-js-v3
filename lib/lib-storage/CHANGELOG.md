@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.900.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.899.0...v3.900.0) (2025-09-30)
+
+
+### Bug Fixes
+
+* **lib-storage:** use input parameter object size information if available ([#7385](https://github.com/aws/aws-sdk-js-v3/issues/7385)) ([45d5730](https://github.com/aws/aws-sdk-js-v3/commit/45d5730a5bb335cf15034e305a37deb4c57db7c8))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 

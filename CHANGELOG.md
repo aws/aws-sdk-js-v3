@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.900.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.899.0...v3.900.0) (2025-09-30)
+
+
+### Bug Fixes
+
+* **lib-storage:** use input parameter object size information if available ([#7385](https://github.com/aws/aws-sdk-js-v3/issues/7385)) ([45d5730](https://github.com/aws/aws-sdk-js-v3/commit/45d5730a5bb335cf15034e305a37deb4c57db7c8))
+
+
+### Features
+
+* **client-application-signals:** Amazon CloudWatch Application Signals is introducing the Application Map to give users a more comprehensive view of their service health. Users will now be able to group services, track their latest deployments, and view automated audit findings concerning service performance. ([603b694](https://github.com/aws/aws-sdk-js-v3/commit/603b694f49adf0aa8c1df3e3a671500e86983d0b))
+* **client-bedrock-agentcore-control:** Tagging support for AgentCore Gateway ([2e2a7ca](https://github.com/aws/aws-sdk-js-v3/commit/2e2a7ca4c02c3182dbc15cb8cddfdf8bcd0d3373))
+* **client-chime-sdk-voice:** Added support for IPv4-only and dual-stack network configurations for VoiceConnector and CreateVoiceConnector API. ([4a87d36](https://github.com/aws/aws-sdk-js-v3/commit/4a87d363539aac5d1a5575f933f91026e70efdc1))
+* **client-connectcases:** This release adds support for two new related item types: ConnectCase for linking Amazon Connect cases and Custom for user-defined related items with configurable fields. ([33e1ed5](https://github.com/aws/aws-sdk-js-v3/commit/33e1ed5e4027b01c0bbc70bcf0d766276ccad41d))
+* **client-customer-profiles:** This release introduces ListProfileHistoryRecords and GetProfileHistoryRecord APIs for comprehensive profile history tracking with complete audit trails of creation, updates, merges, deletions, and data ingestion events. ([a39cb12](https://github.com/aws/aws-sdk-js-v3/commit/a39cb1276808462911f1250083e6d3c48859c24c))
+* **client-datasync:** Added support for FIPS VPC endpoints in FIPS-enabled AWS Regions. ([def0338](https://github.com/aws/aws-sdk-js-v3/commit/def03385d2f02876fabd6f00ae2dc851c969d32e))
+* **client-datazone:** This release adds support for creation of EMR on EKS Connections in Amazon DataZone. ([1e5c5b8](https://github.com/aws/aws-sdk-js-v3/commit/1e5c5b88a8dfd456535eea6eeb9b6ade70089dfb))
+* **client-directory-service:** AWS Directory service now supports IPv6-native and dual-stack configurations for AWS Managed Microsoft AD, AD Connector, and Simple AD (dual-stack only). Additionally, AWS Managed Microsoft AD Standard Edition directories can be upgraded to Enterprise Edition directories through a single API call. ([90ce41c](https://github.com/aws/aws-sdk-js-v3/commit/90ce41cb5d50220769c1e02d0a107e0fd1e895da))
+* **client-ecs:** This release adds support for Managed Instances on Amazon ECS. ([45a8e7f](https://github.com/aws/aws-sdk-js-v3/commit/45a8e7fbb9123a9060f85785d58e8cdadcd7cf55))
+* **client-fsx:** Add Dual-Stack support for Amazon FSx for NetApp ONTAP and Windows File Server ([d7320be](https://github.com/aws/aws-sdk-js-v3/commit/d7320be1e997c013490d4190409836b6af48a005))
+* **client-mediatailor:** Adding TPS Traffic Shaping to Prefetch Schedules ([ede18c3](https://github.com/aws/aws-sdk-js-v3/commit/ede18c36c145dfadf542a6a00a8cecc81f313438))
+* **client-rds:** Enhanced RDS error handling: Added DBProxyEndpointNotFoundFault, DBShardGroupNotFoundFault, KMSKeyNotAccessibleFault for snapshots/restores/backups, NetworkTypeNotSupported, StorageTypeNotSupportedFault for restores, and granular state validation faults. Changed DBInstanceNotReadyFault to HTTP 400. ([a6d4eb2](https://github.com/aws/aws-sdk-js-v3/commit/a6d4eb28861f8d0fb3fd4ab400a1b70f6825208b))
+* **client-transfer:** Add support for updating server identity provider type ([5f65961](https://github.com/aws/aws-sdk-js-v3/commit/5f65961855d4d4e07aed617cb14a8d601268b5b6))
+* **clients:** update client endpoints as of 2025-09-30 ([453bf08](https://github.com/aws/aws-sdk-js-v3/commit/453bf08d09a0d3bf43ca35842a064bc50eb7cd8a))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 
