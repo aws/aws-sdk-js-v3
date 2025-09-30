@@ -25,10 +25,10 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/smithy-client": "^4.6.5",
-    "@smithy/types": "^4.5.0",
-    "@smithy/util-hex-encoding": "^4.1.0",
-    "@smithy/util-utf8": "^4.1.0",
+    "@smithy/smithy-client": "^4.7.0",
+    "@smithy/types": "^4.6.0",
+    "@smithy/util-hex-encoding": "^4.2.0",
+    "@smithy/util-utf8": "^4.2.0",
     "tslib": "^2.6.2"
   },
   "engines": {
