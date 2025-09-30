@@ -75,6 +75,9 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *   },
  *   kmsKeyArn: "STRING_VALUE",
  *   exceptionLevel: "DEBUG",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);

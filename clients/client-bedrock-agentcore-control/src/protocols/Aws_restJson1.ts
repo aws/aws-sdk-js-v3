@@ -418,6 +418,7 @@ export const se_CreateGatewayCommand = async (
       protocolConfiguration: (_) => _json(_),
       protocolType: [],
       roleArn: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);

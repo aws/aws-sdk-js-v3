@@ -2534,6 +2534,12 @@ export interface CreateGatewayRequest {
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>A map of key-value pairs to associate with the gateway as metadata tags.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
