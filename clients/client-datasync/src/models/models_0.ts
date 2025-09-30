@@ -2980,6 +2980,7 @@ export interface DescribeAgentRequest {
  */
 export const EndpointType = {
   FIPS: "FIPS",
+  FIPS_PRIVATE_LINK: "FIPS_PRIVATE_LINK",
   PRIVATE_LINK: "PRIVATE_LINK",
   PUBLIC: "PUBLIC",
 } as const;
