@@ -17,7 +17,7 @@ import software.amazon.smithy.model.Model
 import software.amazon.smithy.model.shapes.ServiceShape
 import software.amazon.smithy.model.shapes.ShapeId
 import software.amazon.smithy.model.node.Node
-import software.amazon.smithy.gradle.tasks.SmithyBuild
+import software.amazon.smithy.gradle.tasks.SmithyBuildTask
 import software.amazon.smithy.aws.traits.ServiceTrait
 import java.util.stream.Stream
 import kotlin.streams.toList
@@ -38,8 +38,10 @@ buildscript {
 }
 
 plugins {
-    val smithyPluginVersion: String by project
-    id("software.amazon.smithy").version(smithyPluginVersion)
+    `java-library`
+
+    val smithyGradleVersion: String by project
+    id("software.amazon.smithy.gradle.smithy-base").version(smithyGradleVersion)
 }
 
 dependencies {
@@ -49,15 +51,9 @@ dependencies {
     implementation("software.amazon.smithy:smithy-aws-smoke-test-model:$smithyVersion")
 }
 
-// This project doesn't produce a JAR.
-tasks["jar"].enabled = false
-
-// Run the SmithyBuild task manually since this project needs the built JAR
-// from smithy-aws-typescript-codegen.
-tasks["smithyBuildJar"].enabled = false
-
-tasks.register<SmithyBuild>("buildSdk") {
-    addRuntimeClasspath = true
+val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
+    models.set(files("model/"))
+    smithyBuildConfigs.set(files("smithy-build.json"))
 }
 
 configure<software.amazon.smithy.gradle.SmithyExtension> {
