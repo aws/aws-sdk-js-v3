@@ -62,16 +62,7 @@ val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
     val clientNameProp: String? by project
     if (!(clientNameProp?.isEmpty() ?: true)) {
         smithyBuildConfigs.set(files("smithy-build-" + clientNameProp + ".json"))
-    } else {
-        smithyBuildConfigs.set(files("smithy-build.json"))
-    }
-}
-
-configure<software.amazon.smithy.gradle.SmithyExtension> {
-    val clientNameProp: String? by project
-    if (!(clientNameProp?.isEmpty() ?: true)) {
-        smithyBuildConfigs.set(files("smithy-build-" + clientNameProp + ".json"))
-        outputDirectory.set(file("build-single/" + clientNameProp))
+        outputDir.set(file("build-single/" + clientNameProp))
     } else {
         smithyBuildConfigs.set(files("smithy-build.json"))
     }
