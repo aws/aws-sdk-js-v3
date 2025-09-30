@@ -29,7 +29,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/abort-controller": "^4.1.1",
+    "@smithy/abort-controller": "^4.2.0",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

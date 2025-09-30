@@ -26,9 +26,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^4.1.1",
+    "@smithy/property-provider": "^4.2.0",
     "@smithy/protocol-http": "^5.3.0",
-    "@smithy/signature-v4": "^5.2.1",
+    "@smithy/signature-v4": "^5.3.0",
     "@smithy/types": "^4.6.0",
     "@smithy/util-middleware": "^4.2.0",
     "tslib": "^2.6.2"

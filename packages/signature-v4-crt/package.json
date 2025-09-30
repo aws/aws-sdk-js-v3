@@ -26,8 +26,8 @@
     "@aws-sdk/crt-loader": "*",
     "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/types": "*",
-    "@smithy/querystring-parser": "^4.1.1",
-    "@smithy/signature-v4": "^5.2.1",
+    "@smithy/querystring-parser": "^4.2.0",
+    "@smithy/signature-v4": "^5.3.0",
     "@smithy/types": "^4.6.0",
     "@smithy/util-middleware": "^4.2.0",
     "tslib": "^2.6.2"
