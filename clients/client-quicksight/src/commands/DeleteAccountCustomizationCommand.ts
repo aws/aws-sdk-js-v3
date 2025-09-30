@@ -28,7 +28,26 @@ export interface DeleteAccountCustomizationCommandInput extends DeleteAccountCus
 export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCustomizationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes all Amazon QuickSight customizations in this Amazon Web Services Region for the specified
+ * <important>
+ *             <p>This API permanently deletes all QuickSight customizations for the specified Amazon Web Services account and namespace in this Amazon Web Services Region. When you delete account customizations:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>All customizations are removed including themes, branding, and visual settings</p>
+ *                </li>
+ *                <li>
+ *                   <p>The deletion affects only the specified Amazon Web Services Region - customizations in other regions remain unchanged</p>
+ *                </li>
+ *                <li>
+ *                   <p>This action cannot be undone through the API</p>
+ *                </li>
+ *                <li>
+ *                   <p>Users will see default QuickSight styling after customizations are deleted</p>
+ *                </li>
+ *             </ul>
+ *             <p>
+ *                <b>Before proceeding:</b> Ensure you have backups of any custom themes or branding elements you may want to recreate.</p>
+ *          </important>
+ *          <p>Deletes all Amazon QuickSight customizations in this Amazon Web Services Region for the specified
  *             Amazon Web Services account and QuickSight namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

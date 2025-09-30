@@ -33,7 +33,20 @@ export interface UpdatePublicSharingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use the <code>UpdatePublicSharingSettings</code> operation to turn on or turn off the
+ * <important>
+ *             <p>This API controls public sharing settings for your entire QuickSight account, affecting data security and access. When you enable public sharing:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Dashboards can be shared publicly</p>
+ *                </li>
+ *                <li>
+ *                   <p>This setting affects your entire Amazon Web Services account and all QuickSight users</p>
+ *                </li>
+ *             </ul>
+ *             <p>
+ *                <b>Before proceeding:</b> Ensure you understand the security implications and have proper IAM permissions configured.</p>
+ *          </important>
+ *          <p>Use the <code>UpdatePublicSharingSettings</code> operation to turn on or turn off the
  *             public sharing settings of an QuickSight dashboard.</p>
  *          <p>To use this operation, turn on session capacity pricing for your QuickSight
  *             account.</p>

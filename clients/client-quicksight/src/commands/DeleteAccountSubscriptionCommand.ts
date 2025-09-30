@@ -28,7 +28,32 @@ export interface DeleteAccountSubscriptionCommandInput extends DeleteAccountSubs
 export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Use the <code>DeleteAccountSubscription</code> operation to delete an QuickSight account. This operation will result in an error message if you have configured your account termination protection settings to <code>True</code>. To change this setting and delete your account, call the <code>UpdateAccountSettings</code> API and set the value of the <code>TerminationProtectionEnabled</code> parameter to <code>False</code>, then make another call to the <code>DeleteAccountSubscription</code> API.</p>
+ * <important>
+ *             <p>Deleting your QuickSight account subscription has permanent, irreversible consequences across all Amazon Web Services regions:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Global deletion – Running this operation from any single region will delete your QuickSight account and all data in every Amazon Web Services region where you have QuickSight resources.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Complete data loss – All dashboards, analyses, datasets, data sources, and custom visuals will be permanently deleted across all regions.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Embedded content failure – All embedded dashboards and visuals in your applications will immediately stop working and display errors to end users.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Shared resources removed – All shared dashboards, folders, and resources will become inaccessible to other users and external recipients.</p>
+ *                </li>
+ *                <li>
+ *                   <p>User access terminated – All QuickSight users in your account will lose access immediately, including authors, readers, and administrators.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>No recovery possible</b> – Once deleted, your QuickSight account and all associated data cannot be restored.</p>
+ *                </li>
+ *             </ul>
+ *             <p>Consider exporting critical dashboards and data before proceeding with account deletion.</p>
+ *          </important>
+ *          <p>Use the <code>DeleteAccountSubscription</code> operation to delete an QuickSight account. This operation will result in an error message if you have configured your account termination protection settings to <code>True</code>. To change this setting and delete your account, call the <code>UpdateAccountSettings</code> API and set the value of the <code>TerminationProtectionEnabled</code> parameter to <code>False</code>, then make another call to the <code>DeleteAccountSubscription</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
