@@ -97,11 +97,13 @@ export class BundlerSizeBenchmarker {
 
     await esbuild.build({
       entryPoints: [entryPoint],
+      platform: "browser",
       bundle: true,
       minify: true,
+      mainFields: ["browser", "module", "main"],
       outfile: outfile,
       format: "esm",
-      target: "es2015",
+      target: "es2022",
     });
 
     const stat = fs.statSync(outfile);
