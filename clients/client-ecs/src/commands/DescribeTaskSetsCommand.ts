@@ -68,7 +68,7 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * //       runningCount: Number("int"),
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
- * //       launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //       launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //       capacityProviderStrategy: [ // CapacityProviderStrategy
  * //         { // CapacityProviderStrategyItem
  * //           capacityProvider: "STRING_VALUE", // required

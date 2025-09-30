@@ -83,7 +83,7 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  *       containerPort: Number("int"),
  *     },
  *   ],
- *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  *   capacityProviderStrategy: [ // CapacityProviderStrategy
  *     { // CapacityProviderStrategyItem
  *       capacityProvider: "STRING_VALUE", // required
@@ -121,7 +121,7 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * //     runningCount: Number("int"),
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
- * //     launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //     launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //     capacityProviderStrategy: [ // CapacityProviderStrategy
  * //       { // CapacityProviderStrategyItem
  * //         capacityProvider: "STRING_VALUE", // required

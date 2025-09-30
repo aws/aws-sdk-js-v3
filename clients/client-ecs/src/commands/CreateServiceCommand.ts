@@ -222,7 +222,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   ],
  *   desiredCount: Number("int"),
  *   clientToken: "STRING_VALUE",
- *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  *   capacityProviderStrategy: [ // CapacityProviderStrategy
  *     { // CapacityProviderStrategyItem
  *       capacityProvider: "STRING_VALUE", // required
@@ -414,7 +414,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //     desiredCount: Number("int"),
  * //     runningCount: Number("int"),
  * //     pendingCount: Number("int"),
- * //     launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //     launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //     capacityProviderStrategy: [ // CapacityProviderStrategy
  * //       { // CapacityProviderStrategyItem
  * //         capacityProvider: "STRING_VALUE", // required
@@ -467,7 +467,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //         runningCount: Number("int"),
  * //         createdAt: new Date("TIMESTAMP"),
  * //         updatedAt: new Date("TIMESTAMP"),
- * //         launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //         launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //         capacityProviderStrategy: [
  * //           {
  * //             capacityProvider: "STRING_VALUE", // required
@@ -545,7 +545,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //             base: Number("int"),
  * //           },
  * //         ],
- * //         launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //         launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //         platformVersion: "STRING_VALUE",
  * //         platformFamily: "STRING_VALUE",
  * //         networkConfiguration: {

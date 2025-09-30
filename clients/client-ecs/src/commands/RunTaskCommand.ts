@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RunTaskRequest, RunTaskResponse } from "../models/models_0";
+import { RunTaskRequest, RunTaskResponse } from "../models/models_1";
 import { de_RunTaskCommand, se_RunTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -104,7 +104,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *   enableECSManagedTags: true || false,
  *   enableExecuteCommand: true || false,
  *   group: "STRING_VALUE",
- *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  *   networkConfiguration: { // NetworkConfiguration
  *     awsvpcConfiguration: { // AwsVpcConfiguration
  *       subnets: [ // StringList // required
@@ -308,7 +308,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * //         },
  * //       ],
  * //       lastStatus: "STRING_VALUE",
- * //       launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //       launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //       memory: "STRING_VALUE",
  * //       overrides: { // TaskOverride
  * //         containerOverrides: [ // ContainerOverrides

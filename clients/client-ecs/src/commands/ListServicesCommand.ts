@@ -42,7 +42,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *   cluster: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  *   schedulingStrategy: "REPLICA" || "DAEMON",
  * };
  * const command = new ListServicesCommand(input);

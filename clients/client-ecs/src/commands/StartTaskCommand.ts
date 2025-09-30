@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartTaskRequest, StartTaskResponse } from "../models/models_0";
+import { StartTaskRequest, StartTaskResponse } from "../models/models_1";
 import { de_StartTaskCommand, se_StartTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -243,7 +243,7 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * //         },
  * //       ],
  * //       lastStatus: "STRING_VALUE",
- * //       launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //       launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //       memory: "STRING_VALUE",
  * //       overrides: { // TaskOverride
  * //         containerOverrides: [ // ContainerOverrides

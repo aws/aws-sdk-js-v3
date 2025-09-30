@@ -141,7 +141,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * //         },
  * //       ],
  * //       lastStatus: "STRING_VALUE",
- * //       launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //       launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //       memory: "STRING_VALUE",
  * //       overrides: { // TaskOverride
  * //         containerOverrides: [ // ContainerOverrides

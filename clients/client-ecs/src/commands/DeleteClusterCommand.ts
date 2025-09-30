@@ -134,6 +134,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
+ * @throws {@link ClusterContainsCapacityProviderException} (client fault)
+ *  <p>The cluster contains one or more capacity providers that prevent the requested operation. This exception occurs when you try to delete a cluster that still has active capacity providers, including Amazon ECS Managed Instances capacity providers. You must first delete all capacity providers from the cluster before you can delete the cluster itself.</p>
+ *
  * @throws {@link ClusterContainsContainerInstancesException} (client fault)
  *  <p>You can't delete a cluster that has registered container instances. First, deregister
  * 			the container instances before you can delete the cluster. For more information, see

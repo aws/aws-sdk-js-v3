@@ -62,7 +62,7 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //           base: Number("int"),
  * //         },
  * //       ],
- * //       launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //       launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //       platformVersion: "STRING_VALUE",
  * //       platformFamily: "STRING_VALUE",
  * //       loadBalancers: [ // LoadBalancers
