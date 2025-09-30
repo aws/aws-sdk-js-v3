@@ -73,6 +73,23 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  *         targetSlaMinutes: Number("long"), // required
  *       },
  *     },
+ *     connectCase: { // ConnectCaseInputContent
+ *       caseId: "STRING_VALUE", // required
+ *     },
+ *     custom: { // CustomInputContent
+ *       fields: [ // FieldValueList // required
+ *         { // FieldValue
+ *           id: "STRING_VALUE", // required
+ *           value: {//  Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             booleanValue: true || false,
+ *             emptyValue: {},
+ *             userArnValue: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
  *   },
  *   performedBy: { // UserUnion Union: only one key present
  *     userArn: "STRING_VALUE",

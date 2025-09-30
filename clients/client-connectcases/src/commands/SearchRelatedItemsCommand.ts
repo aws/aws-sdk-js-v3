@@ -63,6 +63,89 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  *         name: "STRING_VALUE",
  *         status: "STRING_VALUE",
  *       },
+ *       connectCase: { // ConnectCaseFilter
+ *         caseId: "STRING_VALUE",
+ *       },
+ *       custom: { // CustomFilter
+ *         fields: { // CustomFieldsFilter Union: only one key present
+ *           field: { // FieldFilter Union: only one key present
+ *             equalTo: { // FieldValue
+ *               id: "STRING_VALUE", // required
+ *               value: { // FieldValueUnion Union: only one key present
+ *                 stringValue: "STRING_VALUE",
+ *                 doubleValue: Number("double"),
+ *                 booleanValue: true || false,
+ *                 emptyValue: {},
+ *                 userArnValue: "STRING_VALUE",
+ *               },
+ *             },
+ *             contains: {
+ *               id: "STRING_VALUE", // required
+ *               value: {//  Union: only one key present
+ *                 stringValue: "STRING_VALUE",
+ *                 doubleValue: Number("double"),
+ *                 booleanValue: true || false,
+ *                 emptyValue: {},
+ *                 userArnValue: "STRING_VALUE",
+ *               },
+ *             },
+ *             greaterThan: {
+ *               id: "STRING_VALUE", // required
+ *               value: {//  Union: only one key present
+ *                 stringValue: "STRING_VALUE",
+ *                 doubleValue: Number("double"),
+ *                 booleanValue: true || false,
+ *                 emptyValue: {},
+ *                 userArnValue: "STRING_VALUE",
+ *               },
+ *             },
+ *             greaterThanOrEqualTo: {
+ *               id: "STRING_VALUE", // required
+ *               value: {//  Union: only one key present
+ *                 stringValue: "STRING_VALUE",
+ *                 doubleValue: Number("double"),
+ *                 booleanValue: true || false,
+ *                 emptyValue: {},
+ *                 userArnValue: "STRING_VALUE",
+ *               },
+ *             },
+ *             lessThan: {
+ *               id: "STRING_VALUE", // required
+ *               value: {//  Union: only one key present
+ *                 stringValue: "STRING_VALUE",
+ *                 doubleValue: Number("double"),
+ *                 booleanValue: true || false,
+ *                 emptyValue: {},
+ *                 userArnValue: "STRING_VALUE",
+ *               },
+ *             },
+ *             lessThanOrEqualTo: "<FieldValue>",
+ *           },
+ *           not: {//  Union: only one key present
+ *             field: {//  Union: only one key present
+ *               equalTo: "<FieldValue>",
+ *               contains: "<FieldValue>",
+ *               greaterThan: "<FieldValue>",
+ *               greaterThanOrEqualTo: "<FieldValue>",
+ *               lessThan: "<FieldValue>",
+ *               lessThanOrEqualTo: "<FieldValue>",
+ *             },
+ *             not: "<CustomFieldsFilter>",
+ *             andAll: [ // CustomFieldsFilterList
+ *               "<CustomFieldsFilter>",
+ *             ],
+ *             orAll: [
+ *               "<CustomFieldsFilter>",
+ *             ],
+ *           },
+ *           andAll: [
+ *             "<CustomFieldsFilter>",
+ *           ],
+ *           orAll: [
+ *             "<CustomFieldsFilter>",
+ *           ],
+ *         },
+ *       },
  *     },
  *   ],
  * };
@@ -106,6 +189,23 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * //             targetTime: new Date("TIMESTAMP"), // required
  * //             completionTime: new Date("TIMESTAMP"),
  * //           },
+ * //         },
+ * //         connectCase: { // ConnectCaseContent
+ * //           caseId: "STRING_VALUE", // required
+ * //         },
+ * //         custom: { // CustomContent
+ * //           fields: [ // FieldValueList // required
+ * //             { // FieldValue
+ * //               id: "STRING_VALUE", // required
+ * //               value: {//  Union: only one key present
+ * //                 stringValue: "STRING_VALUE",
+ * //                 doubleValue: Number("double"),
+ * //                 booleanValue: true || false,
+ * //                 emptyValue: {},
+ * //                 userArnValue: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       tags: { // Tags

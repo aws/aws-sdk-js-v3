@@ -104,9 +104,15 @@ import {
   CommentContent,
   CommentFilter,
   ConflictException,
+  ConnectCaseFilter,
+  ConnectCaseInputContent,
   Contact,
   ContactContent,
   ContactFilter,
+  CustomContent,
+  CustomFieldsFilter,
+  CustomFilter,
+  CustomInputContent,
   EmptyFieldValue,
   EmptyOperandValue,
   EventBridgeConfiguration,
@@ -863,7 +869,7 @@ export const se_SearchRelatedItemsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      filters: (_) => _json(_),
+      filters: (_) => se_RelatedItemFilterList(_, context),
       maxResults: [],
       nextToken: [],
     })
@@ -2151,9 +2157,55 @@ const se_CaseRuleDetails = (input: CaseRuleDetails, context: __SerdeContext): an
 
 // se_CommentFilter omitted.
 
+// se_ConnectCaseFilter omitted.
+
+// se_ConnectCaseInputContent omitted.
+
 // se_Contact omitted.
 
 // se_ContactFilter omitted.
+
+/**
+ * serializeAws_restJson1CustomFieldsFilter
+ */
+const se_CustomFieldsFilter = (input: CustomFieldsFilter, context: __SerdeContext): any => {
+  return CustomFieldsFilter.visit(input, {
+    andAll: (value) => ({ andAll: se_CustomFieldsFilterList(value, context) }),
+    field: (value) => ({ field: se_FieldFilter(value, context) }),
+    not: (value) => ({ not: se_CustomFieldsFilter(value, context) }),
+    orAll: (value) => ({ orAll: se_CustomFieldsFilterList(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1CustomFieldsFilterList
+ */
+const se_CustomFieldsFilterList = (input: CustomFieldsFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CustomFieldsFilter(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1CustomFilter
+ */
+const se_CustomFilter = (input: CustomFilter, context: __SerdeContext): any => {
+  return take(input, {
+    fields: (_) => se_CustomFieldsFilter(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1CustomInputContent
+ */
+const se_CustomInputContent = (input: CustomInputContent, context: __SerdeContext): any => {
+  return take(input, {
+    fields: (_) => se_FieldValueList(_, context),
+  });
+};
 
 // se_EmptyFieldValue omitted.
 
@@ -2254,7 +2306,16 @@ const se_OperandTwo = (input: OperandTwo, context: __SerdeContext): any => {
 
 // se_RelatedItemEventIncludedData omitted.
 
-// se_RelatedItemFilterList omitted.
+/**
+ * serializeAws_restJson1RelatedItemFilterList
+ */
+const se_RelatedItemFilterList = (input: RelatedItemTypeFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RelatedItemTypeFilter(entry, context);
+    });
+};
 
 /**
  * serializeAws_restJson1RelatedItemInputContent
@@ -2262,14 +2323,29 @@ const se_OperandTwo = (input: OperandTwo, context: __SerdeContext): any => {
 const se_RelatedItemInputContent = (input: RelatedItemInputContent, context: __SerdeContext): any => {
   return RelatedItemInputContent.visit(input, {
     comment: (value) => ({ comment: _json(value) }),
+    connectCase: (value) => ({ connectCase: _json(value) }),
     contact: (value) => ({ contact: _json(value) }),
+    custom: (value) => ({ custom: se_CustomInputContent(value, context) }),
     file: (value) => ({ file: _json(value) }),
     sla: (value) => ({ sla: se_SlaInputContent(value, context) }),
     _: (name, value) => ({ [name]: value } as any),
   });
 };
 
-// se_RelatedItemTypeFilter omitted.
+/**
+ * serializeAws_restJson1RelatedItemTypeFilter
+ */
+const se_RelatedItemTypeFilter = (input: RelatedItemTypeFilter, context: __SerdeContext): any => {
+  return RelatedItemTypeFilter.visit(input, {
+    comment: (value) => ({ comment: _json(value) }),
+    connectCase: (value) => ({ connectCase: _json(value) }),
+    contact: (value) => ({ contact: _json(value) }),
+    custom: (value) => ({ custom: se_CustomFilter(value, context) }),
+    file: (value) => ({ file: _json(value) }),
+    sla: (value) => ({ sla: _json(value) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 /**
  * serializeAws_restJson1RequiredCaseRule
@@ -2522,6 +2598,8 @@ const de_CaseRuleDetails = (output: any, context: __SerdeContext): CaseRuleDetai
 
 // de_CommentContent omitted.
 
+// de_ConnectCaseContent omitted.
+
 /**
  * deserializeAws_restJson1ContactContent
  */
@@ -2530,6 +2608,15 @@ const de_ContactContent = (output: any, context: __SerdeContext): ContactContent
     channel: __expectString,
     connectedToSystemTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     contactArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CustomContent
+ */
+const de_CustomContent = (output: any, context: __SerdeContext): CustomContent => {
+  return take(output, {
+    fields: (_: any) => de_FieldValueList(_, context),
   }) as any;
 };
 
@@ -2694,9 +2781,19 @@ const de_RelatedItemContent = (output: any, context: __SerdeContext): RelatedIte
       comment: _json(output.comment),
     };
   }
+  if (output.connectCase != null) {
+    return {
+      connectCase: _json(output.connectCase),
+    };
+  }
   if (output.contact != null) {
     return {
       contact: de_ContactContent(output.contact, context),
+    };
+  }
+  if (output.custom != null) {
+    return {
+      custom: de_CustomContent(output.custom, context),
     };
   }
   if (output.file != null) {
