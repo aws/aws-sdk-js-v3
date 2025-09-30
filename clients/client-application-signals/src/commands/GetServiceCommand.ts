@@ -60,6 +60,14 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     ],
+ * //     ServiceGroups: [ // ServiceGroups
+ * //       { // ServiceGroup
+ * //         GroupName: "STRING_VALUE", // required
+ * //         GroupValue: "STRING_VALUE", // required
+ * //         GroupSource: "STRING_VALUE", // required
+ * //         GroupIdentifier: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //     MetricReferences: [ // MetricReferences // required
  * //       { // MetricReference
  * //         Namespace: "STRING_VALUE", // required

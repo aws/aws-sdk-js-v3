@@ -41,17 +41,7 @@ export interface BatchGetServiceLevelObjectiveBudgetReportCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use this operation to retrieve one or more <i>service level objective (SLO) budget reports</i>.</p>
- *          <p>An <i>error budget</i> is the amount of time or requests in an unhealthy state that your service can
- *          accumulate during an interval before your overall SLO budget health is breached and the SLO is considered to be
- *          unmet. For example, an SLO with a threshold of 99.95% and a monthly interval
- *          translates to an error budget of 21.9 minutes of
- *          downtime in a 30-day month.</p>
- *          <p>Budget reports include a health indicator, the attainment value, and
- *          remaining budget.</p>
- *          <p>For more information about SLO error budgets, see
- *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-concepts">
- *             SLO concepts</a>.</p>
+ * <p>Use this operation to retrieve one or more <i>service level objective (SLO) budget reports</i>.</p> <p>An <i>error budget</i> is the amount of time or requests in an unhealthy state that your service can accumulate during an interval before your overall SLO budget health is breached and the SLO is considered to be unmet. For example, an SLO with a threshold of 99.95% and a monthly interval translates to an error budget of 21.9 minutes of downtime in a 30-day month.</p> <p>Budget reports include a health indicator, the attainment value, and remaining budget.</p> <p>For more information about SLO error budgets, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-concepts"> SLO concepts</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

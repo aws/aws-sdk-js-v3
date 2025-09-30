@@ -32,50 +32,7 @@ export interface StartDiscoveryCommandInput extends StartDiscoveryInput {}
 export interface StartDiscoveryCommandOutput extends StartDiscoveryOutput, __MetadataBearer {}
 
 /**
- * <p>Enables this Amazon Web Services account to be able to use CloudWatch Application Signals
- *          by creating the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role. This service-
- *          linked role has the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>xray:GetServiceGraph</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>logs:StartQuery</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>logs:GetQueryResults</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>cloudwatch:GetMetricData</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>cloudwatch:ListMetrics</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>tag:GetResources</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>autoscaling:DescribeAutoScalingGroups</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>After completing this step, you still need to instrument your Java and Python applications to send data
- *          to Application Signals. For more information, see
- *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html">
- *             Enabling Application Signals</a>.</p>
+ * <p>Enables this Amazon Web Services account to be able to use CloudWatch Application Signals by creating the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul> <p>After completing this step, you still need to instrument your Java and Python applications to send data to Application Signals. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html"> Enabling Application Signals</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

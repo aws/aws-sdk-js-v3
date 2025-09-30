@@ -35,10 +35,7 @@ export interface UpdateServiceLevelObjectiveCommandInput extends UpdateServiceLe
 export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceLevelObjectiveOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing service level objective (SLO). If you omit parameters, the previous values
- *          of those parameters are retained. </p>
- *          <p>You cannot change from a period-based SLO to a request-based SLO,
- *          or change from a request-based SLO to a period-based SLO.</p>
+ * <p>Updates an existing service level objective (SLO). If you omit parameters, the previous values of those parameters are retained. </p> <p>You cannot change from a period-based SLO to a request-based SLO, or change from a request-based SLO to a period-based SLO.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +54,7 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  *       },
  *       OperationName: "STRING_VALUE",
  *       MetricType: "LATENCY" || "AVAILABILITY",
+ *       MetricName: "STRING_VALUE",
  *       Statistic: "STRING_VALUE",
  *       PeriodSeconds: Number("int"),
  *       MetricDataQueries: [ // MetricDataQueries

@@ -32,10 +32,7 @@ export interface ListServiceDependenciesCommandInput extends ListServiceDependen
 export interface ListServiceDependenciesCommandOutput extends ListServiceDependenciesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of service dependencies of the service that you specify. A dependency is an infrastructure
- *          component that an operation of this service connects with. Dependencies can include Amazon Web Services
- *          services, Amazon Web Services resources, and third-party services.
- *       </p>
+ * <p>Returns a list of service dependencies of the service that you specify. A dependency is an infrastructure component that an operation of this service connects with. Dependencies can include Amazon Web Services services, Amazon Web Services resources, and third-party services. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

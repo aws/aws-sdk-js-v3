@@ -54,11 +54,11 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   IncludeLinkedAccounts: true || false,
+ *   SloOwnerAwsAccountId: "STRING_VALUE",
  *   MetricSourceTypes: [ // MetricSourceTypes
  *     "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
  *   ],
- *   IncludeLinkedAccounts: true || false,
- *   SloOwnerAwsAccountId: "STRING_VALUE",
  * };
  * const command = new ListServiceLevelObjectivesCommand(input);
  * const response = await client.send(command);

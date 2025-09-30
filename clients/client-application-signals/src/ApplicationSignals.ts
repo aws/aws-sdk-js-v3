@@ -19,6 +19,11 @@ import {
   CreateServiceLevelObjectiveCommandOutput,
 } from "./commands/CreateServiceLevelObjectiveCommand";
 import {
+  DeleteGroupingConfigurationCommand,
+  DeleteGroupingConfigurationCommandInput,
+  DeleteGroupingConfigurationCommandOutput,
+} from "./commands/DeleteGroupingConfigurationCommand";
+import {
   DeleteServiceLevelObjectiveCommand,
   DeleteServiceLevelObjectiveCommandInput,
   DeleteServiceLevelObjectiveCommandOutput,
@@ -29,6 +34,16 @@ import {
   GetServiceLevelObjectiveCommandInput,
   GetServiceLevelObjectiveCommandOutput,
 } from "./commands/GetServiceLevelObjectiveCommand";
+import {
+  ListAuditFindingsCommand,
+  ListAuditFindingsCommandInput,
+  ListAuditFindingsCommandOutput,
+} from "./commands/ListAuditFindingsCommand";
+import {
+  ListGroupingAttributeDefinitionsCommand,
+  ListGroupingAttributeDefinitionsCommandInput,
+  ListGroupingAttributeDefinitionsCommandOutput,
+} from "./commands/ListGroupingAttributeDefinitionsCommand";
 import {
   ListServiceDependenciesCommand,
   ListServiceDependenciesCommandInput,
@@ -60,10 +75,20 @@ import {
   ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
+  ListServiceStatesCommand,
+  ListServiceStatesCommandInput,
+  ListServiceStatesCommandOutput,
+} from "./commands/ListServiceStatesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutGroupingConfigurationCommand,
+  PutGroupingConfigurationCommandInput,
+  PutGroupingConfigurationCommandOutput,
+} from "./commands/PutGroupingConfigurationCommand";
 import {
   StartDiscoveryCommand,
   StartDiscoveryCommandInput,
@@ -85,16 +110,21 @@ const commands = {
   BatchGetServiceLevelObjectiveBudgetReportCommand,
   BatchUpdateExclusionWindowsCommand,
   CreateServiceLevelObjectiveCommand,
+  DeleteGroupingConfigurationCommand,
   DeleteServiceLevelObjectiveCommand,
   GetServiceCommand,
   GetServiceLevelObjectiveCommand,
+  ListAuditFindingsCommand,
+  ListGroupingAttributeDefinitionsCommand,
   ListServiceDependenciesCommand,
   ListServiceDependentsCommand,
   ListServiceLevelObjectiveExclusionWindowsCommand,
   ListServiceLevelObjectivesCommand,
   ListServiceOperationsCommand,
   ListServicesCommand,
+  ListServiceStatesCommand,
   ListTagsForResourceCommand,
+  PutGroupingConfigurationCommand,
   StartDiscoveryCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -154,6 +184,24 @@ export interface ApplicationSignals {
   ): void;
 
   /**
+   * @see {@link DeleteGroupingConfigurationCommand}
+   */
+  deleteGroupingConfiguration(): Promise<DeleteGroupingConfigurationCommandOutput>;
+  deleteGroupingConfiguration(
+    args: DeleteGroupingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGroupingConfigurationCommandOutput>;
+  deleteGroupingConfiguration(
+    args: DeleteGroupingConfigurationCommandInput,
+    cb: (err: any, data?: DeleteGroupingConfigurationCommandOutput) => void
+  ): void;
+  deleteGroupingConfiguration(
+    args: DeleteGroupingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGroupingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteServiceLevelObjectiveCommand}
    */
   deleteServiceLevelObjective(
@@ -196,6 +244,41 @@ export interface ApplicationSignals {
     args: GetServiceLevelObjectiveCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServiceLevelObjectiveCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAuditFindingsCommand}
+   */
+  listAuditFindings(
+    args: ListAuditFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAuditFindingsCommandOutput>;
+  listAuditFindings(
+    args: ListAuditFindingsCommandInput,
+    cb: (err: any, data?: ListAuditFindingsCommandOutput) => void
+  ): void;
+  listAuditFindings(
+    args: ListAuditFindingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAuditFindingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGroupingAttributeDefinitionsCommand}
+   */
+  listGroupingAttributeDefinitions(): Promise<ListGroupingAttributeDefinitionsCommandOutput>;
+  listGroupingAttributeDefinitions(
+    args: ListGroupingAttributeDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupingAttributeDefinitionsCommandOutput>;
+  listGroupingAttributeDefinitions(
+    args: ListGroupingAttributeDefinitionsCommandInput,
+    cb: (err: any, data?: ListGroupingAttributeDefinitionsCommandOutput) => void
+  ): void;
+  listGroupingAttributeDefinitions(
+    args: ListGroupingAttributeDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupingAttributeDefinitionsCommandOutput) => void
   ): void;
 
   /**
@@ -296,6 +379,23 @@ export interface ApplicationSignals {
   ): void;
 
   /**
+   * @see {@link ListServiceStatesCommand}
+   */
+  listServiceStates(
+    args: ListServiceStatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceStatesCommandOutput>;
+  listServiceStates(
+    args: ListServiceStatesCommandInput,
+    cb: (err: any, data?: ListServiceStatesCommandOutput) => void
+  ): void;
+  listServiceStates(
+    args: ListServiceStatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceStatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -310,6 +410,23 @@ export interface ApplicationSignals {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutGroupingConfigurationCommand}
+   */
+  putGroupingConfiguration(
+    args: PutGroupingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutGroupingConfigurationCommandOutput>;
+  putGroupingConfiguration(
+    args: PutGroupingConfigurationCommandInput,
+    cb: (err: any, data?: PutGroupingConfigurationCommandOutput) => void
+  ): void;
+  putGroupingConfiguration(
+    args: PutGroupingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutGroupingConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -368,25 +485,7 @@ export interface ApplicationSignals {
 }
 
 /**
- * <p>Use CloudWatch Application Signals for comprehensive observability of your cloud-based applications.
- *         It enables real-time service health dashboards and helps you track long-term performance trends against your business goals.
- *         The application-centric view provides you with unified visibility across your applications, services, and
- *         dependencies, so you can proactively monitor and efficiently triage any issues that may arise,
- *         ensuring optimal customer experience.</p>
- *          <p>Application Signals provides the following benefits:</p>
- *          <ul>
- *             <li>
- *                <p>Automatically collect metrics and traces from your applications, and display key metrics such as call volume, availability, latency, faults, and errors. </p>
- *             </li>
- *             <li>
- *                <p>Create and monitor service level objectives (SLOs). </p>
- *             </li>
- *             <li>
- *                <p>See a map of your application topology that Application Signals automatically discovers, that gives you a visual representation of your applications, dependencies, and their connectivity.</p>
- *             </li>
- *          </ul>
- *          <p>Application Signals works with CloudWatch RUM, CloudWatch Synthetics canaries, and Amazon Web Services Service Catalog AppRegistry, to display your client pages, Synthetics canaries,
- *         and application names within dashboards and maps.</p>
+ * <p>Use CloudWatch Application Signals for comprehensive observability of your cloud-based applications. It enables real-time service health dashboards and helps you track long-term performance trends against your business goals. The application-centric view provides you with unified visibility across your applications, services, and dependencies, so you can proactively monitor and efficiently triage any issues that may arise, ensuring optimal customer experience.</p> <p>Application Signals provides the following benefits:</p> <ul> <li> <p>Automatically collect metrics and traces from your applications, and display key metrics such as call volume, availability, latency, faults, and errors. </p> </li> <li> <p>Create and monitor service level objectives (SLOs). </p> </li> <li> <p>See a map of your application topology that Application Signals automatically discovers, that gives you a visual representation of your applications, dependencies, and their connectivity.</p> </li> </ul> <p>Application Signals works with CloudWatch RUM, CloudWatch Synthetics canaries, and Amazon Web Services Service Catalog AppRegistry, to display your client pages, Synthetics canaries, and application names within dashboards and maps.</p>
  * @public
  */
 export class ApplicationSignals extends ApplicationSignalsClient implements ApplicationSignals {}

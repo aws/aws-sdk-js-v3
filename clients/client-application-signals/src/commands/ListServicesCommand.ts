@@ -32,9 +32,7 @@ export interface ListServicesCommandInput extends ListServicesInput {}
 export interface ListServicesCommandOutput extends ListServicesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of services that have been discovered by Application Signals.
- *          A service represents a minimum logical and transactional unit that completes a business function. Services
- *          are discovered through Application Signals instrumentation.</p>
+ * <p>Returns a list of services that have been discovered by Application Signals. A service represents a minimum logical and transactional unit that completes a business function. Services are discovered through Application Signals instrumentation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +76,14 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //           ],
  * //           MetricName: "STRING_VALUE", // required
  * //           AccountId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ServiceGroups: [ // ServiceGroups
+ * //         { // ServiceGroup
+ * //           GroupName: "STRING_VALUE", // required
+ * //           GroupValue: "STRING_VALUE", // required
+ * //           GroupSource: "STRING_VALUE", // required
+ * //           GroupIdentifier: "STRING_VALUE", // required
  * //         },
  * //       ],
  * //     },
