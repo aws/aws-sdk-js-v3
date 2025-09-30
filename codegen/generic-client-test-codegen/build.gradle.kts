@@ -56,8 +56,3 @@ val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
 
 // Run the `buildSdk` automatically.
 tasks["build"].finalizedBy(buildSdk)
-
-tasks.register<Sync>("copyOutput") {
-    into(layout.buildDirectory.dir("model"))
-    from(buildSdk.map { it.getPluginProjectionDirectory("source", "model") })
-}
