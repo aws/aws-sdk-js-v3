@@ -72,11 +72,12 @@ val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
 // JSON file found in aws-models/. The generated smithy-build.json file is
 // not committed to git since it's rebuilt each time codegen is performed.
 val generateSmithyBuild = tasks.register("generate-smithy-build") {
+    val clientNameProp: String? by project
+    val modelsDirProp: String by project
+    val models = project.file(modelsDirProp);
+
     doLast {
         val projectionsBuilder = Node.objectNodeBuilder()
-        val modelsDirProp: String by project
-        val clientNameProp: String? by project
-        val models = project.file(modelsDirProp);
 
         fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
             val model = Model.assembler()
