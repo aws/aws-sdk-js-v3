@@ -70,6 +70,8 @@ export class BundlerSizeBenchmarker {
           name: "dist",
           fileName: `vite-${this.application}`,
         },
+        minify: true,
+        emptyOutDir: false,
         rollupOptions: {
           input: {
             input: inputFile,
