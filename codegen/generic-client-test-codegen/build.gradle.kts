@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-import software.amazon.smithy.gradle.tasks.SmithyBuild
+import software.amazon.smithy.gradle.tasks.SmithyBuildTask
 
 val smithyVersion: String by project
 
@@ -30,8 +30,10 @@ buildscript {
 }
 
 plugins {
-    val smithyPluginVersion: String by project
-    id("software.amazon.smithy").version(smithyPluginVersion)
+    `java-library`
+
+    val smithyGradleVersion: String by project
+    id("software.amazon.smithy.gradle.smithy-base").version(smithyGradleVersion)
 }
 
 dependencies {
@@ -45,11 +47,12 @@ tasks["jar"].enabled = false
 
 // Run the SmithyBuild task manually since this project needs the built JAR
 // from smithy-aws-typescript-codegen.
-tasks["smithyBuildJar"].enabled = false
+tasks["smithyBuild"].enabled = false
 
-tasks.register<SmithyBuild>("buildSdk") {
-    addRuntimeClasspath = true
+val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
+    models.set(files("model/"))
+    smithyBuildConfigs.set(files("smithy-build.json"))
 }
 
 // Run the `buildSdk` automatically.
-tasks["build"].finalizedBy(tasks["buildSdk"])
+tasks["build"].finalizedBy(buildSdk)

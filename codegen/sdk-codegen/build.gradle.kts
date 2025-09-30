@@ -17,7 +17,7 @@ import software.amazon.smithy.model.Model
 import software.amazon.smithy.model.shapes.ServiceShape
 import software.amazon.smithy.model.shapes.ShapeId
 import software.amazon.smithy.model.node.Node
-import software.amazon.smithy.gradle.tasks.SmithyBuild
+import software.amazon.smithy.gradle.tasks.SmithyBuildTask
 import software.amazon.smithy.aws.traits.ServiceTrait
 import java.util.stream.Stream
 import kotlin.streams.toList
@@ -38,8 +38,10 @@ buildscript {
 }
 
 plugins {
-    val smithyPluginVersion: String by project
-    id("software.amazon.smithy").version(smithyPluginVersion)
+    `java-library`
+
+    val smithyGradleVersion: String by project
+    id("software.amazon.smithy.gradle.smithy-base").version(smithyGradleVersion)
 }
 
 dependencies {
@@ -54,24 +56,22 @@ tasks["jar"].enabled = false
 
 // Run the SmithyBuild task manually since this project needs the built JAR
 // from smithy-aws-typescript-codegen.
-tasks["smithyBuildJar"].enabled = false
+tasks["smithyBuild"].enabled = false
 
-tasks.register<SmithyBuild>("buildSdk") {
-    addRuntimeClasspath = true
-}
-
-configure<software.amazon.smithy.gradle.SmithyExtension> {
+val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
     val clientNameProp: String? by project
     if (!(clientNameProp?.isEmpty() ?: true)) {
-        smithyBuildConfigs = files("smithy-build-" + clientNameProp + ".json")
-        outputDirectory = file("build-single/" + clientNameProp)
+        smithyBuildConfigs.set(files("smithy-build-" + clientNameProp + ".json"))
+        outputDir.set(file("build-single/" + clientNameProp))
+    } else {
+        smithyBuildConfigs.set(files("smithy-build.json"))
     }
 }
 
 // Generates a smithy-build.json file by creating a new projection for every
 // JSON file found in aws-models/. The generated smithy-build.json file is
 // not committed to git since it's rebuilt each time codegen is performed.
-tasks.register("generate-smithy-build") {
+val generateSmithyBuild = tasks.register("generate-smithy-build") {
     doLast {
         val projectionsBuilder = Node.objectNodeBuilder()
         val modelsDirProp: String by project
@@ -150,5 +150,5 @@ tasks.register("generate-default-configs-provider", JavaExec::class) {
 
 // Run the `buildSdk` automatically.
 tasks["build"]
-        .dependsOn(tasks["generate-smithy-build"])
-        .finalizedBy(tasks["buildSdk"])
+    .dependsOn(generateSmithyBuild)
+    .finalizedBy(buildSdk)
