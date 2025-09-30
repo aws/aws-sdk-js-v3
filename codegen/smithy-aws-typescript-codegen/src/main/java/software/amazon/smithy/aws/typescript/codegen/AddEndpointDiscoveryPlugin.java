@@ -192,7 +192,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
             serviceShape, operationShape));
 
         OperationIndex operationIndex = OperationIndex.of(model);
-        List membersWithClientEndpointDiscoveryId = getMembersWithClientEndpointDiscoveryId(
+        List<MemberShape> membersWithClientEndpointDiscoveryId = getMembersWithClientEndpointDiscoveryId(
             operationIndex.getInput(operationShape)
         );
 
