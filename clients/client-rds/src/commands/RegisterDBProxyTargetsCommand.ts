@@ -60,8 +60,8 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * //       Type: "RDS_INSTANCE" || "RDS_SERVERLESS_ENDPOINT" || "TRACKED_CLUSTER",
  * //       Role: "READ_WRITE" || "READ_ONLY" || "UNKNOWN",
  * //       TargetHealth: { // TargetHealth
- * //         State: "REGISTERING" || "AVAILABLE" || "UNAVAILABLE",
- * //         Reason: "UNREACHABLE" || "CONNECTION_FAILED" || "AUTH_FAILURE" || "PENDING_PROXY_CAPACITY" || "INVALID_REPLICATION_STATE",
+ * //         State: "REGISTERING" || "AVAILABLE" || "UNAVAILABLE" || "UNUSED",
+ * //         Reason: "UNREACHABLE" || "CONNECTION_FAILED" || "AUTH_FAILURE" || "PENDING_PROXY_CAPACITY" || "INVALID_REPLICATION_STATE" || "PROMOTED",
  * //         Description: "STRING_VALUE",
  * //       },
  * //     },

@@ -77,7 +77,6 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * //             To: Number("double"),
  * //           },
  * //         ],
- * //         SupportsStorageAutoscaling: true || false,
  * //         ProvisionedStorageThroughput: [
  * //           {
  * //             From: Number("int"),
@@ -91,6 +90,7 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * //             To: Number("double"),
  * //           },
  * //         ],
+ * //         SupportsStorageAutoscaling: true || false,
  * //       },
  * //     ],
  * //     ValidProcessorFeatures: [ // AvailableProcessorFeatureList

@@ -5,7 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RestoreDBInstanceFromS3Message, RestoreDBInstanceFromS3Result } from "../models/models_1";
+import {
+  RestoreDBInstanceFromS3Message,
+  RestoreDBInstanceFromS3MessageFilterSensitiveLog,
+  RestoreDBInstanceFromS3Result,
+  RestoreDBInstanceFromS3ResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_RestoreDBInstanceFromS3Command, se_RestoreDBInstanceFromS3Command } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -71,6 +76,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *   AutoMinorVersionUpgrade: true || false,
  *   LicenseModel: "STRING_VALUE",
  *   Iops: Number("int"),
+ *   StorageThroughput: Number("int"),
  *   OptionGroupName: "STRING_VALUE",
  *   PubliclyAccessible: true || false,
  *   Tags: [ // TagList
@@ -108,7 +114,6 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *   DeletionProtection: true || false,
  *   MaxAllocatedStorage: Number("int"),
  *   NetworkType: "STRING_VALUE",
- *   StorageThroughput: Number("int"),
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
@@ -123,7 +128,6 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //     DBInstanceClass: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
  * //     DBInstanceStatus: "STRING_VALUE",
- * //     AutomaticRestartTime: new Date("TIMESTAMP"),
  * //     MasterUsername: "STRING_VALUE",
  * //     DBName: "STRING_VALUE",
  * //     Endpoint: { // Endpoint
@@ -187,6 +191,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //       EngineVersion: "STRING_VALUE",
  * //       LicenseModel: "STRING_VALUE",
  * //       Iops: Number("int"),
+ * //       StorageThroughput: Number("int"),
  * //       DBInstanceIdentifier: "STRING_VALUE",
  * //       StorageType: "STRING_VALUE",
  * //       CACertificateIdentifier: "STRING_VALUE",
@@ -205,13 +210,12 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       IAMDatabaseAuthenticationEnabled: true || false,
  * //       AutomationMode: "full" || "all-paused",
  * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
- * //       StorageThroughput: Number("int"),
- * //       Engine: "STRING_VALUE",
- * //       DedicatedLogVolume: true || false,
  * //       MultiTenant: true || false,
+ * //       IAMDatabaseAuthenticationEnabled: true || false,
+ * //       DedicatedLogVolume: true || false,
+ * //       Engine: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -227,6 +231,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //     ReplicaMode: "open-read-only" || "mounted",
  * //     LicenseModel: "STRING_VALUE",
  * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
  * //     OptionGroupMemberships: [ // OptionGroupMembershipList
  * //       { // OptionGroupMembership
  * //         OptionGroupName: "STRING_VALUE",
@@ -307,40 +312,40 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
- * //     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
- * //       { // DBInstanceAutomatedBackupsReplication
- * //         DBInstanceAutomatedBackupsArn: "STRING_VALUE",
- * //       },
- * //     ],
+ * //     AutomationMode: "full" || "all-paused",
+ * //     ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //     CustomerOwnedIpEnabled: true || false,
- * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     NetworkType: "STRING_VALUE",
  * //     ActivityStreamStatus: "stopped" || "starting" || "started" || "stopping",
  * //     ActivityStreamKmsKeyId: "STRING_VALUE",
  * //     ActivityStreamKinesisStreamName: "STRING_VALUE",
  * //     ActivityStreamMode: "sync" || "async",
  * //     ActivityStreamEngineNativeAuditFieldsIncluded: true || false,
- * //     AutomationMode: "full" || "all-paused",
- * //     ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
- * //     CustomIamInstanceProfile: "STRING_VALUE",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
+ * //       { // DBInstanceAutomatedBackupsReplication
+ * //         DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     BackupTarget: "STRING_VALUE",
- * //     NetworkType: "STRING_VALUE",
+ * //     AutomaticRestartTime: new Date("TIMESTAMP"),
+ * //     CustomIamInstanceProfile: "STRING_VALUE",
  * //     ActivityStreamPolicyStatus: "locked" || "unlocked" || "locking-policy" || "unlocking-policy",
- * //     StorageThroughput: Number("int"),
+ * //     CertificateDetails: { // CertificateDetails
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //     DBSystemId: "STRING_VALUE",
  * //     MasterUserSecret: { // MasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
- * //     CertificateDetails: { // CertificateDetails
- * //       CAIdentifier: "STRING_VALUE",
- * //       ValidTill: new Date("TIMESTAMP"),
- * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
+ * //     MultiTenant: true || false,
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
- * //     MultiTenant: true || false,
  * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
@@ -446,7 +451,7 @@ export class RestoreDBInstanceFromS3Command extends $Command
   })
   .s("AmazonRDSv19", "RestoreDBInstanceFromS3", {})
   .n("RDSClient", "RestoreDBInstanceFromS3Command")
-  .f(void 0, void 0)
+  .f(RestoreDBInstanceFromS3MessageFilterSensitiveLog, RestoreDBInstanceFromS3ResultFilterSensitiveLog)
   .ser(se_RestoreDBInstanceFromS3Command)
   .de(de_RestoreDBInstanceFromS3Command)
   .build() {

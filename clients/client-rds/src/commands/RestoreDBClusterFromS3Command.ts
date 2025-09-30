@@ -5,7 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/models_1";
+import {
+  RestoreDBClusterFromS3Message,
+  RestoreDBClusterFromS3MessageFilterSensitiveLog,
+  RestoreDBClusterFromS3Result,
+  RestoreDBClusterFromS3ResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_RestoreDBClusterFromS3Command, se_RestoreDBClusterFromS3Command } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -97,15 +102,15 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *   CopyTagsToSnapshot: true || false,
  *   Domain: "STRING_VALUE",
  *   DomainIAMRoleName: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
  *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *     SecondsUntilAutoPause: Number("int"),
  *   },
- *   NetworkType: "STRING_VALUE",
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
- *   StorageType: "STRING_VALUE",
  *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterFromS3Command(input);
@@ -123,7 +128,6 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //     DBClusterParameterGroup: "STRING_VALUE",
  * //     DBSubnetGroup: "STRING_VALUE",
  * //     Status: "STRING_VALUE",
- * //     AutomaticRestartTime: new Date("TIMESTAMP"),
  * //     PercentProgress: "STRING_VALUE",
  * //     EarliestRestorableTime: new Date("TIMESTAMP"),
  * //     Endpoint: "STRING_VALUE",
@@ -193,6 +197,33 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //       "STRING_VALUE",
  * //     ],
  * //     Capacity: Number("int"),
+ * //     PendingModifiedValues: { // ClusterPendingModifiedValues
+ * //       PendingCloudwatchLogsExports: { // PendingCloudwatchLogsExports
+ * //         LogTypesToEnable: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         LogTypesToDisable: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       DBClusterIdentifier: "STRING_VALUE",
+ * //       MasterUserPassword: "STRING_VALUE",
+ * //       IAMDatabaseAuthenticationEnabled: true || false,
+ * //       EngineVersion: "STRING_VALUE",
+ * //       BackupRetentionPeriod: Number("int"),
+ * //       StorageType: "STRING_VALUE",
+ * //       AllocatedStorage: Number("int"),
+ * //       RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ * //         InterconnectSubnetId: "STRING_VALUE",
+ * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         ReplicaMode: "open-read-only" || "mounted",
+ * //       },
+ * //       Iops: Number("int"),
+ * //       CertificateDetails: { // CertificateDetails
+ * //         CAIdentifier: "STRING_VALUE",
+ * //         ValidTill: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
  * //     EngineMode: "STRING_VALUE",
  * //     ScalingConfigurationInfo: { // ScalingConfigurationInfo
  * //       MinCapacity: Number("int"),
@@ -202,11 +233,18 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //       TimeoutAction: "STRING_VALUE",
  * //       SecondsBeforeTimeout: Number("int"),
  * //     },
- * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ * //     RdsCustomClusterConfiguration: {
  * //       InterconnectSubnetId: "STRING_VALUE",
  * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
  * //       ReplicaMode: "open-read-only" || "mounted",
  * //     },
+ * //     DBClusterInstanceClass: "STRING_VALUE",
+ * //     StorageType: "STRING_VALUE",
+ * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     PubliclyAccessible: true || false,
+ * //     AutoMinorVersionUpgrade: true || false,
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
  * //     ActivityStreamMode: "sync" || "async",
@@ -237,66 +275,33 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
  * //     GlobalWriteForwardingRequested: true || false,
- * //     PendingModifiedValues: { // ClusterPendingModifiedValues
- * //       PendingCloudwatchLogsExports: { // PendingCloudwatchLogsExports
- * //         LogTypesToEnable: [
- * //           "STRING_VALUE",
- * //         ],
- * //         LogTypesToDisable: [
- * //           "STRING_VALUE",
- * //         ],
- * //       },
- * //       DBClusterIdentifier: "STRING_VALUE",
- * //       MasterUserPassword: "STRING_VALUE",
- * //       IAMDatabaseAuthenticationEnabled: true || false,
- * //       EngineVersion: "STRING_VALUE",
- * //       BackupRetentionPeriod: Number("int"),
- * //       AllocatedStorage: Number("int"),
- * //       RdsCustomClusterConfiguration: {
- * //         InterconnectSubnetId: "STRING_VALUE",
- * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
- * //         ReplicaMode: "open-read-only" || "mounted",
- * //       },
- * //       Iops: Number("int"),
- * //       StorageType: "STRING_VALUE",
- * //       CertificateDetails: { // CertificateDetails
- * //         CAIdentifier: "STRING_VALUE",
- * //         ValidTill: new Date("TIMESTAMP"),
- * //       },
- * //     },
- * //     DBClusterInstanceClass: "STRING_VALUE",
- * //     StorageType: "STRING_VALUE",
- * //     Iops: Number("int"),
- * //     PubliclyAccessible: true || false,
- * //     AutoMinorVersionUpgrade: true || false,
- * //     MonitoringInterval: Number("int"),
- * //     MonitoringRoleArn: "STRING_VALUE",
- * //     DatabaseInsightsMode: "standard" || "advanced",
- * //     PerformanceInsightsEnabled: true || false,
- * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
- * //     PerformanceInsightsRetentionPeriod: Number("int"),
+ * //     NetworkType: "STRING_VALUE",
+ * //     AutomaticRestartTime: new Date("TIMESTAMP"),
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
  * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     ServerlessV2PlatformVersion: "STRING_VALUE",
- * //     NetworkType: "STRING_VALUE",
+ * //     MonitoringInterval: Number("int"),
+ * //     MonitoringRoleArn: "STRING_VALUE",
+ * //     DatabaseInsightsMode: "standard" || "advanced",
+ * //     PerformanceInsightsEnabled: true || false,
+ * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ * //     PerformanceInsightsRetentionPeriod: Number("int"),
  * //     DBSystemId: "STRING_VALUE",
  * //     MasterUserSecret: { // MasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
- * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //     LimitlessDatabase: { // LimitlessDatabase
  * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
  * //       MinRequiredACU: Number("double"),
  * //     },
- * //     StorageThroughput: Number("int"),
- * //     ClusterScalabilityType: "standard" || "limitless",
+ * //     ClusterScalabilityType: "standard" || "limitless" || "scaleout",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
@@ -361,6 +366,9 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * @throws {@link NetworkTypeNotSupported} (client fault)
+ *  <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>The request would result in the user exceeding the allowed amount of storage
@@ -457,7 +465,7 @@ export class RestoreDBClusterFromS3Command extends $Command
   })
   .s("AmazonRDSv19", "RestoreDBClusterFromS3", {})
   .n("RDSClient", "RestoreDBClusterFromS3Command")
-  .f(void 0, void 0)
+  .f(RestoreDBClusterFromS3MessageFilterSensitiveLog, RestoreDBClusterFromS3ResultFilterSensitiveLog)
   .ser(se_RestoreDBClusterFromS3Command)
   .de(de_RestoreDBClusterFromS3Command)
   .build() {

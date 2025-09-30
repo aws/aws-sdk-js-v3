@@ -50,7 +50,7 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // CreateGlobalClusterMessage
- *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
  *   SourceDBClusterIdentifier: "STRING_VALUE",
  *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
@@ -127,6 +127,12 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBShardGroupStateFault} (client fault)
+ *  <p>The DB shard group must be in the available state.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The specified resource ID was not found.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

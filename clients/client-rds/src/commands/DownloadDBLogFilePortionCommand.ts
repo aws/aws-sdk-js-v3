@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DownloadDBLogFilePortionDetails, DownloadDBLogFilePortionMessage } from "../models/models_1";
+import {
+  DownloadDBLogFilePortionDetails,
+  DownloadDBLogFilePortionDetailsFilterSensitiveLog,
+  DownloadDBLogFilePortionMessage,
+} from "../models/models_1";
 import { de_DownloadDBLogFilePortionCommand, se_DownloadDBLogFilePortionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -69,7 +73,7 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
- * @throws {@link DBInstanceNotReadyFault} (server fault)
+ * @throws {@link DBInstanceNotReadyFault} (client fault)
  *  <p>An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.</p>
  *
  * @throws {@link DBLogFileNotFoundFault} (client fault)
@@ -113,7 +117,7 @@ export class DownloadDBLogFilePortionCommand extends $Command
   })
   .s("AmazonRDSv19", "DownloadDBLogFilePortion", {})
   .n("RDSClient", "DownloadDBLogFilePortionCommand")
-  .f(void 0, void 0)
+  .f(void 0, DownloadDBLogFilePortionDetailsFilterSensitiveLog)
   .ser(se_DownloadDBLogFilePortionCommand)
   .de(de_DownloadDBLogFilePortionCommand)
   .build() {

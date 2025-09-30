@@ -43,8 +43,8 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // RemoveFromGlobalClusterMessage
- *   GlobalClusterIdentifier: "STRING_VALUE",
- *   DbClusterIdentifier: "STRING_VALUE",
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   DbClusterIdentifier: "STRING_VALUE", // required
  * };
  * const command = new RemoveFromGlobalClusterCommand(input);
  * const response = await client.send(command);
@@ -101,6 +101,9 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
  *  <p>The global cluster is in an invalid state and can't perform the requested operation.</p>

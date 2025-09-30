@@ -79,7 +79,7 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
- * @throws {@link DBInstanceNotReadyFault} (server fault)
+ * @throws {@link DBInstanceNotReadyFault} (client fault)
  *  <p>An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.</p>
  *
  * @throws {@link RDSServiceException}

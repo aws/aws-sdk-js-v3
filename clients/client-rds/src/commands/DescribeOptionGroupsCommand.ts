@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeOptionGroupsMessage, OptionGroups } from "../models/models_1";
+import { DescribeOptionGroupsMessage, OptionGroups, OptionGroupsFilterSensitiveLog } from "../models/models_1";
 import { de_DescribeOptionGroupsCommand, se_DescribeOptionGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -167,7 +167,7 @@ export class DescribeOptionGroupsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeOptionGroups", {})
   .n("RDSClient", "DescribeOptionGroupsCommand")
-  .f(void 0, void 0)
+  .f(void 0, OptionGroupsFilterSensitiveLog)
   .ser(se_DescribeOptionGroupsCommand)
   .de(de_DescribeOptionGroupsCommand)
   .build() {

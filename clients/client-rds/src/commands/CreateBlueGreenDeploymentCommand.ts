@@ -153,6 +153,10 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * @throws {@link SourceDatabaseNotSupportedFault} (client fault)
  *  <p>The source DB instance isn't supported for a blue/green deployment.</p>
  *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed amount of storage
+ *             available across all DB instances.</p>
+ *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *

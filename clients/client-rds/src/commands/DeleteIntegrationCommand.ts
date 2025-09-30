@@ -59,6 +59,8 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * //       Value: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   DataFilter: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
  * //   CreateTime: new Date("TIMESTAMP"),
  * //   Errors: [ // IntegrationErrorList
  * //     { // IntegrationError
@@ -66,8 +68,6 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //   ],
- * //   DataFilter: "STRING_VALUE",
- * //   Description: "STRING_VALUE",
  * // };
  *
  * ```

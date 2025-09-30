@@ -58,8 +58,8 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * //   KinesisStreamName: "STRING_VALUE",
  * //   Status: "stopped" || "starting" || "started" || "stopping",
  * //   Mode: "sync" || "async",
- * //   ApplyImmediately: true || false,
  * //   EngineNativeAuditFieldsIncluded: true || false,
+ * //   ApplyImmediately: true || false,
  * // };
  *
  * ```

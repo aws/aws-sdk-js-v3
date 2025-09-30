@@ -90,6 +90,9 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  *  <p>The request would result in the user exceeding the allowed number of subnets in a
  *             DB subnet groups.</p>
  *
+ * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
+ *  <p>The DB subnet group cannot be deleted because it's in use.</p>
+ *
  * @throws {@link InvalidSubnet} (client fault)
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *

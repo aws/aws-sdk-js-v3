@@ -5,7 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_1";
+import {
+  ModifyDBInstanceMessage,
+  ModifyDBInstanceMessageFilterSensitiveLog,
+  ModifyDBInstanceResult,
+  ModifyDBInstanceResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_ModifyDBInstanceCommand, se_ModifyDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -64,6 +69,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   AutoMinorVersionUpgrade: true || false,
  *   LicenseModel: "STRING_VALUE",
  *   Iops: Number("int"),
+ *   StorageThroughput: Number("int"),
  *   OptionGroupName: "STRING_VALUE",
  *   NewDBInstanceIdentifier: "STRING_VALUE",
  *   StorageType: "STRING_VALUE",
@@ -77,13 +83,13 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   DomainDnsIps: [ // StringList
  *     "STRING_VALUE",
  *   ],
+ *   DisableDomain: true || false,
  *   CopyTagsToSnapshot: true || false,
  *   MonitoringInterval: Number("int"),
  *   DBPortNumber: Number("int"),
  *   PubliclyAccessible: true || false,
  *   MonitoringRoleArn: "STRING_VALUE",
  *   DomainIAMRoleName: "STRING_VALUE",
- *   DisableDomain: true || false,
  *   PromotionTier: Number("int"),
  *   EnableIAMDatabaseAuthentication: true || false,
  *   DatabaseInsightsMode: "standard" || "advanced",
@@ -109,18 +115,17 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   MaxAllocatedStorage: Number("int"),
  *   CertificateRotationRestart: true || false,
  *   ReplicaMode: "open-read-only" || "mounted",
- *   EnableCustomerOwnedIp: true || false,
- *   AwsBackupRecoveryPointArn: "STRING_VALUE",
  *   AutomationMode: "full" || "all-paused",
  *   ResumeFullAutomationModeMinutes: Number("int"),
+ *   EnableCustomerOwnedIp: true || false,
  *   NetworkType: "STRING_VALUE",
- *   StorageThroughput: Number("int"),
+ *   AwsBackupRecoveryPointArn: "STRING_VALUE",
  *   ManageMasterUserPassword: true || false,
  *   RotateMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
- *   Engine: "STRING_VALUE",
- *   DedicatedLogVolume: true || false,
  *   MultiTenant: true || false,
+ *   DedicatedLogVolume: true || false,
+ *   Engine: "STRING_VALUE",
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
  * };
  * const command = new ModifyDBInstanceCommand(input);
@@ -131,7 +136,6 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //     DBInstanceClass: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
  * //     DBInstanceStatus: "STRING_VALUE",
- * //     AutomaticRestartTime: new Date("TIMESTAMP"),
  * //     MasterUsername: "STRING_VALUE",
  * //     DBName: "STRING_VALUE",
  * //     Endpoint: { // Endpoint
@@ -195,6 +199,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //       EngineVersion: "STRING_VALUE",
  * //       LicenseModel: "STRING_VALUE",
  * //       Iops: Number("int"),
+ * //       StorageThroughput: Number("int"),
  * //       DBInstanceIdentifier: "STRING_VALUE",
  * //       StorageType: "STRING_VALUE",
  * //       CACertificateIdentifier: "STRING_VALUE",
@@ -213,13 +218,12 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       IAMDatabaseAuthenticationEnabled: true || false,
  * //       AutomationMode: "full" || "all-paused",
  * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
- * //       StorageThroughput: Number("int"),
- * //       Engine: "STRING_VALUE",
- * //       DedicatedLogVolume: true || false,
  * //       MultiTenant: true || false,
+ * //       IAMDatabaseAuthenticationEnabled: true || false,
+ * //       DedicatedLogVolume: true || false,
+ * //       Engine: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -235,6 +239,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //     ReplicaMode: "open-read-only" || "mounted",
  * //     LicenseModel: "STRING_VALUE",
  * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
  * //     OptionGroupMemberships: [ // OptionGroupMembershipList
  * //       { // OptionGroupMembership
  * //         OptionGroupName: "STRING_VALUE",
@@ -315,40 +320,40 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
- * //     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
- * //       { // DBInstanceAutomatedBackupsReplication
- * //         DBInstanceAutomatedBackupsArn: "STRING_VALUE",
- * //       },
- * //     ],
+ * //     AutomationMode: "full" || "all-paused",
+ * //     ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //     CustomerOwnedIpEnabled: true || false,
- * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     NetworkType: "STRING_VALUE",
  * //     ActivityStreamStatus: "stopped" || "starting" || "started" || "stopping",
  * //     ActivityStreamKmsKeyId: "STRING_VALUE",
  * //     ActivityStreamKinesisStreamName: "STRING_VALUE",
  * //     ActivityStreamMode: "sync" || "async",
  * //     ActivityStreamEngineNativeAuditFieldsIncluded: true || false,
- * //     AutomationMode: "full" || "all-paused",
- * //     ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
- * //     CustomIamInstanceProfile: "STRING_VALUE",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
+ * //       { // DBInstanceAutomatedBackupsReplication
+ * //         DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     BackupTarget: "STRING_VALUE",
- * //     NetworkType: "STRING_VALUE",
+ * //     AutomaticRestartTime: new Date("TIMESTAMP"),
+ * //     CustomIamInstanceProfile: "STRING_VALUE",
  * //     ActivityStreamPolicyStatus: "locked" || "unlocked" || "locking-policy" || "unlocking-policy",
- * //     StorageThroughput: Number("int"),
+ * //     CertificateDetails: { // CertificateDetails
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //     DBSystemId: "STRING_VALUE",
  * //     MasterUserSecret: { // MasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
- * //     CertificateDetails: { // CertificateDetails
- * //       CAIdentifier: "STRING_VALUE",
- * //       ValidTill: new Date("TIMESTAMP"),
- * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
+ * //     MultiTenant: true || false,
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
- * //     MultiTenant: true || false,
  * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
@@ -509,7 +514,7 @@ export class ModifyDBInstanceCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyDBInstance", {})
   .n("RDSClient", "ModifyDBInstanceCommand")
-  .f(void 0, void 0)
+  .f(ModifyDBInstanceMessageFilterSensitiveLog, ModifyDBInstanceResultFilterSensitiveLog)
   .ser(se_ModifyDBInstanceCommand)
   .de(de_ModifyDBInstanceCommand)
   .build() {

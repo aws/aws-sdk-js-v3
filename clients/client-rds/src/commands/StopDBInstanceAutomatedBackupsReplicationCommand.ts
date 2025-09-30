@@ -76,6 +76,7 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * //     EngineVersion: "STRING_VALUE",
  * //     LicenseModel: "STRING_VALUE",
  * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
  * //     OptionGroupName: "STRING_VALUE",
  * //     TdeCredentialArn: "STRING_VALUE",
  * //     Encrypted: true || false,
@@ -91,10 +92,9 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * //       },
  * //     ],
  * //     BackupTarget: "STRING_VALUE",
- * //     StorageThroughput: Number("int"),
+ * //     MultiTenant: true || false,
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
- * //     MultiTenant: true || false,
  * //   },
  * // };
  *

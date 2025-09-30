@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RebootDBClusterMessage, RebootDBClusterResult } from "../models/models_1";
+import {
+  RebootDBClusterMessage,
+  RebootDBClusterResult,
+  RebootDBClusterResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_RebootDBClusterCommand, se_RebootDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -65,7 +69,6 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * //     DBClusterParameterGroup: "STRING_VALUE",
  * //     DBSubnetGroup: "STRING_VALUE",
  * //     Status: "STRING_VALUE",
- * //     AutomaticRestartTime: new Date("TIMESTAMP"),
  * //     PercentProgress: "STRING_VALUE",
  * //     EarliestRestorableTime: new Date("TIMESTAMP"),
  * //     Endpoint: "STRING_VALUE",
@@ -135,6 +138,33 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     Capacity: Number("int"),
+ * //     PendingModifiedValues: { // ClusterPendingModifiedValues
+ * //       PendingCloudwatchLogsExports: { // PendingCloudwatchLogsExports
+ * //         LogTypesToEnable: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         LogTypesToDisable: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       DBClusterIdentifier: "STRING_VALUE",
+ * //       MasterUserPassword: "STRING_VALUE",
+ * //       IAMDatabaseAuthenticationEnabled: true || false,
+ * //       EngineVersion: "STRING_VALUE",
+ * //       BackupRetentionPeriod: Number("int"),
+ * //       StorageType: "STRING_VALUE",
+ * //       AllocatedStorage: Number("int"),
+ * //       RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ * //         InterconnectSubnetId: "STRING_VALUE",
+ * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         ReplicaMode: "open-read-only" || "mounted",
+ * //       },
+ * //       Iops: Number("int"),
+ * //       CertificateDetails: { // CertificateDetails
+ * //         CAIdentifier: "STRING_VALUE",
+ * //         ValidTill: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
  * //     EngineMode: "STRING_VALUE",
  * //     ScalingConfigurationInfo: { // ScalingConfigurationInfo
  * //       MinCapacity: Number("int"),
@@ -144,11 +174,18 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * //       TimeoutAction: "STRING_VALUE",
  * //       SecondsBeforeTimeout: Number("int"),
  * //     },
- * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ * //     RdsCustomClusterConfiguration: {
  * //       InterconnectSubnetId: "STRING_VALUE",
  * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
  * //       ReplicaMode: "open-read-only" || "mounted",
  * //     },
+ * //     DBClusterInstanceClass: "STRING_VALUE",
+ * //     StorageType: "STRING_VALUE",
+ * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     PubliclyAccessible: true || false,
+ * //     AutoMinorVersionUpgrade: true || false,
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
  * //     ActivityStreamMode: "sync" || "async",
@@ -179,66 +216,33 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
  * //     GlobalWriteForwardingRequested: true || false,
- * //     PendingModifiedValues: { // ClusterPendingModifiedValues
- * //       PendingCloudwatchLogsExports: { // PendingCloudwatchLogsExports
- * //         LogTypesToEnable: [
- * //           "STRING_VALUE",
- * //         ],
- * //         LogTypesToDisable: [
- * //           "STRING_VALUE",
- * //         ],
- * //       },
- * //       DBClusterIdentifier: "STRING_VALUE",
- * //       MasterUserPassword: "STRING_VALUE",
- * //       IAMDatabaseAuthenticationEnabled: true || false,
- * //       EngineVersion: "STRING_VALUE",
- * //       BackupRetentionPeriod: Number("int"),
- * //       AllocatedStorage: Number("int"),
- * //       RdsCustomClusterConfiguration: {
- * //         InterconnectSubnetId: "STRING_VALUE",
- * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
- * //         ReplicaMode: "open-read-only" || "mounted",
- * //       },
- * //       Iops: Number("int"),
- * //       StorageType: "STRING_VALUE",
- * //       CertificateDetails: { // CertificateDetails
- * //         CAIdentifier: "STRING_VALUE",
- * //         ValidTill: new Date("TIMESTAMP"),
- * //       },
- * //     },
- * //     DBClusterInstanceClass: "STRING_VALUE",
- * //     StorageType: "STRING_VALUE",
- * //     Iops: Number("int"),
- * //     PubliclyAccessible: true || false,
- * //     AutoMinorVersionUpgrade: true || false,
- * //     MonitoringInterval: Number("int"),
- * //     MonitoringRoleArn: "STRING_VALUE",
- * //     DatabaseInsightsMode: "standard" || "advanced",
- * //     PerformanceInsightsEnabled: true || false,
- * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
- * //     PerformanceInsightsRetentionPeriod: Number("int"),
+ * //     NetworkType: "STRING_VALUE",
+ * //     AutomaticRestartTime: new Date("TIMESTAMP"),
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
  * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     ServerlessV2PlatformVersion: "STRING_VALUE",
- * //     NetworkType: "STRING_VALUE",
+ * //     MonitoringInterval: Number("int"),
+ * //     MonitoringRoleArn: "STRING_VALUE",
+ * //     DatabaseInsightsMode: "standard" || "advanced",
+ * //     PerformanceInsightsEnabled: true || false,
+ * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ * //     PerformanceInsightsRetentionPeriod: Number("int"),
  * //     DBSystemId: "STRING_VALUE",
  * //     MasterUserSecret: { // MasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
- * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //     LimitlessDatabase: { // LimitlessDatabase
  * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
  * //       MinRequiredACU: Number("double"),
  * //     },
- * //     StorageThroughput: Number("int"),
- * //     ClusterScalabilityType: "standard" || "limitless",
+ * //     ClusterScalabilityType: "standard" || "limitless" || "scaleout",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
@@ -288,7 +292,7 @@ export class RebootDBClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "RebootDBCluster", {})
   .n("RDSClient", "RebootDBClusterCommand")
-  .f(void 0, void 0)
+  .f(void 0, RebootDBClusterResultFilterSensitiveLog)
   .ser(se_RebootDBClusterCommand)
   .de(de_RebootDBClusterCommand)
   .build() {

@@ -5,7 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult } from "../models/models_1";
+import {
+  RestoreDBInstanceFromDBSnapshotMessage,
+  RestoreDBInstanceFromDBSnapshotMessageFilterSensitiveLog,
+  RestoreDBInstanceFromDBSnapshotResult,
+  RestoreDBInstanceFromDBSnapshotResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   de_RestoreDBInstanceFromDBSnapshotCommand,
   se_RestoreDBInstanceFromDBSnapshotCommand,
@@ -72,6 +77,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *   DBName: "STRING_VALUE",
  *   Engine: "STRING_VALUE",
  *   Iops: Number("int"),
+ *   StorageThroughput: Number("int"),
  *   OptionGroupName: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
@@ -108,12 +114,11 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *   DBParameterGroupName: "STRING_VALUE",
  *   DeletionProtection: true || false,
  *   EnableCustomerOwnedIp: true || false,
- *   CustomIamInstanceProfile: "STRING_VALUE",
- *   BackupTarget: "STRING_VALUE",
  *   NetworkType: "STRING_VALUE",
- *   StorageThroughput: Number("int"),
- *   DBClusterSnapshotIdentifier: "STRING_VALUE",
+ *   BackupTarget: "STRING_VALUE",
+ *   CustomIamInstanceProfile: "STRING_VALUE",
  *   AllocatedStorage: Number("int"),
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
  *   EngineLifecycleSupport: "STRING_VALUE",
@@ -128,7 +133,6 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * //     DBInstanceClass: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
  * //     DBInstanceStatus: "STRING_VALUE",
- * //     AutomaticRestartTime: new Date("TIMESTAMP"),
  * //     MasterUsername: "STRING_VALUE",
  * //     DBName: "STRING_VALUE",
  * //     Endpoint: { // Endpoint
@@ -192,6 +196,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * //       EngineVersion: "STRING_VALUE",
  * //       LicenseModel: "STRING_VALUE",
  * //       Iops: Number("int"),
+ * //       StorageThroughput: Number("int"),
  * //       DBInstanceIdentifier: "STRING_VALUE",
  * //       StorageType: "STRING_VALUE",
  * //       CACertificateIdentifier: "STRING_VALUE",
@@ -210,13 +215,12 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       IAMDatabaseAuthenticationEnabled: true || false,
  * //       AutomationMode: "full" || "all-paused",
  * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
- * //       StorageThroughput: Number("int"),
- * //       Engine: "STRING_VALUE",
- * //       DedicatedLogVolume: true || false,
  * //       MultiTenant: true || false,
+ * //       IAMDatabaseAuthenticationEnabled: true || false,
+ * //       DedicatedLogVolume: true || false,
+ * //       Engine: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -232,6 +236,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * //     ReplicaMode: "open-read-only" || "mounted",
  * //     LicenseModel: "STRING_VALUE",
  * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
  * //     OptionGroupMemberships: [ // OptionGroupMembershipList
  * //       { // OptionGroupMembership
  * //         OptionGroupName: "STRING_VALUE",
@@ -312,40 +317,40 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
- * //     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
- * //       { // DBInstanceAutomatedBackupsReplication
- * //         DBInstanceAutomatedBackupsArn: "STRING_VALUE",
- * //       },
- * //     ],
+ * //     AutomationMode: "full" || "all-paused",
+ * //     ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //     CustomerOwnedIpEnabled: true || false,
- * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     NetworkType: "STRING_VALUE",
  * //     ActivityStreamStatus: "stopped" || "starting" || "started" || "stopping",
  * //     ActivityStreamKmsKeyId: "STRING_VALUE",
  * //     ActivityStreamKinesisStreamName: "STRING_VALUE",
  * //     ActivityStreamMode: "sync" || "async",
  * //     ActivityStreamEngineNativeAuditFieldsIncluded: true || false,
- * //     AutomationMode: "full" || "all-paused",
- * //     ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
- * //     CustomIamInstanceProfile: "STRING_VALUE",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
+ * //       { // DBInstanceAutomatedBackupsReplication
+ * //         DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     BackupTarget: "STRING_VALUE",
- * //     NetworkType: "STRING_VALUE",
+ * //     AutomaticRestartTime: new Date("TIMESTAMP"),
+ * //     CustomIamInstanceProfile: "STRING_VALUE",
  * //     ActivityStreamPolicyStatus: "locked" || "unlocked" || "locking-policy" || "unlocking-policy",
- * //     StorageThroughput: Number("int"),
+ * //     CertificateDetails: { // CertificateDetails
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //     DBSystemId: "STRING_VALUE",
  * //     MasterUserSecret: { // MasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
- * //     CertificateDetails: { // CertificateDetails
- * //       CAIdentifier: "STRING_VALUE",
- * //       ValidTill: new Date("TIMESTAMP"),
- * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
+ * //     MultiTenant: true || false,
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
- * //     MultiTenant: true || false,
  * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
@@ -503,7 +508,7 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command
   })
   .s("AmazonRDSv19", "RestoreDBInstanceFromDBSnapshot", {})
   .n("RDSClient", "RestoreDBInstanceFromDBSnapshotCommand")
-  .f(void 0, void 0)
+  .f(RestoreDBInstanceFromDBSnapshotMessageFilterSensitiveLog, RestoreDBInstanceFromDBSnapshotResultFilterSensitiveLog)
   .ser(se_RestoreDBInstanceFromDBSnapshotCommand)
   .de(de_RestoreDBInstanceFromDBSnapshotCommand)
   .build() {

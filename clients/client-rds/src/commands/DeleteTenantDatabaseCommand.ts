@@ -95,6 +95,10 @@ export interface DeleteTenantDatabaseCommandOutput extends DeleteTenantDatabaseR
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
+ * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
+ *  <p>
+ *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *

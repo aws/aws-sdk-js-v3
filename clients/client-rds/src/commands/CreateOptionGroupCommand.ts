@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateOptionGroupMessage, CreateOptionGroupResult } from "../models/models_0";
+import {
+  CreateOptionGroupMessage,
+  CreateOptionGroupResult,
+  CreateOptionGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateOptionGroupCommand, se_CreateOptionGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -165,7 +169,7 @@ export class CreateOptionGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "CreateOptionGroup", {})
   .n("RDSClient", "CreateOptionGroupCommand")
-  .f(void 0, void 0)
+  .f(void 0, CreateOptionGroupResultFilterSensitiveLog)
   .ser(se_CreateOptionGroupCommand)
   .de(de_CreateOptionGroupCommand)
   .build() {

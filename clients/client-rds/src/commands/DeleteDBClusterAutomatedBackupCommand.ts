@@ -78,8 +78,8 @@ export interface DeleteDBClusterAutomatedBackupCommandOutput
  * //     KmsKeyId: "STRING_VALUE",
  * //     StorageType: "STRING_VALUE",
  * //     Iops: Number("int"),
- * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //     StorageThroughput: Number("int"),
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //   },
  * // };
  *

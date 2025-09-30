@@ -6,7 +6,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/models_0";
+import {
+  CopyDBSnapshotMessage,
+  CopyDBSnapshotMessageFilterSensitiveLog,
+  CopyDBSnapshotResult,
+} from "../models/models_0";
 import { de_CopyDBSnapshotCommand, se_CopyDBSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -58,9 +62,9 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  *   PreSignedUrl: "STRING_VALUE",
  *   OptionGroupName: "STRING_VALUE",
  *   TargetCustomAvailabilityZone: "STRING_VALUE",
+ *   SnapshotTarget: "STRING_VALUE",
  *   CopyOptionGroup: true || false,
  *   SnapshotAvailabilityZone: "STRING_VALUE",
- *   SnapshotTarget: "STRING_VALUE",
  * };
  * const command = new CopyDBSnapshotCommand(input);
  * const response = await client.send(command);
@@ -81,6 +85,7 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * //     LicenseModel: "STRING_VALUE",
  * //     SnapshotType: "STRING_VALUE",
  * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
  * //     OptionGroupName: "STRING_VALUE",
  * //     PercentProgress: Number("int"),
  * //     SourceRegion: "STRING_VALUE",
@@ -105,13 +110,12 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SnapshotTarget: "STRING_VALUE",
  * //     OriginalSnapshotCreateTime: new Date("TIMESTAMP"),
  * //     SnapshotDatabaseTime: new Date("TIMESTAMP"),
- * //     SnapshotTarget: "STRING_VALUE",
- * //     StorageThroughput: Number("int"),
  * //     DBSystemId: "STRING_VALUE",
- * //     DedicatedLogVolume: true || false,
  * //     MultiTenant: true || false,
+ * //     DedicatedLogVolume: true || false,
  * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //   },
  * // };
@@ -213,7 +217,7 @@ export class CopyDBSnapshotCommand extends $Command
   })
   .s("AmazonRDSv19", "CopyDBSnapshot", {})
   .n("RDSClient", "CopyDBSnapshotCommand")
-  .f(void 0, void 0)
+  .f(CopyDBSnapshotMessageFilterSensitiveLog, void 0)
   .ser(se_CopyDBSnapshotCommand)
   .de(de_CopyDBSnapshotCommand)
   .build() {

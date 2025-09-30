@@ -44,7 +44,7 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ModifyGlobalClusterMessage
- *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
  *   NewGlobalClusterIdentifier: "STRING_VALUE",
  *   DeletionProtection: true || false,
  *   EngineVersion: "STRING_VALUE",
