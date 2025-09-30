@@ -56,9 +56,13 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  *     },
  *     EndTime: new Date("TIMESTAMP"), // required
  *     StartTime: new Date("TIMESTAMP"),
- *     TrafficShapingType: "RETRIEVAL_WINDOW",
+ *     TrafficShapingType: "RETRIEVAL_WINDOW" || "TPS",
  *     TrafficShapingRetrievalWindow: { // TrafficShapingRetrievalWindow
  *       RetrievalWindowDurationSeconds: Number("int"),
+ *     },
+ *     TrafficShapingTpsConfiguration: { // TrafficShapingTpsConfiguration
+ *       PeakTps: Number("int"),
+ *       PeakConcurrentUsers: Number("int"),
  *     },
  *   },
  *   RecurringPrefetchConfiguration: { // RecurringPrefetchConfiguration
@@ -78,9 +82,13 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  *         "<keys>": "STRING_VALUE",
  *       },
  *       DelayAfterAvailEndSeconds: Number("int"),
- *       TrafficShapingType: "RETRIEVAL_WINDOW",
+ *       TrafficShapingType: "RETRIEVAL_WINDOW" || "TPS",
  *       TrafficShapingRetrievalWindow: {
  *         RetrievalWindowDurationSeconds: Number("int"),
+ *       },
+ *       TrafficShapingTpsConfiguration: {
+ *         PeakTps: Number("int"),
+ *         PeakConcurrentUsers: Number("int"),
  *       },
  *     },
  *   },
@@ -109,9 +117,13 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * //     },
  * //     EndTime: new Date("TIMESTAMP"), // required
  * //     StartTime: new Date("TIMESTAMP"),
- * //     TrafficShapingType: "RETRIEVAL_WINDOW",
+ * //     TrafficShapingType: "RETRIEVAL_WINDOW" || "TPS",
  * //     TrafficShapingRetrievalWindow: { // TrafficShapingRetrievalWindow
  * //       RetrievalWindowDurationSeconds: Number("int"),
+ * //     },
+ * //     TrafficShapingTpsConfiguration: { // TrafficShapingTpsConfiguration
+ * //       PeakTps: Number("int"),
+ * //       PeakConcurrentUsers: Number("int"),
  * //     },
  * //   },
  * //   RecurringPrefetchConfiguration: { // RecurringPrefetchConfiguration
@@ -131,9 +143,13 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       DelayAfterAvailEndSeconds: Number("int"),
- * //       TrafficShapingType: "RETRIEVAL_WINDOW",
+ * //       TrafficShapingType: "RETRIEVAL_WINDOW" || "TPS",
  * //       TrafficShapingRetrievalWindow: {
  * //         RetrievalWindowDurationSeconds: Number("int"),
+ * //       },
+ * //       TrafficShapingTpsConfiguration: {
+ * //         PeakTps: Number("int"),
+ * //         PeakConcurrentUsers: Number("int"),
  * //       },
  * //     },
  * //   },

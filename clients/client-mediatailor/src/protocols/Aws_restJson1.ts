@@ -174,6 +174,7 @@ import {
   TimeShiftConfiguration,
   TimeSignalMessage,
   TrafficShapingRetrievalWindow,
+  TrafficShapingTpsConfiguration,
   Transition,
   UpdateProgramScheduleConfiguration,
   UpdateProgramTransition,
@@ -2301,6 +2302,7 @@ const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext)
     EndTime: (_) => _.getTime() / 1_000,
     StartTime: (_) => _.getTime() / 1_000,
     TrafficShapingRetrievalWindow: _json,
+    TrafficShapingTpsConfiguration: _json,
     TrafficShapingType: [],
   });
 };
@@ -2344,6 +2346,8 @@ const se_RecurringPrefetchConfiguration = (input: RecurringPrefetchConfiguration
 // se_TimeSignalMessage omitted.
 
 // se_TrafficShapingRetrievalWindow omitted.
+
+// se_TrafficShapingTpsConfiguration omitted.
 
 // se_Transition omitted.
 
@@ -2645,6 +2649,7 @@ const de_PrefetchRetrieval = (output: any, context: __SerdeContext): PrefetchRet
     EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     TrafficShapingRetrievalWindow: _json,
+    TrafficShapingTpsConfiguration: _json,
     TrafficShapingType: __expectString,
   }) as any;
 };
@@ -2750,6 +2755,8 @@ const de_SourceLocation = (output: any, context: __SerdeContext): SourceLocation
 // de_TimeSignalMessage omitted.
 
 // de_TrafficShapingRetrievalWindow omitted.
+
+// de_TrafficShapingTpsConfiguration omitted.
 
 /**
  * deserializeAws_restJson1VodSource
