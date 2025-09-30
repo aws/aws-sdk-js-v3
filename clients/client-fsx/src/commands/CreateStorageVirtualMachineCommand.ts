@@ -92,10 +92,16 @@ export interface CreateStorageVirtualMachineCommandOutput
  * //         IpAddresses: [ // OntapEndpointIpAddresses
  * //           "STRING_VALUE",
  * //         ],
+ * //         Ipv6Addresses: [
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       Management: {
  * //         DNSName: "STRING_VALUE",
  * //         IpAddresses: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Ipv6Addresses: [
  * //           "STRING_VALUE",
  * //         ],
  * //       },
@@ -104,12 +110,12 @@ export interface CreateStorageVirtualMachineCommandOutput
  * //         IpAddresses: [
  * //           "STRING_VALUE",
  * //         ],
+ * //         Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //       },
  * //       Smb: {
  * //         DNSName: "STRING_VALUE",
- * //         IpAddresses: [
- * //           "STRING_VALUE",
- * //         ],
+ * //         IpAddresses: "<OntapEndpointIpAddresses>",
+ * //         Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //       },
  * //     },
  * //     FileSystemId: "STRING_VALUE",
@@ -159,7 +165,7 @@ export interface CreateStorageVirtualMachineCommandOutput
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web ServicesSupport.</p>
+ *             some service limits by contacting Amazon Web Services Support.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>The requested operation is not supported for this resource or API.</p>

@@ -185,6 +185,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *     WeeklyMaintenanceStartTime: "STRING_VALUE",
  *     HAPairs: Number("int"),
  *     ThroughputCapacityPerHAPair: Number("int"),
+ *     EndpointIpv6AddressRange: "STRING_VALUE",
  *   },
  *   FileSystemTypeVersion: "STRING_VALUE",
  *   OpenZFSConfiguration: { // CreateFileSystemOpenZFSConfiguration
@@ -305,6 +306,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //         Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //         Iops: Number("long"),
  * //       },
+ * //       PreferredFileServerIpv6: "STRING_VALUE",
  * //     },
  * //     LustreConfiguration: { // LustreFileSystemConfiguration
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -418,6 +420,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //               Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //               Iops: Number("long"),
  * //             },
+ * //             PreferredFileServerIpv6: "STRING_VALUE",
  * //           },
  * //           LustreConfiguration: {
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -602,10 +605,16 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //                 IpAddresses: [ // OntapEndpointIpAddresses
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 Ipv6Addresses: [
+ * //                   "STRING_VALUE",
+ * //                 ],
  * //               },
  * //               Management: {
  * //                 DNSName: "STRING_VALUE",
  * //                 IpAddresses: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 Ipv6Addresses: [
  * //                   "STRING_VALUE",
  * //                 ],
  * //               },
@@ -623,6 +632,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //             FsxAdminPassword: "STRING_VALUE",
  * //             HAPairs: Number("int"),
  * //             ThroughputCapacityPerHAPair: Number("int"),
+ * //             EndpointIpv6AddressRange: "STRING_VALUE",
  * //           },
  * //           FileSystemTypeVersion: "STRING_VALUE",
  * //           OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -785,12 +795,12 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //           IpAddresses: [
  * //             "STRING_VALUE",
  * //           ],
+ * //           Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //         },
  * //         Management: {
  * //           DNSName: "STRING_VALUE",
- * //           IpAddresses: [
- * //             "STRING_VALUE",
- * //           ],
+ * //           IpAddresses: "<OntapEndpointIpAddresses>",
+ * //           Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //         },
  * //       },
  * //       DiskIopsConfiguration: {
@@ -806,6 +816,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //       FsxAdminPassword: "STRING_VALUE",
  * //       HAPairs: Number("int"),
  * //       ThroughputCapacityPerHAPair: Number("int"),
+ * //       EndpointIpv6AddressRange: "STRING_VALUE",
  * //     },
  * //     FileSystemTypeVersion: "STRING_VALUE",
  * //     OpenZFSConfiguration: {
@@ -874,7 +885,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web ServicesSupport.</p>
+ *             some service limits by contacting Amazon Web Services Support.</p>
  *
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>

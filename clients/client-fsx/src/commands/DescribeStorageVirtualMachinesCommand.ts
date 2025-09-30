@@ -81,10 +81,16 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * //           IpAddresses: [ // OntapEndpointIpAddresses
  * //             "STRING_VALUE",
  * //           ],
+ * //           Ipv6Addresses: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //         Management: {
  * //           DNSName: "STRING_VALUE",
  * //           IpAddresses: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Ipv6Addresses: [
  * //             "STRING_VALUE",
  * //           ],
  * //         },
@@ -93,12 +99,12 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * //           IpAddresses: [
  * //             "STRING_VALUE",
  * //           ],
+ * //           Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //         },
  * //         Smb: {
  * //           DNSName: "STRING_VALUE",
- * //           IpAddresses: [
- * //             "STRING_VALUE",
- * //           ],
+ * //           IpAddresses: "<OntapEndpointIpAddresses>",
+ * //           Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //         },
  * //       },
  * //       FileSystemId: "STRING_VALUE",

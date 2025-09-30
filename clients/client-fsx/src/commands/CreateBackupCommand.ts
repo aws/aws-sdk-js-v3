@@ -189,6 +189,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //           Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //           Iops: Number("long"),
  * //         },
+ * //         PreferredFileServerIpv6: "STRING_VALUE",
  * //       },
  * //       LustreConfiguration: { // LustreFileSystemConfiguration
  * //         WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -297,6 +298,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //                 Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //                 Iops: Number("long"),
  * //               },
+ * //               PreferredFileServerIpv6: "STRING_VALUE",
  * //             },
  * //             LustreConfiguration: {
  * //               WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -481,10 +483,16 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //                   IpAddresses: [ // OntapEndpointIpAddresses
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                   Ipv6Addresses: [
+ * //                     "STRING_VALUE",
+ * //                   ],
  * //                 },
  * //                 Management: {
  * //                   DNSName: "STRING_VALUE",
  * //                   IpAddresses: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   Ipv6Addresses: [
  * //                     "STRING_VALUE",
  * //                   ],
  * //                 },
@@ -502,6 +510,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //               FsxAdminPassword: "STRING_VALUE",
  * //               HAPairs: Number("int"),
  * //               ThroughputCapacityPerHAPair: Number("int"),
+ * //               EndpointIpv6AddressRange: "STRING_VALUE",
  * //             },
  * //             FileSystemTypeVersion: "STRING_VALUE",
  * //             OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -664,12 +673,12 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //             IpAddresses: [
  * //               "STRING_VALUE",
  * //             ],
+ * //             Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //           },
  * //           Management: {
  * //             DNSName: "STRING_VALUE",
- * //             IpAddresses: [
- * //               "STRING_VALUE",
- * //             ],
+ * //             IpAddresses: "<OntapEndpointIpAddresses>",
+ * //             Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //           },
  * //         },
  * //         DiskIopsConfiguration: {
@@ -685,6 +694,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //         FsxAdminPassword: "STRING_VALUE",
  * //         HAPairs: Number("int"),
  * //         ThroughputCapacityPerHAPair: Number("int"),
+ * //         EndpointIpv6AddressRange: "STRING_VALUE",
  * //       },
  * //       FileSystemTypeVersion: "STRING_VALUE",
  * //       OpenZFSConfiguration: {
@@ -754,7 +764,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web ServicesSupport.</p>
+ *             some service limits by contacting Amazon Web Services Support.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>The requested operation is not supported for this resource or API.</p>

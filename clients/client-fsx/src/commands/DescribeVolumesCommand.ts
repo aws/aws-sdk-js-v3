@@ -195,6 +195,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * //                 Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //                 Iops: Number("long"),
  * //               },
+ * //               PreferredFileServerIpv6: "STRING_VALUE",
  * //             },
  * //             LustreConfiguration: { // LustreFileSystemConfiguration
  * //               WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -303,6 +304,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * //                       Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //                       Iops: Number("long"),
  * //                     },
+ * //                     PreferredFileServerIpv6: "STRING_VALUE",
  * //                   },
  * //                   LustreConfiguration: {
  * //                     WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -357,10 +359,16 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * //                         IpAddresses: [ // OntapEndpointIpAddresses
  * //                           "STRING_VALUE",
  * //                         ],
+ * //                         Ipv6Addresses: [
+ * //                           "STRING_VALUE",
+ * //                         ],
  * //                       },
  * //                       Management: {
  * //                         DNSName: "STRING_VALUE",
  * //                         IpAddresses: [
+ * //                           "STRING_VALUE",
+ * //                         ],
+ * //                         Ipv6Addresses: [
  * //                           "STRING_VALUE",
  * //                         ],
  * //                       },
@@ -378,6 +386,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * //                     FsxAdminPassword: "STRING_VALUE",
  * //                     HAPairs: Number("int"),
  * //                     ThroughputCapacityPerHAPair: Number("int"),
+ * //                     EndpointIpv6AddressRange: "STRING_VALUE",
  * //                   },
  * //                   FileSystemTypeVersion: "STRING_VALUE",
  * //                   OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -540,12 +549,12 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * //                   IpAddresses: [
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                   Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //                 },
  * //                 Management: {
  * //                   DNSName: "STRING_VALUE",
- * //                   IpAddresses: [
- * //                     "STRING_VALUE",
- * //                   ],
+ * //                   IpAddresses: "<OntapEndpointIpAddresses>",
+ * //                   Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //                 },
  * //               },
  * //               DiskIopsConfiguration: {
@@ -561,6 +570,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * //               FsxAdminPassword: "STRING_VALUE",
  * //               HAPairs: Number("int"),
  * //               ThroughputCapacityPerHAPair: Number("int"),
+ * //               EndpointIpv6AddressRange: "STRING_VALUE",
  * //             },
  * //             FileSystemTypeVersion: "STRING_VALUE",
  * //             OpenZFSConfiguration: {
