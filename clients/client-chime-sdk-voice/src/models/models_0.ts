@@ -1413,6 +1413,20 @@ export type VoiceConnectorIntegrationType =
 
 /**
  * @public
+ * @enum
+ */
+export const NetworkType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4_ONLY: "IPV4_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
+
+/**
+ * @public
  */
 export interface CreateVoiceConnectorRequest {
   /**
@@ -1473,6 +1487,12 @@ export interface CreateVoiceConnectorRequest {
    * @public
    */
   IntegrationType?: VoiceConnectorIntegrationType | undefined;
+
+  /**
+   * <p>The type of network for the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -1535,6 +1555,12 @@ export interface VoiceConnector {
    * @public
    */
   IntegrationType?: VoiceConnectorIntegrationType | undefined;
+
+  /**
+   * <p>The type of network of the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**

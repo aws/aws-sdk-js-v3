@@ -54,6 +54,7 @@ export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorRespons
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     VoiceConnectorArn: "STRING_VALUE",
  * //     IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
+ * //     NetworkType: "IPV4_ONLY" || "DUAL_STACK",
  * //   },
  * // };
  *

@@ -55,6 +55,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  *     },
  *   ],
  *   IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
+ *   NetworkType: "IPV4_ONLY" || "DUAL_STACK",
  * };
  * const command = new CreateVoiceConnectorCommand(input);
  * const response = await client.send(command);
@@ -69,6 +70,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     VoiceConnectorArn: "STRING_VALUE",
  * //     IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
+ * //     NetworkType: "IPV4_ONLY" || "DUAL_STACK",
  * //   },
  * // };
  *

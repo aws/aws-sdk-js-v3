@@ -645,6 +645,7 @@ export const se_CreateVoiceConnectorCommand = async (
       AwsRegion: [],
       IntegrationType: [],
       Name: [],
+      NetworkType: [],
       RequireEncryption: [],
       Tags: (_) => _json(_),
     })
@@ -5019,6 +5020,7 @@ const de_VoiceConnector = (output: any, context: __SerdeContext): VoiceConnector
     CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     IntegrationType: __expectString,
     Name: __expectString,
+    NetworkType: __expectString,
     OutboundHostName: __expectString,
     RequireEncryption: __expectBoolean,
     UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
