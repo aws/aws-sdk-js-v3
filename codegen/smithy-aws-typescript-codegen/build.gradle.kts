@@ -52,6 +52,9 @@ dependencies {
 }
 
 tasks.register("set-aws-sdk-versions") {
+    val packagesDir = project.file("../../packages")
+    val clientsDir = project.file("../../clients")
+
     doLast {
         mkdir(layout.buildDirectory.dir("generated/resources/software/amazon/smithy/aws/typescript/codegen").get().asFile)
         var versionsFile = layout.buildDirectory
@@ -60,7 +63,7 @@ tasks.register("set-aws-sdk-versions") {
             .asFile
         versionsFile.printWriter().close()
 
-        var roots = project.file("../../packages").listFiles().toMutableList() + project.file("../../clients").listFiles().toList()
+        var roots = packagesDir.listFiles().toMutableList() + clientsDir.listFiles().toList()
         roots.forEach { packageDir ->
             var packageJsonFile = File(packageDir, "package.json")
             if (packageJsonFile.isFile()) {
