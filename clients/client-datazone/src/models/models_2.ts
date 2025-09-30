@@ -77,7 +77,6 @@ import {
   Import,
   ImportFilterSensitiveLog,
   MetadataGenerationRunStatus,
-  MetadataGenerationTargetType,
   RuleAction,
   RuleDetail,
   RuleScope,
@@ -96,6 +95,20 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataGenerationTargetType = {
+  ASSET: "ASSET",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataGenerationTargetType =
+  (typeof MetadataGenerationTargetType)[keyof typeof MetadataGenerationTargetType];
 
 /**
  * <p>The asset for which metadata was generated.</p>

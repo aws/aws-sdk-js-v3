@@ -10771,6 +10771,8 @@ const de_ListingItem = (output: any, context: __SerdeContext): ListingItem => {
 
 // de_ListingSummaryItems omitted.
 
+// de_ManagedEndpointCredentials omitted.
+
 // de_MatchCriteria omitted.
 
 // de_MatchOffset omitted.
@@ -11278,6 +11280,7 @@ const de_SearchTypesResultItems = (output: any, context: __SerdeContext): Search
  */
 const de_SparkEmrPropertiesOutput = (output: any, context: __SerdeContext): SparkEmrPropertiesOutput => {
   return take(output, {
+    certificateData: __expectString,
     computeArn: __expectString,
     credentials: _json,
     credentialsExpiration: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -11286,6 +11289,8 @@ const de_SparkEmrPropertiesOutput = (output: any, context: __SerdeContext): Spar
     javaVirtualEnv: __expectString,
     livyEndpoint: __expectString,
     logUri: __expectString,
+    managedEndpointArn: __expectString,
+    managedEndpointCredentials: _json,
     pythonVirtualEnv: __expectString,
     runtimeRole: __expectString,
     trustedCertificatesS3Uri: __expectString,

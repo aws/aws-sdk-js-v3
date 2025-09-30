@@ -28,7 +28,7 @@ export interface DeleteDataProductCommandInput extends DeleteDataProductInput {}
 export interface DeleteDataProductCommandOutput extends DeleteDataProductOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a data product in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>The data product must exist and not be deleted or archived. </p> </li> <li> <p>The user must have delete permissions for the data product.</p> </li> <li> <p>Ensure there are no active dependencies (e.g., published links, assets using the product).</p> </li> <li> <p>Domain and project must be active.</p> </li> </ul>
+ * <p>Deletes a data product in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>The data product must exist and not be deleted or archived. </p> </li> <li> <p>The user must have delete permissions for the data product.</p> </li> <li> <p>Domain and project must be active.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -5439,6 +5439,12 @@ export interface SparkEmrPropertiesInput {
    * @public
    */
   trustedCertificatesS3Uri?: string | undefined;
+
+  /**
+   * <p>The managed endpoint ARN of the EMR on EKS cluster.</p>
+   * @public
+   */
+  managedEndpointArn?: string | undefined;
 }
 
 /**
@@ -5917,6 +5923,24 @@ export const GovernanceType = {
 export type GovernanceType = (typeof GovernanceType)[keyof typeof GovernanceType];
 
 /**
+ * <p>The managed endpoint credentials of the EMR on EKS cluster.</p>
+ * @public
+ */
+export interface ManagedEndpointCredentials {
+  /**
+   * <p>The identifier of the managed endpoint credentials.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The ARN of the managed endpoint credentials.</p>
+   * @public
+   */
+  token?: string | undefined;
+}
+
+/**
  * <p>The Spark EMR properties.</p>
  * @public
  */
@@ -5986,6 +6010,24 @@ export interface SparkEmrPropertiesOutput {
    * @public
    */
   trustedCertificatesS3Uri?: string | undefined;
+
+  /**
+   * <p>The certificate data of the EMR on EKS cluster.</p>
+   * @public
+   */
+  certificateData?: string | undefined;
+
+  /**
+   * <p>The managed endpoint ARN of the EMR on EKS cluster.</p>
+   * @public
+   */
+  managedEndpointArn?: string | undefined;
+
+  /**
+   * <p>The managed endpoint credentials of the EMR on EKS cluster.</p>
+   * @public
+   */
+  managedEndpointCredentials?: ManagedEndpointCredentials | undefined;
 }
 
 /**
@@ -6383,6 +6425,12 @@ export interface SparkEmrPropertiesPatch {
    * @public
    */
   trustedCertificatesS3Uri?: string | undefined;
+
+  /**
+   * <p>The managed endpoint ARN of the EMR on EKS cluster.</p>
+   * @public
+   */
+  managedEndpointArn?: string | undefined;
 }
 
 /**
@@ -10567,71 +10615,6 @@ export interface CreateProjectProfileInput {
 }
 
 /**
- * @public
- */
-export interface CreateProjectProfileOutput {
-  /**
-   * <p>The ID of the domain where a project profile is created.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>Project profile ID.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>Project profile name.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A project profile description.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Project profile status.</p>
-   * @public
-   */
-  status?: Status | undefined;
-
-  /**
-   * <p>Environment configurations of a project profile.</p>
-   * @public
-   */
-  environmentConfigurations?: EnvironmentConfiguration[] | undefined;
-
-  /**
-   * <p>A user who created a project profile.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>A timestamp at which a project profile is created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>A timestamp when a project profile was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The ID of the domain unit where a project profile is created.</p>
-   * @public
-   */
-  domainUnitId?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -11102,9 +11085,17 @@ export const RedshiftPropertiesOutputFilterSensitiveLog = (obj: RedshiftProperti
 /**
  * @internal
  */
+export const ManagedEndpointCredentialsFilterSensitiveLog = (obj: ManagedEndpointCredentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SparkEmrPropertiesOutputFilterSensitiveLog = (obj: SparkEmrPropertiesOutput): any => ({
   ...obj,
   ...(obj.credentials && { credentials: SENSITIVE_STRING }),
+  ...(obj.managedEndpointCredentials && { managedEndpointCredentials: SENSITIVE_STRING }),
 });
 
 /**
@@ -11520,20 +11511,6 @@ export const EnvironmentConfigurationFilterSensitiveLog = (obj: EnvironmentConfi
  * @internal
  */
 export const CreateProjectProfileInputFilterSensitiveLog = (obj: CreateProjectProfileInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.environmentConfigurations && {
-    environmentConfigurations: obj.environmentConfigurations.map((item) =>
-      EnvironmentConfigurationFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateProjectProfileOutputFilterSensitiveLog = (obj: CreateProjectProfileOutput): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),

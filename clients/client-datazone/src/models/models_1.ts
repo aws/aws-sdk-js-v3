@@ -91,6 +91,71 @@ import {
 
 /**
  * @public
+ */
+export interface CreateProjectProfileOutput {
+  /**
+   * <p>The ID of the domain where a project profile is created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>Project profile ID.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Project profile name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A project profile description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Project profile status.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>Environment configurations of a project profile.</p>
+   * @public
+   */
+  environmentConfigurations?: EnvironmentConfiguration[] | undefined;
+
+  /**
+   * <p>A user who created a project profile.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>A timestamp at which a project profile is created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>A timestamp when a project profile was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The ID of the domain unit where a project profile is created.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const RuleAction = {
@@ -10436,18 +10501,18 @@ export type MetadataGenerationRunStatus =
   (typeof MetadataGenerationRunStatus)[keyof typeof MetadataGenerationRunStatus];
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const MetadataGenerationTargetType = {
-  ASSET: "ASSET",
-} as const;
-
-/**
- * @public
- */
-export type MetadataGenerationTargetType =
-  (typeof MetadataGenerationTargetType)[keyof typeof MetadataGenerationTargetType];
+export const CreateProjectProfileOutputFilterSensitiveLog = (obj: CreateProjectProfileOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.environmentConfigurations && {
+    environmentConfigurations: obj.environmentConfigurations.map((item) =>
+      EnvironmentConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+});
 
 /**
  * @internal

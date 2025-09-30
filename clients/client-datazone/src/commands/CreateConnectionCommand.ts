@@ -161,6 +161,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *       pythonVirtualEnv: "STRING_VALUE",
  *       runtimeRole: "STRING_VALUE",
  *       trustedCertificatesS3Uri: "STRING_VALUE",
+ *       managedEndpointArn: "STRING_VALUE",
  *     },
  *     sparkGlueProperties: { // SparkGluePropertiesInput
  *       additionalArgs: { // SparkGlueArgs
@@ -328,6 +329,12 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //       pythonVirtualEnv: "STRING_VALUE",
  * //       runtimeRole: "STRING_VALUE",
  * //       trustedCertificatesS3Uri: "STRING_VALUE",
+ * //       certificateData: "STRING_VALUE",
+ * //       managedEndpointArn: "STRING_VALUE",
+ * //       managedEndpointCredentials: { // ManagedEndpointCredentials
+ * //         id: "STRING_VALUE",
+ * //         token: "STRING_VALUE",
+ * //       },
  * //     },
  * //     sparkGlueProperties: { // SparkGluePropertiesOutput
  * //       additionalArgs: { // SparkGlueArgs
