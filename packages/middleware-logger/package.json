@@ -26,7 +26,7 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/types": "^4.5.0",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

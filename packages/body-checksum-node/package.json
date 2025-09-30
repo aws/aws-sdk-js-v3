@@ -26,10 +26,10 @@
     "@aws-sdk/sha256-tree-hash": "*",
     "@aws-sdk/types": "*",
     "@smithy/is-array-buffer": "^4.1.0",
-    "@smithy/protocol-http": "^5.2.1",
-    "@smithy/types": "^4.5.0",
+    "@smithy/protocol-http": "^5.3.0",
+    "@smithy/types": "^4.6.0",
     "@smithy/util-hex-encoding": "^4.1.0",
-    "@smithy/util-utf8": "^4.1.0",
+    "@smithy/util-utf8": "^4.2.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

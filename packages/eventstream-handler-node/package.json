@@ -24,11 +24,11 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@smithy/eventstream-codec": "^4.1.1",
-    "@smithy/types": "^4.5.0",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/util-utf8": "^4.1.0",
+    "@smithy/util-utf8": "^4.2.0",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
