@@ -51,6 +51,9 @@ dependencies {
     implementation("software.amazon.smithy:smithy-aws-smoke-test-model:$smithyVersion")
 }
 
+// This project doesn't produce a JAR.
+tasks["jar"].enabled = false
+
 val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
     models.set(files("model/"))
     smithyBuildConfigs.set(files("smithy-build.json"))
@@ -67,7 +70,7 @@ configure<software.amazon.smithy.gradle.SmithyExtension> {
 // Generates a smithy-build.json file by creating a new projection for every
 // JSON file found in aws-models/. The generated smithy-build.json file is
 // not committed to git since it's rebuilt each time codegen is performed.
-tasks.register("generate-smithy-build") {
+val generateSmithyBuild = tasks.register("generate-smithy-build") {
     doLast {
         val projectionsBuilder = Node.objectNodeBuilder()
         val modelsDirProp: String by project
@@ -146,5 +149,5 @@ tasks.register("generate-default-configs-provider", JavaExec::class) {
 
 // Run the `buildSdk` automatically.
 tasks["build"]
-        .dependsOn(tasks["generate-smithy-build"])
-        .finalizedBy(tasks["buildSdk"])
+    .dependsOn(generateSmithyBuild)
+    .finalizedBy(buildSdk)
