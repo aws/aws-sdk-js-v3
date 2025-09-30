@@ -59,15 +59,21 @@ tasks["jar"].enabled = false
 tasks["smithyBuild"].enabled = false
 
 val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
-    models.set(files("model/"))
-    smithyBuildConfigs.set(files("smithy-build.json"))
+    val clientNameProp: String? by project
+    if (!(clientNameProp?.isEmpty() ?: true)) {
+        smithyBuildConfigs.set(files("smithy-build-" + clientNameProp + ".json"))
+    } else {
+        smithyBuildConfigs.set(files("smithy-build.json"))
+    }
 }
 
 configure<software.amazon.smithy.gradle.SmithyExtension> {
     val clientNameProp: String? by project
     if (!(clientNameProp?.isEmpty() ?: true)) {
-        smithyBuildConfigs = files("smithy-build-" + clientNameProp + ".json")
-        outputDirectory = file("build-single/" + clientNameProp)
+        smithyBuildConfigs.set(files("smithy-build-" + clientNameProp + ".json"))
+        outputDirectory.set(file("build-single/" + clientNameProp))
+    } else {
+        smithyBuildConfigs.set(files("smithy-build.json"))
     }
 }
 
