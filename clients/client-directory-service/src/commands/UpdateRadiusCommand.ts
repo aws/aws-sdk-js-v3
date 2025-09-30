@@ -28,8 +28,8 @@ export interface UpdateRadiusCommandInput extends UpdateRadiusRequest {}
 export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __MetadataBearer {}
 
 /**
- * <p>Updates the Remote Authentication Dial In User Service (RADIUS) server information
- *          for an AD Connector or Microsoft AD directory.</p>
+ * <p>Updates the Remote Authentication Dial In User Service (RADIUS) server information for
+ *          an AD Connector or Microsoft AD directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,6 +42,9 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  *   DirectoryId: "STRING_VALUE", // required
  *   RadiusSettings: { // RadiusSettings
  *     RadiusServers: [ // Servers
+ *       "STRING_VALUE",
+ *     ],
+ *     RadiusServersIpv6: [
  *       "STRING_VALUE",
  *     ],
  *     RadiusPort: Number("int"),

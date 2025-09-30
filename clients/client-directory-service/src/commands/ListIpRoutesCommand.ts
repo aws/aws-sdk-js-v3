@@ -49,6 +49,7 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * //     { // IpRouteInfo
  * //       DirectoryId: "STRING_VALUE",
  * //       CidrIp: "STRING_VALUE",
+ * //       CidrIpv6: "STRING_VALUE",
  * //       IpRouteStatusMsg: "Adding" || "Added" || "Removing" || "Removed" || "AddFailed" || "RemoveFailed",
  * //       AddedDateTime: new Date("TIMESTAMP"),
  * //       IpRouteStatusReason: "STRING_VALUE",

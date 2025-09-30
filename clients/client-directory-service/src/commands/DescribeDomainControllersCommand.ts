@@ -53,6 +53,7 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * //       DirectoryId: "STRING_VALUE",
  * //       DomainControllerId: "STRING_VALUE",
  * //       DnsIpAddr: "STRING_VALUE",
+ * //       DnsIpv6Addr: "STRING_VALUE",
  * //       VpcId: "STRING_VALUE",
  * //       SubnetId: "STRING_VALUE",
  * //       AvailabilityZone: "STRING_VALUE",

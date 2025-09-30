@@ -62,6 +62,7 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   NetworkType: "Dual-stack" || "IPv4" || "IPv6",
  * };
  * const command = new CreateDirectoryCommand(input);
  * const response = await client.send(command);

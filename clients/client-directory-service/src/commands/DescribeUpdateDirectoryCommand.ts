@@ -39,7 +39,7 @@ export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDire
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeUpdateDirectoryRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   UpdateType: "OS", // required
+ *   UpdateType: "OS" || "NETWORK" || "SIZE", // required
  *   RegionName: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  * };

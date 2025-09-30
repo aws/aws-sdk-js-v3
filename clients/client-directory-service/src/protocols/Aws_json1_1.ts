@@ -299,6 +299,7 @@ import {
   DirectoryInDesiredStateException,
   DirectoryLimitExceededException,
   DirectoryNotSharedException,
+  DirectorySizeUpdateSettings,
   DirectoryUnavailableException,
   DirectoryVpcSettings,
   DisableAlreadyInProgressException,
@@ -351,6 +352,7 @@ import {
   ListSchemaExtensionsResult,
   ListTagsForResourceRequest,
   LogSubscription,
+  NetworkUpdateSettings,
   NoAvailableCertificateException,
   OrganizationsException,
   OSUpdateSettings,
@@ -3830,6 +3832,8 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_CidrIps omitted.
 
+// se_CidrIpv6s omitted.
+
 // se_ClientCertAuthSettings omitted.
 
 // se_ConnectDirectoryRequest omitted.
@@ -3908,6 +3912,8 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_DirectoryIds omitted.
 
+// se_DirectorySizeUpdateSettings omitted.
+
 // se_DirectoryVpcSettings omitted.
 
 // se_DisableCAEnrollmentPolicyRequest omitted.
@@ -3923,6 +3929,8 @@ const de_UserDoesNotExistExceptionRes = async (
 // se_DisableSsoRequest omitted.
 
 // se_DnsIpAddrs omitted.
+
+// se_DnsIpv6Addrs omitted.
 
 // se_DomainControllerIds omitted.
 
@@ -3961,6 +3969,8 @@ const de_UserDoesNotExistExceptionRes = async (
 // se_ListSchemaExtensionsRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
+
+// se_NetworkUpdateSettings omitted.
 
 // se_OSUpdateSettings omitted.
 
@@ -4472,10 +4482,12 @@ const de_DirectoryDescription = (output: any, context: __SerdeContext): Director
     DesiredNumberOfDomainControllers: __expectInt32,
     DirectoryId: __expectString,
     DnsIpAddrs: _json,
+    DnsIpv6Addrs: _json,
     Edition: __expectString,
     HybridSettings: _json,
     LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    NetworkType: __expectString,
     OsVersion: __expectString,
     OwnerDirectoryDescription: _json,
     RadiusSettings: _json,
@@ -4539,6 +4551,8 @@ const de_DirectoryDescriptions = (output: any, context: __SerdeContext): Directo
 
 // de_DnsIpAddrs omitted.
 
+// de_DnsIpv6Addrs omitted.
+
 /**
  * deserializeAws_json1_1DomainController
  */
@@ -4547,6 +4561,7 @@ const de_DomainController = (output: any, context: __SerdeContext): DomainContro
     AvailabilityZone: __expectString,
     DirectoryId: __expectString,
     DnsIpAddr: __expectString,
+    DnsIpv6Addr: __expectString,
     DomainControllerId: __expectString,
     LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
@@ -4687,6 +4702,7 @@ const de_IpRouteInfo = (output: any, context: __SerdeContext): IpRouteInfo => {
   return take(output, {
     AddedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     CidrIp: __expectString,
+    CidrIpv6: __expectString,
     Description: __expectString,
     DirectoryId: __expectString,
     IpRouteStatusMsg: __expectString,
@@ -4707,6 +4723,8 @@ const de_IpRoutesInfo = (output: any, context: __SerdeContext): IpRouteInfo[] =>
     });
   return retVal;
 };
+
+// de_IpV6Addrs omitted.
 
 /**
  * deserializeAws_json1_1LDAPSSettingInfo

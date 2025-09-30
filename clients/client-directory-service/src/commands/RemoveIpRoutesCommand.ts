@@ -39,7 +39,10 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  * const client = new DirectoryServiceClient(config);
  * const input = { // RemoveIpRoutesRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   CidrIps: [ // CidrIps // required
+ *   CidrIps: [ // CidrIps
+ *     "STRING_VALUE",
+ *   ],
+ *   CidrIpv6s: [ // CidrIpv6s
  *     "STRING_VALUE",
  *   ],
  * };

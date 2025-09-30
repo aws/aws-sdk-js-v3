@@ -55,13 +55,14 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  *       "STRING_VALUE",
  *     ],
  *   },
- *   Edition: "Enterprise" || "Standard",
+ *   Edition: "Enterprise" || "Standard" || "Hybrid",
  *   Tags: [ // Tags
  *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   NetworkType: "Dual-stack" || "IPv4" || "IPv6",
  * };
  * const command = new CreateMicrosoftADCommand(input);
  * const response = await client.send(command);

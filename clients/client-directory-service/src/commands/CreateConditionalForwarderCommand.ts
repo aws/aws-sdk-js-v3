@@ -42,7 +42,10 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * const input = { // CreateConditionalForwarderRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   RemoteDomainName: "STRING_VALUE", // required
- *   DnsIpAddrs: [ // DnsIpAddrs // required
+ *   DnsIpAddrs: [ // DnsIpAddrs
+ *     "STRING_VALUE",
+ *   ],
+ *   DnsIpv6Addrs: [ // DnsIpv6Addrs
  *     "STRING_VALUE",
  *   ],
  * };

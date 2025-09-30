@@ -49,6 +49,7 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  *   IpRoutes: [ // IpRoutes // required
  *     { // IpRoute
  *       CidrIp: "STRING_VALUE",
+ *       CidrIpv6: "STRING_VALUE",
  *       Description: "STRING_VALUE",
  *     },
  *   ],

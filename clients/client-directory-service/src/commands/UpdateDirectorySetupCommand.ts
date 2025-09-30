@@ -28,7 +28,7 @@ export interface UpdateDirectorySetupCommandInput extends UpdateDirectorySetupRe
 export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupResult, __MetadataBearer {}
 
 /**
- * <p> Updates the directory for a particular update type. </p>
+ * <p>Updates directory configuration for the specified update type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,9 +39,18 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * const client = new DirectoryServiceClient(config);
  * const input = { // UpdateDirectorySetupRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   UpdateType: "OS", // required
+ *   UpdateType: "OS" || "NETWORK" || "SIZE", // required
  *   OSUpdateSettings: { // OSUpdateSettings
  *     OSVersion: "SERVER_2012" || "SERVER_2019",
+ *   },
+ *   DirectorySizeUpdateSettings: { // DirectorySizeUpdateSettings
+ *     DirectorySize: "Small" || "Large",
+ *   },
+ *   NetworkUpdateSettings: { // NetworkUpdateSettings
+ *     NetworkType: "Dual-stack" || "IPv4" || "IPv6",
+ *     CustomerDnsIpsV6: [ // DnsIpv6Addrs
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   CreateSnapshotBeforeUpdate: true || false,
  * };

@@ -52,6 +52,9 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  *   ConditionalForwarderIpAddrs: [ // DnsIpAddrs
  *     "STRING_VALUE",
  *   ],
+ *   ConditionalForwarderIpv6Addrs: [ // DnsIpv6Addrs
+ *     "STRING_VALUE",
+ *   ],
  *   SelectiveAuth: "Enabled" || "Disabled",
  * };
  * const command = new CreateTrustCommand(input);

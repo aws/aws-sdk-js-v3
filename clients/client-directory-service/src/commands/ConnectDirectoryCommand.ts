@@ -55,7 +55,10 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  *     SubnetIds: [ // SubnetIds // required
  *       "STRING_VALUE",
  *     ],
- *     CustomerDnsIps: [ // DnsIpAddrs // required
+ *     CustomerDnsIps: [ // DnsIpAddrs
+ *       "STRING_VALUE",
+ *     ],
+ *     CustomerDnsIpsV6: [ // DnsIpv6Addrs
  *       "STRING_VALUE",
  *     ],
  *     CustomerUserName: "STRING_VALUE", // required
@@ -66,6 +69,7 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   NetworkType: "Dual-stack" || "IPv4" || "IPv6",
  * };
  * const command = new ConnectDirectoryCommand(input);
  * const response = await client.send(command);

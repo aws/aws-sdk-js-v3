@@ -59,6 +59,9 @@ export interface DescribeConditionalForwardersCommandOutput
  * //       DnsIpAddrs: [ // DnsIpAddrs
  * //         "STRING_VALUE",
  * //       ],
+ * //       DnsIpv6Addrs: [ // DnsIpv6Addrs
+ * //         "STRING_VALUE",
+ * //       ],
  * //       ReplicationScope: "Domain",
  * //     },
  * //   ],

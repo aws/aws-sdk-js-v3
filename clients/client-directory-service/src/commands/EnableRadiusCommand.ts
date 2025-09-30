@@ -44,6 +44,9 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
  *     RadiusServers: [ // Servers
  *       "STRING_VALUE",
  *     ],
+ *     RadiusServersIpv6: [
+ *       "STRING_VALUE",
+ *     ],
  *     RadiusPort: Number("int"),
  *     RadiusTimeout: Number("int"),
  *     RadiusRetries: Number("int"),

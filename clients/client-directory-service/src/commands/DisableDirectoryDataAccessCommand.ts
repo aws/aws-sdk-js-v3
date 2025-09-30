@@ -28,8 +28,7 @@ export interface DisableDirectoryDataAccessCommandInput extends DisableDirectory
 export interface DisableDirectoryDataAccessCommandOutput extends DisableDirectoryDataAccessResult, __MetadataBearer {}
 
 /**
- * <p>Deactivates access to directory data via the Directory Service Data API for the specified
- *       directory. For
+ * <p>Deactivates access to directory data via the Directory Service Data API for the specified directory. For
  *       more information, see <a href="https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html">Directory Service Data API Reference</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
