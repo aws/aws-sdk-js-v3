@@ -65,7 +65,7 @@ tasks["jar"].enabled = false
 tasks["smithyBuild"].enabled = false
 
 val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
-    val clientNameProp: String? = project.findProperty("clientName")?.toString()
+    val clientNameProp: String? = project.findProperty("clientNameProp")?.toString()
     if (!(clientNameProp?.isEmpty() ?: true)) {
         smithyBuildConfigs.set(files("smithy-build-" + clientNameProp + ".json"))
         outputDir.set(file("build-single/" + clientNameProp))
@@ -162,17 +162,19 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
 }
 
 val generateSmithyBuild = tasks.register<GenerateSmithyBuildTask>("generate-smithy-build") {
-    val clientNameProp = providers.gradleProperty("clientName")
-    val modelsDirProp = providers.gradleProperty("modelsDir").orElse("aws-models")
+    val clientNameProp = providers.gradleProperty("clientNameProp")
+    val modelsDirProp = providers.gradleProperty("modelsDirProp").orElse("aws-models")
     
     clientName.set(clientNameProp)
     modelsDir.set(modelsDirProp)
     modelsDirPath.set(layout.projectDirectory.dir(modelsDirProp))
     templateFile.set(layout.projectDirectory.file("../smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template"))
     
-    val buildFileName = clientNameProp.map { name ->
-        if (!name.isNullOrEmpty()) "smithy-build-$name.json" else "smithy-build.json"
-    }.orElse("smithy-build.json")
+    val buildFileName = if (clientNameProp.isPresent && clientNameProp.get().isNotEmpty()) {
+        "smithy-build-${clientNameProp.get()}.json"
+    } else {
+        "smithy-build.json"
+    }
     
     buildFile.set(layout.projectDirectory.file(buildFileName))
 }
