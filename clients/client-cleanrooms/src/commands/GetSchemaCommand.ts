@@ -88,6 +88,7 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * //         analysisType: "DIRECT_ANALYSIS" || "ADDITIONAL_ANALYSIS", // required
  * //       },
  * //     ],
+ * //     resourceArn: "STRING_VALUE",
  * //     schemaTypeProperties: { // SchemaTypeProperties Union: only one key present
  * //       idMappingTable: { // IdMappingTableSchemaTypeProperties
  * //         idMappingTableInputSource: [ // IdMappingTableInputSourceList // required

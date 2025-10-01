@@ -318,6 +318,10 @@ import {
 } from "../commands/UpdateProtectedQueryCommand";
 import { CleanRoomsServiceException as __BaseException } from "../models/CleanRoomsServiceException";
 import {
+  AccessBudget,
+  AccessBudgetDetails,
+  AccessBudgetsPrivacyTemplateParametersInput,
+  AccessBudgetsPrivacyTemplateUpdateParameters,
   AccessDeniedException,
   AggregateColumn,
   AggregationConstraint,
@@ -334,6 +338,7 @@ import {
   AnalysisTemplateSummary,
   AthenaTableReference,
   AutoApprovedChangeType,
+  BudgetParameter,
   ChangeInput,
   ChangeSpecification,
   Collaboration,
@@ -384,16 +389,9 @@ import {
   JoinOperator,
   MemberAbility,
   MemberChangeSpecification,
-  MembershipJobComputePaymentConfig,
-  MembershipMLPaymentConfig,
-  MembershipModelInferencePaymentConfig,
-  MembershipModelTrainingPaymentConfig,
-  MembershipPaymentConfiguration,
   MembershipProtectedJobOutputConfiguration,
   MembershipProtectedJobResultConfiguration,
   MembershipProtectedQueryOutputConfiguration,
-  MembershipProtectedQueryResultConfiguration,
-  MembershipQueryComputePaymentConfig,
   MemberSpecification,
   MemberSummary,
   MLMemberAbilities,
@@ -401,6 +399,7 @@ import {
   ModelInferencePaymentConfig,
   ModelTrainingPaymentConfig,
   PaymentConfiguration,
+  PrivacyBudget,
   ProtectedJobS3OutputConfigurationInput,
   ProtectedQueryS3OutputConfiguration,
   QueryComputePaymentConfig,
@@ -429,6 +428,13 @@ import {
   DifferentialPrivacyTemplateParametersInput,
   DifferentialPrivacyTemplateUpdateParameters,
   Membership,
+  MembershipJobComputePaymentConfig,
+  MembershipMLPaymentConfig,
+  MembershipModelInferencePaymentConfig,
+  MembershipModelTrainingPaymentConfig,
+  MembershipPaymentConfiguration,
+  MembershipProtectedQueryResultConfiguration,
+  MembershipQueryComputePaymentConfig,
   MembershipSummary,
   PreviewPrivacyImpactParametersInput,
   PrivacyBudgetSummary,
@@ -1591,6 +1597,7 @@ export const se_ListCollaborationPrivacyBudgetsCommand = async (
     [_pBT]: [, __expectNonNull(input[_pBT]!, `privacyBudgetType`)],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_aBRA]: [, input[_aBRA]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1791,6 +1798,7 @@ export const se_ListPrivacyBudgetsCommand = async (
     [_pBT]: [, __expectNonNull(input[_pBT]!, `privacyBudgetType`)],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_aBRA]: [, input[_aBRA]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4371,6 +4379,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AccessBudgetsPrivacyTemplateParametersInput omitted.
+
+// se_AccessBudgetsPrivacyTemplateUpdateParameters omitted.
+
 // se_AggregateColumn omitted.
 
 // se_AggregateColumnList omitted.
@@ -4418,6 +4430,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_AthenaTableReference omitted.
 
 // se_AutoApprovedChangeTypeList omitted.
+
+// se_BudgetParameter omitted.
+
+// se_BudgetParameters omitted.
 
 // se_ChangeInput omitted.
 
@@ -4576,6 +4592,45 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagMap omitted.
 
 // se_WorkerComputeConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1AccessBudget
+ */
+const de_AccessBudget = (output: any, context: __SerdeContext): AccessBudget => {
+  return take(output, {
+    aggregateRemainingBudget: __expectInt32,
+    details: (_: any) => de_AccessBudgetDetailsList(_, context),
+    resourceArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AccessBudgetDetails
+ */
+const de_AccessBudgetDetails = (output: any, context: __SerdeContext): AccessBudgetDetails => {
+  return take(output, {
+    autoRefresh: __expectString,
+    budget: __expectInt32,
+    budgetType: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    remainingBudget: __expectInt32,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AccessBudgetDetailsList
+ */
+const de_AccessBudgetDetailsList = (output: any, context: __SerdeContext): AccessBudgetDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AccessBudgetDetails(entry, context);
+    });
+  return retVal;
+};
+
+// de_AccessBudgetsPrivacyTemplateParametersOutput omitted.
 
 // de_AggregateColumn omitted.
 
@@ -4743,6 +4798,10 @@ const de_BilledResourceUtilization = (output: any, context: __SerdeContext): Bil
     units: __limitedParseDouble,
   }) as any;
 };
+
+// de_BudgetParameter omitted.
+
+// de_BudgetParameters omitted.
 
 // de_Change omitted.
 
@@ -5022,7 +5081,7 @@ const de_CollaborationPrivacyBudgetSummary = (
   context: __SerdeContext
 ): CollaborationPrivacyBudgetSummary => {
   return take(output, {
-    budget: (_: any) => _json(__expectUnion(_)),
+    budget: (_: any) => de_PrivacyBudget(__expectUnion(_), context),
     collaborationArn: __expectString,
     collaborationId: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -5717,14 +5776,29 @@ const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSumma
 
 // de_PaymentConfiguration omitted.
 
-// de_PrivacyBudget omitted.
+/**
+ * deserializeAws_restJson1PrivacyBudget
+ */
+const de_PrivacyBudget = (output: any, context: __SerdeContext): PrivacyBudget => {
+  if (output.accessBudget != null) {
+    return {
+      accessBudget: de_AccessBudget(output.accessBudget, context),
+    };
+  }
+  if (output.differentialPrivacy != null) {
+    return {
+      differentialPrivacy: _json(output.differentialPrivacy),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 /**
  * deserializeAws_restJson1PrivacyBudgetSummary
  */
 const de_PrivacyBudgetSummary = (output: any, context: __SerdeContext): PrivacyBudgetSummary => {
   return take(output, {
-    budget: (_: any) => _json(__expectUnion(_)),
+    budget: (_: any) => de_PrivacyBudget(__expectUnion(_), context),
     collaborationArn: __expectString,
     collaborationId: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -6016,6 +6090,7 @@ const de_Schema = (output: any, context: __SerdeContext): Schema => {
     description: __expectString,
     name: __expectString,
     partitionKeys: _json,
+    resourceArn: __expectString,
     schemaStatusDetails: _json,
     schemaTypeProperties: (_: any) => _json(__expectUnion(_)),
     selectedAnalysisMethods: _json,
@@ -6070,6 +6145,7 @@ const de_SchemaSummary = (output: any, context: __SerdeContext): SchemaSummary =
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     creatorAccountId: __expectString,
     name: __expectString,
+    resourceArn: __expectString,
     selectedAnalysisMethods: _json,
     type: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -6129,6 +6205,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _aBRA = "accessBudgetResourceArn";
 const _mR = "maxResults";
 const _mS = "memberStatus";
 const _nT = "nextToken";

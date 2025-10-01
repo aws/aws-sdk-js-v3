@@ -44,9 +44,10 @@ export interface ListCollaborationPrivacyBudgetsCommandOutput
  * const client = new CleanRoomsClient(config);
  * const input = { // ListCollaborationPrivacyBudgetsInput
  *   collaborationIdentifier: "STRING_VALUE", // required
- *   privacyBudgetType: "DIFFERENTIAL_PRIVACY", // required
+ *   privacyBudgetType: "DIFFERENTIAL_PRIVACY" || "ACCESS_BUDGET", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   accessBudgetResourceArn: "STRING_VALUE",
  * };
  * const command = new ListCollaborationPrivacyBudgetsCommand(input);
  * const response = await client.send(command);
@@ -59,7 +60,7 @@ export interface ListCollaborationPrivacyBudgetsCommandOutput
  * //       collaborationId: "STRING_VALUE", // required
  * //       collaborationArn: "STRING_VALUE", // required
  * //       creatorAccountId: "STRING_VALUE", // required
- * //       type: "DIFFERENTIAL_PRIVACY", // required
+ * //       type: "DIFFERENTIAL_PRIVACY" || "ACCESS_BUDGET", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       budget: { // PrivacyBudget Union: only one key present
@@ -72,6 +73,20 @@ export interface ListCollaborationPrivacyBudgetsCommandOutput
  * //             },
  * //           ],
  * //           epsilon: Number("int"), // required
+ * //         },
+ * //         accessBudget: { // AccessBudget
+ * //           resourceArn: "STRING_VALUE", // required
+ * //           details: [ // AccessBudgetDetailsList // required
+ * //             { // AccessBudgetDetails
+ * //               startTime: new Date("TIMESTAMP"), // required
+ * //               endTime: new Date("TIMESTAMP"),
+ * //               remainingBudget: Number("int"), // required
+ * //               budget: Number("int"), // required
+ * //               budgetType: "CALENDAR_DAY" || "CALENDAR_MONTH" || "CALENDAR_WEEK" || "LIFETIME", // required
+ * //               autoRefresh: "ENABLED" || "DISABLED",
+ * //             },
+ * //           ],
+ * //           aggregateRemainingBudget: Number("int"), // required
  * //         },
  * //       },
  * //     },

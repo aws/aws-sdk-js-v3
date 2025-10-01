@@ -59,6 +59,7 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * //         "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE",
  * //       ],
  * //       analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE",
+ * //       resourceArn: "STRING_VALUE",
  * //       selectedAnalysisMethods: [ // SelectedAnalysisMethods
  * //         "DIRECT_QUERY" || "DIRECT_JOB",
  * //       ],

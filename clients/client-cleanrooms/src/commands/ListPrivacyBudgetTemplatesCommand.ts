@@ -54,7 +54,7 @@ export interface ListPrivacyBudgetTemplatesCommandOutput extends ListPrivacyBudg
  * //       membershipArn: "STRING_VALUE", // required
  * //       collaborationId: "STRING_VALUE", // required
  * //       collaborationArn: "STRING_VALUE", // required
- * //       privacyBudgetType: "DIFFERENTIAL_PRIVACY", // required
+ * //       privacyBudgetType: "DIFFERENTIAL_PRIVACY" || "ACCESS_BUDGET", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //     },
