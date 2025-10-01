@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0";
+import { UpdateClusterRequest, UpdateClusterResponse } from "../models/models_0";
 import { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
-import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_json1_0";
+import { de_UpdateClusterCommand, se_UpdateClusterCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -17,43 +17,30 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateClusterCommand}.
+ * The input for {@link UpdateClusterCommand}.
  */
-export interface CreateClusterCommandInput extends CreateClusterRequest {}
+export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
 /**
  * @public
  *
- * The output of {@link CreateClusterCommand}.
+ * The output of {@link UpdateClusterCommand}.
  */
-export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
+export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a cluster in your account. PCS creates the cluster controller in a service-owned account. The cluster controller communicates with the cluster resources in your account. The subnets and security groups for the cluster must already exist before you use this API action.</p> <note> <p>It takes time for PCS to create the cluster. The cluster is in a <code>Creating</code> state until it is ready to use. There can only be 1 cluster in a <code>Creating</code> state per Amazon Web Services Region per Amazon Web Services account. <code>CreateCluster</code> fails with a <code>ServiceQuotaExceededException</code> if there is already a cluster in a <code>Creating</code> state.</p> </note>
+ * <p>Updates a cluster configuration. You can modify Slurm scheduler settings, accounting configuration, and security groups for an existing cluster. </p> <note> <p>You can only update clusters that are in <code>ACTIVE</code>, <code>UPDATE_FAILED</code>, or <code>SUSPENDED</code> state. All associated resources (queues and compute node groups) must be in <code>ACTIVE</code> state before you can update the cluster.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PCSClient, CreateClusterCommand } from "@aws-sdk/client-pcs"; // ES Modules import
- * // const { PCSClient, CreateClusterCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * import { PCSClient, UpdateClusterCommand } from "@aws-sdk/client-pcs"; // ES Modules import
+ * // const { PCSClient, UpdateClusterCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
  * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
  * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
- * const input = { // CreateClusterRequest
- *   clusterName: "STRING_VALUE", // required
- *   scheduler: { // SchedulerRequest
- *     type: "SLURM", // required
- *     version: "STRING_VALUE", // required
- *   },
- *   size: "SMALL" || "MEDIUM" || "LARGE", // required
- *   networking: { // NetworkingRequest
- *     subnetIds: [ // SubnetIdList
- *       "STRING_VALUE",
- *     ],
- *     securityGroupIds: [ // SecurityGroupIdList
- *       "STRING_VALUE",
- *     ],
- *     networkType: "IPV4" || "IPV6",
- *   },
- *   slurmConfiguration: { // ClusterSlurmConfigurationRequest
+ * const input = { // UpdateClusterRequest
+ *   clusterIdentifier: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   slurmConfiguration: { // UpdateClusterSlurmConfigurationRequest
  *     scaleDownIdleTimeInSeconds: Number("int"),
  *     slurmCustomSettings: [ // SlurmCustomSettings
  *       { // SlurmCustomSetting
@@ -61,19 +48,15 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *         parameterValue: "STRING_VALUE", // required
  *       },
  *     ],
- *     accounting: { // AccountingRequest
+ *     accounting: { // UpdateAccountingRequest
  *       defaultPurgeTimeInDays: Number("int"),
- *       mode: "STANDARD" || "NONE", // required
+ *       mode: "STANDARD" || "NONE",
  *     },
  *   },
- *   clientToken: "STRING_VALUE",
- *   tags: { // RequestTagMap
- *     "<keys>": "STRING_VALUE",
- *   },
  * };
- * const command = new CreateClusterCommand(input);
+ * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
- * // { // CreateClusterResponse
+ * // { // UpdateClusterResponse
  * //   cluster: { // Cluster
  * //     name: "STRING_VALUE", // required
  * //     id: "STRING_VALUE", // required
@@ -132,10 +115,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *
  * ```
  *
- * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
- * @returns {@link CreateClusterCommandOutput}
- * @see {@link CreateClusterCommandInput} for command's `input` shape.
- * @see {@link CreateClusterCommandOutput} for command's `response` shape.
+ * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
+ * @returns {@link UpdateClusterCommandOutput}
+ * @see {@link UpdateClusterCommandInput} for command's `input` shape.
+ * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link PCSClientResolvedConfig | config} for PCSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -147,8 +130,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link InternalServerException} (server fault)
  *  <p>PCS can't process your request right now. Try again later.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account. To learn how to increase your service quota, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i> </p> <p> <u>Examples</u> </p> <ul> <li> <p>The max number of clusters or queues has been reached for the account.</p> </li> <li> <p>The max number of compute node groups has been reached for the associated cluster.</p> </li> <li> <p>The total of <code>maxInstances</code> across all compute node groups has been reached for associated cluster.</p> </li> </ul>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.</p> <p> <u>Examples</u> </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a request rate quota. Check the resource's request rate quota and try again.</p>
@@ -162,10 +145,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *
  * @public
  */
-export class CreateClusterCommand extends $Command
+export class UpdateClusterCommand extends $Command
   .classBuilder<
-    CreateClusterCommandInput,
-    CreateClusterCommandOutput,
+    UpdateClusterCommandInput,
+    UpdateClusterCommandOutput,
     PCSClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -177,21 +160,21 @@ export class CreateClusterCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSParallelComputingService", "CreateCluster", {})
-  .n("PCSClient", "CreateClusterCommand")
+  .s("AWSParallelComputingService", "UpdateCluster", {})
+  .n("PCSClient", "UpdateClusterCommand")
   .f(void 0, void 0)
-  .ser(se_CreateClusterCommand)
-  .de(de_CreateClusterCommand)
+  .ser(se_UpdateClusterCommand)
+  .de(de_UpdateClusterCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateClusterRequest;
-      output: CreateClusterResponse;
+      input: UpdateClusterRequest;
+      output: UpdateClusterResponse;
     };
     sdk: {
-      input: CreateClusterCommandInput;
-      output: CreateClusterCommandOutput;
+      input: UpdateClusterCommandInput;
+      output: UpdateClusterCommandOutput;
     };
   };
 }

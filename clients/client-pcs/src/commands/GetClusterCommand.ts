@@ -68,8 +68,8 @@ export interface GetClusterCommandOutput extends GetClusterResponse, __MetadataB
  * //         secretVersion: "STRING_VALUE", // required
  * //       },
  * //       accounting: { // Accounting
- * //         mode: "STANDARD" || "NONE", // required
  * //         defaultPurgeTimeInDays: Number("int"),
+ * //         mode: "STANDARD" || "NONE", // required
  * //       },
  * //     },
  * //     networking: { // Networking

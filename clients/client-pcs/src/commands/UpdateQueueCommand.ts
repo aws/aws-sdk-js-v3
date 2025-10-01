@@ -45,6 +45,14 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  *       computeNodeGroupId: "STRING_VALUE",
  *     },
  *   ],
+ *   slurmConfiguration: { // UpdateQueueSlurmConfigurationRequest
+ *     slurmCustomSettings: [ // SlurmCustomSettings
+ *       { // SlurmCustomSetting
+ *         parameterName: "STRING_VALUE", // required
+ *         parameterValue: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateQueueCommand(input);
@@ -63,6 +71,14 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * //         computeNodeGroupId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     slurmConfiguration: { // QueueSlurmConfiguration
+ * //       slurmCustomSettings: [ // SlurmCustomSettings
+ * //         { // SlurmCustomSetting
+ * //           parameterName: "STRING_VALUE", // required
+ * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //     errorInfo: [ // ErrorInfoList
  * //       { // ErrorInfo
  * //         code: "STRING_VALUE",

@@ -57,6 +57,14 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * //         computeNodeGroupId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     slurmConfiguration: { // QueueSlurmConfiguration
+ * //       slurmCustomSettings: [ // SlurmCustomSettings
+ * //         { // SlurmCustomSetting
+ * //           parameterName: "STRING_VALUE", // required
+ * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //     errorInfo: [ // ErrorInfoList
  * //       { // ErrorInfo
  * //         code: "STRING_VALUE",

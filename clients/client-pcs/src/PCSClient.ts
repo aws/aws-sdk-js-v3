@@ -87,6 +87,7 @@ import {
 } from "./commands/RegisterComputeNodeGroupInstanceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
 import {
   UpdateComputeNodeGroupCommandInput,
   UpdateComputeNodeGroupCommandOutput,
@@ -123,6 +124,7 @@ export type ServiceInputTypes =
   | RegisterComputeNodeGroupInstanceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateClusterCommandInput
   | UpdateComputeNodeGroupCommandInput
   | UpdateQueueCommandInput;
 
@@ -146,6 +148,7 @@ export type ServiceOutputTypes =
   | RegisterComputeNodeGroupInstanceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateClusterCommandOutput
   | UpdateComputeNodeGroupCommandOutput
   | UpdateQueueCommandOutput;
 

@@ -15,5 +15,6 @@ export * from "./ListTagsForResourceCommand";
 export * from "./RegisterComputeNodeGroupInstanceCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateClusterCommand";
 export * from "./UpdateComputeNodeGroupCommand";
 export * from "./UpdateQueueCommand";

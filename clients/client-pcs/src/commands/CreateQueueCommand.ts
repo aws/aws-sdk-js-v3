@@ -45,6 +45,14 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  *       computeNodeGroupId: "STRING_VALUE",
  *     },
  *   ],
+ *   slurmConfiguration: { // QueueSlurmConfigurationRequest
+ *     slurmCustomSettings: [ // SlurmCustomSettings
+ *       { // SlurmCustomSetting
+ *         parameterName: "STRING_VALUE", // required
+ *         parameterValue: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  *   clientToken: "STRING_VALUE",
  *   tags: { // RequestTagMap
  *     "<keys>": "STRING_VALUE",
@@ -66,6 +74,14 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * //         computeNodeGroupId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     slurmConfiguration: { // QueueSlurmConfiguration
+ * //       slurmCustomSettings: [ // SlurmCustomSettings
+ * //         { // SlurmCustomSetting
+ * //           parameterName: "STRING_VALUE", // required
+ * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //     errorInfo: [ // ErrorInfoList
  * //       { // ErrorInfo
  * //         code: "STRING_VALUE",
