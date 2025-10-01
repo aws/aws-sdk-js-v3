@@ -53,6 +53,15 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  *                     to receive and you set your <code>content</code> capability to not receive.</p>
  *             </li>
  *             <li>
+ *                <p>If meeting features is defined as <code>Video:MaxResolution:None</code> but
+ *                     <code>Content:MaxResolution</code> is defined as something other than
+ *                     <code>None</code> and attendee capabilities are not defined in the API
+ *                     request, then the default attendee video capability is set to
+ *                     <code>Receive</code> and attendee content capability is set to
+ *                     <code>SendReceive</code>. This is because content <code>SendReceive</code>
+ *                     requires video to be at least <code>Receive</code>.</p>
+ *             </li>
+ *             <li>
  *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
  *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
  *             </li>

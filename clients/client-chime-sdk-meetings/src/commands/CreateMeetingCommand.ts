@@ -34,12 +34,25 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
 
 /**
  * <p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see
- *            <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
- *            in the <i>Amazon Chime Developer Guide</i>. For more information about the Amazon Chime SDK, see
- *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions">Available Regions</a> and
+ *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Using meeting Regions</a>, both
+ *            in the <i>Amazon Chime SDK Developer Guide</i>. For more information about the Amazon Chime SDK, see
+ *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
  *            in the
- *            <i>Amazon Chime Developer Guide</i>.
+ *            <i>Amazon Chime SDK Developer Guide</i>.
  *        </p>
+ *          <note>
+ *             <p>If you use this API in conjuction with the  and  APIs, and you don't specify the
+ *        <code>MeetingFeatures.Content.MaxResolution</code> or <code>MeetingFeatures.Video.MaxResolution</code> parameters, the following defaults are used:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Content.MaxResolution: FHD</p>
+ *                </li>
+ *                <li>
+ *                   <p>Video.MaxResolution: HD</p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +95,7 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   MediaPlacementNetworkType: "Ipv4Only" || "DualStack",
  * };
  * const command = new CreateMeetingCommand(input);
  * const response = await client.send(command);

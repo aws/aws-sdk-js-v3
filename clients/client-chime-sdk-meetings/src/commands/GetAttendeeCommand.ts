@@ -30,7 +30,7 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
 /**
  * <p>
  *             Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see
- *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ *             <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
  *             in the <i>Amazon Chime Developer Guide</i>.
  *         </p>
  * @example
