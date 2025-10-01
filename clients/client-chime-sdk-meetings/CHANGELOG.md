@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
+
+
+### Features
+
+* **client-chime-sdk-meetings:** Add support to receive dual stack MediaPlacement URLs in Chime Meetings SDK ([c32ced4](https://github.com/aws/aws-sdk-js-v3/commit/c32ced42006da139afd5a68f1bfb719c25d3557f))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-meetings

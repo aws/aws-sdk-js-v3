@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
+
+
+### Features
+
+* **client-chime-sdk-meetings:** Add support to receive dual stack MediaPlacement URLs in Chime Meetings SDK ([c32ced4](https://github.com/aws/aws-sdk-js-v3/commit/c32ced42006da139afd5a68f1bfb719c25d3557f))
+* **client-cleanroomsml:** This release introduces data access budgets to view how many times an input channel can be used for ML jobs in a collaboration. ([a6cc054](https://github.com/aws/aws-sdk-js-v3/commit/a6cc054b0f654118d455e9ff018c8020499311c9))
+* **client-cleanrooms:** This release introduces data access budgets to control how many times a table can be used for queries and jobs in a collaboration. ([783dbc1](https://github.com/aws/aws-sdk-js-v3/commit/783dbc10a03aa60bcedb7da715026a741378ea0d))
+* **client-ivs-realtime:** Remove incorrect ReadOnly trait on IVS RealTime ImportPublicKey API ([8b79cdc](https://github.com/aws/aws-sdk-js-v3/commit/8b79cdc1a70cf11a8bd3099f495fe55ed8a012b5))
+* **client-pcs:** Added the UpdateCluster API action to modify cluster configurations, and Slurm custom settings for queues. ([3b9d480](https://github.com/aws/aws-sdk-js-v3/commit/3b9d480eaffccc6629de49b83c0cc6fa7131a130))
+
+
+
+
+
 # [3.900.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.899.0...v3.900.0) (2025-09-30)
 
 

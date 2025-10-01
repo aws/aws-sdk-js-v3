@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
+
+
+### Features
+
+* **client-cleanrooms:** This release introduces data access budgets to control how many times a table can be used for queries and jobs in a collaboration. ([783dbc1](https://github.com/aws/aws-sdk-js-v3/commit/783dbc10a03aa60bcedb7da715026a741378ea0d))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

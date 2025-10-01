@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
+
+
+### Features
+
+* **client-cleanroomsml:** This release introduces data access budgets to view how many times an input channel can be used for ML jobs in a collaboration. ([a6cc054](https://github.com/aws/aws-sdk-js-v3/commit/a6cc054b0f654118d455e9ff018c8020499311c9))
+
+
+
+
+
 # [3.899.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.898.0...v3.899.0) (2025-09-29)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanroomsml
