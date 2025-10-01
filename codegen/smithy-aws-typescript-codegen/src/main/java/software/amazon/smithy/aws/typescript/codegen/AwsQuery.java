@@ -215,7 +215,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     public Map<String, ShapeId> getOperationErrors(GenerationContext context, OperationShape operation) {
         Map<String, ShapeId> errors = new TreeMap<>();
 
-        operation.getErrors().forEach(shapeId -> {
+        operation.getErrorsSet().forEach(shapeId -> {
             Shape errorShape = context.getModel().expectShape(shapeId);
             String errorName = shapeId.getName(context.getService());
 
