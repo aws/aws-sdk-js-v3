@@ -4,6 +4,102 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { CleanRoomsMLServiceException as __BaseException } from "./CleanRoomsMLServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const AutoRefreshMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoRefreshMode = (typeof AutoRefreshMode)[keyof typeof AutoRefreshMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessBudgetType = {
+  CALENDAR_DAY: "CALENDAR_DAY",
+  CALENDAR_MONTH: "CALENDAR_MONTH",
+  CALENDAR_WEEK: "CALENDAR_WEEK",
+  LIFETIME: "LIFETIME",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessBudgetType = (typeof AccessBudgetType)[keyof typeof AccessBudgetType];
+
+/**
+ * <p>The detailed information for a specific budget period, including time boundaries and budget amounts.</p>
+ * @public
+ */
+export interface AccessBudgetDetails {
+  /**
+   * <p>The start time of this budget period.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end time of this budget period. If not specified, the budget period continues indefinitely.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The amount of budget remaining in this period.</p>
+   * @public
+   */
+  remainingBudget: number | undefined;
+
+  /**
+   * <p>The total budget amount allocated for this period.</p>
+   * @public
+   */
+  budget: number | undefined;
+
+  /**
+   * <p>The type of budget period. Calendar-based types reset automatically at regular intervals, while LIFETIME budgets never reset.</p>
+   * @public
+   */
+  budgetType: AccessBudgetType | undefined;
+
+  /**
+   * <p>Specifies whether this budget automatically refreshes when the current period ends.</p>
+   * @public
+   */
+  autoRefresh?: AutoRefreshMode | undefined;
+}
+
+/**
+ * <p>An access budget that defines consumption limits for a specific resource within defined time periods.</p>
+ * @public
+ */
+export interface AccessBudget {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that this access budget applies to.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of budget details for this resource. Contains active budget periods that apply to the resource.</p>
+   * @public
+   */
+  details: AccessBudgetDetails[] | undefined;
+
+  /**
+   * <p>The total remaining budget across all active budget periods for this resource.</p>
+   * @public
+   */
+  aggregateRemainingBudget: number | undefined;
+}
+
+/**
  * <p>You do not have sufficient access to perform this action.</p>
  * @public
  */
@@ -3623,6 +3719,44 @@ export interface GetCollaborationMLInputChannelRequest {
 }
 
 /**
+ * <p>The privacy budget information that controls access to Clean Rooms ML input channels.</p>
+ * @public
+ */
+export type PrivacyBudgets = PrivacyBudgets.AccessBudgetsMember | PrivacyBudgets.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrivacyBudgets {
+  /**
+   * <p>A list of access budgets that apply to resources associated with this Clean Rooms ML input channel.</p>
+   * @public
+   */
+  export interface AccessBudgetsMember {
+    accessBudgets: AccessBudget[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    accessBudgets?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    accessBudgets: (value: AccessBudget[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PrivacyBudgets, visitor: Visitor<T>): T => {
+    if (value.accessBudgets !== undefined) return visitor.accessBudgets(value.accessBudgets);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  */
 export interface GetCollaborationMLInputChannelResponse {
@@ -3679,6 +3813,12 @@ export interface GetCollaborationMLInputChannelResponse {
    * @public
    */
   numberOfRecords?: number | undefined;
+
+  /**
+   * <p>Returns the privacy budgets that control access to this Clean Rooms ML input channel. Use these budgets to monitor and limit resource consumption over specified time periods.</p>
+   * @public
+   */
+  privacyBudgets?: PrivacyBudgets | undefined;
 
   /**
    * <p>The description of the ML input channel.</p>
@@ -3779,6 +3919,12 @@ export interface GetMLInputChannelResponse {
    * @public
    */
   numberOfRecords?: number | undefined;
+
+  /**
+   * <p>Returns the privacy budgets that control access to this Clean Rooms ML input channel. Use these budgets to monitor and limit resource consumption over specified time periods.</p>
+   * @public
+   */
+  privacyBudgets?: PrivacyBudgets | undefined;
 
   /**
    * <p>The description of the ML input channel.</p>
@@ -5928,5 +6074,6 @@ export const CreateMLInputChannelRequestFilterSensitiveLog = (obj: CreateMLInput
  */
 export const GetMLInputChannelResponseFilterSensitiveLog = (obj: GetMLInputChannelResponse): any => ({
   ...obj,
+  ...(obj.privacyBudgets && { privacyBudgets: obj.privacyBudgets }),
   ...(obj.inputChannel && { inputChannel: InputChannelFilterSensitiveLog(obj.inputChannel) }),
 });

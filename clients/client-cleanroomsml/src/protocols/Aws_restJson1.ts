@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
@@ -230,6 +235,8 @@ import {
 } from "../commands/UpdateConfiguredAudienceModelCommand";
 import { CleanRoomsMLServiceException as __BaseException } from "../models/CleanRoomsMLServiceException";
 import {
+  AccessBudget,
+  AccessBudgetDetails,
   AccessDeniedException,
   AudienceDestination,
   AudienceExportJobSummary,
@@ -277,6 +284,7 @@ import {
   MLOutputConfiguration,
   ModelInferenceDataSource,
   ModelTrainingDataChannel,
+  PrivacyBudgets,
   PrivacyConfiguration,
   PrivacyConfigurationPolicies,
   ProtectedQueryInputParameters,
@@ -2014,6 +2022,7 @@ export const de_GetCollaborationMLInputChannelCommand = async (
     mlInputChannelArn: __expectString,
     name: __expectString,
     numberOfRecords: __expectLong,
+    privacyBudgets: (_) => de_PrivacyBudgets(__expectUnion(_), context),
     retentionInDays: __expectInt32,
     status: __expectString,
     statusDetails: _json,
@@ -2230,6 +2239,7 @@ export const de_GetMLInputChannelCommand = async (
     name: __expectString,
     numberOfFiles: __limitedParseDouble,
     numberOfRecords: __expectLong,
+    privacyBudgets: (_) => de_PrivacyBudgets(__expectUnion(_), context),
     protectedQueryIdentifier: __expectString,
     retentionInDays: __expectInt32,
     sizeInGb: __limitedParseDouble,
@@ -3288,6 +3298,55 @@ const se_TrainedModelsConfigurationPolicy = (input: TrainedModelsConfigurationPo
 
 // se_WorkerComputeConfiguration omitted.
 
+/**
+ * deserializeAws_restJson1AccessBudget
+ */
+const de_AccessBudget = (output: any, context: __SerdeContext): AccessBudget => {
+  return take(output, {
+    aggregateRemainingBudget: __expectInt32,
+    details: (_: any) => de_AccessBudgetDetailsList(_, context),
+    resourceArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AccessBudgetDetails
+ */
+const de_AccessBudgetDetails = (output: any, context: __SerdeContext): AccessBudgetDetails => {
+  return take(output, {
+    autoRefresh: __expectString,
+    budget: __expectInt32,
+    budgetType: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    remainingBudget: __expectInt32,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AccessBudgetDetailsList
+ */
+const de_AccessBudgetDetailsList = (output: any, context: __SerdeContext): AccessBudgetDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AccessBudgetDetails(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AccessBudgets
+ */
+const de_AccessBudgets = (output: any, context: __SerdeContext): AccessBudget[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AccessBudget(entry, context);
+    });
+  return retVal;
+};
+
 // de_AccountIdList omitted.
 
 // de_AudienceDestination omitted.
@@ -3784,6 +3843,18 @@ const de_MLInputChannelSummary = (output: any, context: __SerdeContext): MLInput
 // de_ModelTrainingDataChannels omitted.
 
 // de_ParameterMap omitted.
+
+/**
+ * deserializeAws_restJson1PrivacyBudgets
+ */
+const de_PrivacyBudgets = (output: any, context: __SerdeContext): PrivacyBudgets => {
+  if (output.accessBudgets != null) {
+    return {
+      accessBudgets: de_AccessBudgets(output.accessBudgets, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 /**
  * deserializeAws_restJson1PrivacyConfiguration
