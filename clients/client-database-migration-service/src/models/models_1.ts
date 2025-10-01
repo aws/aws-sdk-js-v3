@@ -1177,9 +1177,7 @@ export interface ModifyInstanceProfileMessage {
    * <p>The Amazon Resource Name (ARN) of the KMS key that is used to encrypt
    *          the connection parameters for the instance profile.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyArn</code> parameter, then
-   *          DMS uses your default encryption key.</p>
-   *          <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a
-   *          different default encryption key for each Amazon Web Services Region.</p>
+   *          DMS uses an Amazon Web Services owned encryption key to encrypt your resources.</p>
    * @public
    */
   KmsKeyArn?: string | undefined;
