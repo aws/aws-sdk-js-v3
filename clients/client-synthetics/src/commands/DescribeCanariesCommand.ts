@@ -63,6 +63,9 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //       Code: { // CanaryCodeOutput
  * //         SourceLocationArn: "STRING_VALUE",
  * //         Handler: "STRING_VALUE",
+ * //         BlueprintTypes: [ // BlueprintTypes
+ * //           "STRING_VALUE",
+ * //         ],
  * //         Dependencies: [ // Dependencies
  * //           { // Dependency
  * //             Type: "LambdaLayer",

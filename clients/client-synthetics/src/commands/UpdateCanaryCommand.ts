@@ -58,7 +58,10 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *     S3Key: "STRING_VALUE",
  *     S3Version: "STRING_VALUE",
  *     ZipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
- *     Handler: "STRING_VALUE", // required
+ *     Handler: "STRING_VALUE",
+ *     BlueprintTypes: [ // BlueprintTypes
+ *       "STRING_VALUE",
+ *     ],
  *     Dependencies: [ // Dependencies
  *       { // Dependency
  *         Type: "LambdaLayer",

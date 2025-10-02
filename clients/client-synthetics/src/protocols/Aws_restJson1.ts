@@ -1304,6 +1304,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_BaseScreenshots omitted.
 
+// se_BlueprintTypes omitted.
+
 // se_BrowserConfig omitted.
 
 // se_BrowserConfigs omitted.
@@ -1313,6 +1315,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): any => {
   return take(input, {
+    BlueprintTypes: _json,
     Dependencies: _json,
     Handler: [],
     S3Bucket: [],
@@ -1361,6 +1364,8 @@ const se_CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): an
 // de_BaseScreenshotIgnoreCoordinates omitted.
 
 // de_BaseScreenshots omitted.
+
+// de_BlueprintTypes omitted.
 
 // de_BrowserConfig omitted.
 

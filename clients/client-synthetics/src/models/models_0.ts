@@ -350,9 +350,20 @@ export interface CanaryCodeOutput {
 
   /**
    * <p>The entry point to use for the source code when running the canary.</p>
+   *          <p>This field is required when you don't specify <code>BlueprintTypes</code> and is not allowed when you specify <code>BlueprintTypes</code>.</p>
    * @public
    */
   Handler?: string | undefined;
+
+  /**
+   * <p>
+   *             <code>BlueprintTypes</code> is a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. The only supported value is <code>multi-checks</code>.</p>
+   *          <p>Multi-checks monitors HTTP/DNS/SSL/TCP endpoints with built-in authentication schemes (Basic, API Key, OAuth, SigV4) and assertion capabilities. When you specify <code>BlueprintTypes</code>, the Handler field cannot be specified since the blueprint provides a pre-defined entry point.</p>
+   *          <p>
+   *             <code>BlueprintTypes</code> is supported only on canaries for syn-nodejs-3.0 runtime or later.</p>
+   * @public
+   */
+  BlueprintTypes?: string[] | undefined;
 
   /**
    * <p>A list of dependencies that are used for running this canary. The dependencies are specified as a key-value pair, where the key is the type of dependency and the value is the dependency reference.</p>
@@ -1089,9 +1100,20 @@ export interface CanaryCodeInput {
    * <code>
    *                <i>folder</i>/<i>fileName</i>.<i>functionName</i>
    *             </code>.</p>
+   *          <p>This field is required when you don't specify <code>BlueprintTypes</code> and is not allowed when you specify <code>BlueprintTypes</code>.</p>
    * @public
    */
-  Handler: string | undefined;
+  Handler?: string | undefined;
+
+  /**
+   * <p>
+   *             <code>BlueprintTypes</code> is a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. The only supported value is <code>multi-checks</code>.</p>
+   *          <p>Multi-checks monitors HTTP/DNS/SSL/TCP endpoints with built-in authentication schemes (Basic, API Key, OAuth, SigV4) and assertion capabilities. When you specify <code>BlueprintTypes</code>, the Handler field cannot be specified since the blueprint provides a pre-defined entry point.</p>
+   *          <p>
+   *             <code>BlueprintTypes</code> is supported only on canaries for syn-nodejs-3.0 runtime or later.</p>
+   * @public
+   */
+  BlueprintTypes?: string[] | undefined;
 
   /**
    * <p>A list of dependencies that should be used for running this canary. Specify the dependencies as a key-value pair, where the key is the type of dependency and the value is the dependency reference.</p>
