@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.902.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.901.0...v3.902.0) (2025-10-02)
+
+
+### Features
+
+* **client-dynamodb:** Add support for dual-stack account endpoint generation ([14f648b](https://github.com/aws/aws-sdk-js-v3/commit/14f648bbd1b2f8d6357c75c3ebc5e1a6895861d5))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

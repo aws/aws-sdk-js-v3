@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.902.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.901.0...v3.902.0) (2025-10-02)
+
+
+### Features
+
+* **client-connectcases:** New Search All Related Items API enables searching related items across cases ([4535c43](https://github.com/aws/aws-sdk-js-v3/commit/4535c435738bc042a49f4c6f9df3adc029108618))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcases

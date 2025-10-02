@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.902.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.901.0...v3.902.0) (2025-10-02)
+
+
+### Features
+
+* **client-cloudformation:** Add new warning type 'EXCLUDED_RESOURCES' ([228e362](https://github.com/aws/aws-sdk-js-v3/commit/228e362880ed75b39a1b5d3d8b212eeca81aed93))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

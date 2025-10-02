@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.902.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.901.0...v3.902.0) (2025-10-02)
+
+
+### Features
+
+* **client-cloudformation:** Add new warning type 'EXCLUDED_RESOURCES' ([228e362](https://github.com/aws/aws-sdk-js-v3/commit/228e362880ed75b39a1b5d3d8b212eeca81aed93))
+* **client-connectcases:** New Search All Related Items API enables searching related items across cases ([4535c43](https://github.com/aws/aws-sdk-js-v3/commit/4535c435738bc042a49f4c6f9df3adc029108618))
+* **client-dynamodb:** Add support for dual-stack account endpoint generation ([14f648b](https://github.com/aws/aws-sdk-js-v3/commit/14f648bbd1b2f8d6357c75c3ebc5e1a6895861d5))
+* **client-synthetics:** Adds support to configure canaries with pre-configured blueprint code on supported runtime versions.  This behavior can be controlled via the new BlueprintTypes property exposed in the CreateCanary and UpdateCanary APIs. ([b9d0925](https://github.com/aws/aws-sdk-js-v3/commit/b9d0925c6551ce5b57e60101dc5b3be488dc71ee))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 
