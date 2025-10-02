@@ -34,6 +34,8 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * ```javascript
  * import { RDSClient, CreateCustomDBEngineVersionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateCustomDBEngineVersionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // CreateCustomDBEngineVersionMessage
  *   Engine: "STRING_VALUE", // required
@@ -42,6 +44,8 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
  *   ImageId: "STRING_VALUE",
  *   KMSKeyId: "STRING_VALUE",
+ *   SourceCustomDbEngineVersionIdentifier: "STRING_VALUE",
+ *   UseAwsProvidedLatestImage: true || false,
  *   Description: "STRING_VALUE",
  *   Manifest: "STRING_VALUE",
  *   Tags: [ // TagList
@@ -50,16 +54,19 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   SourceCustomDbEngineVersionIdentifier: "STRING_VALUE",
- *   UseAwsProvidedLatestImage: true || false,
  * };
  * const command = new CreateCustomDBEngineVersionCommand(input);
  * const response = await client.send(command);
  * // { // DBEngineVersion
  * //   Engine: "STRING_VALUE",
+ * //   MajorEngineVersion: "STRING_VALUE",
  * //   EngineVersion: "STRING_VALUE",
+ * //   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
+ * //   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
+ * //   CustomDBEngineVersionManifest: "STRING_VALUE",
  * //   DBParameterGroupFamily: "STRING_VALUE",
  * //   DBEngineDescription: "STRING_VALUE",
+ * //   DBEngineVersionArn: "STRING_VALUE",
  * //   DBEngineVersionDescription: "STRING_VALUE",
  * //   DefaultCharacterSet: { // CharacterSet
  * //     CharacterSetName: "STRING_VALUE",
@@ -70,6 +77,8 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     Status: "STRING_VALUE",
  * //   },
  * //   DBEngineMediaType: "STRING_VALUE",
+ * //   KMSKeyId: "STRING_VALUE",
+ * //   CreateTime: new Date("TIMESTAMP"),
  * //   SupportedCharacterSets: [ // SupportedCharacterSetsList
  * //     {
  * //       CharacterSetName: "STRING_VALUE",
@@ -119,12 +128,6 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //   Status: "STRING_VALUE",
  * //   SupportsParallelQuery: true || false,
  * //   SupportsGlobalDatabases: true || false,
- * //   MajorEngineVersion: "STRING_VALUE",
- * //   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
- * //   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
- * //   DBEngineVersionArn: "STRING_VALUE",
- * //   KMSKeyId: "STRING_VALUE",
- * //   CreateTime: new Date("TIMESTAMP"),
  * //   TagList: [ // TagList
  * //     { // Tag
  * //       Key: "STRING_VALUE",
@@ -132,7 +135,6 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     },
  * //   ],
  * //   SupportsBabelfish: true || false,
- * //   CustomDBEngineVersionManifest: "STRING_VALUE",
  * //   SupportsLimitlessDatabase: true || false,
  * //   SupportsCertificateRotationWithoutRestart: true || false,
  * //   SupportedCACertificateIdentifiers: [ // CACertificateIdentifiersList
@@ -160,11 +162,17 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * @throws {@link CustomDBEngineVersionAlreadyExistsFault} (client fault)
  *  <p>A CEV with the specified name already exists.</p>
  *
+ * @throws {@link CustomDBEngineVersionNotFoundFault} (client fault)
+ *  <p>The specified CEV was not found.</p>
+ *
  * @throws {@link CustomDBEngineVersionQuotaExceededFault} (client fault)
  *  <p>You have exceeded your CEV quota.</p>
  *
  * @throws {@link Ec2ImagePropertiesNotSupportedFault} (client fault)
  *  <p>The AMI configuration prerequisite has not been met.</p>
+ *
+ * @throws {@link InvalidCustomDBEngineVersionStateFault} (client fault)
+ *  <p>You can't delete the CEV.</p>
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>

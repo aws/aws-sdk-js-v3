@@ -38,6 +38,8 @@ export interface DeleteDbInstanceCommandOutput extends DeleteDbInstanceOutput, _
  * ```javascript
  * import { TimestreamInfluxDBClient, DeleteDbInstanceCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, DeleteDbInstanceCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
+ * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // DeleteDbInstanceInput
  *   identifier: "STRING_VALUE", // required

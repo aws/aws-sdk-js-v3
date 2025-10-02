@@ -46,6 +46,8 @@ export interface ListExtensibleSourceServersCommandOutput
  * ```javascript
  * import { DrsClient, ListExtensibleSourceServersCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, ListExtensibleSourceServersCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // ListExtensibleSourceServersRequest
  *   stagingAccountID: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * ```javascript
  * import { GlueClient, GetRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetRegistryInput
  *   RegistryId: { // RegistryId

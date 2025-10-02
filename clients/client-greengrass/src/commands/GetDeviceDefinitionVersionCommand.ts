@@ -34,6 +34,8 @@ export interface GetDeviceDefinitionVersionCommandOutput extends GetDeviceDefini
  * ```javascript
  * import { GreengrassClient, GetDeviceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetDeviceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // GetDeviceDefinitionVersionRequest
  *   DeviceDefinitionId: "STRING_VALUE", // required

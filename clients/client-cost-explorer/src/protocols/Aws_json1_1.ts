@@ -184,6 +184,7 @@ import {
   AnomalySubscription,
   BackfillLimitExceededException,
   BillExpirationException,
+  BillingViewHealthStatusException,
   CommitmentPurchaseAnalysisConfiguration,
   CostAllocationTagStatusEntry,
   CostAndUsageComparison,
@@ -1835,6 +1836,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "BillExpirationException":
     case "com.amazonaws.costexplorer#BillExpirationException":
       throw await de_BillExpirationExceptionRes(parsedOutput, context);
+    case "BillingViewHealthStatusException":
+    case "com.amazonaws.costexplorer#BillingViewHealthStatusException":
+      throw await de_BillingViewHealthStatusExceptionRes(parsedOutput, context);
     case "RequestChangedException":
     case "com.amazonaws.costexplorer#RequestChangedException":
       throw await de_RequestChangedExceptionRes(parsedOutput, context);
@@ -1902,6 +1906,22 @@ const de_BillExpirationExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new BillExpirationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1BillingViewHealthStatusExceptionRes
+ */
+const de_BillingViewHealthStatusExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BillingViewHealthStatusException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new BillingViewHealthStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2857,6 +2877,8 @@ const de_AnomalySubscriptions = (output: any, context: __SerdeContext): AnomalyS
 // de_BackfillLimitExceededException omitted.
 
 // de_BillExpirationException omitted.
+
+// de_BillingViewHealthStatusException omitted.
 
 /**
  * deserializeAws_json1_1CommitmentPurchaseAnalysisConfiguration

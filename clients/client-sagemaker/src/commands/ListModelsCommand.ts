@@ -34,6 +34,8 @@ export interface ListModelsCommandOutput extends ListModelsOutput, __MetadataBea
  * ```javascript
  * import { SageMakerClient, ListModelsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListModelsInput
  *   SortBy: "Name" || "CreationTime",

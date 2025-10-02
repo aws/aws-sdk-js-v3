@@ -34,6 +34,8 @@ export interface StopSearchJobCommandOutput extends StopSearchJobOutput, __Metad
  * ```javascript
  * import { BackupSearchClient, StopSearchJobCommand } from "@aws-sdk/client-backupsearch"; // ES Modules import
  * // const { BackupSearchClient, StopSearchJobCommand } = require("@aws-sdk/client-backupsearch"); // CommonJS import
+ * // import type { BackupSearchClientConfig } from "@aws-sdk/client-backupsearch";
+ * const config = {}; // type is BackupSearchClientConfig
  * const client = new BackupSearchClient(config);
  * const input = { // StopSearchJobInput
  *   SearchJobIdentifier: "STRING_VALUE", // required

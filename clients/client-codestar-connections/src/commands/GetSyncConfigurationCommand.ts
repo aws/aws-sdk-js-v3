@@ -38,6 +38,8 @@ export interface GetSyncConfigurationCommandOutput extends GetSyncConfigurationO
  * ```javascript
  * import { CodeStarConnectionsClient, GetSyncConfigurationCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, GetSyncConfigurationCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * // import type { CodeStarConnectionsClientConfig } from "@aws-sdk/client-codestar-connections";
+ * const config = {}; // type is CodeStarConnectionsClientConfig
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // GetSyncConfigurationInput
  *   SyncType: "CFN_STACK_SYNC", // required

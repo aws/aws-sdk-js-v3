@@ -34,6 +34,8 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * ```javascript
  * import { MedicalImagingClient, ListDatastoresCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, ListDatastoresCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // ListDatastoresRequest
  *   datastoreStatus: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "DELETING" || "DELETED",

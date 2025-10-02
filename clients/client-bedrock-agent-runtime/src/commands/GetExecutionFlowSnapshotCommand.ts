@@ -38,6 +38,8 @@ export interface GetExecutionFlowSnapshotCommandOutput extends GetExecutionFlowS
  * ```javascript
  * import { BedrockAgentRuntimeClient, GetExecutionFlowSnapshotCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, GetExecutionFlowSnapshotCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // GetExecutionFlowSnapshotRequest
  *   flowIdentifier: "STRING_VALUE", // required

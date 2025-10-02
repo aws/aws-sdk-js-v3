@@ -54,8 +54,8 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *             </li>
  *             <li>
  *                <p>To create a metric extraction policy, you must have the
- *             <code>logs:PutMetricExtractionPolicy</code> and
- *             <code>logs:PutAccountPolicy</code> permissions.</p>
+ *             <code>logs:PutMetricExtractionPolicy</code> and <code>logs:PutAccountPolicy</code>
+ *           permissions.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -150,6 +150,32 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *       use the same or overlapping log group name prefixes. For example, if you have one policy
  *       filtered to log groups that start with <code>my-log</code>, you can't have another field index
  *       policy filtered to <code>my-logpprod</code> or <code>my-logging</code>.</p>
+ *          <p>CloudWatch Logs provides default field indexes for all log groups in the Standard log
+ *       class. Default field indexes are automatically available for the following fields: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>@aws.region</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>@aws.account</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>@source.log</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>traceId</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Default field indexes are in addition to any custom field indexes you define within your
+ *       policy. Default field indexes are not counted towards your field index quota. </p>
  *          <p>You can also set up a transformer at the log-group level. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html">PutTransformer</a>. If there is both a log-group level transformer created with
  *         <code>PutTransformer</code> and an account-level transformer that could apply to the same
  *       log group, the log group uses only the log-group level transformer. It ignores the
@@ -201,15 +227,16 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *          <important>
  *             <p>Creating a policy disables metrics for AWS features that use EMF to create metrics, such
  *         as CloudWatch Container Insights and CloudWatch Application Signals. To prevent turning off
- *         those features by accident, we recommend that you exclude the underlying log-groups through a
- *         selection-criteria such as <code>LogGroupNamePrefix NOT IN ["/aws/containerinsights",
- *         "/aws/ecs/containerinsights", "/aws/application-signals/data"]</code>.</p>
+ *         those features by accident, we recommend that you exclude the underlying log-groups through
+ *         a selection-criteria such as <code>LogGroupNamePrefix NOT IN ["/aws/containerinsights",
+ *           "/aws/ecs/containerinsights", "/aws/application-signals/data"]</code>.</p>
  *          </important>
  *          <p>Each account can have either one account-level metric extraction policy that applies to
  *       all log groups, or up to 5 policies that are each scoped to a subset of log groups with the
- *       <code>selectionCriteria</code> parameter. The selection criteria supports filtering by <code>LogGroupName</code> and
- *       <code>LogGroupNamePrefix</code> using the operators <code>IN</code> and <code>NOT IN</code>. You can specify up to 50 values in each
- *       <code>IN</code> or <code>NOT IN</code> list.</p>
+ *         <code>selectionCriteria</code> parameter. The selection criteria supports filtering by
+ *         <code>LogGroupName</code> and <code>LogGroupNamePrefix</code> using the operators
+ *         <code>IN</code> and <code>NOT IN</code>. You can specify up to 50 values in each
+ *         <code>IN</code> or <code>NOT IN</code> list.</p>
  *          <p>The selection criteria can be specified in these formats:</p>
  *          <p>
  *             <code>LogGroupName IN ["log-group-1", "log-group-2"]</code>
@@ -219,25 +246,31 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *          </p>
  *          <p>If you have multiple account-level metric extraction policies with selection criteria, no
  *       two of them can have overlapping criteria. For example, if you have one policy with selection
- *       criteria <code>LogGroupNamePrefix IN ["my-log"]</code>, you can't have another metric extraction policy
- *       with selection criteria <code>LogGroupNamePrefix IN ["/my-log-prod"]</code> or <code>LogGroupNamePrefix IN
- *       ["/my-logging"]</code>, as the set of log groups matching these prefixes would be a subset of the log
- *       groups matching the first policy's prefix, creating an overlap.</p>
- *          <p>When using <code>NOT IN</code>, only one policy with this operator is allowed per account.</p>
- *          <p>When combining policies with <code>IN</code> and <code>NOT IN</code> operators, the overlap check ensures that
- *       policies don't have conflicting effects. Two policies with <code>IN</code> and <code>NOT IN</code> operators do not
- *       overlap if and only if every value in the <code>IN </code>policy is completely contained within some value
- *       in the <code>NOT IN</code> policy. For example:</p>
+ *       criteria <code>LogGroupNamePrefix IN ["my-log"]</code>, you can't have another metric
+ *       extraction policy with selection criteria <code>LogGroupNamePrefix IN ["/my-log-prod"]</code>
+ *       or <code>LogGroupNamePrefix IN ["/my-logging"]</code>, as the set of log groups matching these
+ *       prefixes would be a subset of the log groups matching the first policy's prefix, creating an
+ *       overlap.</p>
+ *          <p>When using <code>NOT IN</code>, only one policy with this operator is allowed per
+ *       account.</p>
+ *          <p>When combining policies with <code>IN</code> and <code>NOT IN</code> operators, the
+ *       overlap check ensures that policies don't have conflicting effects. Two policies with
+ *         <code>IN</code> and <code>NOT IN</code> operators do not overlap if and only if every value
+ *       in the <code>IN </code>policy is completely contained within some value in the <code>NOT
+ *         IN</code> policy. For example:</p>
  *          <ul>
  *             <li>
- *                <p>If you have a <code>NOT IN</code> policy for prefix <code>"/aws/lambda"</code>, you can create an <code>IN</code> policy for
- *           the exact log group name <code>"/aws/lambda/function1"</code> because the set of log groups matching
- *           <code>"/aws/lambda/function1"</code> is a subset of the log groups matching <code>"/aws/lambda"</code>.</p>
+ *                <p>If you have a <code>NOT IN</code> policy for prefix <code>"/aws/lambda"</code>, you
+ *           can create an <code>IN</code> policy for the exact log group name
+ *             <code>"/aws/lambda/function1"</code> because the set of log groups matching
+ *             <code>"/aws/lambda/function1"</code> is a subset of the log groups matching
+ *             <code>"/aws/lambda"</code>.</p>
  *             </li>
  *             <li>
- *                <p>If you have a <code>NOT IN</code> policy for prefix <code>"/aws/lambda"</code>, you cannot create an <code>IN</code> policy
- *           for prefix <code>"/aws"</code> because the set of log groups matching <code>"/aws"</code> is not a subset of the log
- *           groups matching <code>"/aws/lambda"</code>.</p>
+ *                <p>If you have a <code>NOT IN</code> policy for prefix <code>"/aws/lambda"</code>, you
+ *           cannot create an <code>IN</code> policy for prefix <code>"/aws"</code> because the set of
+ *           log groups matching <code>"/aws"</code> is not a subset of the log groups matching
+ *             <code>"/aws/lambda"</code>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -245,6 +278,8 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  * ```javascript
  * import { CloudWatchLogsClient, PutAccountPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutAccountPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutAccountPolicyRequest
  *   policyName: "STRING_VALUE", // required

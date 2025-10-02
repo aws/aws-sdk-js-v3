@@ -14,11 +14,10 @@ import {
   ContactInitiationMethod,
   ControlPlaneAttributeFilter,
   CreatedByInfo,
+  DirectoryType,
   EventSourceName,
   FileStatusType,
   FileUseCaseType,
-  HoursOfOperationConfig,
-  HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
   InstanceStorageResourceType,
   IntegrationType,
@@ -54,7 +53,7 @@ import {
   HierarchyGroupSummary,
   HoursOfOperation,
   HoursOfOperationOverride,
-  InstanceAttributeType,
+  InstanceStatus,
   PhoneNumberCountryCode,
   PhoneNumberType,
   PredefinedAttribute,
@@ -65,6 +64,172 @@ import {
   SortOrder,
   TrafficDistributionGroupStatus,
 } from "./models_1";
+
+/**
+ * <p>Information about the instance.</p>
+ * @public
+ */
+export interface InstanceSummary {
+  /**
+   * <p>The identifier of the instance.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The identity management type of the instance.</p>
+   * @public
+   */
+  IdentityManagementType?: DirectoryType | undefined;
+
+  /**
+   * <p>The alias of the instance.</p>
+   * @public
+   */
+  InstanceAlias?: string | undefined;
+
+  /**
+   * <p>When the instance was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The service role of the instance.</p>
+   * @public
+   */
+  ServiceRole?: string | undefined;
+
+  /**
+   * <p>The state of the instance.</p>
+   * @public
+   */
+  InstanceStatus?: InstanceStatus | undefined;
+
+  /**
+   * <p>Whether inbound calls are enabled.</p>
+   * @public
+   */
+  InboundCallsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether outbound calls are enabled.</p>
+   * @public
+   */
+  OutboundCallsEnabled?: boolean | undefined;
+
+  /**
+   * <p>This URL allows contact center users to access the Amazon Connect admin website.</p>
+   * @public
+   */
+  InstanceAccessUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInstancesResponse {
+  /**
+   * <p>Information about the instances.</p>
+   * @public
+   */
+  InstanceSummaryList?: InstanceSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInstanceStorageConfigsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A valid resource type.</p>
+   * @public
+   */
+  ResourceType: InstanceStorageResourceType | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInstanceStorageConfigsResponse {
+  /**
+   * <p>A valid storage type.</p>
+   * @public
+   */
+  StorageConfigs?: InstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntegrationAssociationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The integration type.</p>
+   * @public
+   */
+  IntegrationType?: IntegrationType | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the integration.</p>
+   * @public
+   */
+  IntegrationArn?: string | undefined;
+}
 
 /**
  * <p>Contains summary information about the associated AppIntegrations.</p>
@@ -1628,6 +1793,95 @@ export class OutputTypeNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, OutputTypeNotFoundException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface ListRoutingProfileManualAssignmentQueuesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a routing profile manual assignment queue.</p>
+ * @public
+ */
+export interface RoutingProfileManualAssignmentQueueConfigSummary {
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the queue.</p>
+   * @public
+   */
+  QueueArn: string | undefined;
+
+  /**
+   * <p>The name of the queue.</p>
+   * @public
+   */
+  QueueName: string | undefined;
+
+  /**
+   * <p>The channels this queue supports. Valid Values: CHAT | TASK | EMAIL </p>
+   * @public
+   */
+  Channel: Channel | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRoutingProfileManualAssignmentQueuesResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the manual assignment queues associated with the routing profile.</p>
+   * @public
+   */
+  RoutingProfileManualAssignmentQueueConfigSummaryList?: RoutingProfileManualAssignmentQueueConfigSummary[] | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -3447,15 +3701,128 @@ export interface SearchContactFlowsResponse {
  * @public
  * @enum
  */
+export const SearchContactsTimeRangeType = {
+  CONNECTED_TO_AGENT_TIMESTAMP: "CONNECTED_TO_AGENT_TIMESTAMP",
+  DISCONNECT_TIMESTAMP: "DISCONNECT_TIMESTAMP",
+  ENQUEUE_TIMESTAMP: "ENQUEUE_TIMESTAMP",
+  INITIATION_TIMESTAMP: "INITIATION_TIMESTAMP",
+  SCHEDULED_TIMESTAMP: "SCHEDULED_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchContactsTimeRangeType =
+  (typeof SearchContactsTimeRangeType)[keyof typeof SearchContactsTimeRangeType];
+
+/**
+ * <p>A structure of time range that you want to search results.</p>
+ * @public
+ */
+export interface SearchContactsTimeRange {
+  /**
+   * <p>The type of timestamp to search.</p>
+   * @public
+   */
+  Type: SearchContactsTimeRangeType | undefined;
+
+  /**
+   * <p>The start time of the time range.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The end time of the time range.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchContactsTimeRangeConditionType = {
+  NOT_EXISTS: "NOT_EXISTS",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchContactsTimeRangeConditionType =
+  (typeof SearchContactsTimeRangeConditionType)[keyof typeof SearchContactsTimeRangeConditionType];
+
+/**
+ * <p>The timestamp condition indicating which timestamp should be used and how it should be
+ *    filtered.</p>
+ * @public
+ */
+export interface SearchContactsTimestampCondition {
+  /**
+   * <p>Type of the timestamps to use for the filter.</p>
+   * @public
+   */
+  Type: SearchContactsTimeRangeType | undefined;
+
+  /**
+   * <p>Condition of the timestamp on the contact.</p>
+   * @public
+   */
+  ConditionType: SearchContactsTimeRangeConditionType | undefined;
+}
+
+/**
+ * <p>The criteria of the time range to additionally filter on.</p>
+ * @public
+ */
+export interface SearchContactsAdditionalTimeRangeCriteria {
+  /**
+   * <p>A structure of time range that you want to search results.</p>
+   * @public
+   */
+  TimeRange?: SearchContactsTimeRange | undefined;
+
+  /**
+   * <p>List of the timestamp conditions.</p>
+   * @public
+   */
+  TimestampCondition?: SearchContactsTimestampCondition | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const SearchContactsMatchType = {
   MATCH_ALL: "MATCH_ALL",
   MATCH_ANY: "MATCH_ANY",
+  MATCH_EXACT: "MATCH_EXACT",
+  MATCH_NONE: "MATCH_NONE",
 } as const;
 
 /**
  * @public
  */
 export type SearchContactsMatchType = (typeof SearchContactsMatchType)[keyof typeof SearchContactsMatchType];
+
+/**
+ * <p>Time range that you additionally want to filter on.</p>
+ * @public
+ */
+export interface SearchContactsAdditionalTimeRange {
+  /**
+   * <p>List of criteria of the time range to additionally filter on.</p>
+   * @public
+   */
+  Criteria: SearchContactsAdditionalTimeRangeCriteria[] | undefined;
+
+  /**
+   * <p>The match type combining multiple time range filters.</p>
+   * @public
+   */
+  MatchType: SearchContactsMatchType | undefined;
+}
 
 /**
  * <p>A structure that defines search criteria base on words or phrases, participants in the
@@ -3513,6 +3880,67 @@ export interface ContactAnalysis {
    * @public
    */
   Transcript?: Transcript | undefined;
+}
+
+/**
+ * <p>The search criteria based on the contact name</p>
+ * @public
+ */
+export interface NameCriteria {
+  /**
+   * <p>The words or phrases used to match the contact name.</p>
+   * @public
+   */
+  SearchText: string[] | undefined;
+
+  /**
+   * <p>The match type combining name search criteria using multiple search texts in a name
+   *    criteria.</p>
+   * @public
+   */
+  MatchType: SearchContactsMatchType | undefined;
+}
+
+/**
+ * <p>The agent criteria to search for preferred agents on the routing criteria.</p>
+ * @public
+ */
+export interface SearchableAgentCriteriaStep {
+  /**
+   * <p>The identifiers of agents used in preferred agents matching.</p>
+   * @public
+   */
+  AgentIds?: string[] | undefined;
+
+  /**
+   * <p>The match type combining multiple agent criteria steps.</p>
+   * @public
+   */
+  MatchType?: SearchContactsMatchType | undefined;
+}
+
+/**
+ * <p>Routing criteria of the contact to match on.</p>
+ * @public
+ */
+export interface SearchableRoutingCriteriaStep {
+  /**
+   * <p>Agent matching the routing step of the routing criteria</p>
+   * @public
+   */
+  AgentCriteria?: SearchableAgentCriteriaStep | undefined;
+}
+
+/**
+ * <p>Routing criteria of the contact to match on.</p>
+ * @public
+ */
+export interface SearchableRoutingCriteria {
+  /**
+   * <p>The list of Routing criteria steps of the contact routing.</p>
+   * @public
+   */
+  Steps?: SearchableRoutingCriteriaStep[] | undefined;
 }
 
 /**
@@ -3599,6 +4027,12 @@ export interface SearchableSegmentAttributes {
  */
 export interface SearchCriteria {
   /**
+   * <p>Name of the contact.</p>
+   * @public
+   */
+  Name?: NameCriteria | undefined;
+
+  /**
    * <p>The identifiers of agents who handled the contacts.</p>
    * @public
    */
@@ -3635,6 +4069,18 @@ export interface SearchCriteria {
   QueueIds?: string[] | undefined;
 
   /**
+   * <p>Routing criteria for the contact.</p>
+   * @public
+   */
+  RoutingCriteria?: SearchableRoutingCriteria | undefined;
+
+  /**
+   * <p>Additional TimeRange used to filter contacts.</p>
+   * @public
+   */
+  AdditionalTimeRange?: SearchContactsAdditionalTimeRange | undefined;
+
+  /**
    * <p>The search criteria based on user-defined contact attributes that have been configured for
    *    contact search. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/search-custom-attributes.html">Search by custom contact
    *     attributes</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -3662,6 +4108,7 @@ export const SortableFieldName = {
   CHANNEL: "CHANNEL",
   CONNECTED_TO_AGENT_TIMESTAMP: "CONNECTED_TO_AGENT_TIMESTAMP",
   DISCONNECT_TIMESTAMP: "DISCONNECT_TIMESTAMP",
+  EXPIRY_TIMESTAMP: "EXPIRY_TIMESTAMP",
   INITIATION_METHOD: "INITIATION_METHOD",
   INITIATION_TIMESTAMP: "INITIATION_TIMESTAMP",
   SCHEDULED_TIMESTAMP: "SCHEDULED_TIMESTAMP",
@@ -3688,47 +4135,6 @@ export interface Sort {
    * @public
    */
   Order: SortOrder | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SearchContactsTimeRangeType = {
-  CONNECTED_TO_AGENT_TIMESTAMP: "CONNECTED_TO_AGENT_TIMESTAMP",
-  DISCONNECT_TIMESTAMP: "DISCONNECT_TIMESTAMP",
-  INITIATION_TIMESTAMP: "INITIATION_TIMESTAMP",
-  SCHEDULED_TIMESTAMP: "SCHEDULED_TIMESTAMP",
-} as const;
-
-/**
- * @public
- */
-export type SearchContactsTimeRangeType =
-  (typeof SearchContactsTimeRangeType)[keyof typeof SearchContactsTimeRangeType];
-
-/**
- * <p>A structure of time range that you want to search results.</p>
- * @public
- */
-export interface SearchContactsTimeRange {
-  /**
-   * <p>The type of timestamp to search.</p>
-   * @public
-   */
-  Type: SearchContactsTimeRangeType | undefined;
-
-  /**
-   * <p>The start time of the time range.</p>
-   * @public
-   */
-  StartTime: Date | undefined;
-
-  /**
-   * <p>The end time of the time range.</p>
-   * @public
-   */
-  EndTime: Date | undefined;
 }
 
 /**
@@ -3808,127 +4214,6 @@ export interface ContactSearchSummaryQueueInfo {
    * @public
    */
   EnqueueTimestamp?: Date | undefined;
-}
-
-/**
- * <p>The value of a segment attribute. This is structured as a map with a single key-value pair.
- *    The key 'valueString' indicates that the attribute type is a string, and its corresponding value
- *    is the actual string value of the segment attribute.</p>
- * @public
- */
-export interface ContactSearchSummarySegmentAttributeValue {
-  /**
-   * <p>The value of a segment attribute represented as a string.</p>
-   * @public
-   */
-  ValueString?: string | undefined;
-}
-
-/**
- * <p>Information of returned contact.</p>
- * @public
- */
-export interface ContactSearchSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the contact.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The identifier of the contact summary.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>If this contact is related to other contacts, this is the ID of the initial contact.</p>
-   * @public
-   */
-  InitialContactId?: string | undefined;
-
-  /**
-   * <p>If this contact is not the first contact, this is the ID of the previous contact.</p>
-   * @public
-   */
-  PreviousContactId?: string | undefined;
-
-  /**
-   * <p>Indicates how the contact was initiated.</p>
-   * @public
-   */
-  InitiationMethod?: ContactInitiationMethod | undefined;
-
-  /**
-   * <p>How the contact reached your contact center.</p>
-   * @public
-   */
-  Channel?: Channel | undefined;
-
-  /**
-   * <p>If this contact was queued, this contains information about the queue.</p>
-   * @public
-   */
-  QueueInfo?: ContactSearchSummaryQueueInfo | undefined;
-
-  /**
-   * <p>Information about the agent who accepted the contact.</p>
-   * @public
-   */
-  AgentInfo?: ContactSearchSummaryAgentInfo | undefined;
-
-  /**
-   * <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is
-   *    when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For
-   *     <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code>
-   *    and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For API, this is when
-   *    the request arrived. For <code>EXTERNAL_OUTBOUND</code>, this is when the agent started dialing
-   *    the external participant. For <code>MONITOR</code>, this is when the supervisor started listening
-   *    to a contact.</p>
-   * @public
-   */
-  InitiationTimestamp?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the customer endpoint disconnected from Amazon Connect.</p>
-   * @public
-   */
-  DisconnectTimestamp?: Date | undefined;
-
-  /**
-   * <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow.</p>
-   * @public
-   */
-  ScheduledTimestamp?: Date | undefined;
-
-  /**
-   * <p>Set of segment attributes for a contact.</p>
-   * @public
-   */
-  SegmentAttributes?: Record<string, ContactSearchSummarySegmentAttributeValue> | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchContactsResponse {
-  /**
-   * <p>Information about the contacts.</p>
-   * @public
-   */
-  Contacts: ContactSearchSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of contacts which matched your search query.</p>
-   * @public
-   */
-  TotalCount?: number | undefined;
 }
 
 /**
@@ -6687,8 +6972,7 @@ export interface StartWebRTCContactResponse {
 }
 
 /**
- * <p>The contact with the specified ID is not active or does not exist. Applies to Voice calls
- *    only, not to Chat or Task contacts.</p>
+ * <p>The contact with the specified ID is not active or does not exist.</p>
  * @public
  */
 export class ContactNotFoundException extends __BaseException {
@@ -7469,352 +7753,22 @@ export interface RoutingCriteriaInputStepExpiry {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateContactRoutingDataResponse {}
+export const InstanceSummaryFilterSensitiveLog = (obj: InstanceSummary): any => ({
+  ...obj,
+  ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateContactScheduleRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
-   * @public
-   */
-  ScheduledTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContactScheduleResponse {}
-
-/**
- * @public
- */
-export interface UpdateEmailAddressMetadataRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the email address.</p>
-   * @public
-   */
-  EmailAddressId: string | undefined;
-
-  /**
-   * <p>The description of the email address.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The display name of email address.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEmailAddressMetadataResponse {
-  /**
-   * <p>The identifier of the email address.</p>
-   * @public
-   */
-  EmailAddressId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the email address.</p>
-   * @public
-   */
-  EmailAddressArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEvaluationFormResponse {
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
-   * @public
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * <p>The version of the updated evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHoursOfOperationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the hours of operation.</p>
-   * @public
-   */
-  HoursOfOperationId: string | undefined;
-
-  /**
-   * <p>The name of the hours of operation.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the hours of operation.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The time zone of the hours of operation.</p>
-   * @public
-   */
-  TimeZone?: string | undefined;
-
-  /**
-   * <p>Configuration information of the hours of operation.</p>
-   * @public
-   */
-  Config?: HoursOfOperationConfig[] | undefined;
-}
-
-/**
- * <p>Request processing failed because dependent condition failed.</p>
- * @public
- */
-export class ConditionalOperationFailedException extends __BaseException {
-  readonly name: "ConditionalOperationFailedException" = "ConditionalOperationFailedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConditionalOperationFailedException, __BaseException>) {
-    super({
-      name: "ConditionalOperationFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConditionalOperationFailedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface UpdateHoursOfOperationOverrideRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the hours of operation.</p>
-   * @public
-   */
-  HoursOfOperationId: string | undefined;
-
-  /**
-   * <p>The identifier for the hours of operation override.</p>
-   * @public
-   */
-  HoursOfOperationOverrideId: string | undefined;
-
-  /**
-   * <p>The name of the hours of operation override.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the hours of operation override.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Configuration information for the hours of operation override: day, start time, and end
-   *    time.</p>
-   * @public
-   */
-  Config?: HoursOfOperationOverrideConfig[] | undefined;
-
-  /**
-   * <p>The date from when the hours of operation override would be effective.</p>
-   * @public
-   */
-  EffectiveFrom?: string | undefined;
-
-  /**
-   * <p>The date till when the hours of operation override would be effective.</p>
-   * @public
-   */
-  EffectiveTill?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInstanceAttributeRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The type of attribute.</p>
-   *          <note>
-   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
-   *     contact Amazon Web Services Support for allowlisting.</p>
-   *          </note>
-   * @public
-   */
-  AttributeType: InstanceAttributeType | undefined;
-
-  /**
-   * <p>The value for the attribute. Maximum character limit is 100. </p>
-   * @public
-   */
-  Value: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInstanceStorageConfigRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>A valid resource type.</p>
-   * @public
-   */
-  ResourceType: InstanceStorageResourceType | undefined;
-
-  /**
-   * <p>The storage configuration for the instance.</p>
-   * @public
-   */
-  StorageConfig: InstanceStorageConfig | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateParticipantAuthenticationRequest {
-  /**
-   * <p>The <code>state</code> query parameter that was provided by Cognito in the
-   *     <code>redirectUri</code>. This will also match the <code>state</code> parameter provided in the
-   *     <code>AuthenticationUrl</code> from the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetAuthenticationUrl.html">GetAuthenticationUrl</a>
-   *    response.</p>
-   * @public
-   */
-  State: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The <code>code</code> query parameter provided by Cognito in the
-   *    <code>redirectUri</code>.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>The <code>error</code> query parameter provided by Cognito in the
-   *    <code>redirectUri</code>.</p>
-   * @public
-   */
-  Error?: string | undefined;
-
-  /**
-   * <p>The <code>error_description</code> parameter provided by Cognito in the
-   *     <code>redirectUri</code>.</p>
-   * @public
-   */
-  ErrorDescription?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateParticipantAuthenticationResponse {}
+export const ListInstancesResponseFilterSensitiveLog = (obj: ListInstancesResponse): any => ({
+  ...obj,
+  ...(obj.InstanceSummaryList && {
+    InstanceSummaryList: obj.InstanceSummaryList.map((item) => InstanceSummaryFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal
@@ -7887,6 +7841,14 @@ export const ContactAnalysisFilterSensitiveLog = (obj: ContactAnalysis): any => 
 /**
  * @internal
  */
+export const NameCriteriaFilterSensitiveLog = (obj: NameCriteria): any => ({
+  ...obj,
+  ...(obj.SearchText && { SearchText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const SearchableContactAttributesCriteriaFilterSensitiveLog = (
   obj: SearchableContactAttributesCriteria
 ): any => ({
@@ -7931,6 +7893,7 @@ export const SearchableSegmentAttributesFilterSensitiveLog = (obj: SearchableSeg
  */
 export const SearchCriteriaFilterSensitiveLog = (obj: SearchCriteria): any => ({
   ...obj,
+  ...(obj.Name && { Name: NameCriteriaFilterSensitiveLog(obj.Name) }),
   ...(obj.ContactAnalysis && { ContactAnalysis: ContactAnalysisFilterSensitiveLog(obj.ContactAnalysis) }),
   ...(obj.SearchableContactAttributes && {
     SearchableContactAttributes: SearchableContactAttributesFilterSensitiveLog(obj.SearchableContactAttributes),
@@ -8124,25 +8087,4 @@ export const ConnectionDataFilterSensitiveLog = (obj: ConnectionData): any => ({
 export const StartWebRTCContactResponseFilterSensitiveLog = (obj: StartWebRTCContactResponse): any => ({
   ...obj,
   ...(obj.ConnectionData && { ConnectionData: ConnectionDataFilterSensitiveLog(obj.ConnectionData) }),
-});
-
-/**
- * @internal
- */
-export const UpdateEmailAddressMetadataRequestFilterSensitiveLog = (obj: UpdateEmailAddressMetadataRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateParticipantAuthenticationRequestFilterSensitiveLog = (
-  obj: UpdateParticipantAuthenticationRequest
-): any => ({
-  ...obj,
-  ...(obj.Code && { Code: SENSITIVE_STRING }),
-  ...(obj.Error && { Error: SENSITIVE_STRING }),
-  ...(obj.ErrorDescription && { ErrorDescription: SENSITIVE_STRING }),
 });

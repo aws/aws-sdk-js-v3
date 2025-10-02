@@ -35,6 +35,8 @@ export interface GetWorkflowStepExecutionCommandOutput extends GetWorkflowStepEx
  * ```javascript
  * import { ImagebuilderClient, GetWorkflowStepExecutionCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetWorkflowStepExecutionCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // GetWorkflowStepExecutionRequest
  *   stepExecutionId: "STRING_VALUE", // required

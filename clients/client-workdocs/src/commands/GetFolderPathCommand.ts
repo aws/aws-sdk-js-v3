@@ -44,6 +44,8 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  * ```javascript
  * import { WorkDocsClient, GetFolderPathCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetFolderPathCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // GetFolderPathRequest
  *   AuthenticationToken: "STRING_VALUE",

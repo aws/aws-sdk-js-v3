@@ -38,6 +38,8 @@ export interface GetMLInputChannelCommandOutput extends GetMLInputChannelRespons
  * ```javascript
  * import { CleanRoomsMLClient, GetMLInputChannelCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, GetMLInputChannelCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // GetMLInputChannelRequest
  *   mlInputChannelArn: "STRING_VALUE", // required
@@ -60,6 +62,24 @@ export interface GetMLInputChannelCommandOutput extends GetMLInputChannelRespons
  * //   },
  * //   retentionInDays: Number("int"), // required
  * //   numberOfRecords: Number("long"),
+ * //   privacyBudgets: { // PrivacyBudgets Union: only one key present
+ * //     accessBudgets: [ // AccessBudgets
+ * //       { // AccessBudget
+ * //         resourceArn: "STRING_VALUE", // required
+ * //         details: [ // AccessBudgetDetailsList // required
+ * //           { // AccessBudgetDetails
+ * //             startTime: new Date("TIMESTAMP"), // required
+ * //             endTime: new Date("TIMESTAMP"),
+ * //             remainingBudget: Number("int"), // required
+ * //             budget: Number("int"), // required
+ * //             budgetType: "CALENDAR_DAY" || "CALENDAR_MONTH" || "CALENDAR_WEEK" || "LIFETIME", // required
+ * //             autoRefresh: "ENABLED" || "DISABLED",
+ * //           },
+ * //         ],
+ * //         aggregateRemainingBudget: Number("int"), // required
+ * //       },
+ * //     ],
+ * //   },
  * //   description: "STRING_VALUE",
  * //   createTime: new Date("TIMESTAMP"), // required
  * //   updateTime: new Date("TIMESTAMP"), // required

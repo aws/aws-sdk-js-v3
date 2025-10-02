@@ -42,6 +42,8 @@ export interface ListAggregateDiscoveredResourcesCommandOutput
  * ```javascript
  * import { ConfigServiceClient, ListAggregateDiscoveredResourcesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, ListAggregateDiscoveredResourcesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // ListAggregateDiscoveredResourcesRequest
  *   ConfigurationAggregatorName: "STRING_VALUE", // required

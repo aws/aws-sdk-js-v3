@@ -41,6 +41,8 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTClient, AttachPrincipalPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AttachPrincipalPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // AttachPrincipalPolicyRequest
  *   policyName: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * ```javascript
  * import { DirectConnectClient, ConfirmConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ConfirmConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
+ * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
  * const input = { // ConfirmConnectionRequest
  *   connectionId: "STRING_VALUE", // required

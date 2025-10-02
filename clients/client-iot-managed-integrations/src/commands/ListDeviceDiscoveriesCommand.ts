@@ -38,6 +38,8 @@ export interface ListDeviceDiscoveriesCommandOutput extends ListDeviceDiscoverie
  * ```javascript
  * import { IoTManagedIntegrationsClient, ListDeviceDiscoveriesCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, ListDeviceDiscoveriesCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // ListDeviceDiscoveriesRequest
  *   NextToken: "STRING_VALUE",

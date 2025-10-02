@@ -35,6 +35,8 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * ```javascript
  * import { BackupClient, StartCopyJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StartCopyJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // StartCopyJobInput
  *   RecoveryPointArn: "STRING_VALUE", // required

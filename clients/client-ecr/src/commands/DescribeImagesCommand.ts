@@ -49,6 +49,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * ```javascript
  * import { ECRClient, DescribeImagesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeImagesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // DescribeImagesRequest
  *   registryId: "STRING_VALUE",

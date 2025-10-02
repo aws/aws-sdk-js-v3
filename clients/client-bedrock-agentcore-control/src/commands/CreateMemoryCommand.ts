@@ -37,12 +37,14 @@ export interface CreateMemoryCommandInput extends CreateMemoryInput {}
 export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new memory.</p>
+ * <p>Creates a new Amazon Bedrock AgentCore Memory resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, CreateMemoryCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, CreateMemoryCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // CreateMemoryInput
  *   clientToken: "STRING_VALUE",

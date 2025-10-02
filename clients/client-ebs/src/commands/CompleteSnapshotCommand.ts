@@ -42,6 +42,8 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  * ```javascript
  * import { EBSClient, CompleteSnapshotCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, CompleteSnapshotCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
+ * // import type { EBSClientConfig } from "@aws-sdk/client-ebs";
+ * const config = {}; // type is EBSClientConfig
  * const client = new EBSClient(config);
  * const input = { // CompleteSnapshotRequest
  *   SnapshotId: "STRING_VALUE", // required

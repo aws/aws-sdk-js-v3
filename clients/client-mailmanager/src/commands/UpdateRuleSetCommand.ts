@@ -38,6 +38,8 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  * ```javascript
  * import { MailManagerClient, UpdateRuleSetCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, UpdateRuleSetCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // UpdateRuleSetRequest
  *   RuleSetId: "STRING_VALUE", // required

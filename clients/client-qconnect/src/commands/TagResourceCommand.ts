@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { QConnectClient, TagResourceCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, TagResourceCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

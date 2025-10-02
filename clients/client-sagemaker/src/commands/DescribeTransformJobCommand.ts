@@ -34,6 +34,8 @@ export interface DescribeTransformJobCommandOutput extends DescribeTransformJobR
  * ```javascript
  * import { SageMakerClient, DescribeTransformJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeTransformJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeTransformJobRequest
  *   TransformJobName: "STRING_VALUE", // required

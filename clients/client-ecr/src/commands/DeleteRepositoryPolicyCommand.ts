@@ -34,6 +34,8 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * ```javascript
  * import { ECRClient, DeleteRepositoryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DeleteRepositoryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // DeleteRepositoryPolicyRequest
  *   registryId: "STRING_VALUE",

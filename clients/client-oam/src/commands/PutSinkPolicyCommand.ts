@@ -34,6 +34,8 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * ```javascript
  * import { OAMClient, PutSinkPolicyCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, PutSinkPolicyCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * // import type { OAMClientConfig } from "@aws-sdk/client-oam";
+ * const config = {}; // type is OAMClientConfig
  * const client = new OAMClient(config);
  * const input = { // PutSinkPolicyInput
  *   SinkIdentifier: "STRING_VALUE", // required

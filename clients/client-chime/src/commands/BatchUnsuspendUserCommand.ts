@@ -43,6 +43,8 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  * ```javascript
  * import { ChimeClient, BatchUnsuspendUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, BatchUnsuspendUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // BatchUnsuspendUserRequest
  *   AccountId: "STRING_VALUE", // required

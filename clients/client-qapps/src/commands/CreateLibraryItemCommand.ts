@@ -34,6 +34,8 @@ export interface CreateLibraryItemCommandOutput extends CreateLibraryItemOutput,
  * ```javascript
  * import { QAppsClient, CreateLibraryItemCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, CreateLibraryItemCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // CreateLibraryItemInput
  *   instanceId: "STRING_VALUE", // required

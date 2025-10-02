@@ -42,6 +42,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * ```javascript
  * import { WorkSpacesThinClientClient, GetEnvironmentCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, GetEnvironmentCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // GetEnvironmentRequest
  *   id: "STRING_VALUE", // required

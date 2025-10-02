@@ -36,6 +36,8 @@ export interface ListAnomalousLogGroupsCommandOutput extends ListAnomalousLogGro
  * ```javascript
  * import { DevOpsGuruClient, ListAnomalousLogGroupsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListAnomalousLogGroupsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // import type { DevOpsGuruClientConfig } from "@aws-sdk/client-devops-guru";
+ * const config = {}; // type is DevOpsGuruClientConfig
  * const client = new DevOpsGuruClient(config);
  * const input = { // ListAnomalousLogGroupsRequest
  *   InsightId: "STRING_VALUE", // required

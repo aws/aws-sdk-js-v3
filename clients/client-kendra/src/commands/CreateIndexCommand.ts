@@ -43,6 +43,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * ```javascript
  * import { KendraClient, CreateIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // CreateIndexRequest
  *   Name: "STRING_VALUE", // required

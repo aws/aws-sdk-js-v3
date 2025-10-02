@@ -34,6 +34,8 @@ export interface DescribeResourceScanCommandOutput extends DescribeResourceScanO
  * ```javascript
  * import { CloudFormationClient, DescribeResourceScanCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeResourceScanCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeResourceScanInput
  *   ResourceScanId: "STRING_VALUE", // required

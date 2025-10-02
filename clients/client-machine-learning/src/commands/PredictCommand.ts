@@ -38,6 +38,8 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * ```javascript
  * import { MachineLearningClient, PredictCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, PredictCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * // import type { MachineLearningClientConfig } from "@aws-sdk/client-machine-learning";
+ * const config = {}; // type is MachineLearningClientConfig
  * const client = new MachineLearningClient(config);
  * const input = { // PredictInput
  *   MLModelId: "STRING_VALUE", // required

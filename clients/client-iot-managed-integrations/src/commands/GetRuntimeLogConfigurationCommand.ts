@@ -38,6 +38,8 @@ export interface GetRuntimeLogConfigurationCommandOutput extends GetRuntimeLogCo
  * ```javascript
  * import { IoTManagedIntegrationsClient, GetRuntimeLogConfigurationCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, GetRuntimeLogConfigurationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // GetRuntimeLogConfigurationRequest
  *   ManagedThingId: "STRING_VALUE", // required

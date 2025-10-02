@@ -37,15 +37,26 @@ export interface UpdatePrivacyBudgetTemplateCommandOutput extends UpdatePrivacyB
  * ```javascript
  * import { CleanRoomsClient, UpdatePrivacyBudgetTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdatePrivacyBudgetTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // UpdatePrivacyBudgetTemplateInput
  *   membershipIdentifier: "STRING_VALUE", // required
  *   privacyBudgetTemplateIdentifier: "STRING_VALUE", // required
- *   privacyBudgetType: "DIFFERENTIAL_PRIVACY", // required
+ *   privacyBudgetType: "DIFFERENTIAL_PRIVACY" || "ACCESS_BUDGET", // required
  *   parameters: { // PrivacyBudgetTemplateUpdateParameters Union: only one key present
  *     differentialPrivacy: { // DifferentialPrivacyTemplateUpdateParameters
  *       epsilon: Number("int"),
  *       usersNoisePerQuery: Number("int"),
+ *     },
+ *     accessBudget: { // AccessBudgetsPrivacyTemplateUpdateParameters
+ *       budgetParameters: [ // BudgetParameters // required
+ *         { // BudgetParameter
+ *           type: "CALENDAR_DAY" || "CALENDAR_MONTH" || "CALENDAR_WEEK" || "LIFETIME", // required
+ *           budget: Number("int"), // required
+ *           autoRefresh: "ENABLED" || "DISABLED",
+ *         },
+ *       ],
  *     },
  *   },
  * };
@@ -61,12 +72,22 @@ export interface UpdatePrivacyBudgetTemplateCommandOutput extends UpdatePrivacyB
  * //     collaborationArn: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
- * //     privacyBudgetType: "DIFFERENTIAL_PRIVACY", // required
+ * //     privacyBudgetType: "DIFFERENTIAL_PRIVACY" || "ACCESS_BUDGET", // required
  * //     autoRefresh: "CALENDAR_MONTH" || "NONE", // required
  * //     parameters: { // PrivacyBudgetTemplateParametersOutput Union: only one key present
  * //       differentialPrivacy: { // DifferentialPrivacyTemplateParametersOutput
  * //         epsilon: Number("int"), // required
  * //         usersNoisePerQuery: Number("int"), // required
+ * //       },
+ * //       accessBudget: { // AccessBudgetsPrivacyTemplateParametersOutput
+ * //         budgetParameters: [ // BudgetParameters // required
+ * //           { // BudgetParameter
+ * //             type: "CALENDAR_DAY" || "CALENDAR_MONTH" || "CALENDAR_WEEK" || "LIFETIME", // required
+ * //             budget: Number("int"), // required
+ * //             autoRefresh: "ENABLED" || "DISABLED",
+ * //           },
+ * //         ],
+ * //         resourceArn: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   },

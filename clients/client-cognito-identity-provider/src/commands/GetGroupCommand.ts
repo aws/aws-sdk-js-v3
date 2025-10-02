@@ -60,6 +60,8 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * ```javascript
  * import { CognitoIdentityProviderClient, GetGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
+ * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // GetGroupRequest
  *   GroupName: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface DeleteCloudAutonomousVmClusterCommandOutput
  * ```javascript
  * import { OdbClient, DeleteCloudAutonomousVmClusterCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, DeleteCloudAutonomousVmClusterCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // DeleteCloudAutonomousVmClusterInput
  *   cloudAutonomousVmClusterId: "STRING_VALUE", // required

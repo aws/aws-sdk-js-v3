@@ -67,6 +67,8 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * ```javascript
  * import { CloudWatchClient, PutMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // PutMetricStreamInput
  *   Name: "STRING_VALUE", // required

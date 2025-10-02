@@ -2892,7 +2892,7 @@ const de_AccessPointNotFoundException = (output: any, context: __SerdeContext): 
  */
 const de_AddAvailabilityZonesOutput = (output: any, context: __SerdeContext): AddAvailabilityZonesOutput => {
   const contents: any = {};
-  if (output.AvailabilityZones === "") {
+  if (String(output.AvailabilityZones).trim() === "") {
     contents[_AZ] = [];
   } else if (output[_AZ] != null && output[_AZ][_m] != null) {
     contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_m]), context);
@@ -2966,7 +2966,7 @@ const de_ApplySecurityGroupsToLoadBalancerOutput = (
   context: __SerdeContext
 ): ApplySecurityGroupsToLoadBalancerOutput => {
   const contents: any = {};
-  if (output.SecurityGroups === "") {
+  if (String(output.SecurityGroups).trim() === "") {
     contents[_SG] = [];
   } else if (output[_SG] != null && output[_SG][_m] != null) {
     contents[_SG] = de_SecurityGroups(__getArrayIfSingleItem(output[_SG][_m]), context);
@@ -2982,7 +2982,7 @@ const de_AttachLoadBalancerToSubnetsOutput = (
   context: __SerdeContext
 ): AttachLoadBalancerToSubnetsOutput => {
   const contents: any = {};
-  if (output.Subnets === "") {
+  if (String(output.Subnets).trim() === "") {
     contents[_S] = [];
   } else if (output[_S] != null && output[_S][_m] != null) {
     contents[_S] = de_Subnets(__getArrayIfSingleItem(output[_S][_m]), context);
@@ -3009,7 +3009,7 @@ const de_BackendServerDescription = (output: any, context: __SerdeContext): Back
   if (output[_IPn] != null) {
     contents[_IPn] = __strictParseInt32(output[_IPn]) as number;
   }
-  if (output.PolicyNames === "") {
+  if (String(output.PolicyNames).trim() === "") {
     contents[_PNo] = [];
   } else if (output[_PNo] != null && output[_PNo][_m] != null) {
     contents[_PNo] = de_PolicyNames(__getArrayIfSingleItem(output[_PNo][_m]), context);
@@ -3181,7 +3181,7 @@ const de_DependencyThrottleException = (output: any, context: __SerdeContext): D
  */
 const de_DeregisterEndPointsOutput = (output: any, context: __SerdeContext): DeregisterEndPointsOutput => {
   const contents: any = {};
-  if (output.Instances === "") {
+  if (String(output.Instances).trim() === "") {
     contents[_I] = [];
   } else if (output[_I] != null && output[_I][_m] != null) {
     contents[_I] = de_Instances(__getArrayIfSingleItem(output[_I][_m]), context);
@@ -3194,7 +3194,7 @@ const de_DeregisterEndPointsOutput = (output: any, context: __SerdeContext): Der
  */
 const de_DescribeAccessPointsOutput = (output: any, context: __SerdeContext): DescribeAccessPointsOutput => {
   const contents: any = {};
-  if (output.LoadBalancerDescriptions === "") {
+  if (String(output.LoadBalancerDescriptions).trim() === "") {
     contents[_LBD] = [];
   } else if (output[_LBD] != null && output[_LBD][_m] != null) {
     contents[_LBD] = de_LoadBalancerDescriptions(__getArrayIfSingleItem(output[_LBD][_m]), context);
@@ -3210,7 +3210,7 @@ const de_DescribeAccessPointsOutput = (output: any, context: __SerdeContext): De
  */
 const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): DescribeAccountLimitsOutput => {
   const contents: any = {};
-  if (output.Limits === "") {
+  if (String(output.Limits).trim() === "") {
     contents[_Li] = [];
   } else if (output[_Li] != null && output[_Li][_m] != null) {
     contents[_Li] = de_Limits(__getArrayIfSingleItem(output[_Li][_m]), context);
@@ -3226,7 +3226,7 @@ const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): D
  */
 const de_DescribeEndPointStateOutput = (output: any, context: __SerdeContext): DescribeEndPointStateOutput => {
   const contents: any = {};
-  if (output.InstanceStates === "") {
+  if (String(output.InstanceStates).trim() === "") {
     contents[_IS] = [];
   } else if (output[_IS] != null && output[_IS][_m] != null) {
     contents[_IS] = de_InstanceStates(__getArrayIfSingleItem(output[_IS][_m]), context);
@@ -3256,7 +3256,7 @@ const de_DescribeLoadBalancerPoliciesOutput = (
   context: __SerdeContext
 ): DescribeLoadBalancerPoliciesOutput => {
   const contents: any = {};
-  if (output.PolicyDescriptions === "") {
+  if (String(output.PolicyDescriptions).trim() === "") {
     contents[_PD] = [];
   } else if (output[_PD] != null && output[_PD][_m] != null) {
     contents[_PD] = de_PolicyDescriptions(__getArrayIfSingleItem(output[_PD][_m]), context);
@@ -3272,7 +3272,7 @@ const de_DescribeLoadBalancerPolicyTypesOutput = (
   context: __SerdeContext
 ): DescribeLoadBalancerPolicyTypesOutput => {
   const contents: any = {};
-  if (output.PolicyTypeDescriptions === "") {
+  if (String(output.PolicyTypeDescriptions).trim() === "") {
     contents[_PTD] = [];
   } else if (output[_PTD] != null && output[_PTD][_m] != null) {
     contents[_PTD] = de_PolicyTypeDescriptions(__getArrayIfSingleItem(output[_PTD][_m]), context);
@@ -3285,7 +3285,7 @@ const de_DescribeLoadBalancerPolicyTypesOutput = (
  */
 const de_DescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
   const contents: any = {};
-  if (output.TagDescriptions === "") {
+  if (String(output.TagDescriptions).trim() === "") {
     contents[_TD] = [];
   } else if (output[_TD] != null && output[_TD][_m] != null) {
     contents[_TD] = de_TagDescriptions(__getArrayIfSingleItem(output[_TD][_m]), context);
@@ -3301,7 +3301,7 @@ const de_DetachLoadBalancerFromSubnetsOutput = (
   context: __SerdeContext
 ): DetachLoadBalancerFromSubnetsOutput => {
   const contents: any = {};
-  if (output.Subnets === "") {
+  if (String(output.Subnets).trim() === "") {
     contents[_S] = [];
   } else if (output[_S] != null && output[_S][_m] != null) {
     contents[_S] = de_Subnets(__getArrayIfSingleItem(output[_S][_m]), context);
@@ -3571,7 +3571,7 @@ const de_ListenerDescription = (output: any, context: __SerdeContext): ListenerD
   if (output[_Lis] != null) {
     contents[_Lis] = de_Listener(output[_Lis], context);
   }
-  if (output.PolicyNames === "") {
+  if (String(output.PolicyNames).trim() === "") {
     contents[_PNo] = [];
   } else if (output[_PNo] != null && output[_PNo][_m] != null) {
     contents[_PNo] = de_PolicyNames(__getArrayIfSingleItem(output[_PNo][_m]), context);
@@ -3632,7 +3632,7 @@ const de_LoadBalancerAttributes = (output: any, context: __SerdeContext): LoadBa
   if (output[_CS] != null) {
     contents[_CS] = de_ConnectionSettings(output[_CS], context);
   }
-  if (output.AdditionalAttributes === "") {
+  if (String(output.AdditionalAttributes).trim() === "") {
     contents[_AA] = [];
   } else if (output[_AA] != null && output[_AA][_m] != null) {
     contents[_AA] = de_AdditionalAttributes(__getArrayIfSingleItem(output[_AA][_m]), context);
@@ -3657,7 +3657,7 @@ const de_LoadBalancerDescription = (output: any, context: __SerdeContext): LoadB
   if (output[_CHZNID] != null) {
     contents[_CHZNID] = __expectString(output[_CHZNID]);
   }
-  if (output.ListenerDescriptions === "") {
+  if (String(output.ListenerDescriptions).trim() === "") {
     contents[_LD] = [];
   } else if (output[_LD] != null && output[_LD][_m] != null) {
     contents[_LD] = de_ListenerDescriptions(__getArrayIfSingleItem(output[_LD][_m]), context);
@@ -3665,17 +3665,17 @@ const de_LoadBalancerDescription = (output: any, context: __SerdeContext): LoadB
   if (output[_Po] != null) {
     contents[_Po] = de_Policies(output[_Po], context);
   }
-  if (output.BackendServerDescriptions === "") {
+  if (String(output.BackendServerDescriptions).trim() === "") {
     contents[_BSD] = [];
   } else if (output[_BSD] != null && output[_BSD][_m] != null) {
     contents[_BSD] = de_BackendServerDescriptions(__getArrayIfSingleItem(output[_BSD][_m]), context);
   }
-  if (output.AvailabilityZones === "") {
+  if (String(output.AvailabilityZones).trim() === "") {
     contents[_AZ] = [];
   } else if (output[_AZ] != null && output[_AZ][_m] != null) {
     contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_m]), context);
   }
-  if (output.Subnets === "") {
+  if (String(output.Subnets).trim() === "") {
     contents[_S] = [];
   } else if (output[_S] != null && output[_S][_m] != null) {
     contents[_S] = de_Subnets(__getArrayIfSingleItem(output[_S][_m]), context);
@@ -3683,7 +3683,7 @@ const de_LoadBalancerDescription = (output: any, context: __SerdeContext): LoadB
   if (output[_VPCI] != null) {
     contents[_VPCI] = __expectString(output[_VPCI]);
   }
-  if (output.Instances === "") {
+  if (String(output.Instances).trim() === "") {
     contents[_I] = [];
   } else if (output[_I] != null && output[_I][_m] != null) {
     contents[_I] = de_Instances(__getArrayIfSingleItem(output[_I][_m]), context);
@@ -3694,7 +3694,7 @@ const de_LoadBalancerDescription = (output: any, context: __SerdeContext): LoadB
   if (output[_SSG] != null) {
     contents[_SSG] = de_SourceSecurityGroup(output[_SSG], context);
   }
-  if (output.SecurityGroups === "") {
+  if (String(output.SecurityGroups).trim() === "") {
     contents[_SG] = [];
   } else if (output[_SG] != null && output[_SG][_m] != null) {
     contents[_SG] = de_SecurityGroups(__getArrayIfSingleItem(output[_SG][_m]), context);
@@ -3752,17 +3752,17 @@ const de_OperationNotPermittedException = (output: any, context: __SerdeContext)
  */
 const de_Policies = (output: any, context: __SerdeContext): Policies => {
   const contents: any = {};
-  if (output.AppCookieStickinessPolicies === "") {
+  if (String(output.AppCookieStickinessPolicies).trim() === "") {
     contents[_ACSP] = [];
   } else if (output[_ACSP] != null && output[_ACSP][_m] != null) {
     contents[_ACSP] = de_AppCookieStickinessPolicies(__getArrayIfSingleItem(output[_ACSP][_m]), context);
   }
-  if (output.LBCookieStickinessPolicies === "") {
+  if (String(output.LBCookieStickinessPolicies).trim() === "") {
     contents[_LBCSP] = [];
   } else if (output[_LBCSP] != null && output[_LBCSP][_m] != null) {
     contents[_LBCSP] = de_LBCookieStickinessPolicies(__getArrayIfSingleItem(output[_LBCSP][_m]), context);
   }
-  if (output.OtherPolicies === "") {
+  if (String(output.OtherPolicies).trim() === "") {
     contents[_OP] = [];
   } else if (output[_OP] != null && output[_OP][_m] != null) {
     contents[_OP] = de_PolicyNames(__getArrayIfSingleItem(output[_OP][_m]), context);
@@ -3840,7 +3840,7 @@ const de_PolicyDescription = (output: any, context: __SerdeContext): PolicyDescr
   if (output[_PTN] != null) {
     contents[_PTN] = __expectString(output[_PTN]);
   }
-  if (output.PolicyAttributeDescriptions === "") {
+  if (String(output.PolicyAttributeDescriptions).trim() === "") {
     contents[_PAD] = [];
   } else if (output[_PAD] != null && output[_PAD][_m] != null) {
     contents[_PAD] = de_PolicyAttributeDescriptions(__getArrayIfSingleItem(output[_PAD][_m]), context);
@@ -3892,7 +3892,7 @@ const de_PolicyTypeDescription = (output: any, context: __SerdeContext): PolicyT
   if (output[_D] != null) {
     contents[_D] = __expectString(output[_D]);
   }
-  if (output.PolicyAttributeTypeDescriptions === "") {
+  if (String(output.PolicyAttributeTypeDescriptions).trim() === "") {
     contents[_PATD] = [];
   } else if (output[_PATD] != null && output[_PATD][_m] != null) {
     contents[_PATD] = de_PolicyAttributeTypeDescriptions(__getArrayIfSingleItem(output[_PATD][_m]), context);
@@ -3927,7 +3927,7 @@ const de_PolicyTypeNotFoundException = (output: any, context: __SerdeContext): P
  */
 const de_RegisterEndPointsOutput = (output: any, context: __SerdeContext): RegisterEndPointsOutput => {
   const contents: any = {};
-  if (output.Instances === "") {
+  if (String(output.Instances).trim() === "") {
     contents[_I] = [];
   } else if (output[_I] != null && output[_I][_m] != null) {
     contents[_I] = de_Instances(__getArrayIfSingleItem(output[_I][_m]), context);
@@ -3940,7 +3940,7 @@ const de_RegisterEndPointsOutput = (output: any, context: __SerdeContext): Regis
  */
 const de_RemoveAvailabilityZonesOutput = (output: any, context: __SerdeContext): RemoveAvailabilityZonesOutput => {
   const contents: any = {};
-  if (output.AvailabilityZones === "") {
+  if (String(output.AvailabilityZones).trim() === "") {
     contents[_AZ] = [];
   } else if (output[_AZ] != null && output[_AZ][_m] != null) {
     contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_m]), context);
@@ -4058,7 +4058,7 @@ const de_TagDescription = (output: any, context: __SerdeContext): TagDescription
   if (output[_LBN] != null) {
     contents[_LBN] = __expectString(output[_LBN]);
   }
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_T] = [];
   } else if (output[_T] != null && output[_T][_m] != null) {
     contents[_T] = de_TagList(__getArrayIfSingleItem(output[_T][_m]), context);

@@ -42,6 +42,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * ```javascript
  * import { WAFClient, ListRulesCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListRulesCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // ListRulesRequest
  *   NextMarker: "STRING_VALUE",

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "3.873.0",
+  "version": "3.901.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -17,6 +17,7 @@
     "test:watch": "yarn g:vitest watch",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -25,12 +26,12 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/eventstream-serde-browser": "^4.0.5",
-    "@smithy/protocol-http": "^5.1.3",
-    "@smithy/signature-v4": "^5.1.3",
-    "@smithy/types": "^4.3.2",
-    "tslib": "^2.6.2",
-    "uuid": "^9.0.1"
+    "@smithy/eventstream-serde-browser": "^4.2.0",
+    "@smithy/protocol-http": "^5.3.0",
+    "@smithy/signature-v4": "^5.3.0",
+    "@smithy/types": "^4.6.0",
+    "@smithy/uuid": "^1.1.0",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

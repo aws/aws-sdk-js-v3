@@ -1,12 +1,5 @@
 import { ErrorSchema, NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
-import type {
-  BodyLengthCalculator,
-  HttpResponse as IHttpResponse,
-  MetadataBearer,
-  ResponseMetadata,
-  SerdeFunctions,
-} from "@smithy/types";
-import { calculateBodyLength } from "@smithy/util-body-length-browser";
+import type { HttpResponse as IHttpResponse, MetadataBearer, ResponseMetadata } from "@smithy/types";
 
 /**
  * @internal
@@ -22,23 +15,6 @@ type ErrorMetadataBearer = MetadataBearer & {
  * @internal
  */
 export class ProtocolLib {
-  /**
-   * @param body - to be inspected.
-   * @param serdeContext - this is a subset type but in practice is the client.config having a property called bodyLengthChecker.
-   *
-   * @returns content-length value for the body if possible.
-   * @throws Error and should be caught and handled if not possible to determine length.
-   */
-  public calculateContentLength(body: any, serdeContext?: SerdeFunctions) {
-    const bodyLengthCalculator: BodyLengthCalculator =
-      (
-        serdeContext as SerdeFunctions & {
-          bodyLengthChecker?: BodyLengthCalculator;
-        }
-      )?.bodyLengthChecker ?? calculateBodyLength;
-    return String(bodyLengthCalculator(body));
-  }
-
   /**
    * This is only for REST protocols.
    *
@@ -108,12 +84,11 @@ export class ProtocolLib {
       const errorSchema = getErrorSchema?.(registry, errorName) ?? (registry.getSchema(errorIdentifier) as ErrorSchema);
       return { errorSchema, errorMetadata };
     } catch (e) {
-      if (dataObject.Message) {
-        dataObject.message = dataObject.Message;
-      }
-      const baseExceptionSchema = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace).getBaseException();
+      dataObject.message = dataObject.message ?? dataObject.Message ?? "UnknownError";
+      const synthetic = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace);
+      const baseExceptionSchema = synthetic.getBaseException();
       if (baseExceptionSchema) {
-        const ErrorCtor = baseExceptionSchema.ctor;
+        const ErrorCtor = synthetic.getErrorCtor(baseExceptionSchema) ?? Error;
         throw Object.assign(new ErrorCtor({ name: errorName }), errorMetadata, dataObject);
       }
       throw Object.assign(new Error(errorName), errorMetadata, dataObject);

@@ -34,6 +34,8 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * ```javascript
  * import { ResiliencehubClient, ListSopRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListSopRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * // import type { ResiliencehubClientConfig } from "@aws-sdk/client-resiliencehub";
+ * const config = {}; // type is ResiliencehubClientConfig
  * const client = new ResiliencehubClient(config);
  * const input = { // ListSopRecommendationsRequest
  *   nextToken: "STRING_VALUE",

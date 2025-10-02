@@ -34,6 +34,8 @@ export interface GetJobRunCommandOutput extends GetJobRunOutput, __MetadataBeare
  * ```javascript
  * import { DataZoneClient, GetJobRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetJobRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetJobRunInput
  *   domainIdentifier: "STRING_VALUE", // required

@@ -27,7 +27,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { CancelJobRunCommandInput, CancelJobRunCommandOutput } from "../commands/CancelJobRunCommand";
 import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from "../commands/CreateJobTemplateCommand";
@@ -224,6 +224,7 @@ export const se_CreateSecurityConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      containerProvider: (_) => _json(_),
       name: [],
       securityConfigurationData: (_) => _json(_),
       tags: (_) => _json(_),

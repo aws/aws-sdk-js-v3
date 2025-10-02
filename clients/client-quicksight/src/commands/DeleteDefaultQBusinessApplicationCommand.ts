@@ -36,12 +36,14 @@ export interface DeleteDefaultQBusinessApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a linked Amazon Q Business application from an Amazon QuickSight account</p>
+ * <p>Deletes a linked Amazon Q Business application from an QuickSight account</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DeleteDefaultQBusinessApplicationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteDefaultQBusinessApplicationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteDefaultQBusinessApplicationRequest
  *   AwsAccountId: "STRING_VALUE", // required

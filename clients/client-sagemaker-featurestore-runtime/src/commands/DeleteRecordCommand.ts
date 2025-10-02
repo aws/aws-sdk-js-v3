@@ -71,6 +71,8 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SageMakerFeatureStoreRuntimeClient, DeleteRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
  * // const { SageMakerFeatureStoreRuntimeClient, DeleteRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
+ * // import type { SageMakerFeatureStoreRuntimeClientConfig } from "@aws-sdk/client-sagemaker-featurestore-runtime";
+ * const config = {}; // type is SageMakerFeatureStoreRuntimeClientConfig
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
  * const input = { // DeleteRecordRequest
  *   FeatureGroupName: "STRING_VALUE", // required

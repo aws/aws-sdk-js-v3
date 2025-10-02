@@ -37,6 +37,8 @@ export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, _
  * ```javascript
  * import { IoTClient, DeleteThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteThingTypeRequest
  *   thingTypeName: "STRING_VALUE", // required

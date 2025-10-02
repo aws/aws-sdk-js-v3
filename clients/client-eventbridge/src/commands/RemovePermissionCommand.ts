@@ -37,6 +37,8 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EventBridgeClient, RemovePermissionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, RemovePermissionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // RemovePermissionRequest
  *   StatementId: "STRING_VALUE",

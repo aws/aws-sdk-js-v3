@@ -35,6 +35,8 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * ```javascript
  * import { CodePipelineClient, AcknowledgeJobCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, AcknowledgeJobCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // AcknowledgeJobInput
  *   jobId: "STRING_VALUE", // required

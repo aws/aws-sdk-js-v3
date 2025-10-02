@@ -54,6 +54,8 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * ```javascript
  * import { ConnectClient, StopContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StopContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // StopContactRequest
  *   ContactId: "STRING_VALUE", // required
@@ -75,8 +77,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link ContactNotFoundException} (client fault)
- *  <p>The contact with the specified ID is not active or does not exist. Applies to Voice calls
- *    only, not to Chat or Task contacts.</p>
+ *  <p>The contact with the specified ID is not active or does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

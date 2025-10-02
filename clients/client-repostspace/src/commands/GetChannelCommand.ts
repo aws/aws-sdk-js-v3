@@ -34,6 +34,8 @@ export interface GetChannelCommandOutput extends GetChannelOutput, __MetadataBea
  * ```javascript
  * import { RepostspaceClient, GetChannelCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, GetChannelCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // GetChannelInput
  *   spaceId: "STRING_VALUE", // required

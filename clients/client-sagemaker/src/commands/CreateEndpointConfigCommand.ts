@@ -34,6 +34,8 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  * ```javascript
  * import { SageMakerClient, CreateEndpointConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEndpointConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateEndpointConfigInput
  *   EndpointConfigName: "STRING_VALUE", // required

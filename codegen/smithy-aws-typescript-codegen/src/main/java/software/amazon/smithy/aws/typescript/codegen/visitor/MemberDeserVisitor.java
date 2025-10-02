@@ -63,7 +63,7 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
         this.dataSource = dataSource;
         this.defaultTimestampFormat = defaultTimestampFormat;
         this.serdeElisionIndex = SerdeElisionIndex.of(context.getModel());
-        this.context = context;
+        this.context = context.copy();
         disableDeserializationFunctionElision = DeserializerElisionDenyList.SDK_IDS.contains(
             context.getService().getTrait(ServiceTrait.class)
                 .map(ServiceTrait::getSdkId)

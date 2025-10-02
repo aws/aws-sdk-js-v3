@@ -39,6 +39,8 @@ export interface BatchDeleteTopicReviewedAnswerCommandOutput
  * ```javascript
  * import { QuickSightClient, BatchDeleteTopicReviewedAnswerCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, BatchDeleteTopicReviewedAnswerCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // BatchDeleteTopicReviewedAnswerRequest
  *   AwsAccountId: "STRING_VALUE", // required

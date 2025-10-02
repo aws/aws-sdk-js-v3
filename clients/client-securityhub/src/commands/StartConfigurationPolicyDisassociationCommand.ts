@@ -49,6 +49,8 @@ export interface StartConfigurationPolicyDisassociationCommandOutput
  * ```javascript
  * import { SecurityHubClient, StartConfigurationPolicyDisassociationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, StartConfigurationPolicyDisassociationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // StartConfigurationPolicyDisassociationRequest
  *   Target: { // Target Union: only one key present

@@ -34,6 +34,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * ```javascript
  * import { DeadlineClient, ListTasksCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListTasksCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListTasksRequest
  *   farmId: "STRING_VALUE", // required

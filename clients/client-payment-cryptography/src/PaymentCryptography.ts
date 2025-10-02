@@ -2,12 +2,37 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
+import {
+  AddKeyReplicationRegionsCommand,
+  AddKeyReplicationRegionsCommandInput,
+  AddKeyReplicationRegionsCommandOutput,
+} from "./commands/AddKeyReplicationRegionsCommand";
 import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import { CreateKeyCommand, CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
 import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import { DeleteKeyCommand, DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
+import {
+  DisableDefaultKeyReplicationRegionsCommand,
+  DisableDefaultKeyReplicationRegionsCommandInput,
+  DisableDefaultKeyReplicationRegionsCommandOutput,
+} from "./commands/DisableDefaultKeyReplicationRegionsCommand";
+import {
+  EnableDefaultKeyReplicationRegionsCommand,
+  EnableDefaultKeyReplicationRegionsCommandInput,
+  EnableDefaultKeyReplicationRegionsCommandOutput,
+} from "./commands/EnableDefaultKeyReplicationRegionsCommand";
 import { ExportKeyCommand, ExportKeyCommandInput, ExportKeyCommandOutput } from "./commands/ExportKeyCommand";
 import { GetAliasCommand, GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
+import {
+  GetCertificateSigningRequestCommand,
+  GetCertificateSigningRequestCommandInput,
+  GetCertificateSigningRequestCommandOutput,
+} from "./commands/GetCertificateSigningRequestCommand";
+import {
+  GetDefaultKeyReplicationRegionsCommand,
+  GetDefaultKeyReplicationRegionsCommandInput,
+  GetDefaultKeyReplicationRegionsCommandOutput,
+} from "./commands/GetDefaultKeyReplicationRegionsCommand";
 import { GetKeyCommand, GetKeyCommandInput, GetKeyCommandOutput } from "./commands/GetKeyCommand";
 import {
   GetParametersForExportCommand,
@@ -32,6 +57,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  RemoveKeyReplicationRegionsCommand,
+  RemoveKeyReplicationRegionsCommandInput,
+  RemoveKeyReplicationRegionsCommandOutput,
+} from "./commands/RemoveKeyReplicationRegionsCommand";
 import { RestoreKeyCommand, RestoreKeyCommandInput, RestoreKeyCommandOutput } from "./commands/RestoreKeyCommand";
 import {
   StartKeyUsageCommand,
@@ -53,12 +83,17 @@ import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput }
 import { PaymentCryptographyClient, PaymentCryptographyClientConfig } from "./PaymentCryptographyClient";
 
 const commands = {
+  AddKeyReplicationRegionsCommand,
   CreateAliasCommand,
   CreateKeyCommand,
   DeleteAliasCommand,
   DeleteKeyCommand,
+  DisableDefaultKeyReplicationRegionsCommand,
+  EnableDefaultKeyReplicationRegionsCommand,
   ExportKeyCommand,
   GetAliasCommand,
+  GetCertificateSigningRequestCommand,
+  GetDefaultKeyReplicationRegionsCommand,
   GetKeyCommand,
   GetParametersForExportCommand,
   GetParametersForImportCommand,
@@ -67,6 +102,7 @@ const commands = {
   ListAliasesCommand,
   ListKeysCommand,
   ListTagsForResourceCommand,
+  RemoveKeyReplicationRegionsCommand,
   RestoreKeyCommand,
   StartKeyUsageCommand,
   StopKeyUsageCommand,
@@ -76,6 +112,23 @@ const commands = {
 };
 
 export interface PaymentCryptography {
+  /**
+   * @see {@link AddKeyReplicationRegionsCommand}
+   */
+  addKeyReplicationRegions(
+    args: AddKeyReplicationRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddKeyReplicationRegionsCommandOutput>;
+  addKeyReplicationRegions(
+    args: AddKeyReplicationRegionsCommandInput,
+    cb: (err: any, data?: AddKeyReplicationRegionsCommandOutput) => void
+  ): void;
+  addKeyReplicationRegions(
+    args: AddKeyReplicationRegionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddKeyReplicationRegionsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateAliasCommand}
    */
@@ -121,6 +174,40 @@ export interface PaymentCryptography {
   ): void;
 
   /**
+   * @see {@link DisableDefaultKeyReplicationRegionsCommand}
+   */
+  disableDefaultKeyReplicationRegions(
+    args: DisableDefaultKeyReplicationRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableDefaultKeyReplicationRegionsCommandOutput>;
+  disableDefaultKeyReplicationRegions(
+    args: DisableDefaultKeyReplicationRegionsCommandInput,
+    cb: (err: any, data?: DisableDefaultKeyReplicationRegionsCommandOutput) => void
+  ): void;
+  disableDefaultKeyReplicationRegions(
+    args: DisableDefaultKeyReplicationRegionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableDefaultKeyReplicationRegionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableDefaultKeyReplicationRegionsCommand}
+   */
+  enableDefaultKeyReplicationRegions(
+    args: EnableDefaultKeyReplicationRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableDefaultKeyReplicationRegionsCommandOutput>;
+  enableDefaultKeyReplicationRegions(
+    args: EnableDefaultKeyReplicationRegionsCommandInput,
+    cb: (err: any, data?: EnableDefaultKeyReplicationRegionsCommandOutput) => void
+  ): void;
+  enableDefaultKeyReplicationRegions(
+    args: EnableDefaultKeyReplicationRegionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableDefaultKeyReplicationRegionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ExportKeyCommand}
    */
   exportKey(args: ExportKeyCommandInput, options?: __HttpHandlerOptions): Promise<ExportKeyCommandOutput>;
@@ -140,6 +227,41 @@ export interface PaymentCryptography {
     args: GetAliasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCertificateSigningRequestCommand}
+   */
+  getCertificateSigningRequest(
+    args: GetCertificateSigningRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCertificateSigningRequestCommandOutput>;
+  getCertificateSigningRequest(
+    args: GetCertificateSigningRequestCommandInput,
+    cb: (err: any, data?: GetCertificateSigningRequestCommandOutput) => void
+  ): void;
+  getCertificateSigningRequest(
+    args: GetCertificateSigningRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCertificateSigningRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDefaultKeyReplicationRegionsCommand}
+   */
+  getDefaultKeyReplicationRegions(): Promise<GetDefaultKeyReplicationRegionsCommandOutput>;
+  getDefaultKeyReplicationRegions(
+    args: GetDefaultKeyReplicationRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDefaultKeyReplicationRegionsCommandOutput>;
+  getDefaultKeyReplicationRegions(
+    args: GetDefaultKeyReplicationRegionsCommandInput,
+    cb: (err: any, data?: GetDefaultKeyReplicationRegionsCommandOutput) => void
+  ): void;
+  getDefaultKeyReplicationRegions(
+    args: GetDefaultKeyReplicationRegionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDefaultKeyReplicationRegionsCommandOutput) => void
   ): void;
 
   /**
@@ -254,6 +376,23 @@ export interface PaymentCryptography {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveKeyReplicationRegionsCommand}
+   */
+  removeKeyReplicationRegions(
+    args: RemoveKeyReplicationRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveKeyReplicationRegionsCommandOutput>;
+  removeKeyReplicationRegions(
+    args: RemoveKeyReplicationRegionsCommandInput,
+    cb: (err: any, data?: RemoveKeyReplicationRegionsCommandOutput) => void
+  ): void;
+  removeKeyReplicationRegions(
+    args: RemoveKeyReplicationRegionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveKeyReplicationRegionsCommandOutput) => void
   ): void;
 
   /**

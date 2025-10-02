@@ -34,6 +34,8 @@ export interface ListEventRulesCommandOutput extends ListEventRulesResponse, __M
  * ```javascript
  * import { NotificationsClient, ListEventRulesCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, ListEventRulesCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // ListEventRulesRequest
  *   notificationConfigurationArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetUseCaseForModelAccessCommandOutput extends GetUseCaseForMode
  * ```javascript
  * import { BedrockClient, GetUseCaseForModelAccessCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, GetUseCaseForModelAccessCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = {};
  * const command = new GetUseCaseForModelAccessCommand(input);

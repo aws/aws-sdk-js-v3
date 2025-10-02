@@ -28,12 +28,14 @@ export interface ListDataProductRevisionsCommandInput extends ListDataProductRev
 export interface ListDataProductRevisionsCommandOutput extends ListDataProductRevisionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists data product revisions.</p>
+ * <p>Lists data product revisions.</p> <p>Prerequisites:</p> <ul> <li> <p>The data product ID must exist within the domain. </p> </li> <li> <p>User must have view permissions on the data product.</p> </li> <li> <p>The domain must be in a valid and accessible state.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, ListDataProductRevisionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListDataProductRevisionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListDataProductRevisionsInput
  *   domainIdentifier: "STRING_VALUE", // required

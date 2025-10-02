@@ -43,6 +43,8 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
  * ```javascript
  * import { SSOAdminClient, ListCustomerManagedPolicyReferencesInPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListCustomerManagedPolicyReferencesInPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // ListCustomerManagedPolicyReferencesInPermissionSetRequest
  *   InstanceArn: "STRING_VALUE", // required

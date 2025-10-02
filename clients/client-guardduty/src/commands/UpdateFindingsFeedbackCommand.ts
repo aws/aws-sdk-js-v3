@@ -34,6 +34,8 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  * ```javascript
  * import { GuardDutyClient, UpdateFindingsFeedbackCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateFindingsFeedbackCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateFindingsFeedbackRequest
  *   DetectorId: "STRING_VALUE", // required

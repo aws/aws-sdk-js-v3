@@ -34,6 +34,8 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  * ```javascript
  * import { IoTEventsDataClient, BatchDeleteDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchDeleteDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * // import type { IoTEventsDataClientConfig } from "@aws-sdk/client-iot-events-data";
+ * const config = {}; // type is IoTEventsDataClientConfig
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchDeleteDetectorRequest
  *   detectors: [ // DeleteDetectorRequests // required

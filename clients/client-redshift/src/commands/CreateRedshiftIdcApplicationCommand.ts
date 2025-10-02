@@ -36,6 +36,8 @@ export interface CreateRedshiftIdcApplicationCommandOutput
  * ```javascript
  * import { RedshiftClient, CreateRedshiftIdcApplicationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateRedshiftIdcApplicationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // CreateRedshiftIdcApplicationMessage
  *   IdcInstanceArn: "STRING_VALUE", // required
@@ -68,6 +70,15 @@ export interface CreateRedshiftIdcApplicationCommandOutput
  *         },
  *       ],
  *     },
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SsoTagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
  *   ],
  * };
  * const command = new CreateRedshiftIdcApplicationCommand(input);
@@ -108,6 +119,15 @@ export interface CreateRedshiftIdcApplicationCommandOutput
  * //         ],
  * //       },
  * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     SsoTagKeys: [ // TagKeyList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
@@ -126,11 +146,17 @@ export interface CreateRedshiftIdcApplicationCommandOutput
  *  <p>Your request cannot be completed because a dependent internal service is
  *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
  *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
  * @throws {@link RedshiftIdcApplicationAlreadyExistsFault} (client fault)
  *  <p>The application you attempted to add already exists.</p>
  *
  * @throws {@link RedshiftIdcApplicationQuotaExceededFault} (client fault)
  *  <p>The maximum number of Redshift IAM Identity Center applications was exceeded.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>

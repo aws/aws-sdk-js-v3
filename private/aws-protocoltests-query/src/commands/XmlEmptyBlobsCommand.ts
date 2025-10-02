@@ -35,6 +35,8 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsOutput, __MetadataBe
  * ```javascript
  * import { QueryProtocolClient, XmlEmptyBlobsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, XmlEmptyBlobsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * // import type { QueryProtocolClientConfig } from "@aws-sdk/aws-protocoltests-query";
+ * const config = {}; // type is QueryProtocolClientConfig
  * const client = new QueryProtocolClient(config);
  * const input = {};
  * const command = new XmlEmptyBlobsCommand(input);

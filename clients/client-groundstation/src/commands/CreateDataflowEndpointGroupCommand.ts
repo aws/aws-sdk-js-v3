@@ -41,6 +41,8 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * ```javascript
  * import { GroundStationClient, CreateDataflowEndpointGroupCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CreateDataflowEndpointGroupCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // CreateDataflowEndpointGroupRequest
  *   endpointDetails: [ // EndpointDetailsList // required

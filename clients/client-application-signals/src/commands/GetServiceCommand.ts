@@ -38,6 +38,8 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * ```javascript
  * import { ApplicationSignalsClient, GetServiceCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, GetServiceCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // GetServiceInput
  *   StartTime: new Date("TIMESTAMP"), // required
@@ -56,6 +58,14 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //     AttributeMaps: [ // AttributeMaps
  * //       { // AttributeMap
  * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ServiceGroups: [ // ServiceGroups
+ * //       { // ServiceGroup
+ * //         GroupName: "STRING_VALUE", // required
+ * //         GroupValue: "STRING_VALUE", // required
+ * //         GroupSource: "STRING_VALUE", // required
+ * //         GroupIdentifier: "STRING_VALUE", // required
  * //       },
  * //     ],
  * //     MetricReferences: [ // MetricReferences // required

@@ -38,6 +38,8 @@ export interface CreateTemplateSyncConfigCommandOutput extends CreateTemplateSyn
  * ```javascript
  * import { ProtonClient, CreateTemplateSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateTemplateSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // CreateTemplateSyncConfigInput
  *   templateName: "STRING_VALUE", // required

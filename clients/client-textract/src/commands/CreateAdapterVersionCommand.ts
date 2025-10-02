@@ -37,6 +37,8 @@ export interface CreateAdapterVersionCommandOutput extends CreateAdapterVersionR
  * ```javascript
  * import { TextractClient, CreateAdapterVersionCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, CreateAdapterVersionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // CreateAdapterVersionRequest
  *   AdapterId: "STRING_VALUE", // required

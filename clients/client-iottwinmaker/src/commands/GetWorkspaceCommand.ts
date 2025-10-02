@@ -34,6 +34,8 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  * ```javascript
  * import { IoTTwinMakerClient, GetWorkspaceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetWorkspaceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // import type { IoTTwinMakerClientConfig } from "@aws-sdk/client-iottwinmaker";
+ * const config = {}; // type is IoTTwinMakerClientConfig
  * const client = new IoTTwinMakerClient(config);
  * const input = { // GetWorkspaceRequest
  *   workspaceId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListTransformJobsCommandOutput extends ListTransformJobsRespons
  * ```javascript
  * import { SageMakerClient, ListTransformJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTransformJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListTransformJobsRequest
  *   CreationTimeAfter: new Date("TIMESTAMP"),

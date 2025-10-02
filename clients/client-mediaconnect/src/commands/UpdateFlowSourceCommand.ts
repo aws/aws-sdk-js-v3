@@ -34,6 +34,8 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  * ```javascript
  * import { MediaConnectClient, UpdateFlowSourceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowSourceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateFlowSourceRequest
  *   Decryption: { // UpdateEncryption

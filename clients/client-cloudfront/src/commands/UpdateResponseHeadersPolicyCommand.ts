@@ -34,6 +34,8 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  * ```javascript
  * import { CloudFrontClient, UpdateResponseHeadersPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateResponseHeadersPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateResponseHeadersPolicyRequest
  *   ResponseHeadersPolicyConfig: { // ResponseHeadersPolicyConfig

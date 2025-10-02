@@ -34,6 +34,8 @@ export interface StartBrowserSessionCommandOutput extends StartBrowserSessionRes
  * ```javascript
  * import { BedrockAgentCoreClient, StartBrowserSessionCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, StartBrowserSessionCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // StartBrowserSessionRequest
  *   browserIdentifier: "STRING_VALUE", // required

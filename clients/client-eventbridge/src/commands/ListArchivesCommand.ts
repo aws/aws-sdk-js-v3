@@ -35,6 +35,8 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * ```javascript
  * import { EventBridgeClient, ListArchivesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListArchivesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // ListArchivesRequest
  *   NamePrefix: "STRING_VALUE",

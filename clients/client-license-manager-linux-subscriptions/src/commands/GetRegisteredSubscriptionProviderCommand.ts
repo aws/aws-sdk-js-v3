@@ -46,6 +46,8 @@ export interface GetRegisteredSubscriptionProviderCommandOutput
  * ```javascript
  * import { LicenseManagerLinuxSubscriptionsClient, GetRegisteredSubscriptionProviderCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
  * // const { LicenseManagerLinuxSubscriptionsClient, GetRegisteredSubscriptionProviderCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerLinuxSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-linux-subscriptions";
+ * const config = {}; // type is LicenseManagerLinuxSubscriptionsClientConfig
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
  * const input = { // GetRegisteredSubscriptionProviderRequest
  *   SubscriptionProviderArn: "STRING_VALUE", // required

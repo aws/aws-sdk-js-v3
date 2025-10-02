@@ -63,6 +63,8 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * ```javascript
  * import { ElastiCacheClient, CreateReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // CreateReplicationGroupMessage
  *   ReplicationGroupId: "STRING_VALUE", // required

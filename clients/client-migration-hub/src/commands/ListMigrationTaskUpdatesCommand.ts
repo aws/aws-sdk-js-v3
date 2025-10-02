@@ -35,6 +35,8 @@ export interface ListMigrationTaskUpdatesCommandOutput extends ListMigrationTask
  * ```javascript
  * import { MigrationHubClient, ListMigrationTaskUpdatesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ListMigrationTaskUpdatesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * // import type { MigrationHubClientConfig } from "@aws-sdk/client-migration-hub";
+ * const config = {}; // type is MigrationHubClientConfig
  * const client = new MigrationHubClient(config);
  * const input = { // ListMigrationTaskUpdatesRequest
  *   ProgressUpdateStream: "STRING_VALUE", // required

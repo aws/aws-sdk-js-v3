@@ -55,6 +55,8 @@ export interface CancelParticipantAuthenticationCommandOutput
  * ```javascript
  * import { ConnectParticipantClient, CancelParticipantAuthenticationCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, CancelParticipantAuthenticationCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // import type { ConnectParticipantClientConfig } from "@aws-sdk/client-connectparticipant";
+ * const config = {}; // type is ConnectParticipantClientConfig
  * const client = new ConnectParticipantClient(config);
  * const input = { // CancelParticipantAuthenticationRequest
  *   SessionId: "STRING_VALUE", // required

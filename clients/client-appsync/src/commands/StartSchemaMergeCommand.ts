@@ -35,6 +35,8 @@ export interface StartSchemaMergeCommandOutput extends StartSchemaMergeResponse,
  * ```javascript
  * import { AppSyncClient, StartSchemaMergeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, StartSchemaMergeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // StartSchemaMergeRequest
  *   associationId: "STRING_VALUE", // required

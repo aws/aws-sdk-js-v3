@@ -37,15 +37,27 @@ export interface CreatePrivacyBudgetTemplateCommandOutput extends CreatePrivacyB
  * ```javascript
  * import { CleanRoomsClient, CreatePrivacyBudgetTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreatePrivacyBudgetTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // CreatePrivacyBudgetTemplateInput
  *   membershipIdentifier: "STRING_VALUE", // required
- *   autoRefresh: "CALENDAR_MONTH" || "NONE", // required
- *   privacyBudgetType: "DIFFERENTIAL_PRIVACY", // required
+ *   autoRefresh: "CALENDAR_MONTH" || "NONE",
+ *   privacyBudgetType: "DIFFERENTIAL_PRIVACY" || "ACCESS_BUDGET", // required
  *   parameters: { // PrivacyBudgetTemplateParametersInput Union: only one key present
  *     differentialPrivacy: { // DifferentialPrivacyTemplateParametersInput
  *       epsilon: Number("int"), // required
  *       usersNoisePerQuery: Number("int"), // required
+ *     },
+ *     accessBudget: { // AccessBudgetsPrivacyTemplateParametersInput
+ *       budgetParameters: [ // BudgetParameters // required
+ *         { // BudgetParameter
+ *           type: "CALENDAR_DAY" || "CALENDAR_MONTH" || "CALENDAR_WEEK" || "LIFETIME", // required
+ *           budget: Number("int"), // required
+ *           autoRefresh: "ENABLED" || "DISABLED",
+ *         },
+ *       ],
+ *       resourceArn: "STRING_VALUE", // required
  *     },
  *   },
  *   tags: { // TagMap
@@ -64,12 +76,22 @@ export interface CreatePrivacyBudgetTemplateCommandOutput extends CreatePrivacyB
  * //     collaborationArn: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
- * //     privacyBudgetType: "DIFFERENTIAL_PRIVACY", // required
+ * //     privacyBudgetType: "DIFFERENTIAL_PRIVACY" || "ACCESS_BUDGET", // required
  * //     autoRefresh: "CALENDAR_MONTH" || "NONE", // required
  * //     parameters: { // PrivacyBudgetTemplateParametersOutput Union: only one key present
  * //       differentialPrivacy: { // DifferentialPrivacyTemplateParametersOutput
  * //         epsilon: Number("int"), // required
  * //         usersNoisePerQuery: Number("int"), // required
+ * //       },
+ * //       accessBudget: { // AccessBudgetsPrivacyTemplateParametersOutput
+ * //         budgetParameters: [ // BudgetParameters // required
+ * //           { // BudgetParameter
+ * //             type: "CALENDAR_DAY" || "CALENDAR_MONTH" || "CALENDAR_WEEK" || "LIFETIME", // required
+ * //             budget: Number("int"), // required
+ * //             autoRefresh: "ENABLED" || "DISABLED",
+ * //           },
+ * //         ],
+ * //         resourceArn: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   },
@@ -94,6 +116,9 @@ export interface CreatePrivacyBudgetTemplateCommandOutput extends CreatePrivacyB
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Request denied because service quota has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>

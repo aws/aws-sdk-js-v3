@@ -36,6 +36,8 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * ```javascript
  * import { CloudTrailClient, ListDashboardsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListDashboardsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // ListDashboardsRequest
  *   NamePrefix: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  * ```javascript
  * import { SavingsplansClient, CreateSavingsPlanCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, CreateSavingsPlanCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * // import type { SavingsplansClientConfig } from "@aws-sdk/client-savingsplans";
+ * const config = {}; // type is SavingsplansClientConfig
  * const client = new SavingsplansClient(config);
  * const input = { // CreateSavingsPlanRequest
  *   savingsPlanOfferingId: "STRING_VALUE", // required

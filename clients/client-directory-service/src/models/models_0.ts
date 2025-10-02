@@ -369,18 +369,26 @@ export class ADAssessmentLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>IP address block. This is often the address block of the DNS server used for your
- *          self-managed domain. </p>
+ * <p>Contains the IP address block. This is often the address block of the DNS server used
+ *          for your self-managed domain. </p>
  * @public
  */
 export interface IpRoute {
   /**
-   * <p>IP address block using CIDR format, for example 10.0.0.0/24. This is often the
-   *          address block of the DNS server used for your self-managed domain. For a single IP address
-   *          use a CIDR address block with /32. For example 10.0.0.0/32.</p>
+   * <p>IP address block in CIDR format, such as 10.0.0.0/24. This is often the address block of
+   *          the DNS server used for your self-managed domain. For a single IP address, use a CIDR
+   *          address block with /32. For example, 10.0.0.0/32.</p>
    * @public
    */
   CidrIp?: string | undefined;
+
+  /**
+   * <p>IPv6 address block in CIDR format, such as 2001:db8::/32. This is often the address
+   *          block of the DNS server used for your self-managed domain. For a single IPv6 address, use a
+   *          CIDR address block with /128. For example, 2001:db8::1/128.</p>
+   * @public
+   */
+  CidrIpv6?: string | undefined;
 
   /**
    * <p>Description of the address block.</p>
@@ -413,57 +421,71 @@ export interface AddIpRoutesRequest {
    *          <p>Inbound:</p>
    *          <ul>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source:
-   *                Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: Managed Microsoft AD VPC
+   *                IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source:
-   *                Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: Managed Microsoft AD VPC
+   *                IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *             <li>
    *                <p>Type: LDAP, Protocol: TCP, Range: 389, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: All ICMP, Protocol: All, Range: N/A, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
+   *                <p>Type: All ICMP, Protocol: All, Range: N/A, Source: Managed Microsoft AD VPC IPv4
+   *                CIDR</p>
    *             </li>
    *          </ul>
    *          <p></p>
@@ -1605,6 +1627,13 @@ export interface ConditionalForwarder {
   DnsIpAddrs?: string[] | undefined;
 
   /**
+   * <p>The IPv6 addresses of the remote DNS server associated with RemoteDomainName. This is the
+   *       IPv6 address of the DNS server that your conditional forwarder points to.</p>
+   * @public
+   */
+  DnsIpv6Addrs?: string[] | undefined;
+
+  /**
    * <p>The replication scope of the conditional forwarder. The only allowed value is
    *         <code>Domain</code>, which will replicate the conditional forwarder to all of the domain
    *       controllers for your Amazon Web Services directory.</p>
@@ -1614,8 +1643,8 @@ export interface ConditionalForwarder {
 }
 
 /**
- * <p>Contains information for the <a>ConnectDirectory</a> operation when an AD
- *       Connector directory is being created.</p>
+ * <p>Contains connection settings for creating an AD
+ *       Connector with the <a>ConnectDirectory</a> action.</p>
  * @public
  */
 export interface DirectoryConnectSettings {
@@ -1632,11 +1661,18 @@ export interface DirectoryConnectSettings {
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>A list of one or more IP addresses of DNS servers or domain controllers in your
+   * <p>The IP addresses of DNS servers or domain controllers in your
    *       self-managed directory.</p>
    * @public
    */
-  CustomerDnsIps: string[] | undefined;
+  CustomerDnsIps?: string[] | undefined;
+
+  /**
+   * <p>The IPv6 addresses of DNS servers or domain controllers in your
+   *       self-managed directory.</p>
+   * @public
+   */
+  CustomerDnsIpsV6?: string[] | undefined;
 
   /**
    * <p>The user name of an account in your self-managed directory that is used to connect to the
@@ -1656,6 +1692,21 @@ export interface DirectoryConnectSettings {
    */
   CustomerUserName: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkType = {
+  DUAL_STACK: "Dual-stack",
+  IPV4_ONLY: "IPv4",
+  IPV6_ONLY: "IPv6",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
 
 /**
  * @public
@@ -1719,6 +1770,13 @@ export interface ConnectDirectoryRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The network type for your directory. The default value is <code>IPv4</code> or
+   *         <code>IPv6</code> based on the provided subnet capabilities.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -1880,7 +1938,13 @@ export interface CreateConditionalForwarderRequest {
    * <p>The IP addresses of the remote DNS server associated with RemoteDomainName.</p>
    * @public
    */
-  DnsIpAddrs: string[] | undefined;
+  DnsIpAddrs?: string[] | undefined;
+
+  /**
+   * <p>The IPv6 addresses of the remote DNS server associated with RemoteDomainName.</p>
+   * @public
+   */
+  DnsIpv6Addrs?: string[] | undefined;
 }
 
 /**
@@ -1964,6 +2028,12 @@ export interface CreateDirectoryRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The network type for your directory. Simple AD supports IPv4 and Dual-stack only.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -2084,6 +2154,7 @@ export class InsufficientPermissionsException extends __BaseException {
  */
 export const DirectoryEdition = {
   ENTERPRISE: "Enterprise",
+  HYBRID: "Hybrid",
   STANDARD: "Standard",
 } as const;
 
@@ -2145,6 +2216,14 @@ export interface CreateMicrosoftADRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>
+   *       The network type for your domain. The default value is <code>IPv4</code> or <code>IPv6</code>
+   *       based on the provided subnet capabilities.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -2315,6 +2394,12 @@ export interface CreateTrustRequest {
    * @public
    */
   ConditionalForwarderIpAddrs?: string[] | undefined;
+
+  /**
+   * <p>The IPv6 addresses of the remote DNS server associated with RemoteDomainName.</p>
+   * @public
+   */
+  ConditionalForwarderIpv6Addrs?: string[] | undefined;
 
   /**
    * <p>Optional parameter to enable selective authentication for the trust.</p>
@@ -2827,7 +2912,7 @@ export interface DirectoryConnectSettingsDescription {
   SecurityGroupId?: string | undefined;
 
   /**
-   * <p>A list of the Availability Zones that the directory is in.</p>
+   * <p>The Availability Zones that the directory is in.</p>
    * @public
    */
   AvailabilityZones?: string[] | undefined;
@@ -2837,6 +2922,12 @@ export interface DirectoryConnectSettingsDescription {
    * @public
    */
   ConnectIps?: string[] | undefined;
+
+  /**
+   * <p>The IPv6 addresses of the AD Connector servers.</p>
+   * @public
+   */
+  ConnectIpsV6?: string[] | undefined;
 }
 
 /**
@@ -2896,16 +2987,22 @@ export type RadiusAuthenticationProtocol =
  */
 export interface RadiusSettings {
   /**
-   * <p>An array of strings that contains the fully qualified domain name (FQDN) or IP
-   *          addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server
-   *          load balancer.</p>
+   * <p>The fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints,
+   *          or the FQDN or IP addresses of your RADIUS server load balancer.</p>
    * @public
    */
   RadiusServers?: string[] | undefined;
 
   /**
-   * <p>The port that your RADIUS server is using for communications. Your self-managed
-   *          network must allow inbound traffic over this port from the Directory Service servers.</p>
+   * <p>The IPv6 addresses of the RADIUS server endpoints or RADIUS server
+   *          load balancer.</p>
+   * @public
+   */
+  RadiusServersIpv6?: string[] | undefined;
+
+  /**
+   * <p>The port that your RADIUS server is using for communications. Your self-managed network
+   *          must allow inbound traffic over this port from the Directory Service servers.</p>
    * @public
    */
   RadiusPort?: number | undefined;
@@ -2917,7 +3014,8 @@ export interface RadiusSettings {
   RadiusTimeout?: number | undefined;
 
   /**
-   * <p>The maximum number of times that communication with the RADIUS server is retried after the initial attempt.</p>
+   * <p>The maximum number of times that communication with the RADIUS server is retried after
+   *          the initial attempt.</p>
    * @public
    */
   RadiusRetries?: number | undefined;
@@ -2993,8 +3091,8 @@ export interface DirectoryVpcSettingsDescription {
 }
 
 /**
- * <p>Describes the directory owner account details that have been shared to the directory
- *       consumer account.</p>
+ * <p>Contains the directory owner account details shared with the directory consumer
+ *       account.</p>
  * @public
  */
 export interface OwnerDirectoryDescription {
@@ -3017,23 +3115,34 @@ export interface OwnerDirectoryDescription {
   DnsIpAddrs?: string[] | undefined;
 
   /**
+   * <p>IPv6 addresses of the directory’s domain controllers.</p>
+   * @public
+   */
+  DnsIpv6Addrs?: string[] | undefined;
+
+  /**
    * <p>Information about the VPC settings for the directory.</p>
    * @public
    */
   VpcSettings?: DirectoryVpcSettingsDescription | undefined;
 
   /**
-   * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS
-   *       server.</p>
+   * <p>Information about the <a>RadiusSettings</a> object server configuration.</p>
    * @public
    */
   RadiusSettings?: RadiusSettings | undefined;
 
   /**
-   * <p>Information about the status of the RADIUS server.</p>
+   * <p>The status of the RADIUS server.</p>
    * @public
    */
   RadiusStatus?: RadiusStatus | undefined;
+
+  /**
+   * <p>Network type of the directory in the directory owner account.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -3132,16 +3241,16 @@ export interface DirectoryDescription {
   Edition?: DirectoryEdition | undefined;
 
   /**
-   * <p>The alias for the directory. If no alias has been created for the directory, the alias is
-   *       the directory identifier, such as <code>d-XXXXXXXXXX</code>.</p>
+   * <p>The alias for the directory. If no alias exists, the alias is the directory identifier,
+   *       such as <code>d-XXXXXXXXXX</code>.</p>
    * @public
    */
   Alias?: string | undefined;
 
   /**
    * <p>The access URL for the directory, such as
-   *         <code>http://<alias>.awsapps.com</code>. If no alias has been created for the
-   *       directory, <code><alias></code> is the directory identifier, such as
+   *         <code>http://<alias>.awsapps.com</code>. If no alias exists,
+   *         <code><alias></code> is the directory identifier, such as
    *         <code>d-XXXXXXXXXX</code>.</p>
    * @public
    */
@@ -3156,11 +3265,20 @@ export interface DirectoryDescription {
   /**
    * <p>The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD
    *       directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers.
-   *       For an AD Connector directory, these are the IP addresses of the DNS servers or domain
-   *       controllers in your self-managed directory to which the AD Connector is connected.</p>
+   *       For an AD Connector directory, these are the IP addresses of self-managed directory to which
+   *       the AD Connector is connected.</p>
    * @public
    */
   DnsIpAddrs?: string[] | undefined;
+
+  /**
+   * <p>The IPv6 addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD
+   *       directory, these are the IPv6 addresses of the Simple AD or Microsoft AD directory servers.
+   *       For an AD Connector directory, these are the IPv6 addresses of the DNS servers or domain
+   *       controllers in your self-managed directory to which the AD Connector is connected.</p>
+   * @public
+   */
+  DnsIpv6Addrs?: string[] | undefined;
 
   /**
    * <p>The current stage of the directory.</p>
@@ -3191,13 +3309,13 @@ export interface DirectoryDescription {
   ShareNotes?: string | undefined;
 
   /**
-   * <p>Specifies when the directory was created.</p>
+   * <p>The date and time when the directory was created.</p>
    * @public
    */
   LaunchTime?: Date | undefined;
 
   /**
-   * <p>The date and time that the stage was last updated.</p>
+   * <p>The date and time when the stage was last updated.</p>
    * @public
    */
   StageLastUpdatedDateTime?: Date | undefined;
@@ -3210,23 +3328,24 @@ export interface DirectoryDescription {
 
   /**
    * <p>A <a>DirectoryVpcSettingsDescription</a> object that contains additional
-   *       information about a directory. This member is only present if the directory is a Simple AD
-   *       or Managed Microsoft AD directory.</p>
+   *       information about a directory. Present only for Simple AD and Managed Microsoft AD
+   *       directories.</p>
    * @public
    */
   VpcSettings?: DirectoryVpcSettingsDescription | undefined;
 
   /**
-   * <p>A <a>DirectoryConnectSettingsDescription</a> object that contains additional
-   *       information about an AD Connector directory. This member is only present if the directory is
-   *       an AD Connector directory.</p>
+   * <p>
+   *             <a>DirectoryConnectSettingsDescription</a> object that contains additional
+   *       information about an AD Connector directory. Present only for AD Connector
+   *       directories.</p>
    * @public
    */
   ConnectSettings?: DirectoryConnectSettingsDescription | undefined;
 
   /**
-   * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS
-   *       server configured for this directory.</p>
+   * <p>Information about the <a>RadiusSettings</a> object configured for this
+   *       directory.</p>
    * @public
    */
   RadiusSettings?: RadiusSettings | undefined;
@@ -3244,7 +3363,8 @@ export interface DirectoryDescription {
   StageReason?: string | undefined;
 
   /**
-   * <p>Indicates if single sign-on is enabled for the directory. For more information, see <a>EnableSso</a> and <a>DisableSso</a>.</p>
+   * <p>Indicates whether single sign-on is enabled for the directory. For more information, see
+   *         <a>EnableSso</a> and <a>DisableSso</a>.</p>
    * @public
    */
   SsoEnabled?: boolean | undefined;
@@ -3280,6 +3400,12 @@ export interface DirectoryDescription {
    * @public
    */
   HybridSettings?: HybridSettingsDescription | undefined;
+
+  /**
+   * <p>The network type of the directory.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -3288,7 +3414,8 @@ export interface DirectoryDescription {
  */
 export interface DescribeDirectoriesResult {
   /**
-   * <p>The list of available <a>DirectoryDescription</a> objects that were retrieved.</p>
+   * <p>The list of available <a>DirectoryDescription</a> objects that were
+   *       retrieved.</p>
    *          <p>It is possible that this list contains less than the number of items specified in the
    *         <code>Limit</code> member of the request. This occurs if there are less than the requested
    *       number of items left to retrieve, or if the limitations of the operation have been
@@ -3436,6 +3563,12 @@ export interface DomainController {
    * @public
    */
   DnsIpAddr?: string | undefined;
+
+  /**
+   * <p>The IPv6 address of the domain controller.</p>
+   * @public
+   */
+  DnsIpv6Addr?: string | undefined;
 
   /**
    * <p>The identifier of the VPC that contains the domain controller.</p>
@@ -4473,7 +4606,9 @@ export interface DescribeTrustsResult {
  * @enum
  */
 export const UpdateType = {
+  NETWORK: "NETWORK",
   OS: "OS",
+  SIZE: "SIZE",
 } as const;
 
 /**
@@ -4512,12 +4647,12 @@ export interface DescribeUpdateDirectoryRequest {
 }
 
 /**
- * <p> OS version that the directory needs to be updated to. </p>
+ * <p>OS version that the directory needs to be updated to.</p>
  * @public
  */
 export interface OSUpdateSettings {
   /**
-   * <p> OS version that the directory needs to be updated to. </p>
+   * <p>OS version that the directory needs to be updated to.</p>
    * @public
    */
   OSVersion?: OSVersion | undefined;
@@ -4536,7 +4671,7 @@ export interface UpdateValue {
 }
 
 /**
- * <p> An entry of update information related to a requested update type. </p>
+ * <p>An entry of update information related to a requested update type.</p>
  * @public
  */
 export interface UpdateInfoEntry {
@@ -5359,8 +5494,7 @@ export interface ListCertificatesResult {
  */
 export interface ListIpRoutesRequest {
   /**
-   * <p>Identifier (ID) of the directory for which you want to retrieve the IP
-   *          addresses.</p>
+   * <p>Identifier (ID) of the directory for which you want to retrieve the IP addresses.</p>
    * @public
    */
   DirectoryId: string | undefined;
@@ -5372,8 +5506,8 @@ export interface ListIpRoutesRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of items to return. If this value is zero, the maximum number of items
-   *          is specified by the limitations of the operation.</p>
+   * <p>Maximum number of items to return. If this value is zero, the maximum number of items is
+   *          specified by the limitations of the operation.</p>
    * @public
    */
   Limit?: number | undefined;
@@ -5413,6 +5547,12 @@ export interface IpRouteInfo {
    * @public
    */
   CidrIp?: string | undefined;
+
+  /**
+   * <p>IPv6 address block in the <a>IpRoute</a>.</p>
+   * @public
+   */
+  CidrIpv6?: string | undefined;
 
   /**
    * <p>The status of the IP address block.</p>
@@ -5810,8 +5950,7 @@ export interface RejectSharedDirectoryResult {
  */
 export interface RemoveIpRoutesRequest {
   /**
-   * <p>Identifier (ID) of the directory from which you want to remove the IP
-   *          addresses.</p>
+   * <p>Identifier (ID) of the directory from which you want to remove the IP addresses.</p>
    * @public
    */
   DirectoryId: string | undefined;
@@ -5820,7 +5959,13 @@ export interface RemoveIpRoutesRequest {
    * <p>IP address blocks that you want to remove.</p>
    * @public
    */
-  CidrIps: string[] | undefined;
+  CidrIps?: string[] | undefined;
+
+  /**
+   * <p>IPv6 address blocks that you want to remove.</p>
+   * @public
+   */
+  CidrIpv6s?: string[] | undefined;
 }
 
 /**
@@ -6307,7 +6452,14 @@ export interface UpdateConditionalForwarderRequest {
    *       forwarder.</p>
    * @public
    */
-  DnsIpAddrs: string[] | undefined;
+  DnsIpAddrs?: string[] | undefined;
+
+  /**
+   * <p>The updated IPv6 addresses of the remote DNS server associated with the conditional
+   *       forwarder.</p>
+   * @public
+   */
+  DnsIpv6Addrs?: string[] | undefined;
 }
 
 /**
@@ -6317,30 +6469,72 @@ export interface UpdateConditionalForwarderRequest {
 export interface UpdateConditionalForwarderResult {}
 
 /**
+ * <p>Contains the directory size configuration for update operations.</p>
+ * @public
+ */
+export interface DirectorySizeUpdateSettings {
+  /**
+   * <p>The target directory size for the update operation.</p>
+   * @public
+   */
+  DirectorySize?: DirectorySize | undefined;
+}
+
+/**
+ * <p>Contains the network configuration for directory update operations.</p>
+ * @public
+ */
+export interface NetworkUpdateSettings {
+  /**
+   * <p>The target network type for the directory update.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
+
+  /**
+   * <p>IPv6 addresses of DNS servers or domain controllers in the self-managed directory.
+   *       Required only when updating an AD Connector directory.</p>
+   * @public
+   */
+  CustomerDnsIpsV6?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateDirectorySetupRequest {
   /**
-   * <p> The identifier of the directory on which you want to perform the update. </p>
+   * <p>The identifier of the directory to update.</p>
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p> The type of update that needs to be performed on the directory. For example, OS. </p>
+   * <p>The type of update to perform on the directory.</p>
    * @public
    */
   UpdateType: UpdateType | undefined;
 
   /**
-   * <p> The settings for the OS update that needs to be performed on the directory. </p>
+   * <p>Operating system configuration to apply during the directory update operation.</p>
    * @public
    */
   OSUpdateSettings?: OSUpdateSettings | undefined;
 
   /**
-   * <p> The boolean that specifies if a snapshot for the directory needs to be taken before
-   *       updating the directory. </p>
+   * <p>Directory size configuration to apply during the update operation.</p>
+   * @public
+   */
+  DirectorySizeUpdateSettings?: DirectorySizeUpdateSettings | undefined;
+
+  /**
+   * <p>Network configuration to apply during the directory update operation.</p>
+   * @public
+   */
+  NetworkUpdateSettings?: NetworkUpdateSettings | undefined;
+
+  /**
+   * <p>Specifies whether to create a directory snapshot before performing the update.</p>
    * @public
    */
   CreateSnapshotBeforeUpdate?: boolean | undefined;

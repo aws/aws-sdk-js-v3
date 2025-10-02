@@ -72,6 +72,8 @@ export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "bod
  * ```javascript
  * import { GlacierClient, GetJobOutputCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetJobOutputCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // import type { GlacierClientConfig } from "@aws-sdk/client-glacier";
+ * const config = {}; // type is GlacierClientConfig
  * const client = new GlacierClient(config);
  * const input = { // GetJobOutputInput
  *   accountId: "STRING_VALUE", // required

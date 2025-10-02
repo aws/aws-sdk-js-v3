@@ -34,6 +34,8 @@ export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataB
  * ```javascript
  * import { TrustedAdvisorClient, ListChecksCommand } from "@aws-sdk/client-trustedadvisor"; // ES Modules import
  * // const { TrustedAdvisorClient, ListChecksCommand } = require("@aws-sdk/client-trustedadvisor"); // CommonJS import
+ * // import type { TrustedAdvisorClientConfig } from "@aws-sdk/client-trustedadvisor";
+ * const config = {}; // type is TrustedAdvisorClientConfig
  * const client = new TrustedAdvisorClient(config);
  * const input = { // ListChecksRequest
  *   nextToken: "STRING_VALUE",

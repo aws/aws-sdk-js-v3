@@ -36,12 +36,14 @@ export interface DescribeImageUsageReportEntriesCommandOutput
  * <p>Describes the entries in image usage reports, showing how your images are used across
  *       other Amazon Web Services accounts.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html">View your AMI usage</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
+ *       <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeImageUsageReportEntriesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeImageUsageReportEntriesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeImageUsageReportEntriesRequest
  *   ImageIds: [ // DescribeImageUsageReportsImageIdStringList

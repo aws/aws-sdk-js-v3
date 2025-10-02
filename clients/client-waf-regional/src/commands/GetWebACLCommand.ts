@@ -42,6 +42,8 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * ```javascript
  * import { WAFRegionalClient, GetWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // GetWebACLRequest
  *   WebACLId: "STRING_VALUE", // required

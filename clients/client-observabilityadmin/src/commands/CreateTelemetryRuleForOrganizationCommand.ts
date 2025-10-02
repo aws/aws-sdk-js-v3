@@ -45,6 +45,8 @@ export interface CreateTelemetryRuleForOrganizationCommandOutput
  * ```javascript
  * import { ObservabilityAdminClient, CreateTelemetryRuleForOrganizationCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
  * // const { ObservabilityAdminClient, CreateTelemetryRuleForOrganizationCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
+ * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
  * const input = { // CreateTelemetryRuleForOrganizationInput
  *   RuleName: "STRING_VALUE", // required

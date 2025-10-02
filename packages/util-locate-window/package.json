@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-locate-window",
-  "version": "3.873.0",
+  "version": "3.893.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline util-locate-window",
@@ -12,6 +12,7 @@
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

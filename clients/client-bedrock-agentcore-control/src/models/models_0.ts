@@ -24,206 +24,6 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
- * @enum
- */
-export const AgentStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  READY: "READY",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
-
-/**
- * <p>Contains information about an agent runtime. An agent runtime is the execution environment for a Amazon Bedrock Agent.</p>
- * @public
- */
-export interface Agent {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime.</p>
-   * @public
-   */
-  agentRuntimeArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the agent runtime.</p>
-   * @public
-   */
-  agentRuntimeId: string | undefined;
-
-  /**
-   * <p>The version of the agent runtime.</p>
-   * @public
-   */
-  agentRuntimeVersion: string | undefined;
-
-  /**
-   * <p>The name of the agent runtime.</p>
-   * @public
-   */
-  agentRuntimeName: string | undefined;
-
-  /**
-   * <p>The description of the agent runtime.</p>
-   * @public
-   */
-  description: string | undefined;
-
-  /**
-   * <p>The timestamp when the agent runtime was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of the agent runtime.</p>
-   * @public
-   */
-  status: AgentStatus | undefined;
-}
-
-/**
- * <p>Representation of a container configuration.</p>
- * @public
- */
-export interface ContainerConfiguration {
-  /**
-   * <p>The ECR URI of the container.</p>
-   * @public
-   */
-  containerUri: string | undefined;
-}
-
-/**
- * <p>The artifact of the agent.</p>
- * @public
- */
-export type AgentArtifact = AgentArtifact.ContainerConfigurationMember | AgentArtifact.$UnknownMember;
-
-/**
- * @public
- */
-export namespace AgentArtifact {
-  /**
-   * <p>The container configuration for the agent artifact.</p>
-   * @public
-   */
-  export interface ContainerConfigurationMember {
-    containerConfiguration: ContainerConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    containerConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    containerConfiguration: (value: ContainerConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: AgentArtifact, visitor: Visitor<T>): T => {
-    if (value.containerConfiguration !== undefined) return visitor.containerConfiguration(value.containerConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- * @enum
- */
-export const AgentEndpointStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  READY: "READY",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type AgentEndpointStatus = (typeof AgentEndpointStatus)[keyof typeof AgentEndpointStatus];
-
-/**
- * <p>Contains information about an agent runtime endpoint. An endpoint provides a way to connect to and interact with an agent runtime.</p>
- * @public
- */
-export interface AgentEndpoint {
-  /**
-   * <p>The name of the agent runtime endpoint.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The live version of the agent runtime endpoint. This is the version that is currently serving requests.</p>
-   * @public
-   */
-  liveVersion?: string | undefined;
-
-  /**
-   * <p>The target version of the agent runtime endpoint. This is the version that the endpoint is being updated to.</p>
-   * @public
-   */
-  targetVersion?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime endpoint.</p>
-   * @public
-   */
-  agentRuntimeEndpointArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime associated with the endpoint.</p>
-   * @public
-   */
-  agentRuntimeArn: string | undefined;
-
-  /**
-   * <p>The current status of the agent runtime endpoint.</p>
-   * @public
-   */
-  status: AgentEndpointStatus | undefined;
-
-  /**
-   * <p>The unique identifier of the agent runtime endpoint.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The description of the agent runtime endpoint.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the agent runtime endpoint was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the agent runtime endpoint was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt: Date | undefined;
-}
-
-/**
  * <p>This exception is thrown when there is a conflict performing an operation</p>
  * @public
  */
@@ -248,25 +48,25 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateAgentRuntimeEndpointRequest {
   /**
-   * <p>The unique identifier of the agent runtime to create an endpoint for.</p>
+   * <p>The unique identifier of the AgentCore Runtime to create an endpoint for.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The name of the agent runtime endpoint.</p>
+   * <p>The name of the AgentCore Runtime endpoint.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The version of the agent runtime to use for the endpoint.</p>
+   * <p>The version of the AgentCore Runtime to use for the endpoint.</p>
    * @public
    */
   agentRuntimeVersion?: string | undefined;
 
   /**
-   * <p>The description of the agent runtime endpoint.</p>
+   * <p>The description of the AgentCore Runtime endpoint.</p>
    * @public
    */
   description?: string | undefined;
@@ -276,38 +76,62 @@ export interface CreateAgentRuntimeEndpointRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the agent runtime endpoint. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentRuntimeEndpointStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentRuntimeEndpointStatus = (typeof AgentRuntimeEndpointStatus)[keyof typeof AgentRuntimeEndpointStatus];
 
 /**
  * @public
  */
 export interface CreateAgentRuntimeEndpointResponse {
   /**
-   * <p>The target version of the agent runtime for the endpoint.</p>
+   * <p>The target version of the AgentCore Runtime for the endpoint.</p>
    * @public
    */
   targetVersion: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime endpoint.</p>
+   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime endpoint.</p>
    * @public
    */
   agentRuntimeEndpointArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime.</p>
+   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The current status of the agent runtime endpoint.</p>
+   * <p>The current status of the AgentCore Runtime endpoint.</p>
    * @public
    */
-  status: AgentEndpointStatus | undefined;
+  status: AgentRuntimeEndpointStatus | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime endpoint was created.</p>
+   * <p>The timestamp when the AgentCore Runtime endpoint was created.</p>
    * @public
    */
   createdAt: Date | undefined;
@@ -457,13 +281,13 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteAgentRuntimeEndpointRequest {
   /**
-   * <p>The unique identifier of the agent runtime associated with the endpoint.</p>
+   * <p>The unique identifier of the AgentCore Runtime associated with the endpoint.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The name of the agent runtime endpoint to delete.</p>
+   * <p>The name of the AgentCore Runtime endpoint to delete.</p>
    * @public
    */
   endpointName: string | undefined;
@@ -480,10 +304,10 @@ export interface DeleteAgentRuntimeEndpointRequest {
  */
 export interface DeleteAgentRuntimeEndpointResponse {
   /**
-   * <p>The current status of the agent runtime endpoint deletion.</p>
+   * <p>The current status of the AgentCore Runtime endpoint deletion.</p>
    * @public
    */
-  status: AgentEndpointStatus | undefined;
+  status: AgentRuntimeEndpointStatus | undefined;
 }
 
 /**
@@ -491,13 +315,13 @@ export interface DeleteAgentRuntimeEndpointResponse {
  */
 export interface GetAgentRuntimeEndpointRequest {
   /**
-   * <p>The unique identifier of the agent runtime associated with the endpoint.</p>
+   * <p>The unique identifier of the AgentCore Runtime associated with the endpoint.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The name of the agent runtime endpoint to retrieve.</p>
+   * <p>The name of the AgentCore Runtime endpoint to retrieve.</p>
    * @public
    */
   endpointName: string | undefined;
@@ -508,67 +332,67 @@ export interface GetAgentRuntimeEndpointRequest {
  */
 export interface GetAgentRuntimeEndpointResponse {
   /**
-   * <p>The currently deployed version of the agent runtime on the endpoint.</p>
+   * <p>The currently deployed version of the AgentCore Runtime on the endpoint.</p>
    * @public
    */
   liveVersion?: string | undefined;
 
   /**
-   * <p>The target version of the agent runtime for the endpoint.</p>
+   * <p>The target version of the AgentCore Runtime for the endpoint.</p>
    * @public
    */
   targetVersion?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime endpoint.</p>
+   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime endpoint.</p>
    * @public
    */
   agentRuntimeEndpointArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime.</p>
+   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The description of the agent runtime endpoint.</p>
+   * <p>The description of the AgentCore Runtime endpoint.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The current status of the agent runtime endpoint.</p>
+   * <p>The current status of the AgentCore Runtime endpoint.</p>
    * @public
    */
-  status: AgentEndpointStatus | undefined;
+  status: AgentRuntimeEndpointStatus | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime endpoint was created.</p>
+   * <p>The timestamp when the AgentCore Runtime endpoint was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime endpoint was last updated.</p>
+   * <p>The timestamp when the AgentCore Runtime endpoint was last updated.</p>
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The reason for failure if the agent runtime endpoint is in a failed state.</p>
+   * <p>The reason for failure if the AgentCore Runtime endpoint is in a failed state.</p>
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The name of the agent runtime endpoint.</p>
+   * <p>The name of the AgentCore Runtime endpoint.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent runtime endpoint.</p>
+   * <p>The unique identifier of the AgentCore Runtime endpoint.</p>
    * @public
    */
   id: string | undefined;
@@ -579,7 +403,7 @@ export interface GetAgentRuntimeEndpointResponse {
  */
 export interface ListAgentRuntimeEndpointsRequest {
   /**
-   * <p>The unique identifier of the agent runtime to list endpoints for.</p>
+   * <p>The unique identifier of the AgentCore Runtime to list endpoints for.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
@@ -598,14 +422,80 @@ export interface ListAgentRuntimeEndpointsRequest {
 }
 
 /**
+ * <p>Contains information about an agent runtime endpoint. An endpoint provides a way to connect to and interact with an agent runtime.</p>
+ * @public
+ */
+export interface AgentRuntimeEndpoint {
+  /**
+   * <p>The name of the agent runtime endpoint.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The live version of the agent runtime endpoint. This is the version that is currently serving requests.</p>
+   * @public
+   */
+  liveVersion?: string | undefined;
+
+  /**
+   * <p>The target version of the agent runtime endpoint. This is the version that the endpoint is being updated to.</p>
+   * @public
+   */
+  targetVersion?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent runtime endpoint.</p>
+   * @public
+   */
+  agentRuntimeEndpointArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent runtime associated with the endpoint.</p>
+   * @public
+   */
+  agentRuntimeArn: string | undefined;
+
+  /**
+   * <p>The current status of the agent runtime endpoint.</p>
+   * @public
+   */
+  status: AgentRuntimeEndpointStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the agent runtime endpoint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The description of the agent runtime endpoint.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the agent runtime endpoint was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the agent runtime endpoint was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface ListAgentRuntimeEndpointsResponse {
   /**
-   * <p>The list of agent runtime endpoints.</p>
+   * <p>The list of AgentCore Runtime endpoints.</p>
    * @public
    */
-  runtimeEndpoints: AgentEndpoint[] | undefined;
+  runtimeEndpoints: AgentRuntimeEndpoint[] | undefined;
 
   /**
    * <p>A token to retrieve the next page of results.</p>
@@ -619,25 +509,25 @@ export interface ListAgentRuntimeEndpointsResponse {
  */
 export interface UpdateAgentRuntimeEndpointRequest {
   /**
-   * <p>The unique identifier of the agent runtime associated with the endpoint.</p>
+   * <p>The unique identifier of the AgentCore Runtime associated with the endpoint.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The name of the agent runtime endpoint to update.</p>
+   * <p>The name of the AgentCore Runtime endpoint to update.</p>
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>The updated version of the agent runtime for the endpoint.</p>
+   * <p>The updated version of the AgentCore Runtime for the endpoint.</p>
    * @public
    */
   agentRuntimeVersion?: string | undefined;
 
   /**
-   * <p>The updated description of the agent runtime endpoint.</p>
+   * <p>The updated description of the AgentCore Runtime endpoint.</p>
    * @public
    */
   description?: string | undefined;
@@ -654,46 +544,98 @@ export interface UpdateAgentRuntimeEndpointRequest {
  */
 export interface UpdateAgentRuntimeEndpointResponse {
   /**
-   * <p>The currently deployed version of the agent runtime on the endpoint.</p>
+   * <p>The currently deployed version of the AgentCore Runtime on the endpoint.</p>
    * @public
    */
   liveVersion?: string | undefined;
 
   /**
-   * <p>The target version of the agent runtime for the endpoint.</p>
+   * <p>The target version of the AgentCore Runtime for the endpoint.</p>
    * @public
    */
   targetVersion?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime endpoint.</p>
+   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime endpoint.</p>
    * @public
    */
   agentRuntimeEndpointArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime.</p>
+   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The current status of the updated agent runtime endpoint.</p>
+   * <p>The current status of the updated AgentCore Runtime endpoint.</p>
    * @public
    */
-  status: AgentEndpointStatus | undefined;
+  status: AgentRuntimeEndpointStatus | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime endpoint was created.</p>
+   * <p>The timestamp when the AgentCore Runtime endpoint was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime endpoint was last updated.</p>
+   * <p>The timestamp when the AgentCore Runtime endpoint was last updated.</p>
    * @public
    */
   lastUpdatedAt: Date | undefined;
+}
+
+/**
+ * <p>Representation of a container configuration.</p>
+ * @public
+ */
+export interface ContainerConfiguration {
+  /**
+   * <p>The ECR URI of the container.</p>
+   * @public
+   */
+  containerUri: string | undefined;
+}
+
+/**
+ * <p>The artifact of the agent.</p>
+ * @public
+ */
+export type AgentRuntimeArtifact =
+  | AgentRuntimeArtifact.ContainerConfigurationMember
+  | AgentRuntimeArtifact.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgentRuntimeArtifact {
+  /**
+   * <p>The container configuration for the agent artifact.</p>
+   * @public
+   */
+  export interface ContainerConfigurationMember {
+    containerConfiguration: ContainerConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    containerConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    containerConfiguration: (value: ContainerConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AgentRuntimeArtifact, visitor: Visitor<T>): T => {
+    if (value.containerConfiguration !== undefined) return visitor.containerConfiguration(value.containerConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
@@ -766,6 +708,7 @@ export namespace AuthorizerConfiguration {
  */
 export const NetworkMode = {
   PUBLIC: "PUBLIC",
+  VPC: "VPC",
 } as const;
 
 /**
@@ -774,15 +717,39 @@ export const NetworkMode = {
 export type NetworkMode = (typeof NetworkMode)[keyof typeof NetworkMode];
 
 /**
+ * <p>VpcConfig for the Agent.</p>
+ * @public
+ */
+export interface VpcConfig {
+  /**
+   * <p>The security groups associated with the VPC configuration.</p>
+   * @public
+   */
+  securityGroups: string[] | undefined;
+
+  /**
+   * <p>The subnets associated with the VPC configuration.</p>
+   * @public
+   */
+  subnets: string[] | undefined;
+}
+
+/**
  * <p>SecurityConfig for the Agent.</p>
  * @public
  */
 export interface NetworkConfiguration {
   /**
-   * <p>The network mode for the agent runtime.</p>
+   * <p>The network mode for the AgentCore Runtime.</p>
    * @public
    */
   networkMode: NetworkMode | undefined;
+
+  /**
+   * <p>The network mode configuration for the AgentCore Runtime.</p>
+   * @public
+   */
+  networkModeConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -812,35 +779,75 @@ export interface ProtocolConfiguration {
 }
 
 /**
+ * <p>Configuration for HTTP request headers that will be passed through to the runtime.</p>
+ * @public
+ */
+export type RequestHeaderConfiguration =
+  | RequestHeaderConfiguration.RequestHeaderAllowlistMember
+  | RequestHeaderConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RequestHeaderConfiguration {
+  /**
+   * <p>A list of HTTP request headers that are allowed to be passed through to the runtime.</p>
+   * @public
+   */
+  export interface RequestHeaderAllowlistMember {
+    requestHeaderAllowlist: string[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    requestHeaderAllowlist?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    requestHeaderAllowlist: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RequestHeaderConfiguration, visitor: Visitor<T>): T => {
+    if (value.requestHeaderAllowlist !== undefined) return visitor.requestHeaderAllowlist(value.requestHeaderAllowlist);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  */
 export interface CreateAgentRuntimeRequest {
   /**
-   * <p>The name of the secure agent.</p>
+   * <p>The name of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeName: string | undefined;
 
   /**
-   * <p>The description of the agent runtime.</p>
+   * <p>The description of the AgentCore Runtime.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The artifact of the agent.</p>
+   * <p>The artifact of the AgentCore Runtime.</p>
    * @public
    */
-  agentRuntimeArtifact: AgentArtifact | undefined;
+  agentRuntimeArtifact: AgentRuntimeArtifact | undefined;
 
   /**
-   * <p>The IAM role ARN that provides permissions for the agent runtime.</p>
+   * <p>The IAM role ARN that provides permissions for the AgentCore Runtime.</p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The network configuration for the agent runtime.</p>
+   * <p>The network configuration for the AgentCore Runtime.</p>
    * @public
    */
   networkConfiguration: NetworkConfiguration | undefined;
@@ -858,17 +865,47 @@ export interface CreateAgentRuntimeRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>Environment variables to set in the agent runtime environment.</p>
+   * <p>Environment variables to set in the AgentCore Runtime environment.</p>
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The authorizer configuration for the agent runtime.</p>
+   * <p>The authorizer configuration for the AgentCore Runtime.</p>
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>Configuration for HTTP request headers that will be passed through to the runtime.</p>
+   * @public
+   */
+  requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the agent runtime. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentRuntimeStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentRuntimeStatus = (typeof AgentRuntimeStatus)[keyof typeof AgentRuntimeStatus];
 
 /**
  * <p>The information about the workload identity.</p>
@@ -887,40 +924,40 @@ export interface WorkloadIdentityDetails {
  */
 export interface CreateAgentRuntimeResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime.</p>
+   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The workload identity details for the agent runtime.</p>
+   * <p>The workload identity details for the AgentCore Runtime.</p>
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The unique identifier of the agent runtime.</p>
+   * <p>The unique identifier of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The version of the agent runtime.</p>
+   * <p>The version of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeVersion: string | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime was created.</p>
+   * <p>The timestamp when the AgentCore Runtime was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the agent runtime.</p>
+   * <p>The current status of the AgentCore Runtime.</p>
    * @public
    */
-  status: AgentStatus | undefined;
+  status: AgentRuntimeStatus | undefined;
 }
 
 /**
@@ -928,7 +965,7 @@ export interface CreateAgentRuntimeResponse {
  */
 export interface DeleteAgentRuntimeRequest {
   /**
-   * <p>The unique identifier of the agent runtime to delete.</p>
+   * <p>The unique identifier of the AgentCore Runtime to delete.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
@@ -939,10 +976,10 @@ export interface DeleteAgentRuntimeRequest {
  */
 export interface DeleteAgentRuntimeResponse {
   /**
-   * <p>The current status of the agent runtime deletion.</p>
+   * <p>The current status of the AgentCore Runtime deletion.</p>
    * @public
    */
-  status: AgentStatus | undefined;
+  status: AgentRuntimeStatus | undefined;
 }
 
 /**
@@ -950,13 +987,13 @@ export interface DeleteAgentRuntimeResponse {
  */
 export interface GetAgentRuntimeRequest {
   /**
-   * <p>The unique identifier of the agent runtime to retrieve.</p>
+   * <p>The unique identifier of the AgentCore Runtime to retrieve.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The version of the agent runtime to retrieve.</p>
+   * <p>The version of the AgentCore Runtime to retrieve.</p>
    * @public
    */
   agentRuntimeVersion?: string | undefined;
@@ -967,67 +1004,67 @@ export interface GetAgentRuntimeRequest {
  */
 export interface GetAgentRuntimeResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent runtime.</p>
+   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The workload identity details for the agent runtime.</p>
+   * <p>The workload identity details for the AgentCore Runtime.</p>
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The name of the agent runtime.</p>
+   * <p>The name of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeName: string | undefined;
 
   /**
-   * <p>The description of the agent runtime.</p>
+   * <p>The description of the AgentCore Runtime.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The unique identifier of the agent runtime.</p>
+   * <p>The unique identifier of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The version of the agent runtime.</p>
+   * <p>The version of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeVersion: string | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime was created.</p>
+   * <p>The timestamp when the AgentCore Runtime was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime was last updated.</p>
+   * <p>The timestamp when the AgentCore Runtime was last updated.</p>
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The IAM role ARN that provides permissions for the agent runtime.</p>
+   * <p>The IAM role ARN that provides permissions for the AgentCore Runtime.</p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The artifact of the agent runtime.</p>
+   * <p>The artifact of the AgentCore Runtime.</p>
    * @public
    */
-  agentRuntimeArtifact?: AgentArtifact | undefined;
+  agentRuntimeArtifact?: AgentRuntimeArtifact | undefined;
 
   /**
-   * <p>The network configuration for the agent runtime.</p>
+   * <p>The network configuration for the AgentCore Runtime.</p>
    * @public
    */
   networkConfiguration: NetworkConfiguration | undefined;
@@ -1039,22 +1076,28 @@ export interface GetAgentRuntimeResponse {
   protocolConfiguration?: ProtocolConfiguration | undefined;
 
   /**
-   * <p>Environment variables set in the agent runtime environment.</p>
+   * <p>Environment variables set in the AgentCore Runtime environment.</p>
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The authorizer configuration for the agent runtime.</p>
+   * <p>The authorizer configuration for the AgentCore Runtime.</p>
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The current status of the agent runtime.</p>
+   * <p>Configuration for HTTP request headers that will be passed through to the runtime.</p>
    * @public
    */
-  status: AgentStatus | undefined;
+  requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
+
+  /**
+   * <p>The current status of the AgentCore Runtime.</p>
+   * @public
+   */
+  status: AgentRuntimeStatus | undefined;
 }
 
 /**
@@ -1075,14 +1118,62 @@ export interface ListAgentRuntimesRequest {
 }
 
 /**
+ * <p>Contains information about an agent runtime. An agent runtime is the execution environment for a Amazon Bedrock Agent.</p>
+ * @public
+ */
+export interface AgentRuntime {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent runtime.</p>
+   * @public
+   */
+  agentRuntimeArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent runtime.</p>
+   * @public
+   */
+  agentRuntimeId: string | undefined;
+
+  /**
+   * <p>The version of the agent runtime.</p>
+   * @public
+   */
+  agentRuntimeVersion: string | undefined;
+
+  /**
+   * <p>The name of the agent runtime.</p>
+   * @public
+   */
+  agentRuntimeName: string | undefined;
+
+  /**
+   * <p>The description of the agent runtime.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The timestamp when the agent runtime was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the agent runtime.</p>
+   * @public
+   */
+  status: AgentRuntimeStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface ListAgentRuntimesResponse {
   /**
-   * <p>The list of agent runtimes.</p>
+   * <p>The list of AgentCore Runtime resources.</p>
    * @public
    */
-  agentRuntimes: Agent[] | undefined;
+  agentRuntimes: AgentRuntime[] | undefined;
 
   /**
    * <p>A token to retrieve the next page of results.</p>
@@ -1096,7 +1187,7 @@ export interface ListAgentRuntimesResponse {
  */
 export interface ListAgentRuntimeVersionsRequest {
   /**
-   * <p>The unique identifier of the agent runtime to list versions for.</p>
+   * <p>The unique identifier of the AgentCore Runtime to list versions for.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
@@ -1119,10 +1210,10 @@ export interface ListAgentRuntimeVersionsRequest {
  */
 export interface ListAgentRuntimeVersionsResponse {
   /**
-   * <p>The list of agent runtime versions.</p>
+   * <p>The list of AgentCore Runtime versions.</p>
    * @public
    */
-  agentRuntimes: Agent[] | undefined;
+  agentRuntimes: AgentRuntime[] | undefined;
 
   /**
    * <p>A token to retrieve the next page of results.</p>
@@ -1136,31 +1227,31 @@ export interface ListAgentRuntimeVersionsResponse {
  */
 export interface UpdateAgentRuntimeRequest {
   /**
-   * <p>The unique identifier of the agent runtime to update.</p>
+   * <p>The unique identifier of the AgentCore Runtime to update.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The updated description of the agent runtime.</p>
+   * <p>The updated description of the AgentCore Runtime.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated artifact of the agent runtime.</p>
+   * <p>The updated artifact of the AgentCore Runtime.</p>
    * @public
    */
-  agentRuntimeArtifact: AgentArtifact | undefined;
+  agentRuntimeArtifact: AgentRuntimeArtifact | undefined;
 
   /**
-   * <p>The updated IAM role ARN that provides permissions for the agent runtime.</p>
+   * <p>The updated IAM role ARN that provides permissions for the AgentCore Runtime.</p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The updated network configuration for the agent runtime.</p>
+   * <p>The updated network configuration for the AgentCore Runtime.</p>
    * @public
    */
   networkConfiguration: NetworkConfiguration | undefined;
@@ -1178,16 +1269,22 @@ export interface UpdateAgentRuntimeRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>Updated environment variables to set in the agent runtime environment.</p>
+   * <p>Updated environment variables to set in the AgentCore Runtime environment.</p>
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The updated authorizer configuration for the agent runtime.</p>
+   * <p>The updated authorizer configuration for the AgentCore Runtime.</p>
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The updated configuration for HTTP request headers that will be passed through to the runtime.</p>
+   * @public
+   */
+  requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
 }
 
 /**
@@ -1195,46 +1292,46 @@ export interface UpdateAgentRuntimeRequest {
  */
 export interface UpdateAgentRuntimeResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated agent runtime.</p>
+   * <p>The Amazon Resource Name (ARN) of the updated AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated agent runtime.</p>
+   * <p>The unique identifier of the updated AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The workload identity details for the updated agent runtime.</p>
+   * <p>The workload identity details for the updated AgentCore Runtime.</p>
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The version of the updated agent runtime.</p>
+   * <p>The version of the updated AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeVersion: string | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime was created.</p>
+   * <p>The timestamp when the AgentCore Runtime was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the agent runtime was last updated.</p>
+   * <p>The timestamp when the AgentCore Runtime was last updated.</p>
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the updated agent runtime.</p>
+   * <p>The current status of the updated AgentCore Runtime.</p>
    * @public
    */
-  status: AgentStatus | undefined;
+  status: AgentRuntimeStatus | undefined;
 }
 
 /**
@@ -1553,6 +1650,7 @@ export interface UpdateApiKeyCredentialProviderResponse {
  */
 export const BrowserNetworkMode = {
   PUBLIC: "PUBLIC",
+  VPC: "VPC",
 } as const;
 
 /**
@@ -1570,6 +1668,12 @@ export interface BrowserNetworkConfiguration {
    * @public
    */
   networkMode: BrowserNetworkMode | undefined;
+
+  /**
+   * <p>VpcConfig for the Agent.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -1647,6 +1751,12 @@ export interface CreateBrowserRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the browser. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1800,6 +1910,12 @@ export interface GetBrowserResponse {
   status: BrowserStatus | undefined;
 
   /**
+   * <p>The reason for failure if the browser is in a failed state.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+
+  /**
    * <p>The timestamp when the browser was created.</p>
    * @public
    */
@@ -1921,6 +2037,7 @@ export interface ListBrowsersResponse {
 export const CodeInterpreterNetworkMode = {
   PUBLIC: "PUBLIC",
   SANDBOX: "SANDBOX",
+  VPC: "VPC",
 } as const;
 
 /**
@@ -1938,6 +2055,12 @@ export interface CodeInterpreterNetworkConfiguration {
    * @public
    */
   networkMode: CodeInterpreterNetworkMode | undefined;
+
+  /**
+   * <p>VpcConfig for the Agent.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -1973,6 +2096,12 @@ export interface CreateCodeInterpreterRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the code interpreter. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2118,6 +2247,12 @@ export interface GetCodeInterpreterResponse {
    * @public
    */
   status: CodeInterpreterStatus | undefined;
+
+  /**
+   * <p>The reason for failure if the code interpreter is in a failed state.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
 
   /**
    * <p>The timestamp when the code interpreter was created.</p>
@@ -2353,7 +2488,7 @@ export interface CreateGatewayRequest {
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2365,13 +2500,13 @@ export interface CreateGatewayRequest {
   roleArn: string | undefined;
 
   /**
-   * <p>The protocol type for the gateway. Currently supports MCP (Model Context Protocol).</p>
+   * <p>The protocol type for the gateway.</p>
    * @public
    */
   protocolType: GatewayProtocolType | undefined;
 
   /**
-   * <p>The configuration settings for the protocol specified in the protocolType parameter.</p>
+   * <p>The configuration settings for the protocol specified in the <code>protocolType</code> parameter.</p>
    * @public
    */
   protocolConfiguration?: GatewayProtocolConfiguration | undefined;
@@ -2383,7 +2518,7 @@ export interface CreateGatewayRequest {
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the Gateway.</p>
+   * <p>The authorizer configuration for the gateway.</p>
    * @public
    */
   authorizerConfiguration: AuthorizerConfiguration | undefined;
@@ -2395,10 +2530,16 @@ export interface CreateGatewayRequest {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The verbosity of exception messages. Use DEBUG mode to see granular exception messages from a Gateway. If this parameter is not set, exception messages are by default sanitized for presentation to end users.</p>
+   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
+
+  /**
+   * <p>A map of key-value pairs to associate with the gateway as metadata tags.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2502,7 +2643,7 @@ export interface CreateGatewayResponse {
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the created Gateway.</p>
+   * <p>The authorizer configuration for the created gateway.</p>
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
@@ -2514,13 +2655,13 @@ export interface CreateGatewayResponse {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The workload identity details for the created Gateway.</p>
+   * <p>The workload identity details for the created gateway.</p>
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The verbosity of exception messages. Use DEBUG mode to see granular exception messages from a Gateway. If this parameter is not set, exception messages are by default sanitized for presentation to end users.</p>
+   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
@@ -2531,7 +2672,7 @@ export interface CreateGatewayResponse {
  */
 export interface DeleteGatewayRequest {
   /**
-   * <p>The identifier of the gateway to delete. This can be either the gateway ID or the gateway ARN.</p>
+   * <p>The identifier of the gateway to delete.</p>
    * @public
    */
   gatewayIdentifier: string | undefined;
@@ -2542,19 +2683,19 @@ export interface DeleteGatewayRequest {
  */
 export interface DeleteGatewayResponse {
   /**
-   * <p>The unique identifier of the deleted Gateway.</p>
+   * <p>The unique identifier of the deleted gateway.</p>
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The current status of the Gateway deletion.</p>
+   * <p>The current status of the gateway deletion.</p>
    * @public
    */
   status: GatewayStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the Gateway deletion.</p>
+   * <p>The reasons for the current status of the gateway deletion.</p>
    * @public
    */
   statusReasons?: string[] | undefined;
@@ -2565,7 +2706,7 @@ export interface DeleteGatewayResponse {
  */
 export interface GetGatewayRequest {
   /**
-   * <p>The identifier of the gateway to retrieve. This can be either the gateway ID or the gateway ARN.</p>
+   * <p>The identifier of the gateway to retrieve.</p>
    * @public
    */
   gatewayIdentifier: string | undefined;
@@ -2576,67 +2717,67 @@ export interface GetGatewayRequest {
  */
 export interface GetGatewayResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Gateway.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the Gateway.</p>
+   * <p>The unique identifier of the gateway.</p>
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>An endpoint for invoking Gateway.</p>
+   * <p>An endpoint for invoking gateway.</p>
    * @public
    */
   gatewayUrl?: string | undefined;
 
   /**
-   * <p>The timestamp when the Gateway was created.</p>
+   * <p>The timestamp when the gateway was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the Gateway was last updated.</p>
+   * <p>The timestamp when the gateway was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the Gateway.</p>
+   * <p>The current status of the gateway.</p>
    * @public
    */
   status: GatewayStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the Gateway.</p>
+   * <p>The reasons for the current status of the gateway.</p>
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The name of the Gateway.</p>
+   * <p>The name of the gateway.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the Gateway.</p>
+   * <p>The description of the gateway.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The IAM role ARN that provides permissions for the Gateway.</p>
+   * <p>The IAM role ARN that provides permissions for the gateway.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>Protocol applied to a Gateway.</p>
+   * <p>Protocol applied to a gateway.</p>
    * @public
    */
   protocolType: GatewayProtocolType | undefined;
@@ -2654,25 +2795,25 @@ export interface GetGatewayResponse {
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the Gateway.</p>
+   * <p>The authorizer configuration for the gateway.</p>
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The ARN of the KMS key used to encrypt the Gateway.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the gateway.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The workload identity details for the Gateway.</p>
+   * <p>The workload identity details for the gateway.</p>
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The verbosity of exception messages. Use DEBUG mode to see granular exception messages from a Gateway. If this parameter is not set, exception messages are by default sanitized for presentation to end users.</p>
+   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
@@ -2683,13 +2824,13 @@ export interface GetGatewayResponse {
  */
 export interface ListGatewaysRequest {
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 10. The maximum value is 50.</p>
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2754,13 +2895,13 @@ export interface GatewaySummary {
  */
 export interface ListGatewaysResponse {
   /**
-   * <p>The list of Gateway summaries.</p>
+   * <p>The list of gateway summaries.</p>
    * @public
    */
   items: GatewaySummary[] | undefined;
 
   /**
-   * <p>Opaque continuation token for the next paginated response.</p>
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2771,31 +2912,31 @@ export interface ListGatewaysResponse {
  */
 export interface UpdateGatewayRequest {
   /**
-   * <p>The identifier of the gateway to update. This can be either the gateway ID or the gateway ARN.</p>
+   * <p>The identifier of the gateway to update.</p>
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The updated name for the Gateway.</p>
+   * <p>The name of the gateway. This name must be the same as the one when the gateway was created.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The updated description for the Gateway.</p>
+   * <p>The updated description for the gateway.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated IAM role ARN that provides permissions for the Gateway.</p>
+   * <p>The updated IAM role ARN that provides permissions for the gateway.</p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The updated protocol type for the Gateway.</p>
+   * <p>The updated protocol type for the gateway.</p>
    * @public
    */
   protocolType: GatewayProtocolType | undefined;
@@ -2807,25 +2948,25 @@ export interface UpdateGatewayRequest {
   protocolConfiguration?: GatewayProtocolConfiguration | undefined;
 
   /**
-   * <p>The updated authorizer type for the Gateway.</p>
+   * <p>The updated authorizer type for the gateway.</p>
    * @public
    */
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The updated authorizer configuration for the Gateway.</p>
+   * <p>The updated authorizer configuration for the gateway.</p>
    * @public
    */
   authorizerConfiguration: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The updated ARN of the KMS key used to encrypt the Gateway.</p>
+   * <p>The updated ARN of the KMS key used to encrypt the gateway.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The verbosity of exception messages. Use DEBUG mode to see granular exception messages from a Gateway. If this parameter is not set, exception messages are by default sanitized for presentation to end users.</p>
+   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
@@ -2836,67 +2977,67 @@ export interface UpdateGatewayRequest {
  */
 export interface UpdateGatewayResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated Gateway.</p>
+   * <p>The Amazon Resource Name (ARN) of the updated gateway.</p>
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated Gateway.</p>
+   * <p>The unique identifier of the updated gateway.</p>
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>An endpoint for invoking the updated Gateway.</p>
+   * <p>An endpoint for invoking the updated gateway.</p>
    * @public
    */
   gatewayUrl?: string | undefined;
 
   /**
-   * <p>The timestamp when the Gateway was created.</p>
+   * <p>The timestamp when the gateway was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the Gateway was last updated.</p>
+   * <p>The timestamp when the gateway was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the updated Gateway.</p>
+   * <p>The current status of the updated gateway.</p>
    * @public
    */
   status: GatewayStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the updated Gateway.</p>
+   * <p>The reasons for the current status of the updated gateway.</p>
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The updated name of the Gateway.</p>
+   * <p>The name of the gateway.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The updated description of the Gateway.</p>
+   * <p>The updated description of the gateway.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated IAM role ARN that provides permissions for the Gateway.</p>
+   * <p>The updated IAM role ARN that provides permissions for the gateway.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The updated protocol type for the Gateway.</p>
+   * <p>The updated protocol type for the gateway.</p>
    * @public
    */
   protocolType: GatewayProtocolType | undefined;
@@ -2908,31 +3049,31 @@ export interface UpdateGatewayResponse {
   protocolConfiguration?: GatewayProtocolConfiguration | undefined;
 
   /**
-   * <p>The updated authorizer type for the Gateway.</p>
+   * <p>The updated authorizer type for the gateway.</p>
    * @public
    */
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The updated authorizer configuration for the Gateway.</p>
+   * <p>The updated authorizer configuration for the gateway.</p>
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The updated ARN of the KMS key used to encrypt the Gateway.</p>
+   * <p>The updated ARN of the KMS key used to encrypt the gateway.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The workload identity details for the updated Gateway.</p>
+   * <p>The workload identity details for the updated gateway.</p>
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The verbosity of exception messages. Use DEBUG mode to see granular exception messages from a Gateway. If this parameter is not set, exception messages are by default sanitized for presentation to end users.</p>
+   * <p>The level of detail in error messages returned when invoking the gateway.</p> <ul> <li> <p>If the value is <code>DEBUG</code>, granular exception messages are returned to help a user debug the gateway.</p> </li> <li> <p>If the value is omitted, a generic error message is returned to the end user.</p> </li> </ul>
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
@@ -3210,13 +3351,13 @@ export type TargetStatus = (typeof TargetStatus)[keyof typeof TargetStatus];
  */
 export interface DeleteGatewayTargetRequest {
   /**
-   * <p>The unique identifier of the Gateway associated with the target.</p>
+   * <p>The unique identifier of the gateway associated with the target.</p>
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the Gateway Target to delete.</p>
+   * <p>The unique identifier of the gateway target to delete.</p>
    * @public
    */
   targetId: string | undefined;
@@ -3227,25 +3368,25 @@ export interface DeleteGatewayTargetRequest {
  */
 export interface DeleteGatewayTargetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Gateway.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the deleted Gateway Target.</p>
+   * <p>The unique identifier of the deleted gateway target.</p>
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The current status of the Gateway Target deletion.</p>
+   * <p>The current status of the gateway target deletion.</p>
    * @public
    */
   status: TargetStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the Gateway Target deletion.</p>
+   * <p>The reasons for the current status of the gateway target deletion.</p>
    * @public
    */
   statusReasons?: string[] | undefined;
@@ -3256,7 +3397,7 @@ export interface DeleteGatewayTargetResponse {
  */
 export interface GetGatewayTargetRequest {
   /**
-   * <p>The identifier of the gateway that contains the target. This can be either the gateway ID or the gateway ARN.</p>
+   * <p>The identifier of the gateway that contains the target.</p>
    * @public
    */
   gatewayIdentifier: string | undefined;
@@ -3273,19 +3414,19 @@ export interface GetGatewayTargetRequest {
  */
 export interface ListGatewayTargetsRequest {
   /**
-   * <p>The identifier of the gateway to list targets for. This can be either the gateway ID or the gateway ARN.</p>
+   * <p>The identifier of the gateway to list targets for.</p>
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 10. The maximum value is 50.</p>
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3338,13 +3479,13 @@ export interface TargetSummary {
  */
 export interface ListGatewayTargetsResponse {
   /**
-   * <p>The list of Gateway Target summaries.</p>
+   * <p>The list of gateway target summaries.</p>
    * @public
    */
   items: TargetSummary[] | undefined;
 
   /**
-   * <p>Opaque continuation token for the next paginated response.</p>
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3414,6 +3555,28 @@ export interface GetTokenVaultResponse {
    * @public
    */
   lastModifiedDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags associated with the resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4471,13 +4634,13 @@ export interface DeleteMemoryInput {
  */
 export interface DeleteMemoryOutput {
   /**
-   * <p>The unique identifier of the deleted memory.</p>
+   * <p>The unique identifier of the deleted AgentCore Memory resource.</p>
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The current status of the memory deletion.</p>
+   * <p>The current status of the AgentCore Memory resource deletion.</p>
    * @public
    */
   status?: MemoryStatus | undefined;
@@ -4499,7 +4662,7 @@ export interface GetMemoryInput {
  */
 export interface GetMemoryOutput {
   /**
-   * <p>The retrieved memory details.</p>
+   * <p>The retrieved AgentCore Memory resource details.</p>
    * @public
    */
   memory: Memory | undefined;
@@ -4563,7 +4726,7 @@ export interface MemorySummary {
  */
 export interface ListMemoriesOutput {
   /**
-   * <p>The list of memory summaries.</p>
+   * <p>The list of AgentCore Memory resource summaries.</p>
    * @public
    */
   memories: MemorySummary[] | undefined;
@@ -4890,7 +5053,7 @@ export interface UpdateMemoryInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The updated description of the memory.</p>
+   * <p>The updated description of the AgentCore Memory resource.</p>
    * @public
    */
   description?: string | undefined;
@@ -4902,7 +5065,7 @@ export interface UpdateMemoryInput {
   eventExpiryDuration?: number | undefined;
 
   /**
-   * <p>The ARN of the IAM role that provides permissions for the memory.</p>
+   * <p>The ARN of the IAM role that provides permissions for the AgentCore Memory resource.</p>
    * @public
    */
   memoryExecutionRoleArn?: string | undefined;
@@ -4919,7 +5082,7 @@ export interface UpdateMemoryInput {
  */
 export interface UpdateMemoryOutput {
   /**
-   * <p>The updated memory details.</p>
+   * <p>The updated AgentCore Memory resource details.</p>
    * @public
    */
   memory?: Memory | undefined;
@@ -5821,6 +5984,50 @@ export interface SetTokenVaultCMKResponse {
 /**
  * @public
  */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The tags to add to the resource. A tag is a key-value pair.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The tag keys of the tags to remove from the resource.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
 export interface CreateWorkloadIdentityRequest {
   /**
    * <p>The name of the workload identity. The name must be unique within your account.</p>
@@ -6275,7 +6482,7 @@ export namespace TargetConfiguration {
  */
 export interface CreateGatewayTargetRequest {
   /**
-   * <p>The identifier of the gateway to create a target for. This can be either the gateway ID or the gateway ARN.</p>
+   * <p>The identifier of the gateway to create a target for.</p>
    * @public
    */
   gatewayIdentifier: string | undefined;
@@ -6293,7 +6500,7 @@ export interface CreateGatewayTargetRequest {
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -6381,49 +6588,49 @@ export interface CreateGatewayTargetResponse {
  */
 export interface GetGatewayTargetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Gateway.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the Gateway Target.</p>
+   * <p>The unique identifier of the gateway target.</p>
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The timestamp when the Gateway Target was created.</p>
+   * <p>The timestamp when the gateway target was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the Gateway Target was last updated.</p>
+   * <p>The timestamp when the gateway target was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the Gateway Target.</p>
+   * <p>The current status of the gateway target.</p>
    * @public
    */
   status: TargetStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the Gateway Target.</p>
+   * <p>The reasons for the current status of the gateway target.</p>
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The name of the Gateway Target.</p>
+   * <p>The name of the gateway target.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the Gateway Target.</p>
+   * <p>The description of the gateway target.</p>
    * @public
    */
   description?: string | undefined;
@@ -6435,7 +6642,7 @@ export interface GetGatewayTargetResponse {
   targetConfiguration: TargetConfiguration | undefined;
 
   /**
-   * <p>The credential provider configurations for the Gateway Target.</p>
+   * <p>The credential provider configurations for the gateway target.</p>
    * @public
    */
   credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
@@ -6446,25 +6653,25 @@ export interface GetGatewayTargetResponse {
  */
 export interface UpdateGatewayTargetRequest {
   /**
-   * <p>The unique identifier of the Gateway associated with the target.</p>
+   * <p>The unique identifier of the gateway associated with the target.</p>
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the Gateway Target to update.</p>
+   * <p>The unique identifier of the gateway target to update.</p>
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The updated name for the Gateway Target.</p>
+   * <p>The updated name for the gateway target.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The updated description for the Gateway Target.</p>
+   * <p>The updated description for the gateway target.</p>
    * @public
    */
   description?: string | undefined;
@@ -6476,7 +6683,7 @@ export interface UpdateGatewayTargetRequest {
   targetConfiguration: TargetConfiguration | undefined;
 
   /**
-   * <p>The updated credential provider configurations for the Gateway Target.</p>
+   * <p>The updated credential provider configurations for the gateway target.</p>
    * @public
    */
   credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
@@ -6487,49 +6694,49 @@ export interface UpdateGatewayTargetRequest {
  */
 export interface UpdateGatewayTargetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Gateway.</p>
+   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated Gateway Target.</p>
+   * <p>The unique identifier of the updated gateway target.</p>
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The timestamp when the Gateway Target was created.</p>
+   * <p>The timestamp when the gateway target was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the Gateway Target was last updated.</p>
+   * <p>The timestamp when the gateway target was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the updated Gateway Target.</p>
+   * <p>The current status of the updated gateway target.</p>
    * @public
    */
   status: TargetStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the updated Gateway Target.</p>
+   * <p>The reasons for the current status of the updated gateway target.</p>
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The updated name of the Gateway Target.</p>
+   * <p>The updated name of the gateway target.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The updated description of the Gateway Target.</p>
+   * <p>The updated description of the gateway target.</p>
    * @public
    */
   description?: string | undefined;
@@ -6541,27 +6748,11 @@ export interface UpdateGatewayTargetResponse {
   targetConfiguration: TargetConfiguration | undefined;
 
   /**
-   * <p>The updated credential provider configurations for the Gateway Target.</p>
+   * <p>The updated credential provider configurations for the gateway target.</p>
    * @public
    */
   credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
 }
-
-/**
- * @internal
- */
-export const AgentFilterSensitiveLog = (obj: Agent): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AgentEndpointFilterSensitiveLog = (obj: AgentEndpoint): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-});
 
 /**
  * @internal
@@ -6598,10 +6789,18 @@ export const GetAgentRuntimeEndpointResponseFilterSensitiveLog = (obj: GetAgentR
 /**
  * @internal
  */
+export const AgentRuntimeEndpointFilterSensitiveLog = (obj: AgentRuntimeEndpoint): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ListAgentRuntimeEndpointsResponseFilterSensitiveLog = (obj: ListAgentRuntimeEndpointsResponse): any => ({
   ...obj,
   ...(obj.runtimeEndpoints && {
-    runtimeEndpoints: obj.runtimeEndpoints.map((item) => AgentEndpointFilterSensitiveLog(item)),
+    runtimeEndpoints: obj.runtimeEndpoints.map((item) => AgentRuntimeEndpointFilterSensitiveLog(item)),
   }),
 });
 
@@ -6622,6 +6821,7 @@ export const CreateAgentRuntimeRequestFilterSensitiveLog = (obj: CreateAgentRunt
   ...(obj.agentRuntimeArtifact && { agentRuntimeArtifact: obj.agentRuntimeArtifact }),
   ...(obj.environmentVariables && { environmentVariables: SENSITIVE_STRING }),
   ...(obj.authorizerConfiguration && { authorizerConfiguration: obj.authorizerConfiguration }),
+  ...(obj.requestHeaderConfiguration && { requestHeaderConfiguration: obj.requestHeaderConfiguration }),
 });
 
 /**
@@ -6633,6 +6833,15 @@ export const GetAgentRuntimeResponseFilterSensitiveLog = (obj: GetAgentRuntimeRe
   ...(obj.agentRuntimeArtifact && { agentRuntimeArtifact: obj.agentRuntimeArtifact }),
   ...(obj.environmentVariables && { environmentVariables: SENSITIVE_STRING }),
   ...(obj.authorizerConfiguration && { authorizerConfiguration: obj.authorizerConfiguration }),
+  ...(obj.requestHeaderConfiguration && { requestHeaderConfiguration: obj.requestHeaderConfiguration }),
+});
+
+/**
+ * @internal
+ */
+export const AgentRuntimeFilterSensitiveLog = (obj: AgentRuntime): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
 });
 
 /**
@@ -6640,7 +6849,7 @@ export const GetAgentRuntimeResponseFilterSensitiveLog = (obj: GetAgentRuntimeRe
  */
 export const ListAgentRuntimesResponseFilterSensitiveLog = (obj: ListAgentRuntimesResponse): any => ({
   ...obj,
-  ...(obj.agentRuntimes && { agentRuntimes: obj.agentRuntimes.map((item) => AgentFilterSensitiveLog(item)) }),
+  ...(obj.agentRuntimes && { agentRuntimes: obj.agentRuntimes.map((item) => AgentRuntimeFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -6648,7 +6857,7 @@ export const ListAgentRuntimesResponseFilterSensitiveLog = (obj: ListAgentRuntim
  */
 export const ListAgentRuntimeVersionsResponseFilterSensitiveLog = (obj: ListAgentRuntimeVersionsResponse): any => ({
   ...obj,
-  ...(obj.agentRuntimes && { agentRuntimes: obj.agentRuntimes.map((item) => AgentFilterSensitiveLog(item)) }),
+  ...(obj.agentRuntimes && { agentRuntimes: obj.agentRuntimes.map((item) => AgentRuntimeFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -6660,6 +6869,7 @@ export const UpdateAgentRuntimeRequestFilterSensitiveLog = (obj: UpdateAgentRunt
   ...(obj.agentRuntimeArtifact && { agentRuntimeArtifact: obj.agentRuntimeArtifact }),
   ...(obj.environmentVariables && { environmentVariables: SENSITIVE_STRING }),
   ...(obj.authorizerConfiguration && { authorizerConfiguration: obj.authorizerConfiguration }),
+  ...(obj.requestHeaderConfiguration && { requestHeaderConfiguration: obj.requestHeaderConfiguration }),
 });
 
 /**

@@ -34,6 +34,8 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  * ```javascript
  * import { OmicsClient, CreateRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CreateRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // CreateRunGroupRequest
  *   name: "STRING_VALUE",

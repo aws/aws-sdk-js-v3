@@ -34,6 +34,8 @@ export interface UpdateConfigurationManagerCommandOutput extends __MetadataBeare
  * ```javascript
  * import { SSMQuickSetupClient, UpdateConfigurationManagerCommand } from "@aws-sdk/client-ssm-quicksetup"; // ES Modules import
  * // const { SSMQuickSetupClient, UpdateConfigurationManagerCommand } = require("@aws-sdk/client-ssm-quicksetup"); // CommonJS import
+ * // import type { SSMQuickSetupClientConfig } from "@aws-sdk/client-ssm-quicksetup";
+ * const config = {}; // type is SSMQuickSetupClientConfig
  * const client = new SSMQuickSetupClient(config);
  * const input = { // UpdateConfigurationManagerInput
  *   ManagerArn: "STRING_VALUE", // required

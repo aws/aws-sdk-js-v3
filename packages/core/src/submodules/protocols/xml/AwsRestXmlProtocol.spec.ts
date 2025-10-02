@@ -37,7 +37,6 @@ describe(AwsRestXmlProtocol.name, () => {
             method: "POST",
             headers: {
               "content-type": "application/xml",
-              "content-length": "167",
             },
             query: {
               delete: "",

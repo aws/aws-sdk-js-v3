@@ -40,6 +40,8 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * ```javascript
  * import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // import type { DynamoDBClientConfig } from "@aws-sdk/client-dynamodb";
+ * const config = {}; // type is DynamoDBClientConfig
  * const client = new DynamoDBClient(config);
  * const input = { // UpdateItemInput
  *   TableName: "STRING_VALUE", // required

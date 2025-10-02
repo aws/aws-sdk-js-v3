@@ -78,6 +78,8 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
  * ```javascript
  * import { IoTClient, ListRelatedResourcesForAuditFindingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListRelatedResourcesForAuditFindingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListRelatedResourcesForAuditFindingRequest
  *   findingId: "STRING_VALUE", // required

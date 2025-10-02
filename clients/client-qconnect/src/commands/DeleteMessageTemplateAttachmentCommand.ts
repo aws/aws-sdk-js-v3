@@ -39,6 +39,8 @@ export interface DeleteMessageTemplateAttachmentCommandOutput
  * ```javascript
  * import { QConnectClient, DeleteMessageTemplateAttachmentCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, DeleteMessageTemplateAttachmentCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // DeleteMessageTemplateAttachmentRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

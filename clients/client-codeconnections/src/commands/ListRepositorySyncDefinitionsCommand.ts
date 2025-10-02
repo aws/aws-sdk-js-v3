@@ -39,6 +39,8 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  * ```javascript
  * import { CodeConnectionsClient, ListRepositorySyncDefinitionsCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, ListRepositorySyncDefinitionsCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // ListRepositorySyncDefinitionsInput
  *   RepositoryLinkId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface GetChallengePasswordCommandOutput extends GetChallengePasswordR
  * ```javascript
  * import { PcaConnectorScepClient, GetChallengePasswordCommand } from "@aws-sdk/client-pca-connector-scep"; // ES Modules import
  * // const { PcaConnectorScepClient, GetChallengePasswordCommand } = require("@aws-sdk/client-pca-connector-scep"); // CommonJS import
+ * // import type { PcaConnectorScepClientConfig } from "@aws-sdk/client-pca-connector-scep";
+ * const config = {}; // type is PcaConnectorScepClientConfig
  * const client = new PcaConnectorScepClient(config);
  * const input = { // GetChallengePasswordRequest
  *   ChallengeArn: "STRING_VALUE", // required

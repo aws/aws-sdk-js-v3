@@ -34,6 +34,8 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  * ```javascript
  * import { TransferClient, StartFileTransferCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, StartFileTransferCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // StartFileTransferRequest
  *   ConnectorId: "STRING_VALUE", // required

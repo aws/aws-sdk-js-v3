@@ -33,6 +33,10 @@ import { DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput } from "../
 import { DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput } from "../commands/DeleteInsightRulesCommand";
 import { DeleteMetricStreamCommandInput, DeleteMetricStreamCommandOutput } from "../commands/DeleteMetricStreamCommand";
 import {
+  DescribeAlarmContributorsCommandInput,
+  DescribeAlarmContributorsCommandOutput,
+} from "../commands/DescribeAlarmContributorsCommand";
+import {
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput,
 } from "../commands/DescribeAlarmHistoryCommand";
@@ -103,6 +107,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { CloudWatchServiceException as __BaseException } from "../models/CloudWatchServiceException";
 import {
+  AlarmContributor,
   AlarmHistoryItem,
   AlarmType,
   AnomalyDetector,
@@ -124,6 +129,8 @@ import {
   DeleteInsightRulesOutput,
   DeleteMetricStreamInput,
   DeleteMetricStreamOutput,
+  DescribeAlarmContributorsInput,
+  DescribeAlarmContributorsOutput,
   DescribeAlarmHistoryInput,
   DescribeAlarmHistoryOutput,
   DescribeAlarmsForMetricInput,
@@ -307,6 +314,23 @@ export const se_DeleteMetricStreamCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteMetricStreamInput(input, context),
     [_A]: _DMS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeAlarmContributorsCommand
+ */
+export const se_DescribeAlarmContributorsCommand = async (
+  input: DescribeAlarmContributorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeAlarmContributorsInput(input, context),
+    [_A]: _DAC,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -964,6 +988,26 @@ export const de_DeleteMetricStreamCommand = async (
   let contents: any = {};
   contents = de_DeleteMetricStreamOutput(data.DeleteMetricStreamResult, context);
   const response: DeleteMetricStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeAlarmContributorsCommand
+ */
+export const de_DescribeAlarmContributorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAlarmContributorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAlarmContributorsOutput(data.DescribeAlarmContributorsResult, context);
+  const response: DescribeAlarmContributorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2091,12 +2135,29 @@ const se_DeleteMetricStreamInput = (input: DeleteMetricStreamInput, context: __S
 };
 
 /**
+ * serializeAws_queryDescribeAlarmContributorsInput
+ */
+const se_DescribeAlarmContributorsInput = (input: DescribeAlarmContributorsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_ANl] != null) {
+    entries[_ANl] = input[_ANl];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeAlarmHistoryInput
  */
 const se_DescribeAlarmHistoryInput = (input: DescribeAlarmHistoryInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_ANl] != null) {
     entries[_ANl] = input[_ANl];
+  }
+  if (input[_ACI] != null) {
+    entries[_ACI] = input[_ACI];
   }
   if (input[_AT] != null) {
     const memberEntries = se_AlarmTypes(input[_AT], context);
@@ -3910,12 +3971,48 @@ const se_Values = (input: number[], context: __SerdeContext): any => {
 };
 
 /**
+ * deserializeAws_queryAlarmContributor
+ */
+const de_AlarmContributor = (output: any, context: __SerdeContext): AlarmContributor => {
+  const contents: any = {};
+  if (output[_CI] != null) {
+    contents[_CI] = __expectString(output[_CI]);
+  }
+  if (String(output.ContributorAttributes).trim() === "") {
+    contents[_CA] = {};
+  } else if (output[_CA] != null && output[_CA][_e] != null) {
+    contents[_CA] = de_ContributorAttributes(__getArrayIfSingleItem(output[_CA][_e]), context);
+  }
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
+  }
+  if (output[_STT] != null) {
+    contents[_STT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STT]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryAlarmContributors
+ */
+const de_AlarmContributors = (output: any, context: __SerdeContext): AlarmContributor[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AlarmContributor(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryAlarmHistoryItem
  */
 const de_AlarmHistoryItem = (output: any, context: __SerdeContext): AlarmHistoryItem => {
   const contents: any = {};
   if (output[_ANl] != null) {
     contents[_ANl] = __expectString(output[_ANl]);
+  }
+  if (output[_ACI] != null) {
+    contents[_ACI] = __expectString(output[_ACI]);
   }
   if (output[_ATl] != null) {
     contents[_ATl] = __expectString(output[_ATl]);
@@ -3931,6 +4028,11 @@ const de_AlarmHistoryItem = (output: any, context: __SerdeContext): AlarmHistory
   }
   if (output[_HD] != null) {
     contents[_HD] = __expectString(output[_HD]);
+  }
+  if (String(output.AlarmContributorAttributes).trim() === "") {
+    contents[_ACA] = {};
+  } else if (output[_ACA] != null && output[_ACA][_e] != null) {
+    contents[_ACA] = de_ContributorAttributes(__getArrayIfSingleItem(output[_ACA][_e]), context);
   }
   return contents;
 };
@@ -3957,7 +4059,7 @@ const de_AnomalyDetector = (output: any, context: __SerdeContext): AnomalyDetect
   if (output[_MN] != null) {
     contents[_MN] = __expectString(output[_MN]);
   }
-  if (output.Dimensions === "") {
+  if (String(output.Dimensions).trim() === "") {
     contents[_D] = [];
   } else if (output[_D] != null && output[_D][_m] != null) {
     contents[_D] = de_Dimensions(__getArrayIfSingleItem(output[_D][_m]), context);
@@ -3988,7 +4090,7 @@ const de_AnomalyDetector = (output: any, context: __SerdeContext): AnomalyDetect
  */
 const de_AnomalyDetectorConfiguration = (output: any, context: __SerdeContext): AnomalyDetectorConfiguration => {
   const contents: any = {};
-  if (output.ExcludedTimeRanges === "") {
+  if (String(output.ExcludedTimeRanges).trim() === "") {
     contents[_ETR] = [];
   } else if (output[_ETR] != null && output[_ETR][_m] != null) {
     contents[_ETR] = de_AnomalyDetectorExcludedTimeRanges(__getArrayIfSingleItem(output[_ETR][_m]), context);
@@ -4040,7 +4142,7 @@ const de_CompositeAlarm = (output: any, context: __SerdeContext): CompositeAlarm
   if (output[_AE] != null) {
     contents[_AE] = __parseBoolean(output[_AE]);
   }
-  if (output.AlarmActions === "") {
+  if (String(output.AlarmActions).trim() === "") {
     contents[_AA] = [];
   } else if (output[_AA] != null && output[_AA][_m] != null) {
     contents[_AA] = de_ResourceList(__getArrayIfSingleItem(output[_AA][_m]), context);
@@ -4060,12 +4162,12 @@ const de_CompositeAlarm = (output: any, context: __SerdeContext): CompositeAlarm
   if (output[_AR] != null) {
     contents[_AR] = __expectString(output[_AR]);
   }
-  if (output.InsufficientDataActions === "") {
+  if (String(output.InsufficientDataActions).trim() === "") {
     contents[_IDA] = [];
   } else if (output[_IDA] != null && output[_IDA][_m] != null) {
     contents[_IDA] = de_ResourceList(__getArrayIfSingleItem(output[_IDA][_m]), context);
   }
-  if (output.OKActions === "") {
+  if (String(output.OKActions).trim() === "") {
     contents[_OKA] = [];
   } else if (output[_OKA] != null && output[_OKA][_m] != null) {
     contents[_OKA] = de_ResourceList(__getArrayIfSingleItem(output[_OKA][_m]), context);
@@ -4137,6 +4239,19 @@ const de_ConflictException = (output: any, context: __SerdeContext): ConflictExc
 };
 
 /**
+ * deserializeAws_queryContributorAttributes
+ */
+const de_ContributorAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
+  }, {});
+};
+
+/**
  * deserializeAws_queryDashboardEntries
  */
 const de_DashboardEntries = (output: any, context: __SerdeContext): DashboardEntry[] => {
@@ -4175,7 +4290,7 @@ const de_DashboardInvalidInputError = (output: any, context: __SerdeContext): Da
   if (output[_me] != null) {
     contents[_me] = __expectString(output[_me]);
   }
-  if (output.dashboardValidationMessages === "") {
+  if (String(output.dashboardValidationMessages).trim() === "") {
     contents[_dVM] = [];
   } else if (output[_dVM] != null && output[_dVM][_m] != null) {
     contents[_dVM] = de_DashboardValidationMessages(__getArrayIfSingleItem(output[_dVM][_m]), context);
@@ -4234,7 +4349,7 @@ const de_Datapoint = (output: any, context: __SerdeContext): Datapoint => {
   if (output[_U] != null) {
     contents[_U] = __expectString(output[_U]);
   }
-  if (output.ExtendedStatistics === "") {
+  if (String(output.ExtendedStatistics).trim() === "") {
     contents[_ESx] = {};
   } else if (output[_ESx] != null && output[_ESx][_e] != null) {
     contents[_ESx] = de_DatapointValueMap(__getArrayIfSingleItem(output[_ESx][_e]), context);
@@ -4298,7 +4413,7 @@ const de_DeleteDashboardsOutput = (output: any, context: __SerdeContext): Delete
  */
 const de_DeleteInsightRulesOutput = (output: any, context: __SerdeContext): DeleteInsightRulesOutput => {
   const contents: any = {};
-  if (output.Failures === "") {
+  if (String(output.Failures).trim() === "") {
     contents[_F] = [];
   } else if (output[_F] != null && output[_F][_m] != null) {
     contents[_F] = de_BatchFailures(__getArrayIfSingleItem(output[_F][_m]), context);
@@ -4315,11 +4430,27 @@ const de_DeleteMetricStreamOutput = (output: any, context: __SerdeContext): Dele
 };
 
 /**
+ * deserializeAws_queryDescribeAlarmContributorsOutput
+ */
+const de_DescribeAlarmContributorsOutput = (output: any, context: __SerdeContext): DescribeAlarmContributorsOutput => {
+  const contents: any = {};
+  if (String(output.AlarmContributors).trim() === "") {
+    contents[_AC] = [];
+  } else if (output[_AC] != null && output[_AC][_m] != null) {
+    contents[_AC] = de_AlarmContributors(__getArrayIfSingleItem(output[_AC][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDescribeAlarmHistoryOutput
  */
 const de_DescribeAlarmHistoryOutput = (output: any, context: __SerdeContext): DescribeAlarmHistoryOutput => {
   const contents: any = {};
-  if (output.AlarmHistoryItems === "") {
+  if (String(output.AlarmHistoryItems).trim() === "") {
     contents[_AHI] = [];
   } else if (output[_AHI] != null && output[_AHI][_m] != null) {
     contents[_AHI] = de_AlarmHistoryItems(__getArrayIfSingleItem(output[_AHI][_m]), context);
@@ -4335,7 +4466,7 @@ const de_DescribeAlarmHistoryOutput = (output: any, context: __SerdeContext): De
  */
 const de_DescribeAlarmsForMetricOutput = (output: any, context: __SerdeContext): DescribeAlarmsForMetricOutput => {
   const contents: any = {};
-  if (output.MetricAlarms === "") {
+  if (String(output.MetricAlarms).trim() === "") {
     contents[_MA] = [];
   } else if (output[_MA] != null && output[_MA][_m] != null) {
     contents[_MA] = de_MetricAlarms(__getArrayIfSingleItem(output[_MA][_m]), context);
@@ -4348,12 +4479,12 @@ const de_DescribeAlarmsForMetricOutput = (output: any, context: __SerdeContext):
  */
 const de_DescribeAlarmsOutput = (output: any, context: __SerdeContext): DescribeAlarmsOutput => {
   const contents: any = {};
-  if (output.CompositeAlarms === "") {
-    contents[_CA] = [];
-  } else if (output[_CA] != null && output[_CA][_m] != null) {
-    contents[_CA] = de_CompositeAlarms(__getArrayIfSingleItem(output[_CA][_m]), context);
+  if (String(output.CompositeAlarms).trim() === "") {
+    contents[_CAo] = [];
+  } else if (output[_CAo] != null && output[_CAo][_m] != null) {
+    contents[_CAo] = de_CompositeAlarms(__getArrayIfSingleItem(output[_CAo][_m]), context);
   }
-  if (output.MetricAlarms === "") {
+  if (String(output.MetricAlarms).trim() === "") {
     contents[_MA] = [];
   } else if (output[_MA] != null && output[_MA][_m] != null) {
     contents[_MA] = de_MetricAlarms(__getArrayIfSingleItem(output[_MA][_m]), context);
@@ -4369,7 +4500,7 @@ const de_DescribeAlarmsOutput = (output: any, context: __SerdeContext): Describe
  */
 const de_DescribeAnomalyDetectorsOutput = (output: any, context: __SerdeContext): DescribeAnomalyDetectorsOutput => {
   const contents: any = {};
-  if (output.AnomalyDetectors === "") {
+  if (String(output.AnomalyDetectors).trim() === "") {
     contents[_ADn] = [];
   } else if (output[_ADn] != null && output[_ADn][_m] != null) {
     contents[_ADn] = de_AnomalyDetectors(__getArrayIfSingleItem(output[_ADn][_m]), context);
@@ -4388,7 +4519,7 @@ const de_DescribeInsightRulesOutput = (output: any, context: __SerdeContext): De
   if (output[_NT] != null) {
     contents[_NT] = __expectString(output[_NT]);
   }
-  if (output.InsightRules === "") {
+  if (String(output.InsightRules).trim() === "") {
     contents[_IR] = [];
   } else if (output[_IR] != null && output[_IR][_m] != null) {
     contents[_IR] = de_InsightRules(__getArrayIfSingleItem(output[_IR][_m]), context);
@@ -4426,7 +4557,7 @@ const de_Dimensions = (output: any, context: __SerdeContext): Dimension[] => {
  */
 const de_DisableInsightRulesOutput = (output: any, context: __SerdeContext): DisableInsightRulesOutput => {
   const contents: any = {};
-  if (output.Failures === "") {
+  if (String(output.Failures).trim() === "") {
     contents[_F] = [];
   } else if (output[_F] != null && output[_F][_m] != null) {
     contents[_F] = de_BatchFailures(__getArrayIfSingleItem(output[_F][_m]), context);
@@ -4439,7 +4570,7 @@ const de_DisableInsightRulesOutput = (output: any, context: __SerdeContext): Dis
  */
 const de_EnableInsightRulesOutput = (output: any, context: __SerdeContext): EnableInsightRulesOutput => {
   const contents: any = {};
-  if (output.Failures === "") {
+  if (String(output.Failures).trim() === "") {
     contents[_F] = [];
   } else if (output[_F] != null && output[_F][_m] != null) {
     contents[_F] = de_BatchFailures(__getArrayIfSingleItem(output[_F][_m]), context);
@@ -4469,7 +4600,7 @@ const de_GetDashboardOutput = (output: any, context: __SerdeContext): GetDashboa
  */
 const de_GetInsightRuleReportOutput = (output: any, context: __SerdeContext): GetInsightRuleReportOutput => {
   const contents: any = {};
-  if (output.KeyLabels === "") {
+  if (String(output.KeyLabels).trim() === "") {
     contents[_KL] = [];
   } else if (output[_KL] != null && output[_KL][_m] != null) {
     contents[_KL] = de_InsightRuleContributorKeyLabels(__getArrayIfSingleItem(output[_KL][_m]), context);
@@ -4483,12 +4614,12 @@ const de_GetInsightRuleReportOutput = (output: any, context: __SerdeContext): Ge
   if (output[_AUC] != null) {
     contents[_AUC] = __strictParseLong(output[_AUC]) as number;
   }
-  if (output.Contributors === "") {
+  if (String(output.Contributors).trim() === "") {
     contents[_Con] = [];
   } else if (output[_Con] != null && output[_Con][_m] != null) {
     contents[_Con] = de_InsightRuleContributors(__getArrayIfSingleItem(output[_Con][_m]), context);
   }
-  if (output.MetricDatapoints === "") {
+  if (String(output.MetricDatapoints).trim() === "") {
     contents[_MDe] = [];
   } else if (output[_MDe] != null && output[_MDe][_m] != null) {
     contents[_MDe] = de_InsightRuleMetricDatapoints(__getArrayIfSingleItem(output[_MDe][_m]), context);
@@ -4501,7 +4632,7 @@ const de_GetInsightRuleReportOutput = (output: any, context: __SerdeContext): Ge
  */
 const de_GetMetricDataOutput = (output: any, context: __SerdeContext): GetMetricDataOutput => {
   const contents: any = {};
-  if (output.MetricDataResults === "") {
+  if (String(output.MetricDataResults).trim() === "") {
     contents[_MDR] = [];
   } else if (output[_MDR] != null && output[_MDR][_m] != null) {
     contents[_MDR] = de_MetricDataResults(__getArrayIfSingleItem(output[_MDR][_m]), context);
@@ -4509,7 +4640,7 @@ const de_GetMetricDataOutput = (output: any, context: __SerdeContext): GetMetric
   if (output[_NT] != null) {
     contents[_NT] = __expectString(output[_NT]);
   }
-  if (output.Messages === "") {
+  if (String(output.Messages).trim() === "") {
     contents[_Mess] = [];
   } else if (output[_Mess] != null && output[_Mess][_m] != null) {
     contents[_Mess] = de_MetricDataResultMessages(__getArrayIfSingleItem(output[_Mess][_m]), context);
@@ -4525,7 +4656,7 @@ const de_GetMetricStatisticsOutput = (output: any, context: __SerdeContext): Get
   if (output[_L] != null) {
     contents[_L] = __expectString(output[_L]);
   }
-  if (output.Datapoints === "") {
+  if (String(output.Datapoints).trim() === "") {
     contents[_Da] = [];
   } else if (output[_Da] != null && output[_Da][_m] != null) {
     contents[_Da] = de_Datapoints(__getArrayIfSingleItem(output[_Da][_m]), context);
@@ -4544,12 +4675,12 @@ const de_GetMetricStreamOutput = (output: any, context: __SerdeContext): GetMetr
   if (output[_Na] != null) {
     contents[_Na] = __expectString(output[_Na]);
   }
-  if (output.IncludeFilters === "") {
+  if (String(output.IncludeFilters).trim() === "") {
     contents[_IF] = [];
   } else if (output[_IF] != null && output[_IF][_m] != null) {
     contents[_IF] = de_MetricStreamFilters(__getArrayIfSingleItem(output[_IF][_m]), context);
   }
-  if (output.ExcludeFilters === "") {
+  if (String(output.ExcludeFilters).trim() === "") {
     contents[_EF] = [];
   } else if (output[_EF] != null && output[_EF][_m] != null) {
     contents[_EF] = de_MetricStreamFilters(__getArrayIfSingleItem(output[_EF][_m]), context);
@@ -4572,7 +4703,7 @@ const de_GetMetricStreamOutput = (output: any, context: __SerdeContext): GetMetr
   if (output[_OF] != null) {
     contents[_OF] = __expectString(output[_OF]);
   }
-  if (output.StatisticsConfigurations === "") {
+  if (String(output.StatisticsConfigurations).trim() === "") {
     contents[_SC] = [];
   } else if (output[_SC] != null && output[_SC][_m] != null) {
     contents[_SC] = de_MetricStreamStatisticsConfigurations(__getArrayIfSingleItem(output[_SC][_m]), context);
@@ -4625,7 +4756,7 @@ const de_InsightRule = (output: any, context: __SerdeContext): InsightRule => {
  */
 const de_InsightRuleContributor = (output: any, context: __SerdeContext): InsightRuleContributor => {
   const contents: any = {};
-  if (output.Keys === "") {
+  if (String(output.Keys).trim() === "") {
     contents[_Ke] = [];
   } else if (output[_Ke] != null && output[_Ke][_m] != null) {
     contents[_Ke] = de_InsightRuleContributorKeys(__getArrayIfSingleItem(output[_Ke][_m]), context);
@@ -4633,7 +4764,7 @@ const de_InsightRuleContributor = (output: any, context: __SerdeContext): Insigh
   if (output[_AAV] != null) {
     contents[_AAV] = __strictParseFloat(output[_AAV]) as number;
   }
-  if (output.Datapoints === "") {
+  if (String(output.Datapoints).trim() === "") {
     contents[_Da] = [];
   } else if (output[_Da] != null && output[_Da][_m] != null) {
     contents[_Da] = de_InsightRuleContributorDatapoints(__getArrayIfSingleItem(output[_Da][_m]), context);
@@ -4841,7 +4972,7 @@ const de_LimitExceededFault = (output: any, context: __SerdeContext): LimitExcee
  */
 const de_ListDashboardsOutput = (output: any, context: __SerdeContext): ListDashboardsOutput => {
   const contents: any = {};
-  if (output.DashboardEntries === "") {
+  if (String(output.DashboardEntries).trim() === "") {
     contents[_DE] = [];
   } else if (output[_DE] != null && output[_DE][_m] != null) {
     contents[_DE] = de_DashboardEntries(__getArrayIfSingleItem(output[_DE][_m]), context);
@@ -4857,7 +4988,7 @@ const de_ListDashboardsOutput = (output: any, context: __SerdeContext): ListDash
  */
 const de_ListManagedInsightRulesOutput = (output: any, context: __SerdeContext): ListManagedInsightRulesOutput => {
   const contents: any = {};
-  if (output.ManagedRules === "") {
+  if (String(output.ManagedRules).trim() === "") {
     contents[_MRan] = [];
   } else if (output[_MRan] != null && output[_MRan][_m] != null) {
     contents[_MRan] = de_ManagedRuleDescriptions(__getArrayIfSingleItem(output[_MRan][_m]), context);
@@ -4873,7 +5004,7 @@ const de_ListManagedInsightRulesOutput = (output: any, context: __SerdeContext):
  */
 const de_ListMetricsOutput = (output: any, context: __SerdeContext): ListMetricsOutput => {
   const contents: any = {};
-  if (output.Metrics === "") {
+  if (String(output.Metrics).trim() === "") {
     contents[_M] = [];
   } else if (output[_M] != null && output[_M][_m] != null) {
     contents[_M] = de_Metrics(__getArrayIfSingleItem(output[_M][_m]), context);
@@ -4881,7 +5012,7 @@ const de_ListMetricsOutput = (output: any, context: __SerdeContext): ListMetrics
   if (output[_NT] != null) {
     contents[_NT] = __expectString(output[_NT]);
   }
-  if (output.OwningAccounts === "") {
+  if (String(output.OwningAccounts).trim() === "") {
     contents[_OAw] = [];
   } else if (output[_OAw] != null && output[_OAw][_m] != null) {
     contents[_OAw] = de_OwningAccounts(__getArrayIfSingleItem(output[_OAw][_m]), context);
@@ -4897,7 +5028,7 @@ const de_ListMetricStreamsOutput = (output: any, context: __SerdeContext): ListM
   if (output[_NT] != null) {
     contents[_NT] = __expectString(output[_NT]);
   }
-  if (output.Entries === "") {
+  if (String(output.Entries).trim() === "") {
     contents[_En] = [];
   } else if (output[_En] != null && output[_En][_m] != null) {
     contents[_En] = de_MetricStreamEntries(__getArrayIfSingleItem(output[_En][_m]), context);
@@ -4910,7 +5041,7 @@ const de_ListMetricStreamsOutput = (output: any, context: __SerdeContext): ListM
  */
 const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
   const contents: any = {};
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_Ta] != null && output[_Ta][_m] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_Ta][_m]), context);
@@ -4985,7 +5116,7 @@ const de_Metric = (output: any, context: __SerdeContext): Metric => {
   if (output[_MN] != null) {
     contents[_MN] = __expectString(output[_MN]);
   }
-  if (output.Dimensions === "") {
+  if (String(output.Dimensions).trim() === "") {
     contents[_D] = [];
   } else if (output[_D] != null && output[_D][_m] != null) {
     contents[_D] = de_Dimensions(__getArrayIfSingleItem(output[_D][_m]), context);
@@ -5013,17 +5144,17 @@ const de_MetricAlarm = (output: any, context: __SerdeContext): MetricAlarm => {
   if (output[_AE] != null) {
     contents[_AE] = __parseBoolean(output[_AE]);
   }
-  if (output.OKActions === "") {
+  if (String(output.OKActions).trim() === "") {
     contents[_OKA] = [];
   } else if (output[_OKA] != null && output[_OKA][_m] != null) {
     contents[_OKA] = de_ResourceList(__getArrayIfSingleItem(output[_OKA][_m]), context);
   }
-  if (output.AlarmActions === "") {
+  if (String(output.AlarmActions).trim() === "") {
     contents[_AA] = [];
   } else if (output[_AA] != null && output[_AA][_m] != null) {
     contents[_AA] = de_ResourceList(__getArrayIfSingleItem(output[_AA][_m]), context);
   }
-  if (output.InsufficientDataActions === "") {
+  if (String(output.InsufficientDataActions).trim() === "") {
     contents[_IDA] = [];
   } else if (output[_IDA] != null && output[_IDA][_m] != null) {
     contents[_IDA] = de_ResourceList(__getArrayIfSingleItem(output[_IDA][_m]), context);
@@ -5052,7 +5183,7 @@ const de_MetricAlarm = (output: any, context: __SerdeContext): MetricAlarm => {
   if (output[_ES] != null) {
     contents[_ES] = __expectString(output[_ES]);
   }
-  if (output.Dimensions === "") {
+  if (String(output.Dimensions).trim() === "") {
     contents[_D] = [];
   } else if (output[_D] != null && output[_D][_m] != null) {
     contents[_D] = de_Dimensions(__getArrayIfSingleItem(output[_D][_m]), context);
@@ -5081,7 +5212,7 @@ const de_MetricAlarm = (output: any, context: __SerdeContext): MetricAlarm => {
   if (output[_ELSCP] != null) {
     contents[_ELSCP] = __expectString(output[_ELSCP]);
   }
-  if (output.Metrics === "") {
+  if (String(output.Metrics).trim() === "") {
     contents[_M] = [];
   } else if (output[_M] != null && output[_M][_m] != null) {
     contents[_M] = de_MetricDataQueries(__getArrayIfSingleItem(output[_M][_m]), context);
@@ -5171,12 +5302,12 @@ const de_MetricDataResult = (output: any, context: __SerdeContext): MetricDataRe
   if (output[_L] != null) {
     contents[_L] = __expectString(output[_L]);
   }
-  if (output.Timestamps === "") {
+  if (String(output.Timestamps).trim() === "") {
     contents[_Tim] = [];
   } else if (output[_Tim] != null && output[_Tim][_m] != null) {
     contents[_Tim] = de_Timestamps(__getArrayIfSingleItem(output[_Tim][_m]), context);
   }
-  if (output.Values === "") {
+  if (String(output.Values).trim() === "") {
     contents[_Val] = [];
   } else if (output[_Val] != null && output[_Val][_m] != null) {
     contents[_Val] = de_DatapointValues(__getArrayIfSingleItem(output[_Val][_m]), context);
@@ -5184,7 +5315,7 @@ const de_MetricDataResult = (output: any, context: __SerdeContext): MetricDataRe
   if (output[_SCt] != null) {
     contents[_SCt] = __expectString(output[_SCt]);
   }
-  if (output.Messages === "") {
+  if (String(output.Messages).trim() === "") {
     contents[_Mess] = [];
   } else if (output[_Mess] != null && output[_Mess][_m] != null) {
     contents[_Mess] = de_MetricDataResultMessages(__getArrayIfSingleItem(output[_Mess][_m]), context);
@@ -5219,7 +5350,7 @@ const de_MetricDataResults = (output: any, context: __SerdeContext): MetricDataR
  */
 const de_MetricMathAnomalyDetector = (output: any, context: __SerdeContext): MetricMathAnomalyDetector => {
   const contents: any = {};
-  if (output.MetricDataQueries === "") {
+  if (String(output.MetricDataQueries).trim() === "") {
     contents[_MDQ] = [];
   } else if (output[_MDQ] != null && output[_MDQ][_m] != null) {
     contents[_MDQ] = de_MetricDataQueries(__getArrayIfSingleItem(output[_MDQ][_m]), context);
@@ -5306,7 +5437,7 @@ const de_MetricStreamFilter = (output: any, context: __SerdeContext): MetricStre
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
   }
-  if (output.MetricNames === "") {
+  if (String(output.MetricNames).trim() === "") {
     contents[_MNe] = [];
   } else if (output[_MNe] != null && output[_MNe][_m] != null) {
     contents[_MNe] = de_MetricStreamFilterMetricNames(__getArrayIfSingleItem(output[_MNe][_m]), context);
@@ -5355,12 +5486,12 @@ const de_MetricStreamStatisticsConfiguration = (
   context: __SerdeContext
 ): MetricStreamStatisticsConfiguration => {
   const contents: any = {};
-  if (output.IncludeMetrics === "") {
+  if (String(output.IncludeMetrics).trim() === "") {
     contents[_IM] = [];
   } else if (output[_IM] != null && output[_IM][_m] != null) {
     contents[_IM] = de_MetricStreamStatisticsIncludeMetrics(__getArrayIfSingleItem(output[_IM][_m]), context);
   }
-  if (output.AdditionalStatistics === "") {
+  if (String(output.AdditionalStatistics).trim() === "") {
     contents[_AS] = [];
   } else if (output[_AS] != null && output[_AS][_m] != null) {
     contents[_AS] = de_MetricStreamStatisticsAdditionalStatistics(__getArrayIfSingleItem(output[_AS][_m]), context);
@@ -5468,7 +5599,7 @@ const de_PutAnomalyDetectorOutput = (output: any, context: __SerdeContext): PutA
  */
 const de_PutDashboardOutput = (output: any, context: __SerdeContext): PutDashboardOutput => {
   const contents: any = {};
-  if (output.DashboardValidationMessages === "") {
+  if (String(output.DashboardValidationMessages).trim() === "") {
     contents[_DVM] = [];
   } else if (output[_DVM] != null && output[_DVM][_m] != null) {
     contents[_DVM] = de_DashboardValidationMessages(__getArrayIfSingleItem(output[_DVM][_m]), context);
@@ -5489,7 +5620,7 @@ const de_PutInsightRuleOutput = (output: any, context: __SerdeContext): PutInsig
  */
 const de_PutManagedInsightRulesOutput = (output: any, context: __SerdeContext): PutManagedInsightRulesOutput => {
   const contents: any = {};
-  if (output.Failures === "") {
+  if (String(output.Failures).trim() === "") {
     contents[_F] = [];
   } else if (output[_F] != null && output[_F][_m] != null) {
     contents[_F] = de_BatchFailures(__getArrayIfSingleItem(output[_F][_m]), context);
@@ -5575,7 +5706,7 @@ const de_SingleMetricAnomalyDetector = (output: any, context: __SerdeContext): S
   if (output[_MN] != null) {
     contents[_MN] = __expectString(output[_MN]);
   }
-  if (output.Dimensions === "") {
+  if (String(output.Dimensions).trim() === "") {
     contents[_D] = [];
   } else if (output[_D] != null && output[_D][_m] != null) {
     contents[_D] = de_Dimensions(__getArrayIfSingleItem(output[_D][_m]), context);
@@ -5700,6 +5831,9 @@ const _A = "Action";
 const _AA = "AlarmActions";
 const _AAV = "ApproximateAggregateValue";
 const _AAl = "AlarmArn";
+const _AC = "AlarmContributors";
+const _ACA = "AlarmContributorAttributes";
+const _ACI = "AlarmContributorId";
 const _ACUT = "AlarmConfigurationUpdatedTimestamp";
 const _AD = "AlarmDescription";
 const _ADT = "AnomalyDetectorTypes";
@@ -5729,8 +5863,10 @@ const _Ar = "Arn";
 const _At = "Attributes";
 const _Av = "Average";
 const _C = "Counts";
-const _CA = "CompositeAlarms";
+const _CA = "ContributorAttributes";
+const _CAo = "CompositeAlarms";
 const _CD = "CreationDate";
+const _CI = "ContributorId";
 const _CO = "ComparisonOperator";
 const _COAN = "ChildrenOfAlarmName";
 const _Co = "Configuration";
@@ -5739,6 +5875,7 @@ const _Con = "Contributors";
 const _D = "Dimensions";
 const _DA = "DeleteAlarms";
 const _DAA = "DisableAlarmActions";
+const _DAC = "DescribeAlarmContributors";
 const _DAD = "DeleteAnomalyDetector";
 const _DADe = "DescribeAnomalyDetectors";
 const _DAFM = "DescribeAlarmsForMetric";

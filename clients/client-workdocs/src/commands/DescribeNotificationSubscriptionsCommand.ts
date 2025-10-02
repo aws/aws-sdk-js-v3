@@ -42,6 +42,8 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  * ```javascript
  * import { WorkDocsClient, DescribeNotificationSubscriptionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeNotificationSubscriptionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DescribeNotificationSubscriptionsRequest
  *   OrganizationId: "STRING_VALUE", // required

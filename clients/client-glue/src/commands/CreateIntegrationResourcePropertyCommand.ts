@@ -42,6 +42,8 @@ export interface CreateIntegrationResourcePropertyCommandOutput
  * ```javascript
  * import { GlueClient, CreateIntegrationResourcePropertyCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateIntegrationResourcePropertyCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // CreateIntegrationResourcePropertyRequest
  *   ResourceArn: "STRING_VALUE", // required

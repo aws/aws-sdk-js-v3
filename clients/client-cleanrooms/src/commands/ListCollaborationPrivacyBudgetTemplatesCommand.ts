@@ -43,6 +43,8 @@ export interface ListCollaborationPrivacyBudgetTemplatesCommandOutput
  * ```javascript
  * import { CleanRoomsClient, ListCollaborationPrivacyBudgetTemplatesCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListCollaborationPrivacyBudgetTemplatesCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // ListCollaborationPrivacyBudgetTemplatesInput
  *   collaborationIdentifier: "STRING_VALUE", // required
@@ -60,7 +62,7 @@ export interface ListCollaborationPrivacyBudgetTemplatesCommandOutput
  * //       collaborationId: "STRING_VALUE", // required
  * //       collaborationArn: "STRING_VALUE", // required
  * //       creatorAccountId: "STRING_VALUE", // required
- * //       privacyBudgetType: "DIFFERENTIAL_PRIVACY", // required
+ * //       privacyBudgetType: "DIFFERENTIAL_PRIVACY" || "ACCESS_BUDGET", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //     },

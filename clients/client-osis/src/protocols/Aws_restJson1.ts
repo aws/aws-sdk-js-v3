@@ -26,7 +26,19 @@ import {
 } from "@smithy/types";
 
 import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "../commands/CreatePipelineCommand";
+import {
+  CreatePipelineEndpointCommandInput,
+  CreatePipelineEndpointCommandOutput,
+} from "../commands/CreatePipelineEndpointCommand";
 import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "../commands/DeletePipelineCommand";
+import {
+  DeletePipelineEndpointCommandInput,
+  DeletePipelineEndpointCommandOutput,
+} from "../commands/DeletePipelineEndpointCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import {
   GetPipelineBlueprintCommandInput,
   GetPipelineBlueprintCommandOutput,
@@ -36,15 +48,29 @@ import {
   GetPipelineChangeProgressCommandOutput,
 } from "../commands/GetPipelineChangeProgressCommand";
 import { GetPipelineCommandInput, GetPipelineCommandOutput } from "../commands/GetPipelineCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import {
   ListPipelineBlueprintsCommandInput,
   ListPipelineBlueprintsCommandOutput,
 } from "../commands/ListPipelineBlueprintsCommand";
+import {
+  ListPipelineEndpointConnectionsCommandInput,
+  ListPipelineEndpointConnectionsCommandOutput,
+} from "../commands/ListPipelineEndpointConnectionsCommand";
+import {
+  ListPipelineEndpointsCommandInput,
+  ListPipelineEndpointsCommandOutput,
+} from "../commands/ListPipelineEndpointsCommand";
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "../commands/ListPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
+import {
+  RevokePipelineEndpointConnectionsCommandInput,
+  RevokePipelineEndpointConnectionsCommandOutput,
+} from "../commands/RevokePipelineEndpointConnectionsCommand";
 import { StartPipelineCommandInput, StartPipelineCommandOutput } from "../commands/StartPipelineCommand";
 import { StopPipelineCommandInput, StopPipelineCommandOutput } from "../commands/StopPipelineCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -65,6 +91,7 @@ import {
   LimitExceededException,
   LogPublishingOptions,
   Pipeline,
+  PipelineEndpointVpcOptions,
   PipelineSummary,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
@@ -107,6 +134,29 @@ export const se_CreatePipelineCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreatePipelineEndpointCommand
+ */
+export const se_CreatePipelineEndpointCommand = async (
+  input: CreatePipelineEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2022-01-01/osis/createPipelineEndpoint");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      PipelineArn: [],
+      VpcOptions: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeletePipelineCommand
  */
 export const se_DeletePipelineCommand = async (
@@ -117,6 +167,38 @@ export const se_DeletePipelineCommand = async (
   const headers: any = {};
   b.bp("/2022-01-01/osis/deletePipeline/{PipelineName}");
   b.p("PipelineName", () => input.PipelineName!, "{PipelineName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeletePipelineEndpointCommand
+ */
+export const se_DeletePipelineEndpointCommand = async (
+  input: DeletePipelineEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2022-01-01/osis/deletePipelineEndpoint/{EndpointId}");
+  b.p("EndpointId", () => input.EndpointId!, "{EndpointId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2022-01-01/osis/resourcePolicy/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -174,6 +256,22 @@ export const se_GetPipelineChangeProgressCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2022-01-01/osis/resourcePolicy/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListPipelineBlueprintsCommand
  */
 export const se_ListPipelineBlueprintsCommand = async (
@@ -185,6 +283,44 @@ export const se_ListPipelineBlueprintsCommand = async (
   b.bp("/2022-01-01/osis/listPipelineBlueprints");
   let body: any;
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPipelineEndpointConnectionsCommand
+ */
+export const se_ListPipelineEndpointConnectionsCommand = async (
+  input: ListPipelineEndpointConnectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2022-01-01/osis/listPipelineEndpointConnections");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPipelineEndpointsCommand
+ */
+export const se_ListPipelineEndpointsCommand = async (
+  input: ListPipelineEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2022-01-01/osis/listPipelineEndpoints");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -222,6 +358,52 @@ export const se_ListTagsForResourceCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2022-01-01/osis/resourcePolicy/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1RevokePipelineEndpointConnectionsCommand
+ */
+export const se_RevokePipelineEndpointConnectionsCommand = async (
+  input: RevokePipelineEndpointConnectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2022-01-01/osis/revokePipelineEndpointConnections");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EndpointIds: (_) => _json(_),
+      PipelineArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -380,12 +562,70 @@ export const de_CreatePipelineCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreatePipelineEndpointCommand
+ */
+export const de_CreatePipelineEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePipelineEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EndpointId: __expectString,
+    PipelineArn: __expectString,
+    Status: __expectString,
+    VpcId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeletePipelineCommand
  */
 export const de_DeletePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePipelineEndpointCommand
+ */
+export const de_DeletePipelineEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePipelineEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -461,6 +701,28 @@ export const de_GetPipelineChangeProgressCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Policy: __expectString,
+    ResourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListPipelineBlueprintsCommand
  */
 export const de_ListPipelineBlueprintsCommand = async (
@@ -476,6 +738,50 @@ export const de_ListPipelineBlueprintsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Blueprints: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPipelineEndpointConnectionsCommand
+ */
+export const de_ListPipelineEndpointConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPipelineEndpointConnectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    PipelineEndpointConnections: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPipelineEndpointsCommand
+ */
+export const de_ListPipelineEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPipelineEndpointsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    PipelineEndpoints: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -519,6 +825,49 @@ export const de_ListTagsForResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Policy: __expectString,
+    ResourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RevokePipelineEndpointConnectionsCommand
+ */
+export const de_RevokePipelineEndpointConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokePipelineEndpointConnectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PipelineArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -870,6 +1219,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_LogPublishingOptions omitted.
 
+// se_PipelineEndpointIdsList omitted.
+
+// se_PipelineEndpointVpcOptions omitted.
+
 // se_SecurityGroupIds omitted.
 
 // se_StringList omitted.
@@ -978,6 +1331,16 @@ const de_Pipeline = (output: any, context: __SerdeContext): Pipeline => {
 // de_PipelineDestination omitted.
 
 // de_PipelineDestinationList omitted.
+
+// de_PipelineEndpoint omitted.
+
+// de_PipelineEndpointConnection omitted.
+
+// de_PipelineEndpointConnectionsSummaryList omitted.
+
+// de_PipelineEndpointsSummaryList omitted.
+
+// de_PipelineEndpointVpcOptions omitted.
 
 // de_PipelineStatusReason omitted.
 

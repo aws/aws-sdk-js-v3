@@ -34,6 +34,8 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * ```javascript
  * import { AmplifyUIBuilderClient, GetComponentCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, GetComponentCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // import type { AmplifyUIBuilderClientConfig } from "@aws-sdk/client-amplifyuibuilder";
+ * const config = {}; // type is AmplifyUIBuilderClientConfig
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // GetComponentRequest
  *   appId: "STRING_VALUE", // required

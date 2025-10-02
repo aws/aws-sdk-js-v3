@@ -55,6 +55,8 @@ export interface CreateWorkspaceServiceAccountTokenCommandOutput
  * ```javascript
  * import { GrafanaClient, CreateWorkspaceServiceAccountTokenCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, CreateWorkspaceServiceAccountTokenCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // import type { GrafanaClientConfig } from "@aws-sdk/client-grafana";
+ * const config = {}; // type is GrafanaClientConfig
  * const client = new GrafanaClient(config);
  * const input = { // CreateWorkspaceServiceAccountTokenRequest
  *   name: "STRING_VALUE", // required

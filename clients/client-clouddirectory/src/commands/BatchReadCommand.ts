@@ -34,6 +34,8 @@ export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBea
  * ```javascript
  * import { CloudDirectoryClient, BatchReadCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, BatchReadCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // BatchReadRequest
  *   DirectoryArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateRepositoryLinkCommandOutput extends CreateRepositoryLinkO
  * ```javascript
  * import { CodeConnectionsClient, CreateRepositoryLinkCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, CreateRepositoryLinkCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // CreateRepositoryLinkInput
  *   ConnectionArn: "STRING_VALUE", // required

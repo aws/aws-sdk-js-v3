@@ -42,6 +42,8 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, ChangePasswordCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ChangePasswordCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ChangePasswordRequest
  *   OldPassword: "STRING_VALUE", // required

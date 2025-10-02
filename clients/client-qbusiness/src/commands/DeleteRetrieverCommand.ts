@@ -34,6 +34,8 @@ export interface DeleteRetrieverCommandOutput extends DeleteRetrieverResponse, _
  * ```javascript
  * import { QBusinessClient, DeleteRetrieverCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, DeleteRetrieverCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // DeleteRetrieverRequest
  *   applicationId: "STRING_VALUE", // required

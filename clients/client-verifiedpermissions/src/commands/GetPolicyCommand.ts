@@ -38,6 +38,8 @@ export interface GetPolicyCommandOutput extends GetPolicyOutput, __MetadataBeare
  * ```javascript
  * import { VerifiedPermissionsClient, GetPolicyCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, GetPolicyCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // GetPolicyInput
  *   policyStoreId: "STRING_VALUE", // required

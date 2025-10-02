@@ -40,6 +40,8 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * ```javascript
  * import { AppStreamClient, CreateAppBlockCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateAppBlockCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // CreateAppBlockRequest
  *   Name: "STRING_VALUE", // required

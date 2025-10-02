@@ -34,6 +34,8 @@ export interface ListCasesCommandOutput extends ListCasesResponse, __MetadataBea
  * ```javascript
  * import { SecurityIRClient, ListCasesCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, ListCasesCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // ListCasesRequest
  *   nextToken: "STRING_VALUE",

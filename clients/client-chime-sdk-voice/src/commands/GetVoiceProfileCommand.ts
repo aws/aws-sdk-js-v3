@@ -38,6 +38,8 @@ export interface GetVoiceProfileCommandOutput extends GetVoiceProfileResponse, _
  * ```javascript
  * import { ChimeSDKVoiceClient, GetVoiceProfileCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetVoiceProfileCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceProfileRequest
  *   VoiceProfileId: "STRING_VALUE", // required

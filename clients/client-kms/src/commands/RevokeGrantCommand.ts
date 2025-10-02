@@ -80,6 +80,8 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KMSClient, RevokeGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, RevokeGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // RevokeGrantRequest
  *   KeyId: "STRING_VALUE", // required

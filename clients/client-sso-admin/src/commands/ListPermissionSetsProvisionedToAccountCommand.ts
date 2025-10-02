@@ -43,6 +43,8 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
  * ```javascript
  * import { SSOAdminClient, ListPermissionSetsProvisionedToAccountCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListPermissionSetsProvisionedToAccountCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // ListPermissionSetsProvisionedToAccountRequest
  *   InstanceArn: "STRING_VALUE", // required

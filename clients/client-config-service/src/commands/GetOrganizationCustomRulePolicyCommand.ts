@@ -39,6 +39,8 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
  * ```javascript
  * import { ConfigServiceClient, GetOrganizationCustomRulePolicyCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetOrganizationCustomRulePolicyCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // GetOrganizationCustomRulePolicyRequest
  *   OrganizationConfigRuleName: "STRING_VALUE", // required

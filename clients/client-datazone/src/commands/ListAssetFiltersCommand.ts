@@ -32,12 +32,14 @@ export interface ListAssetFiltersCommandInput extends ListAssetFiltersInput {}
 export interface ListAssetFiltersCommandOutput extends ListAssetFiltersOutput, __MetadataBearer {}
 
 /**
- * <p>Lists asset filters.</p>
+ * <p>Lists asset filters.</p> <p>Prerequisites:</p> <ul> <li> <p>A valid domain and asset must exist. </p> </li> <li> <p>The asset must have at least one filter created to return results. </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, ListAssetFiltersCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListAssetFiltersCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListAssetFiltersInput
  *   domainIdentifier: "STRING_VALUE", // required

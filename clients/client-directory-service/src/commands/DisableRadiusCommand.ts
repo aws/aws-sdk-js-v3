@@ -28,13 +28,15 @@ export interface DisableRadiusCommandInput extends DisableRadiusRequest {}
 export interface DisableRadiusCommandOutput extends DisableRadiusResult, __MetadataBearer {}
 
 /**
- * <p>Disables multi-factor authentication (MFA) with the Remote Authentication Dial In
- *          User Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
+ * <p>Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User
+ *          Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, DisableRadiusCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DisableRadiusCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DisableRadiusRequest
  *   DirectoryId: "STRING_VALUE", // required

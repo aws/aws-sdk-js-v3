@@ -35,6 +35,8 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
  * ```javascript
  * import { CloudTrailClient, DescribeTrailsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DescribeTrailsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // DescribeTrailsRequest
  *   trailNameList: [ // TrailNameList

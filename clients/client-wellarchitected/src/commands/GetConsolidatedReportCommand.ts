@@ -35,6 +35,8 @@ export interface GetConsolidatedReportCommandOutput extends GetConsolidatedRepor
  * ```javascript
  * import { WellArchitectedClient, GetConsolidatedReportCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetConsolidatedReportCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // GetConsolidatedReportInput
  *   Format: "PDF" || "JSON", // required

@@ -34,6 +34,8 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * ```javascript
  * import { SageMakerClient, ListFeatureGroupsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListFeatureGroupsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListFeatureGroupsRequest
  *   NameContains: "STRING_VALUE",

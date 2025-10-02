@@ -32,9 +32,9 @@ export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a template either from a <code>TemplateDefinition</code> or from an existing Amazon QuickSight analysis or template. You can use the resulting
+ * <p>Creates a template either from a <code>TemplateDefinition</code> or from an existing QuickSight analysis or template. You can use the resulting
  * 			template to create additional dashboards, templates, or analyses.</p>
- *          <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
+ *          <p>A <i>template</i> is an entity in QuickSight that encapsulates the metadata
  * 			required to create an analysis and that you can use to create s dashboard. A template adds
  * 			a layer of abstraction by using placeholders to replace the dataset associated with the
  * 			analysis. You can use templates to create dashboards by replacing dataset placeholders
@@ -45,6 +45,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * ```javascript
  * import { QuickSightClient, CreateTemplateCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateTemplateCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateTemplateRequest
  *   AwsAccountId: "STRING_VALUE", // required
@@ -5563,7 +5565,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * @throws {@link UnsupportedUserEditionException} (client fault)
  *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

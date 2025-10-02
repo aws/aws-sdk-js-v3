@@ -960,7 +960,7 @@ export interface Delivery {
   deliveryDestinationArn?: string | undefined;
 
   /**
-   * <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, Firehose,  or X-Ray.</p>
+   * <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.</p>
    * @public
    */
   deliveryDestinationType?: DeliveryDestinationType | undefined;
@@ -1709,13 +1709,15 @@ export interface DeleteResourcePolicyRequest {
   policyName?: string | undefined;
 
   /**
-   * <p>The ARN of the CloudWatch Logs resource for which the resource policy needs to be deleted</p>
+   * <p>The ARN of the CloudWatch Logs resource for which the resource policy needs to be
+   *       deleted</p>
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The expected revision ID of the resource policy. Required when deleting a resource-scoped policy to prevent concurrent modifications.</p>
+   * <p>The expected revision ID of the resource policy. Required when deleting a resource-scoped
+   *       policy to prevent concurrent modifications.</p>
    * @public
    */
   expectedRevisionId?: string | undefined;
@@ -1778,8 +1780,8 @@ export interface DeliveryDestinationConfiguration {
 /**
  * <p>This structure contains information about one <i>delivery destination</i> in
  *       your account. A delivery destination is an Amazon Web Services resource that represents an
- *       Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3, Firehose, and X-Ray
- *       are supported as delivery destinations.</p>
+ *         Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3,
+ *         Firehose, and X-Ray are supported as delivery destinations.</p>
  *          <p>To configure logs delivery between a supported Amazon Web Services service and a
  *       destination, you must do the following:</p>
  *          <ul>
@@ -1819,7 +1821,8 @@ export interface DeliveryDestination {
   arn?: string | undefined;
 
   /**
-   * <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.</p>
+   * <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3,
+   *         Firehose, or X-Ray.</p>
    * @public
    */
   deliveryDestinationType?: DeliveryDestinationType | undefined;
@@ -3207,6 +3210,18 @@ export interface MetricFilter {
    * @public
    */
   applyOnTransformedLogs?: boolean | undefined;
+
+  /**
+   * <p>The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the <code>fieldSelectionCriteria</code> value if it was specified when the metric filter was created.</p>
+   * @public
+   */
+  fieldSelectionCriteria?: string | undefined;
+
+  /**
+   * <p>The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the <code>emitSystemFieldDimensions</code> value if it was specified when the metric filter was created.</p>
+   * @public
+   */
+  emitSystemFieldDimensions?: string[] | undefined;
 }
 
 /**
@@ -3502,7 +3517,8 @@ export interface DescribeResourcePoliciesRequest {
   resourceArn?: string | undefined;
 
   /**
-   * <p>Specifies the scope of the resource policy. Valid values are <code>ACCOUNT</code> or <code>RESOURCE</code>. When not specified, defaults to <code>ACCOUNT</code>.</p>
+   * <p>Specifies the scope of the resource policy. Valid values are <code>ACCOUNT</code> or
+   *         <code>RESOURCE</code>. When not specified, defaults to <code>ACCOUNT</code>.</p>
    * @public
    */
   policyScope?: PolicyScope | undefined;
@@ -3540,13 +3556,15 @@ export interface ResourcePolicy {
   policyScope?: PolicyScope | undefined;
 
   /**
-   * <p>The ARN of the CloudWatch Logs resource to which the resource policy is attached. Only populated for resource-scoped policies.</p>
+   * <p>The ARN of the CloudWatch Logs resource to which the resource policy is attached. Only
+   *       populated for resource-scoped policies.</p>
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The revision ID of the resource policy. Only populated for resource-scoped policies.</p>
+   * <p>The revision ID of the resource policy. Only populated for resource-scoped
+   *       policies.</p>
    * @public
    */
   revisionId?: string | undefined;
@@ -3675,6 +3693,18 @@ export interface SubscriptionFilter {
    * @public
    */
   creationTime?: number | undefined;
+
+  /**
+   * <p>The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the <code>fieldSelectionCriteria</code> value if it was specified when the subscription filter was created.</p>
+   * @public
+   */
+  fieldSelectionCriteria?: string | undefined;
+
+  /**
+   * <p>The list of system fields that are included in the log events sent to the subscription destination. Returns the <code>emitSystemFields</code> value if it was specified when the subscription filter was created.</p>
+   * @public
+   */
+  emitSystemFields?: string[] | undefined;
 }
 
 /**
@@ -3807,12 +3837,15 @@ export const EventSource = {
 export type EventSource = (typeof EventSource)[keyof typeof EventSource];
 
 /**
- * <p>A structure containing the extracted fields from a log event. These fields are extracted based on the log format and can be used for structured querying and analysis.</p>
+ * <p>A structure containing the extracted fields from a log event. These fields are extracted
+ *       based on the log format and can be used for structured querying and analysis.</p>
  * @public
  */
 export interface FieldsData {
   /**
-   * <p>The actual log data content returned in the streaming response. This contains the fields and values of the log event in a structured format that can be parsed and processed by the client.</p>
+   * <p>The actual log data content returned in the streaming response. This contains the fields
+   *       and values of the log event in a structured format that can be parsed and processed by the
+   *       client.</p>
    * @public
    */
   data?: Uint8Array | undefined;
@@ -4882,20 +4915,26 @@ export interface GetLogGroupFieldsResponse {
  */
 export interface GetLogObjectRequest {
   /**
-   * <p>A boolean flag that indicates whether to unmask sensitive log data. When set to true, any masked or redacted data in the log object will be displayed in its original form. Default is false.</p>
+   * <p>A boolean flag that indicates whether to unmask sensitive log data. When set to true, any
+   *       masked or redacted data in the log object will be displayed in its original form. Default is
+   *       false.</p>
    * @public
    */
   unmask?: boolean | undefined;
 
   /**
-   * <p>A pointer to the specific log object to retrieve. This is a required parameter that uniquely identifies the log object within CloudWatch Logs. The pointer is typically obtained from a previous query or filter operation.</p>
+   * <p>A pointer to the specific log object to retrieve. This is a required parameter that
+   *       uniquely identifies the log object within CloudWatch Logs. The pointer is typically obtained
+   *       from a previous query or filter operation.</p>
    * @public
    */
   logObjectPointer: string | undefined;
 }
 
 /**
- * <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
+ * <p>An internal error occurred during the streaming of log data. This exception is thrown when
+ *       there's an issue with the internal streaming mechanism used by the GetLogObject
+ *       operation.</p>
  * @public
  */
 export class InternalStreamingException extends __BaseException {
@@ -4915,7 +4954,8 @@ export class InternalStreamingException extends __BaseException {
 }
 
 /**
- * <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
+ * <p>A stream of structured log data returned by the GetLogObject operation. This stream
+ *       contains log events with their associated metadata and extracted fields.</p>
  * @public
  */
 export type GetLogObjectResponseStream =
@@ -4928,7 +4968,8 @@ export type GetLogObjectResponseStream =
  */
 export namespace GetLogObjectResponseStream {
   /**
-   * <p>A structure containing the extracted fields from a log event. These fields are extracted based on the log format and can be used for structured querying and analysis.</p>
+   * <p>A structure containing the extracted fields from a log event. These fields are extracted
+   *       based on the log format and can be used for structured querying and analysis.</p>
    * @public
    */
   export interface FieldsMember {
@@ -4938,7 +4979,9 @@ export namespace GetLogObjectResponseStream {
   }
 
   /**
-   * <p>An internal error occurred during the streaming of log data. This exception is thrown when there's an issue with the internal streaming mechanism used by the GetLogObject operation.</p>
+   * <p>An internal error occurred during the streaming of log data. This exception is thrown when
+   *       there's an issue with the internal streaming mechanism used by the GetLogObject
+   *       operation.</p>
    * @public
    */
   export interface InternalStreamingExceptionMember {
@@ -4976,7 +5019,8 @@ export namespace GetLogObjectResponseStream {
  */
 export interface GetLogObjectResponse {
   /**
-   * <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
+   * <p>A stream of structured log data returned by the GetLogObject operation. This stream
+   *       contains log events with their associated metadata and extracted fields.</p>
    * @public
    */
   fieldStream?: AsyncIterable<GetLogObjectResponseStream> | undefined;
@@ -5167,7 +5211,7 @@ export interface GetTransformerRequest {
 /**
  * <p>This processor uses pattern matching to parse and structure unstructured data. This
  *       processor can also extract fields from log messages.</p>
- *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Grok"> grok</a> in the <i>CloudWatch Logs User Guide</i>.</p>
+ *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-Grok">grok</a> in the <i>CloudWatch Logs User Guide</i>.</p>
  * @public
  */
 export interface Grok {
@@ -5180,7 +5224,7 @@ export interface Grok {
 
   /**
    * <p>The grok pattern to match against the log event. For a list of supported grok patterns,
-   *       see <a href="https://docs.aws.amazon.com/mazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#Grok-Patterns">Supported grok patterns</a>.</p>
+   *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#Grok-Patterns">Supported grok patterns</a>.</p>
    * @public
    */
   match: string | undefined;
@@ -6721,14 +6765,19 @@ export interface PutDeliveryDestinationRequest {
    *       logs.</p>
    *          <note>
    *             <p>
-   *                <code>deliveryDestinationConfiguration</code> is required for CloudWatch Logs, Amazon S3, Firehose log delivery destinations and not required for X-Ray trace delivery destinations. <code>deliveryDestinationType</code> is needed for X-Ray trace delivery destinations but not required for other logs delivery destinations.</p>
+   *                <code>deliveryDestinationConfiguration</code> is required for CloudWatch Logs,
+   *           Amazon S3, Firehose log delivery destinations and not required for
+   *           X-Ray trace delivery destinations. <code>deliveryDestinationType</code> is
+   *         needed for X-Ray trace delivery destinations but not required for other logs
+   *         delivery destinations.</p>
    *          </note>
    * @public
    */
   deliveryDestinationConfiguration?: DeliveryDestinationConfiguration | undefined;
 
   /**
-   * <p>The type of delivery destination. This parameter specifies the target service where log data will be delivered. Valid values include:</p>
+   * <p>The type of delivery destination. This parameter specifies the target service where log
+   *       data will be delivered. Valid values include:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6744,10 +6793,12 @@ export interface PutDeliveryDestinationRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>XRAY</code> - Amazon Web Services X-Ray for distributed tracing and application monitoring</p>
+   *                   <code>XRAY</code> - Amazon Web Services
+   *           X-Ray for distributed tracing and application monitoring</p>
    *             </li>
    *          </ul>
-   *          <p>The delivery destination type determines the format and configuration options available for log delivery.</p>
+   *          <p>The delivery destination type determines the format and configuration options available
+   *       for log delivery.</p>
    * @public
    */
   deliveryDestinationType?: DeliveryDestinationType | undefined;
@@ -6825,7 +6876,8 @@ export interface PutDeliverySourceRequest {
    * <p>Defines the type of log that the source is sending.</p>
    *          <ul>
    *             <li>
-   *                <p>For Amazon Bedrock, the valid value is <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
+   *                <p>For Amazon Bedrock, the valid value is <code>APPLICATION_LOGS</code> and
+   *             <code>TRACES</code>.</p>
    *             </li>
    *             <li>
    *                <p>For CloudFront, the valid value is <code>ACCESS_LOGS</code>.</p>
@@ -7317,6 +7369,18 @@ export interface PutMetricFilterRequest {
    * @public
    */
   applyOnTransformedLogs?: boolean | undefined;
+
+  /**
+   * <p>A filter expression that specifies which log events should be processed by this metric filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region = "us-east-1"</code> or <code>@aws.account IN ["123456789012", "987654321098"]</code>. Maximum length: 2000 characters.</p>
+   * @public
+   */
+  fieldSelectionCriteria?: string | undefined;
+
+  /**
+   * <p>A list of system fields to emit as additional dimensions in the generated metrics. Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These dimensions help identify the source of centralized log data and count toward the total dimension limit for metric filters.</p>
+   * @public
+   */
+  emitSystemFieldDimensions?: string[] | undefined;
 }
 
 /**
@@ -7422,13 +7486,16 @@ export interface PutResourcePolicyRequest {
   policyDocument?: string | undefined;
 
   /**
-   * <p>The ARN of the CloudWatch Logs resource to which the resource policy needs to be added or attached. Currently only supports LogGroup ARN.</p>
+   * <p>The ARN of the CloudWatch Logs resource to which the resource policy needs to be added
+   *       or attached. Currently only supports LogGroup ARN.</p>
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The expected revision ID of the resource policy. Required when <code>resourceArn</code> is provided to prevent concurrent modifications. Use <code>null</code> when creating a resource policy for the first time.</p>
+   * <p>The expected revision ID of the resource policy. Required when <code>resourceArn</code> is
+   *       provided to prevent concurrent modifications. Use <code>null</code> when creating a resource
+   *       policy for the first time.</p>
    * @public
    */
   expectedRevisionId?: string | undefined;
@@ -7445,7 +7512,8 @@ export interface PutResourcePolicyResponse {
   resourcePolicy?: ResourcePolicy | undefined;
 
   /**
-   * <p>The revision ID of the created or updated resource policy. Only returned for resource-scoped policies.</p>
+   * <p>The revision ID of the created or updated resource policy. Only returned for
+   *       resource-scoped policies.</p>
    * @public
    */
   revisionId?: string | undefined;
@@ -7549,6 +7617,18 @@ export interface PutSubscriptionFilterRequest {
    * @public
    */
   applyOnTransformedLogs?: boolean | undefined;
+
+  /**
+   * <p>A filter expression that specifies which log events should be processed by this subscription filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region NOT IN ["cn-north-1"]</code> or <code>@aws.account = "123456789012" AND @aws.region = "us-east-1"</code>. Maximum length: 2000 characters.</p>
+   * @public
+   */
+  fieldSelectionCriteria?: string | undefined;
+
+  /**
+   * <p>A list of system fields to include in the log events sent to the subscription destination. Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These fields provide source information for centralized log data in the forwarded payload.</p>
+   * @public
+   */
+  emitSystemFields?: string[] | undefined;
 }
 
 /**

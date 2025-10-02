@@ -42,6 +42,8 @@ export interface CreateComponentCommandOutput extends CreateComponentOutput, __M
  * ```javascript
  * import { ProtonClient, CreateComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // CreateComponentInput
  *   name: "STRING_VALUE", // required

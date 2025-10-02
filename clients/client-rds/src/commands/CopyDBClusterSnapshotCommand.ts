@@ -6,7 +6,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/models_0";
+import {
+  CopyDBClusterSnapshotMessage,
+  CopyDBClusterSnapshotMessageFilterSensitiveLog,
+  CopyDBClusterSnapshotResult,
+} from "../models/models_0";
 import { de_CopyDBClusterSnapshotCommand, se_CopyDBClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -71,6 +75,8 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * ```javascript
  * import { RDSClient, CopyDBClusterSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyDBClusterSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // CopyDBClusterSnapshotMessage
  *   SourceDBClusterSnapshotIdentifier: "STRING_VALUE", // required
@@ -118,10 +124,10 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
- * //     DBSystemId: "STRING_VALUE",
  * //     StorageType: "STRING_VALUE",
- * //     DbClusterResourceId: "STRING_VALUE",
  * //     StorageThroughput: Number("int"),
+ * //     DbClusterResourceId: "STRING_VALUE",
+ * //     DBSystemId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -218,7 +224,7 @@ export class CopyDBClusterSnapshotCommand extends $Command
   })
   .s("AmazonRDSv19", "CopyDBClusterSnapshot", {})
   .n("RDSClient", "CopyDBClusterSnapshotCommand")
-  .f(void 0, void 0)
+  .f(CopyDBClusterSnapshotMessageFilterSensitiveLog, void 0)
   .ser(se_CopyDBClusterSnapshotCommand)
   .de(de_CopyDBClusterSnapshotCommand)
   .build() {

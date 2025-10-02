@@ -39,6 +39,8 @@ export interface GetCollaborationChangeRequestCommandOutput
  * ```javascript
  * import { CleanRoomsClient, GetCollaborationChangeRequestCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetCollaborationChangeRequestCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // GetCollaborationChangeRequestInput
  *   collaborationIdentifier: "STRING_VALUE", // required

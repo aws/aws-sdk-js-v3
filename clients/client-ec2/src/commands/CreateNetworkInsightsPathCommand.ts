@@ -37,6 +37,8 @@ export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkIns
  * ```javascript
  * import { EC2Client, CreateNetworkInsightsPathCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateNetworkInsightsPathCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateNetworkInsightsPathRequest
  *   SourceIp: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface DescribeProductViewCommandOutput extends DescribeProductViewOut
  * ```javascript
  * import { ServiceCatalogClient, DescribeProductViewCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProductViewCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // import type { ServiceCatalogClientConfig } from "@aws-sdk/client-service-catalog";
+ * const config = {}; // type is ServiceCatalogClientConfig
  * const client = new ServiceCatalogClient(config);
  * const input = { // DescribeProductViewInput
  *   AcceptLanguage: "STRING_VALUE",

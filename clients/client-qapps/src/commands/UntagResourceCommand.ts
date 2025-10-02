@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { QAppsClient, UntagResourceCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, UntagResourceCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // UntagResourceRequest
  *   resourceARN: "STRING_VALUE", // required

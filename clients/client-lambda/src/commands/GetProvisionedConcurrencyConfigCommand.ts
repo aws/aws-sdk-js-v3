@@ -39,6 +39,8 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
  * ```javascript
  * import { LambdaClient, GetProvisionedConcurrencyConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetProvisionedConcurrencyConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // GetProvisionedConcurrencyConfigRequest
  *   FunctionName: "STRING_VALUE", // required

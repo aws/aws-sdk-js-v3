@@ -34,6 +34,8 @@ export interface ListPolicyGrantsCommandOutput extends ListPolicyGrantsOutput, _
  * ```javascript
  * import { DataZoneClient, ListPolicyGrantsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListPolicyGrantsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListPolicyGrantsInput
  *   domainIdentifier: "STRING_VALUE", // required

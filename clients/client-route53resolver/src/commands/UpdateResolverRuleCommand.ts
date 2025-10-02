@@ -35,6 +35,8 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  * ```javascript
  * import { Route53ResolverClient, UpdateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
+ * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
  * const input = { // UpdateResolverRuleRequest
  *   ResolverRuleId: "STRING_VALUE", // required

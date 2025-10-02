@@ -34,6 +34,8 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
  * ```javascript
  * import { GlueClient, PutSchemaVersionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, PutSchemaVersionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // PutSchemaVersionMetadataInput
  *   SchemaId: { // SchemaId

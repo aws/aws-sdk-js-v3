@@ -35,6 +35,8 @@ export interface RejectDataShareCommandOutput extends DataShare, __MetadataBeare
  * ```javascript
  * import { RedshiftClient, RejectDataShareCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RejectDataShareCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // RejectDataShareMessage
  *   DataShareArn: "STRING_VALUE", // required

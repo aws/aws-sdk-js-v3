@@ -38,6 +38,8 @@ export interface AcceptEngagementInvitationCommandOutput extends __MetadataBeare
  * ```javascript
  * import { PartnerCentralSellingClient, AcceptEngagementInvitationCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, AcceptEngagementInvitationCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // AcceptEngagementInvitationRequest
  *   Catalog: "STRING_VALUE", // required

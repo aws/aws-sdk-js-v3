@@ -34,6 +34,8 @@ export interface UpdateIpRestrictionCommandOutput extends UpdateIpRestrictionRes
  * ```javascript
  * import { QuickSightClient, UpdateIpRestrictionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateIpRestrictionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateIpRestrictionRequest
  *   AwsAccountId: "STRING_VALUE", // required

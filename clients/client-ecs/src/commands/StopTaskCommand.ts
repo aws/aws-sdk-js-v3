@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopTaskRequest } from "../models/models_0";
-import { StopTaskResponse } from "../models/models_1";
+import { StopTaskRequest, StopTaskResponse } from "../models/models_1";
 import { de_StopTaskCommand, se_StopTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -50,6 +49,8 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * ```javascript
  * import { ECSClient, StopTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, StopTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // StopTaskRequest
  *   cluster: "STRING_VALUE",
@@ -146,7 +147,7 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * //       },
  * //     ],
  * //     lastStatus: "STRING_VALUE",
- * //     launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //     launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //     memory: "STRING_VALUE",
  * //     overrides: { // TaskOverride
  * //       containerOverrides: [ // ContainerOverrides

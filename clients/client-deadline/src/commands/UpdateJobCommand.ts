@@ -40,6 +40,8 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * ```javascript
  * import { DeadlineClient, UpdateJobCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, UpdateJobCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // UpdateJobRequest
  *   clientToken: "STRING_VALUE",

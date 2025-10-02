@@ -41,6 +41,8 @@ export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNum
  * ```javascript
  * import { ChimeClient, BatchDeletePhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, BatchDeletePhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // BatchDeletePhoneNumberRequest
  *   PhoneNumberIds: [ // NonEmptyStringList // required

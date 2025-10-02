@@ -38,6 +38,8 @@ export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __M
  * ```javascript
  * import { AuditManagerClient, GetDelegationsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetDelegationsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // GetDelegationsRequest
  *   nextToken: "STRING_VALUE",

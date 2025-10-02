@@ -38,6 +38,8 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * ```javascript
  * import { SSMClient, GetOpsSummaryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetOpsSummaryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetOpsSummaryRequest
  *   SyncName: "STRING_VALUE",

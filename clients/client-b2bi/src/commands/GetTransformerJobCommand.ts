@@ -34,6 +34,8 @@ export interface GetTransformerJobCommandOutput extends GetTransformerJobRespons
  * ```javascript
  * import { B2biClient, GetTransformerJobCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, GetTransformerJobCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // GetTransformerJobRequest
  *   transformerJobId: "STRING_VALUE", // required

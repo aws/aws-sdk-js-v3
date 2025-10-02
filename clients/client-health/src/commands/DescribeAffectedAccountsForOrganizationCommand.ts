@@ -51,6 +51,8 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * ```javascript
  * import { HealthClient, DescribeAffectedAccountsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeAffectedAccountsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * // import type { HealthClientConfig } from "@aws-sdk/client-health";
+ * const config = {}; // type is HealthClientConfig
  * const client = new HealthClient(config);
  * const input = { // DescribeAffectedAccountsForOrganizationRequest
  *   eventArn: "STRING_VALUE", // required

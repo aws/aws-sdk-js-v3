@@ -32,13 +32,14 @@ export interface ListServiceDependentsCommandInput extends ListServiceDependents
 export interface ListServiceDependentsCommandOutput extends ListServiceDependentsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the list of dependents that invoked the specified service during the provided time range. Dependents include
- *          other services, CloudWatch Synthetics canaries, and clients that are instrumented with CloudWatch RUM app monitors.</p>
+ * <p>Returns the list of dependents that invoked the specified service during the provided time range. Dependents include other services, CloudWatch Synthetics canaries, and clients that are instrumented with CloudWatch RUM app monitors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationSignalsClient, ListServiceDependentsCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, ListServiceDependentsCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // ListServiceDependentsInput
  *   StartTime: new Date("TIMESTAMP"), // required

@@ -34,6 +34,8 @@ export interface ListSchemaMappingsCommandOutput extends ListSchemaMappingsOutpu
  * ```javascript
  * import { EntityResolutionClient, ListSchemaMappingsCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, ListSchemaMappingsCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // ListSchemaMappingsInput
  *   nextToken: "STRING_VALUE",

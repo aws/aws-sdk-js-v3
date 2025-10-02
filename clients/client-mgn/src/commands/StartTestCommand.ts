@@ -39,6 +39,8 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
  * ```javascript
  * import { MgnClient, StartTestCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartTestCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // StartTestRequest
  *   sourceServerIDs: [ // StartTestRequestSourceServerIDs // required

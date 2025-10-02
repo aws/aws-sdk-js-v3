@@ -34,6 +34,8 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * ```javascript
  * import { BraketClient, CreateQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, CreateQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * // import type { BraketClientConfig } from "@aws-sdk/client-braket";
+ * const config = {}; // type is BraketClientConfig
  * const client = new BraketClient(config);
  * const input = { // CreateQuantumTaskRequest
  *   clientToken: "STRING_VALUE", // required

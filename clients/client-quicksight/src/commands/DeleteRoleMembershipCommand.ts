@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteRoleMembershipRequest, DeleteRoleMembershipResponse } from "../models/models_3";
+import { DeleteRoleMembershipRequest } from "../models/models_3";
+import { DeleteRoleMembershipResponse } from "../models/models_4";
 import { de_DeleteRoleMembershipCommand, se_DeleteRoleMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -34,6 +35,8 @@ export interface DeleteRoleMembershipCommandOutput extends DeleteRoleMembershipR
  * ```javascript
  * import { QuickSightClient, DeleteRoleMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteRoleMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteRoleMembershipRequest
  *   MemberName: "STRING_VALUE", // required

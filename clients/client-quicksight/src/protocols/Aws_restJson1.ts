@@ -104,6 +104,10 @@ import {
   DeleteAccountCustomizationCommandOutput,
 } from "../commands/DeleteAccountCustomizationCommand";
 import {
+  DeleteAccountCustomPermissionCommandInput,
+  DeleteAccountCustomPermissionCommandOutput,
+} from "../commands/DeleteAccountCustomPermissionCommand";
+import {
   DeleteAccountSubscriptionCommandInput,
   DeleteAccountSubscriptionCommandOutput,
 } from "../commands/DeleteAccountSubscriptionCommand";
@@ -188,6 +192,10 @@ import {
   DescribeAccountCustomizationCommandInput,
   DescribeAccountCustomizationCommandOutput,
 } from "../commands/DescribeAccountCustomizationCommand";
+import {
+  DescribeAccountCustomPermissionCommandInput,
+  DescribeAccountCustomPermissionCommandOutput,
+} from "../commands/DescribeAccountCustomPermissionCommand";
 import {
   DescribeAccountSettingsCommandInput,
   DescribeAccountSettingsCommandOutput,
@@ -481,6 +489,10 @@ import {
   UpdateAccountCustomizationCommandInput,
   UpdateAccountCustomizationCommandOutput,
 } from "../commands/UpdateAccountCustomizationCommand";
+import {
+  UpdateAccountCustomPermissionCommandInput,
+  UpdateAccountCustomPermissionCommandOutput,
+} from "../commands/UpdateAccountCustomPermissionCommand";
 import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
@@ -1179,6 +1191,7 @@ import {
   ConflictException,
   ContributionAnalysisFactor,
   ContributionAnalysisTimeRanges,
+  CustomConnectionParameters,
   DashboardVisualId,
   DataBarsOptions,
   DatabricksParameters,
@@ -1387,6 +1400,7 @@ import {
   DataSourceCredentials,
   DataSourceSearchFilter,
   DataSourceSummary,
+  DataStoriesSharingOption,
   DateTimeDatasetParameter,
   DateTimeDatasetParameterDefaultValues,
   DateTimeParameter,
@@ -1394,6 +1408,7 @@ import {
   DecimalDatasetParameterDefaultValues,
   DecimalParameter,
   DefaultFormatting,
+  ExecutiveSummaryOption,
   ExportHiddenFieldsOption,
   ExportToCSVOption,
   ExportWithHiddenFieldsOption,
@@ -1461,6 +1476,7 @@ import {
   TopicDetails,
   TopicFilter,
   TopicNamedEntity,
+  TopicNullFilter,
   TopicNumericEqualityFilter,
   TopicNumericRangeFilter,
   TopicRangeFilterConstant,
@@ -1514,7 +1530,6 @@ import {
   ThemeVersionSummary,
   ThresholdAlertsConfigurations,
   TopicRefreshScheduleSummary,
-  TopicSearchFilter,
   UnsupportedPricingPlanException,
   VPCConnection,
   VPCConnectionSummary,
@@ -1524,6 +1539,7 @@ import {
   SnapshotAnonymousUser,
   SnapshotUserConfiguration,
   TopicReviewedAnswer,
+  TopicSearchFilter,
   TopicVisual,
 } from "../models/models_5";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
@@ -2273,6 +2289,22 @@ export const se_DeleteAccountCustomizationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteAccountCustomPermissionCommand
+ */
+export const se_DeleteAccountCustomPermissionCommand = async (
+  input: DeleteAccountCustomPermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/custom-permission");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteAccountSubscriptionCommand
  */
 export const se_DeleteAccountSubscriptionCommand = async (
@@ -2828,6 +2860,22 @@ export const se_DescribeAccountCustomizationCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeAccountCustomPermissionCommand
+ */
+export const se_DescribeAccountCustomPermissionCommand = async (
+  input: DescribeAccountCustomPermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/custom-permission");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -4996,6 +5044,29 @@ export const se_UpdateAccountCustomizationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateAccountCustomPermissionCommand
+ */
+export const se_UpdateAccountCustomPermissionCommand = async (
+  input: UpdateAccountCustomPermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/custom-permission");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CustomPermissionsName: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateAccountSettingsCommand
  */
 export const se_UpdateAccountSettingsCommand = async (
@@ -6817,6 +6888,28 @@ export const de_DeleteAccountCustomizationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAccountCustomPermissionCommand
+ */
+export const de_DeleteAccountCustomPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccountCustomPermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteAccountSubscriptionCommand
  */
 export const de_DeleteAccountSubscriptionCommand = async (
@@ -7583,6 +7676,29 @@ export const de_DescribeAccountCustomizationCommand = async (
   map(contents, {
     Status: [, output.statusCode],
   });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeAccountCustomPermissionCommand
+ */
+export const de_DescribeAccountCustomPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountCustomPermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CustomPermissionsName: __expectString,
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -8439,6 +8555,7 @@ export const de_DescribeKeyRegistrationCommand = async (
   const doc = take(data, {
     AwsAccountId: __expectString,
     KeyRegistration: _json,
+    QDataKey: _json,
     RequestId: __expectString,
     Status: __expectInt32,
   });
@@ -10376,6 +10493,28 @@ export const de_UpdateAccountCustomizationCommand = async (
   map(contents, {
     Status: [, output.statusCode],
   });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAccountCustomPermissionCommand
+ */
+export const de_UpdateAccountCustomPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccountCustomPermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -13142,6 +13281,8 @@ const se_CustomActionSetParametersOperation = (
 
 // se_CustomColorsList omitted.
 
+// se_CustomConnectionParameters omitted.
+
 // se_CustomContentConfiguration omitted.
 
 /**
@@ -13336,6 +13477,8 @@ const se_DatasetParameterList = (input: DatasetParameter[], context: __SerdeCont
 // se_DataSourceSearchFilterList omitted.
 
 // se_DataStoriesConfigurations omitted.
+
+// se_DataStoriesSharingOption omitted.
 
 // se_DateAxisOptions omitted.
 
@@ -13704,6 +13847,8 @@ const se_EmptyVisual = (input: EmptyVisual, context: __SerdeContext): any => {
 // se_ExcludePeriodConfiguration omitted.
 
 // se_ExecutiveSummaryConfigurations omitted.
+
+// se_ExecutiveSummaryOption omitted.
 
 /**
  * serializeAws_restJson1ExplicitHierarchy
@@ -17309,6 +17454,8 @@ const se_TopBottomRankedComputation = (input: TopBottomRankedComputation, contex
 
 // se_TopicNamedEntity omitted.
 
+// se_TopicNullFilter omitted.
+
 // se_TopicNumericEqualityFilter omitted.
 
 // se_TopicNumericRangeFilter omitted.
@@ -19083,6 +19230,8 @@ const de_CustomActionSetParametersOperation = (
 
 // de_CustomColorsList omitted.
 
+// de_CustomConnectionParameters omitted.
+
 // de_CustomContentConfiguration omitted.
 
 /**
@@ -19466,6 +19615,8 @@ const de_DataSourceSummaryList = (output: any, context: __SerdeContext): DataSou
   return retVal;
 };
 
+// de_DataStoriesSharingOption omitted.
+
 // de_DateAxisOptions omitted.
 
 // de_DateDimensionField omitted.
@@ -19846,6 +19997,8 @@ const de_EmptyVisual = (output: any, context: __SerdeContext): EmptyVisual => {
 // de_ExasolParameters omitted.
 
 // de_ExcludePeriodConfiguration omitted.
+
+// de_ExecutiveSummaryOption omitted.
 
 /**
  * deserializeAws_restJson1ExplicitHierarchy
@@ -22441,6 +22594,8 @@ const de_PredefinedHierarchy = (output: any, context: __SerdeContext): Predefine
 
 // de_QAResults omitted.
 
+// de_QDataKey omitted.
+
 // de_QueryExecutionOptions omitted.
 
 // de_QueueInfo omitted.
@@ -23827,6 +23982,8 @@ const de_TopBottomRankedComputation = (output: any, context: __SerdeContext): To
 // de_TopicNamedEntities omitted.
 
 // de_TopicNamedEntity omitted.
+
+// de_TopicNullFilter omitted.
 
 // de_TopicNumericEqualityFilter omitted.
 

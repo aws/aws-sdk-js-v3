@@ -34,6 +34,8 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SageMakerClient, UpdateDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateDeviceFleetRequest
  *   DeviceFleetName: "STRING_VALUE", // required

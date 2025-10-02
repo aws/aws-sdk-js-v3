@@ -34,6 +34,8 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * ```javascript
  * import { MediaTailorClient, ListAlertsCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListAlertsCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // ListAlertsRequest
  *   MaxResults: Number("int"),

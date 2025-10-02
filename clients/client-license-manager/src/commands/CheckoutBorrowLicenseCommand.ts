@@ -34,6 +34,8 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  * ```javascript
  * import { LicenseManagerClient, CheckoutBorrowLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CheckoutBorrowLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // CheckoutBorrowLicenseRequest
  *   LicenseArn: "STRING_VALUE", // required

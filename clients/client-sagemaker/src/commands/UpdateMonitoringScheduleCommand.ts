@@ -34,6 +34,8 @@ export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringS
  * ```javascript
  * import { SageMakerClient, UpdateMonitoringScheduleCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateMonitoringScheduleCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateMonitoringScheduleRequest
  *   MonitoringScheduleName: "STRING_VALUE", // required

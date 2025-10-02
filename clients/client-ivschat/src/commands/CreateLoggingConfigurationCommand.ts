@@ -35,6 +35,8 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * ```javascript
  * import { IvschatClient, CreateLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, CreateLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // import type { IvschatClientConfig } from "@aws-sdk/client-ivschat";
+ * const config = {}; // type is IvschatClientConfig
  * const client = new IvschatClient(config);
  * const input = { // CreateLoggingConfigurationRequest
  *   name: "STRING_VALUE",

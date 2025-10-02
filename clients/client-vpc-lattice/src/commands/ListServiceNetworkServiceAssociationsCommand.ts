@@ -37,18 +37,14 @@ export interface ListServiceNetworkServiceAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the associations between a service network and a service. You can filter the list
- *    either by service or service network. You must provide either the service network identifier or
- *    the service identifier.</p>
- *          <p>Every association in Amazon VPC Lattice has a unique Amazon Resource Name (ARN), such as when a
- *    service network is associated with a VPC or when a service is associated with a service network.
- *    If the association is for a resource is shared with another account, the association
- *    includes the local account ID as the prefix in the ARN.</p>
+ * <p>Lists the associations between a service network and a service. You can filter the list either by service or service network. You must provide either the service network identifier or the service identifier.</p> <p>Every association in Amazon VPC Lattice has a unique Amazon Resource Name (ARN), such as when a service network is associated with a VPC or when a service is associated with a service network. If the association is for a resource is shared with another account, the association includes the local account ID as the prefix in the ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { VPCLatticeClient, ListServiceNetworkServiceAssociationsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListServiceNetworkServiceAssociationsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // ListServiceNetworkServiceAssociationsRequest
  *   serviceNetworkIdentifier: "STRING_VALUE",
@@ -100,8 +96,7 @@ export interface ListServiceNetworkServiceAssociationsCommandOutput
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

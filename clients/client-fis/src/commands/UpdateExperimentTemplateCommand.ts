@@ -34,6 +34,8 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  * ```javascript
  * import { FisClient, UpdateExperimentTemplateCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, UpdateExperimentTemplateCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // UpdateExperimentTemplateRequest
  *   id: "STRING_VALUE", // required

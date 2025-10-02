@@ -39,6 +39,8 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * ```javascript
  * import { LookoutVisionClient, ListModelsCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, ListModelsCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * // import type { LookoutVisionClientConfig } from "@aws-sdk/client-lookoutvision";
+ * const config = {}; // type is LookoutVisionClientConfig
  * const client = new LookoutVisionClient(config);
  * const input = { // ListModelsRequest
  *   ProjectName: "STRING_VALUE", // required

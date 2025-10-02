@@ -39,6 +39,8 @@ export interface DescribeInboundDmarcSettingsCommandOutput
  * ```javascript
  * import { WorkMailClient, DescribeInboundDmarcSettingsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeInboundDmarcSettingsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // DescribeInboundDmarcSettingsRequest
  *   OrganizationId: "STRING_VALUE", // required

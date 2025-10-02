@@ -34,6 +34,8 @@ export interface ListRotationsCommandOutput extends ListRotationsResult, __Metad
  * ```javascript
  * import { SSMContactsClient, ListRotationsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListRotationsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // import type { SSMContactsClientConfig } from "@aws-sdk/client-ssm-contacts";
+ * const config = {}; // type is SSMContactsClientConfig
  * const client = new SSMContactsClient(config);
  * const input = { // ListRotationsRequest
  *   RotationNamePrefix: "STRING_VALUE",

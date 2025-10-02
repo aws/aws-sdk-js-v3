@@ -35,6 +35,8 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  * ```javascript
  * import { PollyClient, GetLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, GetLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * // import type { PollyClientConfig } from "@aws-sdk/client-polly";
+ * const config = {}; // type is PollyClientConfig
  * const client = new PollyClient(config);
  * const input = { // GetLexiconInput
  *   Name: "STRING_VALUE", // required

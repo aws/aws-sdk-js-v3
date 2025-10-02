@@ -34,6 +34,8 @@ export interface DeleteLandingZoneCommandOutput extends DeleteLandingZoneOutput,
  * ```javascript
  * import { ControlTowerClient, DeleteLandingZoneCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, DeleteLandingZoneCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // DeleteLandingZoneInput
  *   landingZoneIdentifier: "STRING_VALUE", // required

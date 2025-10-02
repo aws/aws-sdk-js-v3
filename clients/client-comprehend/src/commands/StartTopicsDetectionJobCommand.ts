@@ -35,6 +35,8 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  * ```javascript
  * import { ComprehendClient, StartTopicsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartTopicsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // StartTopicsDetectionJobRequest
  *   InputDataConfig: { // InputDataConfig

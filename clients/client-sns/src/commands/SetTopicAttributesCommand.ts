@@ -39,6 +39,8 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SNSClient, SetTopicAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetTopicAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // import type { SNSClientConfig } from "@aws-sdk/client-sns";
+ * const config = {}; // type is SNSClientConfig
  * const client = new SNSClient(config);
  * const input = { // SetTopicAttributesInput
  *   TopicArn: "STRING_VALUE", // required

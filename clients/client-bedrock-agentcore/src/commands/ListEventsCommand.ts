@@ -34,6 +34,8 @@ export interface ListEventsCommandOutput extends ListEventsOutput, __MetadataBea
  * ```javascript
  * import { BedrockAgentCoreClient, ListEventsCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, ListEventsCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // ListEventsInput
  *   memoryId: "STRING_VALUE", // required

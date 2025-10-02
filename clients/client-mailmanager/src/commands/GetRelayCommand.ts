@@ -34,6 +34,8 @@ export interface GetRelayCommandOutput extends GetRelayResponse, __MetadataBeare
  * ```javascript
  * import { MailManagerClient, GetRelayCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, GetRelayCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // GetRelayRequest
  *   RelayId: "STRING_VALUE", // required

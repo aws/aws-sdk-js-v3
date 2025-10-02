@@ -34,6 +34,8 @@ export interface ListSubCheckRuleResultsCommandOutput extends ListSubCheckRuleRe
  * ```javascript
  * import { SsmSapClient, ListSubCheckRuleResultsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListSubCheckRuleResultsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // ListSubCheckRuleResultsInput
  *   SubCheckResultId: "STRING_VALUE", // required

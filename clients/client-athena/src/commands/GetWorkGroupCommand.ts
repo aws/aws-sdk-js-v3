@@ -34,6 +34,8 @@ export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __Metadat
  * ```javascript
  * import { AthenaClient, GetWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // GetWorkGroupInput
  *   WorkGroup: "STRING_VALUE", // required

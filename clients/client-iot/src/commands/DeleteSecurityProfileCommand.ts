@@ -35,6 +35,8 @@ export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfil
  * ```javascript
  * import { IoTClient, DeleteSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteSecurityProfileRequest
  *   securityProfileName: "STRING_VALUE", // required

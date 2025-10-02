@@ -34,6 +34,8 @@ export interface UpdatePipelineVersionCommandOutput extends UpdatePipelineVersio
  * ```javascript
  * import { SageMakerClient, UpdatePipelineVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdatePipelineVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdatePipelineVersionRequest
  *   PipelineArn: "STRING_VALUE", // required

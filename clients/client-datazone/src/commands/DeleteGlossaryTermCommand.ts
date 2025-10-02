@@ -28,12 +28,14 @@ export interface DeleteGlossaryTermCommandInput extends DeleteGlossaryTermInput 
 export interface DeleteGlossaryTermCommandOutput extends DeleteGlossaryTermOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a business glossary term in Amazon DataZone.</p>
+ * <p>Deletes a business glossary term in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>Glossary term must exist and be active. </p> </li> <li> <p>The term must not be linked to other assets or child terms.</p> </li> <li> <p>Caller must have delete permissions in the domain/glossary.</p> </li> <li> <p>Ensure all associations (such as to assets or parent terms) are removed before deletion.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, DeleteGlossaryTermCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteGlossaryTermCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteGlossaryTermInput
  *   domainIdentifier: "STRING_VALUE", // required

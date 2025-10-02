@@ -34,6 +34,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * ```javascript
  * import { Macie2Client, AcceptInvitationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, AcceptInvitationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * // import type { Macie2ClientConfig } from "@aws-sdk/client-macie2";
+ * const config = {}; // type is Macie2ClientConfig
  * const client = new Macie2Client(config);
  * const input = { // AcceptInvitationRequest
  *   administratorAccountId: "STRING_VALUE",

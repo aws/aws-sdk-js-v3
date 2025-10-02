@@ -34,6 +34,8 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * ```javascript
  * import { NetworkFirewallClient, DescribeFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // DescribeFirewallPolicyRequest
  *   FirewallPolicyName: "STRING_VALUE",
@@ -121,6 +123,7 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * //         },
  * //       },
  * //     },
+ * //     EnableTLSSessionHolding: true || false,
  * //   },
  * // };
  *

@@ -35,6 +35,8 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  * ```javascript
  * import { IoTClient, ListMetricValuesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListMetricValuesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListMetricValuesRequest
  *   thingName: "STRING_VALUE", // required

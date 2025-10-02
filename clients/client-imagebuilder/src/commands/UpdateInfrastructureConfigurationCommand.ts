@@ -9,7 +9,7 @@ import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import {
   UpdateInfrastructureConfigurationRequest,
   UpdateInfrastructureConfigurationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_UpdateInfrastructureConfigurationCommand,
   se_UpdateInfrastructureConfigurationCommand,
@@ -43,6 +43,8 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  * ```javascript
  * import { ImagebuilderClient, UpdateInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // UpdateInfrastructureConfigurationRequest
  *   infrastructureConfigurationArn: "STRING_VALUE", // required

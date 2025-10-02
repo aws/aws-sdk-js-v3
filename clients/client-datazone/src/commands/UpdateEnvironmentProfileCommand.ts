@@ -39,6 +39,8 @@ export interface UpdateEnvironmentProfileCommandOutput extends UpdateEnvironment
  * ```javascript
  * import { DataZoneClient, UpdateEnvironmentProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateEnvironmentProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateEnvironmentProfileInput
  *   domainIdentifier: "STRING_VALUE", // required
@@ -76,6 +78,7 @@ export interface UpdateEnvironmentProfileCommandOutput extends UpdateEnvironment
  * //       defaultValue: "STRING_VALUE",
  * //       isEditable: true || false,
  * //       isOptional: true || false,
+ * //       isUpdateSupported: true || false,
  * //     },
  * //   ],
  * // };

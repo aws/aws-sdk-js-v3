@@ -101,6 +101,8 @@ export interface UpdateContainerFleetCommandOutput extends UpdateContainerFleetO
  * ```javascript
  * import { GameLiftClient, UpdateContainerFleetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateContainerFleetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // UpdateContainerFleetInput
  *   FleetId: "STRING_VALUE", // required

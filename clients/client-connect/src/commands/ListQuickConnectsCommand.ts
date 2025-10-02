@@ -35,6 +35,8 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  * ```javascript
  * import { ConnectClient, ListQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // ListQuickConnectsRequest
  *   InstanceId: "STRING_VALUE", // required

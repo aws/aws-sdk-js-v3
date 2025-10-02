@@ -34,6 +34,8 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * ```javascript
  * import { LexModelsV2Client, DescribeBotLocaleCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeBotLocaleRequest
  *   botId: "STRING_VALUE", // required

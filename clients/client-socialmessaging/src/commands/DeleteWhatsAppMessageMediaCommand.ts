@@ -34,6 +34,8 @@ export interface DeleteWhatsAppMessageMediaCommandOutput extends DeleteWhatsAppM
  * ```javascript
  * import { SocialMessagingClient, DeleteWhatsAppMessageMediaCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
  * // const { SocialMessagingClient, DeleteWhatsAppMessageMediaCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
+ * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
  * const input = { // DeleteWhatsAppMessageMediaInput
  *   mediaId: "STRING_VALUE", // required

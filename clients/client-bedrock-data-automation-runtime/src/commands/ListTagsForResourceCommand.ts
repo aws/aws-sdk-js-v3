@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { BedrockDataAutomationRuntimeClient, ListTagsForResourceCommand } from "@aws-sdk/client-bedrock-data-automation-runtime"; // ES Modules import
  * // const { BedrockDataAutomationRuntimeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-bedrock-data-automation-runtime"); // CommonJS import
+ * // import type { BedrockDataAutomationRuntimeClientConfig } from "@aws-sdk/client-bedrock-data-automation-runtime";
+ * const config = {}; // type is BedrockDataAutomationRuntimeClientConfig
  * const client = new BedrockDataAutomationRuntimeClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceARN: "STRING_VALUE", // required

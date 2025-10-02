@@ -34,6 +34,8 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskOutput, _
  * ```javascript
  * import { NeptuneGraphClient, CancelImportTaskCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, CancelImportTaskCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // CancelImportTaskInput
  *   taskIdentifier: "STRING_VALUE", // required

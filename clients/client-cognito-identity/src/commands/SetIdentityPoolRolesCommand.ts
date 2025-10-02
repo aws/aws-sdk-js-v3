@@ -36,6 +36,8 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CognitoIdentityClient, SetIdentityPoolRolesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, SetIdentityPoolRolesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * // import type { CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
+ * const config = {}; // type is CognitoIdentityClientConfig
  * const client = new CognitoIdentityClient(config);
  * const input = { // SetIdentityPoolRolesInput
  *   IdentityPoolId: "STRING_VALUE", // required

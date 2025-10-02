@@ -37,6 +37,8 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * ```javascript
  * import { IoTAnalyticsClient, CreatePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CreatePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // import type { IoTAnalyticsClientConfig } from "@aws-sdk/client-iotanalytics";
+ * const config = {}; // type is IoTAnalyticsClientConfig
  * const client = new IoTAnalyticsClient(config);
  * const input = { // CreatePipelineRequest
  *   pipelineName: "STRING_VALUE", // required

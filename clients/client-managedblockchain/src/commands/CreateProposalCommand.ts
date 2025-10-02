@@ -39,6 +39,8 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  * ```javascript
  * import { ManagedBlockchainClient, CreateProposalCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateProposalCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * // import type { ManagedBlockchainClientConfig } from "@aws-sdk/client-managedblockchain";
+ * const config = {}; // type is ManagedBlockchainClientConfig
  * const client = new ManagedBlockchainClient(config);
  * const input = { // CreateProposalInput
  *   ClientRequestToken: "STRING_VALUE", // required

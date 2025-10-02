@@ -38,6 +38,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * ```javascript
  * import { WorkSpacesThinClientClient, DeleteEnvironmentCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // DeleteEnvironmentRequest
  *   id: "STRING_VALUE", // required

@@ -31,7 +31,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import {
@@ -1571,17 +1571,17 @@ const de_XmlEnumsOutput = (output: any, context: __SerdeContext): XmlEnumsOutput
   if (output[_fEoo] != null) {
     contents[_fEoo] = __expectString(output[_fEoo]);
   }
-  if (output.fooEnumList === "") {
+  if (String(output.fooEnumList).trim() === "") {
     contents[_fEL] = [];
   } else if (output[_fEL] != null && output[_fEL][_m] != null) {
     contents[_fEL] = de_FooEnumList(__getArrayIfSingleItem(output[_fEL][_m]), context);
   }
-  if (output.fooEnumSet === "") {
+  if (String(output.fooEnumSet).trim() === "") {
     contents[_fES] = [];
   } else if (output[_fES] != null && output[_fES][_m] != null) {
     contents[_fES] = de_FooEnumSet(__getArrayIfSingleItem(output[_fES][_m]), context);
   }
-  if (output.fooEnumMap === "") {
+  if (String(output.fooEnumMap).trim() === "") {
     contents[_fEM] = {};
   } else if (output[_fEM] != null && output[_fEM][_en] != null) {
     contents[_fEM] = de_FooEnumMap(__getArrayIfSingleItem(output[_fEM][_en]), context);
@@ -1603,17 +1603,17 @@ const de_XmlIntEnumsOutput = (output: any, context: __SerdeContext): XmlIntEnums
   if (output[_iEnt] != null) {
     contents[_iEnt] = __strictParseInt32(output[_iEnt]) as number;
   }
-  if (output.intEnumList === "") {
+  if (String(output.intEnumList).trim() === "") {
     contents[_iEL] = [];
   } else if (output[_iEL] != null && output[_iEL][_m] != null) {
     contents[_iEL] = de_IntegerEnumList(__getArrayIfSingleItem(output[_iEL][_m]), context);
   }
-  if (output.intEnumSet === "") {
+  if (String(output.intEnumSet).trim() === "") {
     contents[_iES] = [];
   } else if (output[_iES] != null && output[_iES][_m] != null) {
     contents[_iES] = de_IntegerEnumSet(__getArrayIfSingleItem(output[_iES][_m]), context);
   }
-  if (output.intEnumMap === "") {
+  if (String(output.intEnumMap).trim() === "") {
     contents[_iEM] = {};
   } else if (output[_iEM] != null && output[_iEM][_en] != null) {
     contents[_iEM] = de_IntegerEnumMap(__getArrayIfSingleItem(output[_iEM][_en]), context);
@@ -1626,72 +1626,72 @@ const de_XmlIntEnumsOutput = (output: any, context: __SerdeContext): XmlIntEnums
  */
 const de_XmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput => {
   const contents: any = {};
-  if (output.stringList === "") {
+  if (String(output.stringList).trim() === "") {
     contents[_sL] = [];
   } else if (output[_sL] != null && output[_sL][_m] != null) {
     contents[_sL] = de_StringList(__getArrayIfSingleItem(output[_sL][_m]), context);
   }
-  if (output.stringSet === "") {
+  if (String(output.stringSet).trim() === "") {
     contents[_sS] = [];
   } else if (output[_sS] != null && output[_sS][_m] != null) {
     contents[_sS] = de_StringSet(__getArrayIfSingleItem(output[_sS][_m]), context);
   }
-  if (output.integerList === "") {
+  if (String(output.integerList).trim() === "") {
     contents[_iL] = [];
   } else if (output[_iL] != null && output[_iL][_m] != null) {
     contents[_iL] = de_IntegerList(__getArrayIfSingleItem(output[_iL][_m]), context);
   }
-  if (output.booleanList === "") {
+  if (String(output.booleanList).trim() === "") {
     contents[_bL] = [];
   } else if (output[_bL] != null && output[_bL][_m] != null) {
     contents[_bL] = de_BooleanList(__getArrayIfSingleItem(output[_bL][_m]), context);
   }
-  if (output.timestampList === "") {
+  if (String(output.timestampList).trim() === "") {
     contents[_tL] = [];
   } else if (output[_tL] != null && output[_tL][_m] != null) {
     contents[_tL] = de_TimestampList(__getArrayIfSingleItem(output[_tL][_m]), context);
   }
-  if (output.enumList === "") {
+  if (String(output.enumList).trim() === "") {
     contents[_eL] = [];
   } else if (output[_eL] != null && output[_eL][_m] != null) {
     contents[_eL] = de_FooEnumList(__getArrayIfSingleItem(output[_eL][_m]), context);
   }
-  if (output.intEnumList === "") {
+  if (String(output.intEnumList).trim() === "") {
     contents[_iEL] = [];
   } else if (output[_iEL] != null && output[_iEL][_m] != null) {
     contents[_iEL] = de_IntegerEnumList(__getArrayIfSingleItem(output[_iEL][_m]), context);
   }
-  if (output.nestedStringList === "") {
+  if (String(output.nestedStringList).trim() === "") {
     contents[_nSL] = [];
   } else if (output[_nSL] != null && output[_nSL][_m] != null) {
     contents[_nSL] = de_NestedStringList(__getArrayIfSingleItem(output[_nSL][_m]), context);
   }
-  if (output.renamed === "") {
+  if (String(output.renamed).trim() === "") {
     contents[_rLM] = [];
   } else if (output[_r] != null && output[_r][_i] != null) {
     contents[_rLM] = de_RenamedListMembers(__getArrayIfSingleItem(output[_r][_i]), context);
   }
-  if (output.flattenedList === "") {
+  if (String(output.flattenedList).trim() === "") {
     contents[_fL] = [];
   } else if (output[_fL] != null) {
     contents[_fL] = de_RenamedListMembers(__getArrayIfSingleItem(output[_fL]), context);
   }
-  if (output.customName === "") {
+  if (String(output.customName).trim() === "") {
     contents[_fLl] = [];
   } else if (output[_cN] != null) {
     contents[_fLl] = de_RenamedListMembers(__getArrayIfSingleItem(output[_cN]), context);
   }
-  if (output.flattenedListWithMemberNamespace === "") {
+  if (String(output.flattenedListWithMemberNamespace).trim() === "") {
     contents[_fLWMN] = [];
   } else if (output[_fLWMN] != null) {
     contents[_fLWMN] = de_ListWithMemberNamespace(__getArrayIfSingleItem(output[_fLWMN]), context);
   }
-  if (output.flattenedListWithNamespace === "") {
+  if (String(output.flattenedListWithNamespace).trim() === "") {
     contents[_fLWN] = [];
   } else if (output[_fLWN] != null) {
     contents[_fLWN] = de_ListWithNamespace(__getArrayIfSingleItem(output[_fLWN]), context);
   }
-  if (output.myStructureList === "") {
+  if (String(output.myStructureList).trim() === "") {
     contents[_sLt] = [];
   } else if (output[_mSL] != null && output[_mSL][_i] != null) {
     contents[_sLt] = de_StructureList(__getArrayIfSingleItem(output[_mSL][_i]), context);
@@ -1718,7 +1718,7 @@ const de_XmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespa
   if (output[_f] != null) {
     contents[_f] = __expectString(output[_f]);
   }
-  if (output.values === "") {
+  if (String(output.values).trim() === "") {
     contents[_va] = [];
   } else if (output[_va] != null && output[_va][_m] != null) {
     contents[_va] = de_XmlNamespacedList(__getArrayIfSingleItem(output[_va][_m]), context);

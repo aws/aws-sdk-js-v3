@@ -40,6 +40,8 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * ```javascript
  * import { ElasticLoadBalancingV2Client, ModifyCapacityReservationCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyCapacityReservationCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * // import type { ElasticLoadBalancingV2ClientConfig } from "@aws-sdk/client-elastic-load-balancing-v2";
+ * const config = {}; // type is ElasticLoadBalancingV2ClientConfig
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // ModifyCapacityReservationInput
  *   LoadBalancerArn: "STRING_VALUE", // required

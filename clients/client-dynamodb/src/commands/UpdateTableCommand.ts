@@ -55,6 +55,8 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * ```javascript
  * import { DynamoDBClient, UpdateTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // import type { DynamoDBClientConfig } from "@aws-sdk/client-dynamodb";
+ * const config = {}; // type is DynamoDBClientConfig
  * const client = new DynamoDBClient(config);
  * const input = { // UpdateTableInput
  *   AttributeDefinitions: [ // AttributeDefinitions

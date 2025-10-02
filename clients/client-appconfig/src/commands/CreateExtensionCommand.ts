@@ -57,6 +57,8 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * ```javascript
  * import { AppConfigClient, CreateExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // CreateExtensionRequest
  *   Name: "STRING_VALUE", // required

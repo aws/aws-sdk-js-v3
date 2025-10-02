@@ -34,6 +34,8 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * ```javascript
  * import { CleanRoomsClient, DeleteMemberCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeleteMemberCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // DeleteMemberInput
  *   collaborationIdentifier: "STRING_VALUE", // required

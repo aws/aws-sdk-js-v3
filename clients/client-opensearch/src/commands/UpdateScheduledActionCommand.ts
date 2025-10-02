@@ -37,6 +37,8 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  * ```javascript
  * import { OpenSearchClient, UpdateScheduledActionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, UpdateScheduledActionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // UpdateScheduledActionRequest
  *   DomainName: "STRING_VALUE", // required

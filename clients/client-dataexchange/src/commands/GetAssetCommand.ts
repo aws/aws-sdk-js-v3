@@ -34,6 +34,8 @@ export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBeare
  * ```javascript
  * import { DataExchangeClient, GetAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, GetAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // import type { DataExchangeClientConfig } from "@aws-sdk/client-dataexchange";
+ * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // GetAssetRequest
  *   AssetId: "STRING_VALUE", // required

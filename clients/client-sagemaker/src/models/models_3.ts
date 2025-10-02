@@ -82,6 +82,7 @@ import {
   InferenceExperimentSchedule,
   InferenceExperimentType,
   InputConfig,
+  IPAddressType,
   JobType,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
@@ -112,7 +113,6 @@ import {
   ShadowModeConfig,
   TagPropagation,
   ThroughputMode,
-  TrackingServerSize,
   TrustedIdentityPropagationSettings,
   UnifiedStudioSettings,
   UserSettings,
@@ -136,7 +136,6 @@ import {
   InferenceExecutionConfig,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
-  IPAddressType,
   MemberDefinition,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
@@ -191,6 +190,7 @@ import {
   SpaceSharingSettings,
   StudioLifecycleConfigAppType,
   TensorBoardOutputConfig,
+  TrackingServerSize,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
@@ -9280,6 +9280,12 @@ export interface DomainSettingsForUpdate {
    * @public
    */
   UnifiedStudioSettings?: UnifiedStudioSettings | undefined;
+
+  /**
+   * <p>The IP address type for the domain. Specify <code>ipv4</code> for IPv4-only connectivity or <code>dualstack</code> for both IPv4 and IPv6 connectivity. When you specify <code>dualstack</code>, the subnet must support IPv6 CIDR blocks.</p>
+   * @public
+   */
+  IpAddressType?: IPAddressType | undefined;
 }
 
 /**

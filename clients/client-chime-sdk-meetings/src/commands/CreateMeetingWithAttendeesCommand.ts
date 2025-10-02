@@ -35,16 +35,32 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
 /**
  * <p>
  *            Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see
- *            <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
- *            in the <i>Amazon Chime Developer Guide</i>. For more information about the Amazon Chime SDK, see
- *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
- *            in the <i>Amazon Chime Developer Guide</i>.
+ *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions">Available Regions</a> and
+ *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Using meeting Regions</a>, both
+ *            in the <i>Amazon Chime SDK Developer Guide</i>. For more information about the Amazon Chime SDK, see
+ *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ *            in the
+ *            <i>Amazon Chime SDK Developer Guide</i>.
  *        </p>
+ *          <note>
+ *             <p>If you use this API in conjuction with the  and  APIs, and you don't specify the
+ *            <code>MeetingFeatures.Content.MaxResolution</code> or <code>MeetingFeatures.Video.MaxResolution</code> parameters, the following defaults are used:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Content.MaxResolution: FHD</p>
+ *                </li>
+ *                <li>
+ *                   <p>Video.MaxResolution: HD</p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * // import type { ChimeSDKMeetingsClientConfig } from "@aws-sdk/client-chime-sdk-meetings";
+ * const config = {}; // type is ChimeSDKMeetingsClientConfig
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // CreateMeetingWithAttendeesRequest
  *   ClientRequestToken: "STRING_VALUE", // required
@@ -90,6 +106,7 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   MediaPlacementNetworkType: "Ipv4Only" || "DualStack",
  * };
  * const command = new CreateMeetingWithAttendeesCommand(input);
  * const response = await client.send(command);

@@ -39,6 +39,8 @@ export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, _
  * ```javascript
  * import { BillingconductorClient, ListPricingPlansCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListPricingPlansCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // import type { BillingconductorClientConfig } from "@aws-sdk/client-billingconductor";
+ * const config = {}; // type is BillingconductorClientConfig
  * const client = new BillingconductorClient(config);
  * const input = { // ListPricingPlansInput
  *   BillingPeriod: "STRING_VALUE",

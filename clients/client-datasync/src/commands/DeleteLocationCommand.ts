@@ -34,6 +34,8 @@ export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __M
  * ```javascript
  * import { DataSyncClient, DeleteLocationCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DeleteLocationCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // DeleteLocationRequest
  *   LocationArn: "STRING_VALUE", // required

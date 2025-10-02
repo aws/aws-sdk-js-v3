@@ -41,6 +41,8 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  * ```javascript
  * import { DirectConnectClient, CreateConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
+ * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
  * const input = { // CreateConnectionRequest
  *   location: "STRING_VALUE", // required

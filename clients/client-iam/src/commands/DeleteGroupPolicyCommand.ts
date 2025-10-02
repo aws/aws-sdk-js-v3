@@ -39,6 +39,8 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, DeleteGroupPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteGroupPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // DeleteGroupPolicyRequest
  *   GroupName: "STRING_VALUE", // required

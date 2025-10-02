@@ -42,6 +42,8 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * ```javascript
  * import { CustomerProfilesClient, UpdateProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, UpdateProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // UpdateProfileRequest
  *   DomainName: "STRING_VALUE", // required

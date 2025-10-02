@@ -35,6 +35,8 @@ export interface BatchAcknowledgeAlarmCommandOutput extends BatchAcknowledgeAlar
  * ```javascript
  * import { IoTEventsDataClient, BatchAcknowledgeAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchAcknowledgeAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * // import type { IoTEventsDataClientConfig } from "@aws-sdk/client-iot-events-data";
+ * const config = {}; // type is IoTEventsDataClientConfig
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchAcknowledgeAlarmRequest
  *   acknowledgeActionRequests: [ // AcknowledgeAlarmActionRequests // required

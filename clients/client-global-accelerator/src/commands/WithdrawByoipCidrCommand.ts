@@ -44,6 +44,8 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrRespons
  * ```javascript
  * import { GlobalAcceleratorClient, WithdrawByoipCidrCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, WithdrawByoipCidrCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // import type { GlobalAcceleratorClientConfig } from "@aws-sdk/client-global-accelerator";
+ * const config = {}; // type is GlobalAcceleratorClientConfig
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // WithdrawByoipCidrRequest
  *   Cidr: "STRING_VALUE", // required

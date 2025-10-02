@@ -34,6 +34,8 @@ export interface CompleteMigrationCommandOutput extends CompleteMigrationRespons
  * ```javascript
  * import { ElastiCacheClient, CompleteMigrationCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CompleteMigrationCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // CompleteMigrationMessage
  *   ReplicationGroupId: "STRING_VALUE", // required

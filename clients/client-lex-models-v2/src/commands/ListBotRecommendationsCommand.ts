@@ -35,6 +35,8 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  * ```javascript
  * import { LexModelsV2Client, ListBotRecommendationsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBotRecommendationsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // ListBotRecommendationsRequest
  *   botId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * ```javascript
  * import { SchemasClient, ListSchemaVersionsCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, ListSchemaVersionsCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // import type { SchemasClientConfig } from "@aws-sdk/client-schemas";
+ * const config = {}; // type is SchemasClientConfig
  * const client = new SchemasClient(config);
  * const input = { // ListSchemaVersionsRequest
  *   Limit: Number("int"),

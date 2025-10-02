@@ -41,6 +41,8 @@ export interface UpdateLocationFsxWindowsCommandOutput extends UpdateLocationFsx
  * ```javascript
  * import { DataSyncClient, UpdateLocationFsxWindowsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationFsxWindowsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // UpdateLocationFsxWindowsRequest
  *   LocationArn: "STRING_VALUE", // required

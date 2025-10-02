@@ -55,6 +55,8 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  * ```javascript
  * import { EFSClient, CreateAccessPointCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateAccessPointCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // import type { EFSClientConfig } from "@aws-sdk/client-efs";
+ * const config = {}; // type is EFSClientConfig
  * const client = new EFSClient(config);
  * const input = { // CreateAccessPointRequest
  *   ClientToken: "STRING_VALUE", // required

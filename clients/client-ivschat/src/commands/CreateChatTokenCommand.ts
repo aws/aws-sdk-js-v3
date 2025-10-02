@@ -50,6 +50,8 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  * ```javascript
  * import { IvschatClient, CreateChatTokenCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, CreateChatTokenCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // import type { IvschatClientConfig } from "@aws-sdk/client-ivschat";
+ * const config = {}; // type is IvschatClientConfig
  * const client = new IvschatClient(config);
  * const input = { // CreateChatTokenRequest
  *   roomIdentifier: "STRING_VALUE", // required

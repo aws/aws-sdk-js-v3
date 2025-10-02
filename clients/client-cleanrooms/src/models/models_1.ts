@@ -2,14 +2,13 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  AccessBudgetsPrivacyTemplateParametersInput,
+  AccessBudgetsPrivacyTemplateUpdateParameters,
   AnalysisType,
   DifferentialPrivacyAggregationType,
   MemberAbility,
-  MembershipJobLogStatus,
-  MembershipPaymentConfiguration,
   MembershipProtectedJobResultConfiguration,
-  MembershipProtectedQueryResultConfiguration,
-  MembershipQueryLogStatus,
+  MembershipProtectedQueryOutputConfiguration,
   MLMemberAbilities,
   PrivacyBudget,
   PrivacyBudgetTemplateAutoRefresh,
@@ -17,6 +16,142 @@ import {
   PrivacyBudgetType,
   ProtectedQueryS3OutputConfiguration,
 } from "./models_0";
+
+/**
+ * <p>Contains configurations for protected query results.</p>
+ * @public
+ */
+export interface MembershipProtectedQueryResultConfiguration {
+  /**
+   * <p>Configuration for protected query results.</p>
+   * @public
+   */
+  outputConfiguration: MembershipProtectedQueryOutputConfiguration | undefined;
+
+  /**
+   * <p>The unique ARN for an IAM role that is used by Clean Rooms to write protected query results to the result location, given by the member who can receive results.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MembershipJobLogStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MembershipJobLogStatus = (typeof MembershipJobLogStatus)[keyof typeof MembershipJobLogStatus];
+
+/**
+ * <p>An object representing the payment responsibilities accepted by the collaboration member for query and job compute costs.</p>
+ * @public
+ */
+export interface MembershipJobComputePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for job compute costs (<code>TRUE</code>) or has not accepted to pay for query and job compute costs (<code>FALSE</code>).</p> <p>There is only one member who pays for queries and jobs. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for query and job compute costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for query and job compute costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's model inference payment responsibilities set by the collaboration creator.</p>
+ * @public
+ */
+export interface MembershipModelInferencePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for model inference costs (<code>TRUE</code>) or has not accepted to pay for model inference costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for model inference costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for model inference costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's model training payment responsibilities set by the collaboration creator.</p>
+ * @public
+ */
+export interface MembershipModelTrainingPaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for model training costs (<code>TRUE</code>) or has not accepted to pay for model training costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for model training costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for model training costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.</p>
+ * @public
+ */
+export interface MembershipMLPaymentConfig {
+  /**
+   * <p>The payment responsibilities accepted by the member for model training.</p>
+   * @public
+   */
+  modelTraining?: MembershipModelTrainingPaymentConfig | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the member for model inference.</p>
+   * @public
+   */
+  modelInference?: MembershipModelInferencePaymentConfig | undefined;
+}
+
+/**
+ * <p>An object representing the payment responsibilities accepted by the collaboration member for query compute costs.</p>
+ * @public
+ */
+export interface MembershipQueryComputePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for query compute costs (<code>TRUE</code>) or has not accepted to pay for query compute costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for query compute costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for query compute costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the payment responsibilities accepted by the collaboration member.</p>
+ * @public
+ */
+export interface MembershipPaymentConfiguration {
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member for query compute costs.</p>
+   * @public
+   */
+  queryCompute: MembershipQueryComputePaymentConfig | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member for machine learning costs.</p>
+   * @public
+   */
+  machineLearning?: MembershipMLPaymentConfig | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member for job compute costs.</p>
+   * @public
+   */
+  jobCompute?: MembershipJobComputePaymentConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MembershipQueryLogStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof typeof MembershipQueryLogStatus];
 
 /**
  * @public
@@ -1431,6 +1566,12 @@ export interface ListPrivacyBudgetsInput {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the access budget resource to filter privacy budgets by.</p>
+   * @public
+   */
+  accessBudgetResourceArn?: string | undefined;
 }
 
 /**
@@ -2352,6 +2493,7 @@ export interface DifferentialPrivacyTemplateParametersInput {
  * @public
  */
 export type PrivacyBudgetTemplateParametersInput =
+  | PrivacyBudgetTemplateParametersInput.AccessBudgetMember
   | PrivacyBudgetTemplateParametersInput.DifferentialPrivacyMember
   | PrivacyBudgetTemplateParametersInput.$UnknownMember;
 
@@ -2365,6 +2507,17 @@ export namespace PrivacyBudgetTemplateParametersInput {
    */
   export interface DifferentialPrivacyMember {
     differentialPrivacy: DifferentialPrivacyTemplateParametersInput;
+    accessBudget?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Access budget configuration for the privacy budget template input, enabling integration with access budget functionality.</p>
+   * @public
+   */
+  export interface AccessBudgetMember {
+    differentialPrivacy?: never;
+    accessBudget: AccessBudgetsPrivacyTemplateParametersInput;
     $unknown?: never;
   }
 
@@ -2373,16 +2526,19 @@ export namespace PrivacyBudgetTemplateParametersInput {
    */
   export interface $UnknownMember {
     differentialPrivacy?: never;
+    accessBudget?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     differentialPrivacy: (value: DifferentialPrivacyTemplateParametersInput) => T;
+    accessBudget: (value: AccessBudgetsPrivacyTemplateParametersInput) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: PrivacyBudgetTemplateParametersInput, visitor: Visitor<T>): T => {
     if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    if (value.accessBudget !== undefined) return visitor.accessBudget(value.accessBudget);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2401,7 +2557,7 @@ export interface CreatePrivacyBudgetTemplateInput {
    * <p>How often the privacy budget refreshes.</p> <important> <p>If you plan to regularly bring new data into the collaboration, you can use <code>CALENDAR_MONTH</code> to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queries across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.</p> </important>
    * @public
    */
-  autoRefresh: PrivacyBudgetTemplateAutoRefresh | undefined;
+  autoRefresh?: PrivacyBudgetTemplateAutoRefresh | undefined;
 
   /**
    * <p>Specifies the type of the privacy budget template.</p>
@@ -2678,6 +2834,7 @@ export interface DifferentialPrivacyTemplateUpdateParameters {
  * @public
  */
 export type PrivacyBudgetTemplateUpdateParameters =
+  | PrivacyBudgetTemplateUpdateParameters.AccessBudgetMember
   | PrivacyBudgetTemplateUpdateParameters.DifferentialPrivacyMember
   | PrivacyBudgetTemplateUpdateParameters.$UnknownMember;
 
@@ -2691,6 +2848,17 @@ export namespace PrivacyBudgetTemplateUpdateParameters {
    */
   export interface DifferentialPrivacyMember {
     differentialPrivacy: DifferentialPrivacyTemplateUpdateParameters;
+    accessBudget?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> The new access budget configuration that completely replaces the existing access budget settings in the privacy budget template.</p>
+   * @public
+   */
+  export interface AccessBudgetMember {
+    differentialPrivacy?: never;
+    accessBudget: AccessBudgetsPrivacyTemplateUpdateParameters;
     $unknown?: never;
   }
 
@@ -2699,16 +2867,19 @@ export namespace PrivacyBudgetTemplateUpdateParameters {
    */
   export interface $UnknownMember {
     differentialPrivacy?: never;
+    accessBudget?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     differentialPrivacy: (value: DifferentialPrivacyTemplateUpdateParameters) => T;
+    accessBudget: (value: AccessBudgetsPrivacyTemplateUpdateParameters) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: PrivacyBudgetTemplateUpdateParameters, visitor: Visitor<T>): T => {
     if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    if (value.accessBudget !== undefined) return visitor.accessBudget(value.accessBudget);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }

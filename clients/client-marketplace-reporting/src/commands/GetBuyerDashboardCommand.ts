@@ -52,6 +52,8 @@ export interface GetBuyerDashboardCommandOutput extends GetBuyerDashboardOutput,
  * ```javascript
  * import { MarketplaceReportingClient, GetBuyerDashboardCommand } from "@aws-sdk/client-marketplace-reporting"; // ES Modules import
  * // const { MarketplaceReportingClient, GetBuyerDashboardCommand } = require("@aws-sdk/client-marketplace-reporting"); // CommonJS import
+ * // import type { MarketplaceReportingClientConfig } from "@aws-sdk/client-marketplace-reporting";
+ * const config = {}; // type is MarketplaceReportingClientConfig
  * const client = new MarketplaceReportingClient(config);
  * const input = { // GetBuyerDashboardInput
  *   dashboardIdentifier: "STRING_VALUE", // required

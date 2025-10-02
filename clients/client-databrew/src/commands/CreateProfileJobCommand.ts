@@ -34,6 +34,8 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * ```javascript
  * import { DataBrewClient, CreateProfileJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateProfileJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // CreateProfileJobRequest
  *   DatasetName: "STRING_VALUE", // required

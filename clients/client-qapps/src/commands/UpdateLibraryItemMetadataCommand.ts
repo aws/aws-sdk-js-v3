@@ -34,6 +34,8 @@ export interface UpdateLibraryItemMetadataCommandOutput extends __MetadataBearer
  * ```javascript
  * import { QAppsClient, UpdateLibraryItemMetadataCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, UpdateLibraryItemMetadataCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // UpdateLibraryItemMetadataInput
  *   instanceId: "STRING_VALUE", // required

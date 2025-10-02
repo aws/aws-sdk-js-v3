@@ -1467,7 +1467,6 @@ export interface RDS {
   /**
    * @see {@link CreateGlobalClusterCommand}
    */
-  createGlobalCluster(): Promise<CreateGlobalClusterCommandOutput>;
   createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
     options?: __HttpHandlerOptions
@@ -3132,7 +3131,6 @@ export interface RDS {
   /**
    * @see {@link ModifyGlobalClusterCommand}
    */
-  modifyGlobalCluster(): Promise<ModifyGlobalClusterCommandOutput>;
   modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
     options?: __HttpHandlerOptions
@@ -3317,7 +3315,6 @@ export interface RDS {
   /**
    * @see {@link RemoveFromGlobalClusterCommand}
    */
-  removeFromGlobalCluster(): Promise<RemoveFromGlobalClusterCommandOutput>;
   removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
     options?: __HttpHandlerOptions

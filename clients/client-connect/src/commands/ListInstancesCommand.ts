@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListInstancesRequest,
-  ListInstancesResponse,
-  ListInstancesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListInstancesRequest } from "../models/models_1";
+import { ListInstancesResponse, ListInstancesResponseFilterSensitiveLog } from "../models/models_2";
 import { de_ListInstancesCommand, se_ListInstancesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -41,6 +38,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * ```javascript
  * import { ConnectClient, ListInstancesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListInstancesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // ListInstancesRequest
  *   NextToken: "STRING_VALUE",

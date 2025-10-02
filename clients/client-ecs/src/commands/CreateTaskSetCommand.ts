@@ -42,6 +42,8 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * ```javascript
  * import { ECSClient, CreateTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // CreateTaskSetRequest
  *   service: "STRING_VALUE", // required
@@ -81,7 +83,7 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  *       containerPort: Number("int"),
  *     },
  *   ],
- *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  *   capacityProviderStrategy: [ // CapacityProviderStrategy
  *     { // CapacityProviderStrategyItem
  *       capacityProvider: "STRING_VALUE", // required
@@ -119,7 +121,7 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * //     runningCount: Number("int"),
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
- * //     launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //     launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //     capacityProviderStrategy: [ // CapacityProviderStrategy
  * //       { // CapacityProviderStrategyItem
  * //         capacityProvider: "STRING_VALUE", // required

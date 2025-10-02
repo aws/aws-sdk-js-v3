@@ -34,6 +34,8 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  * ```javascript
  * import { MediaStoreClient, DeleteContainerPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteContainerPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // import type { MediaStoreClientConfig } from "@aws-sdk/client-mediastore";
+ * const config = {}; // type is MediaStoreClientConfig
  * const client = new MediaStoreClient(config);
  * const input = { // DeleteContainerPolicyInput
  *   ContainerName: "STRING_VALUE", // required

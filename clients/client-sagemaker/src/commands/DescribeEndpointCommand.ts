@@ -34,6 +34,8 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * ```javascript
  * import { SageMakerClient, DescribeEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeEndpointInput
  *   EndpointName: "STRING_VALUE", // required

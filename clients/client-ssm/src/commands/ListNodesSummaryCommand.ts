@@ -36,6 +36,8 @@ export interface ListNodesSummaryCommandOutput extends ListNodesSummaryResult, _
  * ```javascript
  * import { SSMClient, ListNodesSummaryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListNodesSummaryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListNodesSummaryRequest
  *   SyncName: "STRING_VALUE",

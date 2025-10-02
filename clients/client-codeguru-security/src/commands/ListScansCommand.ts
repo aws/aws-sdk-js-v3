@@ -34,6 +34,8 @@ export interface ListScansCommandOutput extends ListScansResponse, __MetadataBea
  * ```javascript
  * import { CodeGuruSecurityClient, ListScansCommand } from "@aws-sdk/client-codeguru-security"; // ES Modules import
  * // const { CodeGuruSecurityClient, ListScansCommand } = require("@aws-sdk/client-codeguru-security"); // CommonJS import
+ * // import type { CodeGuruSecurityClientConfig } from "@aws-sdk/client-codeguru-security";
+ * const config = {}; // type is CodeGuruSecurityClientConfig
  * const client = new CodeGuruSecurityClient(config);
  * const input = { // ListScansRequest
  *   nextToken: "STRING_VALUE",

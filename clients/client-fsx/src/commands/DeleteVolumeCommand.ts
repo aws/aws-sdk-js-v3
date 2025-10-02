@@ -35,6 +35,8 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  * ```javascript
  * import { FSxClient, DeleteVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // DeleteVolumeRequest
  *   ClientRequestToken: "STRING_VALUE",
@@ -92,7 +94,7 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web ServicesSupport.</p>
+ *             some service limits by contacting Amazon Web Services Support.</p>
  *
  * @throws {@link VolumeNotFound} (client fault)
  *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>

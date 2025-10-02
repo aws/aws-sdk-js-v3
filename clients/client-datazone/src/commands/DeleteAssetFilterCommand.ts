@@ -28,12 +28,14 @@ export interface DeleteAssetFilterCommandInput extends DeleteAssetFilterInput {}
 export interface DeleteAssetFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an asset filter.</p>
+ * <p>Deletes an asset filter.</p> <p>Prerequisites:</p> <ul> <li> <p>The asset filter must exist. </p> </li> <li> <p>The domain and asset must not have been deleted.</p> </li> <li> <p>Ensure the --identifier refers to a valid filter ID.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, DeleteAssetFilterCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteAssetFilterCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteAssetFilterInput
  *   domainIdentifier: "STRING_VALUE", // required

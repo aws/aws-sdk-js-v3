@@ -34,6 +34,8 @@ export interface CreateCaseRuleCommandOutput extends CreateCaseRuleResponse, __M
  * ```javascript
  * import { ConnectCasesClient, CreateCaseRuleCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateCaseRuleCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // CreateCaseRuleRequest
  *   domainId: "STRING_VALUE", // required

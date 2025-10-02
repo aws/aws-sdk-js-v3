@@ -33,13 +33,15 @@ export interface UpdateIdentityPropagationConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Adds or updates services and authorized targets to configure what the Amazon QuickSight IAM Identity Center application can access.</p>
- *          <p>This operation is only supported for Amazon QuickSight accounts using IAM Identity Center</p>
+ * <p>Adds or updates services and authorized targets to configure what the QuickSight IAM Identity Center application can access.</p>
+ *          <p>This operation is only supported for QuickSight accounts using IAM Identity Center</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, UpdateIdentityPropagationConfigCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateIdentityPropagationConfigCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateIdentityPropagationConfigRequest
  *   AwsAccountId: "STRING_VALUE", // required

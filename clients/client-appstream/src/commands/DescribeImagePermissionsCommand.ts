@@ -34,6 +34,8 @@ export interface DescribeImagePermissionsCommandOutput extends DescribeImagePerm
  * ```javascript
  * import { AppStreamClient, DescribeImagePermissionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeImagePermissionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // DescribeImagePermissionsRequest
  *   Name: "STRING_VALUE", // required

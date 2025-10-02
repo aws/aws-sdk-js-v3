@@ -34,6 +34,8 @@ export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSetting
  * ```javascript
  * import { ECSClient, UpdateClusterSettingsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateClusterSettingsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // UpdateClusterSettingsRequest
  *   cluster: "STRING_VALUE", // required

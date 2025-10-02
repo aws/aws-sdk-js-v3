@@ -34,6 +34,8 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
  * ```javascript
  * import { LookoutMetricsClient, BackTestAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, BackTestAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // BackTestAnomalyDetectorRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required

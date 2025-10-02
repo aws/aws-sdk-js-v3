@@ -34,6 +34,8 @@ export interface BatchDeleteClusterNodesCommandOutput extends BatchDeleteCluster
  * ```javascript
  * import { SageMakerClient, BatchDeleteClusterNodesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, BatchDeleteClusterNodesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // BatchDeleteClusterNodesRequest
  *   ClusterName: "STRING_VALUE", // required

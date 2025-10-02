@@ -119,6 +119,7 @@ import {
   SubnetGroupNotFoundFault,
   SubnetGroupQuotaExceededFault,
   SubnetInUse,
+  SubnetNotAllowedFault,
   SubnetQuotaExceededFault,
   Tag,
   TagNotFoundFault,
@@ -894,6 +895,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "SubnetGroupQuotaExceededFault":
     case "com.amazonaws.dax#SubnetGroupQuotaExceededFault":
       throw await de_SubnetGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "SubnetNotAllowedFault":
+    case "com.amazonaws.dax#SubnetNotAllowedFault":
+      throw await de_SubnetNotAllowedFaultRes(parsedOutput, context);
     case "SubnetQuotaExceededFault":
     case "com.amazonaws.dax#SubnetQuotaExceededFault":
       throw await de_SubnetQuotaExceededFaultRes(parsedOutput, context);
@@ -1298,6 +1302,22 @@ const de_SubnetInUseRes = async (parsedOutput: any, context: __SerdeContext): Pr
 };
 
 /**
+ * deserializeAws_json1_1SubnetNotAllowedFaultRes
+ */
+const de_SubnetNotAllowedFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SubnetNotAllowedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new SubnetNotAllowedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1SubnetQuotaExceededFaultRes
  */
 const de_SubnetQuotaExceededFaultRes = async (
@@ -1435,6 +1455,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     ClusterName: __expectString,
     Description: __expectString,
     IamRoleArn: __expectString,
+    NetworkType: __expectString,
     NodeIdsToRemove: _json,
     NodeType: __expectString,
     Nodes: (_: any) => de_NodeList(_, context),
@@ -1589,6 +1610,8 @@ const de_IncreaseReplicationFactorResponse = (
 
 // de_ListTagsResponse omitted.
 
+// de_NetworkTypeList omitted.
+
 /**
  * deserializeAws_json1_1Node
  */
@@ -1681,6 +1704,8 @@ const de_RebootNodeResponse = (output: any, context: __SerdeContext): RebootNode
 // de_SubnetInUse omitted.
 
 // de_SubnetList omitted.
+
+// de_SubnetNotAllowedFault omitted.
 
 // de_SubnetQuotaExceededFault omitted.
 

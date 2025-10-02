@@ -28,12 +28,14 @@ export interface DeleteDataProductCommandInput extends DeleteDataProductInput {}
 export interface DeleteDataProductCommandOutput extends DeleteDataProductOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a data product in Amazon DataZone.</p>
+ * <p>Deletes a data product in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>The data product must exist and not be deleted or archived. </p> </li> <li> <p>The user must have delete permissions for the data product.</p> </li> <li> <p>Domain and project must be active.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, DeleteDataProductCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteDataProductCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteDataProductInput
  *   domainIdentifier: "STRING_VALUE", // required

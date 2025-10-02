@@ -35,6 +35,8 @@ export interface StartAnalysisReportCommandOutput extends StartAnalysisReportRes
  * ```javascript
  * import { NetworkFirewallClient, StartAnalysisReportCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, StartAnalysisReportCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // StartAnalysisReportRequest
  *   FirewallName: "STRING_VALUE",

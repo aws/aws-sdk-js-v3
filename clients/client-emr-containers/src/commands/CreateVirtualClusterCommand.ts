@@ -37,6 +37,8 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  * ```javascript
  * import { EMRContainersClient, CreateVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CreateVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // CreateVirtualClusterRequest
  *   name: "STRING_VALUE", // required
@@ -46,6 +48,7 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  *     info: { // ContainerInfo Union: only one key present
  *       eksInfo: { // EksInfo
  *         namespace: "STRING_VALUE",
+ *         nodeLabel: "STRING_VALUE",
  *       },
  *     },
  *   },

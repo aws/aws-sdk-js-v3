@@ -40,6 +40,8 @@ export interface RevokeRestoreAccessBackupVaultCommandOutput extends __MetadataB
  * ```javascript
  * import { BackupClient, RevokeRestoreAccessBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, RevokeRestoreAccessBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // RevokeRestoreAccessBackupVaultInput
  *   BackupVaultName: "STRING_VALUE", // required

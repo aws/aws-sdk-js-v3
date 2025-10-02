@@ -39,6 +39,8 @@ export interface GetDistributionTenantByDomainCommandOutput
  * ```javascript
  * import { CloudFrontClient, GetDistributionTenantByDomainCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetDistributionTenantByDomainCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // GetDistributionTenantByDomainRequest
  *   Domain: "STRING_VALUE", // required

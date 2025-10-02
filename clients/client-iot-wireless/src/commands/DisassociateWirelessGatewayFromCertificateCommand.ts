@@ -43,6 +43,8 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput
  * ```javascript
  * import { IoTWirelessClient, DisassociateWirelessGatewayFromCertificateCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DisassociateWirelessGatewayFromCertificateCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // DisassociateWirelessGatewayFromCertificateRequest
  *   Id: "STRING_VALUE", // required

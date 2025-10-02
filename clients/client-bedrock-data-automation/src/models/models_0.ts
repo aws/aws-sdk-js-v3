@@ -866,6 +866,60 @@ export interface OverrideConfiguration {
 }
 
 /**
+ * Channel labeling configuration
+ * @public
+ */
+export interface ChannelLabelingConfiguration {
+  /**
+   * State
+   * @public
+   */
+  state: State | undefined;
+}
+
+/**
+ * Speaker labeling configuration
+ * @public
+ */
+export interface SpeakerLabelingConfiguration {
+  /**
+   * State
+   * @public
+   */
+  state: State | undefined;
+}
+
+/**
+ * Configuration for transcript related features
+ * @public
+ */
+export interface TranscriptConfiguration {
+  /**
+   * Speaker labeling configuration
+   * @public
+   */
+  speakerLabeling?: SpeakerLabelingConfiguration | undefined;
+
+  /**
+   * Channel labeling configuration
+   * @public
+   */
+  channelLabeling?: ChannelLabelingConfiguration | undefined;
+}
+
+/**
+ * Configuration for different audio extraction category types
+ * @public
+ */
+export interface AudioExtractionCategoryTypeConfiguration {
+  /**
+   * Configuration for transcript related features
+   * @public
+   */
+  transcript?: TranscriptConfiguration | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -897,6 +951,12 @@ export interface AudioExtractionCategory {
    * @public
    */
   types?: AudioExtractionCategoryType[] | undefined;
+
+  /**
+   * Configuration for different audio extraction category types
+   * @public
+   */
+  typeConfiguration?: AudioExtractionCategoryTypeConfiguration | undefined;
 }
 
 /**

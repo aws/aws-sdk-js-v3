@@ -45,6 +45,8 @@ export interface GetThingShadowCommandOutput extends GetThingShadowCommandOutput
  * ```javascript
  * import { IoTDataPlaneClient, GetThingShadowCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, GetThingShadowCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * // import type { IoTDataPlaneClientConfig } from "@aws-sdk/client-iot-data-plane";
+ * const config = {}; // type is IoTDataPlaneClientConfig
  * const client = new IoTDataPlaneClient(config);
  * const input = { // GetThingShadowRequest
  *   thingName: "STRING_VALUE", // required

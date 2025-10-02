@@ -34,6 +34,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * ```javascript
  * import { MediaPackageClient, ListChannelsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, ListChannelsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * // import type { MediaPackageClientConfig } from "@aws-sdk/client-mediapackage";
+ * const config = {}; // type is MediaPackageClientConfig
  * const client = new MediaPackageClient(config);
  * const input = { // ListChannelsRequest
  *   MaxResults: Number("int"),

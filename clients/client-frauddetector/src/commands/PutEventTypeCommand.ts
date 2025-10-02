@@ -34,6 +34,8 @@ export interface PutEventTypeCommandOutput extends PutEventTypeResult, __Metadat
  * ```javascript
  * import { FraudDetectorClient, PutEventTypeCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutEventTypeCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // PutEventTypeRequest
  *   name: "STRING_VALUE", // required

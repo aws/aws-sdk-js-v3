@@ -37,6 +37,8 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * ```javascript
  * import { AthenaClient, ListSessionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListSessionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // ListSessionsRequest
  *   WorkGroup: "STRING_VALUE", // required

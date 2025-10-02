@@ -34,6 +34,8 @@ export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsR
  * ```javascript
  * import { SageMakerClient, ListMonitoringAlertsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListMonitoringAlertsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListMonitoringAlertsRequest
  *   MonitoringScheduleName: "STRING_VALUE", // required

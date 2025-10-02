@@ -34,6 +34,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * ```javascript
  * import { MachineLearningClient, DescribeTagsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeTagsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * // import type { MachineLearningClientConfig } from "@aws-sdk/client-machine-learning";
+ * const config = {}; // type is MachineLearningClientConfig
  * const client = new MachineLearningClient(config);
  * const input = { // DescribeTagsInput
  *   ResourceId: "STRING_VALUE", // required

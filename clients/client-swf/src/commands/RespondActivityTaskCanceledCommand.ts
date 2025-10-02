@@ -71,6 +71,8 @@ export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBear
  * ```javascript
  * import { SWFClient, RespondActivityTaskCanceledCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RespondActivityTaskCanceledCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // RespondActivityTaskCanceledInput
  *   taskToken: "STRING_VALUE", // required

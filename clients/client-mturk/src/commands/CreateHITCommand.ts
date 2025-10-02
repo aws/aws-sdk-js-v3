@@ -50,6 +50,8 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  * ```javascript
  * import { MTurkClient, CreateHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // CreateHITRequest
  *   MaxAssignments: Number("int"),

@@ -34,6 +34,8 @@ export interface StopCodeInterpreterSessionCommandOutput extends StopCodeInterpr
  * ```javascript
  * import { BedrockAgentCoreClient, StopCodeInterpreterSessionCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, StopCodeInterpreterSessionCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // StopCodeInterpreterSessionRequest
  *   codeInterpreterIdentifier: "STRING_VALUE", // required

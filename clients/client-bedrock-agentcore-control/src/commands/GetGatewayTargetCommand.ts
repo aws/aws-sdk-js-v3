@@ -36,12 +36,14 @@ export interface GetGatewayTargetCommandInput extends GetGatewayTargetRequest {}
 export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a specific Gateway Target.</p>
+ * <p>Retrieves information about a specific gateway target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, GetGatewayTargetCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, GetGatewayTargetCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetGatewayTargetRequest
  *   gatewayIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface StopModelInvocationJobCommandOutput extends StopModelInvocation
  * ```javascript
  * import { BedrockClient, StopModelInvocationJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, StopModelInvocationJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // StopModelInvocationJobRequest
  *   jobIdentifier: "STRING_VALUE", // required

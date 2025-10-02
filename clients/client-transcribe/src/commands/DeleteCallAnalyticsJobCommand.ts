@@ -36,6 +36,8 @@ export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalytics
  * ```javascript
  * import { TranscribeClient, DeleteCallAnalyticsJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteCallAnalyticsJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // import type { TranscribeClientConfig } from "@aws-sdk/client-transcribe";
+ * const config = {}; // type is TranscribeClientConfig
  * const client = new TranscribeClient(config);
  * const input = { // DeleteCallAnalyticsJobRequest
  *   CallAnalyticsJobName: "STRING_VALUE", // required

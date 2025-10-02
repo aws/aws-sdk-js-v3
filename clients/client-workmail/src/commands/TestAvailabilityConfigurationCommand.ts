@@ -50,6 +50,8 @@ export interface TestAvailabilityConfigurationCommandOutput
  * ```javascript
  * import { WorkMailClient, TestAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, TestAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // TestAvailabilityConfigurationRequest
  *   OrganizationId: "STRING_VALUE", // required

@@ -50,6 +50,8 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  * ```javascript
  * import { TextractClient, StartDocumentAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, StartDocumentAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // StartDocumentAnalysisRequest
  *   DocumentLocation: { // DocumentLocation

@@ -34,6 +34,8 @@ export interface StartDirectoryListingCommandOutput extends StartDirectoryListin
  * ```javascript
  * import { TransferClient, StartDirectoryListingCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, StartDirectoryListingCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // StartDirectoryListingRequest
  *   ConnectorId: "STRING_VALUE", // required

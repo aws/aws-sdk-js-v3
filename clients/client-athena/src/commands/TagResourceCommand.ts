@@ -44,6 +44,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { AthenaClient, TagResourceCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, TagResourceCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // TagResourceInput
  *   ResourceARN: "STRING_VALUE", // required

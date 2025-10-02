@@ -40,6 +40,8 @@ export interface StartDataSourceIntrospectionCommandOutput
  * ```javascript
  * import { AppSyncClient, StartDataSourceIntrospectionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, StartDataSourceIntrospectionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // StartDataSourceIntrospectionRequest
  *   rdsDataApiConfig: { // RdsDataApiConfig

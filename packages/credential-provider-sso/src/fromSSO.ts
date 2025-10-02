@@ -1,7 +1,6 @@
 import type { CredentialProviderOptions, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName, loadSsoSessionData, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
-import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 import { isSsoProfile } from "./isSsoProfile";
 import type { SSOClient, SSOClientConfig } from "./loadSso";
@@ -137,6 +136,11 @@ export const fromSSO =
         clientConfig: init.clientConfig,
         parentClientConfig: init.parentClientConfig,
         profile: profileName,
+
+        filepath: init.filepath,
+        configFilepath: init.configFilepath,
+        ignoreCache: init.ignoreCache,
+        logger: init.logger,
       });
     } else if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName) {
       throw new CredentialsProviderError(
@@ -155,6 +159,11 @@ export const fromSSO =
         clientConfig: init.clientConfig,
         parentClientConfig: init.parentClientConfig,
         profile: profileName,
+
+        filepath: init.filepath,
+        configFilepath: init.configFilepath,
+        ignoreCache: init.ignoreCache,
+        logger: init.logger,
       });
     }
   };

@@ -28,12 +28,14 @@ export interface GetGlossaryCommandInput extends GetGlossaryInput {}
 export interface GetGlossaryCommandOutput extends GetGlossaryOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a business glossary in Amazon DataZone.</p>
+ * <p>Gets a business glossary in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>The specified glossary ID must exist and be associated with the given domain. </p> </li> <li> <p>The caller must have the <code>datazone:GetGlossary</code> permission on the domain.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, GetGlossaryCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetGlossaryCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetGlossaryInput
  *   domainIdentifier: "STRING_VALUE", // required

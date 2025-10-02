@@ -56,6 +56,8 @@ export interface CreateDataRepositoryAssociationCommandOutput
  * ```javascript
  * import { FSxClient, CreateDataRepositoryAssociationCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateDataRepositoryAssociationCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // CreateDataRepositoryAssociationRequest
  *   FileSystemId: "STRING_VALUE", // required
@@ -160,7 +162,7 @@ export interface CreateDataRepositoryAssociationCommandOutput
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web ServicesSupport.</p>
+ *             some service limits by contacting Amazon Web Services Support.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>The requested operation is not supported for this resource or API.</p>

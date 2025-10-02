@@ -34,6 +34,8 @@ export interface GetProviderServiceCommandOutput extends GetProviderServiceOutpu
  * ```javascript
  * import { EntityResolutionClient, GetProviderServiceCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, GetProviderServiceCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // GetProviderServiceInput
  *   providerName: "STRING_VALUE", // required
@@ -104,7 +106,7 @@ export interface GetProviderServiceCommandOutput extends GetProviderServiceOutpu
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *  <p>The resource couldn't be found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

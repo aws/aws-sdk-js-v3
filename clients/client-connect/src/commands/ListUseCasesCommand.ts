@@ -34,6 +34,8 @@ export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __Metad
  * ```javascript
  * import { ConnectClient, ListUseCasesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListUseCasesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // ListUseCasesRequest
  *   InstanceId: "STRING_VALUE", // required

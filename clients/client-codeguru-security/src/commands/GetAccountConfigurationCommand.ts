@@ -34,6 +34,8 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * ```javascript
  * import { CodeGuruSecurityClient, GetAccountConfigurationCommand } from "@aws-sdk/client-codeguru-security"; // ES Modules import
  * // const { CodeGuruSecurityClient, GetAccountConfigurationCommand } = require("@aws-sdk/client-codeguru-security"); // CommonJS import
+ * // import type { CodeGuruSecurityClientConfig } from "@aws-sdk/client-codeguru-security";
+ * const config = {}; // type is CodeGuruSecurityClientConfig
  * const client = new CodeGuruSecurityClient(config);
  * const input = {};
  * const command = new GetAccountConfigurationCommand(input);

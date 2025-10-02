@@ -36,17 +36,14 @@ export interface AssociateUserCommandInput extends AssociateUserRequest {}
 export interface AssociateUserCommandOutput extends AssociateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p>
- *          <note>
- *             <p>Your estimated bill for charges on the number of users and related costs will take 48
- * 			hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your
- * 				monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>
- *          </note>
+ * <p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p> <note> <p>Your estimated bill for charges on the number of users and related costs will take 48 hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, AssociateUserCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, AssociateUserCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerUserSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-user-subscriptions";
+ * const config = {}; // type is LicenseManagerUserSubscriptionsClientConfig
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // AssociateUserRequest
  *   Username: "STRING_VALUE", // required
@@ -71,6 +68,7 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  *         },
  *       },
  *       ActiveDirectoryType: "STRING_VALUE",
+ *       IsSharedActiveDirectory: true || false,
  *     },
  *   },
  *   Domain: "STRING_VALUE",
@@ -104,6 +102,7 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  * //           },
  * //         },
  * //         ActiveDirectoryType: "STRING_VALUE",
+ * //         IsSharedActiveDirectory: true || false,
  * //       },
  * //     },
  * //     Status: "STRING_VALUE", // required
@@ -127,8 +126,7 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (server fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the
- * 			resource.</p>
+ *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>

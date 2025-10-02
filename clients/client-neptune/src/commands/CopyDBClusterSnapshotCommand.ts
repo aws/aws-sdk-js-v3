@@ -38,6 +38,8 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * ```javascript
  * import { NeptuneClient, CopyDBClusterSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CopyDBClusterSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // CopyDBClusterSnapshotMessage
  *   SourceDBClusterSnapshotIdentifier: "STRING_VALUE", // required

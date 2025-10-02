@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { IvschatClient, TagResourceCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, TagResourceCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // import type { IvschatClientConfig } from "@aws-sdk/client-ivschat";
+ * const config = {}; // type is IvschatClientConfig
  * const client = new IvschatClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { TransferClient, UntagResourceCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UntagResourceCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // UntagResourceRequest
  *   Arn: "STRING_VALUE", // required

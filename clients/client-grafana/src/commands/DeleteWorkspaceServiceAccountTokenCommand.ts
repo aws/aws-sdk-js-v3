@@ -47,6 +47,8 @@ export interface DeleteWorkspaceServiceAccountTokenCommandOutput
  * ```javascript
  * import { GrafanaClient, DeleteWorkspaceServiceAccountTokenCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DeleteWorkspaceServiceAccountTokenCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // import type { GrafanaClientConfig } from "@aws-sdk/client-grafana";
+ * const config = {}; // type is GrafanaClientConfig
  * const client = new GrafanaClient(config);
  * const input = { // DeleteWorkspaceServiceAccountTokenRequest
  *   tokenId: "STRING_VALUE", // required

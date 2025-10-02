@@ -34,6 +34,8 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  * ```javascript
  * import { MediaConnectClient, GrantFlowEntitlementsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, GrantFlowEntitlementsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // GrantFlowEntitlementsRequest
  *   Entitlements: [ // __listOfGrantEntitlementRequest // required

@@ -28,12 +28,14 @@ export interface UpdateKeyRegistrationCommandInput extends UpdateKeyRegistration
 export interface UpdateKeyRegistrationCommandOutput extends UpdateKeyRegistrationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a customer managed key in a Amazon QuickSight account.</p>
+ * <p>Updates a customer managed key in a QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, UpdateKeyRegistrationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateKeyRegistrationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateKeyRegistrationRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface UpdateConnectorV2CommandOutput extends UpdateConnectorV2Respons
  * ```javascript
  * import { SecurityHubClient, UpdateConnectorV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateConnectorV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // UpdateConnectorV2Request
  *   ConnectorId: "STRING_VALUE", // required

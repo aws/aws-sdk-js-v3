@@ -41,6 +41,8 @@ export interface ResetRuntimeLogConfigurationCommandOutput extends __MetadataBea
  * ```javascript
  * import { IoTManagedIntegrationsClient, ResetRuntimeLogConfigurationCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
  * // const { IoTManagedIntegrationsClient, ResetRuntimeLogConfigurationCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
+ * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
  * const input = { // ResetRuntimeLogConfigurationRequest
  *   ManagedThingId: "STRING_VALUE", // required

@@ -41,6 +41,8 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  * ```javascript
  * import { CodeartifactClient, PutDomainPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PutDomainPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // PutDomainPermissionsPolicyRequest
  *   domain: "STRING_VALUE", // required

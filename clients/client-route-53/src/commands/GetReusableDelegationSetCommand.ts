@@ -36,6 +36,8 @@ export interface GetReusableDelegationSetCommandOutput extends GetReusableDelega
  * ```javascript
  * import { Route53Client, GetReusableDelegationSetCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetReusableDelegationSetCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // GetReusableDelegationSetRequest
  *   Id: "STRING_VALUE", // required

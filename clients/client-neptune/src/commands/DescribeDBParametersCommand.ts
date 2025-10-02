@@ -34,6 +34,8 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * ```javascript
  * import { NeptuneClient, DescribeDBParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBParametersMessage
  *   DBParameterGroupName: "STRING_VALUE", // required

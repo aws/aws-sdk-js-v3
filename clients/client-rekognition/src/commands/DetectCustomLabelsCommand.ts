@@ -68,6 +68,8 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * ```javascript
  * import { RekognitionClient, DetectCustomLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectCustomLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // DetectCustomLabelsRequest
  *   ProjectVersionArn: "STRING_VALUE", // required

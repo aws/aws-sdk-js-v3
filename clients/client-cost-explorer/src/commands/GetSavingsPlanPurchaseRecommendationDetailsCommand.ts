@@ -44,6 +44,8 @@ export interface GetSavingsPlanPurchaseRecommendationDetailsCommandOutput
  * ```javascript
  * import { CostExplorerClient, GetSavingsPlanPurchaseRecommendationDetailsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetSavingsPlanPurchaseRecommendationDetailsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // import type { CostExplorerClientConfig } from "@aws-sdk/client-cost-explorer";
+ * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // GetSavingsPlanPurchaseRecommendationDetailsRequest
  *   RecommendationDetailId: "STRING_VALUE", // required

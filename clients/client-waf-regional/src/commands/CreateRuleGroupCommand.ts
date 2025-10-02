@@ -56,6 +56,8 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * ```javascript
  * import { WAFRegionalClient, CreateRuleGroupCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateRuleGroupCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // CreateRuleGroupRequest
  *   Name: "STRING_VALUE", // required

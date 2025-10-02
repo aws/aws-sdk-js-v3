@@ -83,6 +83,8 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudWatchClient, PutMetricDataCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricDataCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // PutMetricDataInput
  *   Namespace: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * ```javascript
  * import { IdentitystoreClient, DeleteGroupCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, DeleteGroupCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * // import type { IdentitystoreClientConfig } from "@aws-sdk/client-identitystore";
+ * const config = {}; // type is IdentitystoreClientConfig
  * const client = new IdentitystoreClient(config);
  * const input = { // DeleteGroupRequest
  *   IdentityStoreId: "STRING_VALUE", // required

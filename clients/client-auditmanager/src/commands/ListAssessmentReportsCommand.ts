@@ -38,6 +38,8 @@ export interface ListAssessmentReportsCommandOutput extends ListAssessmentReport
  * ```javascript
  * import { AuditManagerClient, ListAssessmentReportsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListAssessmentReportsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // ListAssessmentReportsRequest
  *   nextToken: "STRING_VALUE",

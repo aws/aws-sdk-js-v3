@@ -34,6 +34,8 @@ export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDef
  * ```javascript
  * import { GreengrassClient, UpdateResourceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateResourceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // UpdateResourceDefinitionRequest
  *   Name: "STRING_VALUE",

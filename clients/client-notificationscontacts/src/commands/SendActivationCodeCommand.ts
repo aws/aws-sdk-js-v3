@@ -41,6 +41,8 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeRespo
  * ```javascript
  * import { NotificationsContactsClient, SendActivationCodeCommand } from "@aws-sdk/client-notificationscontacts"; // ES Modules import
  * // const { NotificationsContactsClient, SendActivationCodeCommand } = require("@aws-sdk/client-notificationscontacts"); // CommonJS import
+ * // import type { NotificationsContactsClientConfig } from "@aws-sdk/client-notificationscontacts";
+ * const config = {}; // type is NotificationsContactsClientConfig
  * const client = new NotificationsContactsClient(config);
  * const input = { // SendActivationCodeRequest
  *   arn: "STRING_VALUE", // required

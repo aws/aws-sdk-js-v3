@@ -37,6 +37,8 @@ export interface UpdateQueueOutboundEmailConfigCommandOutput extends __MetadataB
  * ```javascript
  * import { ConnectClient, UpdateQueueOutboundEmailConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQueueOutboundEmailConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateQueueOutboundEmailConfigRequest
  *   InstanceId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface GetDataIntegrationFlowCommandOutput extends GetDataIntegrationF
  * ```javascript
  * import { SupplyChainClient, GetDataIntegrationFlowCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
  * // const { SupplyChainClient, GetDataIntegrationFlowCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * // import type { SupplyChainClientConfig } from "@aws-sdk/client-supplychain";
+ * const config = {}; // type is SupplyChainClientConfig
  * const client = new SupplyChainClient(config);
  * const input = { // GetDataIntegrationFlowRequest
  *   instanceId: "STRING_VALUE", // required

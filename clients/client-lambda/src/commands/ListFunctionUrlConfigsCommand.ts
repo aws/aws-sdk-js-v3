@@ -34,6 +34,8 @@ export interface ListFunctionUrlConfigsCommandOutput extends ListFunctionUrlConf
  * ```javascript
  * import { LambdaClient, ListFunctionUrlConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListFunctionUrlConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // ListFunctionUrlConfigsRequest
  *   FunctionName: "STRING_VALUE", // required

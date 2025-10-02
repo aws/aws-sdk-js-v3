@@ -35,6 +35,8 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
  * ```javascript
  * import { EMRClient, DescribeStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // DescribeStudioInput
  *   StudioId: "STRING_VALUE", // required

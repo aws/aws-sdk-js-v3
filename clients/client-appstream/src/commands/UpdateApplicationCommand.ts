@@ -34,6 +34,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationResult,
  * ```javascript
  * import { AppStreamClient, UpdateApplicationCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateApplicationCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // UpdateApplicationRequest
  *   Name: "STRING_VALUE", // required

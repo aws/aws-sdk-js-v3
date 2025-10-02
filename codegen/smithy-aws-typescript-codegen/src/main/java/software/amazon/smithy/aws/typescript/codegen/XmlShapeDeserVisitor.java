@@ -287,7 +287,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             String memberName,
             boolean isWithinUnion) {
         if (target instanceof MapShape || target instanceof CollectionShape || target instanceof UnionShape) {
-            writer.openBlock("if ($L.$L === \"\") {", "}", inputLocation, locationName, () -> {
+            writer.openBlock("if (String($L.$L).trim() === \"\") {", "}", inputLocation, locationName, () -> {
                 if (target instanceof MapShape) {
                     writer.write("contents[$L] = {};", stringStore.var(memberName));
                 } else if (target instanceof CollectionShape) {

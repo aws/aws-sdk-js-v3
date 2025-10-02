@@ -34,6 +34,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * ```javascript
  * import { MemoryDBClient, DescribeUsersCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeUsersCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeUsersRequest
  *   UserName: "STRING_VALUE",

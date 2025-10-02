@@ -35,6 +35,8 @@ export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput
  * ```javascript
  * import { RestXmlProtocolClient, BodyWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, BodyWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // BodyWithXmlNameInputOutput
  *   nested: { // PayloadWithXmlName

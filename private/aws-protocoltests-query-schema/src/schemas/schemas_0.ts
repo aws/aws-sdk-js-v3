@@ -197,6 +197,7 @@ export const _o = "other";
 export const _r = "renamed";
 export const _rLM = "renamedListMembers";
 export const _rM = "recursiveMember";
+export const _s = "smithy.ts.sdk.synthetic.aws.protocoltests.query";
 export const _sL = "stringList";
 export const _sLt = "structureList";
 export const _sS = "stringSet";
@@ -214,17 +215,11 @@ export const n0 = "aws.protocoltests.query";
 export const n1 = "aws.protocoltests.shared";
 
 // smithy-typescript generated code
-import { error } from "@smithy/core/schema";
+import { error, TypeRegistry } from "@smithy/core/schema";
 
 import { QueryProtocolServiceException as __QueryProtocolServiceException } from "../models/QueryProtocolServiceException";
 
 /* eslint no-var: 0 */
 
-export var QueryProtocolServiceException = error(
-  "smithy.ts.sdk.synthetic.aws.protocoltests.query",
-  "QueryProtocolServiceException",
-  0,
-  [],
-  [],
-  __QueryProtocolServiceException
-);
+export var QueryProtocolServiceException = error(_s, "QueryProtocolServiceException", 0, [], [], null);
+TypeRegistry.for(_s).registerError(QueryProtocolServiceException, __QueryProtocolServiceException);

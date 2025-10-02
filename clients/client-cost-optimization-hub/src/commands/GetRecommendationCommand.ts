@@ -38,6 +38,8 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * ```javascript
  * import { CostOptimizationHubClient, GetRecommendationCommand } from "@aws-sdk/client-cost-optimization-hub"; // ES Modules import
  * // const { CostOptimizationHubClient, GetRecommendationCommand } = require("@aws-sdk/client-cost-optimization-hub"); // CommonJS import
+ * // import type { CostOptimizationHubClientConfig } from "@aws-sdk/client-cost-optimization-hub";
+ * const config = {}; // type is CostOptimizationHubClientConfig
  * const client = new CostOptimizationHubClient(config);
  * const input = { // GetRecommendationRequest
  *   recommendationId: "STRING_VALUE", // required

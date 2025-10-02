@@ -54,6 +54,8 @@ export interface CancelCapacityReservationFleetsCommandOutput
  * ```javascript
  * import { EC2Client, CancelCapacityReservationFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelCapacityReservationFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CancelCapacityReservationFleetsRequest
  *   DryRun: true || false,

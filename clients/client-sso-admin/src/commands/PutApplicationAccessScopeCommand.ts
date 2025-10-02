@@ -34,6 +34,8 @@ export interface PutApplicationAccessScopeCommandOutput extends __MetadataBearer
  * ```javascript
  * import { SSOAdminClient, PutApplicationAccessScopeCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, PutApplicationAccessScopeCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // PutApplicationAccessScopeRequest
  *   Scope: "STRING_VALUE", // required

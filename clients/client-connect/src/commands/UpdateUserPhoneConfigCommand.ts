@@ -34,6 +34,8 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ConnectClient, UpdateUserPhoneConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserPhoneConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateUserPhoneConfigRequest
  *   PhoneConfig: { // UserPhoneConfig
@@ -41,6 +43,7 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  *     AutoAccept: true || false,
  *     AfterContactWorkTimeLimit: Number("int"),
  *     DeskPhoneNumber: "STRING_VALUE",
+ *     PersistentConnection: true || false,
  *   },
  *   UserId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * ```javascript
  * import { BraketClient, GetDeviceCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, GetDeviceCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * // import type { BraketClientConfig } from "@aws-sdk/client-braket";
+ * const config = {}; // type is BraketClientConfig
  * const client = new BraketClient(config);
  * const input = { // GetDeviceRequest
  *   deviceArn: "STRING_VALUE", // required

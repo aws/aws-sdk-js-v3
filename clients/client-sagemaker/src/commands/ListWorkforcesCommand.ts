@@ -34,6 +34,8 @@ export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __M
  * ```javascript
  * import { SageMakerClient, ListWorkforcesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListWorkforcesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListWorkforcesRequest
  *   SortBy: "Name" || "CreateDate",

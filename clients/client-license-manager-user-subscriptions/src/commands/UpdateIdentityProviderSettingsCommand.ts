@@ -37,13 +37,14 @@ export interface UpdateIdentityProviderSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates additional product configuration settings for the registered identity
- * 			provider.</p>
+ * <p>Updates additional product configuration settings for the registered identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // import type { LicenseManagerUserSubscriptionsClientConfig } from "@aws-sdk/client-license-manager-user-subscriptions";
+ * const config = {}; // type is LicenseManagerUserSubscriptionsClientConfig
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // UpdateIdentityProviderSettingsRequest
  *   IdentityProvider: { // IdentityProvider Union: only one key present
@@ -66,6 +67,7 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  *         },
  *       },
  *       ActiveDirectoryType: "STRING_VALUE",
+ *       IsSharedActiveDirectory: true || false,
  *     },
  *   },
  *   Product: "STRING_VALUE",
@@ -104,6 +106,7 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * //           },
  * //         },
  * //         ActiveDirectoryType: "STRING_VALUE",
+ * //         IsSharedActiveDirectory: true || false,
  * //       },
  * //     },
  * //     Settings: { // Settings
@@ -116,6 +119,7 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * //     Status: "STRING_VALUE", // required
  * //     IdentityProviderArn: "STRING_VALUE",
  * //     FailureMessage: "STRING_VALUE",
+ * //     OwnerAccountId: "STRING_VALUE",
  * //   },
  * // };
  *

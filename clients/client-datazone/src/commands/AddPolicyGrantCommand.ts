@@ -34,6 +34,8 @@ export interface AddPolicyGrantCommandOutput extends AddPolicyGrantOutput, __Met
  * ```javascript
  * import { DataZoneClient, AddPolicyGrantCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, AddPolicyGrantCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // AddPolicyGrantInput
  *   domainIdentifier: "STRING_VALUE", // required

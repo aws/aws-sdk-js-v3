@@ -29,13 +29,15 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
 
 /**
  * <p>Starts an Asset Bundle export job.</p>
- *          <p>An Asset Bundle export job exports specified Amazon QuickSight assets. You can also choose to export any asset dependencies in the same job. Export jobs run asynchronously and can be polled with a <code>DescribeAssetBundleExportJob</code> API call. When a job is successfully completed, a download URL that contains the exported assets is returned. The URL is valid for 5 minutes and can be refreshed with a <code>DescribeAssetBundleExportJob</code> API call. Each Amazon QuickSight account can run up to 5 export jobs concurrently.</p>
+ *          <p>An Asset Bundle export job exports specified QuickSight assets. You can also choose to export any asset dependencies in the same job. Export jobs run asynchronously and can be polled with a <code>DescribeAssetBundleExportJob</code> API call. When a job is successfully completed, a download URL that contains the exported assets is returned. The URL is valid for 5 minutes and can be refreshed with a <code>DescribeAssetBundleExportJob</code> API call. Each QuickSight account can run up to 5 export jobs concurrently.</p>
  *          <p>The API caller must have the necessary permissions in their IAM role to access each resource before the resources can be exported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, StartAssetBundleExportJobCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, StartAssetBundleExportJobCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // StartAssetBundleExportJobRequest
  *   AwsAccountId: "STRING_VALUE", // required
@@ -163,7 +165,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  * @throws {@link UnsupportedUserEditionException} (client fault)
  *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

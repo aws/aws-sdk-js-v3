@@ -68,6 +68,8 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  * ```javascript
  * import { LocationClient, BatchEvaluateGeofencesCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchEvaluateGeofencesCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // BatchEvaluateGeofencesRequest
  *   CollectionName: "STRING_VALUE", // required

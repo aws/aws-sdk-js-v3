@@ -34,6 +34,8 @@ export interface GetUserProfileCommandOutput extends GetUserProfileOutput, __Met
  * ```javascript
  * import { DataZoneClient, GetUserProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetUserProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetUserProfileInput
  *   domainIdentifier: "STRING_VALUE", // required
@@ -50,6 +52,7 @@ export interface GetUserProfileCommandOutput extends GetUserProfileOutput, __Met
  * //   details: { // UserProfileDetails Union: only one key present
  * //     iam: { // IamUserProfileDetails
  * //       arn: "STRING_VALUE",
+ * //       principalId: "STRING_VALUE",
  * //     },
  * //     sso: { // SsoUserProfileDetails
  * //       username: "STRING_VALUE",

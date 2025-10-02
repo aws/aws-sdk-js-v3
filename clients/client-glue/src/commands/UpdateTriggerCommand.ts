@@ -35,6 +35,8 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  * ```javascript
  * import { GlueClient, UpdateTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // UpdateTriggerRequest
  *   Name: "STRING_VALUE", // required

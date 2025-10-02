@@ -41,6 +41,8 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  * ```javascript
  * import { VoiceIDClient, DisassociateFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DisassociateFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // import type { VoiceIDClientConfig } from "@aws-sdk/client-voice-id";
+ * const config = {}; // type is VoiceIDClientConfig
  * const client = new VoiceIDClient(config);
  * const input = { // DisassociateFraudsterRequest
  *   DomainId: "STRING_VALUE", // required

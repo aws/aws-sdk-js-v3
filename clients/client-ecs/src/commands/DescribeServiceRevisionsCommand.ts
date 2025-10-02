@@ -38,6 +38,8 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * ```javascript
  * import { ECSClient, DescribeServiceRevisionsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeServiceRevisionsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DescribeServiceRevisionsRequest
  *   serviceRevisionArns: [ // StringList // required
@@ -60,7 +62,7 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //           base: Number("int"),
  * //         },
  * //       ],
- * //       launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //       launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //       platformVersion: "STRING_VALUE",
  * //       platformFamily: "STRING_VALUE",
  * //       loadBalancers: [ // LoadBalancers

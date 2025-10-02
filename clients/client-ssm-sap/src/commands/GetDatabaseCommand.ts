@@ -34,6 +34,8 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * ```javascript
  * import { SsmSapClient, GetDatabaseCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, GetDatabaseCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // GetDatabaseInput
  *   ApplicationId: "STRING_VALUE",

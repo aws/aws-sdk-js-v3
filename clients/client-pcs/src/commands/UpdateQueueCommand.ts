@@ -34,6 +34,8 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * ```javascript
  * import { PCSClient, UpdateQueueCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, UpdateQueueCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // UpdateQueueRequest
  *   clusterIdentifier: "STRING_VALUE", // required
@@ -43,6 +45,14 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  *       computeNodeGroupId: "STRING_VALUE",
  *     },
  *   ],
+ *   slurmConfiguration: { // UpdateQueueSlurmConfigurationRequest
+ *     slurmCustomSettings: [ // SlurmCustomSettings
+ *       { // SlurmCustomSetting
+ *         parameterName: "STRING_VALUE", // required
+ *         parameterValue: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateQueueCommand(input);
@@ -61,6 +71,14 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * //         computeNodeGroupId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     slurmConfiguration: { // QueueSlurmConfiguration
+ * //       slurmCustomSettings: [ // SlurmCustomSettings
+ * //         { // SlurmCustomSetting
+ * //           parameterName: "STRING_VALUE", // required
+ * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //     errorInfo: [ // ErrorInfoList
  * //       { // ErrorInfo
  * //         code: "STRING_VALUE",

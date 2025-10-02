@@ -36,6 +36,8 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  * ```javascript
  * import { CloudDirectoryClient, DeleteDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DeleteDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // DeleteDirectoryRequest
  *   DirectoryArn: "STRING_VALUE", // required

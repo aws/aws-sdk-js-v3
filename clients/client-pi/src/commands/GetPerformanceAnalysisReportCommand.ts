@@ -46,6 +46,8 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * ```javascript
  * import { PIClient, GetPerformanceAnalysisReportCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, GetPerformanceAnalysisReportCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * // import type { PIClientConfig } from "@aws-sdk/client-pi";
+ * const config = {}; // type is PIClientConfig
  * const client = new PIClient(config);
  * const input = { // GetPerformanceAnalysisReportRequest
  *   ServiceType: "RDS" || "DOCDB", // required

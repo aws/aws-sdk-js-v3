@@ -38,6 +38,8 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KendraClient, SubmitFeedbackCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, SubmitFeedbackCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // SubmitFeedbackRequest
  *   IndexId: "STRING_VALUE", // required

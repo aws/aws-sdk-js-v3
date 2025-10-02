@@ -34,6 +34,8 @@ export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsRespons
  * ```javascript
  * import { AppRunnerClient, ListVpcConnectorsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListVpcConnectorsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // import type { AppRunnerClientConfig } from "@aws-sdk/client-apprunner";
+ * const config = {}; // type is AppRunnerClientConfig
  * const client = new AppRunnerClient(config);
  * const input = { // ListVpcConnectorsRequest
  *   MaxResults: Number("int"),

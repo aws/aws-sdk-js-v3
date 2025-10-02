@@ -28,12 +28,15 @@ export interface StopPipelineCommandInput extends StopPipelineRequest {}
 export interface StopPipelineCommandOutput extends StopPipelineResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop">Stopping an OpenSearch Ingestion pipeline</a>.</p>
+ * <p>Stops an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop">Stopping
+ *     an OpenSearch Ingestion pipeline</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OSISClient, StopPipelineCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, StopPipelineCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // import type { OSISClientConfig } from "@aws-sdk/client-osis";
+ * const config = {}; // type is OSISClientConfig
  * const client = new OSISClient(config);
  * const input = { // StopPipelineRequest
  *   PipelineName: "STRING_VALUE", // required

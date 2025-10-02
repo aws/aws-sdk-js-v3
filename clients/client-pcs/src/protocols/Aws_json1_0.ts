@@ -17,7 +17,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import {
@@ -53,6 +53,7 @@ import {
 } from "../commands/RegisterComputeNodeGroupInstanceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
 import {
   UpdateComputeNodeGroupCommandInput,
   UpdateComputeNodeGroupCommandOutput,
@@ -96,6 +97,7 @@ import {
   ListTagsForResourceRequest,
   NetworkingRequest,
   Queue,
+  QueueSlurmConfigurationRequest,
   QueueSummary,
   RegisterComputeNodeGroupInstanceRequest,
   ResourceNotFoundException,
@@ -107,11 +109,16 @@ import {
   TagResourceRequest,
   ThrottlingException,
   UntagResourceRequest,
+  UpdateAccountingRequest,
+  UpdateClusterRequest,
+  UpdateClusterResponse,
+  UpdateClusterSlurmConfigurationRequest,
   UpdateComputeNodeGroupRequest,
   UpdateComputeNodeGroupResponse,
   UpdateComputeNodeGroupSlurmConfigurationRequest,
   UpdateQueueRequest,
   UpdateQueueResponse,
+  UpdateQueueSlurmConfigurationRequest,
   ValidationException,
 } from "../models/models_0";
 import { PCSServiceException as __BaseException } from "../models/PCSServiceException";
@@ -321,6 +328,19 @@ export const se_UntagResourceCommand = async (
   const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateClusterCommand
+ */
+export const se_UpdateClusterCommand = async (
+  input: UpdateClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateCluster");
+  let body: any;
+  body = JSON.stringify(se_UpdateClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -665,6 +685,26 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0UpdateClusterCommand
+ */
+export const de_UpdateClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateClusterResponse(data, context);
+  const response: UpdateClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0UpdateComputeNodeGroupCommand
  */
 export const de_UpdateComputeNodeGroupCommand = async (
@@ -903,6 +943,7 @@ const se_CreateQueueRequest = (input: CreateQueueRequest, context: __SerdeContex
     clusterIdentifier: [],
     computeNodeGroupConfigurations: _json,
     queueName: [],
+    slurmConfiguration: _json,
     tags: _json,
   });
 };
@@ -961,6 +1002,8 @@ const se_DeleteQueueRequest = (input: DeleteQueueRequest, context: __SerdeContex
 
 // se_NetworkingRequest omitted.
 
+// se_QueueSlurmConfigurationRequest omitted.
+
 // se_RegisterComputeNodeGroupInstanceRequest omitted.
 
 // se_RequestTagMap omitted.
@@ -986,6 +1029,21 @@ const se_DeleteQueueRequest = (input: DeleteQueueRequest, context: __SerdeContex
 // se_TagResourceRequest omitted.
 
 // se_UntagResourceRequest omitted.
+
+// se_UpdateAccountingRequest omitted.
+
+/**
+ * serializeAws_json1_0UpdateClusterRequest
+ */
+const se_UpdateClusterRequest = (input: UpdateClusterRequest, context: __SerdeContext): any => {
+  return take(input, {
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    clusterIdentifier: [],
+    slurmConfiguration: _json,
+  });
+};
+
+// se_UpdateClusterSlurmConfigurationRequest omitted.
 
 /**
  * serializeAws_json1_0UpdateComputeNodeGroupRequest
@@ -1017,8 +1075,11 @@ const se_UpdateQueueRequest = (input: UpdateQueueRequest, context: __SerdeContex
     clusterIdentifier: [],
     computeNodeGroupConfigurations: _json,
     queueIdentifier: [],
+    slurmConfiguration: _json,
   });
 };
+
+// se_UpdateQueueSlurmConfigurationRequest omitted.
 
 // de_AccessDeniedException omitted.
 
@@ -1255,6 +1316,7 @@ const de_Queue = (output: any, context: __SerdeContext): Queue => {
     id: __expectString,
     modifiedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    slurmConfiguration: _json,
     status: __expectString,
   }) as any;
 };
@@ -1270,6 +1332,8 @@ const de_QueueList = (output: any, context: __SerdeContext): QueueSummary[] => {
     });
   return retVal;
 };
+
+// de_QueueSlurmConfiguration omitted.
 
 /**
  * deserializeAws_json1_0QueueSummary
@@ -1311,6 +1375,15 @@ const de_QueueSummary = (output: any, context: __SerdeContext): QueueSummary => 
 // de_SubnetIdList omitted.
 
 // de_ThrottlingException omitted.
+
+/**
+ * deserializeAws_json1_0UpdateClusterResponse
+ */
+const de_UpdateClusterResponse = (output: any, context: __SerdeContext): UpdateClusterResponse => {
+  return take(output, {
+    cluster: (_: any) => de_Cluster(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0UpdateComputeNodeGroupResponse

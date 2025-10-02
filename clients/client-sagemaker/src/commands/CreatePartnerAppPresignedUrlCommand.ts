@@ -39,6 +39,8 @@ export interface CreatePartnerAppPresignedUrlCommandOutput
  * ```javascript
  * import { SageMakerClient, CreatePartnerAppPresignedUrlCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePartnerAppPresignedUrlCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreatePartnerAppPresignedUrlRequest
  *   Arn: "STRING_VALUE", // required

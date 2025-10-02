@@ -39,6 +39,8 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * ```javascript
  * import { BedrockAgentClient, UpdateDataSourceCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, UpdateDataSourceCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // UpdateDataSourceRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

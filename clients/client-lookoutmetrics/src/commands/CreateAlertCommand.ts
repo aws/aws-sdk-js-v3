@@ -34,6 +34,8 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  * ```javascript
  * import { LookoutMetricsClient, CreateAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, CreateAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // CreateAlertRequest
  *   AlertName: "STRING_VALUE", // required

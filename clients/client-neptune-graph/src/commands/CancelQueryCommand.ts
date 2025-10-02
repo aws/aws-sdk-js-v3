@@ -34,6 +34,8 @@ export interface CancelQueryCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { NeptuneGraphClient, CancelQueryCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, CancelQueryCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // CancelQueryInput
  *   graphIdentifier: "STRING_VALUE", // required

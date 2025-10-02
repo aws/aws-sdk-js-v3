@@ -34,6 +34,8 @@ export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDe
  * ```javascript
  * import { ComprehendClient, ListSentimentDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListSentimentDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // ListSentimentDetectionJobsRequest
  *   Filter: { // SentimentDetectionJobFilter

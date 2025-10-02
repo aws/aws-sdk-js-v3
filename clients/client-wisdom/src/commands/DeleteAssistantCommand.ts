@@ -34,6 +34,8 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  * ```javascript
  * import { WisdomClient, DeleteAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // DeleteAssistantRequest
  *   assistantId: "STRING_VALUE", // required

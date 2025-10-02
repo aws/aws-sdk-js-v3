@@ -37,6 +37,8 @@ export interface DeleteFunctionCodeSigningConfigCommandOutput extends __Metadata
  * ```javascript
  * import { LambdaClient, DeleteFunctionCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteFunctionCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // DeleteFunctionCodeSigningConfigRequest
  *   FunctionName: "STRING_VALUE", // required

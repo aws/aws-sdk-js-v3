@@ -34,11 +34,14 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * ```javascript
  * import { RDSClient, CreateDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // CreateDBProxyRequest
  *   DBProxyName: "STRING_VALUE", // required
  *   EngineFamily: "MYSQL" || "POSTGRESQL" || "SQLSERVER", // required
- *   Auth: [ // UserAuthConfigList // required
+ *   DefaultAuthScheme: "IAM_AUTH" || "NONE",
+ *   Auth: [ // UserAuthConfigList
  *     { // UserAuthConfig
  *       Description: "STRING_VALUE",
  *       UserName: "STRING_VALUE",
@@ -82,6 +85,7 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * //     VpcSubnetIds: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     DefaultAuthScheme: "STRING_VALUE",
  * //     Auth: [ // UserAuthConfigInfoList
  * //       { // UserAuthConfigInfo
  * //         Description: "STRING_VALUE",

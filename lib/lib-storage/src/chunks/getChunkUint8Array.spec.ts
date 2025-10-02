@@ -1,6 +1,7 @@
 import { describe, expect, test as it } from "vitest";
 
-import { byteLength } from "../bytelength";
+import { byteLength } from "../byteLength";
+import { BYTE_LENGTH_SOURCE, byteLengthSource } from "../byteLengthSource";
 import { RawDataPart } from "../Upload";
 import { getChunkUint8Array } from "./getChunkUint8Array";
 
@@ -21,6 +22,7 @@ describe(getChunkUint8Array.name, () => {
         for await (const chunk of chunker) {
           chunkNum += 1;
           expect(byteLength(chunk.data)).toEqual(chunklength);
+          expect(byteLengthSource(chunk.data)).toEqual(BYTE_LENGTH_SOURCE.TYPED_ARRAY);
           expect(chunk.partNumber).toEqual(chunkNum);
           if (chunkNum < expectedNumberOfChunks) {
             expect(chunk.lastPart).toBe(undefined);
@@ -45,10 +47,13 @@ describe(getChunkUint8Array.name, () => {
 
         expect(chunks.length).toEqual(3);
         expect(byteLength(chunks[0].data)).toBe(chunklength);
+        expect(byteLengthSource(chunks[0].data)).toEqual(BYTE_LENGTH_SOURCE.TYPED_ARRAY);
         expect(chunks[0].lastPart).toBe(undefined);
         expect(byteLength(chunks[1].data)).toBe(chunklength);
+        expect(byteLengthSource(chunks[1].data)).toEqual(BYTE_LENGTH_SOURCE.TYPED_ARRAY);
         expect(chunks[1].lastPart).toBe(undefined);
         expect(byteLength(chunks[2].data)).toBe(totalLength % chunklength);
+        expect(byteLengthSource(chunks[2].data)).toEqual(BYTE_LENGTH_SOURCE.TYPED_ARRAY);
         expect(chunks[2].lastPart).toBe(true);
       });
 
@@ -65,6 +70,7 @@ describe(getChunkUint8Array.name, () => {
 
         expect(chunks.length).toEqual(1);
         expect(byteLength(chunks[0].data)).toBe(totalLength % chunklength);
+        expect(byteLengthSource(chunks[0].data)).toEqual(BYTE_LENGTH_SOURCE.TYPED_ARRAY);
         expect(chunks[0].lastPart).toBe(true);
       });
     });

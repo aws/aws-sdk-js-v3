@@ -28,13 +28,14 @@ export interface GetAuthPolicyCommandInput extends GetAuthPolicyRequest {}
 export interface GetAuthPolicyCommandOutput extends GetAuthPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the auth policy for the specified service or service
- *    network.</p>
+ * <p>Retrieves information about the auth policy for the specified service or service network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { VPCLatticeClient, GetAuthPolicyCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, GetAuthPolicyCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // GetAuthPolicyRequest
  *   resourceIdentifier: "STRING_VALUE", // required
@@ -69,8 +70,7 @@ export interface GetAuthPolicyCommandOutput extends GetAuthPolicyResponse, __Met
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

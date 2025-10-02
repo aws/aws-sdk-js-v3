@@ -34,6 +34,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * ```javascript
  * import { MediaLiveClient, UpdateChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // UpdateChannelRequest
  *   CdiInputSpecification: { // CdiInputSpecification
@@ -478,6 +480,15 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *             Destination: {
  *               DestinationRefId: "STRING_VALUE",
  *             },
+ *             MediapackageV2GroupSettings: { // MediaPackageV2GroupSettings
+ *               CaptionLanguageMappings: [
+ *                 {
+ *                   CaptionChannel: Number("int"), // required
+ *                   LanguageCode: "STRING_VALUE", // required
+ *                   LanguageDescription: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
  *           },
  *           MsSmoothGroupSettings: { // MsSmoothGroupSettings
  *             AcquisitionPointId: "STRING_VALUE",
@@ -676,7 +687,14 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *                 NameModifier: "STRING_VALUE",
  *                 SegmentModifier: "STRING_VALUE",
  *               },
- *               MediaPackageOutputSettings: {},
+ *               MediaPackageOutputSettings: { // MediaPackageOutputSettings
+ *                 MediaPackageV2DestinationSettings: { // MediaPackageV2DestinationSettings
+ *                   AudioGroupId: "STRING_VALUE",
+ *                   AudioRenditionSets: "STRING_VALUE",
+ *                   HlsAutoSelect: "NO" || "OMIT" || "YES",
+ *                   HlsDefault: "NO" || "OMIT" || "YES",
+ *                 },
+ *               },
  *               MsSmoothOutputSettings: { // MsSmoothOutputSettings
  *                 H265PackagingType: "HEV1" || "HVC1",
  *                 NameModifier: "STRING_VALUE",
@@ -935,6 +953,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *               Prefix: "STRING_VALUE",
  *             },
  *             MinQp: Number("int"),
+ *             MinBitrate: Number("int"),
  *           },
  *           H265Settings: { // H265Settings
  *             AdaptiveQuantization: "AUTO" || "HIGH" || "HIGHER" || "LOW" || "MAX" || "MEDIUM" || "OFF",
@@ -997,6 +1016,10 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *             TreeblockSize: "AUTO" || "TREE_SIZE_32X32",
  *             MinQp: Number("int"),
  *             Deblocking: "DISABLED" || "ENABLED",
+ *             GopBReference: "DISABLED" || "ENABLED",
+ *             GopNumBFrames: Number("int"),
+ *             MinBitrate: Number("int"),
+ *             SubgopLength: "DYNAMIC" || "FIXED",
  *           },
  *           Mpeg2Settings: { // Mpeg2Settings
  *             AdaptiveQuantization: "AUTO" || "HIGH" || "LOW" || "MEDIUM" || "OFF",
@@ -1058,6 +1081,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *             },
  *             Bitrate: Number("int"),
  *             RateControlMode: "CBR" || "QVBR",
+ *             MinBitrate: Number("int"),
  *           },
  *         },
  *         Height: Number("int"),
@@ -1693,6 +1717,15 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //               Destination: {
  * //                 DestinationRefId: "STRING_VALUE",
  * //               },
+ * //               MediapackageV2GroupSettings: { // MediaPackageV2GroupSettings
+ * //                 CaptionLanguageMappings: [
+ * //                   {
+ * //                     CaptionChannel: Number("int"), // required
+ * //                     LanguageCode: "STRING_VALUE", // required
+ * //                     LanguageDescription: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
  * //             },
  * //             MsSmoothGroupSettings: { // MsSmoothGroupSettings
  * //               AcquisitionPointId: "STRING_VALUE",
@@ -1891,7 +1924,14 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //                   NameModifier: "STRING_VALUE",
  * //                   SegmentModifier: "STRING_VALUE",
  * //                 },
- * //                 MediaPackageOutputSettings: {},
+ * //                 MediaPackageOutputSettings: { // MediaPackageOutputSettings
+ * //                   MediaPackageV2DestinationSettings: { // MediaPackageV2DestinationSettings
+ * //                     AudioGroupId: "STRING_VALUE",
+ * //                     AudioRenditionSets: "STRING_VALUE",
+ * //                     HlsAutoSelect: "NO" || "OMIT" || "YES",
+ * //                     HlsDefault: "NO" || "OMIT" || "YES",
+ * //                   },
+ * //                 },
  * //                 MsSmoothOutputSettings: { // MsSmoothOutputSettings
  * //                   H265PackagingType: "HEV1" || "HVC1",
  * //                   NameModifier: "STRING_VALUE",
@@ -2150,6 +2190,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //                 Prefix: "STRING_VALUE",
  * //               },
  * //               MinQp: Number("int"),
+ * //               MinBitrate: Number("int"),
  * //             },
  * //             H265Settings: { // H265Settings
  * //               AdaptiveQuantization: "AUTO" || "HIGH" || "HIGHER" || "LOW" || "MAX" || "MEDIUM" || "OFF",
@@ -2212,6 +2253,10 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //               TreeblockSize: "AUTO" || "TREE_SIZE_32X32",
  * //               MinQp: Number("int"),
  * //               Deblocking: "DISABLED" || "ENABLED",
+ * //               GopBReference: "DISABLED" || "ENABLED",
+ * //               GopNumBFrames: Number("int"),
+ * //               MinBitrate: Number("int"),
+ * //               SubgopLength: "DYNAMIC" || "FIXED",
  * //             },
  * //             Mpeg2Settings: { // Mpeg2Settings
  * //               AdaptiveQuantization: "AUTO" || "HIGH" || "LOW" || "MEDIUM" || "OFF",
@@ -2273,6 +2318,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //               },
  * //               Bitrate: Number("int"),
  * //               RateControlMode: "CBR" || "QVBR",
+ * //               MinBitrate: Number("int"),
  * //             },
  * //           },
  * //           Height: Number("int"),

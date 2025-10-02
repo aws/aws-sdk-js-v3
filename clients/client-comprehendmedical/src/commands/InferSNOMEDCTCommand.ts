@@ -39,6 +39,8 @@ export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __Met
  * ```javascript
  * import { ComprehendMedicalClient, InferSNOMEDCTCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, InferSNOMEDCTCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // import type { ComprehendMedicalClientConfig } from "@aws-sdk/client-comprehendmedical";
+ * const config = {}; // type is ComprehendMedicalClientConfig
  * const client = new ComprehendMedicalClient(config);
  * const input = { // InferSNOMEDCTRequest
  *   Text: "STRING_VALUE", // required

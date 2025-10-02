@@ -51,6 +51,8 @@ export interface GetFaceLivenessSessionResultsCommandOutput
  * ```javascript
  * import { RekognitionClient, GetFaceLivenessSessionResultsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetFaceLivenessSessionResultsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // GetFaceLivenessSessionResultsRequest
  *   SessionId: "STRING_VALUE", // required

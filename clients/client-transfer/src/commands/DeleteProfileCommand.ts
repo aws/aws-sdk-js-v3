@@ -34,6 +34,8 @@ export interface DeleteProfileCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { TransferClient, DeleteProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // DeleteProfileRequest
  *   ProfileId: "STRING_VALUE", // required

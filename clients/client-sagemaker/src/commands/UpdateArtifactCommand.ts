@@ -34,6 +34,8 @@ export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __M
  * ```javascript
  * import { SageMakerClient, UpdateArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateArtifactRequest
  *   ArtifactArn: "STRING_VALUE", // required

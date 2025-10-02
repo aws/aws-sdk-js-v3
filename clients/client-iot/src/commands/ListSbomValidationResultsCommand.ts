@@ -35,6 +35,8 @@ export interface ListSbomValidationResultsCommandOutput extends ListSbomValidati
  * ```javascript
  * import { IoTClient, ListSbomValidationResultsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListSbomValidationResultsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListSbomValidationResultsRequest
  *   packageName: "STRING_VALUE", // required

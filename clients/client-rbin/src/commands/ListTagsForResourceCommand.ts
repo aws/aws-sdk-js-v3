@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { RbinClient, ListTagsForResourceCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, ListTagsForResourceCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
+ * // import type { RbinClientConfig } from "@aws-sdk/client-rbin";
+ * const config = {}; // type is RbinClientConfig
  * const client = new RbinClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

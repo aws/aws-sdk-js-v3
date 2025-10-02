@@ -39,6 +39,8 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * ```javascript
  * import { Macie2Client, EnableOrganizationAdminAccountCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, EnableOrganizationAdminAccountCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * // import type { Macie2ClientConfig } from "@aws-sdk/client-macie2";
+ * const config = {}; // type is Macie2ClientConfig
  * const client = new Macie2Client(config);
  * const input = { // EnableOrganizationAdminAccountRequest
  *   adminAccountId: "STRING_VALUE", // required

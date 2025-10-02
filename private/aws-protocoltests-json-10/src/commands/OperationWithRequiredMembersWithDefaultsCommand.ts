@@ -40,6 +40,8 @@ export interface OperationWithRequiredMembersWithDefaultsCommandOutput
  * ```javascript
  * import { JSONRPC10Client, OperationWithRequiredMembersWithDefaultsCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
  * // const { JSONRPC10Client, OperationWithRequiredMembersWithDefaultsCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
+ * // import type { JSONRPC10ClientConfig } from "@aws-sdk/aws-protocoltests-json-10";
+ * const config = {}; // type is JSONRPC10ClientConfig
  * const client = new JSONRPC10Client(config);
  * const input = {};
  * const command = new OperationWithRequiredMembersWithDefaultsCommand(input);

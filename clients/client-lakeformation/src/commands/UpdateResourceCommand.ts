@@ -34,6 +34,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * ```javascript
  * import { LakeFormationClient, UpdateResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, UpdateResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateResourceRequest
  *   RoleArn: "STRING_VALUE", // required

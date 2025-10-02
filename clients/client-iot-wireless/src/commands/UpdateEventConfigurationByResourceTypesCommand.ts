@@ -43,6 +43,8 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
  * ```javascript
  * import { IoTWirelessClient, UpdateEventConfigurationByResourceTypesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateEventConfigurationByResourceTypesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateEventConfigurationByResourceTypesRequest
  *   DeviceRegistrationState: { // DeviceRegistrationStateResourceTypeEventConfiguration

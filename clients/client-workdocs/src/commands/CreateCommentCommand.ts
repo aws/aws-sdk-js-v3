@@ -39,6 +39,8 @@ export interface CreateCommentCommandOutput extends CreateCommentResponse, __Met
  * ```javascript
  * import { WorkDocsClient, CreateCommentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateCommentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // CreateCommentRequest
  *   AuthenticationToken: "STRING_VALUE",

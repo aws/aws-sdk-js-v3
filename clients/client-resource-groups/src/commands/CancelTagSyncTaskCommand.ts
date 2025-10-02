@@ -49,6 +49,8 @@ export interface CancelTagSyncTaskCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ResourceGroupsClient, CancelTagSyncTaskCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, CancelTagSyncTaskCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // import type { ResourceGroupsClientConfig } from "@aws-sdk/client-resource-groups";
+ * const config = {}; // type is ResourceGroupsClientConfig
  * const client = new ResourceGroupsClient(config);
  * const input = { // CancelTagSyncTaskInput
  *   TaskArn: "STRING_VALUE", // required

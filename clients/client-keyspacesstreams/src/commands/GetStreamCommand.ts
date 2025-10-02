@@ -34,6 +34,8 @@ export interface GetStreamCommandOutput extends GetStreamOutput, __MetadataBeare
  * ```javascript
  * import { KeyspacesStreamsClient, GetStreamCommand } from "@aws-sdk/client-keyspacesstreams"; // ES Modules import
  * // const { KeyspacesStreamsClient, GetStreamCommand } = require("@aws-sdk/client-keyspacesstreams"); // CommonJS import
+ * // import type { KeyspacesStreamsClientConfig } from "@aws-sdk/client-keyspacesstreams";
+ * const config = {}; // type is KeyspacesStreamsClientConfig
  * const client = new KeyspacesStreamsClient(config);
  * const input = { // GetStreamInput
  *   streamArn: "STRING_VALUE", // required

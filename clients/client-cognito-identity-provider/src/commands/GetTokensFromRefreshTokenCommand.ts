@@ -49,6 +49,8 @@ export interface GetTokensFromRefreshTokenCommandOutput extends GetTokensFromRef
  * ```javascript
  * import { CognitoIdentityProviderClient, GetTokensFromRefreshTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetTokensFromRefreshTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
+ * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // GetTokensFromRefreshTokenRequest
  *   RefreshToken: "STRING_VALUE", // required

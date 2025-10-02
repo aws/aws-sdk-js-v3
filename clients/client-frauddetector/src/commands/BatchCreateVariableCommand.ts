@@ -34,6 +34,8 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
  * ```javascript
  * import { FraudDetectorClient, BatchCreateVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, BatchCreateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // BatchCreateVariableRequest
  *   variableEntries: [ // VariableEntryList // required

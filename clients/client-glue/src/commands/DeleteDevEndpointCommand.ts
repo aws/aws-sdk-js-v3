@@ -34,6 +34,8 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  * ```javascript
  * import { GlueClient, DeleteDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteDevEndpointRequest
  *   EndpointName: "STRING_VALUE", // required

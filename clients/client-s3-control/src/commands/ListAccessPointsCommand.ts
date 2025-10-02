@@ -66,6 +66,8 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
  * ```javascript
  * import { S3ControlClient, ListAccessPointsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListAccessPointsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // ListAccessPointsRequest
  *   AccountId: "STRING_VALUE",

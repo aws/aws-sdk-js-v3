@@ -38,6 +38,8 @@ export interface GetScopeCommandOutput extends GetScopeOutput, __MetadataBearer 
  * ```javascript
  * import { NetworkFlowMonitorClient, GetScopeCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, GetScopeCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // GetScopeInput
  *   scopeId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse,
  * ```javascript
  * import { SNSClient, GetSMSAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetSMSAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // import type { SNSClientConfig } from "@aws-sdk/client-sns";
+ * const config = {}; // type is SNSClientConfig
  * const client = new SNSClient(config);
  * const input = { // GetSMSAttributesInput
  *   attributes: [ // ListString

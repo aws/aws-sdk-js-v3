@@ -2015,6 +2015,9 @@ export interface UpdateAssociationRequest {
    * <p>A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the
    *    association. Use this action to update an association in multiple Regions and multiple
    *    accounts.</p>
+   *          <note>
+   *             <p>The <code>IncludeChildOrganizationUnits</code> parameter is not supported by State Manager.</p>
+   *          </note>
    * @public
    */
   TargetLocations?: TargetLocation[] | undefined;
@@ -3291,9 +3294,21 @@ export interface UpdatePatchBaselineRequest {
    *                <p>
    *                   <b>All OSs</b>: Packages in the rejected patches list, and
    *       packages that include them as dependencies, aren't installed by Patch Manager under any
-   *       circumstances. If a package was installed before it was added to the rejected patches list, or
-   *       is installed outside of Patch Manager afterward, it's considered noncompliant with the patch
-   *       baseline and its status is reported as <code>INSTALLED_REJECTED</code>.</p>
+   *       circumstances. </p>
+   *                <p>State value assignment for patch compliance:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>If a package was installed before it was added to the rejected patches list, or is
+   *         installed outside of Patch Manager afterward, it's considered noncompliant with the patch
+   *         baseline and its status is reported as <code>INSTALLED_REJECTED</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If an update attempts to install a dependency package that is now rejected by the
+   *         baseline, when previous versions of the package were not rejected, the package being updated
+   *         is reported as <code>MISSING</code> for <code>SCAN</code> operations and as
+   *          <code>FAILED</code> for <code>INSTALL</code> operations.</p>
+   *                   </li>
+   *                </ul>
    *             </dd>
    *          </dl>
    * @public

@@ -34,6 +34,8 @@ export interface DescribeCustomPluginCommandOutput extends DescribeCustomPluginR
  * ```javascript
  * import { KafkaConnectClient, DescribeCustomPluginCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, DescribeCustomPluginCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * // import type { KafkaConnectClientConfig } from "@aws-sdk/client-kafkaconnect";
+ * const config = {}; // type is KafkaConnectClientConfig
  * const client = new KafkaConnectClient(config);
  * const input = { // DescribeCustomPluginRequest
  *   customPluginArn: "STRING_VALUE", // required

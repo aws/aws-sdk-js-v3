@@ -35,6 +35,8 @@ export interface HttpStringPayloadCommandOutput extends StringPayloadInput, __Me
  * ```javascript
  * import { RestXmlProtocolClient, HttpStringPayloadCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpStringPayloadCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // StringPayloadInput
  *   payload: "STRING_VALUE",

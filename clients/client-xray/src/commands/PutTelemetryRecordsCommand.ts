@@ -34,6 +34,8 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  * ```javascript
  * import { XRayClient, PutTelemetryRecordsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, PutTelemetryRecordsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // import type { XRayClientConfig } from "@aws-sdk/client-xray";
+ * const config = {}; // type is XRayClientConfig
  * const client = new XRayClient(config);
  * const input = { // PutTelemetryRecordsRequest
  *   TelemetryRecords: [ // TelemetryRecordList // required

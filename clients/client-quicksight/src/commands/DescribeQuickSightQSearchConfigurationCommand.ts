@@ -37,12 +37,14 @@ export interface DescribeQuickSightQSearchConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the state of a Amazon QuickSight Q Search configuration.</p>
+ * <p>Describes the state of a QuickSight Q Search configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DescribeQuickSightQSearchConfigurationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeQuickSightQSearchConfigurationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeQuickSightQSearchConfigurationRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  * ```javascript
  * import { SSMContactsClient, CreateContactCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, CreateContactCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // import type { SSMContactsClientConfig } from "@aws-sdk/client-ssm-contacts";
+ * const config = {}; // type is SSMContactsClientConfig
  * const client = new SSMContactsClient(config);
  * const input = { // CreateContactRequest
  *   Alias: "STRING_VALUE", // required

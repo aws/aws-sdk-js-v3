@@ -34,6 +34,8 @@ export interface SendDataToMulticastGroupCommandOutput extends SendDataToMultica
  * ```javascript
  * import { IoTWirelessClient, SendDataToMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, SendDataToMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // SendDataToMulticastGroupRequest
  *   Id: "STRING_VALUE", // required

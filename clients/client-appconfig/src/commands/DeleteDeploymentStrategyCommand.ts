@@ -34,6 +34,8 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { AppConfigClient, DeleteDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // DeleteDeploymentStrategyRequest
  *   DeploymentStrategyId: "STRING_VALUE", // required

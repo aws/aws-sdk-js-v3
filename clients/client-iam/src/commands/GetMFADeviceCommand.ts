@@ -34,6 +34,8 @@ export interface GetMFADeviceCommandOutput extends GetMFADeviceResponse, __Metad
  * ```javascript
  * import { IAMClient, GetMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // GetMFADeviceRequest
  *   SerialNumber: "STRING_VALUE", // required

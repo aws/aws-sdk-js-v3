@@ -34,6 +34,8 @@ export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabi
  * ```javascript
  * import { EC2Client, ModifyAvailabilityZoneGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyAvailabilityZoneGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // ModifyAvailabilityZoneGroupRequest
  *   GroupName: "STRING_VALUE", // required

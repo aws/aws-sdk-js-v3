@@ -1,7 +1,7 @@
 import { Readable } from "stream";
 import { describe, expect, test as it } from "vitest";
 
-import { byteLength } from "../bytelength";
+import { byteLength } from "../byteLength";
 import { RawDataPart as DataPart } from "../Upload";
 import { getChunkStream as chunkFromReadable } from "./getChunkStream";
 import { getDataReadable } from "./getDataReadable";

@@ -35,6 +35,8 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * ```javascript
  * import { DataExchangeClient, SendApiAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, SendApiAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // import type { DataExchangeClientConfig } from "@aws-sdk/client-dataexchange";
+ * const config = {}; // type is DataExchangeClientConfig
  * const client = new DataExchangeClient(config);
  * const input = { // SendApiAssetRequest
  *   Body: "STRING_VALUE",

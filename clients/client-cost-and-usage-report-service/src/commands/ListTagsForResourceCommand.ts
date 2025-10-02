@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { CostAndUsageReportServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
  * // const { CostAndUsageReportServiceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
+ * // import type { CostAndUsageReportServiceClientConfig } from "@aws-sdk/client-cost-and-usage-report-service";
+ * const config = {}; // type is CostAndUsageReportServiceClientConfig
  * const client = new CostAndUsageReportServiceClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ReportName: "STRING_VALUE", // required

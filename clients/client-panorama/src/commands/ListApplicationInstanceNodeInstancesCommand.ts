@@ -42,6 +42,8 @@ export interface ListApplicationInstanceNodeInstancesCommandOutput
  * ```javascript
  * import { PanoramaClient, ListApplicationInstanceNodeInstancesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListApplicationInstanceNodeInstancesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // import type { PanoramaClientConfig } from "@aws-sdk/client-panorama";
+ * const config = {}; // type is PanoramaClientConfig
  * const client = new PanoramaClient(config);
  * const input = { // ListApplicationInstanceNodeInstancesRequest
  *   ApplicationInstanceId: "STRING_VALUE", // required

@@ -37,6 +37,8 @@ export interface ListApisCommandOutput extends ListApisResponse, __MetadataBeare
  * ```javascript
  * import { AppSyncClient, ListApisCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListApisCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // ListApisRequest
  *   nextToken: "STRING_VALUE",

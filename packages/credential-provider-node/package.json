@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-node",
-  "version": "3.883.0",
+  "version": "3.901.0",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
     "node": ">=18.0.0"
@@ -16,13 +16,15 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "yarn g:vitest run",
-    "test:integration": "yarn g:jest -c jest.config.integ.js",
-    "test:watch": "yarn g:vitest watch"
+    "test:watch": "yarn g:vitest watch",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
   "keywords": [
     "aws",
     "credentials"
   ],
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -36,10 +38,10 @@
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/types": "*",
-    "@smithy/credential-provider-imds": "^4.0.7",
-    "@smithy/property-provider": "^4.0.5",
-    "@smithy/shared-ini-file-loader": "^4.0.5",
-    "@smithy/types": "^4.3.2",
+    "@smithy/credential-provider-imds": "^4.2.0",
+    "@smithy/property-provider": "^4.2.0",
+    "@smithy/shared-ini-file-loader": "^4.3.0",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

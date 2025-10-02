@@ -44,6 +44,8 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * ```javascript
  * import { BackupClient, ListRecoveryPointsByResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRecoveryPointsByResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListRecoveryPointsByResourceInput
  *   ResourceArn: "STRING_VALUE", // required

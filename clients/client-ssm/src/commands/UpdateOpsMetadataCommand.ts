@@ -34,6 +34,8 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  * ```javascript
  * import { SSMClient, UpdateOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // UpdateOpsMetadataRequest
  *   OpsMetadataArn: "STRING_VALUE", // required

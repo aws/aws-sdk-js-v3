@@ -42,6 +42,8 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  * ```javascript
  * import { TranslateClient, StartTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, StartTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // import type { TranslateClientConfig } from "@aws-sdk/client-translate";
+ * const config = {}; // type is TranslateClientConfig
  * const client = new TranslateClient(config);
  * const input = { // StartTextTranslationJobRequest
  *   JobName: "STRING_VALUE",

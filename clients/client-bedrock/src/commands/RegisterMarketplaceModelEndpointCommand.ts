@@ -39,6 +39,8 @@ export interface RegisterMarketplaceModelEndpointCommandOutput
  * ```javascript
  * import { BedrockClient, RegisterMarketplaceModelEndpointCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, RegisterMarketplaceModelEndpointCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // RegisterMarketplaceModelEndpointRequest
  *   endpointIdentifier: "STRING_VALUE", // required

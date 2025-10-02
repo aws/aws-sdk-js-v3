@@ -39,7 +39,7 @@ export interface DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput
 /**
  * <p>Deletes a transit gateway attachment from a Network Firewall. Either the firewall owner or the transit gateway owner can delete the attachment.</p>
  *          <important>
- *             <p>After you delete a transit gateway attachment, raffic will no longer flow through the firewall endpoints.</p>
+ *             <p>After you delete a transit gateway attachment, traffic will no longer flow through the firewall endpoints.</p>
  *          </important>
  *          <p>After you initiate the delete operation, use <a>DescribeFirewall</a> to monitor the deletion status.</p>
  * @example
@@ -47,6 +47,8 @@ export interface DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput
  * ```javascript
  * import { NetworkFirewallClient, DeleteNetworkFirewallTransitGatewayAttachmentCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteNetworkFirewallTransitGatewayAttachmentCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // DeleteNetworkFirewallTransitGatewayAttachmentRequest
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required

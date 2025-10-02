@@ -39,6 +39,8 @@ export interface ListJobParameterDefinitionsCommandOutput
  * ```javascript
  * import { DeadlineClient, ListJobParameterDefinitionsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListJobParameterDefinitionsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListJobParameterDefinitionsRequest
  *   farmId: "STRING_VALUE", // required

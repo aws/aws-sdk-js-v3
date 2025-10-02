@@ -35,6 +35,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * ```javascript
  * import { DirectoryServiceClient, DescribeCertificateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeCertificateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeCertificateRequest
  *   DirectoryId: "STRING_VALUE", // required

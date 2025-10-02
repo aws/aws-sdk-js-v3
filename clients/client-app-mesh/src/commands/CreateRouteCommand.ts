@@ -37,6 +37,8 @@ export interface CreateRouteCommandOutput extends CreateRouteOutput, __MetadataB
  * ```javascript
  * import { AppMeshClient, CreateRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // CreateRouteInput
  *   routeName: "STRING_VALUE", // required

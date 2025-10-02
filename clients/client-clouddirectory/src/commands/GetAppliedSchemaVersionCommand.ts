@@ -34,6 +34,8 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  * ```javascript
  * import { CloudDirectoryClient, GetAppliedSchemaVersionCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetAppliedSchemaVersionCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // GetAppliedSchemaVersionRequest
  *   SchemaArn: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, _
  * ```javascript
  * import { BedrockDataAutomationClient, UpdateBlueprintCommand } from "@aws-sdk/client-bedrock-data-automation"; // ES Modules import
  * // const { BedrockDataAutomationClient, UpdateBlueprintCommand } = require("@aws-sdk/client-bedrock-data-automation"); // CommonJS import
+ * // import type { BedrockDataAutomationClientConfig } from "@aws-sdk/client-bedrock-data-automation";
+ * const config = {}; // type is BedrockDataAutomationClientConfig
  * const client = new BedrockDataAutomationClient(config);
  * const input = { // UpdateBlueprintRequest
  *   blueprintArn: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DeleteForecastCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ForecastClient, DeleteForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // DeleteForecastRequest
  *   ForecastArn: "STRING_VALUE", // required

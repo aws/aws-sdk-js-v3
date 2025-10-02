@@ -91,6 +91,8 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * ```javascript
  * import { GlacierClient, UploadMultipartPartCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, UploadMultipartPartCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // import type { GlacierClientConfig } from "@aws-sdk/client-glacier";
+ * const config = {}; // type is GlacierClientConfig
  * const client = new GlacierClient(config);
  * const input = { // UploadMultipartPartInput
  *   accountId: "STRING_VALUE", // required

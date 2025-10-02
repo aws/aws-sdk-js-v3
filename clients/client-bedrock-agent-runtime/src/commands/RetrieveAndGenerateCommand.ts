@@ -10,8 +10,12 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RetrieveAndGenerateResponse, RetrieveAndGenerateResponseFilterSensitiveLog } from "../models/models_0";
-import { RetrieveAndGenerateRequest, RetrieveAndGenerateRequestFilterSensitiveLog } from "../models/models_1";
+import {
+  RetrieveAndGenerateRequest,
+  RetrieveAndGenerateRequestFilterSensitiveLog,
+  RetrieveAndGenerateResponse,
+  RetrieveAndGenerateResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { de_RetrieveAndGenerateCommand, se_RetrieveAndGenerateCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -39,6 +43,8 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  * ```javascript
  * import { BedrockAgentRuntimeClient, RetrieveAndGenerateCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, RetrieveAndGenerateCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // RetrieveAndGenerateRequest
  *   sessionId: "STRING_VALUE",

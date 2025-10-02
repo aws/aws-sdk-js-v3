@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { AthenaClient, ListTagsForResourceCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListTagsForResourceCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // ListTagsForResourceInput
  *   ResourceARN: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __Met
  * ```javascript
  * import { CodeCommitClient, GetPullRequestCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetPullRequestCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // GetPullRequestInput
  *   pullRequestId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface StartCampaignCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ConnectCampaignsV2Client, StartCampaignCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
  * // const { ConnectCampaignsV2Client, StartCampaignCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
+ * // import type { ConnectCampaignsV2ClientConfig } from "@aws-sdk/client-connectcampaignsv2";
+ * const config = {}; // type is ConnectCampaignsV2ClientConfig
  * const client = new ConnectCampaignsV2Client(config);
  * const input = { // StartCampaignRequest
  *   id: "STRING_VALUE", // required

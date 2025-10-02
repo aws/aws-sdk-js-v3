@@ -32,12 +32,14 @@ export interface DeleteMemoryCommandInput extends DeleteMemoryInput {}
 export interface DeleteMemoryCommandOutput extends DeleteMemoryOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a memory.</p>
+ * <p>Deletes an Amazon Bedrock AgentCore Memory resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, DeleteMemoryCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, DeleteMemoryCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // DeleteMemoryInput
  *   clientToken: "STRING_VALUE",

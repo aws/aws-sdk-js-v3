@@ -98,6 +98,8 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * ```javascript
  * import { CloudTrailClient, PutEventSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, PutEventSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // PutEventSelectorsRequest
  *   TrailName: "STRING_VALUE", // required

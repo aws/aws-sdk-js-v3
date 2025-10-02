@@ -145,6 +145,8 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * ```javascript
  * import { KMSClient, EncryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, EncryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // EncryptRequest
  *   KeyId: "STRING_VALUE", // required

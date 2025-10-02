@@ -222,7 +222,6 @@ export interface LaunchTemplateInstanceMetadataOptions {
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
    *             number, the further instance metadata requests can travel.</p>
-   *          <p>Default: 1</p>
    *          <p>Possible values: Integers from 1 to 64</p>
    * @public
    */
@@ -5570,6 +5569,10 @@ export interface Route {
    *                <p>
    *                   <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Advertisement</code> - The route was created dynamically by Amazon VPC Route Server.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -10161,7 +10164,7 @@ export interface CreateVolumeRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 80,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10223,7 +10226,11 @@ export interface CreateVolumeRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
+   *                   <code>gp2</code>: 1 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 1 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10304,9 +10311,9 @@ export interface CreateVolumeRequest {
   MultiAttachEnabled?: boolean | undefined;
 
   /**
-   * <p>The throughput to provision for a volume, with a maximum of 1,000 MiB/s.</p>
+   * <p>The throughput to provision for a volume, with a maximum of 2,000 MiB/s.</p>
    *          <p>This parameter is valid only for <code>gp3</code> volumes.</p>
-   *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
    * @public
    */
   Throughput?: number | undefined;

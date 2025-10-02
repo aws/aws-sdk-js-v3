@@ -41,6 +41,8 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * ```javascript
  * import { ChimeSDKVoiceClient, CreateVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, CreateVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // CreateVoiceConnectorRequest
  *   Name: "STRING_VALUE", // required
@@ -53,6 +55,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  *     },
  *   ],
  *   IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
+ *   NetworkType: "IPV4_ONLY" || "DUAL_STACK",
  * };
  * const command = new CreateVoiceConnectorCommand(input);
  * const response = await client.send(command);
@@ -67,6 +70,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     VoiceConnectorArn: "STRING_VALUE",
  * //     IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
+ * //     NetworkType: "IPV4_ONLY" || "DUAL_STACK",
  * //   },
  * // };
  *

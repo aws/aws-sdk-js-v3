@@ -38,6 +38,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResult, __Metadat
  * ```javascript
  * import { DirectoryServiceDataClient, DescribeUserCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, DescribeUserCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // import type { DirectoryServiceDataClientConfig } from "@aws-sdk/client-directory-service-data";
+ * const config = {}; // type is DirectoryServiceDataClientConfig
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // DescribeUserRequest
  *   DirectoryId: "STRING_VALUE", // required

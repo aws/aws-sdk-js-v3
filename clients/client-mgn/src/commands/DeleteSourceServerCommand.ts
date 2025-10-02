@@ -34,6 +34,8 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * ```javascript
  * import { MgnClient, DeleteSourceServerCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteSourceServerCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // DeleteSourceServerRequest
  *   sourceServerID: "STRING_VALUE", // required

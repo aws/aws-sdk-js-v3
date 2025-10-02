@@ -38,6 +38,8 @@ export interface GetTokenVaultCommandOutput extends GetTokenVaultResponse, __Met
  * ```javascript
  * import { BedrockAgentCoreControlClient, GetTokenVaultCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, GetTokenVaultCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetTokenVaultRequest
  *   tokenVaultId: "STRING_VALUE",

@@ -66,6 +66,8 @@ export interface CreateRestoreTestingSelectionCommandOutput
  * ```javascript
  * import { BackupClient, CreateRestoreTestingSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateRestoreTestingSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // CreateRestoreTestingSelectionInput
  *   CreatorRequestId: "STRING_VALUE",

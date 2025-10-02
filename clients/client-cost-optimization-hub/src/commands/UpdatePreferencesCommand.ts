@@ -38,6 +38,8 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
  * ```javascript
  * import { CostOptimizationHubClient, UpdatePreferencesCommand } from "@aws-sdk/client-cost-optimization-hub"; // ES Modules import
  * // const { CostOptimizationHubClient, UpdatePreferencesCommand } = require("@aws-sdk/client-cost-optimization-hub"); // CommonJS import
+ * // import type { CostOptimizationHubClientConfig } from "@aws-sdk/client-cost-optimization-hub";
+ * const config = {}; // type is CostOptimizationHubClientConfig
  * const client = new CostOptimizationHubClient(config);
  * const input = { // UpdatePreferencesRequest
  *   savingsEstimationMode: "BeforeDiscounts" || "AfterDiscounts",

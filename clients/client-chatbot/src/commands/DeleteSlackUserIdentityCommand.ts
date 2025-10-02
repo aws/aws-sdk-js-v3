@@ -34,6 +34,8 @@ export interface DeleteSlackUserIdentityCommandOutput extends DeleteSlackUserIde
  * ```javascript
  * import { ChatbotClient, DeleteSlackUserIdentityCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, DeleteSlackUserIdentityCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // DeleteSlackUserIdentityRequest
  *   ChatConfigurationArn: "STRING_VALUE", // required

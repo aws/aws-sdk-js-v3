@@ -34,6 +34,8 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * ```javascript
  * import { GameLiftStreamsClient, GetApplicationCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, GetApplicationCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // GetApplicationInput
  *   Identifier: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface CreateAdapterCommandOutput extends CreateAdapterResponse, __Met
  * ```javascript
  * import { TextractClient, CreateAdapterCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, CreateAdapterCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // CreateAdapterRequest
  *   AdapterName: "STRING_VALUE", // required

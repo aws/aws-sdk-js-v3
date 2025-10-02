@@ -41,6 +41,8 @@ export interface PushDomainCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { Route53DomainsClient, PushDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, PushDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * // import type { Route53DomainsClientConfig } from "@aws-sdk/client-route-53-domains";
+ * const config = {}; // type is Route53DomainsClientConfig
  * const client = new Route53DomainsClient(config);
  * const input = { // PushDomainRequest
  *   DomainName: "STRING_VALUE", // required

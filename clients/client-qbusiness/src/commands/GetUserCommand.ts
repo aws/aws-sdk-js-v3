@@ -34,6 +34,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * ```javascript
  * import { QBusinessClient, GetUserCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, GetUserCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // GetUserRequest
  *   applicationId: "STRING_VALUE", // required

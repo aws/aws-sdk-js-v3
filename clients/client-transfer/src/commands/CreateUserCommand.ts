@@ -34,6 +34,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * ```javascript
  * import { TransferClient, CreateUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // CreateUserRequest
  *   HomeDirectory: "STRING_VALUE",

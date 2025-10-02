@@ -28,12 +28,14 @@ export interface CreateBrandCommandInput extends CreateBrandRequest {}
 export interface CreateBrandCommandOutput extends CreateBrandResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon QuickSight brand.</p>
+ * <p>Creates an QuickSight brand.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, CreateBrandCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateBrandCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateBrandRequest
  *   AwsAccountId: "STRING_VALUE", // required

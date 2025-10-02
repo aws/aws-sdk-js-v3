@@ -34,6 +34,8 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * ```javascript
  * import { DLMClient, GetLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, GetLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
+ * // import type { DLMClientConfig } from "@aws-sdk/client-dlm";
+ * const config = {}; // type is DLMClientConfig
  * const client = new DLMClient(config);
  * const input = { // GetLifecyclePolicyRequest
  *   PolicyId: "STRING_VALUE", // required

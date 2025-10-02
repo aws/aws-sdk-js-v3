@@ -44,6 +44,8 @@ export interface UpdateServiceTemplateVersionCommandOutput
  * ```javascript
  * import { ProtonClient, UpdateServiceTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // UpdateServiceTemplateVersionInput
  *   templateName: "STRING_VALUE", // required

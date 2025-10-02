@@ -180,6 +180,11 @@ import {
 } from "./commands/GetIntegrationCommand";
 import { GetMatchesCommand, GetMatchesCommandInput, GetMatchesCommandOutput } from "./commands/GetMatchesCommand";
 import {
+  GetProfileHistoryRecordCommand,
+  GetProfileHistoryRecordCommandInput,
+  GetProfileHistoryRecordCommandOutput,
+} from "./commands/GetProfileHistoryRecordCommand";
+import {
   GetProfileObjectTypeCommand,
   GetProfileObjectTypeCommandInput,
   GetProfileObjectTypeCommandOutput,
@@ -281,6 +286,11 @@ import {
   ListProfileAttributeValuesCommandInput,
   ListProfileAttributeValuesCommandOutput,
 } from "./commands/ListProfileAttributeValuesCommand";
+import {
+  ListProfileHistoryRecordsCommand,
+  ListProfileHistoryRecordsCommandInput,
+  ListProfileHistoryRecordsCommandOutput,
+} from "./commands/ListProfileHistoryRecordsCommand";
 import {
   ListProfileObjectsCommand,
   ListProfileObjectsCommandInput,
@@ -427,6 +437,7 @@ const commands = {
   GetIdentityResolutionJobCommand,
   GetIntegrationCommand,
   GetMatchesCommand,
+  GetProfileHistoryRecordCommand,
   GetProfileObjectTypeCommand,
   GetProfileObjectTypeTemplateCommand,
   GetSegmentDefinitionCommand,
@@ -449,6 +460,7 @@ const commands = {
   ListIntegrationsCommand,
   ListObjectTypeAttributesCommand,
   ListProfileAttributeValuesCommand,
+  ListProfileHistoryRecordsCommand,
   ListProfileObjectsCommand,
   ListProfileObjectTypesCommand,
   ListProfileObjectTypeTemplatesCommand,
@@ -1041,6 +1053,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link GetProfileHistoryRecordCommand}
+   */
+  getProfileHistoryRecord(
+    args: GetProfileHistoryRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProfileHistoryRecordCommandOutput>;
+  getProfileHistoryRecord(
+    args: GetProfileHistoryRecordCommandInput,
+    cb: (err: any, data?: GetProfileHistoryRecordCommandOutput) => void
+  ): void;
+  getProfileHistoryRecord(
+    args: GetProfileHistoryRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProfileHistoryRecordCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetProfileObjectTypeCommand}
    */
   getProfileObjectType(
@@ -1395,6 +1424,23 @@ export interface CustomerProfiles {
     args: ListProfileAttributeValuesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListProfileAttributeValuesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProfileHistoryRecordsCommand}
+   */
+  listProfileHistoryRecords(
+    args: ListProfileHistoryRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProfileHistoryRecordsCommandOutput>;
+  listProfileHistoryRecords(
+    args: ListProfileHistoryRecordsCommandInput,
+    cb: (err: any, data?: ListProfileHistoryRecordsCommandOutput) => void
+  ): void;
+  listProfileHistoryRecords(
+    args: ListProfileHistoryRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProfileHistoryRecordsCommandOutput) => void
   ): void;
 
   /**

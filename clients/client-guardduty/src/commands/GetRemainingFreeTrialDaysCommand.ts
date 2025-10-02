@@ -35,6 +35,8 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
  * ```javascript
  * import { GuardDutyClient, GetRemainingFreeTrialDaysCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetRemainingFreeTrialDaysCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // GetRemainingFreeTrialDaysRequest
  *   DetectorId: "STRING_VALUE", // required

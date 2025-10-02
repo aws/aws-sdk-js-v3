@@ -28,13 +28,14 @@ export interface ListServiceNetworksCommandInput extends ListServiceNetworksRequ
 export interface ListServiceNetworksCommandOutput extends ListServiceNetworksResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the service networks owned by or shared with this account. The account ID in the ARN
- *    shows which account owns the service network.</p>
+ * <p>Lists the service networks owned by or shared with this account. The account ID in the ARN shows which account owns the service network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { VPCLatticeClient, ListServiceNetworksCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListServiceNetworksCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // ListServiceNetworksRequest
  *   maxResults: Number("int"),
@@ -76,8 +77,7 @@ export interface ListServiceNetworksCommandOutput extends ListServiceNetworksRes
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

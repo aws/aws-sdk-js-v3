@@ -3,7 +3,7 @@ import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-en
 import { HttpRequest } from "@smithy/protocol-http";
 import { SignatureV4 } from "@smithy/signature-v4";
 import { extendedEncodeURIComponent } from "@smithy/smithy-client";
-import {
+import type {
   AwsCredentialIdentity,
   ChecksumConstructor,
   Endpoint,
@@ -113,8 +113,8 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
           },
         };
 
-        // we also double-check the work of the serialzier here
-        // because this middleware may be placed after the regular serialzier.
+        // we also double-check the work of the serializer here
+        // because this middleware may be placed after the regular serializer.
         if (HttpRequest.isInstance(args.request)) {
           const { request } = args;
           if (!(request.body ?? "").includes("DestinationRegion=")) {

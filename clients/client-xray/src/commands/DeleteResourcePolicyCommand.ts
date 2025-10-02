@@ -34,6 +34,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * ```javascript
  * import { XRayClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // import type { XRayClientConfig } from "@aws-sdk/client-xray";
+ * const config = {}; // type is XRayClientConfig
  * const client = new XRayClient(config);
  * const input = { // DeleteResourcePolicyRequest
  *   PolicyName: "STRING_VALUE", // required

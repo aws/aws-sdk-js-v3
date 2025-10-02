@@ -46,6 +46,8 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  * ```javascript
  * import { IAMClient, ListServerCertificatesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListServerCertificatesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ListServerCertificatesRequest
  *   PathPrefix: "STRING_VALUE",

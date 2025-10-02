@@ -34,6 +34,8 @@ export interface AddBridgeSourcesCommandOutput extends AddBridgeSourcesResponse,
  * ```javascript
  * import { MediaConnectClient, AddBridgeSourcesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, AddBridgeSourcesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // AddBridgeSourcesRequest
  *   BridgeArn: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface ListInvestigationGroupsCommandOutput extends ListInvestigationG
  * ```javascript
  * import { AIOpsClient, ListInvestigationGroupsCommand } from "@aws-sdk/client-aiops"; // ES Modules import
  * // const { AIOpsClient, ListInvestigationGroupsCommand } = require("@aws-sdk/client-aiops"); // CommonJS import
+ * // import type { AIOpsClientConfig } from "@aws-sdk/client-aiops";
+ * const config = {}; // type is AIOpsClientConfig
  * const client = new AIOpsClient(config);
  * const input = { // ListInvestigationGroupsInput
  *   nextToken: "STRING_VALUE",

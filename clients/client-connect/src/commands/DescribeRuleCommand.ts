@@ -34,6 +34,8 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * ```javascript
  * import { ConnectClient, DescribeRuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeRuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DescribeRuleRequest
  *   InstanceId: "STRING_VALUE", // required

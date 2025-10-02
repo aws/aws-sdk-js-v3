@@ -34,6 +34,8 @@ export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, _
  * ```javascript
  * import { BCMDashboardsClient, DeleteDashboardCommand } from "@aws-sdk/client-bcm-dashboards"; // ES Modules import
  * // const { BCMDashboardsClient, DeleteDashboardCommand } = require("@aws-sdk/client-bcm-dashboards"); // CommonJS import
+ * // import type { BCMDashboardsClientConfig } from "@aws-sdk/client-bcm-dashboards";
+ * const config = {}; // type is BCMDashboardsClientConfig
  * const client = new BCMDashboardsClient(config);
  * const input = { // DeleteDashboardRequest
  *   arn: "STRING_VALUE", // required

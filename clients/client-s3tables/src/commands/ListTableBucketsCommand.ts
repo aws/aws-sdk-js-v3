@@ -34,6 +34,8 @@ export interface ListTableBucketsCommandOutput extends ListTableBucketsResponse,
  * ```javascript
  * import { S3TablesClient, ListTableBucketsCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
  * // const { S3TablesClient, ListTableBucketsCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // import type { S3TablesClientConfig } from "@aws-sdk/client-s3tables";
+ * const config = {}; // type is S3TablesClientConfig
  * const client = new S3TablesClient(config);
  * const input = { // ListTableBucketsRequest
  *   prefix: "STRING_VALUE",

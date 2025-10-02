@@ -40,6 +40,8 @@ export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __Metad
  * ```javascript
  * import { CodePipelineClient, GetJobDetailsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetJobDetailsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // GetJobDetailsInput
  *   jobId: "STRING_VALUE", // required

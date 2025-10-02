@@ -35,6 +35,8 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * ```javascript
  * import { SSMClient, SendAutomationSignalCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, SendAutomationSignalCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // SendAutomationSignalRequest
  *   AutomationExecutionId: "STRING_VALUE", // required

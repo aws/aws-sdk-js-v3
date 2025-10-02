@@ -34,6 +34,8 @@ export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AccountClient, DeleteAlternateContactCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, DeleteAlternateContactCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * // import type { AccountClientConfig } from "@aws-sdk/client-account";
+ * const config = {}; // type is AccountClientConfig
  * const client = new AccountClient(config);
  * const input = { // DeleteAlternateContactRequest
  *   AlternateContactType: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
  * ```javascript
  * import { SESv2Client, PutSuppressedDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutSuppressedDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * // import type { SESv2ClientConfig } from "@aws-sdk/client-sesv2";
+ * const config = {}; // type is SESv2ClientConfig
  * const client = new SESv2Client(config);
  * const input = { // PutSuppressedDestinationRequest
  *   EmailAddress: "STRING_VALUE", // required

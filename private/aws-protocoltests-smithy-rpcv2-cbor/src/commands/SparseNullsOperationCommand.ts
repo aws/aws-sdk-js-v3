@@ -35,6 +35,8 @@ export interface SparseNullsOperationCommandOutput extends SparseNullsOperationI
  * ```javascript
  * import { RpcV2ProtocolClient, SparseNullsOperationCommand } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor"; // ES Modules import
  * // const { RpcV2ProtocolClient, SparseNullsOperationCommand } = require("@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor"); // CommonJS import
+ * // import type { RpcV2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor";
+ * const config = {}; // type is RpcV2ProtocolClientConfig
  * const client = new RpcV2ProtocolClient(config);
  * const input = { // SparseNullsOperationInputOutput
  *   sparseStringList: [ // SparseStringList

@@ -34,6 +34,8 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
  * ```javascript
  * import { GreengrassClient, ListFunctionDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListFunctionDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // ListFunctionDefinitionsRequest
  *   MaxResults: "STRING_VALUE",

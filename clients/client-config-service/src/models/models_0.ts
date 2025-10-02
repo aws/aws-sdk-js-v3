@@ -6680,6 +6680,7 @@ export const RemediationExecutionState = {
   IN_PROGRESS: "IN_PROGRESS",
   QUEUED: "QUEUED",
   SUCCEEDED: "SUCCEEDED",
+  UNKNOWN: "UNKNOWN",
 } as const;
 
 /**
@@ -6692,9 +6693,12 @@ export type RemediationExecutionState = (typeof RemediationExecutionState)[keyof
  * @enum
  */
 export const RemediationExecutionStepState = {
+  EXITED: "EXITED",
   FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
   PENDING: "PENDING",
   SUCCEEDED: "SUCCEEDED",
+  UNKNOWN: "UNKNOWN",
 } as const;
 
 /**

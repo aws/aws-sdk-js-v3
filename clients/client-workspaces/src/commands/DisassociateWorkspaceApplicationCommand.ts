@@ -39,6 +39,8 @@ export interface DisassociateWorkspaceApplicationCommandOutput
  * ```javascript
  * import { WorkSpacesClient, DisassociateWorkspaceApplicationCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DisassociateWorkspaceApplicationCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DisassociateWorkspaceApplicationRequest
  *   WorkspaceId: "STRING_VALUE", // required

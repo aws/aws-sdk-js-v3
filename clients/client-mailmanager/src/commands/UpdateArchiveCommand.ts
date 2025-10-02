@@ -34,6 +34,8 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * ```javascript
  * import { MailManagerClient, UpdateArchiveCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, UpdateArchiveCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // UpdateArchiveRequest
  *   ArchiveId: "STRING_VALUE", // required

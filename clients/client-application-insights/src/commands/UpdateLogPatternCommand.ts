@@ -38,6 +38,8 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
  * ```javascript
  * import { ApplicationInsightsClient, UpdateLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, UpdateLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * // import type { ApplicationInsightsClientConfig } from "@aws-sdk/client-application-insights";
+ * const config = {}; // type is ApplicationInsightsClientConfig
  * const client = new ApplicationInsightsClient(config);
  * const input = { // UpdateLogPatternRequest
  *   ResourceGroupName: "STRING_VALUE", // required

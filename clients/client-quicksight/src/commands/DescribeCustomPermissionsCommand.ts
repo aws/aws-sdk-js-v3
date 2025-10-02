@@ -34,6 +34,8 @@ export interface DescribeCustomPermissionsCommandOutput extends DescribeCustomPe
  * ```javascript
  * import { QuickSightClient, DescribeCustomPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeCustomPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeCustomPermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
@@ -70,6 +72,8 @@ export interface DescribeCustomPermissionsCommandOutput extends DescribeCustomPe
  * //       ExportToCsvInScheduledReports: "DENY",
  * //       ExportToExcelInScheduledReports: "DENY",
  * //       IncludeContentInScheduledReportsEmail: "DENY",
+ * //       Dashboard: "DENY",
+ * //       Analysis: "DENY",
  * //     },
  * //   },
  * //   RequestId: "STRING_VALUE",

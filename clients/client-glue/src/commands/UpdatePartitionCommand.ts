@@ -34,6 +34,8 @@ export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, _
  * ```javascript
  * import { GlueClient, UpdatePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdatePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // UpdatePartitionRequest
  *   CatalogId: "STRING_VALUE",

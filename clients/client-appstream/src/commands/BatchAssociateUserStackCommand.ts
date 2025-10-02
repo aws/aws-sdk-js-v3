@@ -39,6 +39,8 @@ export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUser
  * ```javascript
  * import { AppStreamClient, BatchAssociateUserStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, BatchAssociateUserStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // BatchAssociateUserStackRequest
  *   UserStackAssociations: [ // UserStackAssociationList // required

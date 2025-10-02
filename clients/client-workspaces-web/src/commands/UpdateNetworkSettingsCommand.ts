@@ -34,6 +34,8 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * ```javascript
  * import { WorkSpacesWebClient, UpdateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // UpdateNetworkSettingsRequest
  *   networkSettingsArn: "STRING_VALUE", // required

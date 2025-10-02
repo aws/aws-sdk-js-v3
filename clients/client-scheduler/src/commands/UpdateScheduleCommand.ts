@@ -42,6 +42,8 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  * ```javascript
  * import { SchedulerClient, UpdateScheduleCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, UpdateScheduleCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * // import type { SchedulerClientConfig } from "@aws-sdk/client-scheduler";
+ * const config = {}; // type is SchedulerClientConfig
  * const client = new SchedulerClient(config);
  * const input = { // UpdateScheduleInput
  *   Name: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteOdbNetworkCommandOutput extends DeleteOdbNetworkOutput, _
  * ```javascript
  * import { OdbClient, DeleteOdbNetworkCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, DeleteOdbNetworkCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // DeleteOdbNetworkInput
  *   odbNetworkId: "STRING_VALUE", // required

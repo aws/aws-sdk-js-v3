@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MergeProfilesRequest, MergeProfilesResponse } from "../models/models_0";
+import { MergeProfilesRequest, MergeProfilesResponse } from "../models/models_1";
 import { de_MergeProfilesCommand, se_MergeProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -76,6 +76,8 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * ```javascript
  * import { CustomerProfilesClient, MergeProfilesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, MergeProfilesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // MergeProfilesRequest
  *   DomainName: "STRING_VALUE", // required

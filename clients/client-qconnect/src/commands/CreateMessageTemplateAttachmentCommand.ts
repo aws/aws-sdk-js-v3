@@ -44,6 +44,8 @@ export interface CreateMessageTemplateAttachmentCommandOutput
  * ```javascript
  * import { QConnectClient, CreateMessageTemplateAttachmentCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, CreateMessageTemplateAttachmentCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // CreateMessageTemplateAttachmentRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

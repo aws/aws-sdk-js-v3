@@ -39,6 +39,8 @@ export interface CreateCustomModelDeploymentCommandOutput
  * ```javascript
  * import { BedrockClient, CreateCustomModelDeploymentCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreateCustomModelDeploymentCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // CreateCustomModelDeploymentRequest
  *   modelDeploymentName: "STRING_VALUE", // required

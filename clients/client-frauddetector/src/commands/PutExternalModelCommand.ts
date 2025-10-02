@@ -34,6 +34,8 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * ```javascript
  * import { FraudDetectorClient, PutExternalModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutExternalModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // PutExternalModelRequest
  *   modelEndpoint: "STRING_VALUE", // required

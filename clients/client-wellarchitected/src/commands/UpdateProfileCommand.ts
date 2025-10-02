@@ -34,6 +34,8 @@ export interface UpdateProfileCommandOutput extends UpdateProfileOutput, __Metad
  * ```javascript
  * import { WellArchitectedClient, UpdateProfileCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateProfileCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateProfileInput
  *   ProfileArn: "STRING_VALUE", // required

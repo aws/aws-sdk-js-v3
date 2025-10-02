@@ -37,6 +37,8 @@ export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksRespo
  * ```javascript
  * import { TimestreamWriteClient, ListBatchLoadTasksCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, ListBatchLoadTasksCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // import type { TimestreamWriteClientConfig } from "@aws-sdk/client-timestream-write";
+ * const config = {}; // type is TimestreamWriteClientConfig
  * const client = new TimestreamWriteClient(config);
  * const input = { // ListBatchLoadTasksRequest
  *   NextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface GetCustomActionCommandOutput extends GetCustomActionResult, __M
  * ```javascript
  * import { ChatbotClient, GetCustomActionCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, GetCustomActionCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // GetCustomActionRequest
  *   CustomActionArn: "STRING_VALUE", // required

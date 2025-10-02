@@ -21,6 +21,10 @@ import {
 } from "@smithy/types";
 
 import {
+  CreateCentralizationRuleForOrganizationCommandInput,
+  CreateCentralizationRuleForOrganizationCommandOutput,
+} from "../commands/CreateCentralizationRuleForOrganizationCommand";
+import {
   CreateTelemetryRuleCommandInput,
   CreateTelemetryRuleCommandOutput,
 } from "../commands/CreateTelemetryRuleCommand";
@@ -29,6 +33,10 @@ import {
   CreateTelemetryRuleForOrganizationCommandOutput,
 } from "../commands/CreateTelemetryRuleForOrganizationCommand";
 import {
+  DeleteCentralizationRuleForOrganizationCommandInput,
+  DeleteCentralizationRuleForOrganizationCommandOutput,
+} from "../commands/DeleteCentralizationRuleForOrganizationCommand";
+import {
   DeleteTelemetryRuleCommandInput,
   DeleteTelemetryRuleCommandOutput,
 } from "../commands/DeleteTelemetryRuleCommand";
@@ -36,6 +44,10 @@ import {
   DeleteTelemetryRuleForOrganizationCommandInput,
   DeleteTelemetryRuleForOrganizationCommandOutput,
 } from "../commands/DeleteTelemetryRuleForOrganizationCommand";
+import {
+  GetCentralizationRuleForOrganizationCommandInput,
+  GetCentralizationRuleForOrganizationCommandOutput,
+} from "../commands/GetCentralizationRuleForOrganizationCommand";
 import {
   GetTelemetryEvaluationStatusCommandInput,
   GetTelemetryEvaluationStatusCommandOutput,
@@ -49,6 +61,10 @@ import {
   GetTelemetryRuleForOrganizationCommandInput,
   GetTelemetryRuleForOrganizationCommandOutput,
 } from "../commands/GetTelemetryRuleForOrganizationCommand";
+import {
+  ListCentralizationRulesForOrganizationCommandInput,
+  ListCentralizationRulesForOrganizationCommandOutput,
+} from "../commands/ListCentralizationRulesForOrganizationCommand";
 import {
   ListResourceTelemetryCommandInput,
   ListResourceTelemetryCommandOutput,
@@ -85,6 +101,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateCentralizationRuleForOrganizationCommandInput,
+  UpdateCentralizationRuleForOrganizationCommandOutput,
+} from "../commands/UpdateCentralizationRuleForOrganizationCommand";
+import {
   UpdateTelemetryRuleCommandInput,
   UpdateTelemetryRuleCommandOutput,
 } from "../commands/UpdateTelemetryRuleCommand";
@@ -94,11 +114,18 @@ import {
 } from "../commands/UpdateTelemetryRuleForOrganizationCommand";
 import {
   AccessDeniedException,
+  CentralizationRule,
+  CentralizationRuleDestination,
+  CentralizationRuleSource,
   ConflictException,
+  DestinationLogsConfiguration,
   InternalServerException,
+  LogsBackupConfiguration,
+  LogsEncryptionConfiguration,
   ResourceNotFoundException,
   ResourceType,
   ServiceQuotaExceededException,
+  SourceLogsConfiguration,
   TelemetryDestinationConfiguration,
   TelemetryRule,
   TelemetryState,
@@ -108,6 +135,30 @@ import {
   VPCFlowLogParameters,
 } from "../models/models_0";
 import { ObservabilityAdminServiceException as __BaseException } from "../models/ObservabilityAdminServiceException";
+
+/**
+ * serializeAws_restJson1CreateCentralizationRuleForOrganizationCommand
+ */
+export const se_CreateCentralizationRuleForOrganizationCommand = async (
+  input: CreateCentralizationRuleForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/CreateCentralizationRuleForOrganization");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Rule: (_) => _json(_),
+      RuleName: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateTelemetryRuleCommand
@@ -158,6 +209,28 @@ export const se_CreateTelemetryRuleForOrganizationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteCentralizationRuleForOrganizationCommand
+ */
+export const se_DeleteCentralizationRuleForOrganizationCommand = async (
+  input: DeleteCentralizationRuleForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/DeleteCentralizationRuleForOrganization");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RuleIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteTelemetryRuleCommand
  */
 export const se_DeleteTelemetryRuleCommand = async (
@@ -191,6 +264,28 @@ export const se_DeleteTelemetryRuleForOrganizationCommand = async (
     "content-type": "application/json",
   };
   b.bp("/DeleteTelemetryRuleForOrganization");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RuleIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCentralizationRuleForOrganizationCommand
+ */
+export const se_GetCentralizationRuleForOrganizationCommand = async (
+  input: GetCentralizationRuleForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetCentralizationRuleForOrganization");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -269,6 +364,31 @@ export const se_GetTelemetryRuleForOrganizationCommand = async (
   body = JSON.stringify(
     take(input, {
       RuleIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCentralizationRulesForOrganizationCommand
+ */
+export const se_ListCentralizationRulesForOrganizationCommand = async (
+  input: ListCentralizationRulesForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListCentralizationRulesForOrganization");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AllRegions: [],
+      MaxResults: [],
+      NextToken: [],
+      RuleNamePrefix: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -509,6 +629,29 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateCentralizationRuleForOrganizationCommand
+ */
+export const se_UpdateCentralizationRuleForOrganizationCommand = async (
+  input: UpdateCentralizationRuleForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/UpdateCentralizationRuleForOrganization");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Rule: (_) => _json(_),
+      RuleIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateTelemetryRuleCommand
  */
 export const se_UpdateTelemetryRuleCommand = async (
@@ -555,6 +698,27 @@ export const se_UpdateTelemetryRuleForOrganizationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateCentralizationRuleForOrganizationCommand
+ */
+export const de_CreateCentralizationRuleForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCentralizationRuleForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RuleArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateTelemetryRuleCommand
  */
 export const de_CreateTelemetryRuleCommand = async (
@@ -597,6 +761,23 @@ export const de_CreateTelemetryRuleForOrganizationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteCentralizationRuleForOrganizationCommand
+ */
+export const de_DeleteCentralizationRuleForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCentralizationRuleForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteTelemetryRuleCommand
  */
 export const de_DeleteTelemetryRuleCommand = async (
@@ -627,6 +808,35 @@ export const de_DeleteTelemetryRuleForOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCentralizationRuleForOrganizationCommand
+ */
+export const de_GetCentralizationRuleForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCentralizationRuleForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CentralizationRule: _json,
+    CreatedRegion: __expectString,
+    CreatedTimeStamp: __expectLong,
+    CreatorAccountId: __expectString,
+    FailureReason: __expectString,
+    LastUpdateTimeStamp: __expectLong,
+    RuleArn: __expectString,
+    RuleHealth: __expectString,
+    RuleName: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -719,6 +929,28 @@ export const de_GetTelemetryRuleForOrganizationCommand = async (
     RuleArn: __expectString,
     RuleName: __expectString,
     TelemetryRule: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCentralizationRulesForOrganizationCommand
+ */
+export const de_ListCentralizationRulesForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCentralizationRulesForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CentralizationRuleSummaries: _json,
+    NextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -932,6 +1164,27 @@ export const de_UntagResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateCentralizationRuleForOrganizationCommand
+ */
+export const de_UpdateCentralizationRuleForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCentralizationRuleForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RuleArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1161,9 +1414,25 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AccountIdentifiers omitted.
 
+// se_CentralizationRule omitted.
+
+// se_CentralizationRuleDestination omitted.
+
+// se_CentralizationRuleSource omitted.
+
+// se_DestinationLogsConfiguration omitted.
+
+// se_LogsBackupConfiguration omitted.
+
+// se_LogsEncryptionConfiguration omitted.
+
 // se_OrganizationUnitIdentifiers omitted.
 
+// se_Regions omitted.
+
 // se_ResourceTypes omitted.
+
+// se_SourceLogsConfiguration omitted.
 
 // se_TagKeyList omitted.
 
@@ -1176,6 +1445,26 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TelemetryRule omitted.
 
 // se_VPCFlowLogParameters omitted.
+
+// de_CentralizationRule omitted.
+
+// de_CentralizationRuleDestination omitted.
+
+// de_CentralizationRuleSource omitted.
+
+// de_CentralizationRuleSummaries omitted.
+
+// de_CentralizationRuleSummary omitted.
+
+// de_DestinationLogsConfiguration omitted.
+
+// de_LogsBackupConfiguration omitted.
+
+// de_LogsEncryptionConfiguration omitted.
+
+// de_Regions omitted.
+
+// de_SourceLogsConfiguration omitted.
 
 // de_TagMapOutput omitted.
 

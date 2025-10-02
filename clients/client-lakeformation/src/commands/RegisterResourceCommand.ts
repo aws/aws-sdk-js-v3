@@ -44,6 +44,8 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  * ```javascript
  * import { LakeFormationClient, RegisterResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, RegisterResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // RegisterResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

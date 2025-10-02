@@ -39,6 +39,8 @@ export interface CreateControlCommandOutput extends CreateControlResponse, __Met
  * ```javascript
  * import { AuditManagerClient, CreateControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, CreateControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // CreateControlRequest
  *   name: "STRING_VALUE", // required

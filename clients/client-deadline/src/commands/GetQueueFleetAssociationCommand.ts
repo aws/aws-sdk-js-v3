@@ -34,6 +34,8 @@ export interface GetQueueFleetAssociationCommandOutput extends GetQueueFleetAsso
  * ```javascript
  * import { DeadlineClient, GetQueueFleetAssociationCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetQueueFleetAssociationCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetQueueFleetAssociationRequest
  *   farmId: "STRING_VALUE", // required

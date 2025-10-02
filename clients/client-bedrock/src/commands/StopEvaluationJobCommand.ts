@@ -38,6 +38,8 @@ export interface StopEvaluationJobCommandOutput extends StopEvaluationJobRespons
  * ```javascript
  * import { BedrockClient, StopEvaluationJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, StopEvaluationJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // StopEvaluationJobRequest
  *   jobIdentifier: "STRING_VALUE", // required

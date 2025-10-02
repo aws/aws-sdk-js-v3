@@ -35,6 +35,8 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * ```javascript
  * import { RDSClient, DescribeDBLogFilesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBLogFilesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeDBLogFilesMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
@@ -77,7 +79,7 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
- * @throws {@link DBInstanceNotReadyFault} (server fault)
+ * @throws {@link DBInstanceNotReadyFault} (client fault)
  *  <p>An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.</p>
  *
  * @throws {@link RDSServiceException}

@@ -38,6 +38,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * ```javascript
  * import { MWAAClient, CreateEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, CreateEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * // import type { MWAAClientConfig } from "@aws-sdk/client-mwaa";
+ * const config = {}; // type is MWAAClientConfig
  * const client = new MWAAClient(config);
  * const input = { // CreateEnvironmentInput
  *   Name: "STRING_VALUE", // required

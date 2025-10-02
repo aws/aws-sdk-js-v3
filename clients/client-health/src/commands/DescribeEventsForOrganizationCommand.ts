@@ -70,6 +70,8 @@ export interface DescribeEventsForOrganizationCommandOutput
  * ```javascript
  * import { HealthClient, DescribeEventsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * // import type { HealthClientConfig } from "@aws-sdk/client-health";
+ * const config = {}; // type is HealthClientConfig
  * const client = new HealthClient(config);
  * const input = { // DescribeEventsForOrganizationRequest
  *   filter: { // OrganizationEventFilter

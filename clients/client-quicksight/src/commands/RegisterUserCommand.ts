@@ -28,12 +28,14 @@ export interface RegisterUserCommandInput extends RegisterUserRequest {}
 export interface RegisterUserCommandOutput extends RegisterUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon QuickSight user whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. When you register a new user from the Amazon QuickSight API, Amazon QuickSight generates a registration URL. The user accesses this registration URL to create their account. Amazon QuickSight doesn't send a registration email to users who are registered from the Amazon QuickSight API. If you want new users to receive a registration email, then add those users in the Amazon QuickSight console. For more information on registering a new user in the Amazon QuickSight console, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users"> Inviting users to access Amazon QuickSight</a>.</p>
+ * <p>Creates an Amazon QuickSight user whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. When you register a new user from the QuickSight API, QuickSight generates a registration URL. The user accesses this registration URL to create their account. QuickSight doesn't send a registration email to users who are registered from the QuickSight API. If you want new users to receive a registration email, then add those users in the QuickSight console. For more information on registering a new user in the QuickSight console, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users"> Inviting users to access QuickSight</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, RegisterUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, RegisterUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // RegisterUserRequest
  *   IdentityType: "IAM" || "QUICKSIGHT" || "IAM_IDENTITY_CENTER", // required

@@ -50,6 +50,8 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * ```javascript
  * import { ResiliencehubClient, UpdateAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, UpdateAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * // import type { ResiliencehubClientConfig } from "@aws-sdk/client-resiliencehub";
+ * const config = {}; // type is ResiliencehubClientConfig
  * const client = new ResiliencehubClient(config);
  * const input = { // UpdateAppVersionResourceRequest
  *   appArn: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  * ```javascript
  * import { ElastiCacheClient, DescribeReplicationGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeReplicationGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeReplicationGroupsMessage
  *   ReplicationGroupId: "STRING_VALUE",

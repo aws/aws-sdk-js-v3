@@ -35,6 +35,8 @@ export interface ListFileCommitHistoryCommandOutput extends ListFileCommitHistor
  * ```javascript
  * import { CodeCommitClient, ListFileCommitHistoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListFileCommitHistoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // ListFileCommitHistoryRequest
  *   repositoryName: "STRING_VALUE", // required

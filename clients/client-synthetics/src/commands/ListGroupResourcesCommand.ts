@@ -34,6 +34,8 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * ```javascript
  * import { SyntheticsClient, ListGroupResourcesCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, ListGroupResourcesCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // import type { SyntheticsClientConfig } from "@aws-sdk/client-synthetics";
+ * const config = {}; // type is SyntheticsClientConfig
  * const client = new SyntheticsClient(config);
  * const input = { // ListGroupResourcesRequest
  *   NextToken: "STRING_VALUE",

@@ -35,6 +35,8 @@ export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, _
  * ```javascript
  * import { IoTClient, ListAuthorizersCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListAuthorizersCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListAuthorizersRequest
  *   pageSize: Number("int"),

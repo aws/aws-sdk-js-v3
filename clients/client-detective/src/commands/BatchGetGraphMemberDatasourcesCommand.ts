@@ -39,6 +39,8 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
  * ```javascript
  * import { DetectiveClient, BatchGetGraphMemberDatasourcesCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, BatchGetGraphMemberDatasourcesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * // import type { DetectiveClientConfig } from "@aws-sdk/client-detective";
+ * const config = {}; // type is DetectiveClientConfig
  * const client = new DetectiveClient(config);
  * const input = { // BatchGetGraphMemberDatasourcesRequest
  *   GraphArn: "STRING_VALUE", // required

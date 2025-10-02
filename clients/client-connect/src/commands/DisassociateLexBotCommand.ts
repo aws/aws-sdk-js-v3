@@ -36,6 +36,8 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ConnectClient, DisassociateLexBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateLexBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DisassociateLexBotRequest
  *   InstanceId: "STRING_VALUE", // required

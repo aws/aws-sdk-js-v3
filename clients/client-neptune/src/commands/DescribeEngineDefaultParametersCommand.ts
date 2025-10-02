@@ -40,6 +40,8 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * ```javascript
  * import { NeptuneClient, DescribeEngineDefaultParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeEngineDefaultParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // DescribeEngineDefaultParametersMessage
  *   DBParameterGroupFamily: "STRING_VALUE", // required

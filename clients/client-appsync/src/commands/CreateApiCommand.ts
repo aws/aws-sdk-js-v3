@@ -36,6 +36,8 @@ export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBea
  * ```javascript
  * import { AppSyncClient, CreateApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // CreateApiRequest
  *   name: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteListingCommandOutput extends DeleteListingOutput, __Metad
  * ```javascript
  * import { DataZoneClient, DeleteListingCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteListingCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteListingInput
  *   domainIdentifier: "STRING_VALUE", // required

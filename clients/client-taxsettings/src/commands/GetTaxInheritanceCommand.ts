@@ -35,6 +35,8 @@ export interface GetTaxInheritanceCommandOutput extends GetTaxInheritanceRespons
  * ```javascript
  * import { TaxSettingsClient, GetTaxInheritanceCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, GetTaxInheritanceCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // import type { TaxSettingsClientConfig } from "@aws-sdk/client-taxsettings";
+ * const config = {}; // type is TaxSettingsClientConfig
  * const client = new TaxSettingsClient(config);
  * const input = {};
  * const command = new GetTaxInheritanceCommand(input);

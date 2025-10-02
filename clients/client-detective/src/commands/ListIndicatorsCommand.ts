@@ -34,6 +34,8 @@ export interface ListIndicatorsCommandOutput extends ListIndicatorsResponse, __M
  * ```javascript
  * import { DetectiveClient, ListIndicatorsCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListIndicatorsCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * // import type { DetectiveClientConfig } from "@aws-sdk/client-detective";
+ * const config = {}; // type is DetectiveClientConfig
  * const client = new DetectiveClient(config);
  * const input = { // ListIndicatorsRequest
  *   GraphArn: "STRING_VALUE", // required

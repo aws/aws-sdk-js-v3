@@ -38,6 +38,8 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * ```javascript
  * import { TransferClient, ImportHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ImportHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // ImportHostKeyRequest
  *   ServerId: "STRING_VALUE", // required

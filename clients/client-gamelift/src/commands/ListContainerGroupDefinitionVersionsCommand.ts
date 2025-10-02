@@ -73,6 +73,8 @@ export interface ListContainerGroupDefinitionVersionsCommandOutput
  * ```javascript
  * import { GameLiftClient, ListContainerGroupDefinitionVersionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListContainerGroupDefinitionVersionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // ListContainerGroupDefinitionVersionsInput
  *   Name: "STRING_VALUE", // required

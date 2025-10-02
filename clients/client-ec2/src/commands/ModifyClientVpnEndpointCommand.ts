@@ -34,6 +34,8 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  * ```javascript
  * import { EC2Client, ModifyClientVpnEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyClientVpnEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // ModifyClientVpnEndpointRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface DeletePerformanceAnalysisReportCommandOutput
  * ```javascript
  * import { PIClient, DeletePerformanceAnalysisReportCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, DeletePerformanceAnalysisReportCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * // import type { PIClientConfig } from "@aws-sdk/client-pi";
+ * const config = {}; // type is PIClientConfig
  * const client = new PIClient(config);
  * const input = { // DeletePerformanceAnalysisReportRequest
  *   ServiceType: "RDS" || "DOCDB", // required

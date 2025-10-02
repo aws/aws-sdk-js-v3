@@ -34,6 +34,8 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * ```javascript
  * import { QuickSightClient, ListGroupMembershipsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListGroupMembershipsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // ListGroupMembershipsRequest
  *   GroupName: "STRING_VALUE", // required

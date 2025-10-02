@@ -34,6 +34,8 @@ export interface CreateIdNamespaceCommandOutput extends CreateIdNamespaceOutput,
  * ```javascript
  * import { EntityResolutionClient, CreateIdNamespaceCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, CreateIdNamespaceCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // CreateIdNamespaceInput
  *   idNamespaceName: "STRING_VALUE", // required
@@ -135,7 +137,7 @@ export interface CreateIdNamespaceCommandOutput extends CreateIdNamespaceOutput,
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+ *  <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link ExceedsLimitException} (client fault)
  *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>

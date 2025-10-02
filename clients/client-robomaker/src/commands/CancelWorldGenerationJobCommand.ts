@@ -42,6 +42,8 @@ export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenera
  * ```javascript
  * import { RoboMakerClient, CancelWorldGenerationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CancelWorldGenerationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // CancelWorldGenerationJobRequest
  *   job: "STRING_VALUE", // required

@@ -60,6 +60,8 @@ export interface UpdateConnectionAliasPermissionCommandOutput
  * ```javascript
  * import { WorkSpacesClient, UpdateConnectionAliasPermissionCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, UpdateConnectionAliasPermissionCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // UpdateConnectionAliasPermissionRequest
  *   AliasId: "STRING_VALUE", // required

@@ -40,6 +40,8 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  * ```javascript
  * import { CodePipelineClient, RegisterWebhookWithThirdPartyCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, RegisterWebhookWithThirdPartyCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // RegisterWebhookWithThirdPartyInput
  *   webhookName: "STRING_VALUE",

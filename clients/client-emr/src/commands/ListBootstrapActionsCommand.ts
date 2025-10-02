@@ -34,6 +34,8 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  * ```javascript
  * import { EMRClient, ListBootstrapActionsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListBootstrapActionsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // ListBootstrapActionsInput
  *   ClusterId: "STRING_VALUE", // required

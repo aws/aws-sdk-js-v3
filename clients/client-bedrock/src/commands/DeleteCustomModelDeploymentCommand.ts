@@ -39,6 +39,8 @@ export interface DeleteCustomModelDeploymentCommandOutput
  * ```javascript
  * import { BedrockClient, DeleteCustomModelDeploymentCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, DeleteCustomModelDeploymentCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // DeleteCustomModelDeploymentRequest
  *   customModelDeploymentIdentifier: "STRING_VALUE", // required

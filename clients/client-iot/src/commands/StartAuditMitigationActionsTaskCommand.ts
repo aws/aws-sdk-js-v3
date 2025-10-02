@@ -40,6 +40,8 @@ export interface StartAuditMitigationActionsTaskCommandOutput
  * ```javascript
  * import { IoTClient, StartAuditMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, StartAuditMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // StartAuditMitigationActionsTaskRequest
  *   taskId: "STRING_VALUE", // required

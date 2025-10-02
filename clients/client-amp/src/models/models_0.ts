@@ -1081,6 +1081,264 @@ export interface ListScrapersResponse {
 /**
  * @public
  */
+export interface DeleteScraperLoggingConfigurationRequest {
+  /**
+   * <p>The ID of the scraper whose logging configuration will be deleted.</p>
+   * @public
+   */
+  scraperId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the request is processed exactly once.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeScraperLoggingConfigurationRequest {
+  /**
+   * <p>The ID of the scraper whose logging configuration will be described.</p>
+   * @public
+   */
+  scraperId: string | undefined;
+}
+
+/**
+ * <p>Configuration details for logging to CloudWatch Logs.</p>
+ * @public
+ */
+export interface CloudWatchLogDestination {
+  /**
+   * <p>The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist prior to calling this operation.</p>
+   * @public
+   */
+  logGroupArn: string | undefined;
+}
+
+/**
+ * <p>The destination where scraper logs are sent.</p>
+ * @public
+ */
+export type ScraperLoggingDestination =
+  | ScraperLoggingDestination.CloudWatchLogsMember
+  | ScraperLoggingDestination.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ScraperLoggingDestination {
+  /**
+   * <p>The CloudWatch Logs configuration for the scraper logging destination.</p>
+   * @public
+   */
+  export interface CloudWatchLogsMember {
+    cloudWatchLogs: CloudWatchLogDestination;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cloudWatchLogs?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    cloudWatchLogs: (value: CloudWatchLogDestination) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ScraperLoggingDestination, visitor: Visitor<T>): T => {
+    if (value.cloudWatchLogs !== undefined) return visitor.cloudWatchLogs(value.cloudWatchLogs);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Configuration settings for a scraper component.</p>
+ * @public
+ */
+export interface ComponentConfig {
+  /**
+   * <p>Configuration options for the scraper component.</p>
+   * @public
+   */
+  options?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ScraperComponentType = {
+  /**
+   * Scraper collector component
+   */
+  COLLECTOR: "COLLECTOR",
+  /**
+   * Scraper exporter component
+   */
+  EXPORTER: "EXPORTER",
+  /**
+   * Scraper service discoverer component
+   */
+  SERVICE_DISCOVERY: "SERVICE_DISCOVERY",
+} as const;
+
+/**
+ * @public
+ */
+export type ScraperComponentType = (typeof ScraperComponentType)[keyof typeof ScraperComponentType];
+
+/**
+ * <p>A component of a Amazon Managed Service for Prometheus scraper that can be configured for logging.</p>
+ * @public
+ */
+export interface ScraperComponent {
+  /**
+   * <p>The type of the scraper component.</p>
+   * @public
+   */
+  type: ScraperComponentType | undefined;
+
+  /**
+   * <p>The configuration settings for the scraper component.</p>
+   * @public
+   */
+  config?: ComponentConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ScraperLoggingConfigurationStatusCode = {
+  /**
+   * Scraper logging configuration is active.
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * Scraper logging configuration is being created.
+   */
+  CREATING: "CREATING",
+  /**
+   * Scraper logging configuration creation failed.
+   */
+  CREATION_FAILED: "CREATION_FAILED",
+  /**
+   * Scraper logging configuration is being deleted.
+   */
+  DELETING: "DELETING",
+  /**
+   * Scraper logging configuration update failed.
+   */
+  UPDATE_FAILED: "UPDATE_FAILED",
+  /**
+   * Scraper logging configuration is being updated.
+   */
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ScraperLoggingConfigurationStatusCode =
+  (typeof ScraperLoggingConfigurationStatusCode)[keyof typeof ScraperLoggingConfigurationStatusCode];
+
+/**
+ * <p>The status of a scraper logging configuration.</p>
+ * @public
+ */
+export interface ScraperLoggingConfigurationStatus {
+  /**
+   * <p>The status code of the scraper logging configuration.</p>
+   * @public
+   */
+  statusCode: ScraperLoggingConfigurationStatusCode | undefined;
+
+  /**
+   * <p>The reason for the current status of the scraper logging configuration.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeScraperLoggingConfigurationResponse {
+  /**
+   * <p>The status of the scraper logging configuration.</p>
+   * @public
+   */
+  status: ScraperLoggingConfigurationStatus | undefined;
+
+  /**
+   * <p>The ID of the scraper.</p>
+   * @public
+   */
+  scraperId: string | undefined;
+
+  /**
+   * <p>The destination where scraper logs are sent.</p>
+   * @public
+   */
+  loggingDestination: ScraperLoggingDestination | undefined;
+
+  /**
+   * <p>The list of scraper components configured for logging.</p>
+   * @public
+   */
+  scraperComponents: ScraperComponent[] | undefined;
+
+  /**
+   * <p>The date and time when the logging configuration was last modified.</p>
+   * @public
+   */
+  modifiedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateScraperLoggingConfigurationRequest {
+  /**
+   * <p>The ID of the scraper whose logging configuration will be updated.</p>
+   * @public
+   */
+  scraperId: string | undefined;
+
+  /**
+   * <p>The destination where scraper logs will be sent.</p>
+   * @public
+   */
+  loggingDestination: ScraperLoggingDestination | undefined;
+
+  /**
+   * <p>The list of scraper components to configure for logging.</p>
+   * @public
+   */
+  scraperComponents?: ScraperComponent[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateScraperLoggingConfigurationResponse {
+  /**
+   * <p>The status of the updated scraper logging configuration.</p>
+   * @public
+   */
+  status: ScraperLoggingConfigurationStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateScraperRequest {
   /**
    * <p>The ID of the scraper to update.</p>
@@ -1691,18 +1949,6 @@ export interface UpdateLoggingConfigurationResponse {
    * @public
    */
   status: LoggingConfigurationStatus | undefined;
-}
-
-/**
- * <p>Configuration details for logging to CloudWatch Logs.</p>
- * @public
- */
-export interface CloudWatchLogDestination {
-  /**
-   * <p>The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist prior to calling this operation.</p>
-   * @public
-   */
-  logGroupArn: string | undefined;
 }
 
 /**

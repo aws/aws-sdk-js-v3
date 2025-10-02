@@ -34,6 +34,8 @@ export interface DeleteS3AccessPolicyCommandOutput extends DeleteS3AccessPolicyR
  * ```javascript
  * import { OmicsClient, DeleteS3AccessPolicyCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteS3AccessPolicyCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // DeleteS3AccessPolicyRequest
  *   s3AccessPointArn: "STRING_VALUE", // required

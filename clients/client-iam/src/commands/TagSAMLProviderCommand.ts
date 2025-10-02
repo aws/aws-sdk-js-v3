@@ -71,6 +71,8 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, TagSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // TagSAMLProviderRequest
  *   SAMLProviderArn: "STRING_VALUE", // required

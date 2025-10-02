@@ -34,6 +34,8 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  * ```javascript
  * import { TranslateClient, ListTextTranslationJobsCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ListTextTranslationJobsCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // import type { TranslateClientConfig } from "@aws-sdk/client-translate";
+ * const config = {}; // type is TranslateClientConfig
  * const client = new TranslateClient(config);
  * const input = { // ListTextTranslationJobsRequest
  *   Filter: { // TextTranslationJobFilter

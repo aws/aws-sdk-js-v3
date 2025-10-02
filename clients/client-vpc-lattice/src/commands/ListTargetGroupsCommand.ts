@@ -28,13 +28,14 @@ export interface ListTargetGroupsCommandInput extends ListTargetGroupsRequest {}
 export interface ListTargetGroupsCommandOutput extends ListTargetGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists your target groups. You can narrow your search by using the filters below in your
- *    request.</p>
+ * <p>Lists your target groups. You can narrow your search by using the filters below in your request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { VPCLatticeClient, ListTargetGroupsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListTargetGroupsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // ListTargetGroupsRequest
  *   maxResults: Number("int"),
@@ -85,8 +86,7 @@ export interface ListTargetGroupsCommandOutput extends ListTargetGroupsResponse,
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

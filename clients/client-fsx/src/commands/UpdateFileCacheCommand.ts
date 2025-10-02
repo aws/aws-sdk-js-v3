@@ -35,6 +35,8 @@ export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, _
  * ```javascript
  * import { FSxClient, UpdateFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // UpdateFileCacheRequest
  *   FileCacheId: "STRING_VALUE", // required
@@ -113,7 +115,7 @@ export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, _
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web ServicesSupport.</p>
+ *             some service limits by contacting Amazon Web Services Support.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>The requested operation is not supported for this resource or API.</p>

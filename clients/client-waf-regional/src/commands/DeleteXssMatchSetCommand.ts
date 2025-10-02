@@ -58,6 +58,8 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  * ```javascript
  * import { WAFRegionalClient, DeleteXssMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteXssMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // DeleteXssMatchSetRequest
  *   XssMatchSetId: "STRING_VALUE", // required

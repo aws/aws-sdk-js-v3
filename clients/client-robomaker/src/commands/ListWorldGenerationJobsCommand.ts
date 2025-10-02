@@ -42,6 +42,8 @@ export interface ListWorldGenerationJobsCommandOutput extends ListWorldGeneratio
  * ```javascript
  * import { RoboMakerClient, ListWorldGenerationJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListWorldGenerationJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // import type { RoboMakerClientConfig } from "@aws-sdk/client-robomaker";
+ * const config = {}; // type is RoboMakerClientConfig
  * const client = new RoboMakerClient(config);
  * const input = { // ListWorldGenerationJobsRequest
  *   nextToken: "STRING_VALUE",

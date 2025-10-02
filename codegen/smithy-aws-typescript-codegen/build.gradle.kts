@@ -14,6 +14,13 @@
  */
 
 import software.amazon.smithy.model.node.Node
+import org.gradle.api.DefaultTask
+import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.tasks.*
+import org.gradle.language.jvm.tasks.ProcessResources
+import org.gradle.api.file.DuplicatesStrategy
+import java.io.File
 
 
 description = "Generates TypeScript code for AWS protocols from Smithy models"
@@ -36,7 +43,7 @@ buildscript {
 
 dependencies {
     // Smithy TypeScript
-    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.34.0")
+    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.36.0")
 
     // Smithy generic dependencies
     api("software.amazon.smithy:smithy-model:$smithyVersion")
@@ -51,35 +58,54 @@ dependencies {
     api("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
 }
 
-tasks.register("set-aws-sdk-versions") {
-    doLast {
-        mkdir("$buildDir/generated/resources/software/amazon/smithy/aws/typescript/codegen")
-        var versionsFile =
-                file("$buildDir/generated/resources/software/amazon/smithy/aws/typescript/codegen/sdkVersions.properties")
-        versionsFile.printWriter().close()
+abstract class SetAwsSdkVersionsTask : DefaultTask() {
+    @get:InputDirectory
+    abstract val packagesDir: DirectoryProperty
+    
+    @get:InputDirectory
+    abstract val clientsDir: DirectoryProperty
+    
+    @get:OutputFile
+    abstract val versionsFile: RegularFileProperty
+    
+    @TaskAction
+    fun setVersions() {
+        val outputFile = versionsFile.asFile.get()
+        outputFile.parentFile.mkdirs()
+        outputFile.printWriter().close()
 
-        var roots = project.file("../../packages").listFiles().toMutableList() + project.file("../../clients").listFiles().toList()
+        val roots = packagesDir.asFile.get().listFiles().orEmpty().toMutableList() + clientsDir.asFile.get().listFiles().orEmpty().toList()
         roots.forEach { packageDir ->
-            var packageJsonFile = File(packageDir, "package.json")
+            val packageJsonFile = File(packageDir, "package.json")
             if (packageJsonFile.isFile()) {
-                var packageJson = Node.parse(packageJsonFile.readText()).expectObjectNode()
-                var packageName = packageJson.expectStringMember("name").getValue()
-                var packageVersion = packageJson.expectStringMember("version").getValue()
-                var isPrivate = packageJson.getBooleanMemberOrDefault("private", false)
+                val packageJson = Node.parse(packageJsonFile.readText()).expectObjectNode()
+                val packageName = packageJson.expectStringMember("name").getValue()
+                val packageVersion = packageJson.expectStringMember("version").getValue()
+                val isPrivate = packageJson.getBooleanMemberOrDefault("private", false)
                 if (!isPrivate) {
-                    versionsFile.appendText("$packageName=$packageVersion\n")
+                    outputFile.appendText("$packageName=$packageVersion\n")
                 }
             }
         }
     }
 }
 
+tasks.register<SetAwsSdkVersionsTask>("set-aws-sdk-versions") {
+    packagesDir.set(layout.projectDirectory.dir("../../packages"))
+    clientsDir.set(layout.projectDirectory.dir("../../clients"))
+    versionsFile.set(layout.buildDirectory.file("generated/resources/software/amazon/smithy/aws/typescript/codegen/sdkVersions.properties"))
+}
+
 sourceSets {
     main {
         resources {
-            setSrcDirs(listOf("src/main/resources", "$buildDir/generated/resources"))
+            srcDir("src/main/resources")
+            srcDir(layout.buildDirectory.dir("generated/resources"))
         }
     }
 }
 
 tasks["processResources"].dependsOn(tasks["set-aws-sdk-versions"])
+tasks.named<ProcessResources>("processResources") {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

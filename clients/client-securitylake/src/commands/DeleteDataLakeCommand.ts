@@ -41,6 +41,8 @@ export interface DeleteDataLakeCommandOutput extends DeleteDataLakeResponse, __M
  * ```javascript
  * import { SecurityLakeClient, DeleteDataLakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteDataLakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteDataLakeRequest
  *   regions: [ // RegionList // required

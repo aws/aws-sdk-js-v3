@@ -42,6 +42,8 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * ```javascript
  * import { SESClient, PutConfigurationSetDeliveryOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, PutConfigurationSetDeliveryOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // PutConfigurationSetDeliveryOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required

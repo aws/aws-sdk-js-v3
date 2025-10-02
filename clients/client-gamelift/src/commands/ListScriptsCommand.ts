@@ -47,6 +47,8 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  * ```javascript
  * import { GameLiftClient, ListScriptsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListScriptsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // ListScriptsInput
  *   Limit: Number("int"),

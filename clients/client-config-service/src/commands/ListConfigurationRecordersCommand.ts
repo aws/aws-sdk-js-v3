@@ -34,6 +34,8 @@ export interface ListConfigurationRecordersCommandOutput extends ListConfigurati
  * ```javascript
  * import { ConfigServiceClient, ListConfigurationRecordersCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, ListConfigurationRecordersCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // ListConfigurationRecordersRequest
  *   Filters: [ // ConfigurationRecorderFilterList

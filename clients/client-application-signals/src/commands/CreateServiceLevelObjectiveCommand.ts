@@ -35,101 +35,14 @@ export interface CreateServiceLevelObjectiveCommandInput extends CreateServiceLe
 export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceLevelObjectiveOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a service level objective (SLO), which can help you ensure that your critical business operations are
- *       meeting customer expectations. Use SLOs to set and track specific target levels for the
- *       reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to
- *       calculate whether the application is performing at the level that you want.</p>
- *          <p>Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch
- *       measures this target frequently you can find whether it has been breached. </p>
- *          <p>The target performance quality that is defined for an SLO is the <i>attainment goal</i>.</p>
- *          <p>You can set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability.
- *         You can also set SLOs against any CloudWatch metric or math expression that produces a time series.</p>
- *          <note>
- *             <p>You can't create an SLO for a service operation that was discovered by Application Signals until after that operation has reported standard
- *      metrics to Application Signals.</p>
- *          </note>
- *          <p>When you create an SLO, you specify whether it is a <i>period-based SLO</i>
- *        or a <i>request-based SLO</i>. Each type of SLO has a different way of evaluating
- *     your application's performance against its attainment goal.</p>
- *          <ul>
- *             <li>
- *                <p>A <i>period-based SLO</i> uses defined <i>periods</i> of time within
- *         a specified total time interval. For each period of time, Application Signals determines whether the
- *         application met its goal. The attainment rate is calculated as the <code>number of good periods/number of total periods</code>.</p>
- *                <p>For example, for a period-based SLO, meeting an attainment goal of 99.9% means that within your interval, your application must meet its
- *               performance goal during at least 99.9% of the
- *               time periods.</p>
- *             </li>
- *             <li>
- *                <p>A <i>request-based SLO</i> doesn't use pre-defined periods of time. Instead,
- *            the SLO measures <code>number of good requests/number of total requests</code> during the interval. At any time, you can find the ratio of
- *            good requests to total requests for the interval up to the time stamp that you specify, and measure that ratio against the goal set in your SLO.</p>
- *             </li>
- *          </ul>
- *          <p>After you have created an SLO, you can retrieve error budget reports for it.
- *       An <i>error budget</i> is the amount of time or amount of requests that your application can be non-compliant
- *        with the SLO's goal, and still have your application meet the goal.</p>
- *          <ul>
- *             <li>
- *                <p>For a period-based SLO, the error budget starts at a number defined by the highest number of periods that can fail to meet the threshold,
- *            while still meeting the overall goal. The <i>remaining error budget</i> decreases with every failed period
- *         that is recorded. The error budget within one interval can never increase.</p>
- *                <p>For example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month
- *               translates to an error budget of 21.9 minutes of downtime per month.</p>
- *             </li>
- *             <li>
- *                <p>For a request-based SLO, the remaining error budget is dynamic and can increase or decrease, depending on
- *            the ratio of good requests to total requests.</p>
- *             </li>
- *          </ul>
- *          <p>For more information about SLOs, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html">
- *       Service level objectives (SLOs)</a>.
- *     </p>
- *          <p>When you perform a <code>CreateServiceLevelObjective</code> operation, Application Signals creates the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role,
- *         if it doesn't already exist in your account. This service-
- *         linked role has the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>xray:GetServiceGraph</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>logs:StartQuery</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>logs:GetQueryResults</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>cloudwatch:GetMetricData</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>cloudwatch:ListMetrics</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>tag:GetResources</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>autoscaling:DescribeAutoScalingGroups</code>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Creates a service level objective (SLO), which can help you ensure that your critical business operations are meeting customer expectations. Use SLOs to set and track specific target levels for the reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to calculate whether the application is performing at the level that you want.</p> <p>Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch measures this target frequently you can find whether it has been breached. </p> <p>The target performance quality that is defined for an SLO is the <i>attainment goal</i>.</p> <p>You can set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. You can also set SLOs against any CloudWatch metric or math expression that produces a time series.</p> <note> <p>You can't create an SLO for a service operation that was discovered by Application Signals until after that operation has reported standard metrics to Application Signals.</p> </note> <p>When you create an SLO, you specify whether it is a <i>period-based SLO</i> or a <i>request-based SLO</i>. Each type of SLO has a different way of evaluating your application's performance against its attainment goal.</p> <ul> <li> <p>A <i>period-based SLO</i> uses defined <i>periods</i> of time within a specified total time interval. For each period of time, Application Signals determines whether the application met its goal. The attainment rate is calculated as the <code>number of good periods/number of total periods</code>.</p> <p>For example, for a period-based SLO, meeting an attainment goal of 99.9% means that within your interval, your application must meet its performance goal during at least 99.9% of the time periods.</p> </li> <li> <p>A <i>request-based SLO</i> doesn't use pre-defined periods of time. Instead, the SLO measures <code>number of good requests/number of total requests</code> during the interval. At any time, you can find the ratio of good requests to total requests for the interval up to the time stamp that you specify, and measure that ratio against the goal set in your SLO.</p> </li> </ul> <p>After you have created an SLO, you can retrieve error budget reports for it. An <i>error budget</i> is the amount of time or amount of requests that your application can be non-compliant with the SLO's goal, and still have your application meet the goal.</p> <ul> <li> <p>For a period-based SLO, the error budget starts at a number defined by the highest number of periods that can fail to meet the threshold, while still meeting the overall goal. The <i>remaining error budget</i> decreases with every failed period that is recorded. The error budget within one interval can never increase.</p> <p>For example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month translates to an error budget of 21.9 minutes of downtime per month.</p> </li> <li> <p>For a request-based SLO, the remaining error budget is dynamic and can increase or decrease, depending on the ratio of good requests to total requests.</p> </li> </ul> <p>For more information about SLOs, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html"> Service level objectives (SLOs)</a>. </p> <p>When you perform a <code>CreateServiceLevelObjective</code> operation, Application Signals creates the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role, if it doesn't already exist in your account. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationSignalsClient, CreateServiceLevelObjectiveCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, CreateServiceLevelObjectiveCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // CreateServiceLevelObjectiveInput
  *   Name: "STRING_VALUE", // required
@@ -141,6 +54,7 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  *       },
  *       OperationName: "STRING_VALUE",
  *       MetricType: "LATENCY" || "AVAILABILITY",
+ *       MetricName: "STRING_VALUE",
  *       Statistic: "STRING_VALUE",
  *       PeriodSeconds: Number("int"),
  *       MetricDataQueries: [ // MetricDataQueries

@@ -39,6 +39,8 @@ export interface CreateConnectorCommandOutput extends Connector, __MetadataBeare
  * ```javascript
  * import { MgnClient, CreateConnectorCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, CreateConnectorCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // CreateConnectorRequest
  *   name: "STRING_VALUE", // required

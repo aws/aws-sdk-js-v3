@@ -37,6 +37,8 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * ```javascript
  * import { RbinClient, UpdateRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, UpdateRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
+ * // import type { RbinClientConfig } from "@aws-sdk/client-rbin";
+ * const config = {}; // type is RbinClientConfig
  * const client = new RbinClient(config);
  * const input = { // UpdateRuleRequest
  *   Identifier: "STRING_VALUE", // required

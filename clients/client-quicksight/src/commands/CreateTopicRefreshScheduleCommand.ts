@@ -34,6 +34,8 @@ export interface CreateTopicRefreshScheduleCommandOutput extends CreateTopicRefr
  * ```javascript
  * import { QuickSightClient, CreateTopicRefreshScheduleCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateTopicRefreshScheduleCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateTopicRefreshScheduleRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -32,12 +32,14 @@ export interface ListMemoriesCommandInput extends ListMemoriesInput {}
 export interface ListMemoriesCommandOutput extends ListMemoriesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the memory present.</p>
+ * <p>Lists the available Amazon Bedrock AgentCore Memory resources in the current Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, ListMemoriesCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, ListMemoriesCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListMemoriesInput
  *   maxResults: Number("int"),

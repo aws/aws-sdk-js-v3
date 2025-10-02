@@ -34,6 +34,8 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * ```javascript
  * import { WisdomClient, GetImportJobCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetImportJobCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // GetImportJobRequest
  *   importJobId: "STRING_VALUE", // required

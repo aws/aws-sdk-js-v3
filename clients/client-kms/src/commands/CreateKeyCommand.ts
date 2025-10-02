@@ -204,6 +204,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * ```javascript
  * import { KMSClient, CreateKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // CreateKeyRequest
  *   Policy: "STRING_VALUE",

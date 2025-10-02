@@ -34,6 +34,8 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
  * ```javascript
  * import { TranslateClient, GetParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, GetParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // import type { TranslateClientConfig } from "@aws-sdk/client-translate";
+ * const config = {}; // type is TranslateClientConfig
  * const client = new TranslateClient(config);
  * const input = { // GetParallelDataRequest
  *   Name: "STRING_VALUE", // required

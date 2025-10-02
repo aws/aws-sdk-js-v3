@@ -34,6 +34,8 @@ export interface UpdateKeyValueStoreCommandOutput extends UpdateKeyValueStoreRes
  * ```javascript
  * import { CloudFrontClient, UpdateKeyValueStoreCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateKeyValueStoreCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateKeyValueStoreRequest
  *   Name: "STRING_VALUE", // required

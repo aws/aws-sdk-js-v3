@@ -333,6 +333,14 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdateCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pcs/command/UpdateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pcs/Interface/UpdateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pcs/Interface/UpdateClusterCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateComputeNodeGroup
 </summary>
 

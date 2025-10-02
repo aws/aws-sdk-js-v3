@@ -38,6 +38,8 @@ export interface GetMLTaskRunCommandOutput extends GetMLTaskRunResponse, __Metad
  * ```javascript
  * import { GlueClient, GetMLTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetMLTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetMLTaskRunRequest
  *   TransformId: "STRING_VALUE", // required

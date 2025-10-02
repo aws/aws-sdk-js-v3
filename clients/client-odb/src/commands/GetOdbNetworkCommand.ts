@@ -34,6 +34,8 @@ export interface GetOdbNetworkCommandOutput extends GetOdbNetworkOutput, __Metad
  * ```javascript
  * import { OdbClient, GetOdbNetworkCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, GetOdbNetworkCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // GetOdbNetworkInput
  *   odbNetworkId: "STRING_VALUE", // required

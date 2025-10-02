@@ -35,6 +35,8 @@ export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput,
  * ```javascript
  * import { BillingconductorClient, DeletePricingPlanCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DeletePricingPlanCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // import type { BillingconductorClientConfig } from "@aws-sdk/client-billingconductor";
+ * const config = {}; // type is BillingconductorClientConfig
  * const client = new BillingconductorClient(config);
  * const input = { // DeletePricingPlanInput
  *   Arn: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface ListDocumentMetadataHistoryCommandOutput
  * ```javascript
  * import { SSMClient, ListDocumentMetadataHistoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListDocumentMetadataHistoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListDocumentMetadataHistoryRequest
  *   Name: "STRING_VALUE", // required

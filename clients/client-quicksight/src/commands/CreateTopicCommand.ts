@@ -34,6 +34,8 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * ```javascript
  * import { QuickSightClient, CreateTopicCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateTopicCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateTopicRequest
  *   AwsAccountId: "STRING_VALUE", // required
@@ -60,7 +62,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *               "STRING_VALUE",
  *             ],
  *             OperandFieldName: "STRING_VALUE", // required
- *             FilterType: "CATEGORY_FILTER" || "NUMERIC_EQUALITY_FILTER" || "NUMERIC_RANGE_FILTER" || "DATE_RANGE_FILTER" || "RELATIVE_DATE_FILTER",
+ *             FilterType: "CATEGORY_FILTER" || "NUMERIC_EQUALITY_FILTER" || "NUMERIC_RANGE_FILTER" || "DATE_RANGE_FILTER" || "RELATIVE_DATE_FILTER" || "NULL_FILTER",
  *             CategoryFilter: { // TopicCategoryFilter
  *               CategoryFilterFunction: "EXACT" || "CONTAINS",
  *               CategoryFilterType: "CUSTOM_FILTER" || "CUSTOM_FILTER_LIST" || "FILTER_LIST",
@@ -110,6 +112,14 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *                 ConstantType: "SINGULAR" || "RANGE" || "COLLECTIVE",
  *                 SingularConstant: "STRING_VALUE",
  *               },
+ *             },
+ *             NullFilter: { // TopicNullFilter
+ *               NullFilterType: "ALL_VALUES" || "NON_NULLS_ONLY" || "NULLS_ONLY",
+ *               Constant: {
+ *                 ConstantType: "SINGULAR" || "RANGE" || "COLLECTIVE",
+ *                 SingularConstant: "STRING_VALUE",
+ *               },
+ *               Inverse: true || false,
  *             },
  *           },
  *         ],

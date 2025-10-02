@@ -34,6 +34,8 @@ export interface ListConnectPeersCommandOutput extends ListConnectPeersResponse,
  * ```javascript
  * import { NetworkManagerClient, ListConnectPeersCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListConnectPeersCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // ListConnectPeersRequest
  *   CoreNetworkId: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListDICOMImportJobsCommandOutput extends ListDICOMImportJobsRes
  * ```javascript
  * import { MedicalImagingClient, ListDICOMImportJobsCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, ListDICOMImportJobsCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // ListDICOMImportJobsRequest
  *   datastoreId: "STRING_VALUE", // required

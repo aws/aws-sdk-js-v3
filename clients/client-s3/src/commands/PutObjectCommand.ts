@@ -201,6 +201,8 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * ```javascript
  * import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // PutObjectRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",

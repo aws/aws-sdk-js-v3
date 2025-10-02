@@ -41,6 +41,8 @@ export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurat
  * ```javascript
  * import { ChimeClient, PutEventsConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutEventsConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // PutEventsConfigurationRequest
  *   AccountId: "STRING_VALUE", // required

@@ -41,6 +41,8 @@ export interface ListBackupJobSummariesCommandOutput extends ListBackupJobSummar
  * ```javascript
  * import { BackupClient, ListBackupJobSummariesCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupJobSummariesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ListBackupJobSummariesInput
  *   AccountId: "STRING_VALUE",

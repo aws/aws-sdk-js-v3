@@ -34,6 +34,8 @@ export interface GetAIAgentCommandOutput extends GetAIAgentResponse, __MetadataB
  * ```javascript
  * import { QConnectClient, GetAIAgentCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, GetAIAgentCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // GetAIAgentRequest
  *   assistantId: "STRING_VALUE", // required

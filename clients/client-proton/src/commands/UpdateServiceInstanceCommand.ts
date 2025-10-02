@@ -48,6 +48,8 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
  * ```javascript
  * import { ProtonClient, UpdateServiceInstanceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceInstanceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // UpdateServiceInstanceInput
  *   name: "STRING_VALUE", // required

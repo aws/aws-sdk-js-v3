@@ -39,6 +39,8 @@ export interface UpdateQuickResponseCommandOutput extends UpdateQuickResponseRes
  * ```javascript
  * import { QConnectClient, UpdateQuickResponseCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, UpdateQuickResponseCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // UpdateQuickResponseRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

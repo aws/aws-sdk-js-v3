@@ -41,6 +41,8 @@ export interface InvokeRestApiCommandOutput extends InvokeRestApiResponse, __Met
  * ```javascript
  * import { MWAAClient, InvokeRestApiCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, InvokeRestApiCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * // import type { MWAAClientConfig } from "@aws-sdk/client-mwaa";
+ * const config = {}; // type is MWAAClientConfig
  * const client = new MWAAClient(config);
  * const input = { // InvokeRestApiRequest
  *   Name: "STRING_VALUE", // required

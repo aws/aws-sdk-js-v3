@@ -44,6 +44,8 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
  * ```javascript
  * import { TextractClient, DetectDocumentTextCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, DetectDocumentTextCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // DetectDocumentTextRequest
  *   Document: { // Document

@@ -38,6 +38,8 @@ export interface ListRecommendedActionsCommandOutput extends ListRecommendedActi
  * ```javascript
  * import { BCMRecommendedActionsClient, ListRecommendedActionsCommand } from "@aws-sdk/client-bcm-recommended-actions"; // ES Modules import
  * // const { BCMRecommendedActionsClient, ListRecommendedActionsCommand } = require("@aws-sdk/client-bcm-recommended-actions"); // CommonJS import
+ * // import type { BCMRecommendedActionsClientConfig } from "@aws-sdk/client-bcm-recommended-actions";
+ * const config = {}; // type is BCMRecommendedActionsClientConfig
  * const client = new BCMRecommendedActionsClient(config);
  * const input = { // ListRecommendedActionsRequest
  *   filter: { // RequestFilter

@@ -38,6 +38,8 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  * ```javascript
  * import { CloudFrontKeyValueStoreClient, DescribeKeyValueStoreCommand } from "@aws-sdk/client-cloudfront-keyvaluestore"; // ES Modules import
  * // const { CloudFrontKeyValueStoreClient, DescribeKeyValueStoreCommand } = require("@aws-sdk/client-cloudfront-keyvaluestore"); // CommonJS import
+ * // import type { CloudFrontKeyValueStoreClientConfig } from "@aws-sdk/client-cloudfront-keyvaluestore";
+ * const config = {}; // type is CloudFrontKeyValueStoreClientConfig
  * const client = new CloudFrontKeyValueStoreClient(config);
  * const input = { // DescribeKeyValueStoreRequest
  *   KvsARN: "STRING_VALUE", // required

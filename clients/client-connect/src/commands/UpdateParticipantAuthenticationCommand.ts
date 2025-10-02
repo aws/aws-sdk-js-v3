@@ -10,7 +10,7 @@ import {
   UpdateParticipantAuthenticationRequest,
   UpdateParticipantAuthenticationRequestFilterSensitiveLog,
   UpdateParticipantAuthenticationResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_UpdateParticipantAuthenticationCommand,
   se_UpdateParticipantAuthenticationCommand,
@@ -60,6 +60,8 @@ export interface UpdateParticipantAuthenticationCommandOutput
  * ```javascript
  * import { ConnectClient, UpdateParticipantAuthenticationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateParticipantAuthenticationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateParticipantAuthenticationRequest
  *   State: "STRING_VALUE", // required

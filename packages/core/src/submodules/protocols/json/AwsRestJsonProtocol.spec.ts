@@ -161,7 +161,6 @@ describe(AwsRestJsonProtocol.name, () => {
       );
 
       expect(request.headers).toEqual({
-        "content-length": "25",
         "content-type": "application/json",
         header: "hello",
         a: "1",
@@ -265,7 +264,6 @@ describe(AwsRestJsonProtocol.name, () => {
 
       expect(request.headers).toEqual({
         "content-type": "application/json",
-        "content-length": "24",
         "header-default-date": "Thu, 01 Jan 1970 00:00:00 GMT",
         "header-member-trait-date": "1970-01-01T00:00:00Z",
         "header-epoch-seconds": "0",

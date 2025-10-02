@@ -38,6 +38,8 @@ export interface ListReadinessChecksCommandOutput extends ListReadinessChecksRes
  * ```javascript
  * import { Route53RecoveryReadinessClient, ListReadinessChecksCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, ListReadinessChecksCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * // import type { Route53RecoveryReadinessClientConfig } from "@aws-sdk/client-route53-recovery-readiness";
+ * const config = {}; // type is Route53RecoveryReadinessClientConfig
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // ListReadinessChecksRequest
  *   MaxResults: Number("int"),

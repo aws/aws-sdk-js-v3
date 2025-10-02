@@ -36,6 +36,8 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * ```javascript
  * import { EC2Client, GetCapacityReservationUsageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetCapacityReservationUsageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // GetCapacityReservationUsageRequest
  *   CapacityReservationId: "STRING_VALUE", // required

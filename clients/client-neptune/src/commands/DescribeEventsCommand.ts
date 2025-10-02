@@ -37,6 +37,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * ```javascript
  * import { NeptuneClient, DescribeEventsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeEventsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // import type { NeptuneClientConfig } from "@aws-sdk/client-neptune";
+ * const config = {}; // type is NeptuneClientConfig
  * const client = new NeptuneClient(config);
  * const input = { // DescribeEventsMessage
  *   SourceIdentifier: "STRING_VALUE",

@@ -35,6 +35,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * ```javascript
  * import { IoTClient, DescribeCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DescribeCertificateRequest
  *   certificateId: "STRING_VALUE", // required

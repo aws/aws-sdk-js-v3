@@ -35,6 +35,8 @@ export interface DeleteEncoderConfigurationCommandOutput extends DeleteEncoderCo
  * ```javascript
  * import { IVSRealTimeClient, DeleteEncoderConfigurationCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, DeleteEncoderConfigurationCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // DeleteEncoderConfigurationRequest
  *   arn: "STRING_VALUE", // required

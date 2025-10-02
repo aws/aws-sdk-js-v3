@@ -59,6 +59,8 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * ```javascript
  * import { GlacierClient, ListMultipartUploadsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListMultipartUploadsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // import type { GlacierClientConfig } from "@aws-sdk/client-glacier";
+ * const config = {}; // type is GlacierClientConfig
  * const client = new GlacierClient(config);
  * const input = { // ListMultipartUploadsInput
  *   accountId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  * ```javascript
  * import { BackupClient, UpdateBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // UpdateBackupPlanInput
  *   BackupPlanId: "STRING_VALUE", // required

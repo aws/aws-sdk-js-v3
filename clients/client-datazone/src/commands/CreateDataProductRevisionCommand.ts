@@ -33,12 +33,14 @@ export interface CreateDataProductRevisionCommandInput extends CreateDataProduct
 export interface CreateDataProductRevisionCommandOutput extends CreateDataProductRevisionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a data product revision.</p>
+ * <p>Creates a data product revision.</p> <p>Prerequisites:</p> <ul> <li> <p>The original data product must exist in the given domain. </p> </li> <li> <p>User must have permissions on the data product.</p> </li> <li> <p>The domain must be valid and accessible.</p> </li> <li> <p>The new revision name must comply with naming constraints (if required).</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, CreateDataProductRevisionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateDataProductRevisionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateDataProductRevisionInput
  *   domainIdentifier: "STRING_VALUE", // required

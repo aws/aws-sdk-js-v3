@@ -897,6 +897,13 @@ export interface AuthenticationConfiguration {
   SecretArn?: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive authentication information. This key is used to protect credentials
+   *       and other sensitive data stored within the authentication configuration.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
    * <p>The properties for OAuth2 authentication.</p>
    * @public
    */

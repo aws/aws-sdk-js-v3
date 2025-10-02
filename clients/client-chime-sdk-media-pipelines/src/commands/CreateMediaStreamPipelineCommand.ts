@@ -43,6 +43,8 @@ export interface CreateMediaStreamPipelineCommandOutput extends CreateMediaStrea
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, CreateMediaStreamPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaStreamPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // CreateMediaStreamPipelineRequest
  *   Sources: [ // MediaStreamSourceList // required

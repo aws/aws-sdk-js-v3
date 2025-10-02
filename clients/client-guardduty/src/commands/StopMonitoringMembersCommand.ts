@@ -39,6 +39,8 @@ export interface StopMonitoringMembersCommandOutput extends StopMonitoringMember
  * ```javascript
  * import { GuardDutyClient, StopMonitoringMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, StopMonitoringMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // StopMonitoringMembersRequest
  *   DetectorId: "STRING_VALUE", // required

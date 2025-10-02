@@ -42,6 +42,8 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  * ```javascript
  * import { NetworkManagerClient, AssociateCustomerGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AssociateCustomerGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // AssociateCustomerGatewayRequest
  *   CustomerGatewayArn: "STRING_VALUE", // required

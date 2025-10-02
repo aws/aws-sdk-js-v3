@@ -34,6 +34,8 @@ export interface StartPipelineCommandOutput extends StartPipelineResponse, __Met
  * ```javascript
  * import { OSISClient, StartPipelineCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, StartPipelineCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // import type { OSISClientConfig } from "@aws-sdk/client-osis";
+ * const config = {}; // type is OSISClientConfig
  * const client = new OSISClient(config);
  * const input = { // StartPipelineRequest
  *   PipelineName: "STRING_VALUE", // required

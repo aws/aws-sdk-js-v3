@@ -54,6 +54,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * ```javascript
  * import { RbinClient, CreateRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, CreateRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
+ * // import type { RbinClientConfig } from "@aws-sdk/client-rbin";
+ * const config = {}; // type is RbinClientConfig
  * const client = new RbinClient(config);
  * const input = { // CreateRuleRequest
  *   RetentionPeriod: { // RetentionPeriod

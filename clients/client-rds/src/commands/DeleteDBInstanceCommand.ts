@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
+import {
+  DeleteDBInstanceMessage,
+  DeleteDBInstanceResult,
+  DeleteDBInstanceResultFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DeleteDBInstanceCommand, se_DeleteDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -56,6 +60,8 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * ```javascript
  * import { RDSClient, DeleteDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DeleteDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
@@ -71,7 +77,6 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //     DBInstanceClass: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
  * //     DBInstanceStatus: "STRING_VALUE",
- * //     AutomaticRestartTime: new Date("TIMESTAMP"),
  * //     MasterUsername: "STRING_VALUE",
  * //     DBName: "STRING_VALUE",
  * //     Endpoint: { // Endpoint
@@ -135,6 +140,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //       EngineVersion: "STRING_VALUE",
  * //       LicenseModel: "STRING_VALUE",
  * //       Iops: Number("int"),
+ * //       StorageThroughput: Number("int"),
  * //       DBInstanceIdentifier: "STRING_VALUE",
  * //       StorageType: "STRING_VALUE",
  * //       CACertificateIdentifier: "STRING_VALUE",
@@ -153,13 +159,12 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       IAMDatabaseAuthenticationEnabled: true || false,
  * //       AutomationMode: "full" || "all-paused",
  * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
- * //       StorageThroughput: Number("int"),
- * //       Engine: "STRING_VALUE",
- * //       DedicatedLogVolume: true || false,
  * //       MultiTenant: true || false,
+ * //       IAMDatabaseAuthenticationEnabled: true || false,
+ * //       DedicatedLogVolume: true || false,
+ * //       Engine: "STRING_VALUE",
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -175,6 +180,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //     ReplicaMode: "open-read-only" || "mounted",
  * //     LicenseModel: "STRING_VALUE",
  * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
  * //     OptionGroupMemberships: [ // OptionGroupMembershipList
  * //       { // OptionGroupMembership
  * //         OptionGroupName: "STRING_VALUE",
@@ -255,40 +261,40 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
- * //     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
- * //       { // DBInstanceAutomatedBackupsReplication
- * //         DBInstanceAutomatedBackupsArn: "STRING_VALUE",
- * //       },
- * //     ],
+ * //     AutomationMode: "full" || "all-paused",
+ * //     ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //     CustomerOwnedIpEnabled: true || false,
- * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     NetworkType: "STRING_VALUE",
  * //     ActivityStreamStatus: "stopped" || "starting" || "started" || "stopping",
  * //     ActivityStreamKmsKeyId: "STRING_VALUE",
  * //     ActivityStreamKinesisStreamName: "STRING_VALUE",
  * //     ActivityStreamMode: "sync" || "async",
  * //     ActivityStreamEngineNativeAuditFieldsIncluded: true || false,
- * //     AutomationMode: "full" || "all-paused",
- * //     ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
- * //     CustomIamInstanceProfile: "STRING_VALUE",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
+ * //       { // DBInstanceAutomatedBackupsReplication
+ * //         DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     BackupTarget: "STRING_VALUE",
- * //     NetworkType: "STRING_VALUE",
+ * //     AutomaticRestartTime: new Date("TIMESTAMP"),
+ * //     CustomIamInstanceProfile: "STRING_VALUE",
  * //     ActivityStreamPolicyStatus: "locked" || "unlocked" || "locking-policy" || "unlocking-policy",
- * //     StorageThroughput: Number("int"),
+ * //     CertificateDetails: { // CertificateDetails
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //     DBSystemId: "STRING_VALUE",
  * //     MasterUserSecret: { // MasterUserSecret
  * //       SecretArn: "STRING_VALUE",
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
- * //     CertificateDetails: { // CertificateDetails
- * //       CAIdentifier: "STRING_VALUE",
- * //       ValidTill: new Date("TIMESTAMP"),
- * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
+ * //     MultiTenant: true || false,
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
- * //     MultiTenant: true || false,
  * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
@@ -319,6 +325,9 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
  *  <p>The request would result in the user exceeding the allowed number of DB
@@ -367,7 +376,7 @@ export class DeleteDBInstanceCommand extends $Command
   })
   .s("AmazonRDSv19", "DeleteDBInstance", {})
   .n("RDSClient", "DeleteDBInstanceCommand")
-  .f(void 0, void 0)
+  .f(void 0, DeleteDBInstanceResultFilterSensitiveLog)
   .ser(se_DeleteDBInstanceCommand)
   .de(de_DeleteDBInstanceCommand)
   .build() {

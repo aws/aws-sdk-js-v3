@@ -29,18 +29,20 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
 
 /**
  * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight.</p>
- *          <p>A namespace allows you to isolate the Amazon QuickSight users and groups that are registered
+ *          <p>A namespace allows you to isolate the QuickSight users and groups that are registered
  *             for that namespace. Users that access the namespace can share assets only with other
  *             users or groups in the same namespace. They can't see users and groups in other
  *             namespaces. You can create a namespace after your Amazon Web Services account is subscribed to
- *             Amazon QuickSight. The namespace must be unique within the Amazon Web Services account. By default, there is a
+ *             QuickSight. The namespace must be unique within the Amazon Web Services account. By default, there is a
  *             limit of 100 namespaces per Amazon Web Services account. To increase your limit, create a ticket with
- *             Amazon Web ServicesSupport. </p>
+ *             Amazon Web Services Support. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, CreateNamespaceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateNamespaceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateNamespaceRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -34,10 +34,16 @@ export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __M
  * ```javascript
  * import { SSOAdminClient, UpdateInstanceCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, UpdateInstanceCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // UpdateInstanceRequest
- *   Name: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
  *   InstanceArn: "STRING_VALUE", // required
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KeyType: "AWS_OWNED_KMS_KEY" || "CUSTOMER_MANAGED_KEY", // required
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateInstanceCommand(input);
  * const response = await client.send(command);
@@ -59,6 +65,9 @@ export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __M
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a requested resource is not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>

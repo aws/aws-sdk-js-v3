@@ -34,6 +34,8 @@ export interface DeleteDistributionTenantCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { CloudFrontClient, DeleteDistributionTenantCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteDistributionTenantCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // DeleteDistributionTenantRequest
  *   Id: "STRING_VALUE", // required

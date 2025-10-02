@@ -39,6 +39,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * ```javascript
  * import { DataZoneClient, CreateConnectionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateConnectionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateConnectionInput
  *   awsLocation: { // AwsLocation
@@ -159,6 +161,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *       pythonVirtualEnv: "STRING_VALUE",
  *       runtimeRole: "STRING_VALUE",
  *       trustedCertificatesS3Uri: "STRING_VALUE",
+ *       managedEndpointArn: "STRING_VALUE",
  *     },
  *     sparkGlueProperties: { // SparkGluePropertiesInput
  *       additionalArgs: { // SparkGlueArgs
@@ -326,6 +329,12 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //       pythonVirtualEnv: "STRING_VALUE",
  * //       runtimeRole: "STRING_VALUE",
  * //       trustedCertificatesS3Uri: "STRING_VALUE",
+ * //       certificateData: "STRING_VALUE",
+ * //       managedEndpointArn: "STRING_VALUE",
+ * //       managedEndpointCredentials: { // ManagedEndpointCredentials
+ * //         id: "STRING_VALUE",
+ * //         token: "STRING_VALUE",
+ * //       },
  * //     },
  * //     sparkGlueProperties: { // SparkGluePropertiesOutput
  * //       additionalArgs: { // SparkGlueArgs

@@ -38,6 +38,8 @@ export interface CreateModelCardCommandOutput extends CreateModelCardResponse, _
  * ```javascript
  * import { SageMakerClient, CreateModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateModelCardRequest
  *   ModelCardName: "STRING_VALUE", // required

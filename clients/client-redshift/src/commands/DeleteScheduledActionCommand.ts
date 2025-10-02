@@ -35,6 +35,8 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RedshiftClient, DeleteScheduledActionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteScheduledActionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DeleteScheduledActionMessage
  *   ScheduledActionName: "STRING_VALUE", // required

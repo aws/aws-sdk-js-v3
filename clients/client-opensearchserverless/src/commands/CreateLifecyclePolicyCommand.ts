@@ -38,6 +38,8 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * ```javascript
  * import { OpenSearchServerlessClient, CreateLifecyclePolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateLifecyclePolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // CreateLifecyclePolicyRequest
  *   type: "STRING_VALUE", // required

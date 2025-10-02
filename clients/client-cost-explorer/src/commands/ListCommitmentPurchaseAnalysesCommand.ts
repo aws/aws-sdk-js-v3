@@ -39,6 +39,8 @@ export interface ListCommitmentPurchaseAnalysesCommandOutput
  * ```javascript
  * import { CostExplorerClient, ListCommitmentPurchaseAnalysesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ListCommitmentPurchaseAnalysesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // import type { CostExplorerClientConfig } from "@aws-sdk/client-cost-explorer";
+ * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // ListCommitmentPurchaseAnalysesRequest
  *   AnalysisStatus: "SUCCEEDED" || "PROCESSING" || "FAILED",

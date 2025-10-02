@@ -34,6 +34,8 @@ export interface GetClassificationScopeCommandOutput extends GetClassificationSc
  * ```javascript
  * import { Macie2Client, GetClassificationScopeCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetClassificationScopeCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * // import type { Macie2ClientConfig } from "@aws-sdk/client-macie2";
+ * const config = {}; // type is Macie2ClientConfig
  * const client = new Macie2Client(config);
  * const input = { // GetClassificationScopeRequest
  *   id: "STRING_VALUE", // required

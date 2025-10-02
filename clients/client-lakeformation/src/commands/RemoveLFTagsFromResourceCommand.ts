@@ -34,6 +34,8 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  * ```javascript
  * import { LakeFormationClient, RemoveLFTagsFromResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, RemoveLFTagsFromResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // RemoveLFTagsFromResourceRequest
  *   CatalogId: "STRING_VALUE",

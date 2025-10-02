@@ -42,6 +42,8 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * ```javascript
  * import { CloudTrailClient, ListPublicKeysCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListPublicKeysCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // ListPublicKeysRequest
  *   StartTime: new Date("TIMESTAMP"),

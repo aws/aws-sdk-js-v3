@@ -48,6 +48,8 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * ```javascript
  * import { KinesisAnalyticsClient, DeleteApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, DeleteApplicationCloudWatchLoggingOptionCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * // import type { KinesisAnalyticsClientConfig } from "@aws-sdk/client-kinesis-analytics";
+ * const config = {}; // type is KinesisAnalyticsClientConfig
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // DeleteApplicationCloudWatchLoggingOptionRequest
  *   ApplicationName: "STRING_VALUE", // required

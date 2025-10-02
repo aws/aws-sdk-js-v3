@@ -34,6 +34,8 @@ export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanT
  * ```javascript
  * import { BackupClient, ExportBackupPlanTemplateCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ExportBackupPlanTemplateCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // ExportBackupPlanTemplateInput
  *   BackupPlanId: "STRING_VALUE", // required

@@ -46,6 +46,8 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  * ```javascript
  * import { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // ListAvailableManagementCidrRangesRequest
  *   ManagementCidrRangeConstraint: "STRING_VALUE", // required

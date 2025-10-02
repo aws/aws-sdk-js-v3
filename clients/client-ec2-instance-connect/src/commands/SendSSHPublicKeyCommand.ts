@@ -41,6 +41,8 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  * ```javascript
  * import { EC2InstanceConnectClient, SendSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect"; // ES Modules import
  * // const { EC2InstanceConnectClient, SendSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect"); // CommonJS import
+ * // import type { EC2InstanceConnectClientConfig } from "@aws-sdk/client-ec2-instance-connect";
+ * const config = {}; // type is EC2InstanceConnectClientConfig
  * const client = new EC2InstanceConnectClient(config);
  * const input = { // SendSSHPublicKeyRequest
  *   InstanceId: "STRING_VALUE", // required

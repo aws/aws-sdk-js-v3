@@ -36,6 +36,8 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * ```javascript
  * import { ECSClient, DescribeServiceDeploymentsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeServiceDeploymentsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DescribeServiceDeploymentsRequest
  *   serviceDeploymentArns: [ // StringList // required
@@ -95,6 +97,7 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //             lifecycleStages: [ // DeploymentLifecycleHookStageList
  * //               "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  * //             ],
+ * //             hookDetails: "DOCUMENT_VALUE",
  * //           },
  * //         ],
  * //       },

@@ -34,6 +34,8 @@ export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteSche
  * ```javascript
  * import { AutoScalingClient, BatchDeleteScheduledActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, BatchDeleteScheduledActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // BatchDeleteScheduledActionType
  *   AutoScalingGroupName: "STRING_VALUE", // required

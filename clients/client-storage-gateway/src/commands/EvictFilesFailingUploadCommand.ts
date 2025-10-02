@@ -46,6 +46,8 @@ export interface EvictFilesFailingUploadCommandOutput extends EvictFilesFailingU
  * ```javascript
  * import { StorageGatewayClient, EvictFilesFailingUploadCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, EvictFilesFailingUploadCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // EvictFilesFailingUploadInput
  *   FileShareARN: "STRING_VALUE", // required

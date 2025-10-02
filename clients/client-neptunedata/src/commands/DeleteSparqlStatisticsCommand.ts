@@ -34,6 +34,8 @@ export interface DeleteSparqlStatisticsCommandOutput extends DeleteSparqlStatist
  * ```javascript
  * import { NeptunedataClient, DeleteSparqlStatisticsCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, DeleteSparqlStatisticsCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = {};
  * const command = new DeleteSparqlStatisticsCommand(input);

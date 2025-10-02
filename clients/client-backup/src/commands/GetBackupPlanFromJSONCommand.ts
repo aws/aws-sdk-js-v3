@@ -38,6 +38,8 @@ export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSO
  * ```javascript
  * import { BackupClient, GetBackupPlanFromJSONCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetBackupPlanFromJSONCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // GetBackupPlanFromJSONInput
  *   BackupPlanTemplateJson: "STRING_VALUE", // required

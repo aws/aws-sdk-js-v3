@@ -35,6 +35,8 @@ export interface UpdateFolderCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WorkDocsClient, UpdateFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, UpdateFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // UpdateFolderRequest
  *   AuthenticationToken: "STRING_VALUE",

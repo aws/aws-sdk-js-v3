@@ -44,6 +44,8 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * ```javascript
  * import { AutoScalingClient, PutScalingPolicyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutScalingPolicyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // PutScalingPolicyType
  *   AutoScalingGroupName: "STRING_VALUE", // required

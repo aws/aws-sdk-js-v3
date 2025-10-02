@@ -35,6 +35,8 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  * ```javascript
  * import { Route53ResolverClient, UpdateResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
+ * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
  * const input = { // UpdateResolverEndpointRequest
  *   ResolverEndpointId: "STRING_VALUE", // required

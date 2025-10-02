@@ -43,6 +43,8 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
  * ```javascript
  * import { SSMClient, DescribeMaintenanceWindowsForTargetCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowsForTargetCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeMaintenanceWindowsForTargetRequest
  *   Targets: [ // Targets // required

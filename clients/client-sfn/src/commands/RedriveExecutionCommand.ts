@@ -55,6 +55,8 @@ export interface RedriveExecutionCommandOutput extends RedriveExecutionOutput, _
  * ```javascript
  * import { SFNClient, RedriveExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, RedriveExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // import type { SFNClientConfig } from "@aws-sdk/client-sfn";
+ * const config = {}; // type is SFNClientConfig
  * const client = new SFNClient(config);
  * const input = { // RedriveExecutionInput
  *   executionArn: "STRING_VALUE", // required

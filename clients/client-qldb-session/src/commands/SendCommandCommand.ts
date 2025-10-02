@@ -54,6 +54,8 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * ```javascript
  * import { QLDBSessionClient, SendCommandCommand } from "@aws-sdk/client-qldb-session"; // ES Modules import
  * // const { QLDBSessionClient, SendCommandCommand } = require("@aws-sdk/client-qldb-session"); // CommonJS import
+ * // import type { QLDBSessionClientConfig } from "@aws-sdk/client-qldb-session";
+ * const config = {}; // type is QLDBSessionClientConfig
  * const client = new QLDBSessionClient(config);
  * const input = { // SendCommandRequest
  *   SessionToken: "STRING_VALUE",

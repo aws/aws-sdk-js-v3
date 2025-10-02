@@ -34,6 +34,8 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  * ```javascript
  * import { SageMakerClient, ListTrialComponentsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrialComponentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListTrialComponentsRequest
  *   ExperimentName: "STRING_VALUE",

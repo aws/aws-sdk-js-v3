@@ -45,6 +45,8 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  * ```javascript
  * import { EFSClient, PutFileSystemPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutFileSystemPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // import type { EFSClientConfig } from "@aws-sdk/client-efs";
+ * const config = {}; // type is EFSClientConfig
  * const client = new EFSClient(config);
  * const input = { // PutFileSystemPolicyRequest
  *   FileSystemId: "STRING_VALUE", // required

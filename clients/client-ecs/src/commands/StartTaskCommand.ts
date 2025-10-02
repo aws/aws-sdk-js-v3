@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartTaskRequest, StartTaskResponse } from "../models/models_0";
+import { StartTaskRequest, StartTaskResponse } from "../models/models_1";
 import { de_StartTaskCommand, se_StartTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -45,6 +45,8 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * ```javascript
  * import { ECSClient, StartTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, StartTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // StartTaskRequest
  *   cluster: "STRING_VALUE",
@@ -241,7 +243,7 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * //         },
  * //       ],
  * //       lastStatus: "STRING_VALUE",
- * //       launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //       launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //       memory: "STRING_VALUE",
  * //       overrides: { // TaskOverride
  * //         containerOverrides: [ // ContainerOverrides

@@ -37,6 +37,8 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * ```javascript
  * import { OpenSearchClient, ListScheduledActionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListScheduledActionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // ListScheduledActionsRequest
  *   DomainName: "STRING_VALUE", // required

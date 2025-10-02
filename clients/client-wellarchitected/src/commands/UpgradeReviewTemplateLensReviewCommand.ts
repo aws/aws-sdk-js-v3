@@ -37,6 +37,8 @@ export interface UpgradeReviewTemplateLensReviewCommandOutput extends __Metadata
  * ```javascript
  * import { WellArchitectedClient, UpgradeReviewTemplateLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpgradeReviewTemplateLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // UpgradeReviewTemplateLensReviewInput
  *   TemplateArn: "STRING_VALUE", // required

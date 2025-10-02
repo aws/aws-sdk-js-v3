@@ -36,6 +36,8 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  * ```javascript
  * import { EC2Client, DescribeFlowLogsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFlowLogsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeFlowLogsRequest
  *   DryRun: true || false,

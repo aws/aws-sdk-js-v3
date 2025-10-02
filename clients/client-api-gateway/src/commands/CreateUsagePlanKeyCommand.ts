@@ -34,6 +34,8 @@ export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __Metadat
  * ```javascript
  * import { APIGatewayClient, CreateUsagePlanKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateUsagePlanKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // CreateUsagePlanKeyRequest
  *   usagePlanId: "STRING_VALUE", // required

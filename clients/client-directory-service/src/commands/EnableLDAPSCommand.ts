@@ -34,6 +34,8 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  * ```javascript
  * import { DirectoryServiceClient, EnableLDAPSCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, EnableLDAPSCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // EnableLDAPSRequest
  *   DirectoryId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __Metad
  * ```javascript
  * import { IoTWirelessClient, GetFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // GetFuotaTaskRequest
  *   Id: "STRING_VALUE", // required

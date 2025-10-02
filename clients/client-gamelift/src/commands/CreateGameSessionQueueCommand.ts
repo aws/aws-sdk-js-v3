@@ -145,6 +145,8 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * ```javascript
  * import { GameLiftClient, CreateGameSessionQueueCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateGameSessionQueueCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // CreateGameSessionQueueInput
  *   Name: "STRING_VALUE", // required

@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CopyOptionGroupMessage, CopyOptionGroupResult } from "../models/models_0";
+import {
+  CopyOptionGroupMessage,
+  CopyOptionGroupResult,
+  CopyOptionGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CopyOptionGroupCommand, se_CopyOptionGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -34,6 +38,8 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  * ```javascript
  * import { RDSClient, CopyOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // CopyOptionGroupMessage
  *   SourceOptionGroupIdentifier: "STRING_VALUE", // required
@@ -163,7 +169,7 @@ export class CopyOptionGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "CopyOptionGroup", {})
   .n("RDSClient", "CopyOptionGroupCommand")
-  .f(void 0, void 0)
+  .f(void 0, CopyOptionGroupResultFilterSensitiveLog)
   .ser(se_CopyOptionGroupCommand)
   .de(de_CopyOptionGroupCommand)
   .build() {

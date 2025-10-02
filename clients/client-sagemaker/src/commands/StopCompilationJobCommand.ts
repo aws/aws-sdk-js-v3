@@ -34,6 +34,8 @@ export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SageMakerClient, StopCompilationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopCompilationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // StopCompilationJobRequest
  *   CompilationJobName: "STRING_VALUE", // required

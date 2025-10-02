@@ -34,6 +34,8 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse,
  * ```javascript
  * import { WorkSpacesWebClient, UpdateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // UpdateTrustStoreRequest
  *   trustStoreArn: "STRING_VALUE", // required

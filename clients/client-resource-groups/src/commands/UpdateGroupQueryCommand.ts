@@ -46,6 +46,8 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  * ```javascript
  * import { ResourceGroupsClient, UpdateGroupQueryCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UpdateGroupQueryCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // import type { ResourceGroupsClientConfig } from "@aws-sdk/client-resource-groups";
+ * const config = {}; // type is ResourceGroupsClientConfig
  * const client = new ResourceGroupsClient(config);
  * const input = { // UpdateGroupQueryInput
  *   GroupName: "STRING_VALUE",

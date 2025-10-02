@@ -36,6 +36,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { RAMClient, TagResourceCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, TagResourceCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // TagResourceRequest
  *   resourceShareArn: "STRING_VALUE",

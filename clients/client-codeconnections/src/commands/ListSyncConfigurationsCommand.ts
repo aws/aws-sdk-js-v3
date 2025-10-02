@@ -34,6 +34,8 @@ export interface ListSyncConfigurationsCommandOutput extends ListSyncConfigurati
  * ```javascript
  * import { CodeConnectionsClient, ListSyncConfigurationsCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, ListSyncConfigurationsCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // import type { CodeConnectionsClientConfig } from "@aws-sdk/client-codeconnections";
+ * const config = {}; // type is CodeConnectionsClientConfig
  * const client = new CodeConnectionsClient(config);
  * const input = { // ListSyncConfigurationsInput
  *   MaxResults: Number("int"),

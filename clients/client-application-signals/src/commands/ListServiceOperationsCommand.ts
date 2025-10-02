@@ -32,13 +32,14 @@ export interface ListServiceOperationsCommandInput extends ListServiceOperations
 export interface ListServiceOperationsCommandOutput extends ListServiceOperationsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the <i>operations</i> of this service that have been discovered by Application Signals.
- *       Only the operations that were invoked during the specified time range are returned.</p>
+ * <p>Returns a list of the <i>operations</i> of this service that have been discovered by Application Signals. Only the operations that were invoked during the specified time range are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationSignalsClient, ListServiceOperationsCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, ListServiceOperationsCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // ListServiceOperationsInput
  *   StartTime: new Date("TIMESTAMP"), // required

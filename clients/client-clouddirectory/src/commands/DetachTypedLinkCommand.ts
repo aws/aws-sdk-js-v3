@@ -34,6 +34,8 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudDirectoryClient, DetachTypedLinkCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DetachTypedLinkCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // DetachTypedLinkRequest
  *   DirectoryArn: "STRING_VALUE", // required

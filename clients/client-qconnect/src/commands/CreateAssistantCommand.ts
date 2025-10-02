@@ -34,6 +34,8 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * ```javascript
  * import { QConnectClient, CreateAssistantCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, CreateAssistantCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // CreateAssistantRequest
  *   clientToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResult, __MetadataBeare
  * ```javascript
  * import { AmplifyClient, DeleteJobCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteJobCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // DeleteJobRequest
  *   appId: "STRING_VALUE", // required

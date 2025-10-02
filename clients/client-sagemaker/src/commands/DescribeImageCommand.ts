@@ -34,6 +34,8 @@ export interface DescribeImageCommandOutput extends DescribeImageResponse, __Met
  * ```javascript
  * import { SageMakerClient, DescribeImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeImageRequest
  *   ImageName: "STRING_VALUE", // required

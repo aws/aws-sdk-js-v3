@@ -33,12 +33,14 @@ export interface UpdateAssetFilterCommandInput extends UpdateAssetFilterInput {}
 export interface UpdateAssetFilterCommandOutput extends UpdateAssetFilterOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an asset filter.</p>
+ * <p>Updates an asset filter.</p> <p>Prerequisites:</p> <ul> <li> <p>The domain, asset, and asset filter identifier must all exist. </p> </li> <li> <p>The asset must contain the columns being referenced in the update.</p> </li> <li> <p>If applying a row filter, ensure the column referenced in the expression exists in the asset schema.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, UpdateAssetFilterCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateAssetFilterCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateAssetFilterInput
  *   domainIdentifier: "STRING_VALUE", // required

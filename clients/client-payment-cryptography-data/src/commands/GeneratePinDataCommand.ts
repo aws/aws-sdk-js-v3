@@ -43,6 +43,8 @@ export interface GeneratePinDataCommandOutput extends GeneratePinDataOutput, __M
  * ```javascript
  * import { PaymentCryptographyDataClient, GeneratePinDataCommand } from "@aws-sdk/client-payment-cryptography-data"; // ES Modules import
  * // const { PaymentCryptographyDataClient, GeneratePinDataCommand } = require("@aws-sdk/client-payment-cryptography-data"); // CommonJS import
+ * // import type { PaymentCryptographyDataClientConfig } from "@aws-sdk/client-payment-cryptography-data";
+ * const config = {}; // type is PaymentCryptographyDataClientConfig
  * const client = new PaymentCryptographyDataClient(config);
  * const input = { // GeneratePinDataInput
  *   GenerationKeyIdentifier: "STRING_VALUE", // required

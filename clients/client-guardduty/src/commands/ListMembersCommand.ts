@@ -35,6 +35,8 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * ```javascript
  * import { GuardDutyClient, ListMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // ListMembersRequest
  *   DetectorId: "STRING_VALUE", // required

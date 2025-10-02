@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-user-agent-node",
-  "version": "3.883.0",
+  "version": "3.901.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline util-user-agent-node",
@@ -15,6 +15,7 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -23,8 +24,8 @@
   "dependencies": {
     "@aws-sdk/middleware-user-agent": "*",
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^4.1.4",
-    "@smithy/types": "^4.3.2",
+    "@smithy/node-config-provider": "^4.3.0",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

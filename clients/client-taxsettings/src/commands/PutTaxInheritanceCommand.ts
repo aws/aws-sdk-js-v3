@@ -35,6 +35,8 @@ export interface PutTaxInheritanceCommandOutput extends PutTaxInheritanceRespons
  * ```javascript
  * import { TaxSettingsClient, PutTaxInheritanceCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, PutTaxInheritanceCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // import type { TaxSettingsClientConfig } from "@aws-sdk/client-taxsettings";
+ * const config = {}; // type is TaxSettingsClientConfig
  * const client = new TaxSettingsClient(config);
  * const input = { // PutTaxInheritanceRequest
  *   heritageStatus: "OptIn" || "OptOut",

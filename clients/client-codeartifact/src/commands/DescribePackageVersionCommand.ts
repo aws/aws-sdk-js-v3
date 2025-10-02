@@ -38,6 +38,8 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  * ```javascript
  * import { CodeartifactClient, DescribePackageVersionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DescribePackageVersionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // DescribePackageVersionRequest
  *   domain: "STRING_VALUE", // required

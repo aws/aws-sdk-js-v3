@@ -39,6 +39,8 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * ```javascript
  * import { AthenaClient, StartQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StartQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // StartQueryExecutionInput
  *   QueryString: "STRING_VALUE", // required

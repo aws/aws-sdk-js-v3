@@ -42,6 +42,8 @@ export interface GetConfiguredAudienceModelAssociationCommandOutput
  * ```javascript
  * import { CleanRoomsClient, GetConfiguredAudienceModelAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetConfiguredAudienceModelAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // GetConfiguredAudienceModelAssociationInput
  *   configuredAudienceModelAssociationIdentifier: "STRING_VALUE", // required

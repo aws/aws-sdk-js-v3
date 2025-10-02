@@ -44,6 +44,8 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
  * ```javascript
  * import { CustomerProfilesClient, GetCalculatedAttributeDefinitionCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetCalculatedAttributeDefinitionCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetCalculatedAttributeDefinitionRequest
  *   DomainName: "STRING_VALUE", // required

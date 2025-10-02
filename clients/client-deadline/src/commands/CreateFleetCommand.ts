@@ -36,6 +36,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, CreateFleetCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateFleetCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateFleetRequest
  *   clientToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * ```javascript
  * import { BraketClient, CreateJobCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, CreateJobCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * // import type { BraketClientConfig } from "@aws-sdk/client-braket";
+ * const config = {}; // type is BraketClientConfig
  * const client = new BraketClient(config);
  * const input = { // CreateJobRequest
  *   clientToken: "STRING_VALUE", // required

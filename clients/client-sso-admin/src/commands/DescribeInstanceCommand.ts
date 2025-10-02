@@ -34,6 +34,8 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * ```javascript
  * import { SSOAdminClient, DescribeInstanceCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DescribeInstanceCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // DescribeInstanceRequest
  *   InstanceArn: "STRING_VALUE", // required
@@ -46,7 +48,14 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * //   OwnerAccountId: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
  * //   CreatedDate: new Date("TIMESTAMP"),
- * //   Status: "CREATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "ACTIVE",
+ * //   Status: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "ACTIVE",
+ * //   StatusReason: "STRING_VALUE",
+ * //   EncryptionConfigurationDetails: { // EncryptionConfigurationDetails
+ * //     KeyType: "AWS_OWNED_KMS_KEY" || "CUSTOMER_MANAGED_KEY",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //     EncryptionStatus: "UPDATING" || "ENABLED" || "UPDATE_FAILED",
+ * //     EncryptionStatusReason: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

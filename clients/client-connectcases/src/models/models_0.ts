@@ -495,7 +495,7 @@ export interface GetCaseAuditEventsRequest {
   domainId: string | undefined;
 
   /**
-   * <p>The maximum number of audit events to return. The current maximum supported value is 25. This is also the default when no other value is provided.</p>
+   * <p>The maximum number of audit events to return. When no value is provided, 25 is the default.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -667,7 +667,9 @@ export interface AuditEventPerformedBy {
  */
 export const RelatedItemType = {
   COMMENT: "Comment",
+  CONNECT_CASE: "ConnectCase",
   CONTACT: "Contact",
+  CUSTOM: "Custom",
   FILE: "File",
   SLA: "Sla",
 } as const;
@@ -847,6 +849,18 @@ export interface CommentContent {
 }
 
 /**
+ * Represents the input content of a Case related item
+ * @public
+ */
+export interface ConnectCaseInputContent {
+  /**
+   * The unique identifier of the case to be related
+   * @public
+   */
+  caseId: string | undefined;
+}
+
+/**
  * <p>An object that represents an Amazon Connect contact object. </p>
  * @public
  */
@@ -856,6 +870,18 @@ export interface Contact {
    * @public
    */
   contactArn: string | undefined;
+}
+
+/**
+ * Represents the input content of a Custom related item
+ * @public
+ */
+export interface CustomInputContent {
+  /**
+   * List of field values for the custom related item
+   * @public
+   */
+  fields: FieldValue[] | undefined;
 }
 
 /**
@@ -963,7 +989,9 @@ export namespace SlaInputContent {
  */
 export type RelatedItemInputContent =
   | RelatedItemInputContent.CommentMember
+  | RelatedItemInputContent.ConnectCaseMember
   | RelatedItemInputContent.ContactMember
+  | RelatedItemInputContent.CustomMember
   | RelatedItemInputContent.FileMember
   | RelatedItemInputContent.SlaMember
   | RelatedItemInputContent.$UnknownMember;
@@ -981,6 +1009,8 @@ export namespace RelatedItemInputContent {
     comment?: never;
     file?: never;
     sla?: never;
+    connectCase?: never;
+    custom?: never;
     $unknown?: never;
   }
 
@@ -993,6 +1023,8 @@ export namespace RelatedItemInputContent {
     comment: CommentContent;
     file?: never;
     sla?: never;
+    connectCase?: never;
+    custom?: never;
     $unknown?: never;
   }
 
@@ -1005,6 +1037,8 @@ export namespace RelatedItemInputContent {
     comment?: never;
     file: FileContent;
     sla?: never;
+    connectCase?: never;
+    custom?: never;
     $unknown?: never;
   }
 
@@ -1017,6 +1051,36 @@ export namespace RelatedItemInputContent {
     comment?: never;
     file?: never;
     sla: SlaInputContent;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Input content for a related Connect case
+   * @public
+   */
+  export interface ConnectCaseMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase: ConnectCaseInputContent;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Input content for a custom related item
+   * @public
+   */
+  export interface CustomMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom: CustomInputContent;
     $unknown?: never;
   }
 
@@ -1028,6 +1092,8 @@ export namespace RelatedItemInputContent {
     comment?: never;
     file?: never;
     sla?: never;
+    connectCase?: never;
+    custom?: never;
     $unknown: [string, any];
   }
 
@@ -1036,6 +1102,8 @@ export namespace RelatedItemInputContent {
     comment: (value: CommentContent) => T;
     file: (value: FileContent) => T;
     sla: (value: SlaInputContent) => T;
+    connectCase: (value: ConnectCaseInputContent) => T;
+    custom: (value: CustomInputContent) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1044,6 +1112,8 @@ export namespace RelatedItemInputContent {
     if (value.comment !== undefined) return visitor.comment(value.comment);
     if (value.file !== undefined) return visitor.file(value.file);
     if (value.sla !== undefined) return visitor.sla(value.sla);
+    if (value.connectCase !== undefined) return visitor.connectCase(value.connectCase);
+    if (value.custom !== undefined) return visitor.custom(value.custom);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1155,6 +1225,18 @@ export interface DeleteRelatedItemResponse {}
 export interface CommentFilter {}
 
 /**
+ * A filter for related items of type Case
+ * @public
+ */
+export interface ConnectCaseFilter {
+  /**
+   * The unique identifier of the case to filter by
+   * @public
+   */
+  caseId?: string | undefined;
+}
+
+/**
  * <p>A filter for related items of type <code>Contact</code>.</p>
  * @public
  */
@@ -1170,412 +1252,6 @@ export interface ContactFilter {
    * @public
    */
   contactArn?: string | undefined;
-}
-
-/**
- * <p>A filter for related items of type <code>File</code>.</p>
- * @public
- */
-export interface FileFilter {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the file.</p>
-   * @public
-   */
-  fileArn?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SlaStatus = {
-  ACTIVE: "Active",
-  MET: "Met",
-  NOT_MET: "NotMet",
-  OVERDUE: "Overdue",
-} as const;
-
-/**
- * @public
- */
-export type SlaStatus = (typeof SlaStatus)[keyof typeof SlaStatus];
-
-/**
- * <p>A filter for related items of type <code>SLA</code>.</p>
- * @public
- */
-export interface SlaFilter {
-  /**
-   * <p>Name of an SLA.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>Status of an SLA.</p>
-   * @public
-   */
-  status?: SlaStatus | undefined;
-}
-
-/**
- * <p>The list of types of related items and their parameters to use for filtering.</p>
- * @public
- */
-export type RelatedItemTypeFilter =
-  | RelatedItemTypeFilter.CommentMember
-  | RelatedItemTypeFilter.ContactMember
-  | RelatedItemTypeFilter.FileMember
-  | RelatedItemTypeFilter.SlaMember
-  | RelatedItemTypeFilter.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RelatedItemTypeFilter {
-  /**
-   * <p>A filter for related items of type <code>Contact</code>.</p>
-   * @public
-   */
-  export interface ContactMember {
-    contact: ContactFilter;
-    comment?: never;
-    file?: never;
-    sla?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A filter for related items of type <code>Comment</code>.</p>
-   * @public
-   */
-  export interface CommentMember {
-    contact?: never;
-    comment: CommentFilter;
-    file?: never;
-    sla?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A filter for related items of this type of <code>File</code>.</p>
-   * @public
-   */
-  export interface FileMember {
-    contact?: never;
-    comment?: never;
-    file: FileFilter;
-    sla?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> Filter for related items of type <code>SLA</code>.</p>
-   * @public
-   */
-  export interface SlaMember {
-    contact?: never;
-    comment?: never;
-    file?: never;
-    sla: SlaFilter;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    contact?: never;
-    comment?: never;
-    file?: never;
-    sla?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    contact: (value: ContactFilter) => T;
-    comment: (value: CommentFilter) => T;
-    file: (value: FileFilter) => T;
-    sla: (value: SlaFilter) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: RelatedItemTypeFilter, visitor: Visitor<T>): T => {
-    if (value.contact !== undefined) return visitor.contact(value.contact);
-    if (value.comment !== undefined) return visitor.comment(value.comment);
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sla !== undefined) return visitor.sla(value.sla);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- */
-export interface SearchRelatedItemsRequest {
-  /**
-   * <p>The unique identifier of the Cases domain. </p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>A unique identifier of the case.</p>
-   * @public
-   */
-  caseId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The list of types of related items and their parameters to use for filtering.</p>
-   * @public
-   */
-  filters?: RelatedItemTypeFilter[] | undefined;
-}
-
-/**
- * <p>An object that represents a content of an Amazon Connect contact object.</p>
- * @public
- */
-export interface ContactContent {
-  /**
-   * <p>A unique identifier of a contact in Amazon Connect.</p>
-   * @public
-   */
-  contactArn: string | undefined;
-
-  /**
-   * <p>A list of channels to filter on for related items of type <code>Contact</code>.</p>
-   * @public
-   */
-  channel: string | undefined;
-
-  /**
-   * <p>The difference between the <code>InitiationTimestamp</code> and the <code>DisconnectTimestamp</code> of the contact.</p>
-   * @public
-   */
-  connectedToSystemTime: Date | undefined;
-}
-
-/**
- * <p>Represents an SLA configuration.</p>
- * @public
- */
-export interface SlaConfiguration {
-  /**
-   * <p>Name of an SLA.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Type of SLA.</p>
-   * @public
-   */
-  type: SlaType | undefined;
-
-  /**
-   * <p>Status of an SLA.</p>
-   * @public
-   */
-  status: SlaStatus | undefined;
-
-  /**
-   * <p>Unique identifier of a field.</p>
-   * @public
-   */
-  fieldId?: string | undefined;
-
-  /**
-   * <p>Represents a list of target field values for the fieldId specified in SlaConfiguration.</p>
-   * @public
-   */
-  targetFieldValues?: FieldValueUnion[] | undefined;
-
-  /**
-   * <p>Target time by which an SLA should be completed.</p>
-   * @public
-   */
-  targetTime: Date | undefined;
-
-  /**
-   * <p>Time at which an SLA was completed.</p>
-   * @public
-   */
-  completionTime?: Date | undefined;
-}
-
-/**
- * <p>Represents the content of an SLA to be returned to agents.</p>
- * @public
- */
-export interface SlaContent {
-  /**
-   * <p>Represents an SLA configuration.</p>
-   * @public
-   */
-  slaConfiguration: SlaConfiguration | undefined;
-}
-
-/**
- * <p>Represents the content of a particular type of related item.</p>
- * @public
- */
-export type RelatedItemContent =
-  | RelatedItemContent.CommentMember
-  | RelatedItemContent.ContactMember
-  | RelatedItemContent.FileMember
-  | RelatedItemContent.SlaMember
-  | RelatedItemContent.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RelatedItemContent {
-  /**
-   * <p>Represents the content of a contact to be returned to agents.</p>
-   * @public
-   */
-  export interface ContactMember {
-    contact: ContactContent;
-    comment?: never;
-    file?: never;
-    sla?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Represents the content of a comment to be returned to agents.</p>
-   * @public
-   */
-  export interface CommentMember {
-    contact?: never;
-    comment: CommentContent;
-    file?: never;
-    sla?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Represents the content of a File to be returned to agents.</p>
-   * @public
-   */
-  export interface FileMember {
-    contact?: never;
-    comment?: never;
-    file: FileContent;
-    sla?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Represents the content of an SLA to be returned to agents.</p>
-   * @public
-   */
-  export interface SlaMember {
-    contact?: never;
-    comment?: never;
-    file?: never;
-    sla: SlaContent;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    contact?: never;
-    comment?: never;
-    file?: never;
-    sla?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    contact: (value: ContactContent) => T;
-    comment: (value: CommentContent) => T;
-    file: (value: FileContent) => T;
-    sla: (value: SlaContent) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: RelatedItemContent, visitor: Visitor<T>): T => {
-    if (value.contact !== undefined) return visitor.contact(value.contact);
-    if (value.comment !== undefined) return visitor.comment(value.comment);
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sla !== undefined) return visitor.sla(value.sla);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>A list of items that represent RelatedItems.</p>
- * @public
- */
-export interface SearchRelatedItemsResponseItem {
-  /**
-   * <p>Unique identifier of a related item.</p>
-   * @public
-   */
-  relatedItemId: string | undefined;
-
-  /**
-   * <p>Type of a related item.</p>
-   * @public
-   */
-  type: RelatedItemType | undefined;
-
-  /**
-   * <p>Time at which a related item was associated with a case.</p>
-   * @public
-   */
-  associationTime: Date | undefined;
-
-  /**
-   * <p>Represents the content of a particular type of related item.</p>
-   * @public
-   */
-  content: RelatedItemContent | undefined;
-
-  /**
-   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>Represents the creator of the related item.</p>
-   * @public
-   */
-  performedBy?: UserUnion | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchRelatedItemsResponse {
-  /**
-   * <p>The token for the next set of results. This is null if there are no more results to return.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>A list of items related to a case. </p>
-   * @public
-   */
-  relatedItems: SearchRelatedItemsResponseItem[] | undefined;
 }
 
 /**
@@ -1711,6 +1387,354 @@ export namespace FieldFilter {
     if (value.lessThanOrEqualTo !== undefined) return visitor.lessThanOrEqualTo(value.lessThanOrEqualTo);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * <p>A filter for related items of type <code>File</code>.</p>
+ * @public
+ */
+export interface FileFilter {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file.</p>
+   * @public
+   */
+  fileArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SlaStatus = {
+  ACTIVE: "Active",
+  MET: "Met",
+  NOT_MET: "NotMet",
+  OVERDUE: "Overdue",
+} as const;
+
+/**
+ * @public
+ */
+export type SlaStatus = (typeof SlaStatus)[keyof typeof SlaStatus];
+
+/**
+ * <p>A filter for related items of type <code>SLA</code>.</p>
+ * @public
+ */
+export interface SlaFilter {
+  /**
+   * <p>Name of an SLA.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Status of an SLA.</p>
+   * @public
+   */
+  status?: SlaStatus | undefined;
+}
+
+/**
+ * Represents the content of a Case related item
+ * @public
+ */
+export interface ConnectCaseContent {
+  /**
+   * The unique identifier of the related case
+   * @public
+   */
+  caseId: string | undefined;
+}
+
+/**
+ * <p>An object that represents a content of an Amazon Connect contact object.</p>
+ * @public
+ */
+export interface ContactContent {
+  /**
+   * <p>A unique identifier of a contact in Amazon Connect.</p>
+   * @public
+   */
+  contactArn: string | undefined;
+
+  /**
+   * <p>A list of channels to filter on for related items of type <code>Contact</code>.</p>
+   * @public
+   */
+  channel: string | undefined;
+
+  /**
+   * <p>The difference between the <code>InitiationTimestamp</code> and the <code>DisconnectTimestamp</code> of the contact.</p>
+   * @public
+   */
+  connectedToSystemTime: Date | undefined;
+}
+
+/**
+ * Represents the content of a Custom related item
+ * @public
+ */
+export interface CustomContent {
+  /**
+   * List of field values for the custom related item
+   * @public
+   */
+  fields: FieldValue[] | undefined;
+}
+
+/**
+ * <p>Represents an SLA configuration.</p>
+ * @public
+ */
+export interface SlaConfiguration {
+  /**
+   * <p>Name of an SLA.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Type of SLA.</p>
+   * @public
+   */
+  type: SlaType | undefined;
+
+  /**
+   * <p>Status of an SLA.</p>
+   * @public
+   */
+  status: SlaStatus | undefined;
+
+  /**
+   * <p>Unique identifier of a field.</p>
+   * @public
+   */
+  fieldId?: string | undefined;
+
+  /**
+   * <p>Represents a list of target field values for the fieldId specified in SlaConfiguration.</p>
+   * @public
+   */
+  targetFieldValues?: FieldValueUnion[] | undefined;
+
+  /**
+   * <p>Target time by which an SLA should be completed.</p>
+   * @public
+   */
+  targetTime: Date | undefined;
+
+  /**
+   * <p>Time at which an SLA was completed.</p>
+   * @public
+   */
+  completionTime?: Date | undefined;
+}
+
+/**
+ * <p>Represents the content of an SLA to be returned to agents.</p>
+ * @public
+ */
+export interface SlaContent {
+  /**
+   * <p>Represents an SLA configuration.</p>
+   * @public
+   */
+  slaConfiguration: SlaConfiguration | undefined;
+}
+
+/**
+ * <p>Represents the content of a particular type of related item.</p>
+ * @public
+ */
+export type RelatedItemContent =
+  | RelatedItemContent.CommentMember
+  | RelatedItemContent.ConnectCaseMember
+  | RelatedItemContent.ContactMember
+  | RelatedItemContent.CustomMember
+  | RelatedItemContent.FileMember
+  | RelatedItemContent.SlaMember
+  | RelatedItemContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RelatedItemContent {
+  /**
+   * <p>Represents the content of a contact to be returned to agents.</p>
+   * @public
+   */
+  export interface ContactMember {
+    contact: ContactContent;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of a comment to be returned to agents.</p>
+   * @public
+   */
+  export interface CommentMember {
+    contact?: never;
+    comment: CommentContent;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of a File to be returned to agents.</p>
+   * @public
+   */
+  export interface FileMember {
+    contact?: never;
+    comment?: never;
+    file: FileContent;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of an SLA to be returned to agents.</p>
+   * @public
+   */
+  export interface SlaMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla: SlaContent;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Content for a related Connect case
+   * @public
+   */
+  export interface ConnectCaseMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase: ConnectCaseContent;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Content for a custom related item
+   * @public
+   */
+  export interface CustomMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom: CustomContent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    contact: (value: ContactContent) => T;
+    comment: (value: CommentContent) => T;
+    file: (value: FileContent) => T;
+    sla: (value: SlaContent) => T;
+    connectCase: (value: ConnectCaseContent) => T;
+    custom: (value: CustomContent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RelatedItemContent, visitor: Visitor<T>): T => {
+    if (value.contact !== undefined) return visitor.contact(value.contact);
+    if (value.comment !== undefined) return visitor.comment(value.comment);
+    if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sla !== undefined) return visitor.sla(value.sla);
+    if (value.connectCase !== undefined) return visitor.connectCase(value.connectCase);
+    if (value.custom !== undefined) return visitor.custom(value.custom);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>A list of items that represent RelatedItems.</p>
+ * @public
+ */
+export interface SearchRelatedItemsResponseItem {
+  /**
+   * <p>Unique identifier of a related item.</p>
+   * @public
+   */
+  relatedItemId: string | undefined;
+
+  /**
+   * <p>Type of a related item.</p>
+   * @public
+   */
+  type: RelatedItemType | undefined;
+
+  /**
+   * <p>Time at which a related item was associated with a case.</p>
+   * @public
+   */
+  associationTime: Date | undefined;
+
+  /**
+   * <p>Represents the content of a particular type of related item.</p>
+   * @public
+   */
+  content: RelatedItemContent | undefined;
+
+  /**
+   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Represents the creator of the related item.</p>
+   * @public
+   */
+  performedBy?: UserUnion | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchRelatedItemsResponse {
+  /**
+   * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of items related to a case. </p>
+   * @public
+   */
+  relatedItems: SearchRelatedItemsResponseItem[] | undefined;
 }
 
 /**
@@ -4055,6 +4079,109 @@ export namespace CaseFilter {
 }
 
 /**
+ * A filter for fields in related items of type Custom
+ * @public
+ */
+export type CustomFieldsFilter =
+  | CustomFieldsFilter.AndAllMember
+  | CustomFieldsFilter.FieldMember
+  | CustomFieldsFilter.NotMember
+  | CustomFieldsFilter.OrAllMember
+  | CustomFieldsFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CustomFieldsFilter {
+  /**
+   * <p>A filter for fields. Only one value can be provided.</p>
+   * @public
+   */
+  export interface FieldMember {
+    field: FieldFilter;
+    not?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Excludes items matching the filter
+   * @public
+   */
+  export interface NotMember {
+    field?: never;
+    not: CustomFieldsFilter;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Matches items that satisfy all of the specified filter conditions
+   * @public
+   */
+  export interface AndAllMember {
+    field?: never;
+    not?: never;
+    andAll: CustomFieldsFilter[];
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Matches items that satisfy any of the specified filter conditions
+   * @public
+   */
+  export interface OrAllMember {
+    field?: never;
+    not?: never;
+    andAll?: never;
+    orAll: CustomFieldsFilter[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    field?: never;
+    not?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    field: (value: FieldFilter) => T;
+    not: (value: CustomFieldsFilter) => T;
+    andAll: (value: CustomFieldsFilter[]) => T;
+    orAll: (value: CustomFieldsFilter[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CustomFieldsFilter, visitor: Visitor<T>): T => {
+    if (value.field !== undefined) return visitor.field(value.field);
+    if (value.not !== undefined) return visitor.not(value.not);
+    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
+    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * A filter for related items of type Custom
+ * @public
+ */
+export interface CustomFilter {
+  /**
+   * Filter conditions for custom fields
+   * @public
+   */
+  fields?: CustomFieldsFilter | undefined;
+}
+
+/**
  * @public
  */
 export interface SearchCasesRequest {
@@ -4065,7 +4192,7 @@ export interface SearchCasesRequest {
   domainId: string | undefined;
 
   /**
-   * <p>The maximum number of cases to return. The current maximum supported value is 25. This is also the default value when no other value is provided.</p>
+   * <p>The maximum number of cases to return. When no value is provided, 25 is the default.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -4099,6 +4226,176 @@ export interface SearchCasesRequest {
    * @public
    */
   fields?: FieldIdentifier[] | undefined;
+}
+
+/**
+ * <p>The list of types of related items and their parameters to use for filtering.</p>
+ * @public
+ */
+export type RelatedItemTypeFilter =
+  | RelatedItemTypeFilter.CommentMember
+  | RelatedItemTypeFilter.ConnectCaseMember
+  | RelatedItemTypeFilter.ContactMember
+  | RelatedItemTypeFilter.CustomMember
+  | RelatedItemTypeFilter.FileMember
+  | RelatedItemTypeFilter.SlaMember
+  | RelatedItemTypeFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RelatedItemTypeFilter {
+  /**
+   * <p>A filter for related items of type <code>Contact</code>.</p>
+   * @public
+   */
+  export interface ContactMember {
+    contact: ContactFilter;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A filter for related items of type <code>Comment</code>.</p>
+   * @public
+   */
+  export interface CommentMember {
+    contact?: never;
+    comment: CommentFilter;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A filter for related items of this type of <code>File</code>.</p>
+   * @public
+   */
+  export interface FileMember {
+    contact?: never;
+    comment?: never;
+    file: FileFilter;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Filter for related items of type <code>SLA</code>.</p>
+   * @public
+   */
+  export interface SlaMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla: SlaFilter;
+    connectCase?: never;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Filter for related items of type Connect case
+   * @public
+   */
+  export interface ConnectCaseMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase: ConnectCaseFilter;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Filter for related items of type Custom
+   * @public
+   */
+  export interface CustomMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom: CustomFilter;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla?: never;
+    connectCase?: never;
+    custom?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    contact: (value: ContactFilter) => T;
+    comment: (value: CommentFilter) => T;
+    file: (value: FileFilter) => T;
+    sla: (value: SlaFilter) => T;
+    connectCase: (value: ConnectCaseFilter) => T;
+    custom: (value: CustomFilter) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RelatedItemTypeFilter, visitor: Visitor<T>): T => {
+    if (value.contact !== undefined) return visitor.contact(value.contact);
+    if (value.comment !== undefined) return visitor.comment(value.comment);
+    if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sla !== undefined) return visitor.sla(value.sla);
+    if (value.connectCase !== undefined) return visitor.connectCase(value.connectCase);
+    if (value.custom !== undefined) return visitor.custom(value.custom);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface SearchRelatedItemsRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>A unique identifier of the case.</p>
+   * @public
+   */
+  caseId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of types of related items and their parameters to use for filtering.</p>
+   * @public
+   */
+  filters?: RelatedItemTypeFilter[] | undefined;
 }
 
 /**
@@ -4170,6 +4467,8 @@ export const RelatedItemInputContentFilterSensitiveLog = (obj: RelatedItemInputC
   if (obj.comment !== undefined) return { comment: obj.comment };
   if (obj.file !== undefined) return { file: obj.file };
   if (obj.sla !== undefined) return { sla: SlaInputContentFilterSensitiveLog(obj.sla) };
+  if (obj.connectCase !== undefined) return { connectCase: obj.connectCase };
+  if (obj.custom !== undefined) return { custom: obj.custom };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -4188,25 +4487,6 @@ export const CreateRelatedItemRequestFilterSensitiveLog = (obj: CreateRelatedIte
 export const SlaFilterFilterSensitiveLog = (obj: SlaFilter): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RelatedItemTypeFilterFilterSensitiveLog = (obj: RelatedItemTypeFilter): any => {
-  if (obj.contact !== undefined) return { contact: obj.contact };
-  if (obj.comment !== undefined) return { comment: obj.comment };
-  if (obj.file !== undefined) return { file: obj.file };
-  if (obj.sla !== undefined) return { sla: SlaFilterFilterSensitiveLog(obj.sla) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SearchRelatedItemsRequestFilterSensitiveLog = (obj: SearchRelatedItemsRequest): any => ({
-  ...obj,
-  ...(obj.filters && { filters: obj.filters.map((item) => RelatedItemTypeFilterFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -4234,6 +4514,8 @@ export const RelatedItemContentFilterSensitiveLog = (obj: RelatedItemContent): a
   if (obj.comment !== undefined) return { comment: obj.comment };
   if (obj.file !== undefined) return { file: obj.file };
   if (obj.sla !== undefined) return { sla: SlaContentFilterSensitiveLog(obj.sla) };
+  if (obj.connectCase !== undefined) return { connectCase: obj.connectCase };
+  if (obj.custom !== undefined) return { custom: obj.custom };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -4263,4 +4545,25 @@ export const UpdateCaseRequestFilterSensitiveLog = (obj: UpdateCaseRequest): any
   ...obj,
   ...(obj.fields && { fields: obj.fields.map((item) => item) }),
   ...(obj.performedBy && { performedBy: UserUnionFilterSensitiveLog(obj.performedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const RelatedItemTypeFilterFilterSensitiveLog = (obj: RelatedItemTypeFilter): any => {
+  if (obj.contact !== undefined) return { contact: obj.contact };
+  if (obj.comment !== undefined) return { comment: obj.comment };
+  if (obj.file !== undefined) return { file: obj.file };
+  if (obj.sla !== undefined) return { sla: SlaFilterFilterSensitiveLog(obj.sla) };
+  if (obj.connectCase !== undefined) return { connectCase: obj.connectCase };
+  if (obj.custom !== undefined) return { custom: obj.custom };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SearchRelatedItemsRequestFilterSensitiveLog = (obj: SearchRelatedItemsRequest): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => RelatedItemTypeFilterFilterSensitiveLog(item)) }),
 });

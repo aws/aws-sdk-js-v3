@@ -34,6 +34,8 @@ export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KendraClient, UpdateThesaurusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UpdateThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // UpdateThesaurusRequest
  *   Id: "STRING_VALUE", // required

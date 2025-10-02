@@ -34,6 +34,8 @@ export interface DescribeAccessEntryCommandOutput extends DescribeAccessEntryRes
  * ```javascript
  * import { EKSClient, DescribeAccessEntryCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeAccessEntryCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // DescribeAccessEntryRequest
  *   clusterName: "STRING_VALUE", // required

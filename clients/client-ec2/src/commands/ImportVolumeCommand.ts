@@ -46,6 +46,8 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  * ```javascript
  * import { EC2Client, ImportVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ImportVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // ImportVolumeRequest
  *   AvailabilityZoneId: "STRING_VALUE",

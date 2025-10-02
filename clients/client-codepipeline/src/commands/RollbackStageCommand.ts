@@ -34,6 +34,8 @@ export interface RollbackStageCommandOutput extends RollbackStageOutput, __Metad
  * ```javascript
  * import { CodePipelineClient, RollbackStageCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, RollbackStageCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // RollbackStageInput
  *   pipelineName: "STRING_VALUE", // required

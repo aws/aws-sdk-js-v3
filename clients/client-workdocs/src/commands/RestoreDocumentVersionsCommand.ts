@@ -34,6 +34,8 @@ export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {
  * ```javascript
  * import { WorkDocsClient, RestoreDocumentVersionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, RestoreDocumentVersionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // RestoreDocumentVersionsRequest
  *   AuthenticationToken: "STRING_VALUE",

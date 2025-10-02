@@ -35,6 +35,8 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
  * ```javascript
  * import { SESv2Client, GetDedicatedIpsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetDedicatedIpsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * // import type { SESv2ClientConfig } from "@aws-sdk/client-sesv2";
+ * const config = {}; // type is SESv2ClientConfig
  * const client = new SESv2Client(config);
  * const input = { // GetDedicatedIpsRequest
  *   PoolName: "STRING_VALUE",

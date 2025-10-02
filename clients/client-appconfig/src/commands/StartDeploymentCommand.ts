@@ -34,6 +34,8 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * ```javascript
  * import { AppConfigClient, StartDeploymentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, StartDeploymentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // StartDeploymentRequest
  *   ApplicationId: "STRING_VALUE", // required

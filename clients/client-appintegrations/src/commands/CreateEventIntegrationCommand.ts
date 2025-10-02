@@ -37,6 +37,8 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  * ```javascript
  * import { AppIntegrationsClient, CreateEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, CreateEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * // import type { AppIntegrationsClientConfig } from "@aws-sdk/client-appintegrations";
+ * const config = {}; // type is AppIntegrationsClientConfig
  * const client = new AppIntegrationsClient(config);
  * const input = { // CreateEventIntegrationRequest
  *   Name: "STRING_VALUE", // required

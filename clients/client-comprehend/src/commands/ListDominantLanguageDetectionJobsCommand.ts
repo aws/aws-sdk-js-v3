@@ -42,6 +42,8 @@ export interface ListDominantLanguageDetectionJobsCommandOutput
  * ```javascript
  * import { ComprehendClient, ListDominantLanguageDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListDominantLanguageDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // ListDominantLanguageDetectionJobsRequest
  *   Filter: { // DominantLanguageDetectionJobFilter

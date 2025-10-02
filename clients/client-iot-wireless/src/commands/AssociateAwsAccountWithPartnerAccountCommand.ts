@@ -45,6 +45,8 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * ```javascript
  * import { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // AssociateAwsAccountWithPartnerAccountRequest
  *   Sidewalk: { // SidewalkAccountInfo

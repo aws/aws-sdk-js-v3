@@ -34,6 +34,8 @@ export interface GetNotificationEventCommandOutput extends GetNotificationEventR
  * ```javascript
  * import { NotificationsClient, GetNotificationEventCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, GetNotificationEventCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // GetNotificationEventRequest
  *   arn: "STRING_VALUE", // required

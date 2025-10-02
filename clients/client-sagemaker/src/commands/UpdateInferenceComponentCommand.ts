@@ -34,6 +34,8 @@ export interface UpdateInferenceComponentCommandOutput extends UpdateInferenceCo
  * ```javascript
  * import { SageMakerClient, UpdateInferenceComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateInferenceComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateInferenceComponentInput
  *   InferenceComponentName: "STRING_VALUE", // required

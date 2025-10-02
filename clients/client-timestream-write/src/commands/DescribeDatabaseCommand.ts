@@ -38,6 +38,8 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  * ```javascript
  * import { TimestreamWriteClient, DescribeDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, DescribeDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // import type { TimestreamWriteClientConfig } from "@aws-sdk/client-timestream-write";
+ * const config = {}; // type is TimestreamWriteClientConfig
  * const client = new TimestreamWriteClient(config);
  * const input = { // DescribeDatabaseRequest
  *   DatabaseName: "STRING_VALUE", // required

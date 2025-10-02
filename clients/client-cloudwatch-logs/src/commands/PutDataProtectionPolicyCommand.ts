@@ -55,6 +55,8 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * ```javascript
  * import { CloudWatchLogsClient, PutDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutDataProtectionPolicyRequest
  *   logGroupIdentifier: "STRING_VALUE", // required

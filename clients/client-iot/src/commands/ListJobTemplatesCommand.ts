@@ -35,6 +35,8 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * ```javascript
  * import { IoTClient, ListJobTemplatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListJobTemplatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListJobTemplatesRequest
  *   maxResults: Number("int"),

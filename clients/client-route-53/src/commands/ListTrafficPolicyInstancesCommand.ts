@@ -44,6 +44,8 @@ export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPoli
  * ```javascript
  * import { Route53Client, ListTrafficPolicyInstancesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListTrafficPolicyInstancesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // ListTrafficPolicyInstancesRequest
  *   HostedZoneIdMarker: "STRING_VALUE",

@@ -39,6 +39,8 @@ export interface CreateEnvironmentProfileCommandOutput extends CreateEnvironment
  * ```javascript
  * import { DataZoneClient, CreateEnvironmentProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateEnvironmentProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateEnvironmentProfileInput
  *   domainIdentifier: "STRING_VALUE", // required
@@ -77,6 +79,7 @@ export interface CreateEnvironmentProfileCommandOutput extends CreateEnvironment
  * //       defaultValue: "STRING_VALUE",
  * //       isEditable: true || false,
  * //       isOptional: true || false,
+ * //       isUpdateSupported: true || false,
  * //     },
  * //   ],
  * // };

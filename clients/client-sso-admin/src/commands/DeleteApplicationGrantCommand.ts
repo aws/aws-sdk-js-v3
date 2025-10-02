@@ -34,6 +34,8 @@ export interface DeleteApplicationGrantCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SSOAdminClient, DeleteApplicationGrantCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DeleteApplicationGrantCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // DeleteApplicationGrantRequest
  *   ApplicationArn: "STRING_VALUE", // required

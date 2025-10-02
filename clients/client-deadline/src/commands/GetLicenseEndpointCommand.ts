@@ -34,6 +34,8 @@ export interface GetLicenseEndpointCommandOutput extends GetLicenseEndpointRespo
  * ```javascript
  * import { DeadlineClient, GetLicenseEndpointCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetLicenseEndpointCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetLicenseEndpointRequest
  *   licenseEndpointId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CreateCatalogCommandOutput extends CreateCatalogResponse, __Met
  * ```javascript
  * import { GlueClient, CreateCatalogCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateCatalogCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // CreateCatalogRequest
  *   Name: "STRING_VALUE", // required

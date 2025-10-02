@@ -1,9 +1,10 @@
 {
   "name": "@aws-sdk/xml-builder",
-  "version": "3.873.0",
+  "version": "3.901.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
-    "@smithy/types": "^4.3.2",
+    "@smithy/types": "^4.6.0",
+    "fast-xml-parser": "5.2.5",
     "tslib": "^2.6.2"
   },
   "scripts": {
@@ -17,6 +18,7 @@
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -38,6 +40,13 @@
   "files": [
     "dist-*/**"
   ],
+  "browser": {
+    "./dist-es/xml-parser": "./dist-es/xml-parser.browser"
+  },
+  "react-native": {
+    "./dist-es/xml-parser": "./dist-es/xml-parser",
+    "./dist-cjs/xml-parser": "./dist-cjs/xml-parser"
+  },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/xml-builder",
   "repository": {
     "type": "git",

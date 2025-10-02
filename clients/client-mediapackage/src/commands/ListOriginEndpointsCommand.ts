@@ -34,6 +34,8 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * ```javascript
  * import { MediaPackageClient, ListOriginEndpointsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, ListOriginEndpointsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * // import type { MediaPackageClientConfig } from "@aws-sdk/client-mediapackage";
+ * const config = {}; // type is MediaPackageClientConfig
  * const client = new MediaPackageClient(config);
  * const input = { // ListOriginEndpointsRequest
  *   ChannelId: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * ```javascript
  * import { LakeFormationClient, BatchGrantPermissionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, BatchGrantPermissionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // BatchGrantPermissionsRequest
  *   CatalogId: "STRING_VALUE",

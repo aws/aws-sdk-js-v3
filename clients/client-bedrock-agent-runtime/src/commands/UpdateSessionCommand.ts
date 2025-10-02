@@ -38,6 +38,8 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * ```javascript
  * import { BedrockAgentRuntimeClient, UpdateSessionCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, UpdateSessionCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // UpdateSessionRequest
  *   sessionMetadata: { // SessionMetadataMap

@@ -46,6 +46,8 @@ export interface GetSnapshotBlockCommandOutput extends Omit<GetSnapshotBlockResp
  * ```javascript
  * import { EBSClient, GetSnapshotBlockCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, GetSnapshotBlockCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
+ * // import type { EBSClientConfig } from "@aws-sdk/client-ebs";
+ * const config = {}; // type is EBSClientConfig
  * const client = new EBSClient(config);
  * const input = { // GetSnapshotBlockRequest
  *   SnapshotId: "STRING_VALUE", // required

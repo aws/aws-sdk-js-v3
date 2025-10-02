@@ -34,6 +34,8 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  * ```javascript
  * import { MediaLiveClient, ListInputSecurityGroupsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListInputSecurityGroupsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // ListInputSecurityGroupsRequest
  *   MaxResults: Number("int"),

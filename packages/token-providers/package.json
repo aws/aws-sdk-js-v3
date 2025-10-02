@@ -1,10 +1,9 @@
 {
   "name": "@aws-sdk/token-providers",
-  "version": "3.883.0",
+  "version": "3.901.0",
   "description": "A collection of token providers",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "sideEffects": false,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline token-providers",
@@ -23,6 +22,7 @@
     "aws",
     "token"
   ],
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -32,9 +32,9 @@
     "@aws-sdk/core": "*",
     "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^4.0.5",
-    "@smithy/shared-ini-file-loader": "^4.0.5",
-    "@smithy/types": "^4.3.2",
+    "@smithy/property-provider": "^4.2.0",
+    "@smithy/shared-ini-file-loader": "^4.3.0",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

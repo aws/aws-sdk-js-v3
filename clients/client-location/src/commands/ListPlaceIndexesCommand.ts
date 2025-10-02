@@ -38,6 +38,8 @@ export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse,
  * ```javascript
  * import { LocationClient, ListPlaceIndexesCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListPlaceIndexesCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // ListPlaceIndexesRequest
  *   MaxResults: Number("int"),

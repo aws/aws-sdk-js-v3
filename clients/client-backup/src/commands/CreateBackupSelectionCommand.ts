@@ -35,6 +35,8 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * ```javascript
  * import { BackupClient, CreateBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // CreateBackupSelectionInput
  *   BackupPlanId: "STRING_VALUE", // required

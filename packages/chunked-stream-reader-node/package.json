@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/chunked-stream-reader-node",
-  "version": "3.873.0",
+  "version": "3.893.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline chunked-stream-reader-node",
@@ -15,6 +15,7 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

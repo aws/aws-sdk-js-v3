@@ -1,9 +1,8 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { DynamoDB, ScanCommand } from "@aws-sdk/client-dynamodb";
 import { HeadBucketCommand, HeadBucketCommandInput, S3Client } from "@aws-sdk/client-s3";
 import { DynamoDBDocument, ScanCommand as DocumentScanCommand, ScanCommandInput } from "@aws-sdk/lib-dynamodb";
 import { describe, expect, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../../private/aws-util-test/src";
 
 describe("DynamoDBDocument command mutability", () => {
   it("should allow sending the same command more than once without mutating the Command instance", async () => {

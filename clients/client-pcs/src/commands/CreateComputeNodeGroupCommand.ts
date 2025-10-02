@@ -34,6 +34,8 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  * ```javascript
  * import { PCSClient, CreateComputeNodeGroupCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, CreateComputeNodeGroupCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // CreateComputeNodeGroupRequest
  *   clusterIdentifier: "STRING_VALUE", // required
@@ -42,7 +44,7 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  *   subnetIds: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
- *   purchaseOption: "ONDEMAND" || "SPOT",
+ *   purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK",
  *   customLaunchTemplate: { // CustomLaunchTemplate
  *     id: "STRING_VALUE", // required
  *     version: "STRING_VALUE", // required
@@ -88,7 +90,7 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  * //     subnetIds: [ // SubnetIdList // required
  * //       "STRING_VALUE",
  * //     ],
- * //     purchaseOption: "ONDEMAND" || "SPOT",
+ * //     purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK",
  * //     customLaunchTemplate: { // CustomLaunchTemplate
  * //       id: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required

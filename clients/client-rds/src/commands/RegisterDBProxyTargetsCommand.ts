@@ -34,6 +34,8 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * ```javascript
  * import { RDSClient, RegisterDBProxyTargetsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RegisterDBProxyTargetsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // RegisterDBProxyTargetsRequest
  *   DBProxyName: "STRING_VALUE", // required
@@ -58,8 +60,8 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * //       Type: "RDS_INSTANCE" || "RDS_SERVERLESS_ENDPOINT" || "TRACKED_CLUSTER",
  * //       Role: "READ_WRITE" || "READ_ONLY" || "UNKNOWN",
  * //       TargetHealth: { // TargetHealth
- * //         State: "REGISTERING" || "AVAILABLE" || "UNAVAILABLE",
- * //         Reason: "UNREACHABLE" || "CONNECTION_FAILED" || "AUTH_FAILURE" || "PENDING_PROXY_CAPACITY" || "INVALID_REPLICATION_STATE",
+ * //         State: "REGISTERING" || "AVAILABLE" || "UNAVAILABLE" || "UNUSED",
+ * //         Reason: "UNREACHABLE" || "CONNECTION_FAILED" || "AUTH_FAILURE" || "PENDING_PROXY_CAPACITY" || "INVALID_REPLICATION_STATE" || "PROMOTED",
  * //         Description: "STRING_VALUE",
  * //       },
  * //     },

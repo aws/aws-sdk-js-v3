@@ -38,6 +38,8 @@ export interface BatchGetProfileCommandOutput extends BatchGetProfileResponse, _
  * ```javascript
  * import { CustomerProfilesClient, BatchGetProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, BatchGetProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // BatchGetProfileRequest
  *   DomainName: "STRING_VALUE", // required

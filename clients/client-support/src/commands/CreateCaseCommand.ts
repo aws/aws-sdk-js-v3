@@ -66,6 +66,8 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * ```javascript
  * import { SupportClient, CreateCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, CreateCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * // import type { SupportClientConfig } from "@aws-sdk/client-support";
+ * const config = {}; // type is SupportClientConfig
  * const client = new SupportClient(config);
  * const input = { // CreateCaseRequest
  *   subject: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
  * ```javascript
  * import { LightsailClient, GetActiveNamesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetActiveNamesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetActiveNamesRequest
  *   pageToken: "STRING_VALUE",

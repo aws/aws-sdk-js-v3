@@ -34,6 +34,8 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AmpClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // DeleteResourcePolicyRequest
  *   workspaceId: "STRING_VALUE", // required

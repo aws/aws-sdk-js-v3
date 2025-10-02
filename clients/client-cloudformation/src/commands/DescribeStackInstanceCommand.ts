@@ -36,6 +36,8 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  * ```javascript
  * import { CloudFormationClient, DescribeStackInstanceCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackInstanceCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeStackInstanceInput
  *   StackSetName: "STRING_VALUE", // required

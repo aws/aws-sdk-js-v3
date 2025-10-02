@@ -37,6 +37,8 @@ export interface DeleteAuditSuppressionCommandOutput extends DeleteAuditSuppress
  * ```javascript
  * import { IoTClient, DeleteAuditSuppressionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteAuditSuppressionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteAuditSuppressionRequest
  *   checkName: "STRING_VALUE", // required

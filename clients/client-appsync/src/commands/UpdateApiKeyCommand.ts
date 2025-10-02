@@ -34,6 +34,8 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
  * ```javascript
  * import { AppSyncClient, UpdateApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // UpdateApiKeyRequest
  *   apiId: "STRING_VALUE", // required

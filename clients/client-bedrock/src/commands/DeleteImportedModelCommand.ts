@@ -34,6 +34,8 @@ export interface DeleteImportedModelCommandOutput extends DeleteImportedModelRes
  * ```javascript
  * import { BedrockClient, DeleteImportedModelCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, DeleteImportedModelCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // DeleteImportedModelRequest
  *   modelIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface RegisterNotificationHubCommandOutput extends RegisterNotificati
  * ```javascript
  * import { NotificationsClient, RegisterNotificationHubCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, RegisterNotificationHubCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // RegisterNotificationHubRequest
  *   notificationHubRegion: "STRING_VALUE", // required

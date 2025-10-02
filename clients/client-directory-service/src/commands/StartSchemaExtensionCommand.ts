@@ -34,6 +34,8 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  * ```javascript
  * import { DirectoryServiceClient, StartSchemaExtensionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, StartSchemaExtensionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // StartSchemaExtensionRequest
  *   DirectoryId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DescribeGatewayRouteCommandOutput extends DescribeGatewayRouteO
  * ```javascript
  * import { AppMeshClient, DescribeGatewayRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DescribeGatewayRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // DescribeGatewayRouteInput
  *   gatewayRouteName: "STRING_VALUE", // required

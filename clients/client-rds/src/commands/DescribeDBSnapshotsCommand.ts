@@ -34,6 +34,8 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * ```javascript
  * import { RDSClient, DescribeDBSnapshotsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBSnapshotsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeDBSnapshotsMessage
  *   DBInstanceIdentifier: "STRING_VALUE",
@@ -74,6 +76,7 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * //       LicenseModel: "STRING_VALUE",
  * //       SnapshotType: "STRING_VALUE",
  * //       Iops: Number("int"),
+ * //       StorageThroughput: Number("int"),
  * //       OptionGroupName: "STRING_VALUE",
  * //       PercentProgress: Number("int"),
  * //       SourceRegion: "STRING_VALUE",
@@ -98,13 +101,12 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SnapshotTarget: "STRING_VALUE",
  * //       OriginalSnapshotCreateTime: new Date("TIMESTAMP"),
  * //       SnapshotDatabaseTime: new Date("TIMESTAMP"),
- * //       SnapshotTarget: "STRING_VALUE",
- * //       StorageThroughput: Number("int"),
  * //       DBSystemId: "STRING_VALUE",
- * //       DedicatedLogVolume: true || false,
  * //       MultiTenant: true || false,
+ * //       DedicatedLogVolume: true || false,
  * //       SnapshotAvailabilityZone: "STRING_VALUE",
  * //     },
  * //   ],

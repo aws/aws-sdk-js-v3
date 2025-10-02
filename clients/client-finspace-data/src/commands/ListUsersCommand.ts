@@ -36,6 +36,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * ```javascript
  * import { FinspaceDataClient, ListUsersCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, ListUsersCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // import type { FinspaceDataClientConfig } from "@aws-sdk/client-finspace-data";
+ * const config = {}; // type is FinspaceDataClientConfig
  * const client = new FinspaceDataClient(config);
  * const input = { // ListUsersRequest
  *   nextToken: "STRING_VALUE",

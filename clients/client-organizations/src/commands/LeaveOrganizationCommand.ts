@@ -79,8 +79,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                </li>
  *                <li>
  *                   <p>A newly created account has a waiting period before it can be removed from
- *                         its organization.
- *                         You must wait until at least seven days after the account was created. Invited accounts aren't subject to this waiting period.</p>
+ *                         its organization. You must wait until at least seven days after the account
+ *                         was created. Invited accounts aren't subject to this waiting period.</p>
  *                </li>
  *                <li>
  *                   <p>If you are using an organization principal to call
@@ -94,6 +94,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OrganizationsClient, LeaveOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, LeaveOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = {};
  * const command = new LeaveOrganizationCommand(input);

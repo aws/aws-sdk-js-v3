@@ -34,6 +34,8 @@ export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByL
  * ```javascript
  * import { LakeFormationClient, SearchDatabasesByLFTagsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, SearchDatabasesByLFTagsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // SearchDatabasesByLFTagsRequest
  *   NextToken: "STRING_VALUE",

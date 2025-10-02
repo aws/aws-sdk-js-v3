@@ -65,6 +65,8 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  * ```javascript
  * import { IAMClient, SimulatePrincipalPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, SimulatePrincipalPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // SimulatePrincipalPolicyRequest
  *   PolicySourceArn: "STRING_VALUE", // required

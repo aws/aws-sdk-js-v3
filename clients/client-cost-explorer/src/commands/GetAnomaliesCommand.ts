@@ -36,6 +36,8 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * ```javascript
  * import { CostExplorerClient, GetAnomaliesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetAnomaliesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // import type { CostExplorerClientConfig } from "@aws-sdk/client-cost-explorer";
+ * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // GetAnomaliesRequest
  *   MonitorArn: "STRING_VALUE",

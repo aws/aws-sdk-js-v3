@@ -34,6 +34,8 @@ export interface DeleteIpAccessSettingsCommandOutput extends DeleteIpAccessSetti
  * ```javascript
  * import { WorkSpacesWebClient, DeleteIpAccessSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteIpAccessSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DeleteIpAccessSettingsRequest
  *   ipAccessSettingsArn: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeEngineVersionsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeEngineVersionsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeEngineVersionsMessage
  *   MaxRecords: Number("int"),

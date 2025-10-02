@@ -1,12 +1,12 @@
 // Required for testing CRC64NVME
 import "@aws-sdk/crc64-nvme-crt";
 
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable, Transform } from "stream";
 import { describe, expect, test as it } from "vitest";
 
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 import { DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 
 describe("middleware-flexible-checksums", () => {

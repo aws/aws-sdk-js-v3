@@ -35,6 +35,8 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * ```javascript
  * import { SSMClient, GetInventorySchemaCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetInventorySchemaCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetInventorySchemaRequest
  *   TypeName: "STRING_VALUE",

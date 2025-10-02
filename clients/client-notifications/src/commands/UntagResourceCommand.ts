@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { NotificationsClient, UntagResourceCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, UntagResourceCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // UntagResourceRequest
  *   arn: "STRING_VALUE", // required

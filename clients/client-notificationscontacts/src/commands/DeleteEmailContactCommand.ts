@@ -41,6 +41,8 @@ export interface DeleteEmailContactCommandOutput extends DeleteEmailContactRespo
  * ```javascript
  * import { NotificationsContactsClient, DeleteEmailContactCommand } from "@aws-sdk/client-notificationscontacts"; // ES Modules import
  * // const { NotificationsContactsClient, DeleteEmailContactCommand } = require("@aws-sdk/client-notificationscontacts"); // CommonJS import
+ * // import type { NotificationsContactsClientConfig } from "@aws-sdk/client-notificationscontacts";
+ * const config = {}; // type is NotificationsContactsClientConfig
  * const client = new NotificationsContactsClient(config);
  * const input = { // DeleteEmailContactRequest
  *   arn: "STRING_VALUE", // required

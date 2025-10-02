@@ -71,6 +71,8 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * ```javascript
  * import { RedshiftDataClient, ListTablesCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, ListTablesCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * // import type { RedshiftDataClientConfig } from "@aws-sdk/client-redshift-data";
+ * const config = {}; // type is RedshiftDataClientConfig
  * const client = new RedshiftDataClient(config);
  * const input = { // ListTablesRequest
  *   ClusterIdentifier: "STRING_VALUE",

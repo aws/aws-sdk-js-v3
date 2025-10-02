@@ -29,8 +29,8 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
 
 /**
  * <p>Provides detailed information about a KMS key. You can run <code>DescribeKey</code> on a
- *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed
- *         key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p>
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer
+ *         managed key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p>
  *          <p>This detailed information includes the key ARN, creation date (and deletion date, if
  *       applicable), the key state, and the origin and expiration date (if any) of the key material.
  *       It includes fields, like <code>KeySpec</code>, that help you distinguish different types of
@@ -117,6 +117,8 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * ```javascript
  * import { KMSClient, DescribeKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DescribeKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // DescribeKeyRequest
  *   KeyId: "STRING_VALUE", // required

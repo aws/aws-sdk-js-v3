@@ -37,6 +37,8 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  * ```javascript
  * import { CloudDirectoryClient, CreateObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // CreateObjectRequest
  *   DirectoryArn: "STRING_VALUE", // required

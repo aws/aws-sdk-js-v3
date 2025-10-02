@@ -42,13 +42,23 @@ export interface CreateBrowserCommandOutput extends CreateBrowserResponse, __Met
  * ```javascript
  * import { BedrockAgentCoreControlClient, CreateBrowserCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, CreateBrowserCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // CreateBrowserRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   executionRoleArn: "STRING_VALUE",
  *   networkConfiguration: { // BrowserNetworkConfiguration
- *     networkMode: "PUBLIC", // required
+ *     networkMode: "PUBLIC" || "VPC", // required
+ *     vpcConfig: { // VpcConfig
+ *       securityGroups: [ // SecurityGroups // required
+ *         "STRING_VALUE",
+ *       ],
+ *       subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   recording: { // RecordingConfig
  *     enabled: true || false,
@@ -58,6 +68,9 @@ export interface CreateBrowserCommandOutput extends CreateBrowserResponse, __Met
  *     },
  *   },
  *   clientToken: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateBrowserCommand(input);
  * const response = await client.send(command);

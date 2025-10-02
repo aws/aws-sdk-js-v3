@@ -39,6 +39,8 @@ export interface ListMetricAttributionMetricsCommandOutput
  * ```javascript
  * import { PersonalizeClient, ListMetricAttributionMetricsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListMetricAttributionMetricsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // ListMetricAttributionMetricsRequest
  *   metricAttributionArn: "STRING_VALUE",

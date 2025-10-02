@@ -51,6 +51,8 @@ export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGrou
  * ```javascript
  * import { GameLiftClient, UpdateGameServerGroupCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateGameServerGroupCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // UpdateGameServerGroupInput
  *   GameServerGroupName: "STRING_VALUE", // required

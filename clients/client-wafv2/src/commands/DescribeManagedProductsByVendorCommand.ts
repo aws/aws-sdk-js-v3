@@ -39,6 +39,8 @@ export interface DescribeManagedProductsByVendorCommandOutput
  * ```javascript
  * import { WAFV2Client, DescribeManagedProductsByVendorCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DescribeManagedProductsByVendorCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // import type { WAFV2ClientConfig } from "@aws-sdk/client-wafv2";
+ * const config = {}; // type is WAFV2ClientConfig
  * const client = new WAFV2Client(config);
  * const input = { // DescribeManagedProductsByVendorRequest
  *   VendorName: "STRING_VALUE", // required

@@ -73,6 +73,8 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  * ```javascript
  * import { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
  * // const { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
+ * // import type { TranscribeStreamingClientConfig } from "@aws-sdk/client-transcribe-streaming";
+ * const config = {}; // type is TranscribeStreamingClientConfig
  * const client = new TranscribeStreamingClient(config);
  * const input = { // StartCallAnalyticsStreamTranscriptionRequest
  *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",

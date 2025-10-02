@@ -40,6 +40,8 @@ export interface AssociatePersonasToEntitiesCommandOutput
  * ```javascript
  * import { KendraClient, AssociatePersonasToEntitiesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, AssociatePersonasToEntitiesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // AssociatePersonasToEntitiesRequest
  *   Id: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DescribeWatchlistCommandOutput extends DescribeWatchlistRespons
  * ```javascript
  * import { VoiceIDClient, DescribeWatchlistCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DescribeWatchlistCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // import type { VoiceIDClientConfig } from "@aws-sdk/client-voice-id";
+ * const config = {}; // type is VoiceIDClientConfig
  * const client = new VoiceIDClient(config);
  * const input = { // DescribeWatchlistRequest
  *   DomainId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * ```javascript
  * import { SSMClient, UpdateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // UpdateDocumentRequest
  *   Content: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  * ```javascript
  * import { RedshiftServerlessClient, DeleteUsageLimitCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, DeleteUsageLimitCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // DeleteUsageLimitRequest
  *   usageLimitId: "STRING_VALUE", // required

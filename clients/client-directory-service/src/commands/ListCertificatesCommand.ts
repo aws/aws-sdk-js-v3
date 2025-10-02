@@ -35,6 +35,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResult, _
  * ```javascript
  * import { DirectoryServiceClient, ListCertificatesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListCertificatesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // ListCertificatesRequest
  *   DirectoryId: "STRING_VALUE", // required

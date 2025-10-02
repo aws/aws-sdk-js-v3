@@ -39,6 +39,8 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * ```javascript
  * import { ConnectClient, SearchUsersCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchUsersCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // SearchUsersRequest
  *   InstanceId: "STRING_VALUE", // required
@@ -157,6 +159,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * //         AutoAccept: true || false,
  * //         AfterContactWorkTimeLimit: Number("int"),
  * //         DeskPhoneNumber: "STRING_VALUE",
+ * //         PersistentConnection: true || false,
  * //       },
  * //       RoutingProfileId: "STRING_VALUE",
  * //       SecurityProfileIds: [ // SecurityProfileIds

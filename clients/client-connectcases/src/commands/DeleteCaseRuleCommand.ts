@@ -34,6 +34,8 @@ export interface DeleteCaseRuleCommandOutput extends DeleteCaseRuleResponse, __M
  * ```javascript
  * import { ConnectCasesClient, DeleteCaseRuleCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, DeleteCaseRuleCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // DeleteCaseRuleRequest
  *   domainId: "STRING_VALUE", // required

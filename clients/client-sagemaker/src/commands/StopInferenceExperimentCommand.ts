@@ -34,6 +34,8 @@ export interface StopInferenceExperimentCommandOutput extends StopInferenceExper
  * ```javascript
  * import { SageMakerClient, StopInferenceExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopInferenceExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // StopInferenceExperimentRequest
  *   Name: "STRING_VALUE", // required

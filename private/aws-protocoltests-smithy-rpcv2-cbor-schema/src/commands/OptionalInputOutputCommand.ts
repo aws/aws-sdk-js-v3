@@ -34,6 +34,8 @@ export interface OptionalInputOutputCommandOutput extends SimpleStructure, __Met
  * ```javascript
  * import { RpcV2ProtocolClient, OptionalInputOutputCommand } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema"; // ES Modules import
  * // const { RpcV2ProtocolClient, OptionalInputOutputCommand } = require("@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema"); // CommonJS import
+ * // import type { RpcV2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema";
+ * const config = {}; // type is RpcV2ProtocolClientConfig
  * const client = new RpcV2ProtocolClient(config);
  * const input = { // SimpleStructure
  *   value: "STRING_VALUE",

@@ -38,6 +38,8 @@ export interface DisassociateOpportunityCommandOutput extends __MetadataBearer {
  * ```javascript
  * import { PartnerCentralSellingClient, DisassociateOpportunityCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, DisassociateOpportunityCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // DisassociateOpportunityRequest
  *   Catalog: "STRING_VALUE", // required

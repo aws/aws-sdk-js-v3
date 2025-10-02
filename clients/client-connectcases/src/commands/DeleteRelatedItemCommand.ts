@@ -34,6 +34,8 @@ export interface DeleteRelatedItemCommandOutput extends DeleteRelatedItemRespons
  * ```javascript
  * import { ConnectCasesClient, DeleteRelatedItemCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, DeleteRelatedItemCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // DeleteRelatedItemRequest
  *   domainId: "STRING_VALUE", // required

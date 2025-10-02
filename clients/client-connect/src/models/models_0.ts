@@ -1455,6 +1455,34 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ */
+export interface AssociateContactWithUserRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+   * @public
+   */
+  UserId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateContactWithUserResponse {}
+
+/**
+ * @public
  * @enum
  */
 export const VocabularyLanguageCode = {
@@ -1970,6 +1998,19 @@ export interface RoutingProfileQueueReference {
 }
 
 /**
+ * <p>Contains information about the queue and channel for manual assignment behaviour can be
+ *    enabled.</p>
+ * @public
+ */
+export interface RoutingProfileManualAssignmentQueueConfig {
+  /**
+   * <p>Contains the channel and queue identifier for a routing profile.</p>
+   * @public
+   */
+  QueueReference: RoutingProfileQueueReference | undefined;
+}
+
+/**
  * <p>Contains information about the queue and channel for which priority and delay can be
  *    set.</p>
  * @public
@@ -2018,7 +2059,13 @@ export interface AssociateRoutingProfileQueuesRequest {
    * <p>The queues to associate with this routing profile.</p>
    * @public
    */
-  QueueConfigs: RoutingProfileQueueConfig[] | undefined;
+  QueueConfigs?: RoutingProfileQueueConfig[] | undefined;
+
+  /**
+   * <p>The manual assignment queues to associate with this routing profile.</p>
+   * @public
+   */
+  ManualAssignmentQueueConfigs?: RoutingProfileManualAssignmentQueueConfig[] | undefined;
 }
 
 /**
@@ -4720,6 +4767,21 @@ export interface CreatePersistentContactAssociationResponse {
 }
 
 /**
+ * <p>Custom metadata that is associated to predefined attributes to control behavior in upstream
+ *    services, such as controlling how a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+ * @public
+ */
+export interface InputPredefinedAttributeConfiguration {
+  /**
+   * <p>When this parameter is set to true, Amazon Connect enforces strict validation on the
+   *    specific values, if the values are predefined in attributes. The contact will store only valid
+   *    and predefined values for the predefined attribute key.</p>
+   * @public
+   */
+  EnableValueValidationOnAssociation?: boolean | undefined;
+}
+
+/**
  * <p>Information about values of a predefined attribute.</p>
  * @public
  */
@@ -4780,7 +4842,21 @@ export interface CreatePredefinedAttributeRequest {
    * <p> The values of the predefined attribute. </p>
    * @public
    */
-  Values: PredefinedAttributeValues | undefined;
+  Values?: PredefinedAttributeValues | undefined;
+
+  /**
+   * <p>Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Amazon Connect admin website.</p>
+   * @public
+   */
+  Purposes?: string[] | undefined;
+
+  /**
+   * <p>Custom metadata that is associated to predefined attributes to control behavior
+   * in upstream services, such as controlling
+   * how a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+   * @public
+   */
+  AttributeConfiguration?: InputPredefinedAttributeConfiguration | undefined;
 }
 
 /**
@@ -5294,6 +5370,17 @@ export interface CreateRoutingProfileRequest {
    * @public
    */
   QueueConfigs?: RoutingProfileQueueConfig[] | undefined;
+
+  /**
+   * <p>The manual assignment queues associated with the routing profile. If no queue is added,
+   *    agents and supervisors can't pick or assign any contacts from this routing profile. The limit of
+   *    10 array members applies to the maximum number of RoutingProfileManualAssignmentQueueConfig
+   *    objects that can be passed during a CreateRoutingProfile API request. It is different from the
+   *    quota of 50 queues per routing profile per instance that is listed in Amazon Connect service
+   *    quotas.</p>
+   * @public
+   */
+  ManualAssignmentQueueConfigs?: RoutingProfileManualAssignmentQueueConfig[] | undefined;
 
   /**
    * <p>The channels that agents can handle in the Contact Control Panel (CCP) for this routing
@@ -6559,6 +6646,12 @@ export interface UserPhoneConfig {
    * @public
    */
   DeskPhoneNumber?: string | undefined;
+
+  /**
+   * <p>The persistent connection setting for the user.</p>
+   * @public
+   */
+  PersistentConnection?: boolean | undefined;
 }
 
 /**
@@ -7359,83 +7452,6 @@ export interface DeleteEvaluationFormRequest {
    * @public
    */
   EvaluationFormVersion?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteHoursOfOperationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the hours of operation.</p>
-   * @public
-   */
-  HoursOfOperationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteHoursOfOperationOverrideRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the hours of operation.</p>
-   * @public
-   */
-  HoursOfOperationId: string | undefined;
-
-  /**
-   * <p>The identifier for the hours of operation override.</p>
-   * @public
-   */
-  HoursOfOperationOverrideId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInstanceRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIntegrationAssociationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the integration association.</p>
-   * @public
-   */
-  IntegrationAssociationId: string | undefined;
 }
 
 /**

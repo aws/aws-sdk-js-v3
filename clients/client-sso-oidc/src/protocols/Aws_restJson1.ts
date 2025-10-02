@@ -343,6 +343,7 @@ const de_AccessDeniedExceptionRes = async (
   const doc = take(data, {
     error: __expectString,
     error_description: __expectString,
+    reason: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new AccessDeniedException({
@@ -511,6 +512,7 @@ const de_InvalidRequestExceptionRes = async (
   const doc = take(data, {
     error: __expectString,
     error_description: __expectString,
+    reason: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InvalidRequestException({

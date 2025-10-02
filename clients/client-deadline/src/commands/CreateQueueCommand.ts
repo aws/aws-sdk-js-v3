@@ -35,6 +35,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, CreateQueueCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, CreateQueueCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // CreateQueueRequest
  *   clientToken: "STRING_VALUE",

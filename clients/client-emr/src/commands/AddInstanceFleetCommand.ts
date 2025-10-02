@@ -38,6 +38,8 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  * ```javascript
  * import { EMRClient, AddInstanceFleetCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, AddInstanceFleetCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // AddInstanceFleetInput
  *   ClusterId: "STRING_VALUE", // required

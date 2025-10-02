@@ -42,6 +42,8 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * ```javascript
  * import { RDSDataClient, BeginTransactionCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, BeginTransactionCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
+ * // import type { RDSDataClientConfig } from "@aws-sdk/client-rds-data";
+ * const config = {}; // type is RDSDataClientConfig
  * const client = new RDSDataClient(config);
  * const input = { // BeginTransactionRequest
  *   resourceArn: "STRING_VALUE", // required

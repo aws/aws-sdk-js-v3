@@ -34,6 +34,8 @@ export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOut
  * ```javascript
  * import { AppMeshClient, ListVirtualServicesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListVirtualServicesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // ListVirtualServicesInput
  *   meshName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * ```javascript
  * import { AutoScalingClient, DescribeAutoScalingInstancesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeAutoScalingInstancesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // DescribeAutoScalingInstancesType
  *   InstanceIds: [ // InstanceIds

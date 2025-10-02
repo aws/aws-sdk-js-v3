@@ -38,6 +38,8 @@ export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGr
  * ```javascript
  * import { TimestreamInfluxDBClient, CreateDbParameterGroupCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, CreateDbParameterGroupCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
+ * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // CreateDbParameterGroupInput
  *   name: "STRING_VALUE", // required

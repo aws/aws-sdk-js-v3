@@ -34,6 +34,8 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  * ```javascript
  * import { QConnectClient, ListImportJobsCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, ListImportJobsCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // ListImportJobsRequest
  *   nextToken: "STRING_VALUE",

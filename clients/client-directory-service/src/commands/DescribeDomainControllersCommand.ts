@@ -34,6 +34,8 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * ```javascript
  * import { DirectoryServiceClient, DescribeDomainControllersCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeDomainControllersCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeDomainControllersRequest
  *   DirectoryId: "STRING_VALUE", // required
@@ -51,6 +53,7 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * //       DirectoryId: "STRING_VALUE",
  * //       DomainControllerId: "STRING_VALUE",
  * //       DnsIpAddr: "STRING_VALUE",
+ * //       DnsIpv6Addr: "STRING_VALUE",
  * //       VpcId: "STRING_VALUE",
  * //       SubnetId: "STRING_VALUE",
  * //       AvailabilityZone: "STRING_VALUE",

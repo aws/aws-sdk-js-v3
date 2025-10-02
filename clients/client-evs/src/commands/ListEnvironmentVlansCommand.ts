@@ -34,6 +34,8 @@ export interface ListEnvironmentVlansCommandOutput extends ListEnvironmentVlansR
  * ```javascript
  * import { EvsClient, ListEnvironmentVlansCommand } from "@aws-sdk/client-evs"; // ES Modules import
  * // const { EvsClient, ListEnvironmentVlansCommand } = require("@aws-sdk/client-evs"); // CommonJS import
+ * // import type { EvsClientConfig } from "@aws-sdk/client-evs";
+ * const config = {}; // type is EvsClientConfig
  * const client = new EvsClient(config);
  * const input = { // ListEnvironmentVlansRequest
  *   nextToken: "STRING_VALUE",
@@ -55,6 +57,15 @@ export interface ListEnvironmentVlansCommandOutput extends ListEnvironmentVlansR
  * //       modifiedAt: new Date("TIMESTAMP"),
  * //       vlanState: "CREATING" || "CREATED" || "DELETING" || "DELETED" || "CREATE_FAILED",
  * //       stateDetails: "STRING_VALUE",
+ * //       eipAssociations: [ // EipAssociationList
+ * //         { // EipAssociation
+ * //           associationId: "STRING_VALUE",
+ * //           allocationId: "STRING_VALUE",
+ * //           ipAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       isPublic: true || false,
+ * //       networkAclId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

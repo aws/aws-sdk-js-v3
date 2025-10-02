@@ -41,6 +41,8 @@ export interface DeleteIdentityCenterApplicationCommandOutput
  * ```javascript
  * import { WorkMailClient, DeleteIdentityCenterApplicationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteIdentityCenterApplicationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // DeleteIdentityCenterApplicationRequest
  *   ApplicationArn: "STRING_VALUE", // required

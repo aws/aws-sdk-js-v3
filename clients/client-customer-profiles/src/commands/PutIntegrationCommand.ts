@@ -10,7 +10,7 @@ import {
   PutIntegrationRequest,
   PutIntegrationRequestFilterSensitiveLog,
   PutIntegrationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_PutIntegrationCommand, se_PutIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -43,6 +43,8 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * ```javascript
  * import { CustomerProfilesClient, PutIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, PutIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // PutIntegrationRequest
  *   DomainName: "STRING_VALUE", // required

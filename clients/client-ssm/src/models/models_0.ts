@@ -1184,14 +1184,15 @@ export interface TargetLocation {
 
   /**
    * <p>The maximum number of Amazon Web Services Regions and Amazon Web Services accounts allowed to run the Automation
-   *    concurrently.</p>
+   *    concurrently. <code>TargetLocationMaxConcurrency</code> has a default value of 1.</p>
    * @public
    */
   TargetLocationMaxConcurrency?: string | undefined;
 
   /**
    * <p>The maximum number of errors allowed before the system stops queueing additional Automation
-   *    executions for the currently running Automation.</p>
+   *    executions for the currently running Automation. <code>TargetLocationMaxErrors</code> has a
+   *    default value of 0.</p>
    * @public
    */
   TargetLocationMaxErrors?: string | undefined;
@@ -1213,6 +1214,9 @@ export interface TargetLocation {
   /**
    * <p>Indicates whether to include child organizational units (OUs) that are children of the
    *    targeted OUs. The default is <code>false</code>.</p>
+   *          <note>
+   *             <p>This parameter is not supported by State Manager.</p>
+   *          </note>
    * @public
    */
   IncludeChildOrganizationUnits?: boolean | undefined;
@@ -1423,6 +1427,9 @@ export interface CreateAssociationRequest {
    * <p>A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the
    *    association. Use this action to create an association in multiple Regions and multiple
    *    accounts.</p>
+   *          <note>
+   *             <p>The <code>IncludeChildOrganizationUnits</code> parameter is not supported by State Manager.</p>
+   *          </note>
    * @public
    */
   TargetLocations?: TargetLocation[] | undefined;
@@ -4020,9 +4027,21 @@ export interface CreatePatchBaselineRequest {
    *                <p>
    *                   <b>All OSs</b>: Packages in the rejected patches list, and
    *       packages that include them as dependencies, aren't installed by Patch Manager under any
-   *       circumstances. If a package was installed before it was added to the rejected patches list, or
-   *       is installed outside of Patch Manager afterward, it's considered noncompliant with the patch
-   *       baseline and its status is reported as <code>INSTALLED_REJECTED</code>.</p>
+   *       circumstances. </p>
+   *                <p>State value assignment for patch compliance:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>If a package was installed before it was added to the rejected patches list, or is
+   *         installed outside of Patch Manager afterward, it's considered noncompliant with the patch
+   *         baseline and its status is reported as <code>INSTALLED_REJECTED</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If an update attempts to install a dependency package that is now rejected by the
+   *         baseline, when previous versions of the package were not rejected, the package being updated
+   *         is reported as <code>MISSING</code> for <code>SCAN</code> operations and as
+   *          <code>FAILED</code> for <code>INSTALL</code> operations.</p>
+   *                   </li>
+   *                </ul>
    *             </dd>
    *          </dl>
    * @public

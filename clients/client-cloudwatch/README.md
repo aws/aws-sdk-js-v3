@@ -257,6 +257,14 @@ DeleteMetricStream
 </details>
 <details>
 <summary>
+DescribeAlarmContributors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DescribeAlarmContributorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch/Interface/DescribeAlarmContributorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch/Interface/DescribeAlarmContributorsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeAlarmHistory
 </summary>
 

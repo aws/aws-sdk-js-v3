@@ -38,6 +38,8 @@ export interface CreatePromptRouterCommandOutput extends CreatePromptRouterRespo
  * ```javascript
  * import { BedrockClient, CreatePromptRouterCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreatePromptRouterCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // CreatePromptRouterRequest
  *   clientRequestToken: "STRING_VALUE",

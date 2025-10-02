@@ -40,6 +40,8 @@ export interface UpdateDomainLayoutCommandOutput extends UpdateDomainLayoutRespo
  * ```javascript
  * import { CustomerProfilesClient, UpdateDomainLayoutCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, UpdateDomainLayoutCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // UpdateDomainLayoutRequest
  *   DomainName: "STRING_VALUE", // required

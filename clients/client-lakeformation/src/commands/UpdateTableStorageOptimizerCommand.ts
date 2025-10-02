@@ -39,6 +39,8 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * ```javascript
  * import { LakeFormationClient, UpdateTableStorageOptimizerCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, UpdateTableStorageOptimizerCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateTableStorageOptimizerRequest
  *   CatalogId: "STRING_VALUE",

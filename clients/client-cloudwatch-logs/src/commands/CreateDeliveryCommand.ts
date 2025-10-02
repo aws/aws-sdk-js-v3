@@ -66,6 +66,8 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  * ```javascript
  * import { CloudWatchLogsClient, CreateDeliveryCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateDeliveryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // CreateDeliveryRequest
  *   deliverySourceName: "STRING_VALUE", // required

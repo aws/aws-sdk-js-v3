@@ -34,6 +34,8 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * ```javascript
  * import { EventBridgeClient, UpdateApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, UpdateApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // UpdateApiDestinationRequest
  *   Name: "STRING_VALUE", // required

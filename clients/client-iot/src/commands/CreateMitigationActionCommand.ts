@@ -36,6 +36,8 @@ export interface CreateMitigationActionCommandOutput extends CreateMitigationAct
  * ```javascript
  * import { IoTClient, CreateMitigationActionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateMitigationActionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreateMitigationActionRequest
  *   actionName: "STRING_VALUE", // required

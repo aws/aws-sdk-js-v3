@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse } from "../models/models_0";
+import { PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse } from "../models/models_1";
 import { de_PutAccountSettingDefaultCommand, se_PutAccountSettingDefaultCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -35,6 +35,8 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * ```javascript
  * import { ECSClient, PutAccountSettingDefaultCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutAccountSettingDefaultCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // PutAccountSettingDefaultRequest
  *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod" || "guardDutyActivate" || "defaultLogDriverMode", // required

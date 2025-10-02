@@ -48,6 +48,8 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * ```javascript
  * import { BatchClient, SubmitJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, SubmitJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // SubmitJobRequest
  *   jobName: "STRING_VALUE", // required

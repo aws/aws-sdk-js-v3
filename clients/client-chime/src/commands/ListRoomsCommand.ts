@@ -34,6 +34,8 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * ```javascript
  * import { ChimeClient, ListRoomsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListRoomsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // ListRoomsRequest
  *   AccountId: "STRING_VALUE", // required

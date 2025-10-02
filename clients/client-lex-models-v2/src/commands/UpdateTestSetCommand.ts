@@ -34,6 +34,8 @@ export interface UpdateTestSetCommandOutput extends UpdateTestSetResponse, __Met
  * ```javascript
  * import { LexModelsV2Client, UpdateTestSetCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateTestSetCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // UpdateTestSetRequest
  *   testSetId: "STRING_VALUE", // required

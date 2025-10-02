@@ -34,6 +34,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * ```javascript
  * import { QBusinessClient, CreateUserCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, CreateUserCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // CreateUserRequest
  *   applicationId: "STRING_VALUE", // required

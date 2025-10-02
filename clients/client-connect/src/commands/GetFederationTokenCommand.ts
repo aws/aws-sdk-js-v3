@@ -52,6 +52,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * ```javascript
  * import { ConnectClient, GetFederationTokenCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetFederationTokenCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // GetFederationTokenRequest
  *   InstanceId: "STRING_VALUE", // required

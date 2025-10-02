@@ -34,6 +34,8 @@ export interface DeleteTableVersionCommandOutput extends DeleteTableVersionRespo
  * ```javascript
  * import { GlueClient, DeleteTableVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteTableVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteTableVersionRequest
  *   CatalogId: "STRING_VALUE",

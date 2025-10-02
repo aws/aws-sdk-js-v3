@@ -35,6 +35,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * ```javascript
  * import { SyntheticsClient, ListGroupsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, ListGroupsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // import type { SyntheticsClientConfig } from "@aws-sdk/client-synthetics";
+ * const config = {}; // type is SyntheticsClientConfig
  * const client = new SyntheticsClient(config);
  * const input = { // ListGroupsRequest
  *   NextToken: "STRING_VALUE",

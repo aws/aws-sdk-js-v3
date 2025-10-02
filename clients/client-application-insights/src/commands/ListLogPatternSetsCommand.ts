@@ -38,6 +38,8 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
  * ```javascript
  * import { ApplicationInsightsClient, ListLogPatternSetsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListLogPatternSetsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * // import type { ApplicationInsightsClientConfig } from "@aws-sdk/client-application-insights";
+ * const config = {}; // type is ApplicationInsightsClientConfig
  * const client = new ApplicationInsightsClient(config);
  * const input = { // ListLogPatternSetsRequest
  *   ResourceGroupName: "STRING_VALUE", // required

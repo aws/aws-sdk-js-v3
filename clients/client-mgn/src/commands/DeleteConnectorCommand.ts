@@ -34,6 +34,8 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { MgnClient, DeleteConnectorCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteConnectorCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // DeleteConnectorRequest
  *   connectorID: "STRING_VALUE", // required

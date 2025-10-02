@@ -39,6 +39,8 @@ export interface DeleteRepositoryCreationTemplateCommandOutput
  * ```javascript
  * import { ECRClient, DeleteRepositoryCreationTemplateCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DeleteRepositoryCreationTemplateCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // DeleteRepositoryCreationTemplateRequest
  *   prefix: "STRING_VALUE", // required

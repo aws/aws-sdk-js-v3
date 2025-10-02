@@ -37,6 +37,8 @@ export interface DisassociateAnalyticsDataSetCommandOutput extends __MetadataBea
  * ```javascript
  * import { ConnectClient, DisassociateAnalyticsDataSetCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateAnalyticsDataSetCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DisassociateAnalyticsDataSetRequest
  *   InstanceId: "STRING_VALUE", // required

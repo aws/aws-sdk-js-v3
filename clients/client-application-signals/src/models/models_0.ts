@@ -43,9 +43,7 @@ export interface BatchGetServiceLevelObjectiveBudgetReportInput {
 }
 
 /**
- * <p>A structure containing information about one error that occurred during a
- *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_BatchGetServiceLevelObjectiveBudgetReport.html">BatchGetServiceLevelObjectiveBudgetReport</a>
- *          operation.</p>
+ * <p>A structure containing information about one error that occurred during a <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_BatchGetServiceLevelObjectiveBudgetReport.html">BatchGetServiceLevelObjectiveBudgetReport</a> operation.</p>
  * @public
  */
 export interface ServiceLevelObjectiveBudgetReportError {
@@ -127,13 +125,7 @@ export type DurationUnit = (typeof DurationUnit)[keyof typeof DurationUnit];
  */
 export interface CalendarInterval {
   /**
-   * <p>The date and time when you want the first interval to start. Be sure to choose a time that configures the
-   *          intervals the way that you want. For example, if you want weekly intervals
-   *          starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.</p>
-   *          <p>When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>As soon as one calendar interval ends, another automatically begins.</p>
+   * <p>The date and time when you want the first interval to start. Be sure to choose a time that configures the intervals the way that you want. For example, if you want weekly intervals starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.</p> <p>When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>As soon as one calendar interval ends, another automatically begins.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -145,8 +137,7 @@ export interface CalendarInterval {
   DurationUnit: DurationUnit | undefined;
 
   /**
-   * <p>Specifies the duration of each calendar interval. For example, if <code>Duration</code> is <code>1</code> and
-   *          <code>DurationUnit</code> is <code>MONTH</code>, each interval is one month, aligned with the calendar.</p>
+   * <p>Specifies the duration of each calendar interval. For example, if <code>Duration</code> is <code>1</code> and <code>DurationUnit</code> is <code>MONTH</code>, each interval is one month, aligned with the calendar.</p>
    * @public
    */
   Duration: number | undefined;
@@ -164,8 +155,7 @@ export interface RollingInterval {
   DurationUnit: DurationUnit | undefined;
 
   /**
-   * <p>Specifies the duration of each rolling interval. For example, if <code>Duration</code> is <code>7</code> and
-   *          <code>DurationUnit</code> is <code>DAY</code>, each rolling interval is seven days.</p>
+   * <p>Specifies the duration of each rolling interval. For example, if <code>Duration</code> is <code>7</code> and <code>DurationUnit</code> is <code>DAY</code>, each rolling interval is seven days.</p>
    * @public
    */
   Duration: number | undefined;
@@ -224,35 +214,24 @@ export namespace Interval {
 }
 
 /**
- * <p>This structure contains the attributes that determine the goal of an SLO. This includes
- *          the time period for evaluation and the attainment threshold.</p>
+ * <p>This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.</p>
  * @public
  */
 export interface Goal {
   /**
-   * <p>The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.</p>
-   *          <p>If you omit this parameter, a rolling interval of 7 days is used.</p>
+   * <p>The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.</p> <p>If you omit this parameter, a rolling interval of 7 days is used.</p>
    * @public
    */
   Interval?: Interval | undefined;
 
   /**
-   * <p>The threshold that determines if the goal is being met.</p>
-   *          <p>If this is a period-based SLO, the attainment goal is the
-   *          percentage of good periods that meet the threshold requirements to the total periods within the interval.
-   *          For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the
-   *          periods to be in healthy state.</p>
-   *          <p>If this is a request-based SLO, the attainment goal is the percentage of requests that must be
-   *       successful to meet the attainment goal.</p>
-   *          <p>If you omit this parameter, 99 is used
-   *          to represent 99% as the attainment goal.</p>
+   * <p>The threshold that determines if the goal is being met.</p> <p>If this is a period-based SLO, the attainment goal is the percentage of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.</p> <p>If this is a request-based SLO, the attainment goal is the percentage of requests that must be successful to meet the attainment goal.</p> <p>If you omit this parameter, 99 is used to represent 99% as the attainment goal.</p>
    * @public
    */
   AttainmentGoal?: number | undefined;
 
   /**
-   * <p>The percentage of remaining budget over total budget that you want to get warnings for.
-   *          If you omit this parameter, the default of 50.0 is used. </p>
+   * <p>The percentage of remaining budget over total budget that you want to get warnings for. If you omit this parameter, the default of 50.0 is used. </p>
    * @public
    */
   WarningThreshold?: number | undefined;
@@ -276,41 +255,12 @@ export type ServiceLevelIndicatorComparisonOperator =
   (typeof ServiceLevelIndicatorComparisonOperator)[keyof typeof ServiceLevelIndicatorComparisonOperator];
 
 /**
- * <p>Identifies the dependency using the <code>DependencyKeyAttributes</code> and <code>DependencyOperationName</code>.</p>
- *          <p>When creating a service dependency SLO, you must specify the <code>KeyAttributes</code> of the service, and the <code>DependencyConfig</code> for the dependency. You can specify the <code>OperationName</code> of the service, from which it calls the dependency. Alternatively,
- *          you can exclude <code>OperationName</code> and the SLO will monitor all of the service's operations that call the dependency.</p>
+ * <p>Identifies the dependency using the <code>DependencyKeyAttributes</code> and <code>DependencyOperationName</code>.</p> <p>When creating a service dependency SLO, you must specify the <code>KeyAttributes</code> of the service, and the <code>DependencyConfig</code> for the dependency. You can specify the <code>OperationName</code> of the service, from which it calls the dependency. Alternatively, you can exclude <code>OperationName</code> and the SLO will monitor all of the service's operations that call the dependency.</p>
  * @public
  */
 export interface DependencyConfig {
   /**
-   * <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   DependencyKeyAttributes: Record<string, string> | undefined;
@@ -338,28 +288,18 @@ export type ServiceLevelIndicatorMetricType =
   (typeof ServiceLevelIndicatorMetricType)[keyof typeof ServiceLevelIndicatorMetricType];
 
 /**
- * <p>A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique
- *          identifier for a metric, whenever you add a unique name/value pair to one of
- *          your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish
- *          <code>InstanceId</code> as a dimension name, and the actual instance ID as the value for that dimension.</p>
- *          <p>You
- *          can assign up to 30 dimensions to a metric.</p>
+ * <p>A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish <code>InstanceId</code> as a dimension name, and the actual instance ID as the value for that dimension.</p> <p>You can assign up to 30 dimensions to a metric.</p>
  * @public
  */
 export interface Dimension {
   /**
-   * <p>The name of the dimension. Dimension names must contain only ASCII characters, must include
-   *          at least one non-whitespace character, and cannot start with a colon (<code>:</code>).
-   *          ASCII
-   *          control characters are not supported as part of dimension names.</p>
+   * <p>The name of the dimension. Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (<code>:</code>). ASCII control characters are not supported as part of dimension names.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The value of the dimension. Dimension values must contain only ASCII characters and must include
-   *          at least one non-whitespace character. ASCII
-   *          control characters are not supported as part of dimension values.</p>
+   * <p>The value of the dimension. Dimension values must contain only ASCII characters and must include at least one non-whitespace character. ASCII control characters are not supported as part of dimension values.</p>
    * @public
    */
   Value: string | undefined;
@@ -371,8 +311,7 @@ export interface Dimension {
  */
 export interface Metric {
   /**
-   * <p>The namespace of the metric. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace">Namespaces</a>.</p>
+   * <p>The namespace of the metric. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace">Namespaces</a>.</p>
    * @public
    */
   Namespace?: string | undefined;
@@ -384,9 +323,7 @@ export interface Metric {
   MetricName?: string | undefined;
 
   /**
-   * <p>An array of one or more dimensions to use to define the metric that you want to use.
-   *          For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension">Dimensions</a>.</p>
+   * <p>An array of one or more dimensions to use to define the metric that you want to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension">Dimensions</a>.</p>
    * @public
    */
   Dimensions?: Dimension[] | undefined;
@@ -443,133 +380,74 @@ export interface MetricStat {
   Metric: Metric | undefined;
 
   /**
-   * <p>The granularity, in seconds, to be used for the metric. For metrics with regular resolution, a period can
-   *          be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected
-   *          at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics
-   *          are those metrics stored by a <code>PutMetricData</code> call that includes a <code>StorageResolution</code> of 1 second.</p>
+   * <p>The granularity, in seconds, to be used for the metric. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a <code>PutMetricData</code> call that includes a <code>StorageResolution</code> of 1 second.</p>
    * @public
    */
   Period: number | undefined;
 
   /**
-   * <p>The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic. For more information about statistics,
-   *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">CloudWatch statistics definitions</a>.</p>
+   * <p>The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic. For more information about statistics, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">CloudWatch statistics definitions</a>.</p>
    * @public
    */
   Stat: string | undefined;
 
   /**
-   * <p>If you omit <code>Unit</code> then all data that was collected with any unit is returned, along with the corresponding units that were specified
-   *          when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
-   *          If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
+   * <p>If you omit <code>Unit</code> then all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    * @public
    */
   Unit?: StandardUnit | undefined;
 }
 
 /**
- * <p>Use this structure to define a metric or metric math expression that you want to use as for a service level objective. </p>
- *          <p>Each <code>MetricDataQuery</code> in the <code>MetricDataQueries</code> array specifies either a metric to retrieve, or a metric math expression
- *          to be performed on retrieved metrics. A single <code>MetricDataQueries</code> array can include as many as 20 <code>MetricDataQuery</code> structures in the array.
- *          The 20 structures can include as many as 10 structures that contain a <code>MetricStat</code> parameter to retrieve a metric, and as many as 10 structures that
- *          contain the <code>Expression</code> parameter to perform a math expression. Of those <code>Expression</code> structures,
- *          exactly one must have true as the value for <code>ReturnData</code>. The result of this expression used for the SLO.</p>
- *          <p>For more information about metric math expressions, see
- *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html">CloudWatchUse metric math</a>.</p>
- *          <p>Within each <code>MetricDataQuery</code> object, you must specify either
- *          <code>Expression</code> or <code>MetricStat</code> but not both.</p>
+ * <p>Use this structure to define a metric or metric math expression that you want to use as for a service level objective. </p> <p>Each <code>MetricDataQuery</code> in the <code>MetricDataQueries</code> array specifies either a metric to retrieve, or a metric math expression to be performed on retrieved metrics. A single <code>MetricDataQueries</code> array can include as many as 20 <code>MetricDataQuery</code> structures in the array. The 20 structures can include as many as 10 structures that contain a <code>MetricStat</code> parameter to retrieve a metric, and as many as 10 structures that contain the <code>Expression</code> parameter to perform a math expression. Of those <code>Expression</code> structures, exactly one must have true as the value for <code>ReturnData</code>. The result of this expression used for the SLO.</p> <p>For more information about metric math expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html">CloudWatchUse metric math</a>.</p> <p>Within each <code>MetricDataQuery</code> object, you must specify either <code>Expression</code> or <code>MetricStat</code> but not both.</p>
  * @public
  */
 export interface MetricDataQuery {
   /**
-   * <p>A short name used to tie this object to the results in the response. This <code>Id</code> must be unique
-   *          within a <code>MetricDataQueries</code> array. If you are performing math expressions on this set of data,
-   *          this name represents that data and can serve as a variable in the metric math expression. The valid characters
-   *          are letters, numbers, and underscore. The first character must be a lowercase letter.</p>
+   * <p>A short name used to tie this object to the results in the response. This <code>Id</code> must be unique within a <code>MetricDataQueries</code> array. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the metric math expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.</p>
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO.</p>
-   *          <p>Within one <code>MetricDataQuery</code> object, you must specify either
-   *          <code>Expression</code> or <code>MetricStat</code> but not both.</p>
+   * <p>A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO.</p> <p>Within one <code>MetricDataQuery</code> object, you must specify either <code>Expression</code> or <code>MetricStat</code> but not both.</p>
    * @public
    */
   MetricStat?: MetricStat | undefined;
 
   /**
-   * <p>This field can contain a metric math expression to be performed on the other metrics that
-   *          you are retrieving within this <code>MetricDataQueries</code> structure. </p>
-   *          <p>A math expression
-   *          can use the <code>Id</code> of the other metrics or queries to refer to those metrics, and can also use
-   *          the <code>Id</code> of other
-   *          expressions to use the result of those expressions. For more information about metric math expressions, see
-   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the
-   *          <i>Amazon CloudWatch User Guide</i>.</p>
-   *          <p>Within each <code>MetricDataQuery</code> object, you must specify either
-   *          <code>Expression</code> or <code>MetricStat</code> but not both.</p>
+   * <p>This field can contain a metric math expression to be performed on the other metrics that you are retrieving within this <code>MetricDataQueries</code> structure. </p> <p>A math expression can use the <code>Id</code> of the other metrics or queries to refer to those metrics, and can also use the <code>Id</code> of other expressions to use the result of those expressions. For more information about metric math expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.</p> <p>Within each <code>MetricDataQuery</code> object, you must specify either <code>Expression</code> or <code>MetricStat</code> but not both.</p>
    * @public
    */
   Expression?: string | undefined;
 
   /**
-   * <p>A human-readable label for this metric or expression. This is especially useful
-   *          if this is an expression, so that you know
-   *          what the value represents. If the metric or expression is shown in a
-   *          CloudWatch dashboard widget, the label is shown. If <code>Label</code> is omitted, CloudWatch
-   *          generates a default.</p>
-   *          <p>You can put dynamic expressions into a label, so that it is more descriptive.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html">Using Dynamic Labels</a>.</p>
+   * <p>A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CloudWatch dashboard widget, the label is shown. If <code>Label</code> is omitted, CloudWatch generates a default.</p> <p>You can put dynamic expressions into a label, so that it is more descriptive. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html">Using Dynamic Labels</a>.</p>
    * @public
    */
   Label?: string | undefined;
 
   /**
-   * <p>Use this only if you are using a metric math expression for the SLO.
-   *          Specify <code>true</code> for <code>ReturnData</code> for only the one expression result to use as the alarm. For all
-   *          other metrics and expressions in the same <code>CreateServiceLevelObjective</code> operation, specify <code>ReturnData</code> as <code>false</code>.</p>
+   * <p>Use this only if you are using a metric math expression for the SLO. Specify <code>true</code> for <code>ReturnData</code> for only the one expression result to use as the alarm. For all other metrics and expressions in the same <code>CreateServiceLevelObjective</code> operation, specify <code>ReturnData</code> as <code>false</code>.</p>
    * @public
    */
   ReturnData?: boolean | undefined;
 
   /**
-   * <p>The granularity, in seconds, of the returned data points for this metric. For metrics with regular resolution, a period can
-   *          be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected
-   *          at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics
-   *          are those metrics stored by a <code>PutMetricData</code> call that includes a <code>StorageResolution</code> of 1 second.</p>
-   *          <p>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
-   *          3 hours ago, you must specify the period as follows or no data points in that time range is returned:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).</p>
-   *             </li>
-   *             <li>
-   *                <p>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</p>
-   *             </li>
-   *             <li>
-   *                <p>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</p>
-   *             </li>
-   *          </ul>
+   * <p>The granularity, in seconds, of the returned data points for this metric. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a <code>PutMetricData</code> call that includes a <code>StorageResolution</code> of 1 second.</p> <p>If the <code>StartTime</code> parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:</p> <ul> <li> <p>Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).</p> </li> <li> <p>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</p> </li> <li> <p>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</p> </li> </ul>
    * @public
    */
   Period?: number | undefined;
 
   /**
-   * <p>The ID of the account where this metric is located.  If you are performing this operation in a monitoring account,
-   *          use this to specify which source account to retrieve this metric from.</p>
+   * <p>The ID of the account where this metric is located. If you are performing this operation in a monitoring account, use this to specify which source account to retrieve this metric from.</p>
    * @public
    */
   AccountId?: string | undefined;
 }
 
 /**
- * <p>This structure defines the metric that is used as the "good request" or "bad request"
- *          value for a request-based SLO.
- *          This value observed for the metric defined in
- *          <code>TotalRequestCountMetric</code> is divided by the number found for
- *          <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that
- *          this SLO tracks.</p>
+ * <p>This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in <code>TotalRequestCountMetric</code> is divided by the number found for <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that this SLO tracks.</p>
  * @public
  */
 export type MonitoredRequestCountMetricDataQueries =
@@ -582,8 +460,7 @@ export type MonitoredRequestCountMetricDataQueries =
  */
 export namespace MonitoredRequestCountMetricDataQueries {
   /**
-   * <p>If you want to count "good requests" to determine the percentage of successful requests for this
-   *       request-based SLO, specify the metric to use as "good requests" in this structure.</p>
+   * <p>If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.</p>
    * @public
    */
   export interface GoodCountMetricMember {
@@ -593,8 +470,7 @@ export namespace MonitoredRequestCountMetricDataQueries {
   }
 
   /**
-   * <p>If you want to count "bad requests" to determine the percentage of successful requests for this
-   *          request-based SLO, specify the metric to use as "bad requests" in this structure.</p>
+   * <p>If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.</p>
    * @public
    */
   export interface BadCountMetricMember {
@@ -631,34 +507,7 @@ export namespace MonitoredRequestCountMetricDataQueries {
  */
 export interface RequestBasedServiceLevelIndicatorMetric {
   /**
-   * <p>This is a string-to-string map that contains information about the type of object that this SLO is related to. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object that this SLO is related to.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object that this SLO is related to.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes?: Record<string, string> | undefined;
@@ -670,28 +519,19 @@ export interface RequestBasedServiceLevelIndicatorMetric {
   OperationName?: string | undefined;
 
   /**
-   * <p>If the SLO monitors either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals
-   *          collects, this field displays which of those metrics is used.</p>
+   * <p>If the SLO monitors either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals collects, this field displays which of those metrics is used.</p>
    * @public
    */
   MetricType?: ServiceLevelIndicatorMetricType | undefined;
 
   /**
-   * <p>This structure defines the metric that is used as the "total requests" number for a request-based SLO.
-   *          The number observed for this metric is divided by the number of "good requests" or "bad requests" that is
-   *          observed for the metric defined in
-   *          <code>MonitoredRequestCountMetric</code>.</p>
+   * <p>This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in <code>MonitoredRequestCountMetric</code>.</p>
    * @public
    */
   TotalRequestCountMetric: MetricDataQuery[] | undefined;
 
   /**
-   * <p>This structure defines the metric that is used as the "good request" or "bad request"
-   *          value for a request-based SLO.
-   *          This value observed for the metric defined in
-   *          <code>TotalRequestCountMetric</code> is divided by the number found for
-   *          <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that
-   *          this SLO tracks.</p>
+   * <p>This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in <code>TotalRequestCountMetric</code> is divided by the number found for <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that this SLO tracks.</p>
    * @public
    */
   MonitoredRequestCountMetric: MonitoredRequestCountMetricDataQueries | undefined;
@@ -715,15 +555,13 @@ export interface RequestBasedServiceLevelIndicator {
   RequestBasedSliMetric: RequestBasedServiceLevelIndicatorMetric | undefined;
 
   /**
-   * <p>This value is the threshold that
-   *          the observed metric values of the SLI metric are compared to.</p>
+   * <p>This value is the threshold that the observed metric values of the SLI metric are compared to.</p>
    * @public
    */
   MetricThreshold?: number | undefined;
 
   /**
-   * <p>The arithmetic operation used when comparing the specified metric to the
-   *          threshold.</p>
+   * <p>The arithmetic operation used when comparing the specified metric to the threshold.</p>
    * @public
    */
   ComparisonOperator?: ServiceLevelIndicatorComparisonOperator | undefined;
@@ -735,34 +573,7 @@ export interface RequestBasedServiceLevelIndicator {
  */
 export interface ServiceLevelIndicatorMetric {
   /**
-   * <p>This is a string-to-string map that contains information about the type of object that this SLO is related to. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object that this SLO is related to.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object that this SLO is related to.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes?: Record<string, string> | undefined;
@@ -774,15 +585,13 @@ export interface ServiceLevelIndicatorMetric {
   OperationName?: string | undefined;
 
   /**
-   * <p>If the SLO monitors either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals
-   *          collects, this field displays which of those metrics is used.</p>
+   * <p>If the SLO monitors either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals collects, this field displays which of those metrics is used.</p>
    * @public
    */
   MetricType?: ServiceLevelIndicatorMetricType | undefined;
 
   /**
-   * <p>If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression,
-   *          this structure includes the information about that metric or expression. </p>
+   * <p>If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, this structure includes the information about that metric or expression. </p>
    * @public
    */
   MetricDataQueries: MetricDataQuery[] | undefined;
@@ -812,8 +621,7 @@ export interface ServiceLevelIndicator {
   MetricThreshold: number | undefined;
 
   /**
-   * <p>The arithmetic operation used when comparing the specified metric to the
-   *          threshold.</p>
+   * <p>The arithmetic operation used when comparing the specified metric to the threshold.</p>
    * @public
    */
   ComparisonOperator: ServiceLevelIndicatorComparisonOperator | undefined;
@@ -843,77 +651,37 @@ export interface ServiceLevelObjectiveBudgetReport {
   EvaluationType?: EvaluationType | undefined;
 
   /**
-   * <p>The status of this SLO, as it relates to the error budget for the entire time interval.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>OK</code> means that the SLO had remaining budget above the warning threshold,
-   *             as of the time that you specified in <code>TimeStamp</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>WARNING</code> means that the SLO's remaining budget was below the warning threshold,
-   *             as of the time that you specified in <code>TimeStamp</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BREACHED</code> means that the SLO's budget was exhausted,
-   *             as of the time that you specified in <code>TimeStamp</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INSUFFICIENT_DATA</code> means that the specified start and end times were before the
-   *             SLO was created, or that attainment data is missing.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of this SLO, as it relates to the error budget for the entire time interval.</p> <ul> <li> <p> <code>OK</code> means that the SLO had remaining budget above the warning threshold, as of the time that you specified in <code>TimeStamp</code>.</p> </li> <li> <p> <code>WARNING</code> means that the SLO's remaining budget was below the warning threshold, as of the time that you specified in <code>TimeStamp</code>.</p> </li> <li> <p> <code>BREACHED</code> means that the SLO's budget was exhausted, as of the time that you specified in <code>TimeStamp</code>.</p> </li> <li> <p> <code>INSUFFICIENT_DATA</code> means that the specified start and end times were before the SLO was created, or that attainment data is missing.</p> </li> </ul>
    * @public
    */
   BudgetStatus: ServiceLevelObjectiveBudgetStatus | undefined;
 
   /**
-   * <p>A number between 0 and 100 that represents the success percentage of your application compared
-   *          to the goal set by the SLO.</p>
-   *          <p>If this is a period-based SLO, the number is the percentage of time periods that the service has
-   *          attained the SLO's attainment goal, as of the time of the request.</p>
-   *          <p>If this is a request-based SLO, the number is the number of successful requests divided
-   *          by the number of total requests, multiplied by 100, during the time range that you specified in your request.</p>
+   * <p>A number between 0 and 100 that represents the success percentage of your application compared to the goal set by the SLO.</p> <p>If this is a period-based SLO, the number is the percentage of time periods that the service has attained the SLO's attainment goal, as of the time of the request.</p> <p>If this is a request-based SLO, the number is the number of successful requests divided by the number of total requests, multiplied by 100, during the time range that you specified in your request.</p>
    * @public
    */
   Attainment?: number | undefined;
 
   /**
-   * <p>The total number of seconds in the error budget for the interval. This field is included only
-   *       if the SLO is a period-based SLO.</p>
+   * <p>The total number of seconds in the error budget for the interval. This field is included only if the SLO is a period-based SLO.</p>
    * @public
    */
   TotalBudgetSeconds?: number | undefined;
 
   /**
-   * <p>The budget amount remaining before the SLO status becomes <code>BREACHING</code>, at the time specified in
-   *          the
-   *          <code>Timestemp</code> parameter of the request. If this value is negative, then the SLO is already in <code>BREACHING</code>
-   *          status.</p>
-   *          <p> This field is included only
-   *          if the SLO is a period-based SLO.</p>
+   * <p>The budget amount remaining before the SLO status becomes <code>BREACHING</code>, at the time specified in the <code>Timestemp</code> parameter of the request. If this value is negative, then the SLO is already in <code>BREACHING</code> status.</p> <p> This field is included only if the SLO is a period-based SLO.</p>
    * @public
    */
   BudgetSecondsRemaining?: number | undefined;
 
   /**
-   * <p>This field is displayed only for request-based SLOs. It displays the total number of failed requests that can be tolerated during the time range between the start of the
-   *          interval and the time stamp supplied in the budget report request. It is based on the total number of requests that occurred,
-   *       and the percentage specified in the attainment goal. If the number of failed requests matches this number or is higher, then
-   *       this SLO is currently breaching.</p>
-   *          <p>This number can go up and down between reports with different time stamps, based on both how many total requests occur.</p>
+   * <p>This field is displayed only for request-based SLOs. It displays the total number of failed requests that can be tolerated during the time range between the start of the interval and the time stamp supplied in the budget report request. It is based on the total number of requests that occurred, and the percentage specified in the attainment goal. If the number of failed requests matches this number or is higher, then this SLO is currently breaching.</p> <p>This number can go up and down between reports with different time stamps, based on both how many total requests occur.</p>
    * @public
    */
   TotalBudgetRequests?: number | undefined;
 
   /**
-   * <p>This field is displayed only for request-based SLOs. It displays the number of failed requests that can be tolerated before any more successful requests occur,
-   *          and still have the application meet its SLO goal.</p>
-   *          <p>This number can go up and down between different reports, based on both how many successful requests and how many failed
-   *          requests occur in that time.</p>
+   * <p>This field is displayed only for request-based SLOs. It displays the number of failed requests that can be tolerated before any more successful requests occur, and still have the application meet its SLO goal.</p> <p>This number can go up and down between different reports, based on both how many successful requests and how many failed requests occur in that time.</p>
    * @public
    */
   BudgetRequestsRemaining?: number | undefined;
@@ -931,8 +699,7 @@ export interface ServiceLevelObjectiveBudgetReport {
   RequestBasedSli?: RequestBasedServiceLevelIndicator | undefined;
 
   /**
-   * <p>This structure contains the attributes that determine the goal of an SLO. This includes
-   *          the time period for evaluation and the attainment threshold.</p>
+   * <p>This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.</p>
    * @public
    */
   Goal?: Goal | undefined;
@@ -955,8 +722,7 @@ export interface BatchGetServiceLevelObjectiveBudgetReportOutput {
   Reports: ServiceLevelObjectiveBudgetReport[] | undefined;
 
   /**
-   * <p>An array of structures, where each structure includes an error indicating that one
-   *          of the requests in the array was not valid.</p>
+   * <p>An array of structures, where each structure includes an error indicating that one of the requests in the array was not valid.</p>
    * @public
    */
   Errors: ServiceLevelObjectiveBudgetReportError[] | undefined;
@@ -1167,70 +933,38 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
+export interface DeleteGroupingConfigurationOutput {}
+
+/**
+ * @public
+ */
 export interface GetServiceInput {
   /**
-   * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>Your requested start time will be rounded to the nearest hour.</p>
+   * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>Your requested start time will be rounded to the nearest hour.</p>
+   * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>,
-   *          <code>Name</code>, and <code>Environment</code> attributes.</p>
-   *          <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes: Record<string, string> | undefined;
 }
 
 /**
- * <p>This structure contains information about one CloudWatch metric associated with this entity discovered
- *          by Application Signals.</p>
+ * <p>This structure contains information about one CloudWatch metric associated with this entity discovered by Application Signals.</p>
  * @public
  */
 export interface MetricReference {
   /**
-   * <p>The namespace of the metric. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace">CloudWatchNamespaces</a>.</p>
+   * <p>The namespace of the metric. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace">CloudWatchNamespaces</a>.</p>
    * @public
    */
   Namespace: string | undefined;
@@ -1242,9 +976,7 @@ export interface MetricReference {
   MetricType: string | undefined;
 
   /**
-   * <p>An array of one or more dimensions that further define the metric.
-   *          For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension">CloudWatchDimensions</a>.</p>
+   * <p>An array of one or more dimensions that further define the metric. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension">CloudWatchDimensions</a>.</p>
    * @public
    */
   Dimensions?: Dimension[] | undefined;
@@ -1263,118 +995,57 @@ export interface MetricReference {
 }
 
 /**
- * <p>This structure contains information about one of your services that was discovered by Application Signals.
- *       </p>
+ * <p>A structure that represents a logical grouping of services based on shared attributes such as business unit, environment, or entry point.</p>
+ * @public
+ */
+export interface ServiceGroup {
+  /**
+   * <p>The name of the grouping attribute, such as <code>BusinessUnit</code> or <code>Environment</code>.</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The value of the grouping attribute for this service, such as <code>Payments</code> or <code>Production</code>.</p>
+   * @public
+   */
+  GroupValue: string | undefined;
+
+  /**
+   * <p>The source of the grouping attribute, such as <code>TAG</code>, <code>OTEL</code>, or <code>DEFAULT</code>.</p>
+   * @public
+   */
+  GroupSource: string | undefined;
+
+  /**
+   * <p>A unique identifier for this grouping attribute value, used for filtering and API operations.</p>
+   * @public
+   */
+  GroupIdentifier: string | undefined;
+}
+
+/**
+ * <p>This structure contains information about one of your services that was discovered by Application Signals. </p>
  * @public
  */
 export interface Service {
   /**
-   * <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes: Record<string, string> | undefined;
 
   /**
-   * <p>This structure contains one or more string-to-string maps that help identify this service. It can include <i>platform attributes</i>, <i>application attributes</i>, and <i>telemetry attributes</i>.</p>
-   *          <p>Platform attributes contain information the service's platform.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PlatformType</code> defines the hosted-in platform.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EKS.Cluster</code> is the name of the Amazon EKS cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>K8s.Cluster</code> is the name of the self-hosted Kubernetes cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>K8s.Namespace</code> is the name of the Kubernetes namespace in either Amazon EKS or Kubernetes clusters.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>K8s.Workload</code> is the name of the Kubernetes workload in either Amazon EKS or Kubernetes clusters.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>K8s.Node</code> is the name of the Kubernetes node in either Amazon EKS or Kubernetes clusters.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>K8s.Pod</code> is the name of the Kubernetes pod in either Amazon EKS or Kubernetes clusters.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EC2.AutoScalingGroup</code> is the name of the Amazon EC2 Auto Scaling group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EC2.InstanceId</code> is the ID of the Amazon EC2 instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Host</code> is the name of the host, for all platform types.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Application attributes contain information about the application.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS.Application</code> is the application's name in Amazon Web Services Service Catalog AppRegistry.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS.Application.ARN</code> is the application's ARN in Amazon Web Services Service Catalog AppRegistry.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Telemetry attributes contain telemetry information.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Telemetry.SDK</code> is the fingerprint of the OpenTelemetry SDK version for instrumented services.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Telemetry.Agent</code> is the fingerprint of the agent used to collect and send telemetry data.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Telemetry.Source</code> Specifies the point of application where the telemetry was collected or specifies what was used for the source of telemetry data.</p>
-   *             </li>
-   *          </ul>
+   * <p>This structure contains one or more string-to-string maps that help identify this service. It can include <i>platform attributes</i>, <i>application attributes</i>, and <i>telemetry attributes</i>.</p> <p>Platform attributes contain information the service's platform.</p> <ul> <li> <p> <code>PlatformType</code> defines the hosted-in platform.</p> </li> <li> <p> <code>EKS.Cluster</code> is the name of the Amazon EKS cluster.</p> </li> <li> <p> <code>K8s.Cluster</code> is the name of the self-hosted Kubernetes cluster.</p> </li> <li> <p> <code>K8s.Namespace</code> is the name of the Kubernetes namespace in either Amazon EKS or Kubernetes clusters.</p> </li> <li> <p> <code>K8s.Workload</code> is the name of the Kubernetes workload in either Amazon EKS or Kubernetes clusters.</p> </li> <li> <p> <code>K8s.Node</code> is the name of the Kubernetes node in either Amazon EKS or Kubernetes clusters.</p> </li> <li> <p> <code>K8s.Pod</code> is the name of the Kubernetes pod in either Amazon EKS or Kubernetes clusters.</p> </li> <li> <p> <code>EC2.AutoScalingGroup</code> is the name of the Amazon EC2 Auto Scaling group.</p> </li> <li> <p> <code>EC2.InstanceId</code> is the ID of the Amazon EC2 instance.</p> </li> <li> <p> <code>Host</code> is the name of the host, for all platform types.</p> </li> </ul> <p>Application attributes contain information about the application.</p> <ul> <li> <p> <code>AWS.Application</code> is the application's name in Amazon Web Services Service Catalog AppRegistry.</p> </li> <li> <p> <code>AWS.Application.ARN</code> is the application's ARN in Amazon Web Services Service Catalog AppRegistry.</p> </li> </ul> <p>Telemetry attributes contain telemetry information.</p> <ul> <li> <p> <code>Telemetry.SDK</code> is the fingerprint of the OpenTelemetry SDK version for instrumented services.</p> </li> <li> <p> <code>Telemetry.Agent</code> is the fingerprint of the agent used to collect and send telemetry data.</p> </li> <li> <p> <code>Telemetry.Source</code> Specifies the point of application where the telemetry was collected or specifies what was used for the source of telemetry data.</p> </li> </ul>
    * @public
    */
   AttributeMaps?: Record<string, string>[] | undefined;
+
+  /**
+   * <p>An array of service groups that this service belongs to, based on the configured grouping attributes.</p>
+   * @public
+   */
+  ServiceGroups?: ServiceGroup[] | undefined;
 
   /**
    * <p>An array of structures that each contain information about one metric associated with this service.</p>
@@ -1383,25 +1054,7 @@ export interface Service {
   MetricReferences: MetricReference[] | undefined;
 
   /**
-   * <p>An array of string-to-string maps that each contain information about one log group associated with this service. Each
-   *          string-to-string map includes the following fields:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"Type": "AWS::Resource"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"ResourceType": "AWS::Logs::LogGroup"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Identifier": "<i>name-of-log-group</i>"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>An array of string-to-string maps that each contain information about one log group associated with this service. Each string-to-string map includes the following fields:</p> <ul> <li> <p> <code>"Type": "AWS::Resource"</code> </p> </li> <li> <p> <code>"ResourceType": "AWS::Logs::LogGroup"</code> </p> </li> <li> <p> <code>"Identifier": "<i>name-of-log-group</i>"</code> </p> </li> </ul>
    * @public
    */
   LogGroupReferences?: Record<string, string>[] | undefined;
@@ -1418,46 +1071,517 @@ export interface GetServiceOutput {
   Service: Service | undefined;
 
   /**
-   * <p>The start time of the data included in the response. In a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>.</p>
-   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
-   *          it was rounded to the nearest hour.</p>
+   * <p>The start time of the data included in the response. In a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code>.</p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end time of the data included in the response. In a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>.</p>
-   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
-   *          it was rounded to the nearest hour.</p>
+   * <p>The end time of the data included in the response. In a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code>.</p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>An array of string-to-string maps that each contain information about one log group associated with this service. Each
-   *          string-to-string map includes the following fields:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"Type": "AWS::Resource"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"ResourceType": "AWS::Logs::LogGroup"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Identifier": "<i>name-of-log-group</i>"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>An array of string-to-string maps that each contain information about one log group associated with this service. Each string-to-string map includes the following fields:</p> <ul> <li> <p> <code>"Type": "AWS::Resource"</code> </p> </li> <li> <p> <code>"ResourceType": "AWS::Logs::LogGroup"</code> </p> </li> <li> <p> <code>"Identifier": "<i>name-of-log-group</i>"</code> </p> </li> </ul>
    * @public
    */
   LogGroupReferences?: Record<string, string>[] | undefined;
+}
+
+/**
+ * <p>A structure that contains identifying information for a service entity.</p>
+ * @public
+ */
+export interface ServiceEntity {
+  /**
+   * <p>The type of the service entity.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The name of the service.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The environment where the service is deployed.</p>
+   * @public
+   */
+  Environment?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID where the service is located. Provide this value only for cross-account access.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+}
+
+/**
+ * <p>A structure that contains identifying information for a service operation entity.</p>
+ * @public
+ */
+export interface ServiceOperationEntity {
+  /**
+   * <p>The service entity that contains this operation.</p>
+   * @public
+   */
+  Service?: ServiceEntity | undefined;
+
+  /**
+   * <p>The name of the operation.</p>
+   * @public
+   */
+  Operation?: string | undefined;
+
+  /**
+   * <p>The type of metric associated with this service operation.</p>
+   * @public
+   */
+  MetricType?: string | undefined;
+}
+
+/**
+ * <p>A structure that contains identifying information for a service level objective entity.</p>
+ * @public
+ */
+export interface ServiceLevelObjectiveEntity {
+  /**
+   * <p>The name of the service level objective.</p>
+   * @public
+   */
+  SloName?: string | undefined;
+
+  /**
+   * <p>The ARN of the service level objective. The SLO must be provided with ARN for cross-account access.</p>
+   * @public
+   */
+  SloArn?: string | undefined;
+}
+
+/**
+ * <p>A union structure that contains the specific entity information for different types of audit targets.</p>
+ * @public
+ */
+export type AuditTargetEntity =
+  | AuditTargetEntity.ServiceMember
+  | AuditTargetEntity.ServiceOperationMember
+  | AuditTargetEntity.SloMember
+  | AuditTargetEntity.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AuditTargetEntity {
+  /**
+   * <p>Service entity information when the audit target is a service.</p>
+   * @public
+   */
+  export interface ServiceMember {
+    Service: ServiceEntity;
+    Slo?: never;
+    ServiceOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>SLO entity information when the audit target is a service level objective.</p>
+   * @public
+   */
+  export interface SloMember {
+    Service?: never;
+    Slo: ServiceLevelObjectiveEntity;
+    ServiceOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Service operation entity information when the audit target is a specific service operation.</p>
+   * @public
+   */
+  export interface ServiceOperationMember {
+    Service?: never;
+    Slo?: never;
+    ServiceOperation: ServiceOperationEntity;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Service?: never;
+    Slo?: never;
+    ServiceOperation?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Service: (value: ServiceEntity) => T;
+    Slo: (value: ServiceLevelObjectiveEntity) => T;
+    ServiceOperation: (value: ServiceOperationEntity) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AuditTargetEntity, visitor: Visitor<T>): T => {
+    if (value.Service !== undefined) return visitor.Service(value.Service);
+    if (value.Slo !== undefined) return visitor.Slo(value.Slo);
+    if (value.ServiceOperation !== undefined) return visitor.ServiceOperation(value.ServiceOperation);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>A structure that specifies the target entity for audit analysis, such as a <code>service</code>, <code>SLO</code>, or <code>service_operation</code>.</p>
+ * @public
+ */
+export interface AuditTarget {
+  /**
+   * <p>The type of entity being audited, such as <code>Service</code>, <code>SLO</code>, or <code>ServiceOperation</code>.</p>
+   * @public
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>The specific data identifying the audit target entity.</p>
+   * @public
+   */
+  Data: AuditTargetEntity | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAuditFindingsInput {
+  /**
+   * <p>The start of the time period to retrieve audit findings for. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code> </p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The end of the time period to retrieve audit findings for. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code> </p>
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>A list of auditor names to filter the findings by. Only findings generated by the specified auditors will be returned.</p> <p>The following auditors are available for configuration:</p> <ul> <li> <p> <code>slo</code> - SloAuditor: Identifies SLO violations and detects breached thresholds during the Assessment phase.</p> </li> <li> <p> <code>operation_metric</code> - OperationMetricAuditor: Detects anomalies in service operation metrics from Application Signals RED metrics during the Assessment phase</p> </li> <li> <p> <code>service_quota</code> - ServiceQuotaAuditor: Monitors resource utilization against service quotas during the Assessment phase</p> </li> <li> <p> <code>trace</code> - TraceAuditor: Performs deep-dive analysis of distributed traces, correlating traces with breached SLOs or abnormal RED metrics during the Analysis phase</p> </li> <li> <p> <code>dependency_metric</code> - CriticalPathAuditor: Analyzes service dependency impacts and maps dependency relationships from Application Signals RED metrics during the Analysis phase</p> </li> <li> <p> <code>top_contributor</code> - TopContributorAuditor: Identifies infrastructure-level contributors to issues by analyzing EMF logs of Application Signals RED metrics during the Analysis phase</p> </li> <li> <p> <code>log</code> - LogAuditor: Extracts insights from application logs, categorizing error types and ranking severity by frequency during the Analysis phase</p> </li> </ul> <note> <p> <code>InitAuditor</code> and <code>Summarizer</code> auditors are not configurable as they are automatically triggered during the audit process.</p> </note>
+   * @public
+   */
+  Auditors?: string[] | undefined;
+
+  /**
+   * <p>A list of audit targets to filter the findings by. You can specify services, SLOs, or service operations to limit the audit findings to specific entities.</p>
+   * @public
+   */
+  AuditTargets: AuditTarget[] | undefined;
+
+  /**
+   * <p>Include this value, if it was returned by the previous operation, to get the next set of audit findings.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of audit findings to return in one operation. If you omit this parameter, the default of 10 is used.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Severity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Severity = (typeof Severity)[keyof typeof Severity];
+
+/**
+ * <p>A structure that contains the result of an automated audit analysis, including the auditor name, description of findings, and severity level.</p>
+ * @public
+ */
+export interface AuditorResult {
+  /**
+   * <p>The name of the auditor algorithm that generated this result.</p>
+   * @public
+   */
+  Auditor?: string | undefined;
+
+  /**
+   * <p>A detailed description of the audit finding, explaining what was observed and potential implications.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The severity level of this audit finding, indicating the importance and potential impact of the issue.</p>
+   * @public
+   */
+  Severity?: Severity | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionType = {
+  DIRECT: "DIRECT",
+  INDIRECT: "INDIRECT",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * <p>A structure that represents a connection between two nodes in a dependency graph, showing the relationship and characteristics of the connection.</p>
+ * @public
+ */
+export interface Edge {
+  /**
+   * <p>The identifier of the source node in this edge connection.</p>
+   * @public
+   */
+  SourceNodeId?: string | undefined;
+
+  /**
+   * <p>The identifier of the destination node in this edge connection.</p>
+   * @public
+   */
+  DestinationNodeId?: string | undefined;
+
+  /**
+   * <p>The duration or latency associated with this connection, if applicable.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The type of connection between the nodes, indicating the nature of the relationship.</p>
+   * @public
+   */
+  ConnectionType?: ConnectionType | undefined;
+}
+
+/**
+ * <p>A structure that represents a node in a dependency graph, containing information about a service, resource, or other entity and its characteristics.</p>
+ * @public
+ */
+export interface Node {
+  /**
+   * <p>The key attributes that identify this node, including Type, Name, and Environment information.</p>
+   * @public
+   */
+  KeyAttributes: Record<string, string> | undefined;
+
+  /**
+   * <p>The name of the entity represented by this node.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A unique identifier for this node within the dependency graph.</p>
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * <p>The operation associated with this node, if applicable.</p>
+   * @public
+   */
+  Operation?: string | undefined;
+
+  /**
+   * <p>The type of entity represented by this node, such as <code>Service</code> or <code>Resource</code>.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The duration or processing time associated with this node, if applicable.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The status of the entity represented by this node.</p>
+   * @public
+   */
+  Status?: string | undefined;
+}
+
+/**
+ * <p>A structure that represents the dependency relationships relevant to an audit finding, containing nodes and edges that show how services and resources are connected.</p>
+ * @public
+ */
+export interface DependencyGraph {
+  /**
+   * <p>An array of nodes representing the services, resources, or other entities in the dependency graph.</p>
+   * @public
+   */
+  Nodes?: Node[] | undefined;
+
+  /**
+   * <p>An array of edges representing the connections and relationships between the nodes in the dependency graph.</p>
+   * @public
+   */
+  Edges?: Edge[] | undefined;
+}
+
+/**
+ * <p>A structure that contains metric data queries and time range information that provides context for audit findings through relevant performance metrics.</p>
+ * @public
+ */
+export interface MetricGraph {
+  /**
+   * <p>An array of metric data queries that define the metrics to be retrieved and analyzed as part of the audit finding context.</p>
+   * @public
+   */
+  MetricDataQueries?: MetricDataQuery[] | undefined;
+
+  /**
+   * <p>The start time for the metric data included in this graph. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end time for the metric data included in this graph. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
+ * <p>A structure that contains information about an audit finding, which represents an automated analysis result about service behavior, performance issues, or potential problems identified through heuristic algorithms.</p>
+ * @public
+ */
+export interface AuditFinding {
+  /**
+   * <p>The key attributes that identify the service or entity this audit finding relates to. This is a string-to-string map that includes fields like Type, Name, and Environment.</p>
+   * @public
+   */
+  KeyAttributes: Record<string, string> | undefined;
+
+  /**
+   * <p>An array of auditor results that contain the specific findings, descriptions, and severity levels identified by different auditing algorithms.</p>
+   * @public
+   */
+  AuditorResults?: AuditorResult[] | undefined;
+
+  /**
+   * <p>The name of the operation associated with this audit finding, if the finding is specific to a particular service operation.</p>
+   * @public
+   */
+  Operation?: string | undefined;
+
+  /**
+   * <p>A structure containing metric data queries and time range information that provides context for the audit finding through relevant performance metrics.</p>
+   * @public
+   */
+  MetricGraph?: MetricGraph | undefined;
+
+  /**
+   * <p>A structure containing nodes and edges that represent the dependency relationships relevant to this audit finding, helping to understand the context and potential impact.</p>
+   * @public
+   */
+  DependencyGraph?: DependencyGraph | undefined;
+
+  /**
+   * <p>The type of audit finding.</p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAuditFindingsOutput {
+  /**
+   * <p>An array of structures, where each structure contains information about one audit finding, including the auditor results, severity, and associated metric and dependency graphs.</p>
+   * @public
+   */
+  AuditFindings: AuditFinding[] | undefined;
+
+  /**
+   * <p>Include this value in your next use of this API to get the next set of audit findings.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupingAttributeDefinitionsInput {
+  /**
+   * <p>Include this value, if it was returned by the previous operation, to get the next set of grouping attribute definitions.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A structure that defines how services should be grouped based on specific attributes. This includes the friendly name for the grouping, the source keys to derive values from, and an optional default value.</p>
+ * @public
+ */
+export interface GroupingAttributeDefinition {
+  /**
+   * <p>The friendly name for this grouping attribute, such as <code>BusinessUnit</code> or <code>Environment</code>. This name is used to identify the grouping in the console and APIs.</p>
+   * @public
+   */
+  GroupingName: string | undefined;
+
+  /**
+   * <p>An array of source keys used to derive the grouping attribute value from telemetry data, Amazon Web Services tags, or other sources. For example, ["business_unit", "team"] would look for values in those fields.</p>
+   * @public
+   */
+  GroupingSourceKeys?: string[] | undefined;
+
+  /**
+   * <p>The default value to use for this grouping attribute when no value can be derived from the source keys. This ensures all services have a grouping value even if the source data is missing.</p>
+   * @public
+   */
+  DefaultGroupingValue?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupingAttributeDefinitionsOutput {
+  /**
+   * <p>An array of structures, where each structure contains information about one grouping attribute definition, including the grouping name, source keys, and default values.</p>
+   * @public
+   */
+  GroupingAttributeDefinitions: GroupingAttributeDefinition[] | undefined;
+
+  /**
+   * <p>The timestamp when the grouping configuration was last updated. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Include this value in your next use of this API to get the next set of grouping attribute definitions.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1465,61 +1589,25 @@ export interface GetServiceOutput {
  */
 export interface ListServiceDependenciesInput {
   /**
-   * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>Your requested start time will be rounded to the nearest hour.</p>
+   * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>Your requested end time will be rounded to the nearest hour.</p>
+   * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested end time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>,
-   *          <code>Name</code>, and <code>Environment</code> attributes.</p>
-   *          <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes: Record<string, string> | undefined;
 
   /**
-   * <p>The maximum number of results to return in one operation. If you omit this
-   *          parameter, the default of 50 is used.</p>
+   * <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1532,8 +1620,7 @@ export interface ListServiceDependenciesInput {
 }
 
 /**
- * <p>This structure contains information about one dependency
- *          of this service.</p>
+ * <p>This structure contains information about one dependency of this service.</p>
  * @public
  */
 export interface ServiceDependency {
@@ -1544,34 +1631,7 @@ export interface ServiceDependency {
   OperationName: string | undefined;
 
   /**
-   * <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   DependencyKeyAttributes: Record<string, string> | undefined;
@@ -1583,9 +1643,7 @@ export interface ServiceDependency {
   DependencyOperationName: string | undefined;
 
   /**
-   * <p>An array of structures that each contain information about one metric associated with this service dependency
-   *          that was discovered by
-   *          Application Signals.</p>
+   * <p>An array of structures that each contain information about one metric associated with this service dependency that was discovered by Application Signals.</p>
    * @public
    */
   MetricReferences: MetricReference[] | undefined;
@@ -1596,21 +1654,13 @@ export interface ServiceDependency {
  */
 export interface ListServiceDependenciesOutput {
   /**
-   * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
-   *          it was rounded to the nearest hour.</p>
+   * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
-   *          it was rounded to the nearest hour.</p>
+   * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1622,8 +1672,7 @@ export interface ListServiceDependenciesOutput {
   ServiceDependencies: ServiceDependency[] | undefined;
 
   /**
-   * <p>Include this value in your next use of this API to get next set
-   *          of service dependencies.</p>
+   * <p>Include this value in your next use of this API to get next set of service dependencies.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1634,61 +1683,25 @@ export interface ListServiceDependenciesOutput {
  */
 export interface ListServiceDependentsInput {
   /**
-   * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>Your requested start time will be rounded to the nearest hour.</p>
+   * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>Your requested start time will be rounded to the nearest hour.</p>
+   * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>,
-   *          <code>Name</code>, and <code>Environment</code> attributes.</p>
-   *          <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes: Record<string, string> | undefined;
 
   /**
-   * <p>The maximum number of results to return in one operation. If you omit this
-   *          parameter, the default of 50 is used.</p>
+   * <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1701,9 +1714,7 @@ export interface ListServiceDependentsInput {
 }
 
 /**
- * <p>This structure contains information about a service dependent that was discovered by Application Signals. A
- *          dependent is an entity that invoked the specified service during the provided time range. Dependents include
- *          other services, CloudWatch Synthetics canaries, and clients that are instrumented with CloudWatch RUM app monitors.</p>
+ * <p>This structure contains information about a service dependent that was discovered by Application Signals. A dependent is an entity that invoked the specified service during the provided time range. Dependents include other services, CloudWatch Synthetics canaries, and clients that are instrumented with CloudWatch RUM app monitors.</p>
  * @public
  */
 export interface ServiceDependent {
@@ -1714,49 +1725,19 @@ export interface ServiceDependent {
   OperationName?: string | undefined;
 
   /**
-   * <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   DependentKeyAttributes: Record<string, string> | undefined;
 
   /**
-   * <p>If the dependent invoker was a service that invoked it from an operation, the name of that dependent operation
-   *          is displayed here.</p>
+   * <p>If the dependent invoker was a service that invoked it from an operation, the name of that dependent operation is displayed here.</p>
    * @public
    */
   DependentOperationName?: string | undefined;
 
   /**
-   * <p>An array of structures that each contain information about one metric associated with this service dependent
-   *          that was discovered by
-   *          Application Signals.</p>
+   * <p>An array of structures that each contain information about one metric associated with this service dependent that was discovered by Application Signals.</p>
    * @public
    */
   MetricReferences: MetricReference[] | undefined;
@@ -1767,21 +1748,13 @@ export interface ServiceDependent {
  */
 export interface ListServiceDependentsOutput {
   /**
-   * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
-   *          it was rounded to the nearest hour.</p>
+   * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
-   *          it was rounded to the nearest hour.</p>
+   * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1793,8 +1766,7 @@ export interface ListServiceDependentsOutput {
   ServiceDependents: ServiceDependent[] | undefined;
 
   /**
-   * <p>Include this value in your next use of this API to get next set
-   *          of service dependents.</p>
+   * <p>Include this value in your next use of this API to get next set of service dependents.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1811,17 +1783,13 @@ export interface ListServiceLevelObjectiveExclusionWindowsInput {
   Id: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.
-   *
-   *       </p>
+   * <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used. </p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives.
-   *
-   *       </p>
+   * <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1838,9 +1806,7 @@ export interface ListServiceLevelObjectiveExclusionWindowsOutput {
   ExclusionWindows: ExclusionWindow[] | undefined;
 
   /**
-   * <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives.
-   *
-   *       </p>
+   * <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1851,61 +1817,25 @@ export interface ListServiceLevelObjectiveExclusionWindowsOutput {
  */
 export interface ListServiceOperationsInput {
   /**
-   * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>Your requested start time will be rounded to the nearest hour.</p>
+   * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>Your requested end time will be rounded to the nearest hour.</p>
+   * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested end time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>,
-   *          <code>Name</code>, and <code>Environment</code> attributes.</p>
-   *          <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes: Record<string, string> | undefined;
 
   /**
-   * <p>The maximum number of results to return in one operation. If you omit this
-   *          parameter, the default of 50 is used.</p>
+   * <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1918,10 +1848,7 @@ export interface ListServiceOperationsInput {
 }
 
 /**
- * <p>This structure contains information about an operation discovered by Application Signals. An operation
- *          is a specific function performed by a service that was discovered by Application Signals, and is often an API
- *          that is called by an upstream dependent.
- *       </p>
+ * <p>This structure contains information about an operation discovered by Application Signals. An operation is a specific function performed by a service that was discovered by Application Signals, and is often an API that is called by an upstream dependent. </p>
  * @public
  */
 export interface ServiceOperation {
@@ -1932,9 +1859,7 @@ export interface ServiceOperation {
   Name: string | undefined;
 
   /**
-   * <p>An array of structures that each contain information about one metric associated with this service operation
-   *          that was discovered by
-   *          Application Signals.</p>
+   * <p>An array of structures that each contain information about one metric associated with this service operation that was discovered by Application Signals.</p>
    * @public
    */
   MetricReferences: MetricReference[] | undefined;
@@ -1945,21 +1870,13 @@ export interface ServiceOperation {
  */
 export interface ListServiceOperationsOutput {
   /**
-   * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
-   *          it was rounded to the nearest hour.</p>
+   * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
-   *          it was rounded to the nearest hour.</p>
+   * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1971,8 +1888,7 @@ export interface ListServiceOperationsOutput {
   ServiceOperations: ServiceOperation[] | undefined;
 
   /**
-   * <p>Include this value in your next use of this API to get next set
-   *          of service operations.</p>
+   * <p>Include this value in your next use of this API to get next set of service operations.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1983,32 +1899,19 @@ export interface ListServiceOperationsOutput {
  */
 export interface ListServicesInput {
   /**
-   * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>Your requested start time will be rounded to the nearest hour.</p>
+   * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>Your requested start time will be rounded to the nearest hour.</p>
+   * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>
-   *          The maximum number
-   *          of results
-   *          to return
-   *          in one operation.
-   *          If you omit this parameter,
-   *          the default of 50 is used.
-   *       </p>
+   * <p> The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used. </p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2020,9 +1923,7 @@ export interface ListServicesInput {
   NextToken?: string | undefined;
 
   /**
-   * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include services from source accounts in the returned data.
-   *
-   *       </p>
+   * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include services from source accounts in the returned data. </p>
    * @public
    */
   IncludeLinkedAccounts?: boolean | undefined;
@@ -2035,115 +1936,18 @@ export interface ListServicesInput {
 }
 
 /**
- * <p>This structure contains information about one of your services that
- *       was discovered by Application Signals</p>
+ * <p>This structure contains information about one of your services that was discovered by Application Signals</p>
  * @public
  */
 export interface ServiceSummary {
   /**
-   * <p>This is a string-to-string map that help identify the objects discovered by Application Signals. It can
-   *       include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *          when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>This is a string-to-string map that help identify the objects discovered by Application Signals. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes: Record<string, string> | undefined;
 
   /**
-   * <p>This structure contains one or more string-to-string maps that help identify this service. It can include <i>platform attributes</i>, <i>application attributes</i>, and <i>telemetry attributes</i>.</p>
-   *          <p>Platform attributes contain information the service's platform.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PlatformType</code> defines the hosted-in platform.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EKS.Cluster</code> is the name of the Amazon EKS cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>K8s.Cluster</code> is the name of the self-hosted Kubernetes cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>K8s.Namespace</code> is the name of the Kubernetes namespace in either Amazon EKS or Kubernetes clusters.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>K8s.Workload</code> is the name of the Kubernetes workload in either Amazon EKS or Kubernetes clusters.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>K8s.Node</code> is the name of the Kubernetes node in either Amazon EKS or Kubernetes clusters.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>K8s.Pod</code> is the name of the Kubernetes pod in either Amazon EKS or Kubernetes clusters.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EC2.AutoScalingGroup</code> is the name of the Amazon EC2 Auto Scaling group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EC2.InstanceId</code> is the ID of the Amazon EC2 instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Host</code> is the name of the host, for all platform types.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Application attributes contain information about the application.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS.Application</code> is the application's name in Amazon Web Services Service Catalog AppRegistry.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS.Application.ARN</code> is the application's ARN in Amazon Web Services Service Catalog AppRegistry.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Telemetry attributes contain telemetry information.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Telemetry.SDK</code> is the fingerprint of the OpenTelemetry SDK version for instrumented services.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Telemetry.Agent</code> is the fingerprint of the agent used to collect and send telemetry data.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Telemetry.Source</code> Specifies the point of application where the telemetry was collected or specifies what was used for the source of telemetry data.</p>
-   *             </li>
-   *          </ul>
+   * <p>This structure contains one or more string-to-string maps that help identify this service. It can include <i>platform attributes</i>, <i>application attributes</i>, and <i>telemetry attributes</i>.</p> <p>Platform attributes contain information the service's platform.</p> <ul> <li> <p> <code>PlatformType</code> defines the hosted-in platform.</p> </li> <li> <p> <code>EKS.Cluster</code> is the name of the Amazon EKS cluster.</p> </li> <li> <p> <code>K8s.Cluster</code> is the name of the self-hosted Kubernetes cluster.</p> </li> <li> <p> <code>K8s.Namespace</code> is the name of the Kubernetes namespace in either Amazon EKS or Kubernetes clusters.</p> </li> <li> <p> <code>K8s.Workload</code> is the name of the Kubernetes workload in either Amazon EKS or Kubernetes clusters.</p> </li> <li> <p> <code>K8s.Node</code> is the name of the Kubernetes node in either Amazon EKS or Kubernetes clusters.</p> </li> <li> <p> <code>K8s.Pod</code> is the name of the Kubernetes pod in either Amazon EKS or Kubernetes clusters.</p> </li> <li> <p> <code>EC2.AutoScalingGroup</code> is the name of the Amazon EC2 Auto Scaling group.</p> </li> <li> <p> <code>EC2.InstanceId</code> is the ID of the Amazon EC2 instance.</p> </li> <li> <p> <code>Host</code> is the name of the host, for all platform types.</p> </li> </ul> <p>Application attributes contain information about the application.</p> <ul> <li> <p> <code>AWS.Application</code> is the application's name in Amazon Web Services Service Catalog AppRegistry.</p> </li> <li> <p> <code>AWS.Application.ARN</code> is the application's ARN in Amazon Web Services Service Catalog AppRegistry.</p> </li> </ul> <p>Telemetry attributes contain telemetry information.</p> <ul> <li> <p> <code>Telemetry.SDK</code> is the fingerprint of the OpenTelemetry SDK version for instrumented services.</p> </li> <li> <p> <code>Telemetry.Agent</code> is the fingerprint of the agent used to collect and send telemetry data.</p> </li> <li> <p> <code>Telemetry.Source</code> Specifies the point of application where the telemetry was collected or specifies what was used for the source of telemetry data.</p> </li> </ul>
    * @public
    */
   AttributeMaps?: Record<string, string>[] | undefined;
@@ -2153,6 +1957,12 @@ export interface ServiceSummary {
    * @public
    */
   MetricReferences: MetricReference[] | undefined;
+
+  /**
+   * <p>An array of service groups that this service belongs to, based on the configured grouping attributes.</p>
+   * @public
+   */
+  ServiceGroups?: ServiceGroup[] | undefined;
 }
 
 /**
@@ -2160,36 +1970,210 @@ export interface ServiceSummary {
  */
 export interface ListServicesOutput {
   /**
-   * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
-   *          it was rounded to the nearest hour.</p>
+   * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
-   *          be epoch time in seconds. For example: <code>1698778057</code>
-   *          </p>
-   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
-   *          it was rounded to the nearest hour.</p>
+   * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>An array of structures, where each structure contains some information about a service. To
-   *          get complete information about a service, use
-   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetService.html">GetService</a>.</p>
+   * <p>An array of structures, where each structure contains some information about a service. To get complete information about a service, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetService.html">GetService</a>.</p>
    * @public
    */
   ServiceSummaries: ServiceSummary[] | undefined;
 
   /**
-   * <p>Include this value in your next use of this API to get next set
-   *          of services.</p>
+   * <p>Include this value in your next use of this API to get next set of services.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A structure that defines a filter for narrowing down results based on specific attribute values. This can be used to filter services by platform, environment, or other service characteristics.</p>
+ * @public
+ */
+export interface AttributeFilter {
+  /**
+   * <p>The name of the attribute to filter by, such as <code>Platform</code>, <code>Environment</code>, or <code>BusinessUnit</code>.</p>
+   * @public
+   */
+  AttributeFilterName: string | undefined;
+
+  /**
+   * <p>An array of values to match for the specified attribute. Services that have any of these values for the attribute will be included in the results.</p>
+   * @public
+   */
+  AttributeFilterValues: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceStatesInput {
+  /**
+   * <p>The start of the time period to retrieve service state information for. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code>.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The end of the time period to retrieve service state information for. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code>.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The maximum number of service states to return in one operation. If you omit this parameter, the default of 20 is used.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Include this value, if it was returned by the previous operation, to get the next set of service states.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include service states from source accounts in the returned data.</p>
+   * @public
+   */
+  IncludeLinkedAccounts?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID to filter service states by. Use this to limit results to services from a specific account.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>A list of attribute filters to narrow down the services. You can filter by platform, environment, or other service attributes.</p>
+   * @public
+   */
+  AttributeFilters?: AttributeFilter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeEventType = {
+  DEPLOYMENT: "DEPLOYMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeEventType = (typeof ChangeEventType)[keyof typeof ChangeEventType];
+
+/**
+ * <p>A structure that contains information about a change event that occurred for a service, such as a deployment or configuration change.</p>
+ * @public
+ */
+export interface ChangeEvent {
+  /**
+   * <p>The timestamp when this change event occurred. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>
+   * @public
+   */
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID where this change event occurred.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services region where this change event occurred.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The entity (service or resource) that was affected by this change event, including its key attributes.</p>
+   * @public
+   */
+  Entity: Record<string, string> | undefined;
+
+  /**
+   * <p>The type of change event that occurred, such as <code>DEPLOYMENT</code>.</p>
+   * @public
+   */
+  ChangeEventType: ChangeEventType | undefined;
+
+  /**
+   * <p>A unique identifier for this change event.</p>
+   * @public
+   */
+  EventId: string | undefined;
+
+  /**
+   * <p>The name of the user who initiated this change event, if available.</p>
+   * @public
+   */
+  UserName?: string | undefined;
+
+  /**
+   * <p>The name or description of this change event.</p>
+   * @public
+   */
+  EventName?: string | undefined;
+}
+
+/**
+ * <p>A structure that contains information about the current state of a service, including its latest change events such as deployments and other state-changing activities.</p>
+ * @public
+ */
+export interface ServiceState {
+  /**
+   * <p>The attribute filters that were applied when retrieving this service state information.</p>
+   * @public
+   */
+  AttributeFilters?: AttributeFilter[] | undefined;
+
+  /**
+   * <p>The key attributes that identify this service, including Type, Name, and Environment information.</p>
+   * @public
+   */
+  Service: Record<string, string> | undefined;
+
+  /**
+   * <p>An array containing the most recent change events for this service, such as deployments, with information about when they occurred and who initiated them.</p>
+   * @public
+   */
+  LatestChangeEvents: ChangeEvent[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceStatesOutput {
+  /**
+   * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code>.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code>.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>An array of structures, where each structure contains information about the state of one service, including its latest change events such as deployments.</p>
+   * @public
+   */
+  ServiceStates: ServiceState[] | undefined;
+
+  /**
+   * <p>Include this value in your next use of this API to get the next set of service states.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2200,14 +2184,7 @@ export interface ListServicesOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to view tags for.</p>
-   *          <p>The ARN format of an Application Signals SLO is
-   *          <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i>
-   *             </code>
-   *          </p>
-   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource
-   *          Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General
-   *             Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to view tags for.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -2219,8 +2196,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface Tag {
   /**
-   * <p>A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your
-   *          resources.</p>
+   * <p>A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.</p>
    * @public
    */
   Key: string | undefined;
@@ -2241,6 +2217,46 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutGroupingConfigurationInput {
+  /**
+   * <p>An array of grouping attribute definitions that specify how services should be grouped. Each definition includes a friendly name, source keys to derive the grouping value from, and an optional default value.</p>
+   * @public
+   */
+  GroupingAttributeDefinitions: GroupingAttributeDefinition[] | undefined;
+}
+
+/**
+ * <p>A structure that contains the complete grouping configuration for an account, including all defined grouping attributes and metadata about when it was last updated.</p>
+ * @public
+ */
+export interface GroupingConfiguration {
+  /**
+   * <p>An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.</p>
+   * @public
+   */
+  GroupingAttributeDefinitions: GroupingAttributeDefinition[] | undefined;
+
+  /**
+   * <p>The timestamp when this grouping configuration was last updated. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutGroupingConfigurationOutput {
+  /**
+   * <p>A structure containing the updated grouping configuration, including all grouping attribute definitions and the timestamp when it was last updated.</p>
+   * @public
+   */
+  GroupingConfiguration: GroupingConfiguration | undefined;
 }
 
 /**
@@ -2266,14 +2282,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>This object defines the length of the look-back window used to calculate one burn rate metric
- *          for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of
- *       exactly 1 indicates that the SLO goal will be met exactly.</p>
- *          <p>For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:</p>
- *          <p>
- *             <i>burn rate = error rate over the look-back window / (100% - attainment goal percentage)</i>
- *          </p>
- *          <p>For more information about burn rates, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-burn">Calculate burn rates</a>.</p>
+ * <p>This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.</p> <p>For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:</p> <p> <i>burn rate = error rate over the look-back window / (100% - attainment goal percentage)</i> </p> <p>For more information about burn rates, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-burn">Calculate burn rates</a>.</p>
  * @public
  */
 export interface BurnRateConfiguration {
@@ -2290,37 +2299,7 @@ export interface BurnRateConfiguration {
  */
 export interface RequestBasedServiceLevelIndicatorMetricConfig {
   /**
-   * <p>If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service
-   *          the SLO metric is related to. To do so, you must specify at least the <code>Type</code>,
-   *          <code>Name</code>, and <code>Environment</code> attributes.</p>
-   *          <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes?: Record<string, string> | undefined;
@@ -2332,27 +2311,19 @@ export interface RequestBasedServiceLevelIndicatorMetricConfig {
   OperationName?: string | undefined;
 
   /**
-   * <p>If the SLO is to monitor either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals
-   *          collects, use this field to specify which of those metrics is used.</p>
+   * <p>If the SLO is to monitor either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals collects, use this field to specify which of those metrics is used.</p>
    * @public
    */
   MetricType?: ServiceLevelIndicatorMetricType | undefined;
 
   /**
-   * <p>Use this structure to define the metric that you want to use as the "total requests" number for a request-based SLO.
-   *       This result will be divided by the "good request" or "bad request" value defined in
-   *       <code>MonitoredRequestCountMetric</code>.</p>
+   * <p>Use this structure to define the metric that you want to use as the "total requests" number for a request-based SLO. This result will be divided by the "good request" or "bad request" value defined in <code>MonitoredRequestCountMetric</code>.</p>
    * @public
    */
   TotalRequestCountMetric?: MetricDataQuery[] | undefined;
 
   /**
-   * <p>Use this structure to define the metric that you want to use as the "good request" or "bad request"
-   *          value for a request-based SLO.
-   *          This value observed for the metric defined in
-   *          <code>TotalRequestCountMetric</code> will be divided by the number found for
-   *          <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that
-   *          this SLO tracks.</p>
+   * <p>Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in <code>TotalRequestCountMetric</code> will be divided by the number found for <code>MonitoredRequestCountMetric</code> to determine the percentage of successful requests that this SLO tracks.</p>
    * @public
    */
   MonitoredRequestCountMetric?: MonitoredRequestCountMetricDataQueries | undefined;
@@ -2382,8 +2353,7 @@ export interface RequestBasedServiceLevelIndicatorConfig {
   MetricThreshold?: number | undefined;
 
   /**
-   * <p>The arithmetic operation to use when comparing the specified metric to the
-   *          threshold. This parameter is required if this SLO is tracking the <code>Latency</code> metric.</p>
+   * <p>The arithmetic operation to use when comparing the specified metric to the threshold. This parameter is required if this SLO is tracking the <code>Latency</code> metric.</p>
    * @public
    */
   ComparisonOperator?: ServiceLevelIndicatorComparisonOperator | undefined;
@@ -2395,37 +2365,7 @@ export interface RequestBasedServiceLevelIndicatorConfig {
  */
 export interface ServiceLevelIndicatorMetricConfig {
   /**
-   * <p>If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service
-   *          the SLO metric is related to. To do so, you must specify at least the <code>Type</code>,
-   *          <code>Name</code>, and <code>Environment</code> attributes.</p>
-   *          <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes?: Record<string, string> | undefined;
@@ -2437,29 +2377,31 @@ export interface ServiceLevelIndicatorMetricConfig {
   OperationName?: string | undefined;
 
   /**
-   * <p>If the SLO is to monitor either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals
-   *       collects, use this field to specify which of those metrics is used.</p>
+   * <p>If the SLO is to monitor either the <code>LATENCY</code> or <code>AVAILABILITY</code> metric that Application Signals collects, use this field to specify which of those metrics is used.</p>
    * @public
    */
   MetricType?: ServiceLevelIndicatorMetricType | undefined;
 
   /**
-   * <p>The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic. For more information about statistics,
-   *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">CloudWatch statistics definitions</a>.</p>
+   * <p>The name of the CloudWatch metric to use for the SLO, when using a custom metric rather than Application Signals standard metrics.</p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic. For more information about statistics, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">CloudWatch statistics definitions</a>.</p>
    * @public
    */
   Statistic?: string | undefined;
 
   /**
-   * <p>The number of seconds to use as the period for SLO evaluation. Your application's performance is compared to the
-   *          SLI during each period. For each period, the application is determined to have either achieved or not achieved the necessary performance.</p>
+   * <p>The number of seconds to use as the period for SLO evaluation. Your application's performance is compared to the SLI during each period. For each period, the application is determined to have either achieved or not achieved the necessary performance.</p>
    * @public
    */
   PeriodSeconds?: number | undefined;
 
   /**
-   * <p>If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression,
-   *      use this structure to specify that metric or expression. </p>
+   * <p>If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression. </p>
    * @public
    */
   MetricDataQueries?: MetricDataQuery[] | undefined;
@@ -2483,15 +2425,13 @@ export interface ServiceLevelIndicatorConfig {
   SliMetricConfig: ServiceLevelIndicatorMetricConfig | undefined;
 
   /**
-   * <p>This parameter is used only when a request-based SLO tracks the <code>Latency</code> metric. Specify the threshold value that the
-   *          observed <code>Latency</code> metric values are to be compared to.</p>
+   * <p>This parameter is used only when a request-based SLO tracks the <code>Latency</code> metric. Specify the threshold value that the observed <code>Latency</code> metric values are to be compared to.</p>
    * @public
    */
   MetricThreshold: number | undefined;
 
   /**
-   * <p>The arithmetic operation to use when comparing the specified metric to the
-   *          threshold.</p>
+   * <p>The arithmetic operation to use when comparing the specified metric to the threshold.</p>
    * @public
    */
   ComparisonOperator: ServiceLevelIndicatorComparisonOperator | undefined;
@@ -2514,15 +2454,13 @@ export interface CreateServiceLevelObjectiveInput {
   Description?: string | undefined;
 
   /**
-   * <p>If this SLO is a period-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
-   *          <p>You can't specify both <code>RequestBasedSliConfig</code> and <code>SliConfig</code> in the same operation.</p>
+   * <p>If this SLO is a period-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p> <p>You can't specify both <code>RequestBasedSliConfig</code> and <code>SliConfig</code> in the same operation.</p>
    * @public
    */
   SliConfig?: ServiceLevelIndicatorConfig | undefined;
 
   /**
-   * <p>If this SLO is a request-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
-   *          <p>You can't specify both <code>RequestBasedSliConfig</code> and <code>SliConfig</code> in the same operation.</p>
+   * <p>If this SLO is a request-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p> <p>You can't specify both <code>RequestBasedSliConfig</code> and <code>SliConfig</code> in the same operation.</p>
    * @public
    */
   RequestBasedSliConfig?: RequestBasedServiceLevelIndicatorConfig | undefined;
@@ -2534,19 +2472,13 @@ export interface CreateServiceLevelObjectiveInput {
   Goal?: Goal | undefined;
 
   /**
-   * <p>A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO.
-   *       To be able to associate tags with the SLO when you create the SLO, you must
-   *       have the <code>cloudwatch:TagResource</code> permission.</p>
-   *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
-   *       permissions by granting a user
-   *       permission to access or change only resources with certain tag values.</p>
+   * <p>A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the <code>cloudwatch:TagResource</code> permission.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Use this array to create <i>burn rates</i> for this SLO. Each
-   *          burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
+   * <p>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
    * @public
    */
   BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
@@ -2568,12 +2500,7 @@ export const MetricSourceType = {
 export type MetricSourceType = (typeof MetricSourceType)[keyof typeof MetricSourceType];
 
 /**
- * <p>A structure containing information about one service level objective (SLO) that has been created in Application Signals.
- *          Creating SLOs can help you ensure your services are
- *          performing to the level that you expect. SLOs help you set and track a specific target level for the
- *          reliability and availability of your applications and services. Each SLO uses a service level indicator (SLI), which is
- *          a key performance metric, to
- *          calculate how much underperformance can be tolerated before the goal that you set for the SLO is not achieved.</p>
+ * <p>A structure containing information about one service level objective (SLO) that has been created in Application Signals. Creating SLOs can help you ensure your services are performing to the level that you expect. SLOs help you set and track a specific target level for the reliability and availability of your applications and services. Each SLO uses a service level indicator (SLI), which is a key performance metric, to calculate how much underperformance can be tolerated before the goal that you set for the SLO is not achieved.</p>
  * @public
  */
 export interface ServiceLevelObjective {
@@ -2596,17 +2523,13 @@ export interface ServiceLevelObjective {
   Description?: string | undefined;
 
   /**
-   * <p>The date and time that this SLO was created. When used in a raw HTTP Query API, it is formatted as
-   *          <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
-   *          <code>2019-07-01T23:59:59</code>.</p>
+   * <p>The date and time that this SLO was created. When used in a raw HTTP Query API, it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</p>
    * @public
    */
   CreatedTime: Date | undefined;
 
   /**
-   * <p>The time that this SLO was most recently updated. When used in a raw HTTP Query API, it is formatted as
-   *          <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
-   *          <code>2019-07-01T23:59:59</code>.</p>
+   * <p>The time that this SLO was most recently updated. When used in a raw HTTP Query API, it is formatted as <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example, <code>2019-07-01T23:59:59</code>.</p>
    * @public
    */
   LastUpdatedTime: Date | undefined;
@@ -2630,32 +2553,19 @@ export interface ServiceLevelObjective {
   EvaluationType?: EvaluationType | undefined;
 
   /**
-   * <p>This structure contains the attributes that determine the goal of an SLO. This includes
-   *          the time period for evaluation and the attainment threshold.</p>
+   * <p>This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.</p>
    * @public
    */
   Goal: Goal | undefined;
 
   /**
-   * <p>Each object in this array defines the length of the look-back window used to calculate one burn rate metric
-   *          for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
+   * <p>Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
    * @public
    */
   BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
 
   /**
-   * <p>Displays the SLI metric source type for this SLO. Supported types are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Service operation</p>
-   *             </li>
-   *             <li>
-   *                <p>Service dependency</p>
-   *             </li>
-   *             <li>
-   *                <p>CloudWatch metric</p>
-   *             </li>
-   *          </ul>
+   * <p>Displays the SLI metric source type for this SLO. Supported types are:</p> <ul> <li> <p>Service operation</p> </li> <li> <p>Service dependency</p> </li> <li> <p>CloudWatch metric</p> </li> </ul>
    * @public
    */
   MetricSourceType?: MetricSourceType | undefined;
@@ -2715,9 +2625,7 @@ export interface DeleteServiceLevelObjectiveOutput {}
  */
 export interface GetServiceLevelObjectiveInput {
   /**
-   * <p>The ARN or name of the SLO that you want to retrieve information about. You can find the ARNs
-   *          of SLOs by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListServiceLevelObjectives.html">ListServiceLevelObjectives</a>
-   *          operation.</p>
+   * <p>The ARN or name of the SLO that you want to retrieve information about. You can find the ARNs of SLOs by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListServiceLevelObjectives.html">ListServiceLevelObjectives</a> operation.</p>
    * @public
    */
   Id: string | undefined;
@@ -2739,35 +2647,7 @@ export interface GetServiceLevelObjectiveOutput {
  */
 export interface ListServiceLevelObjectivesInput {
   /**
-   * <p>You can use this optional field to specify which services you want to retrieve SLO information for.</p>
-   *          <p>This is a string-to-string map. It can
-   *             include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this is.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *                when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *                is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *                This is used only if the value of the <code>Type</code> field
-   *                is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>You can use this optional field to specify which services you want to retrieve SLO information for.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes?: Record<string, string> | undefined;
@@ -2785,8 +2665,7 @@ export interface ListServiceLevelObjectivesInput {
   DependencyConfig?: DependencyConfig | undefined;
 
   /**
-   * <p>The maximum number of results to return in one operation. If you omit this
-   *          parameter, the default of 50 is used.</p>
+   * <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2798,29 +2677,7 @@ export interface ListServiceLevelObjectivesInput {
   NextToken?: string | undefined;
 
   /**
-   * <p>Use this optional field to only include SLOs with the specified metric source types in the output. Supported types are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Service operation</p>
-   *             </li>
-   *             <li>
-   *                <p>Service dependency</p>
-   *             </li>
-   *             <li>
-   *                <p>CloudWatch metric</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  MetricSourceTypes?: MetricSourceType[] | undefined;
-
-  /**
-   * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include SLO from source accounts in the returned data.
-   *
-   *       </p>
-   *          <p>When you are monitoring an account, you can use Amazon Web Services account ID in <code>KeyAttribute</code> filter for service source account and <code>SloOwnerawsaccountID</code> for SLO source account with <code>IncludeLinkedAccounts</code> to filter the returned data to only a single source account.
-   *
-   *       </p>
+   * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include SLO from source accounts in the returned data. </p> <p>When you are monitoring an account, you can use Amazon Web Services account ID in <code>KeyAttribute</code> filter for service source account and <code>SloOwnerawsaccountID</code> for SLO source account with <code>IncludeLinkedAccounts</code> to filter the returned data to only a single source account. </p>
    * @public
    */
   IncludeLinkedAccounts?: boolean | undefined;
@@ -2830,6 +2687,12 @@ export interface ListServiceLevelObjectivesInput {
    * @public
    */
   SloOwnerAwsAccountId?: string | undefined;
+
+  /**
+   * <p>Use this optional field to only include SLOs with the specified metric source types in the output. Supported types are:</p> <ul> <li> <p>Service operation</p> </li> <li> <p>Service dependency</p> </li> <li> <p>CloudWatch metric</p> </li> </ul>
+   * @public
+   */
+  MetricSourceTypes?: MetricSourceType[] | undefined;
 }
 
 /**
@@ -2850,41 +2713,13 @@ export interface ServiceLevelObjectiveSummary {
   Name: string | undefined;
 
   /**
-   * <p>This is a string-to-string map. It can
-   *          include the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code> designates the type of object this service level objective is for.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ResourceType</code> specifies the type of the resource. This field is used only
-   *             when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field
-   *             is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Identifier</code> identifies the resource objects of this resource.
-   *             This is used only if the value of the <code>Type</code> field
-   *             is <code>Resource</code> or <code>AWS::Resource</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p>
-   *             </li>
-   *          </ul>
+   * <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this service level objective is for.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
    * @public
    */
   KeyAttributes?: Record<string, string> | undefined;
 
   /**
-   * <p>If this service level objective is specific to a single operation, this
-   *       field displays the name of that operation.</p>
+   * <p>If this service level objective is specific to a single operation, this field displays the name of that operation.</p>
    * @public
    */
   OperationName?: string | undefined;
@@ -2908,18 +2743,7 @@ export interface ServiceLevelObjectiveSummary {
   EvaluationType?: EvaluationType | undefined;
 
   /**
-   * <p>Displays the SLI metric source type for this SLO. Supported types are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Service operation</p>
-   *             </li>
-   *             <li>
-   *                <p>Service dependency</p>
-   *             </li>
-   *             <li>
-   *                <p>CloudWatch metric</p>
-   *             </li>
-   *          </ul>
+   * <p>Displays the SLI metric source type for this SLO. Supported types are:</p> <ul> <li> <p>Service operation</p> </li> <li> <p>Service dependency</p> </li> <li> <p>CloudWatch metric</p> </li> </ul>
    * @public
    */
   MetricSourceType?: MetricSourceType | undefined;
@@ -2936,8 +2760,7 @@ export interface ListServiceLevelObjectivesOutput {
   SloSummaries?: ServiceLevelObjectiveSummary[] | undefined;
 
   /**
-   * <p>Include this value in your next use of this API to get next set
-   *          of service level objectives.</p>
+   * <p>Include this value in your next use of this API to get next set of service level objectives.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2966,22 +2789,19 @@ export interface UpdateServiceLevelObjectiveInput {
   SliConfig?: ServiceLevelIndicatorConfig | undefined;
 
   /**
-   * <p>If this SLO is a request-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p>
-   *          <p>You can't specify both <code>SliConfig</code> and <code>RequestBasedSliConfig</code> in the same operation.</p>
+   * <p>If this SLO is a request-based SLO, this structure defines the information about what performance metric this SLO will monitor.</p> <p>You can't specify both <code>SliConfig</code> and <code>RequestBasedSliConfig</code> in the same operation.</p>
    * @public
    */
   RequestBasedSliConfig?: RequestBasedServiceLevelIndicatorConfig | undefined;
 
   /**
-   * <p>A structure that contains the attributes that determine the goal of the SLO. This includes
-   *          the time period for evaluation and the attainment threshold.</p>
+   * <p>A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.</p>
    * @public
    */
   Goal?: Goal | undefined;
 
   /**
-   * <p>Use this array to create <i>burn rates</i> for this SLO. Each
-   *          burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
+   * <p>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
    * @public
    */
   BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
@@ -3013,14 +2833,7 @@ export interface StartDiscoveryOutput {}
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to set tags for.</p>
-   *          <p>The ARN format of an Application Signals SLO is
-   *          <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i>
-   *             </code>
-   *          </p>
-   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource
-   *          Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General
-   *             Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to set tags for.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -3042,14 +2855,7 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to delete tags from.</p>
-   *          <p>The ARN format of an Application Signals SLO is
-   *          <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i>
-   *             </code>
-   *          </p>
-   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource
-   *          Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General
-   *             Reference</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to delete tags from.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ResourceArn: string | undefined;

@@ -34,6 +34,8 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  * ```javascript
  * import { IAMClient, UpdateRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // UpdateRoleRequest
  *   RoleName: "STRING_VALUE", // required

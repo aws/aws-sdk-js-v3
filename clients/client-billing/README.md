@@ -205,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateSourceViews
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/AssociateSourceViewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/AssociateSourceViewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/AssociateSourceViewsCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateBillingView
 </summary>
 
@@ -217,6 +225,14 @@ DeleteBillingView
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/DeleteBillingViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/DeleteBillingViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/DeleteBillingViewCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateSourceViews
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/DisassociateSourceViewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/DisassociateSourceViewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/DisassociateSourceViewsCommandOutput/)
 
 </details>
 <details>

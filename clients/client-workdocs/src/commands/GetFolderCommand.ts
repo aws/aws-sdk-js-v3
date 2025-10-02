@@ -39,6 +39,8 @@ export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBea
  * ```javascript
  * import { WorkDocsClient, GetFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // GetFolderRequest
  *   AuthenticationToken: "STRING_VALUE",

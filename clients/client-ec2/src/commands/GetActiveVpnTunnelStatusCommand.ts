@@ -34,6 +34,8 @@ export interface GetActiveVpnTunnelStatusCommandOutput extends GetActiveVpnTunne
  * ```javascript
  * import { EC2Client, GetActiveVpnTunnelStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetActiveVpnTunnelStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // GetActiveVpnTunnelStatusRequest
  *   VpnConnectionId: "STRING_VALUE", // required

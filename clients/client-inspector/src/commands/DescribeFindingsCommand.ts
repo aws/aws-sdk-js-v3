@@ -34,6 +34,8 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * ```javascript
  * import { InspectorClient, DescribeFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // import type { InspectorClientConfig } from "@aws-sdk/client-inspector";
+ * const config = {}; // type is InspectorClientConfig
  * const client = new InspectorClient(config);
  * const input = { // DescribeFindingsRequest
  *   findingArns: [ // BatchDescribeArnList // required

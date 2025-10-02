@@ -38,6 +38,8 @@ export interface ListEnrollmentStatusesCommandOutput extends ListEnrollmentStatu
  * ```javascript
  * import { CostOptimizationHubClient, ListEnrollmentStatusesCommand } from "@aws-sdk/client-cost-optimization-hub"; // ES Modules import
  * // const { CostOptimizationHubClient, ListEnrollmentStatusesCommand } = require("@aws-sdk/client-cost-optimization-hub"); // CommonJS import
+ * // import type { CostOptimizationHubClientConfig } from "@aws-sdk/client-cost-optimization-hub";
+ * const config = {}; // type is CostOptimizationHubClientConfig
  * const client = new CostOptimizationHubClient(config);
  * const input = { // ListEnrollmentStatusesRequest
  *   includeOrganizationInfo: true || false,

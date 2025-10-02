@@ -41,6 +41,8 @@ export interface NotifyRecommendationsReceivedCommandOutput
  * ```javascript
  * import { WisdomClient, NotifyRecommendationsReceivedCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, NotifyRecommendationsReceivedCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // NotifyRecommendationsReceivedRequest
  *   assistantId: "STRING_VALUE", // required

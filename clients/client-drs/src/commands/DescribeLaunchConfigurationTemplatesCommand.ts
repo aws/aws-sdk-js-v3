@@ -43,6 +43,8 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * ```javascript
  * import { DrsClient, DescribeLaunchConfigurationTemplatesCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeLaunchConfigurationTemplatesCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // DescribeLaunchConfigurationTemplatesRequest
  *   launchConfigurationTemplateIDs: [ // LaunchConfigurationTemplateIDs

@@ -34,6 +34,8 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * ```javascript
  * import { LightsailClient, ImportKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, ImportKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // ImportKeyPairRequest
  *   keyPairName: "STRING_VALUE", // required

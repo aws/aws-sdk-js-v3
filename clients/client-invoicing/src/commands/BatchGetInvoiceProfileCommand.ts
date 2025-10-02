@@ -38,6 +38,8 @@ export interface BatchGetInvoiceProfileCommandOutput extends BatchGetInvoiceProf
  * ```javascript
  * import { InvoicingClient, BatchGetInvoiceProfileCommand } from "@aws-sdk/client-invoicing"; // ES Modules import
  * // const { InvoicingClient, BatchGetInvoiceProfileCommand } = require("@aws-sdk/client-invoicing"); // CommonJS import
+ * // import type { InvoicingClientConfig } from "@aws-sdk/client-invoicing";
+ * const config = {}; // type is InvoicingClientConfig
  * const client = new InvoicingClient(config);
  * const input = { // BatchGetInvoiceProfileRequest
  *   AccountIds: [ // AccountIdList // required

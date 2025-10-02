@@ -34,6 +34,8 @@ export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameResponse, __M
  * ```javascript
  * import { RestXmlProtocolClient, XmlMapsXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml-schema"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlMapsXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml-schema"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml-schema";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlMapsXmlNameRequest
  *   myMap: { // XmlMapsXmlNameInputOutputMap

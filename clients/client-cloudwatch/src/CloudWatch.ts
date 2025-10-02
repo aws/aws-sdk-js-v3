@@ -29,6 +29,11 @@ import {
   DeleteMetricStreamCommandOutput,
 } from "./commands/DeleteMetricStreamCommand";
 import {
+  DescribeAlarmContributorsCommand,
+  DescribeAlarmContributorsCommandInput,
+  DescribeAlarmContributorsCommandOutput,
+} from "./commands/DescribeAlarmContributorsCommand";
+import {
   DescribeAlarmHistoryCommand,
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput,
@@ -192,6 +197,7 @@ const commands = {
   DeleteDashboardsCommand,
   DeleteInsightRulesCommand,
   DeleteMetricStreamCommand,
+  DescribeAlarmContributorsCommand,
   DescribeAlarmHistoryCommand,
   DescribeAlarmsCommand,
   DescribeAlarmsForMetricCommand,
@@ -306,6 +312,23 @@ export interface CloudWatch {
     args: DeleteMetricStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteMetricStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAlarmContributorsCommand}
+   */
+  describeAlarmContributors(
+    args: DescribeAlarmContributorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAlarmContributorsCommandOutput>;
+  describeAlarmContributors(
+    args: DescribeAlarmContributorsCommandInput,
+    cb: (err: any, data?: DescribeAlarmContributorsCommandOutput) => void
+  ): void;
+  describeAlarmContributors(
+    args: DescribeAlarmContributorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAlarmContributorsCommandOutput) => void
   ): void;
 
   /**

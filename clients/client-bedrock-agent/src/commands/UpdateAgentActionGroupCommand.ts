@@ -39,6 +39,8 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  * ```javascript
  * import { BedrockAgentClient, UpdateAgentActionGroupCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, UpdateAgentActionGroupCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // UpdateAgentActionGroupRequest
  *   agentId: "STRING_VALUE", // required

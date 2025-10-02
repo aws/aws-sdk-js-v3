@@ -52,6 +52,8 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  * ```javascript
  * import { SSMClient, GetDeployablePatchSnapshotForInstanceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetDeployablePatchSnapshotForInstanceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetDeployablePatchSnapshotForInstanceRequest
  *   InstanceId: "STRING_VALUE", // required
@@ -108,6 +110,7 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *     ],
  *     AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  *   },
+ *   UseS3DualStackEndpoint: true || false,
  * };
  * const command = new GetDeployablePatchSnapshotForInstanceCommand(input);
  * const response = await client.send(command);

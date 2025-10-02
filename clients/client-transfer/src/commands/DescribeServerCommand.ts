@@ -34,6 +34,8 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * ```javascript
  * import { TransferClient, DescribeServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // DescribeServerRequest
  *   ServerId: "STRING_VALUE", // required

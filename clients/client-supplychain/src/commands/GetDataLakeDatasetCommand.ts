@@ -34,6 +34,8 @@ export interface GetDataLakeDatasetCommandOutput extends GetDataLakeDatasetRespo
  * ```javascript
  * import { SupplyChainClient, GetDataLakeDatasetCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
  * // const { SupplyChainClient, GetDataLakeDatasetCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * // import type { SupplyChainClientConfig } from "@aws-sdk/client-supplychain";
+ * const config = {}; // type is SupplyChainClientConfig
  * const client = new SupplyChainClient(config);
  * const input = { // GetDataLakeDatasetRequest
  *   instanceId: "STRING_VALUE", // required

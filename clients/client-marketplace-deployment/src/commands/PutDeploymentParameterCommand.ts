@@ -42,6 +42,8 @@ export interface PutDeploymentParameterCommandOutput extends PutDeploymentParame
  * ```javascript
  * import { MarketplaceDeploymentClient, PutDeploymentParameterCommand } from "@aws-sdk/client-marketplace-deployment"; // ES Modules import
  * // const { MarketplaceDeploymentClient, PutDeploymentParameterCommand } = require("@aws-sdk/client-marketplace-deployment"); // CommonJS import
+ * // import type { MarketplaceDeploymentClientConfig } from "@aws-sdk/client-marketplace-deployment";
+ * const config = {}; // type is MarketplaceDeploymentClientConfig
  * const client = new MarketplaceDeploymentClient(config);
  * const input = { // PutDeploymentParameterRequest
  *   catalog: "STRING_VALUE", // required

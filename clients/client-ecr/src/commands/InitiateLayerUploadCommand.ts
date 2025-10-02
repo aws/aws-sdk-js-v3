@@ -41,6 +41,8 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * ```javascript
  * import { ECRClient, InitiateLayerUploadCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, InitiateLayerUploadCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // InitiateLayerUploadRequest
  *   registryId: "STRING_VALUE",

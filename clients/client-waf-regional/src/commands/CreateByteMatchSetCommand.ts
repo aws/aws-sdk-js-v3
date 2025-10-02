@@ -65,6 +65,8 @@ export interface CreateByteMatchSetCommandOutput extends CreateByteMatchSetRespo
  * ```javascript
  * import { WAFRegionalClient, CreateByteMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateByteMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // CreateByteMatchSetRequest
  *   Name: "STRING_VALUE", // required

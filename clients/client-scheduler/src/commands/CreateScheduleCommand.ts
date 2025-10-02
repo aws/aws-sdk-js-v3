@@ -34,6 +34,8 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  * ```javascript
  * import { SchedulerClient, CreateScheduleCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, CreateScheduleCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * // import type { SchedulerClientConfig } from "@aws-sdk/client-scheduler";
+ * const config = {}; // type is SchedulerClientConfig
  * const client = new SchedulerClient(config);
  * const input = { // CreateScheduleInput
  *   Name: "STRING_VALUE", // required

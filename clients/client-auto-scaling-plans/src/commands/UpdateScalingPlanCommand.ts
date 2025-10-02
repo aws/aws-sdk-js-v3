@@ -36,6 +36,8 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  * ```javascript
  * import { AutoScalingPlansClient, UpdateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, UpdateScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * // import type { AutoScalingPlansClientConfig } from "@aws-sdk/client-auto-scaling-plans";
+ * const config = {}; // type is AutoScalingPlansClientConfig
  * const client = new AutoScalingPlansClient(config);
  * const input = { // UpdateScalingPlanRequest
  *   ScalingPlanName: "STRING_VALUE", // required

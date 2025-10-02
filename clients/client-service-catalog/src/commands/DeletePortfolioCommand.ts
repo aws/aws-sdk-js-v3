@@ -37,6 +37,8 @@ export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __M
  * ```javascript
  * import { ServiceCatalogClient, DeletePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeletePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // import type { ServiceCatalogClientConfig } from "@aws-sdk/client-service-catalog";
+ * const config = {}; // type is ServiceCatalogClientConfig
  * const client = new ServiceCatalogClient(config);
  * const input = { // DeletePortfolioInput
  *   AcceptLanguage: "STRING_VALUE",

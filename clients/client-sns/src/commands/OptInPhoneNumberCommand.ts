@@ -40,6 +40,8 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * ```javascript
  * import { SNSClient, OptInPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, OptInPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // import type { SNSClientConfig } from "@aws-sdk/client-sns";
+ * const config = {}; // type is SNSClientConfig
  * const client = new SNSClient(config);
  * const input = { // OptInPhoneNumberInput
  *   phoneNumber: "STRING_VALUE", // required

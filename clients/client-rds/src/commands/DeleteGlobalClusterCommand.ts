@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/models_0";
+import { DeleteGlobalClusterMessage } from "../models/models_0";
+import { DeleteGlobalClusterResult } from "../models/models_1";
 import { de_DeleteGlobalClusterCommand, se_DeleteGlobalClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -38,6 +39,8 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * ```javascript
  * import { RDSClient, DeleteGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DeleteGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required

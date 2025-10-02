@@ -37,6 +37,8 @@ export interface DescribeOrganizationsAccessCommandOutput extends DescribeOrgani
  * ```javascript
  * import { CloudFormationClient, DescribeOrganizationsAccessCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeOrganizationsAccessCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeOrganizationsAccessInput
  *   CallAs: "SELF" || "DELEGATED_ADMIN",

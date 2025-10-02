@@ -34,6 +34,8 @@ export interface GetRelationalDatabasesCommandOutput extends GetRelationalDataba
  * ```javascript
  * import { LightsailClient, GetRelationalDatabasesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabasesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabasesRequest
  *   pageToken: "STRING_VALUE",

@@ -37,6 +37,8 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  * ```javascript
  * import { EC2Client, GetIpamPoolAllocationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetIpamPoolAllocationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // GetIpamPoolAllocationsRequest
  *   DryRun: true || false,

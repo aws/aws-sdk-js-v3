@@ -35,6 +35,8 @@ export interface GetServicePrincipalNameCommandOutput extends GetServicePrincipa
  * ```javascript
  * import { PcaConnectorAdClient, GetServicePrincipalNameCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, GetServicePrincipalNameCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // GetServicePrincipalNameRequest
  *   DirectoryRegistrationArn: "STRING_VALUE", // required

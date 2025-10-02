@@ -38,6 +38,8 @@ export interface AssumeQueueRoleForUserCommandOutput extends AssumeQueueRoleForU
  * ```javascript
  * import { DeadlineClient, AssumeQueueRoleForUserCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, AssumeQueueRoleForUserCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // AssumeQueueRoleForUserRequest
  *   farmId: "STRING_VALUE", // required

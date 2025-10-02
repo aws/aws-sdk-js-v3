@@ -41,6 +41,8 @@ export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstan
  * ```javascript
  * import { EC2Client, DescribeFleetInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFleetInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeFleetInstancesRequest
  *   DryRun: true || false,

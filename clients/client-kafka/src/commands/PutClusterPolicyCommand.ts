@@ -34,6 +34,8 @@ export interface PutClusterPolicyCommandOutput extends PutClusterPolicyResponse,
  * ```javascript
  * import { KafkaClient, PutClusterPolicyCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, PutClusterPolicyCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // PutClusterPolicyRequest
  *   ClusterArn: "STRING_VALUE", // required

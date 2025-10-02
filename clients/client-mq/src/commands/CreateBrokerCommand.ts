@@ -34,6 +34,8 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * ```javascript
  * import { MqClient, CreateBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, CreateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // CreateBrokerRequest
  *   AuthenticationStrategy: "SIMPLE" || "LDAP" || "CONFIG_MANAGED",

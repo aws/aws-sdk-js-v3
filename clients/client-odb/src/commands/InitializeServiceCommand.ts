@@ -34,6 +34,8 @@ export interface InitializeServiceCommandOutput extends InitializeServiceOutput,
  * ```javascript
  * import { OdbClient, InitializeServiceCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, InitializeServiceCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = {};
  * const command = new InitializeServiceCommand(input);

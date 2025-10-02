@@ -39,6 +39,8 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { PersonalizeClient, DeleteCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // DeleteCampaignRequest
  *   campaignArn: "STRING_VALUE", // required

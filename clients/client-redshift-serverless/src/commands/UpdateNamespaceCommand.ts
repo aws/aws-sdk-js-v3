@@ -45,6 +45,8 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  * ```javascript
  * import { RedshiftServerlessClient, UpdateNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, UpdateNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // UpdateNamespaceRequest
  *   namespaceName: "STRING_VALUE", // required

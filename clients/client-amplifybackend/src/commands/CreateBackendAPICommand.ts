@@ -34,6 +34,8 @@ export interface CreateBackendAPICommandOutput extends CreateBackendAPIResponse,
  * ```javascript
  * import { AmplifyBackendClient, CreateBackendAPICommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CreateBackendAPICommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // import type { AmplifyBackendClientConfig } from "@aws-sdk/client-amplifybackend";
+ * const config = {}; // type is AmplifyBackendClientConfig
  * const client = new AmplifyBackendClient(config);
  * const input = { // CreateBackendAPIRequest
  *   AppId: "STRING_VALUE", // required

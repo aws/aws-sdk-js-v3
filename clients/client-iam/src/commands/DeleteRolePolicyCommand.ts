@@ -39,6 +39,8 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, DeleteRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // DeleteRolePolicyRequest
  *   RoleName: "STRING_VALUE", // required

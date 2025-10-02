@@ -42,6 +42,8 @@ export interface ListDataAutomationProjectsCommandOutput extends ListDataAutomat
  * ```javascript
  * import { BedrockDataAutomationClient, ListDataAutomationProjectsCommand } from "@aws-sdk/client-bedrock-data-automation"; // ES Modules import
  * // const { BedrockDataAutomationClient, ListDataAutomationProjectsCommand } = require("@aws-sdk/client-bedrock-data-automation"); // CommonJS import
+ * // import type { BedrockDataAutomationClientConfig } from "@aws-sdk/client-bedrock-data-automation";
+ * const config = {}; // type is BedrockDataAutomationClientConfig
  * const client = new BedrockDataAutomationClient(config);
  * const input = { // ListDataAutomationProjectsRequest
  *   maxResults: Number("int"),

@@ -92,6 +92,10 @@ import {
   DeleteRuleGroupsNamespaceCommandOutput,
 } from "./commands/DeleteRuleGroupsNamespaceCommand";
 import { DeleteScraperCommandInput, DeleteScraperCommandOutput } from "./commands/DeleteScraperCommand";
+import {
+  DeleteScraperLoggingConfigurationCommandInput,
+  DeleteScraperLoggingConfigurationCommandOutput,
+} from "./commands/DeleteScraperLoggingConfigurationCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
 import {
   DescribeAlertManagerDefinitionCommandInput,
@@ -114,6 +118,10 @@ import {
   DescribeRuleGroupsNamespaceCommandOutput,
 } from "./commands/DescribeRuleGroupsNamespaceCommand";
 import { DescribeScraperCommandInput, DescribeScraperCommandOutput } from "./commands/DescribeScraperCommand";
+import {
+  DescribeScraperLoggingConfigurationCommandInput,
+  DescribeScraperLoggingConfigurationCommandOutput,
+} from "./commands/DescribeScraperLoggingConfigurationCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "./commands/DescribeWorkspaceCommand";
 import {
   DescribeWorkspaceConfigurationCommandInput,
@@ -154,6 +162,10 @@ import {
 } from "./commands/UpdateQueryLoggingConfigurationCommand";
 import { UpdateScraperCommandInput, UpdateScraperCommandOutput } from "./commands/UpdateScraperCommand";
 import {
+  UpdateScraperLoggingConfigurationCommandInput,
+  UpdateScraperLoggingConfigurationCommandOutput,
+} from "./commands/UpdateScraperLoggingConfigurationCommand";
+import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
 } from "./commands/UpdateWorkspaceAliasCommand";
@@ -188,6 +200,7 @@ export type ServiceInputTypes =
   | DeleteResourcePolicyCommandInput
   | DeleteRuleGroupsNamespaceCommandInput
   | DeleteScraperCommandInput
+  | DeleteScraperLoggingConfigurationCommandInput
   | DeleteWorkspaceCommandInput
   | DescribeAlertManagerDefinitionCommandInput
   | DescribeLoggingConfigurationCommandInput
@@ -195,6 +208,7 @@ export type ServiceInputTypes =
   | DescribeResourcePolicyCommandInput
   | DescribeRuleGroupsNamespaceCommandInput
   | DescribeScraperCommandInput
+  | DescribeScraperLoggingConfigurationCommandInput
   | DescribeWorkspaceCommandInput
   | DescribeWorkspaceConfigurationCommandInput
   | GetDefaultScraperConfigurationCommandInput
@@ -210,6 +224,7 @@ export type ServiceInputTypes =
   | UpdateLoggingConfigurationCommandInput
   | UpdateQueryLoggingConfigurationCommandInput
   | UpdateScraperCommandInput
+  | UpdateScraperLoggingConfigurationCommandInput
   | UpdateWorkspaceAliasCommandInput
   | UpdateWorkspaceConfigurationCommandInput;
 
@@ -229,6 +244,7 @@ export type ServiceOutputTypes =
   | DeleteResourcePolicyCommandOutput
   | DeleteRuleGroupsNamespaceCommandOutput
   | DeleteScraperCommandOutput
+  | DeleteScraperLoggingConfigurationCommandOutput
   | DeleteWorkspaceCommandOutput
   | DescribeAlertManagerDefinitionCommandOutput
   | DescribeLoggingConfigurationCommandOutput
@@ -236,6 +252,7 @@ export type ServiceOutputTypes =
   | DescribeResourcePolicyCommandOutput
   | DescribeRuleGroupsNamespaceCommandOutput
   | DescribeScraperCommandOutput
+  | DescribeScraperLoggingConfigurationCommandOutput
   | DescribeWorkspaceCommandOutput
   | DescribeWorkspaceConfigurationCommandOutput
   | GetDefaultScraperConfigurationCommandOutput
@@ -251,6 +268,7 @@ export type ServiceOutputTypes =
   | UpdateLoggingConfigurationCommandOutput
   | UpdateQueryLoggingConfigurationCommandOutput
   | UpdateScraperCommandOutput
+  | UpdateScraperLoggingConfigurationCommandOutput
   | UpdateWorkspaceAliasCommandOutput
   | UpdateWorkspaceConfigurationCommandOutput;
 

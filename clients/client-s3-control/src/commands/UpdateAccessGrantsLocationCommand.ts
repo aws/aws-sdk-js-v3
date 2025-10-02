@@ -51,6 +51,8 @@ export interface UpdateAccessGrantsLocationCommandOutput extends UpdateAccessGra
  * ```javascript
  * import { S3ControlClient, UpdateAccessGrantsLocationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, UpdateAccessGrantsLocationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // UpdateAccessGrantsLocationRequest
  *   AccountId: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * ```javascript
  * import { ImagebuilderClient, GetImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // GetImageRequest
  *   imageBuildVersionArn: "STRING_VALUE", // required
@@ -103,6 +105,9 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //           uninstallAfterBuild: true || false,
  * //         },
  * //         userDataOverride: "STRING_VALUE",
+ * //       },
+ * //       amiTags: {
+ * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },
  * //     containerRecipe: { // ContainerRecipe
@@ -287,9 +292,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       timeoutMinutes: Number("int"), // required
  * //       dateCreated: "STRING_VALUE",
  * //       dateUpdated: "STRING_VALUE",
- * //       tags: {
- * //         "<keys>": "STRING_VALUE",
- * //       },
+ * //       tags: "<TagMap>",
  * //     },
  * //     imageTestsConfiguration: { // ImageTestsConfiguration
  * //       imageTestsEnabled: true || false,
@@ -349,6 +352,9 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //         onFailure: "CONTINUE" || "ABORT",
  * //       },
  * //     ],
+ * //     loggingConfiguration: { // ImageLoggingConfiguration
+ * //       logGroupName: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

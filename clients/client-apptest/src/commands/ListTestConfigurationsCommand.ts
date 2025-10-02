@@ -34,6 +34,8 @@ export interface ListTestConfigurationsCommandOutput extends ListTestConfigurati
  * ```javascript
  * import { AppTestClient, ListTestConfigurationsCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, ListTestConfigurationsCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // ListTestConfigurationsRequest
  *   testConfigurationIds: [ // TestConfigurationIdList

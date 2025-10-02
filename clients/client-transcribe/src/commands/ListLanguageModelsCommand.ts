@@ -36,6 +36,8 @@ export interface ListLanguageModelsCommandOutput extends ListLanguageModelsRespo
  * ```javascript
  * import { TranscribeClient, ListLanguageModelsCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListLanguageModelsCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // import type { TranscribeClientConfig } from "@aws-sdk/client-transcribe";
+ * const config = {}; // type is TranscribeClientConfig
  * const client = new TranscribeClient(config);
  * const input = { // ListLanguageModelsRequest
  *   StatusEquals: "IN_PROGRESS" || "FAILED" || "COMPLETED",

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/types",
-  "version": "3.862.0",
+  "version": "3.901.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -16,6 +16,7 @@
     "extract:docs": "api-extractor run --local",
     "test": "tsc -p tsconfig.test.json"
   },
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -41,7 +42,7 @@
     "directory": "packages/types"
   },
   "dependencies": {
-    "@smithy/types": "^4.3.2",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

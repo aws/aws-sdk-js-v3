@@ -39,6 +39,8 @@ export interface CreateClusterSchedulerConfigCommandOutput
  * ```javascript
  * import { SageMakerClient, CreateClusterSchedulerConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateClusterSchedulerConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateClusterSchedulerConfigRequest
  *   Name: "STRING_VALUE", // required

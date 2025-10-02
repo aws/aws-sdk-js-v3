@@ -42,6 +42,8 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  * ```javascript
  * import { VerifiedPermissionsClient, CreatePolicyStoreCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, CreatePolicyStoreCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // import type { VerifiedPermissionsClientConfig } from "@aws-sdk/client-verifiedpermissions";
+ * const config = {}; // type is VerifiedPermissionsClientConfig
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // CreatePolicyStoreInput
  *   clientToken: "STRING_VALUE",

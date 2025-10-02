@@ -51,6 +51,8 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * ```javascript
  * import { ECSClient, DeregisterTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeregisterTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DeregisterTaskDefinitionRequest
  *   taskDefinition: "STRING_VALUE", // required
@@ -293,14 +295,14 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //       },
  * //     ],
  * //     compatibilities: [ // CompatibilityList
- * //       "EC2" || "FARGATE" || "EXTERNAL",
+ * //       "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //     ],
  * //     runtimePlatform: { // RuntimePlatform
  * //       cpuArchitecture: "X86_64" || "ARM64",
  * //       operatingSystemFamily: "WINDOWS_SERVER_2019_FULL" || "WINDOWS_SERVER_2019_CORE" || "WINDOWS_SERVER_2016_FULL" || "WINDOWS_SERVER_2004_CORE" || "WINDOWS_SERVER_2022_CORE" || "WINDOWS_SERVER_2022_FULL" || "WINDOWS_SERVER_2025_CORE" || "WINDOWS_SERVER_2025_FULL" || "WINDOWS_SERVER_20H2_CORE" || "LINUX",
  * //     },
  * //     requiresCompatibilities: [
- * //       "EC2" || "FARGATE" || "EXTERNAL",
+ * //       "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //     ],
  * //     cpu: "STRING_VALUE",
  * //     memory: "STRING_VALUE",

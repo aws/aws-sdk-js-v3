@@ -34,6 +34,8 @@ export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, _
  * ```javascript
  * import { LookoutMetricsClient, GetAnomalyGroupCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, GetAnomalyGroupCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // GetAnomalyGroupRequest
  *   AnomalyGroupId: "STRING_VALUE", // required

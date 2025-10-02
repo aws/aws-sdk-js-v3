@@ -34,6 +34,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * ```javascript
  * import { GlueClient, DeleteConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteConnectionRequest
  *   CatalogId: "STRING_VALUE",

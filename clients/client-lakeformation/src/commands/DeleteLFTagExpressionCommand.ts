@@ -35,6 +35,8 @@ export interface DeleteLFTagExpressionCommandOutput extends DeleteLFTagExpressio
  * ```javascript
  * import { LakeFormationClient, DeleteLFTagExpressionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DeleteLFTagExpressionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // DeleteLFTagExpressionRequest
  *   Name: "STRING_VALUE", // required

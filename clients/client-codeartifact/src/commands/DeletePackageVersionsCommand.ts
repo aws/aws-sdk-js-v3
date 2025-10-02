@@ -38,6 +38,8 @@ export interface DeletePackageVersionsCommandOutput extends DeletePackageVersion
  * ```javascript
  * import { CodeartifactClient, DeletePackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DeletePackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // DeletePackageVersionsRequest
  *   domain: "STRING_VALUE", // required

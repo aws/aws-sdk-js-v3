@@ -35,6 +35,8 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * ```javascript
  * import { AthenaClient, StartSessionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StartSessionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // StartSessionRequest
  *   Description: "STRING_VALUE",

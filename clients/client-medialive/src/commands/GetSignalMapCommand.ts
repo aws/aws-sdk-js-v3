@@ -34,6 +34,8 @@ export interface GetSignalMapCommandOutput extends GetSignalMapResponse, __Metad
  * ```javascript
  * import { MediaLiveClient, GetSignalMapCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, GetSignalMapCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // GetSignalMapRequest
  *   Identifier: "STRING_VALUE", // required

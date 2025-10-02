@@ -53,6 +53,8 @@ export interface CreateVPCAssociationAuthorizationCommandOutput
  * ```javascript
  * import { Route53Client, CreateVPCAssociationAuthorizationCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateVPCAssociationAuthorizationCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // CreateVPCAssociationAuthorizationRequest
  *   HostedZoneId: "STRING_VALUE", // required

@@ -28,16 +28,18 @@ export interface DescribeEventsCommandInput extends DescribeEventsRequest {}
 export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns events related to DAX clusters and parameter groups. You can obtain
- *             events specific to a particular DAX cluster or parameter group by providing the name
- *             as a parameter.</p>
- *         <p>By default, only the events occurring within the last 24 hours are returned; however,
- *             you can retrieve up to 14 days' worth of events if necessary.</p>
+ * <p>Returns events related to DAX clusters and parameter groups. You can
+ *             obtain events specific to a particular DAX cluster or parameter group by
+ *             providing the name as a parameter.</p>
+ *          <p>By default, only the events occurring within the last 24 hours are returned;
+ *             however, you can retrieve up to 14 days' worth of events if necessary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, DescribeEventsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeEventsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // DescribeEventsRequest
  *   SourceName: "STRING_VALUE",

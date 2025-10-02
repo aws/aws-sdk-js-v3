@@ -34,6 +34,8 @@ export interface DeleteCapabilityCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { B2biClient, DeleteCapabilityCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, DeleteCapabilityCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // DeleteCapabilityRequest
  *   capabilityId: "STRING_VALUE", // required

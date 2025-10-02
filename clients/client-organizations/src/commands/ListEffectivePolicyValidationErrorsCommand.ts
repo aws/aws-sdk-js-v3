@@ -36,7 +36,8 @@ export interface ListEffectivePolicyValidationErrorsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all the validation errors on an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective policy</a> for a specified account and policy type.</p>
+ * <p>Lists all the validation errors on an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective
+ *                 policy</a> for a specified account and policy type.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator.</p>
  * @example
@@ -44,6 +45,8 @@ export interface ListEffectivePolicyValidationErrorsCommandOutput
  * ```javascript
  * import { OrganizationsClient, ListEffectivePolicyValidationErrorsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListEffectivePolicyValidationErrorsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // ListEffectivePolicyValidationErrorsRequest
  *   AccountId: "STRING_VALUE", // required

@@ -37,6 +37,8 @@ export interface CreateConfigurationPolicyCommandOutput extends CreateConfigurat
  * ```javascript
  * import { SecurityHubClient, CreateConfigurationPolicyCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, CreateConfigurationPolicyCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // CreateConfigurationPolicyRequest
  *   Name: "STRING_VALUE", // required

@@ -41,6 +41,8 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  * ```javascript
  * import { DirectoryServiceClient, ConnectDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ConnectDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // ConnectDirectoryRequest
  *   Name: "STRING_VALUE", // required
@@ -53,7 +55,10 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  *     SubnetIds: [ // SubnetIds // required
  *       "STRING_VALUE",
  *     ],
- *     CustomerDnsIps: [ // DnsIpAddrs // required
+ *     CustomerDnsIps: [ // DnsIpAddrs
+ *       "STRING_VALUE",
+ *     ],
+ *     CustomerDnsIpsV6: [ // DnsIpv6Addrs
  *       "STRING_VALUE",
  *     ],
  *     CustomerUserName: "STRING_VALUE", // required
@@ -64,6 +69,7 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   NetworkType: "Dual-stack" || "IPv4" || "IPv6",
  * };
  * const command = new ConnectDirectoryCommand(input);
  * const response = await client.send(command);

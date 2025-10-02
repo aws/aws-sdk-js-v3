@@ -7,6 +7,7 @@
   "scripts": {
     "bootstrap": "yarn",
     "bootstrap:ci": "yarn install --frozen-lockfile",
+    "benchmark:bundlers": "node ./tests/bundlers/runner/run.mjs",
     "build:all": "node ./scripts/turbo build",
     "build:ci": "node ./scripts/turbo build",
     "build:clients:generic": "node ./scripts/turbo build -F=@aws-sdk/aws-echo-service",
@@ -46,7 +47,7 @@
     "test:integration:legacy:since:release": "yarn test:e2e:legacy:since:release",
     "test:protocols": "yarn build:protocols && lerna run test --scope '@aws-sdk/aws-protocoltests-*'",
     "test:server-protocols": "yarn build:server-protocols && lerna run test --scope '@aws-sdk/*-server'",
-    "test:size": "cd scripts/benchmark-size/runner && yarn && npx tsx ./cli.ts",
+    "test:size": "node ./tests/bundlers/runner/run.mjs",
     "test:unit": "make test-unit",
     "test:versions": "jest --config tests/versions/jest.config.js tests/versions/index.spec.ts",
     "update:versions:default": "node --es-module-specifier-resolution=node ./scripts/update-versions/default.mjs",
@@ -115,6 +116,7 @@
     "vitest": "^3.2.4",
     "webpack": "5.101.0",
     "webpack-cli": "4.10.0",
+    "xmldom": "^0.6.0",
     "yargs": "17.5.1"
   },
   "overrides": {

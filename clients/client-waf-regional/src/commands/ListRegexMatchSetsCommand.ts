@@ -42,6 +42,8 @@ export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsRespo
  * ```javascript
  * import { WAFRegionalClient, ListRegexMatchSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListRegexMatchSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // ListRegexMatchSetsRequest
  *   NextMarker: "STRING_VALUE",

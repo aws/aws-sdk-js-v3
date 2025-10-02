@@ -38,6 +38,8 @@ export interface ListBillEstimatesCommandOutput extends ListBillEstimatesRespons
  * ```javascript
  * import { BCMPricingCalculatorClient, ListBillEstimatesCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, ListBillEstimatesCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // ListBillEstimatesRequest
  *   filters: [ // ListBillEstimatesFilters

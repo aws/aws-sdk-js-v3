@@ -34,6 +34,8 @@ export interface GetDatastoreCommandOutput extends GetDatastoreResponse, __Metad
  * ```javascript
  * import { MedicalImagingClient, GetDatastoreCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, GetDatastoreCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // GetDatastoreRequest
  *   datastoreId: "STRING_VALUE", // required
@@ -46,6 +48,7 @@ export interface GetDatastoreCommandOutput extends GetDatastoreResponse, __Metad
  * //     datastoreName: "STRING_VALUE", // required
  * //     datastoreStatus: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "DELETING" || "DELETED", // required
  * //     kmsKeyArn: "STRING_VALUE",
+ * //     lambdaAuthorizerArn: "STRING_VALUE",
  * //     datastoreArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),

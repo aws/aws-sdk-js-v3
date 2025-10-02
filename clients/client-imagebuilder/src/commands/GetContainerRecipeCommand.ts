@@ -34,6 +34,8 @@ export interface GetContainerRecipeCommandOutput extends GetContainerRecipeRespo
  * ```javascript
  * import { ImagebuilderClient, GetContainerRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetContainerRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // GetContainerRecipeRequest
  *   containerRecipeArn: "STRING_VALUE", // required

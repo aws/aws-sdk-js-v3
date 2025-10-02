@@ -36,6 +36,8 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * ```javascript
  * import { CloudFormationClient, ListChangeSetsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListChangeSetsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ListChangeSetsInput
  *   StackName: "STRING_VALUE", // required

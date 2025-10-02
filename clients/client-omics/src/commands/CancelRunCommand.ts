@@ -34,6 +34,8 @@ export interface CancelRunCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OmicsClient, CancelRunCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CancelRunCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // CancelRunRequest
  *   id: "STRING_VALUE", // required

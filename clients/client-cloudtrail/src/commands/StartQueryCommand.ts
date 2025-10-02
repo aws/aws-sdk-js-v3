@@ -40,6 +40,8 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * ```javascript
  * import { CloudTrailClient, StartQueryCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StartQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // StartQueryRequest
  *   QueryStatement: "STRING_VALUE",

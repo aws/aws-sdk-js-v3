@@ -38,6 +38,8 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * ```javascript
  * import { MgnClient, ListConnectorsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListConnectorsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // ListConnectorsRequest
  *   filters: { // ListConnectorsRequestFilters

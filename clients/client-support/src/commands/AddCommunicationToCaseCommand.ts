@@ -52,6 +52,8 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  * ```javascript
  * import { SupportClient, AddCommunicationToCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, AddCommunicationToCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * // import type { SupportClientConfig } from "@aws-sdk/client-support";
+ * const config = {}; // type is SupportClientConfig
  * const client = new SupportClient(config);
  * const input = { // AddCommunicationToCaseRequest
  *   caseId: "STRING_VALUE",

@@ -28,12 +28,14 @@ export interface DeleteFormTypeCommandInput extends DeleteFormTypeInput {}
 export interface DeleteFormTypeCommandOutput extends DeleteFormTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Delets and metadata form type in Amazon DataZone.</p>
+ * <p>Deletes and metadata form type in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>The form type must exist in the domain. </p> </li> <li> <p>The form type must not be in use by any asset types or assets.</p> </li> <li> <p>The domain must be valid and accessible.</p> </li> <li> <p>User must have delete permissions on the form type.</p> </li> <li> <p>Any dependencies (such as linked asset types) must be removed first.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, DeleteFormTypeCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteFormTypeCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteFormTypeInput
  *   domainIdentifier: "STRING_VALUE", // required

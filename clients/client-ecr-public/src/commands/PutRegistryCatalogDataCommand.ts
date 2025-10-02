@@ -34,6 +34,8 @@ export interface PutRegistryCatalogDataCommandOutput extends PutRegistryCatalogD
  * ```javascript
  * import { ECRPUBLICClient, PutRegistryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, PutRegistryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * // import type { ECRPUBLICClientConfig } from "@aws-sdk/client-ecr-public";
+ * const config = {}; // type is ECRPUBLICClientConfig
  * const client = new ECRPUBLICClient(config);
  * const input = { // PutRegistryCatalogDataRequest
  *   displayName: "STRING_VALUE",

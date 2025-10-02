@@ -34,6 +34,8 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  * ```javascript
  * import { BudgetsClient, UpdateNotificationCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, UpdateNotificationCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // import type { BudgetsClientConfig } from "@aws-sdk/client-budgets";
+ * const config = {}; // type is BudgetsClientConfig
  * const client = new BudgetsClient(config);
  * const input = { // UpdateNotificationRequest
  *   AccountId: "STRING_VALUE", // required

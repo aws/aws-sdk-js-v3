@@ -35,6 +35,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * ```javascript
  * import { SSMIncidentsClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // DeleteResourcePolicyInput
  *   resourceArn: "STRING_VALUE", // required

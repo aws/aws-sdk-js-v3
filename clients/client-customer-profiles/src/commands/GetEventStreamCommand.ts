@@ -34,6 +34,8 @@ export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __M
  * ```javascript
  * import { CustomerProfilesClient, GetEventStreamCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetEventStreamCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetEventStreamRequest
  *   DomainName: "STRING_VALUE", // required

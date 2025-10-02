@@ -38,6 +38,8 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  * ```javascript
  * import { IoTWirelessClient, UpdatePartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdatePartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdatePartnerAccountRequest
  *   Sidewalk: { // SidewalkUpdateAccount

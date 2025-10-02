@@ -28,24 +28,26 @@ export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
 export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all provisioned DAX clusters if no cluster identifier
- *             is specified, or about a specific DAX cluster if a cluster identifier is
+ * <p>Returns information about all provisioned DAX clusters if no cluster identifier is
+ *             specified, or about a specific DAX cluster if a cluster identifier is
  *             supplied.</p>
- *         <p>If the cluster is in the CREATING state, only cluster level information will be
+ *          <p>If the cluster is in the CREATING state, only cluster level information will be
  *             displayed until all of the nodes are successfully provisioned.</p>
- *         <p>If the cluster is in the DELETING state, only cluster level information will be
+ *          <p>If the cluster is in the DELETING state, only cluster level information will be
  *             displayed.</p>
- *         <p>If nodes are currently being added to the DAX cluster, node endpoint information
+ *          <p>If nodes are currently being added to the DAX cluster, node endpoint information
  *             and creation time for the additional nodes will not be displayed until they are
- *             completely provisioned. When the DAX cluster state is <i>available</i>,
- *             the cluster is ready for use.</p>
- *         <p>If nodes are currently being removed from the DAX cluster, no endpoint
- *             information for the removed nodes is displayed.</p>
+ *             completely provisioned. When the DAX cluster state is
+ *                 <i>available</i>, the cluster is ready for use.</p>
+ *          <p>If nodes are currently being removed from the DAX cluster, no
+ *             endpoint information for the removed nodes is displayed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, DescribeClustersCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeClustersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // DescribeClustersRequest
  *   ClusterNames: [ // ClusterNameList
@@ -113,6 +115,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * //         Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //       },
  * //       ClusterEndpointEncryptionType: "NONE" || "TLS",
+ * //       NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //     },
  * //   ],
  * // };
@@ -126,7 +129,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *  <p>The requested cluster ID does not refer to an existing DAX
+ *             cluster.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>

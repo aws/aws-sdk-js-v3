@@ -39,6 +39,8 @@ export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBea
  * ```javascript
  * import { ManagedBlockchainClient, UpdateNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, UpdateNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * // import type { ManagedBlockchainClientConfig } from "@aws-sdk/client-managedblockchain";
+ * const config = {}; // type is ManagedBlockchainClientConfig
  * const client = new ManagedBlockchainClient(config);
  * const input = { // UpdateNodeInput
  *   NetworkId: "STRING_VALUE", // required

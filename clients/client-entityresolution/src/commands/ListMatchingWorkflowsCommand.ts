@@ -34,6 +34,8 @@ export interface ListMatchingWorkflowsCommandOutput extends ListMatchingWorkflow
  * ```javascript
  * import { EntityResolutionClient, ListMatchingWorkflowsCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, ListMatchingWorkflowsCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // ListMatchingWorkflowsInput
  *   nextToken: "STRING_VALUE",

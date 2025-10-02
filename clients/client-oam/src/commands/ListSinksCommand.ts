@@ -34,6 +34,8 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  * ```javascript
  * import { OAMClient, ListSinksCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, ListSinksCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * // import type { OAMClientConfig } from "@aws-sdk/client-oam";
+ * const config = {}; // type is OAMClientConfig
  * const client = new OAMClient(config);
  * const input = { // ListSinksInput
  *   MaxResults: Number("int"),

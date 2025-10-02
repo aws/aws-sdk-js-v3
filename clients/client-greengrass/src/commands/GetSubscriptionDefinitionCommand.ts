@@ -34,6 +34,8 @@ export interface GetSubscriptionDefinitionCommandOutput extends GetSubscriptionD
  * ```javascript
  * import { GreengrassClient, GetSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // GetSubscriptionDefinitionRequest
  *   SubscriptionDefinitionId: "STRING_VALUE", // required

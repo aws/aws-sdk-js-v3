@@ -34,6 +34,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * ```javascript
  * import { MemoryDBClient, UpdateUserCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateUserCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // UpdateUserRequest
  *   UserName: "STRING_VALUE", // required

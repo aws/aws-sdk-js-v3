@@ -88,6 +88,8 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * ```javascript
  * import { SFNClient, TestStateCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, TestStateCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // import type { SFNClientConfig } from "@aws-sdk/client-sfn";
+ * const config = {}; // type is SFNClientConfig
  * const client = new SFNClient(config);
  * const input = { // TestStateInput
  *   definition: "STRING_VALUE", // required

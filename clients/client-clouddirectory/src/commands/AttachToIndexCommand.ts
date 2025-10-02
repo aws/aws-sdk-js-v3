@@ -34,6 +34,8 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  * ```javascript
  * import { CloudDirectoryClient, AttachToIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AttachToIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // AttachToIndexRequest
  *   DirectoryArn: "STRING_VALUE", // required

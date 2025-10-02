@@ -34,6 +34,8 @@ export interface ListTimeSeriesDataPointsCommandOutput extends ListTimeSeriesDat
  * ```javascript
  * import { DataZoneClient, ListTimeSeriesDataPointsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListTimeSeriesDataPointsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListTimeSeriesDataPointsInput
  *   domainIdentifier: "STRING_VALUE", // required

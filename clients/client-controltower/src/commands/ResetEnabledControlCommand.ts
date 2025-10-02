@@ -34,6 +34,8 @@ export interface ResetEnabledControlCommandOutput extends ResetEnabledControlOut
  * ```javascript
  * import { ControlTowerClient, ResetEnabledControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, ResetEnabledControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // ResetEnabledControlInput
  *   enabledControlIdentifier: "STRING_VALUE", // required

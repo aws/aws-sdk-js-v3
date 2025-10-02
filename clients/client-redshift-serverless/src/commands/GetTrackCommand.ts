@@ -38,6 +38,8 @@ export interface GetTrackCommandOutput extends GetTrackResponse, __MetadataBeare
  * ```javascript
  * import { RedshiftServerlessClient, GetTrackCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetTrackCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // GetTrackRequest
  *   trackName: "STRING_VALUE", // required

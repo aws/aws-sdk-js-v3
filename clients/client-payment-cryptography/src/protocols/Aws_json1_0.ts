@@ -20,12 +20,32 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import {
+  AddKeyReplicationRegionsCommandInput,
+  AddKeyReplicationRegionsCommandOutput,
+} from "../commands/AddKeyReplicationRegionsCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "../commands/CreateAliasCommand";
 import { CreateKeyCommandInput, CreateKeyCommandOutput } from "../commands/CreateKeyCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "../commands/DeleteAliasCommand";
 import { DeleteKeyCommandInput, DeleteKeyCommandOutput } from "../commands/DeleteKeyCommand";
+import {
+  DisableDefaultKeyReplicationRegionsCommandInput,
+  DisableDefaultKeyReplicationRegionsCommandOutput,
+} from "../commands/DisableDefaultKeyReplicationRegionsCommand";
+import {
+  EnableDefaultKeyReplicationRegionsCommandInput,
+  EnableDefaultKeyReplicationRegionsCommandOutput,
+} from "../commands/EnableDefaultKeyReplicationRegionsCommand";
 import { ExportKeyCommandInput, ExportKeyCommandOutput } from "../commands/ExportKeyCommand";
 import { GetAliasCommandInput, GetAliasCommandOutput } from "../commands/GetAliasCommand";
+import {
+  GetCertificateSigningRequestCommandInput,
+  GetCertificateSigningRequestCommandOutput,
+} from "../commands/GetCertificateSigningRequestCommand";
+import {
+  GetDefaultKeyReplicationRegionsCommandInput,
+  GetDefaultKeyReplicationRegionsCommandOutput,
+} from "../commands/GetDefaultKeyReplicationRegionsCommand";
 import { GetKeyCommandInput, GetKeyCommandOutput } from "../commands/GetKeyCommand";
 import {
   GetParametersForExportCommandInput,
@@ -46,6 +66,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  RemoveKeyReplicationRegionsCommandInput,
+  RemoveKeyReplicationRegionsCommandOutput,
+} from "../commands/RemoveKeyReplicationRegionsCommand";
 import { RestoreKeyCommandInput, RestoreKeyCommandOutput } from "../commands/RestoreKeyCommand";
 import { StartKeyUsageCommandInput, StartKeyUsageCommandOutput } from "../commands/StartKeyUsageCommand";
 import { StopKeyUsageCommandInput, StopKeyUsageCommandOutput } from "../commands/StopKeyUsageCommand";
@@ -54,6 +78,9 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../comman
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "../commands/UpdateAliasCommand";
 import {
   AccessDeniedException,
+  AddKeyReplicationRegionsInput,
+  AddKeyReplicationRegionsOutput,
+  CertificateSubjectType,
   ConflictException,
   CreateAliasInput,
   CreateKeyInput,
@@ -62,6 +89,8 @@ import {
   DeleteKeyInput,
   DeleteKeyOutput,
   DiffieHellmanDerivationData,
+  DisableDefaultKeyReplicationRegionsInput,
+  EnableDefaultKeyReplicationRegionsInput,
   ExportAttributes,
   ExportDiffieHellmanTr31KeyBlock,
   ExportDukptInitialKey,
@@ -71,6 +100,8 @@ import {
   ExportTr31KeyBlock,
   ExportTr34KeyBlock,
   GetAliasInput,
+  GetCertificateSigningRequestInput,
+  GetDefaultKeyReplicationRegionsInput,
   GetKeyInput,
   GetKeyOutput,
   GetParametersForExportInput,
@@ -93,6 +124,8 @@ import {
   ListAliasesInput,
   ListKeysInput,
   ListTagsForResourceInput,
+  RemoveKeyReplicationRegionsInput,
+  RemoveKeyReplicationRegionsOutput,
   ResourceNotFoundException,
   RestoreKeyInput,
   RestoreKeyOutput,
@@ -112,6 +145,19 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { PaymentCryptographyServiceException as __BaseException } from "../models/PaymentCryptographyServiceException";
+
+/**
+ * serializeAws_json1_0AddKeyReplicationRegionsCommand
+ */
+export const se_AddKeyReplicationRegionsCommand = async (
+  input: AddKeyReplicationRegionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AddKeyReplicationRegions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_0CreateAliasCommand
@@ -166,6 +212,32 @@ export const se_DeleteKeyCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DisableDefaultKeyReplicationRegionsCommand
+ */
+export const se_DisableDefaultKeyReplicationRegionsCommand = async (
+  input: DisableDefaultKeyReplicationRegionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisableDefaultKeyReplicationRegions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0EnableDefaultKeyReplicationRegionsCommand
+ */
+export const se_EnableDefaultKeyReplicationRegionsCommand = async (
+  input: EnableDefaultKeyReplicationRegionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("EnableDefaultKeyReplicationRegions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ExportKeyCommand
  */
 export const se_ExportKeyCommand = async (
@@ -186,6 +258,32 @@ export const se_GetAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAlias");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetCertificateSigningRequestCommand
+ */
+export const se_GetCertificateSigningRequestCommand = async (
+  input: GetCertificateSigningRequestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetCertificateSigningRequest");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetDefaultKeyReplicationRegionsCommand
+ */
+export const se_GetDefaultKeyReplicationRegionsCommand = async (
+  input: GetDefaultKeyReplicationRegionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDefaultKeyReplicationRegions");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -293,6 +391,19 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_0RemoveKeyReplicationRegionsCommand
+ */
+export const se_RemoveKeyReplicationRegionsCommand = async (
+  input: RemoveKeyReplicationRegionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RemoveKeyReplicationRegions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0RestoreKeyCommand
  */
 export const se_RestoreKeyCommand = async (
@@ -368,6 +479,26 @@ export const se_UpdateAliasCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_0AddKeyReplicationRegionsCommand
+ */
+export const de_AddKeyReplicationRegionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddKeyReplicationRegionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AddKeyReplicationRegionsOutput(data, context);
+  const response: AddKeyReplicationRegionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
 };
 
 /**
@@ -451,6 +582,46 @@ export const de_DeleteKeyCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DisableDefaultKeyReplicationRegionsCommand
+ */
+export const de_DisableDefaultKeyReplicationRegionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableDefaultKeyReplicationRegionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisableDefaultKeyReplicationRegionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0EnableDefaultKeyReplicationRegionsCommand
+ */
+export const de_EnableDefaultKeyReplicationRegionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableDefaultKeyReplicationRegionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: EnableDefaultKeyReplicationRegionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0ExportKeyCommand
  */
 export const de_ExportKeyCommand = async (
@@ -484,6 +655,46 @@ export const de_GetAliasCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: GetAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetCertificateSigningRequestCommand
+ */
+export const de_GetCertificateSigningRequestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCertificateSigningRequestCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetCertificateSigningRequestCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetDefaultKeyReplicationRegionsCommand
+ */
+export const de_GetDefaultKeyReplicationRegionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDefaultKeyReplicationRegionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetDefaultKeyReplicationRegionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -651,6 +862,26 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0RemoveKeyReplicationRegionsCommand
+ */
+export const de_RemoveKeyReplicationRegionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveKeyReplicationRegionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RemoveKeyReplicationRegionsOutput(data, context);
+  const response: RemoveKeyReplicationRegionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0RestoreKeyCommand
  */
 export const de_RestoreKeyCommand = async (
@@ -795,15 +1026,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ServiceQuotaExceededException":
     case "com.amazonaws.paymentcryptography#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.paymentcryptography#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.paymentcryptography#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.paymentcryptography#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.paymentcryptography#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -933,6 +1164,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+// se_AddKeyReplicationRegionsInput omitted.
+
+// se_CertificateSubjectType omitted.
+
 // se_CreateAliasInput omitted.
 
 // se_CreateKeyInput omitted.
@@ -942,6 +1177,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_DeleteKeyInput omitted.
 
 // se_DiffieHellmanDerivationData omitted.
+
+// se_DisableDefaultKeyReplicationRegionsInput omitted.
+
+// se_EnableDefaultKeyReplicationRegionsInput omitted.
 
 // se_ExportAttributes omitted.
 
@@ -960,6 +1199,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ExportTr34KeyBlock omitted.
 
 // se_GetAliasInput omitted.
+
+// se_GetCertificateSigningRequestInput omitted.
+
+// se_GetDefaultKeyReplicationRegionsInput omitted.
 
 // se_GetKeyInput omitted.
 
@@ -995,6 +1238,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_OptionalBlocks omitted.
 
+// se_Regions omitted.
+
+// se_RemoveKeyReplicationRegionsInput omitted.
+
 // se_RestoreKeyInput omitted.
 
 // se_RootCertificatePublicKey omitted.
@@ -1018,6 +1265,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_UpdateAliasInput omitted.
 
 // de_AccessDeniedException omitted.
+
+/**
+ * deserializeAws_json1_0AddKeyReplicationRegionsOutput
+ */
+const de_AddKeyReplicationRegionsOutput = (output: any, context: __SerdeContext): AddKeyReplicationRegionsOutput => {
+  return take(output, {
+    Key: (_: any) => de_Key(_, context),
+  }) as any;
+};
 
 // de_Alias omitted.
 
@@ -1047,9 +1303,17 @@ const de_DeleteKeyOutput = (output: any, context: __SerdeContext): DeleteKeyOutp
   }) as any;
 };
 
+// de_DisableDefaultKeyReplicationRegionsOutput omitted.
+
+// de_EnableDefaultKeyReplicationRegionsOutput omitted.
+
 // de_ExportKeyOutput omitted.
 
 // de_GetAliasOutput omitted.
+
+// de_GetCertificateSigningRequestOutput omitted.
+
+// de_GetDefaultKeyReplicationRegionsOutput omitted.
 
 /**
  * deserializeAws_json1_0GetKeyOutput
@@ -1116,8 +1380,12 @@ const de_Key = (output: any, context: __SerdeContext): Key => {
     KeyCheckValueAlgorithm: __expectString,
     KeyOrigin: __expectString,
     KeyState: __expectString,
+    MultiRegionKeyType: __expectString,
+    PrimaryRegion: __expectString,
+    ReplicationStatus: _json,
     UsageStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     UsageStopTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UsingDefaultReplicationRegions: __expectBoolean,
   }) as any;
 };
 
@@ -1134,6 +1402,24 @@ const de_Key = (output: any, context: __SerdeContext): Key => {
 // de_ListKeysOutput omitted.
 
 // de_ListTagsForResourceOutput omitted.
+
+// de_Regions omitted.
+
+/**
+ * deserializeAws_json1_0RemoveKeyReplicationRegionsOutput
+ */
+const de_RemoveKeyReplicationRegionsOutput = (
+  output: any,
+  context: __SerdeContext
+): RemoveKeyReplicationRegionsOutput => {
+  return take(output, {
+    Key: (_: any) => de_Key(_, context),
+  }) as any;
+};
+
+// de_ReplicationStatus omitted.
+
+// de_ReplicationStatusType omitted.
 
 // de_ResourceNotFoundException omitted.
 

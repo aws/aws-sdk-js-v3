@@ -28,12 +28,14 @@ export interface SearchTopicsCommandInput extends SearchTopicsRequest {}
 export interface SearchTopicsCommandOutput extends SearchTopicsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for any Q topic that exists in an Amazon QuickSight account.</p>
+ * <p>Searches for any Q topic that exists in an QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, SearchTopicsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchTopicsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // SearchTopicsRequest
  *   AwsAccountId: "STRING_VALUE", // required
@@ -89,7 +91,7 @@ export interface SearchTopicsCommandOutput extends SearchTopicsResponse, __Metad
  * @throws {@link UnsupportedUserEditionException} (client fault)
  *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

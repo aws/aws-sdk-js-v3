@@ -34,6 +34,8 @@ export interface CreateLiveSourceCommandOutput extends CreateLiveSourceResponse,
  * ```javascript
  * import { MediaTailorClient, CreateLiveSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateLiveSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // CreateLiveSourceRequest
  *   HttpPackageConfigurations: [ // HttpPackageConfigurations // required

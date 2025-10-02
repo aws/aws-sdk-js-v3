@@ -34,6 +34,8 @@ export interface GetDbServerCommandOutput extends GetDbServerOutput, __MetadataB
  * ```javascript
  * import { OdbClient, GetDbServerCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, GetDbServerCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // GetDbServerInput
  *   cloudExadataInfrastructureId: "STRING_VALUE", // required

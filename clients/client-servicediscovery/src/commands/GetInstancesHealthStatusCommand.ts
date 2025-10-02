@@ -40,6 +40,8 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * ```javascript
  * import { ServiceDiscoveryClient, GetInstancesHealthStatusCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetInstancesHealthStatusCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // import type { ServiceDiscoveryClientConfig } from "@aws-sdk/client-servicediscovery";
+ * const config = {}; // type is ServiceDiscoveryClientConfig
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // GetInstancesHealthStatusRequest
  *   ServiceId: "STRING_VALUE", // required

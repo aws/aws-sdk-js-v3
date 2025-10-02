@@ -43,6 +43,8 @@ export interface AssociateProtectConfigurationCommandOutput
  * ```javascript
  * import { PinpointSMSVoiceV2Client, AssociateProtectConfigurationCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, AssociateProtectConfigurationCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * // import type { PinpointSMSVoiceV2ClientConfig } from "@aws-sdk/client-pinpoint-sms-voice-v2";
+ * const config = {}; // type is PinpointSMSVoiceV2ClientConfig
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // AssociateProtectConfigurationRequest
  *   ProtectConfigurationId: "STRING_VALUE", // required

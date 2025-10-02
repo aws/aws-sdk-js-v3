@@ -34,6 +34,8 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  * ```javascript
  * import { CloudFrontClient, PublishFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, PublishFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // PublishFunctionRequest
  *   Name: "STRING_VALUE", // required

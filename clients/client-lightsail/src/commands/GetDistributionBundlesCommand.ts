@@ -37,6 +37,8 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  * ```javascript
  * import { LightsailClient, GetDistributionBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDistributionBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = {};
  * const command = new GetDistributionBundlesCommand(input);

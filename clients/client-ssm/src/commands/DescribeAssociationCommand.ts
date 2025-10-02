@@ -40,6 +40,8 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  * ```javascript
  * import { SSMClient, DescribeAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeAssociationRequest
  *   Name: "STRING_VALUE",

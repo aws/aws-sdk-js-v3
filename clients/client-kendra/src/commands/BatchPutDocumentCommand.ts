@@ -46,6 +46,8 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  * ```javascript
  * import { KendraClient, BatchPutDocumentCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, BatchPutDocumentCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // BatchPutDocumentRequest
  *   IndexId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface SameAsServiceCommandOutput extends SameAsServiceOutput, __Metad
  * ```javascript
  * import { WeatherClient, SameAsServiceCommand } from "@aws-sdk/weather-legacy-auth"; // ES Modules import
  * // const { WeatherClient, SameAsServiceCommand } = require("@aws-sdk/weather-legacy-auth"); // CommonJS import
+ * // import type { WeatherClientConfig } from "@aws-sdk/weather-legacy-auth";
+ * const config = {}; // type is WeatherClientConfig
  * const client = new WeatherClient(config);
  * const input = {};
  * const command = new SameAsServiceCommand(input);

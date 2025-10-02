@@ -34,6 +34,8 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
  * ```javascript
  * import { RedshiftClient, CancelResizeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CancelResizeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // CancelResizeMessage
  *   ClusterIdentifier: "STRING_VALUE", // required

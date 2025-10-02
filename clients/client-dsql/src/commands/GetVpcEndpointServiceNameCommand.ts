@@ -34,6 +34,8 @@ export interface GetVpcEndpointServiceNameCommandOutput extends GetVpcEndpointSe
  * ```javascript
  * import { DSQLClient, GetVpcEndpointServiceNameCommand } from "@aws-sdk/client-dsql"; // ES Modules import
  * // const { DSQLClient, GetVpcEndpointServiceNameCommand } = require("@aws-sdk/client-dsql"); // CommonJS import
+ * // import type { DSQLClientConfig } from "@aws-sdk/client-dsql";
+ * const config = {}; // type is DSQLClientConfig
  * const client = new DSQLClient(config);
  * const input = { // GetVpcEndpointServiceNameInput
  *   identifier: "STRING_VALUE", // required

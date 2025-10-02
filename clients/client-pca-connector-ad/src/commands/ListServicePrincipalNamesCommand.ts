@@ -35,6 +35,8 @@ export interface ListServicePrincipalNamesCommandOutput extends ListServicePrinc
  * ```javascript
  * import { PcaConnectorAdClient, ListServicePrincipalNamesCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, ListServicePrincipalNamesCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // ListServicePrincipalNamesRequest
  *   MaxResults: Number("int"),

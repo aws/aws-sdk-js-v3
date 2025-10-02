@@ -38,6 +38,8 @@ export interface VerifyPinDataCommandOutput extends VerifyPinDataOutput, __Metad
  * ```javascript
  * import { PaymentCryptographyDataClient, VerifyPinDataCommand } from "@aws-sdk/client-payment-cryptography-data"; // ES Modules import
  * // const { PaymentCryptographyDataClient, VerifyPinDataCommand } = require("@aws-sdk/client-payment-cryptography-data"); // CommonJS import
+ * // import type { PaymentCryptographyDataClientConfig } from "@aws-sdk/client-payment-cryptography-data";
+ * const config = {}; // type is PaymentCryptographyDataClientConfig
  * const client = new PaymentCryptographyDataClient(config);
  * const input = { // VerifyPinDataInput
  *   VerificationKeyIdentifier: "STRING_VALUE", // required

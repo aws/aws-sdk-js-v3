@@ -38,6 +38,8 @@ export interface PutRegistrationFieldValueCommandOutput extends PutRegistrationF
  * ```javascript
  * import { PinpointSMSVoiceV2Client, PutRegistrationFieldValueCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, PutRegistrationFieldValueCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * // import type { PinpointSMSVoiceV2ClientConfig } from "@aws-sdk/client-pinpoint-sms-voice-v2";
+ * const config = {}; // type is PinpointSMSVoiceV2ClientConfig
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // PutRegistrationFieldValueRequest
  *   RegistrationId: "STRING_VALUE", // required

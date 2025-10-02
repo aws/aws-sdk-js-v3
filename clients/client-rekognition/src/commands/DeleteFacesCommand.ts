@@ -37,6 +37,8 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * ```javascript
  * import { RekognitionClient, DeleteFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // DeleteFacesRequest
  *   CollectionId: "STRING_VALUE", // required

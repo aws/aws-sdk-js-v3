@@ -611,6 +611,56 @@
                         {
                           "conditions": [
                             {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-eusc"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://ce.eusc-de-east-1.api.amazonwebservices.eu",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "eusc-de-east-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
                               "fn": "booleanEquals",
                               "argv": [
                                 {
@@ -1931,6 +1981,18 @@
         "smithy.api#pattern": "^arn:aws[a-z-]*:(billing)::[0-9]{12}:billingview/[-a-zA-Z0-9/:_+=.-@]{1,43}$"
       }
     },
+    "com.amazonaws.costexplorer#BillingViewHealthStatusException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.costexplorer#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>.\n        </p>",
+        "smithy.api#error": "client"
+      }
+    },
     "com.amazonaws.costexplorer#CommitmentPurchaseAnalysisConfiguration": {
       "type": "structure",
       "members": {
@@ -2787,7 +2849,7 @@
         "Type": {
           "target": "com.amazonaws.costexplorer#GenericString",
           "traits": {
-            "smithy.api#documentation": "<p>The category or classification of the cost driver.</p>\n         <p>Values include: BUNDLED_DISCOUNT, CREDIT, OUT_OF_CYCLE_CHARGE, REFUND,\n            RECURRING_RESERVATION_FEE, RESERVATION_USAGE, RI_VOLUME_DISCOUNT, SAVINGS_PLAN_USAGE,\n            SAVINGS_PLAN_NEGATION, SAVINGS_PLAN_RECURRING_FEE, SUPPORT_FEE, TAX,\n            UPFRONT_RESERVATION_FEE, USAGE_CHANGE, COMMITMENT</p>"
+            "smithy.api#documentation": "<p>The category or classification of the cost driver.</p>\n         <p>Values include: BUNDLED_DISCOUNT, CREDIT, OUT_OF_CYCLE_CHARGE, REFUND,\n            RECURRING_RESERVATION_FEE, RESERVATION_USAGE, RI_VOLUME_DISCOUNT, SAVINGS_PLAN_USAGE,\n            SAVINGS_PLAN_RECURRING_FEE, SUPPORT_FEE, TAX, UPFRONT_RESERVATION_FEE, USAGE_CHANGE,\n            COMMITMENT</p>"
           }
         },
         "Name": {
@@ -3470,6 +3532,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "LINKED_ACCOUNT"
+          }
+        },
+        "PAYER_ACCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PAYER_ACCOUNT"
           }
         },
         "LINKED_ACCOUNT_NAME": {
@@ -4841,6 +4909,9 @@
           "target": "com.amazonaws.costexplorer#BillExpirationException"
         },
         {
+          "target": "com.amazonaws.costexplorer#BillingViewHealthStatusException"
+        },
+        {
           "target": "com.amazonaws.costexplorer#DataUnavailableException"
         },
         {
@@ -4869,6 +4940,9 @@
         "target": "com.amazonaws.costexplorer#GetCostAndUsageComparisonsResponse"
       },
       "errors": [
+        {
+          "target": "com.amazonaws.costexplorer#BillingViewHealthStatusException"
+        },
         {
           "target": "com.amazonaws.costexplorer#DataUnavailableException"
         },
@@ -5072,6 +5146,9 @@
           "target": "com.amazonaws.costexplorer#BillExpirationException"
         },
         {
+          "target": "com.amazonaws.costexplorer#BillingViewHealthStatusException"
+        },
+        {
           "target": "com.amazonaws.costexplorer#DataUnavailableException"
         },
         {
@@ -5187,6 +5264,9 @@
       "errors": [
         {
           "target": "com.amazonaws.costexplorer#BillExpirationException"
+        },
+        {
+          "target": "com.amazonaws.costexplorer#BillingViewHealthStatusException"
         },
         {
           "target": "com.amazonaws.costexplorer#DataUnavailableException"
@@ -5308,6 +5388,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.costexplorer#BillingViewHealthStatusException"
+        },
+        {
           "target": "com.amazonaws.costexplorer#DataUnavailableException"
         },
         {
@@ -5416,6 +5499,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.costexplorer#BillingViewHealthStatusException"
+        },
+        {
           "target": "com.amazonaws.costexplorer#DataUnavailableException"
         },
         {
@@ -5507,6 +5593,9 @@
       "errors": [
         {
           "target": "com.amazonaws.costexplorer#BillExpirationException"
+        },
+        {
+          "target": "com.amazonaws.costexplorer#BillingViewHealthStatusException"
         },
         {
           "target": "com.amazonaws.costexplorer#DataUnavailableException"
@@ -6505,6 +6594,9 @@
           "target": "com.amazonaws.costexplorer#BillExpirationException"
         },
         {
+          "target": "com.amazonaws.costexplorer#BillingViewHealthStatusException"
+        },
+        {
           "target": "com.amazonaws.costexplorer#DataUnavailableException"
         },
         {
@@ -6622,6 +6714,9 @@
         "target": "com.amazonaws.costexplorer#GetUsageForecastResponse"
       },
       "errors": [
+        {
+          "target": "com.amazonaws.costexplorer#BillingViewHealthStatusException"
+        },
         {
           "target": "com.amazonaws.costexplorer#DataUnavailableException"
         },

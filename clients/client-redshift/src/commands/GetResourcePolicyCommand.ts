@@ -34,6 +34,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResult,
  * ```javascript
  * import { RedshiftClient, GetResourcePolicyCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, GetResourcePolicyCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // GetResourcePolicyMessage
  *   ResourceArn: "STRING_VALUE", // required

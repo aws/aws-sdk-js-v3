@@ -42,6 +42,8 @@ export interface ListPipelineParametersForExecutionCommandOutput
  * ```javascript
  * import { SageMakerClient, ListPipelineParametersForExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListPipelineParametersForExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListPipelineParametersForExecutionRequest
  *   PipelineExecutionArn: "STRING_VALUE", // required

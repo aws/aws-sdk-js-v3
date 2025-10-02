@@ -39,6 +39,8 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * ```javascript
  * import { GlueClient, ListCrawlersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListCrawlersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // ListCrawlersRequest
  *   MaxResults: Number("int"),

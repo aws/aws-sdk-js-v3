@@ -36,6 +36,8 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * ```javascript
  * import { Route53Client, CreateTrafficPolicyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateTrafficPolicyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // CreateTrafficPolicyRequest
  *   Name: "STRING_VALUE", // required

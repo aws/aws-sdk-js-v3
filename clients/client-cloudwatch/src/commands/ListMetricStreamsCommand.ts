@@ -34,6 +34,8 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
  * ```javascript
  * import { CloudWatchClient, ListMetricStreamsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, ListMetricStreamsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // ListMetricStreamsInput
  *   NextToken: "STRING_VALUE",

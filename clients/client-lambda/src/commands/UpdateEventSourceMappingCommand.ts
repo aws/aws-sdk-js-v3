@@ -34,6 +34,8 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * ```javascript
  * import { LambdaClient, UpdateEventSourceMappingCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateEventSourceMappingCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // UpdateEventSourceMappingRequest
  *   UUID: "STRING_VALUE", // required

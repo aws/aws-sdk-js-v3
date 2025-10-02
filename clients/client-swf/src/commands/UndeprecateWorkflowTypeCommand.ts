@@ -75,6 +75,8 @@ export interface UndeprecateWorkflowTypeCommandOutput extends __MetadataBearer {
  * ```javascript
  * import { SWFClient, UndeprecateWorkflowTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, UndeprecateWorkflowTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // UndeprecateWorkflowTypeInput
  *   domain: "STRING_VALUE", // required

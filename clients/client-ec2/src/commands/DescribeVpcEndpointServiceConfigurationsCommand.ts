@@ -43,6 +43,8 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
  * ```javascript
  * import { EC2Client, DescribeVpcEndpointServiceConfigurationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcEndpointServiceConfigurationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeVpcEndpointServiceConfigurationsRequest
  *   DryRun: true || false,

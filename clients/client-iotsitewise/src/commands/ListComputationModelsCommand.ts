@@ -34,6 +34,8 @@ export interface ListComputationModelsCommandOutput extends ListComputationModel
  * ```javascript
  * import { IoTSiteWiseClient, ListComputationModelsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListComputationModelsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListComputationModelsRequest
  *   computationModelType: "ANOMALY_DETECTION",

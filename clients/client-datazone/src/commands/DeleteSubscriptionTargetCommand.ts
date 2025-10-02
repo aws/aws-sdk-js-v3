@@ -34,6 +34,8 @@ export interface DeleteSubscriptionTargetCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { DataZoneClient, DeleteSubscriptionTargetCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteSubscriptionTargetCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteSubscriptionTargetInput
  *   domainIdentifier: "STRING_VALUE", // required

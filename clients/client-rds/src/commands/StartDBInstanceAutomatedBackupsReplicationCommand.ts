@@ -8,6 +8,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartDBInstanceAutomatedBackupsReplicationMessage,
+  StartDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog,
   StartDBInstanceAutomatedBackupsReplicationResult,
 } from "../models/models_1";
 import {
@@ -48,6 +49,8 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * ```javascript
  * import { RDSClient, StartDBInstanceAutomatedBackupsReplicationCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartDBInstanceAutomatedBackupsReplicationCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // StartDBInstanceAutomatedBackupsReplicationMessage
  *   SourceDBInstanceArn: "STRING_VALUE", // required
@@ -78,6 +81,7 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * //     EngineVersion: "STRING_VALUE",
  * //     LicenseModel: "STRING_VALUE",
  * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
  * //     OptionGroupName: "STRING_VALUE",
  * //     TdeCredentialArn: "STRING_VALUE",
  * //     Encrypted: true || false,
@@ -93,10 +97,9 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * //       },
  * //     ],
  * //     BackupTarget: "STRING_VALUE",
- * //     StorageThroughput: Number("int"),
+ * //     MultiTenant: true || false,
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
- * //     MultiTenant: true || false,
  * //   },
  * // };
  *
@@ -116,6 +119,10 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * @throws {@link DBInstanceNotFoundFault} (client fault)
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBInstanceAutomatedBackupStateFault} (client fault)
+ *  <p>The automated backup is in an invalid state.
+ *             For example, this automated backup is associated with an active instance.</p>
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
@@ -186,7 +193,7 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command
   })
   .s("AmazonRDSv19", "StartDBInstanceAutomatedBackupsReplication", {})
   .n("RDSClient", "StartDBInstanceAutomatedBackupsReplicationCommand")
-  .f(void 0, void 0)
+  .f(StartDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog, void 0)
   .ser(se_StartDBInstanceAutomatedBackupsReplicationCommand)
   .de(de_StartDBInstanceAutomatedBackupsReplicationCommand)
   .build() {

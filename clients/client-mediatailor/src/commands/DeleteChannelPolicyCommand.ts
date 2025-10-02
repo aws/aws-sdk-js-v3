@@ -34,6 +34,8 @@ export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyRes
  * ```javascript
  * import { MediaTailorClient, DeleteChannelPolicyCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteChannelPolicyCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // DeleteChannelPolicyRequest
  *   ChannelName: "STRING_VALUE", // required

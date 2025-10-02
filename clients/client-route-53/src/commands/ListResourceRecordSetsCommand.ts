@@ -108,6 +108,8 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * ```javascript
  * import { Route53Client, ListResourceRecordSetsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListResourceRecordSetsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // ListResourceRecordSetsRequest
  *   HostedZoneId: "STRING_VALUE", // required

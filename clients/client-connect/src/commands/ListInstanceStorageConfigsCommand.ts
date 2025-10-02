@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListInstanceStorageConfigsRequest, ListInstanceStorageConfigsResponse } from "../models/models_1";
+import { ListInstanceStorageConfigsRequest, ListInstanceStorageConfigsResponse } from "../models/models_2";
 import { de_ListInstanceStorageConfigsCommand, se_ListInstanceStorageConfigsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -36,6 +36,8 @@ export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceSto
  * ```javascript
  * import { ConnectClient, ListInstanceStorageConfigsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListInstanceStorageConfigsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // ListInstanceStorageConfigsRequest
  *   InstanceId: "STRING_VALUE", // required

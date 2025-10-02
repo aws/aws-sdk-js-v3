@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DBInstanceMessage, DescribeDBInstancesMessage } from "../models/models_1";
+import { DBInstanceMessage, DBInstanceMessageFilterSensitiveLog, DescribeDBInstancesMessage } from "../models/models_1";
 import { de_DescribeDBInstancesCommand, se_DescribeDBInstancesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -37,6 +37,8 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * ```javascript
  * import { RDSClient, DescribeDBInstancesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeDBInstancesMessage
  *   DBInstanceIdentifier: "STRING_VALUE",
@@ -61,7 +63,6 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //       DBInstanceClass: "STRING_VALUE",
  * //       Engine: "STRING_VALUE",
  * //       DBInstanceStatus: "STRING_VALUE",
- * //       AutomaticRestartTime: new Date("TIMESTAMP"),
  * //       MasterUsername: "STRING_VALUE",
  * //       DBName: "STRING_VALUE",
  * //       Endpoint: { // Endpoint
@@ -125,6 +126,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //         EngineVersion: "STRING_VALUE",
  * //         LicenseModel: "STRING_VALUE",
  * //         Iops: Number("int"),
+ * //         StorageThroughput: Number("int"),
  * //         DBInstanceIdentifier: "STRING_VALUE",
  * //         StorageType: "STRING_VALUE",
  * //         CACertificateIdentifier: "STRING_VALUE",
@@ -143,13 +145,12 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //             Value: "STRING_VALUE",
  * //           },
  * //         ],
- * //         IAMDatabaseAuthenticationEnabled: true || false,
  * //         AutomationMode: "full" || "all-paused",
  * //         ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
- * //         StorageThroughput: Number("int"),
- * //         Engine: "STRING_VALUE",
- * //         DedicatedLogVolume: true || false,
  * //         MultiTenant: true || false,
+ * //         IAMDatabaseAuthenticationEnabled: true || false,
+ * //         DedicatedLogVolume: true || false,
+ * //         Engine: "STRING_VALUE",
  * //       },
  * //       LatestRestorableTime: new Date("TIMESTAMP"),
  * //       MultiAZ: true || false,
@@ -165,6 +166,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //       ReplicaMode: "open-read-only" || "mounted",
  * //       LicenseModel: "STRING_VALUE",
  * //       Iops: Number("int"),
+ * //       StorageThroughput: Number("int"),
  * //       OptionGroupMemberships: [ // OptionGroupMembershipList
  * //         { // OptionGroupMembership
  * //           OptionGroupName: "STRING_VALUE",
@@ -245,40 +247,40 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
- * //         { // DBInstanceAutomatedBackupsReplication
- * //           DBInstanceAutomatedBackupsArn: "STRING_VALUE",
- * //         },
- * //       ],
+ * //       AutomationMode: "full" || "all-paused",
+ * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //       CustomerOwnedIpEnabled: true || false,
- * //       AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //       NetworkType: "STRING_VALUE",
  * //       ActivityStreamStatus: "stopped" || "starting" || "started" || "stopping",
  * //       ActivityStreamKmsKeyId: "STRING_VALUE",
  * //       ActivityStreamKinesisStreamName: "STRING_VALUE",
  * //       ActivityStreamMode: "sync" || "async",
  * //       ActivityStreamEngineNativeAuditFieldsIncluded: true || false,
- * //       AutomationMode: "full" || "all-paused",
- * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
- * //       CustomIamInstanceProfile: "STRING_VALUE",
+ * //       AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //       DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
+ * //         { // DBInstanceAutomatedBackupsReplication
+ * //           DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       BackupTarget: "STRING_VALUE",
- * //       NetworkType: "STRING_VALUE",
+ * //       AutomaticRestartTime: new Date("TIMESTAMP"),
+ * //       CustomIamInstanceProfile: "STRING_VALUE",
  * //       ActivityStreamPolicyStatus: "locked" || "unlocked" || "locking-policy" || "unlocking-policy",
- * //       StorageThroughput: Number("int"),
+ * //       CertificateDetails: { // CertificateDetails
+ * //         CAIdentifier: "STRING_VALUE",
+ * //         ValidTill: new Date("TIMESTAMP"),
+ * //       },
  * //       DBSystemId: "STRING_VALUE",
  * //       MasterUserSecret: { // MasterUserSecret
  * //         SecretArn: "STRING_VALUE",
  * //         SecretStatus: "STRING_VALUE",
  * //         KmsKeyId: "STRING_VALUE",
  * //       },
- * //       CertificateDetails: { // CertificateDetails
- * //         CAIdentifier: "STRING_VALUE",
- * //         ValidTill: new Date("TIMESTAMP"),
- * //       },
  * //       ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //       PercentProgress: "STRING_VALUE",
+ * //       MultiTenant: true || false,
  * //       DedicatedLogVolume: true || false,
  * //       IsStorageConfigUpgradeAvailable: true || false,
- * //       MultiTenant: true || false,
  * //       EngineLifecycleSupport: "STRING_VALUE",
  * //     },
  * //   ],
@@ -347,7 +349,7 @@ export class DescribeDBInstancesCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeDBInstances", {})
   .n("RDSClient", "DescribeDBInstancesCommand")
-  .f(void 0, void 0)
+  .f(void 0, DBInstanceMessageFilterSensitiveLog)
   .ser(se_DescribeDBInstancesCommand)
   .de(de_DescribeDBInstancesCommand)
   .build() {

@@ -39,6 +39,8 @@ export interface ListProjectProfilesCommandOutput extends ListProjectProfilesOut
  * ```javascript
  * import { DataZoneClient, ListProjectProfilesCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListProjectProfilesCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListProjectProfilesInput
  *   domainIdentifier: "STRING_VALUE", // required

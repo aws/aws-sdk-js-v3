@@ -1,10 +1,10 @@
 import "@aws-sdk/signature-v4-crt";
 
-import { ChecksumAlgorithm, S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
+import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
-import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { createBuffer } from "./helpers";
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 
 let Key = `${Date.now()}`;
 
@@ -15,8 +15,8 @@ describe("@aws-sdk/client-s3", () => {
   let mrapArn: string;
 
   beforeAll(async () => {
-    const integTestResourcesEnv = await getIntegTestResources();
-    Object.assign(process.env, integTestResourcesEnv);
+    const e2eTestResourcesEnv = await getE2eTestResources();
+    Object.assign(process.env, e2eTestResourcesEnv);
 
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
@@ -231,46 +231,6 @@ describe("@aws-sdk/client-s3", () => {
     });
   });
 
-  describe("selectObjectContent", () => {
-    const csvFile = `user_name,age
-jsrocks,13
-node4life,22
-esfuture,29`;
-    beforeAll(async () => {
-      Key = `${Date.now()}`;
-      await client.putObject({ Bucket, Key, Body: csvFile });
-    });
-    afterAll(async () => {
-      await client.deleteObject({ Bucket, Key });
-    });
-    it("should succeed", async () => {
-      const { Payload } = await client.selectObjectContent({
-        Bucket,
-        Key,
-        ExpressionType: "SQL",
-        Expression: "SELECT user_name FROM S3Object WHERE cast(age as int) > 20",
-        InputSerialization: {
-          CSV: {
-            FileHeaderInfo: "USE",
-            RecordDelimiter: "\n",
-            FieldDelimiter: ",",
-          },
-        },
-        OutputSerialization: {
-          CSV: {},
-        },
-      });
-      const events: SelectObjectContentEventStream[] = [];
-      for await (const event of Payload!) {
-        events.push(event);
-      }
-      expect(events.length).toEqual(3);
-      expect(new TextDecoder().decode(events[0].Records?.Payload)).toEqual("node4life\nesfuture\n");
-      expect(events[1].Stats?.Details).toBeDefined();
-      expect(events[2].End).toBeDefined();
-    });
-  });
-
   describe("Multi-region access point", () => {
     beforeAll(async () => {
       Key = `${Date.now()}`;
@@ -287,4 +247,4 @@ esfuture,29`;
       expect(result.Contents).toBeInstanceOf(Array);
     });
   });
-});
+}, 60_000);

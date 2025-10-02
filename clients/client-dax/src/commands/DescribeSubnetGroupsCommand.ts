@@ -35,6 +35,8 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * ```javascript
  * import { DAXClient, DescribeSubnetGroupsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeSubnetGroupsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // DescribeSubnetGroupsRequest
  *   SubnetGroupNames: [ // SubnetGroupNameList
@@ -56,7 +58,13 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * //         { // Subnet
  * //           SubnetIdentifier: "STRING_VALUE",
  * //           SubnetAvailabilityZone: "STRING_VALUE",
+ * //           SupportedNetworkTypes: [ // NetworkTypeList
+ * //             "ipv4" || "ipv6" || "dual_stack",
+ * //           ],
  * //         },
+ * //       ],
+ * //       SupportedNetworkTypes: [
+ * //         "ipv4" || "ipv6" || "dual_stack",
  * //       ],
  * //     },
  * //   ],

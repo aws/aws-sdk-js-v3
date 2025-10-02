@@ -38,6 +38,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * ```javascript
  * import { ElastiCacheClient, DescribeEventsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeEventsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeEventsMessage
  *   SourceIdentifier: "STRING_VALUE",

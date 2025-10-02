@@ -34,6 +34,8 @@ export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __M
  * ```javascript
  * import { GroundStationClient, ListSatellitesCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListSatellitesCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // ListSatellitesRequest
  *   maxResults: Number("int"),

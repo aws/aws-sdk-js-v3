@@ -34,6 +34,8 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * ```javascript
  * import { ControlCatalogClient, GetControlCommand } from "@aws-sdk/client-controlcatalog"; // ES Modules import
  * // const { ControlCatalogClient, GetControlCommand } = require("@aws-sdk/client-controlcatalog"); // CommonJS import
+ * // import type { ControlCatalogClientConfig } from "@aws-sdk/client-controlcatalog";
+ * const config = {}; // type is ControlCatalogClientConfig
  * const client = new ControlCatalogClient(config);
  * const input = { // GetControlRequest
  *   ControlArn: "STRING_VALUE", // required

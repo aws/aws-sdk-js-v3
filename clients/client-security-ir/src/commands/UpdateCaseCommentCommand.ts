@@ -39,6 +39,8 @@ export interface UpdateCaseCommentCommandOutput extends UpdateCaseCommentRespons
  * ```javascript
  * import { SecurityIRClient, UpdateCaseCommentCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, UpdateCaseCommentCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // UpdateCaseCommentRequest
  *   caseId: "STRING_VALUE", // required

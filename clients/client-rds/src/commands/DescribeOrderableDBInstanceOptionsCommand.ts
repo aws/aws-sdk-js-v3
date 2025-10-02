@@ -39,6 +39,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * ```javascript
  * import { RDSClient, DescribeOrderableDBInstanceOptionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeOrderableDBInstanceOptionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeOrderableDBInstanceOptionsMessage
  *   Engine: "STRING_VALUE", // required
@@ -79,6 +81,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * //       SupportsStorageEncryption: true || false,
  * //       StorageType: "STRING_VALUE",
  * //       SupportsIops: true || false,
+ * //       SupportsStorageThroughput: true || false,
  * //       SupportsEnhancedMonitoring: true || false,
  * //       SupportsIAMDatabaseAuthentication: true || false,
  * //       SupportsPerformanceInsights: true || false,
@@ -88,6 +91,10 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * //       MaxIopsPerDbInstance: Number("int"),
  * //       MinIopsPerGib: Number("double"),
  * //       MaxIopsPerGib: Number("double"),
+ * //       MinStorageThroughputPerDbInstance: Number("int"),
+ * //       MaxStorageThroughputPerDbInstance: Number("int"),
+ * //       MinStorageThroughputPerIops: Number("double"),
+ * //       MaxStorageThroughputPerIops: Number("double"),
  * //       AvailableProcessorFeatures: [ // AvailableProcessorFeatureList
  * //         { // AvailableProcessorFeature
  * //           Name: "STRING_VALUE",
@@ -105,15 +112,10 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       SupportsGlobalDatabases: true || false,
- * //       SupportsClusters: true || false,
  * //       SupportedNetworkTypes: [ // StringList
  * //         "STRING_VALUE",
  * //       ],
- * //       SupportsStorageThroughput: true || false,
- * //       MinStorageThroughputPerDbInstance: Number("int"),
- * //       MaxStorageThroughputPerDbInstance: Number("int"),
- * //       MinStorageThroughputPerIops: Number("double"),
- * //       MaxStorageThroughputPerIops: Number("double"),
+ * //       SupportsClusters: true || false,
  * //       SupportsDedicatedLogVolume: true || false,
  * //       SupportsHttpEndpoint: true || false,
  * //     },

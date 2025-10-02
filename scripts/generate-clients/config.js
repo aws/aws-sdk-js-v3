@@ -1,7 +1,7 @@
 // Update this commit when taking up new changes from smithy-typescript.
 module.exports = {
   // Use full commit hash as we explicitly fetch it.
-  SMITHY_TS_COMMIT: "e586a101cc21c9fbd1b87a523c168ca4ac9b481b",
+  SMITHY_TS_COMMIT: "92f5b06c4e2e052636fa4f40078f12a35e566510",
 };
 
 if (module.exports.SMITHY_TS_COMMIT.length < 40) {

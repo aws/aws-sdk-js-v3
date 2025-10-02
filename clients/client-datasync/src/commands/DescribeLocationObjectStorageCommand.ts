@@ -40,6 +40,8 @@ export interface DescribeLocationObjectStorageCommandOutput
  * ```javascript
  * import { DataSyncClient, DescribeLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // DescribeLocationObjectStorageRequest
  *   LocationArn: "STRING_VALUE", // required

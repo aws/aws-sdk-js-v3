@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse } from "../models/models_0";
+import { RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse } from "../models/models_1";
 import { de_RegisterTaskDefinitionCommand, se_RegisterTaskDefinitionCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -49,6 +49,8 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * ```javascript
  * import { ECSClient, RegisterTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, RegisterTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // RegisterTaskDefinitionRequest
  *   family: "STRING_VALUE", // required
@@ -274,7 +276,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *     },
  *   ],
  *   requiresCompatibilities: [ // CompatibilityList
- *     "EC2" || "FARGATE" || "EXTERNAL",
+ *     "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  *   ],
  *   cpu: "STRING_VALUE",
  *   memory: "STRING_VALUE",
@@ -549,14 +551,14 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * //       },
  * //     ],
  * //     compatibilities: [ // CompatibilityList
- * //       "EC2" || "FARGATE" || "EXTERNAL",
+ * //       "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //     ],
  * //     runtimePlatform: { // RuntimePlatform
  * //       cpuArchitecture: "X86_64" || "ARM64",
  * //       operatingSystemFamily: "WINDOWS_SERVER_2019_FULL" || "WINDOWS_SERVER_2019_CORE" || "WINDOWS_SERVER_2016_FULL" || "WINDOWS_SERVER_2004_CORE" || "WINDOWS_SERVER_2022_CORE" || "WINDOWS_SERVER_2022_FULL" || "WINDOWS_SERVER_2025_CORE" || "WINDOWS_SERVER_2025_FULL" || "WINDOWS_SERVER_20H2_CORE" || "LINUX",
  * //     },
  * //     requiresCompatibilities: [
- * //       "EC2" || "FARGATE" || "EXTERNAL",
+ * //       "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //     ],
  * //     cpu: "STRING_VALUE",
  * //     memory: "STRING_VALUE",

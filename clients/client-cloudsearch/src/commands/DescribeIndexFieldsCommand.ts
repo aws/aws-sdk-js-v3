@@ -36,6 +36,8 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  * ```javascript
  * import { CloudSearchClient, DescribeIndexFieldsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeIndexFieldsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * // import type { CloudSearchClientConfig } from "@aws-sdk/client-cloudsearch";
+ * const config = {}; // type is CloudSearchClientConfig
  * const client = new CloudSearchClient(config);
  * const input = { // DescribeIndexFieldsRequest
  *   DomainName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteEnvironmentProfileCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { DataZoneClient, DeleteEnvironmentProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteEnvironmentProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteEnvironmentProfileInput
  *   domainIdentifier: "STRING_VALUE", // required

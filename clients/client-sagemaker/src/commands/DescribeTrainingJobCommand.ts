@@ -34,6 +34,8 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * ```javascript
  * import { SageMakerClient, DescribeTrainingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeTrainingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeTrainingJobRequest
  *   TrainingJobName: "STRING_VALUE", // required

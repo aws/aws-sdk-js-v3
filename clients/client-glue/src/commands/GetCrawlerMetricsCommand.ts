@@ -34,6 +34,8 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * ```javascript
  * import { GlueClient, GetCrawlerMetricsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetCrawlerMetricsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetCrawlerMetricsRequest
  *   CrawlerNameList: [ // CrawlerNameList

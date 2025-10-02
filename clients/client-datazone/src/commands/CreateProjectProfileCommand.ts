@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateProjectProfileInput,
-  CreateProjectProfileInputFilterSensitiveLog,
-  CreateProjectProfileOutput,
-  CreateProjectProfileOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateProjectProfileInput, CreateProjectProfileInputFilterSensitiveLog } from "../models/models_0";
+import { CreateProjectProfileOutput, CreateProjectProfileOutputFilterSensitiveLog } from "../models/models_1";
 import { de_CreateProjectProfileCommand, se_CreateProjectProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -39,6 +35,8 @@ export interface CreateProjectProfileCommandOutput extends CreateProjectProfileO
  * ```javascript
  * import { DataZoneClient, CreateProjectProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateProjectProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateProjectProfileInput
  *   domainIdentifier: "STRING_VALUE", // required

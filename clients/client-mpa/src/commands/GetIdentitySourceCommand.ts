@@ -34,6 +34,8 @@ export interface GetIdentitySourceCommandOutput extends GetIdentitySourceRespons
  * ```javascript
  * import { MPAClient, GetIdentitySourceCommand } from "@aws-sdk/client-mpa"; // ES Modules import
  * // const { MPAClient, GetIdentitySourceCommand } = require("@aws-sdk/client-mpa"); // CommonJS import
+ * // import type { MPAClientConfig } from "@aws-sdk/client-mpa";
+ * const config = {}; // type is MPAClientConfig
  * const client = new MPAClient(config);
  * const input = { // GetIdentitySourceRequest
  *   IdentitySourceArn: "STRING_VALUE", // required

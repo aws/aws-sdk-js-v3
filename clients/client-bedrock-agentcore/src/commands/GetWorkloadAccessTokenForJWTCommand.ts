@@ -44,6 +44,8 @@ export interface GetWorkloadAccessTokenForJWTCommandOutput
  * ```javascript
  * import { BedrockAgentCoreClient, GetWorkloadAccessTokenForJWTCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, GetWorkloadAccessTokenForJWTCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // GetWorkloadAccessTokenForJWTRequest
  *   workloadName: "STRING_VALUE", // required

@@ -28,14 +28,37 @@ export interface GetContactMetricsCommandInput extends GetContactMetricsRequest 
 export interface GetContactMetricsCommandOutput extends GetContactMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the real-time metrics of the specified contact.</p>
+ * <p>Retrieves the position of the contact in the queue.</p>
  *          <p>
  *             <b>Use cases</b>
  *          </p>
- *          <p>Following are common uses cases for this API:</p>
+ *          <p>Following are common uses cases for position in queue:</p>
  *          <ul>
  *             <li>
- *                <p>You can use this API to retrieve the position of the contact in the queue.</p>
+ *                <p>Understand the expected wait experience of a contact.</p>
+ *             </li>
+ *             <li>
+ *                <p>Inform customers of their position in queue and potentially offer a callback.</p>
+ *             </li>
+ *             <li>
+ *                <p>Make data-driven routing decisions between primary and alternative queues.</p>
+ *             </li>
+ *             <li>
+ *                <p>Enhance queue visibility and leverage agent proficiencies to streamline contact
+ *      routing.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Important things to know</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>The only way to retrieve the position of the contact in queue is by using this API. You
+ *      can't retrieve the position by using flows and attributes.</p>
+ *             </li>
+ *             <li>
+ *                <p>For more information, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Position in queue</a> metric in
+ *      the <i>Amazon Connect Administrator Guide</i>. </p>
  *             </li>
  *          </ul>
  *          <p>
@@ -46,6 +69,8 @@ export interface GetContactMetricsCommandOutput extends GetContactMetricsRespons
  * ```javascript
  * import { ConnectClient, GetContactMetricsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetContactMetricsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // GetContactMetricsRequest
  *   InstanceId: "STRING_VALUE", // required

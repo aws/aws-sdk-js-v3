@@ -92,6 +92,8 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  * ```javascript
  * import { FirehoseClient, PutRecordBatchCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, PutRecordBatchCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * // import type { FirehoseClientConfig } from "@aws-sdk/client-firehose";
+ * const config = {}; // type is FirehoseClientConfig
  * const client = new FirehoseClient(config);
  * const input = { // PutRecordBatchInput
  *   DeliveryStreamName: "STRING_VALUE", // required

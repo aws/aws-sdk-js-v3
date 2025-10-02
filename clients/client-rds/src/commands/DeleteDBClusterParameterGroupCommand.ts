@@ -43,6 +43,8 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * ```javascript
  * import { RDSClient, DeleteDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DeleteDBClusterParameterGroupMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required

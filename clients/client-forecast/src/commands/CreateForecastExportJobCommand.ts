@@ -51,6 +51,8 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  * ```javascript
  * import { ForecastClient, CreateForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // CreateForecastExportJobRequest
  *   ForecastExportJobName: "STRING_VALUE", // required

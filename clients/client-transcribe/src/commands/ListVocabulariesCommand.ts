@@ -36,6 +36,8 @@ export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse,
  * ```javascript
  * import { TranscribeClient, ListVocabulariesCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListVocabulariesCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // import type { TranscribeClientConfig } from "@aws-sdk/client-transcribe";
+ * const config = {}; // type is TranscribeClientConfig
  * const client = new TranscribeClient(config);
  * const input = { // ListVocabulariesRequest
  *   NextToken: "STRING_VALUE",

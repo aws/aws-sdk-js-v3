@@ -38,6 +38,8 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * ```javascript
  * import { LightsailClient, GetBucketBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBucketBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetBucketBundlesRequest
  *   includeInactive: true || false,

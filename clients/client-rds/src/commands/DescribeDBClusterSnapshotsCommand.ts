@@ -40,6 +40,8 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * ```javascript
  * import { RDSClient, DescribeDBClusterSnapshotsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBClusterSnapshotsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeDBClusterSnapshotsMessage
  *   DBClusterIdentifier: "STRING_VALUE",
@@ -94,10 +96,10 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       DBSystemId: "STRING_VALUE",
  * //       StorageType: "STRING_VALUE",
- * //       DbClusterResourceId: "STRING_VALUE",
  * //       StorageThroughput: Number("int"),
+ * //       DbClusterResourceId: "STRING_VALUE",
+ * //       DBSystemId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

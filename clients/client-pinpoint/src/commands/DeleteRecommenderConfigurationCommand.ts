@@ -39,6 +39,8 @@ export interface DeleteRecommenderConfigurationCommandOutput
  * ```javascript
  * import { PinpointClient, DeleteRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // import type { PinpointClientConfig } from "@aws-sdk/client-pinpoint";
+ * const config = {}; // type is PinpointClientConfig
  * const client = new PinpointClient(config);
  * const input = { // DeleteRecommenderConfigurationRequest
  *   RecommenderId: "STRING_VALUE", // required

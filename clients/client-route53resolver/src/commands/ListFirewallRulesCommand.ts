@@ -35,6 +35,8 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * ```javascript
  * import { Route53ResolverClient, ListFirewallRulesCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListFirewallRulesCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
+ * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
  * const input = { // ListFirewallRulesRequest
  *   FirewallRuleGroupId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface GetBillScenarioCommandOutput extends GetBillScenarioResponse, _
  * ```javascript
  * import { BCMPricingCalculatorClient, GetBillScenarioCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, GetBillScenarioCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // GetBillScenarioRequest
  *   identifier: "STRING_VALUE", // required

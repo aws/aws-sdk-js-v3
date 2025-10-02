@@ -30,14 +30,14 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
 /**
  * <p>Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during
  *             which you can restore the analysis. If you don't specify a recovery window value, the
- *             operation defaults to 30 days. Amazon QuickSight attaches a <code>DeletionTime</code> stamp to
+ *             operation defaults to 30 days. QuickSight attaches a <code>DeletionTime</code> stamp to
  *             the response that specifies the end of the recovery window. At the end of the recovery
- *             window, Amazon QuickSight deletes the analysis permanently.</p>
+ *             window, QuickSight deletes the analysis permanently.</p>
  *          <p>At any time before recovery window ends, you can use the <code>RestoreAnalysis</code>
  *             API operation to remove the <code>DeletionTime</code> stamp and cancel the deletion of
  *             the analysis. The analysis remains visible in the API until it's deleted, so you can
  *             describe it but you can't make a template from it.</p>
- *          <p>An analysis that's scheduled for deletion isn't accessible in the Amazon QuickSight console.
+ *          <p>An analysis that's scheduled for deletion isn't accessible in the QuickSight console.
  *             To access it in the console, restore it. Deleting an analysis doesn't delete the
  *             dashboards that you publish from it.</p>
  * @example
@@ -45,6 +45,8 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * ```javascript
  * import { QuickSightClient, DeleteAnalysisCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteAnalysisCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteAnalysisRequest
  *   AwsAccountId: "STRING_VALUE", // required
@@ -88,7 +90,7 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * @throws {@link UnsupportedUserEditionException} (client fault)
  *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

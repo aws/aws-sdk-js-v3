@@ -35,6 +35,8 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * ```javascript
  * import { DAXClient, DescribeDefaultParametersCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeDefaultParametersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // DescribeDefaultParametersRequest
  *   MaxResults: Number("int"),

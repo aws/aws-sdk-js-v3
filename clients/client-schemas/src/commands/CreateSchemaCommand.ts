@@ -34,6 +34,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * ```javascript
  * import { SchemasClient, CreateSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, CreateSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // import type { SchemasClientConfig } from "@aws-sdk/client-schemas";
+ * const config = {}; // type is SchemasClientConfig
  * const client = new SchemasClient(config);
  * const input = { // CreateSchemaRequest
  *   Content: "STRING_VALUE", // required

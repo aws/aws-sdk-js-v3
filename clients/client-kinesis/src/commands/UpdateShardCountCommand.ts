@@ -85,6 +85,8 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  * ```javascript
  * import { KinesisClient, UpdateShardCountCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, UpdateShardCountCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // UpdateShardCountInput
  *   StreamName: "STRING_VALUE",

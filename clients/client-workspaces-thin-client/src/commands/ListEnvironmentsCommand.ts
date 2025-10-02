@@ -42,6 +42,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * ```javascript
  * import { WorkSpacesThinClientClient, ListEnvironmentsCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, ListEnvironmentsCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // import type { WorkSpacesThinClientClientConfig } from "@aws-sdk/client-workspaces-thin-client";
+ * const config = {}; // type is WorkSpacesThinClientClientConfig
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // ListEnvironmentsRequest
  *   nextToken: "STRING_VALUE",

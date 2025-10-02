@@ -36,6 +36,8 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
  * ```javascript
  * import { SSMIncidentsClient, CreateResponsePlanCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, CreateResponsePlanCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // import type { SSMIncidentsClientConfig } from "@aws-sdk/client-ssm-incidents";
+ * const config = {}; // type is SSMIncidentsClientConfig
  * const client = new SSMIncidentsClient(config);
  * const input = { // CreateResponsePlanInput
  *   clientToken: "STRING_VALUE",

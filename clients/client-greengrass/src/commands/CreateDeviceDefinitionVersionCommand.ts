@@ -39,6 +39,8 @@ export interface CreateDeviceDefinitionVersionCommandOutput
  * ```javascript
  * import { GreengrassClient, CreateDeviceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateDeviceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // CreateDeviceDefinitionVersionRequest
  *   AmznClientToken: "STRING_VALUE",

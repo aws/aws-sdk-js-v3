@@ -45,6 +45,8 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * ```javascript
  * import { RDSClient, DescribeDBInstanceAutomatedBackupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBInstanceAutomatedBackupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeDBInstanceAutomatedBackupsMessage
  *   DbiResourceId: "STRING_VALUE",
@@ -86,6 +88,7 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * //       EngineVersion: "STRING_VALUE",
  * //       LicenseModel: "STRING_VALUE",
  * //       Iops: Number("int"),
+ * //       StorageThroughput: Number("int"),
  * //       OptionGroupName: "STRING_VALUE",
  * //       TdeCredentialArn: "STRING_VALUE",
  * //       Encrypted: true || false,
@@ -101,10 +104,9 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * //         },
  * //       ],
  * //       BackupTarget: "STRING_VALUE",
- * //       StorageThroughput: Number("int"),
+ * //       MultiTenant: true || false,
  * //       AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //       DedicatedLogVolume: true || false,
- * //       MultiTenant: true || false,
  * //     },
  * //   ],
  * // };

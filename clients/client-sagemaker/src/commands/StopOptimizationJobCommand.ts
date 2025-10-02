@@ -34,6 +34,8 @@ export interface StopOptimizationJobCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SageMakerClient, StopOptimizationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopOptimizationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // StopOptimizationJobRequest
  *   OptimizationJobName: "STRING_VALUE", // required

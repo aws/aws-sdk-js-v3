@@ -34,6 +34,8 @@ export interface StopParticipantReplicationCommandOutput extends StopParticipant
  * ```javascript
  * import { IVSRealTimeClient, StopParticipantReplicationCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, StopParticipantReplicationCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // StopParticipantReplicationRequest
  *   sourceStageArn: "STRING_VALUE", // required

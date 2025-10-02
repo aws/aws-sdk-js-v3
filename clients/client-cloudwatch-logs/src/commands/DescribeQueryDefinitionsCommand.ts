@@ -38,6 +38,8 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * ```javascript
  * import { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeQueryDefinitionsRequest
  *   queryLanguage: "CWLI" || "SQL" || "PPL",

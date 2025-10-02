@@ -39,6 +39,8 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  * ```javascript
  * import { WorkMailClient, CreateImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // CreateImpersonationRoleRequest
  *   ClientToken: "STRING_VALUE",

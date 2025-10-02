@@ -45,6 +45,8 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * ```javascript
  * import { IAMClient, GetRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // GetRoleRequest
  *   RoleName: "STRING_VALUE", // required

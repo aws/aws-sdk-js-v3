@@ -34,6 +34,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * ```javascript
  * import { MqClient, ListUsersCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListUsersCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // ListUsersRequest
  *   BrokerId: "STRING_VALUE", // required

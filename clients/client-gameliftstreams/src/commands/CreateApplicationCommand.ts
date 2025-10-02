@@ -34,6 +34,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * ```javascript
  * import { GameLiftStreamsClient, CreateApplicationCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, CreateApplicationCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // CreateApplicationInput
  *   Description: "STRING_VALUE", // required

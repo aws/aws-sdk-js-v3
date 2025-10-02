@@ -34,6 +34,8 @@ export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManag
  * ```javascript
  * import { LambdaClient, PutRuntimeManagementConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PutRuntimeManagementConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // PutRuntimeManagementConfigRequest
  *   FunctionName: "STRING_VALUE", // required

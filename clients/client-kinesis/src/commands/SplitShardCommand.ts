@@ -79,6 +79,8 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KinesisClient, SplitShardCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, SplitShardCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // SplitShardInput
  *   StreamName: "STRING_VALUE",

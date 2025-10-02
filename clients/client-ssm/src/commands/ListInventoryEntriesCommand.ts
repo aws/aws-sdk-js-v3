@@ -34,6 +34,8 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
  * ```javascript
  * import { SSMClient, ListInventoryEntriesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListInventoryEntriesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListInventoryEntriesRequest
  *   InstanceId: "STRING_VALUE", // required

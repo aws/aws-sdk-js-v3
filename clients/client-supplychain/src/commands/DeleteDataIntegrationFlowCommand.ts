@@ -34,6 +34,8 @@ export interface DeleteDataIntegrationFlowCommandOutput extends DeleteDataIntegr
  * ```javascript
  * import { SupplyChainClient, DeleteDataIntegrationFlowCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
  * // const { SupplyChainClient, DeleteDataIntegrationFlowCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * // import type { SupplyChainClientConfig } from "@aws-sdk/client-supplychain";
+ * const config = {}; // type is SupplyChainClientConfig
  * const client = new SupplyChainClient(config);
  * const input = { // DeleteDataIntegrationFlowRequest
  *   instanceId: "STRING_VALUE", // required

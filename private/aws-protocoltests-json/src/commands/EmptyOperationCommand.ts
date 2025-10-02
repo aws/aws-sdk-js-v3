@@ -34,6 +34,8 @@ export interface EmptyOperationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { JsonProtocolClient, EmptyOperationCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, EmptyOperationCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * // import type { JsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-json";
+ * const config = {}; // type is JsonProtocolClientConfig
  * const client = new JsonProtocolClient(config);
  * const input = {};
  * const command = new EmptyOperationCommand(input);

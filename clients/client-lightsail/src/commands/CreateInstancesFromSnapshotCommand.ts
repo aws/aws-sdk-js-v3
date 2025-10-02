@@ -38,6 +38,8 @@ export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstance
  * ```javascript
  * import { LightsailClient, CreateInstancesFromSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateInstancesFromSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // CreateInstancesFromSnapshotRequest
  *   instanceNames: [ // StringList // required

@@ -29,7 +29,7 @@ import {
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { CopyImageSetCommandInput, CopyImageSetCommandOutput } from "../commands/CopyImageSetCommand";
 import { CreateDatastoreCommandInput, CreateDatastoreCommandOutput } from "../commands/CreateDatastoreCommand";
@@ -154,6 +154,7 @@ export const se_CreateDatastoreCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       datastoreName: [],
       kmsKeyArn: [],
+      lambdaAuthorizerArn: [],
       tags: (_) => _json(_),
     })
   );
@@ -1272,6 +1273,7 @@ const de_DatastoreProperties = (output: any, context: __SerdeContext): Datastore
     datastoreName: __expectString,
     datastoreStatus: __expectString,
     kmsKeyArn: __expectString,
+    lambdaAuthorizerArn: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };

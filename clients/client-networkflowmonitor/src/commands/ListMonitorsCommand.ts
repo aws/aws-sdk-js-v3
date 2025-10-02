@@ -38,6 +38,8 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * ```javascript
  * import { NetworkFlowMonitorClient, ListMonitorsCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, ListMonitorsCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // ListMonitorsInput
  *   nextToken: "STRING_VALUE",

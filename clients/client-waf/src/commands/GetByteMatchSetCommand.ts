@@ -42,6 +42,8 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  * ```javascript
  * import { WAFClient, GetByteMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetByteMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // GetByteMatchSetRequest
  *   ByteMatchSetId: "STRING_VALUE", // required

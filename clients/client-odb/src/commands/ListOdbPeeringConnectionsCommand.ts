@@ -34,6 +34,8 @@ export interface ListOdbPeeringConnectionsCommandOutput extends ListOdbPeeringCo
  * ```javascript
  * import { OdbClient, ListOdbPeeringConnectionsCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, ListOdbPeeringConnectionsCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // ListOdbPeeringConnectionsInput
  *   maxResults: Number("int"),

@@ -39,6 +39,8 @@ export interface ListCollaborationTrainedModelsCommandOutput
  * ```javascript
  * import { CleanRoomsMLClient, ListCollaborationTrainedModelsCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, ListCollaborationTrainedModelsCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // ListCollaborationTrainedModelsRequest
  *   nextToken: "STRING_VALUE",

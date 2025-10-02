@@ -34,6 +34,8 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  * ```javascript
  * import { IdentitystoreClient, CreateGroupMembershipCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, CreateGroupMembershipCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * // import type { IdentitystoreClientConfig } from "@aws-sdk/client-identitystore";
+ * const config = {}; // type is IdentitystoreClientConfig
  * const client = new IdentitystoreClient(config);
  * const input = { // CreateGroupMembershipRequest
  *   IdentityStoreId: "STRING_VALUE", // required

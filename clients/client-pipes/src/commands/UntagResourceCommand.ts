@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { PipesClient, UntagResourceCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, UntagResourceCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
+ * // import type { PipesClientConfig } from "@aws-sdk/client-pipes";
+ * const config = {}; // type is PipesClientConfig
  * const client = new PipesClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { BatchStartRequest, BatchStartResponse } from "../models/models_1";
+import { BatchStartRequest, BatchStartResponse } from "../models/models_2";
 import { de_BatchStartCommand, se_BatchStartCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -34,6 +34,8 @@ export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataB
  * ```javascript
  * import { MediaLiveClient, BatchStartCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, BatchStartCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // BatchStartRequest
  *   ChannelIds: [ // __listOf__string

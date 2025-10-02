@@ -50,6 +50,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * ```javascript
  * import { ConnectClient, DescribeContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DescribeContactRequest
  *   InstanceId: "STRING_VALUE", // required
@@ -337,9 +339,17 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //               "<keys>": "<SegmentAttributeValue>",
  * //             },
  * //             ValueInteger: Number("int"),
+ * //             ValueList: [ // SegmentAttributeValueList
+ * //               "<SegmentAttributeValue>",
+ * //             ],
+ * //             ValueArn: "STRING_VALUE",
  * //           },
  * //         },
  * //         ValueInteger: Number("int"),
+ * //         ValueList: [
+ * //           "<SegmentAttributeValue>",
+ * //         ],
+ * //         ValueArn: "STRING_VALUE",
  * //       },
  * //     },
  * //     Recordings: [ // Recordings

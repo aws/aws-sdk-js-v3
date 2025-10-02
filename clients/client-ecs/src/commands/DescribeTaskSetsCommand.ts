@@ -37,6 +37,8 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * ```javascript
  * import { ECSClient, DescribeTaskSetsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeTaskSetsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DescribeTaskSetsRequest
  *   cluster: "STRING_VALUE", // required
@@ -66,7 +68,7 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * //       runningCount: Number("int"),
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
- * //       launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //       launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //       capacityProviderStrategy: [ // CapacityProviderStrategy
  * //         { // CapacityProviderStrategyItem
  * //           capacityProvider: "STRING_VALUE", // required

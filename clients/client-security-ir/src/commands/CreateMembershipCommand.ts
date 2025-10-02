@@ -38,6 +38,8 @@ export interface CreateMembershipCommandOutput extends CreateMembershipResponse,
  * ```javascript
  * import { SecurityIRClient, CreateMembershipCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, CreateMembershipCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // CreateMembershipRequest
  *   clientToken: "STRING_VALUE",

@@ -36,6 +36,8 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  * ```javascript
  * import { ServiceQuotasClient, RequestServiceQuotaIncreaseCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, RequestServiceQuotaIncreaseCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * // import type { ServiceQuotasClientConfig } from "@aws-sdk/client-service-quotas";
+ * const config = {}; // type is ServiceQuotasClientConfig
  * const client = new ServiceQuotasClient(config);
  * const input = { // RequestServiceQuotaIncreaseRequest
  *   ServiceCode: "STRING_VALUE", // required

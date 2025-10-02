@@ -65,6 +65,8 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * ```javascript
  * import { DataPipelineClient, ListPipelinesCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ListPipelinesCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * // import type { DataPipelineClientConfig } from "@aws-sdk/client-data-pipeline";
+ * const config = {}; // type is DataPipelineClientConfig
  * const client = new DataPipelineClient(config);
  * const input = { // ListPipelinesInput
  *   marker: "STRING_VALUE",

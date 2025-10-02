@@ -57,6 +57,8 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * ```javascript
  * import { SESClient, GetIdentityDkimAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityDkimAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // GetIdentityDkimAttributesRequest
  *   Identities: [ // IdentityList // required

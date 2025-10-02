@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { error, op, struct } from "@smithy/core/schema";
+import { error, op, struct, TypeRegistry } from "@smithy/core/schema";
 
 import {
   InternalServerException as __InternalServerException,
@@ -45,9 +45,10 @@ export var InternalServerException = error(
   },
   [_m, _c],
   [0, 1],
-
-  __InternalServerException
+  null
 );
+TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
+
 export var InvalidInputException = error(
   n0,
   _IIE,
@@ -57,9 +58,10 @@ export var InvalidInputException = error(
   },
   [_m, _c],
   [0, 1],
-
-  __InvalidInputException
+  null
 );
+TypeRegistry.for(n0).registerError(InvalidInputException, __InvalidInputException);
+
 export var LimitExceededException = error(
   n0,
   _LEE,
@@ -69,9 +71,10 @@ export var LimitExceededException = error(
   },
   [_m, _c],
   [0, 1],
-
-  __LimitExceededException
+  null
 );
+TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
+
 export var PredictInput = struct(n0, _PI, 0, [_MLMI, _R, _PE], [0, 128 | 0, 0]);
 export var Prediction = struct(n0, _P, 0, [_pL, _pV, _pS, _d], [0, 1, 128 | 1, 128 | 0]);
 export var PredictorNotMountedException = error(
@@ -83,9 +86,10 @@ export var PredictorNotMountedException = error(
   },
   [_m],
   [0],
-
-  __PredictorNotMountedException
+  null
 );
+TypeRegistry.for(n0).registerError(PredictorNotMountedException, __PredictorNotMountedException);
+
 export var PredictOutput = struct(n0, _PO, 0, [_P], [() => Prediction]);
 export var ResourceNotFoundException = error(
   n0,
@@ -96,9 +100,10 @@ export var ResourceNotFoundException = error(
   },
   [_m, _c],
   [0, 1],
-
-  __ResourceNotFoundException
+  null
 );
+TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
+
 export var Unit = "unit" as const;
 
 export var DetailsMap = 128 | 0;

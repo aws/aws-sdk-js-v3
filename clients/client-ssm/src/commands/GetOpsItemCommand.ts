@@ -40,6 +40,8 @@ export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataB
  * ```javascript
  * import { SSMClient, GetOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetOpsItemRequest
  *   OpsItemId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { QAppsClient, ListTagsForResourceCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // import type { QAppsClientConfig } from "@aws-sdk/client-qapps";
+ * const config = {}; // type is QAppsClientConfig
  * const client = new QAppsClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceARN: "STRING_VALUE", // required

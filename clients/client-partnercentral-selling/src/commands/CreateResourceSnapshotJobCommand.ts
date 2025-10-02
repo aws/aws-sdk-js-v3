@@ -38,6 +38,8 @@ export interface CreateResourceSnapshotJobCommandOutput extends CreateResourceSn
  * ```javascript
  * import { PartnerCentralSellingClient, CreateResourceSnapshotJobCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, CreateResourceSnapshotJobCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // CreateResourceSnapshotJobRequest
  *   Catalog: "STRING_VALUE", // required

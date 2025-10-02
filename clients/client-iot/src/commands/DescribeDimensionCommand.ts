@@ -35,6 +35,8 @@ export interface DescribeDimensionCommandOutput extends DescribeDimensionRespons
  * ```javascript
  * import { IoTClient, DescribeDimensionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeDimensionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DescribeDimensionRequest
  *   name: "STRING_VALUE", // required

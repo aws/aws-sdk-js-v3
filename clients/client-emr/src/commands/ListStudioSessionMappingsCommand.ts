@@ -35,6 +35,8 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * ```javascript
  * import { EMRClient, ListStudioSessionMappingsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListStudioSessionMappingsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // ListStudioSessionMappingsInput
  *   StudioId: "STRING_VALUE",

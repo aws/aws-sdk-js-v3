@@ -34,6 +34,8 @@ export interface CreateOriginRequestPolicyCommandOutput extends CreateOriginRequ
  * ```javascript
  * import { CloudFrontClient, CreateOriginRequestPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateOriginRequestPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // CreateOriginRequestPolicyRequest
  *   OriginRequestPolicyConfig: { // OriginRequestPolicyConfig

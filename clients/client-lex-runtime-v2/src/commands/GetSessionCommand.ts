@@ -42,6 +42,8 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * ```javascript
  * import { LexRuntimeV2Client, GetSessionCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, GetSessionCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * // import type { LexRuntimeV2ClientConfig } from "@aws-sdk/client-lex-runtime-v2";
+ * const config = {}; // type is LexRuntimeV2ClientConfig
  * const client = new LexRuntimeV2Client(config);
  * const input = { // GetSessionRequest
  *   botId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutpu
  * ```javascript
  * import { MediaStoreClient, GetContainerPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, GetContainerPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // import type { MediaStoreClientConfig } from "@aws-sdk/client-mediastore";
+ * const config = {}; // type is MediaStoreClientConfig
  * const client = new MediaStoreClient(config);
  * const input = { // GetContainerPolicyInput
  *   ContainerName: "STRING_VALUE", // required

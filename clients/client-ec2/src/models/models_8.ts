@@ -90,13 +90,39 @@ import {
 
 import { Purchase } from "./models_6";
 
-import {
-  CapacityReservationSpecification,
-  InstanceMonitoring,
-  IpamCidrAuthorizationContext,
-  Status,
-  VerificationMethod,
-} from "./models_7";
+import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_7";
+
+/**
+ * <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
+ * @public
+ */
+export interface IpamCidrAuthorizationContext {
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   * @public
+   */
+  Signature?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VerificationMethod = {
+  dns_token: "dns-token",
+  remarks_x509: "remarks-x509",
+} as const;
+
+/**
+ * @public
+ */
+export type VerificationMethod = (typeof VerificationMethod)[keyof typeof VerificationMethod];
 
 /**
  * @public
@@ -1224,35 +1250,140 @@ export interface ReplaceIamInstanceProfileAssociationResult {
 }
 
 /**
- * <p>The list of criteria that are evaluated to determine whch AMIs are discoverable and usable
- *       in the account in the specified Amazon Web Services Region. Currently, the only criteria that can be
- *       specified are AMI providers. </p>
- *          <p>Up to 10 <code>imageCriteria</code> objects can be specified, and up to a total of 200
- *       values for all <code>imageProviders</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration">JSON
- *         configuration for the Allowed AMIs criteria</a> in the
- *       <i>Amazon EC2 User Guide</i>.</p>
+ * <p>The maximum age for allowed images.</p>
+ * @public
+ */
+export interface CreationDateConditionRequest {
+  /**
+   * <p>The maximum number of days that have elapsed since the image was created. For example, a
+   *       value of <code>300</code> allows images that were created within the last 300 days.</p>
+   * @public
+   */
+  MaximumDaysSinceCreated?: number | undefined;
+}
+
+/**
+ * <p>The maximum period since deprecation for allowed images.</p>
+ * @public
+ */
+export interface DeprecationTimeConditionRequest {
+  /**
+   * <p>The maximum number of days that have elapsed since the image was deprecated. Set to
+   *       <code>0</code> to exclude all deprecated images.</p>
+   * @public
+   */
+  MaximumDaysSinceDeprecated?: number | undefined;
+}
+
+/**
+ * <p>The criteria that are evaluated to determine which AMIs are discoverable and usable in
+ *       your account for the specified Amazon Web Services Region.</p>
+ *          <p>The <code>ImageCriteria</code> can include up to:</p>
+ *          <ul>
+ *             <li>
+ *                <p>10 <code>ImageCriterion</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Each <code>ImageCriterion</code> can include up to:</p>
+ *          <ul>
+ *             <li>
+ *                <p>200 values for <code>ImageProviders</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>50 values for <code>ImageNames</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>50 values for <code>MarketplaceProductCodes</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#how-allowed-amis-works">How Allowed AMIs
+ *         works</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ImageCriterionRequest {
   /**
-   * <p>A list of image providers whose AMIs are discoverable and useable in the account. Up to a
-   *       total of 200 values can be specified.</p>
+   * <p>The image providers whose images are allowed.</p>
    *          <p>Possible values:</p>
-   *          <p>
-   *             <code>amazon</code>: Allow AMIs created by Amazon Web Services.</p>
-   *          <p>
-   *             <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
-   *       Marketplace.</p>
-   *          <p>
-   *             <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
-   *          <p>12-digit account ID: Allow AMIs created by this account. One or more account IDs can be
-   *       specified.</p>
-   *          <p>
-   *             <code>none</code>: Allow AMIs created by your own account only. When <code>none</code> is
-   *       specified, no other values can be specified.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>amazon</code>: Allow AMIs created by Amazon or verified providers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
+   *           Marketplace.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
+   *             </li>
+   *             <li>
+   *                <p>12-digit account ID: Allow AMIs created by the specified accounts. One or more account IDs can be
+   *           specified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>: Allow AMIs created by your own account only. When <code>none</code> is
+   *           specified, no other values can be specified.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Maximum: 200 values</p>
    * @public
    */
   ImageProviders?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Marketplace product codes for allowed images.</p>
+   *          <p>Length: 1-25 characters</p>
+   *          <p>Valid characters: Letters (<code>A–Z, a–z</code>) and numbers (<code>0–9</code>)</p>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  MarketplaceProductCodes?: string[] | undefined;
+
+  /**
+   * <p>The names of allowed images. Names can include wildcards (<code>?</code> and
+   *         <code>*</code>).</p>
+   *          <p>Length: 1–128 characters. With <code>?</code>, the minimum is 3 characters.</p>
+   *          <p>Valid characters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Letters: <code>A–Z, a–z</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Numbers: <code>0–9</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Special characters: <code>( ) [ ] . / - ' @ _ * ?</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Spaces</p>
+   *             </li>
+   *          </ul>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  ImageNames?: string[] | undefined;
+
+  /**
+   * <p>The maximum period since deprecation for allowed images.</p>
+   * @public
+   */
+  DeprecationTimeCondition?: DeprecationTimeConditionRequest | undefined;
+
+  /**
+   * <p>The maximum age for allowed images.</p>
+   * @public
+   */
+  CreationDateCondition?: CreationDateConditionRequest | undefined;
 }
 
 /**

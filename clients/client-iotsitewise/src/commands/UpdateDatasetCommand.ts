@@ -34,6 +34,8 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * ```javascript
  * import { IoTSiteWiseClient, UpdateDatasetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateDatasetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateDatasetRequest
  *   datasetId: "STRING_VALUE", // required

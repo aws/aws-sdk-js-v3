@@ -34,6 +34,8 @@ export interface DeleteChannelNamespaceCommandOutput extends DeleteChannelNamesp
  * ```javascript
  * import { AppSyncClient, DeleteChannelNamespaceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteChannelNamespaceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // DeleteChannelNamespaceRequest
  *   apiId: "STRING_VALUE", // required

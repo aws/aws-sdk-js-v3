@@ -34,6 +34,8 @@ export interface CreatePartnerAppCommandOutput extends CreatePartnerAppResponse,
  * ```javascript
  * import { SageMakerClient, CreatePartnerAppCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePartnerAppCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreatePartnerAppRequest
  *   Name: "STRING_VALUE", // required

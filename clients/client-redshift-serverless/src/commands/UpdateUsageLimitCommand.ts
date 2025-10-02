@@ -38,6 +38,8 @@ export interface UpdateUsageLimitCommandOutput extends UpdateUsageLimitResponse,
  * ```javascript
  * import { RedshiftServerlessClient, UpdateUsageLimitCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, UpdateUsageLimitCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // UpdateUsageLimitRequest
  *   usageLimitId: "STRING_VALUE", // required

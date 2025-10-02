@@ -34,6 +34,8 @@ export interface DeleteGuardrailCommandOutput extends DeleteGuardrailResponse, _
  * ```javascript
  * import { BedrockClient, DeleteGuardrailCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, DeleteGuardrailCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // DeleteGuardrailRequest
  *   guardrailIdentifier: "STRING_VALUE", // required

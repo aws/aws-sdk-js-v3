@@ -50,6 +50,8 @@ export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCr
  * ```javascript
  * import { MigrationHubClient, DisassociateCreatedArtifactCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DisassociateCreatedArtifactCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * // import type { MigrationHubClientConfig } from "@aws-sdk/client-migration-hub";
+ * const config = {}; // type is MigrationHubClientConfig
  * const client = new MigrationHubClient(config);
  * const input = { // DisassociateCreatedArtifactRequest
  *   ProgressUpdateStream: "STRING_VALUE", // required

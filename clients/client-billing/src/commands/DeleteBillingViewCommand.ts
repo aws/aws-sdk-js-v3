@@ -34,9 +34,12 @@ export interface DeleteBillingViewCommandOutput extends DeleteBillingViewRespons
  * ```javascript
  * import { BillingClient, DeleteBillingViewCommand } from "@aws-sdk/client-billing"; // ES Modules import
  * // const { BillingClient, DeleteBillingViewCommand } = require("@aws-sdk/client-billing"); // CommonJS import
+ * // import type { BillingClientConfig } from "@aws-sdk/client-billing";
+ * const config = {}; // type is BillingClientConfig
  * const client = new BillingClient(config);
  * const input = { // DeleteBillingViewRequest
  *   arn: "STRING_VALUE", // required
+ *   force: true || false,
  * };
  * const command = new DeleteBillingViewCommand(input);
  * const response = await client.send(command);

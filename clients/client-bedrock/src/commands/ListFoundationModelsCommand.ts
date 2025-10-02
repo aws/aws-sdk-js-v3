@@ -34,6 +34,8 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
  * ```javascript
  * import { BedrockClient, ListFoundationModelsCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, ListFoundationModelsCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // ListFoundationModelsRequest
  *   byProvider: "STRING_VALUE",

@@ -38,6 +38,8 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * ```javascript
  * import { AppConfigClient, CreateApplicationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateApplicationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // CreateApplicationRequest
  *   Name: "STRING_VALUE", // required

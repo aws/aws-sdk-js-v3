@@ -38,6 +38,8 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * ```javascript
  * import { SsmSapClient, UpdateApplicationSettingsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, UpdateApplicationSettingsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // import type { SsmSapClientConfig } from "@aws-sdk/client-ssm-sap";
+ * const config = {}; // type is SsmSapClientConfig
  * const client = new SsmSapClient(config);
  * const input = { // UpdateApplicationSettingsInput
  *   ApplicationId: "STRING_VALUE", // required

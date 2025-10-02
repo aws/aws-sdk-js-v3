@@ -35,6 +35,8 @@ export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsR
  * ```javascript
  * import { DataSyncClient, DescribeLocationHdfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationHdfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // DescribeLocationHdfsRequest
  *   LocationArn: "STRING_VALUE", // required

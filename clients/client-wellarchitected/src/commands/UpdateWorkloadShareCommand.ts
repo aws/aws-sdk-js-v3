@@ -34,6 +34,8 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  * ```javascript
  * import { WellArchitectedClient, UpdateWorkloadShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateWorkloadShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateWorkloadShareInput
  *   ShareId: "STRING_VALUE", // required

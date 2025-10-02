@@ -38,6 +38,8 @@ export interface CancelSubscriptionCommandOutput extends CancelSubscriptionOutpu
  * ```javascript
  * import { DataZoneClient, CancelSubscriptionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CancelSubscriptionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CancelSubscriptionInput
  *   domainIdentifier: "STRING_VALUE", // required

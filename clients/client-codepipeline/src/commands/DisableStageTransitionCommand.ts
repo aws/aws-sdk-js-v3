@@ -35,6 +35,8 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CodePipelineClient, DisableStageTransitionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DisableStageTransitionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // DisableStageTransitionInput
  *   pipelineName: "STRING_VALUE", // required

@@ -58,6 +58,8 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  * ```javascript
  * import { IAMClient, SimulateCustomPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, SimulateCustomPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // SimulateCustomPolicyRequest
  *   PolicyInputList: [ // SimulationPolicyListType // required

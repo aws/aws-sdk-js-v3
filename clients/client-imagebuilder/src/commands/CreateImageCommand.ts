@@ -37,6 +37,8 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * ```javascript
  * import { ImagebuilderClient, CreateImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateImageRequest
  *   imageRecipeArn: "STRING_VALUE",
@@ -77,6 +79,9 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  *     },
  *   ],
  *   executionRole: "STRING_VALUE",
+ *   loggingConfiguration: { // ImageLoggingConfiguration
+ *     logGroupName: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);

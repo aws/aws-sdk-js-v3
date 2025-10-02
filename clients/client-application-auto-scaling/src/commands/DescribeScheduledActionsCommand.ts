@@ -41,6 +41,8 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  * ```javascript
  * import { ApplicationAutoScalingClient, DescribeScheduledActionsCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DescribeScheduledActionsCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * // import type { ApplicationAutoScalingClientConfig } from "@aws-sdk/client-application-auto-scaling";
+ * const config = {}; // type is ApplicationAutoScalingClientConfig
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // DescribeScheduledActionsRequest
  *   ScheduledActionNames: [ // ResourceIdsMaxLen1600

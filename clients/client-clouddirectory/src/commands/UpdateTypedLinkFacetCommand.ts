@@ -34,6 +34,8 @@ export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetR
  * ```javascript
  * import { CloudDirectoryClient, UpdateTypedLinkFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateTypedLinkFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // UpdateTypedLinkFacetRequest
  *   SchemaArn: "STRING_VALUE", // required

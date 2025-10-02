@@ -18,12 +18,13 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import {
   CreateCapacityProviderCommandInput,
@@ -186,17 +187,23 @@ import {
 import { UpdateTaskSetCommandInput, UpdateTaskSetCommandOutput } from "../commands/UpdateTaskSetCommand";
 import { ECSServiceException as __BaseException } from "../models/ECSServiceException";
 import {
+  AcceleratorCountRequest,
+  AcceleratorManufacturer,
+  AcceleratorName,
+  AcceleratorTotalMemoryMiBRequest,
+  AcceleratorType,
   AccessDeniedException,
   AdvancedConfiguration,
   Attribute,
-  AttributeLimitExceededException,
   AutoScalingGroupProvider,
   AwsVpcConfiguration,
-  BlockedException,
+  BaselineEbsBandwidthMbpsRequest,
+  CapacityProvider,
   CapacityProviderField,
   CapacityProviderStrategyItem,
   ClientException,
   ClusterConfiguration,
+  ClusterContainsCapacityProviderException,
   ClusterContainsContainerInstancesException,
   ClusterContainsServicesException,
   ClusterContainsTasksException,
@@ -205,7 +212,6 @@ import {
   ClusterServiceConnectDefaultsRequest,
   ClusterSetting,
   Compatibility,
-  ConflictException,
   Container,
   ContainerDefinition,
   ContainerDependency,
@@ -214,9 +220,12 @@ import {
   ContainerInstanceHealthStatus,
   ContainerOverride,
   ContainerRestartPolicy,
+  CpuManufacturer,
   CreateCapacityProviderRequest,
+  CreateCapacityProviderResponse,
   CreateClusterRequest,
   CreatedAt,
+  CreateManagedInstancesProviderConfiguration,
   CreateServiceRequest,
   CreateServiceResponse,
   CreateTaskSetRequest,
@@ -224,6 +233,7 @@ import {
   DeleteAccountSettingRequest,
   DeleteAttributesRequest,
   DeleteCapacityProviderRequest,
+  DeleteCapacityProviderResponse,
   DeleteClusterRequest,
   DeleteServiceRequest,
   DeleteServiceResponse,
@@ -243,6 +253,7 @@ import {
   DeregisterTaskDefinitionRequest,
   DeregisterTaskDefinitionResponse,
   DescribeCapacityProvidersRequest,
+  DescribeCapacityProvidersResponse,
   DescribeClustersRequest,
   DescribeContainerInstancesRequest,
   DescribeContainerInstancesResponse,
@@ -280,7 +291,10 @@ import {
   HostVolumeProperties,
   InferenceAccelerator,
   InferenceAcceleratorOverride,
+  InstanceGeneration,
   InstanceHealthCheckResult,
+  InstanceLaunchTemplate,
+  InstanceRequirementsRequest,
   InvalidParameterException,
   KernelCapabilities,
   KeyValuePair,
@@ -299,38 +313,35 @@ import {
   ListTaskDefinitionsRequest,
   ListTasksRequest,
   LoadBalancer,
+  LocalStorageType,
   LogConfiguration,
   ManagedAgent,
+  ManagedInstancesNetworkConfiguration,
+  ManagedInstancesProvider,
+  ManagedInstancesStorageConfiguration,
   ManagedScaling,
   ManagedStorageConfiguration,
+  MemoryGiBPerVCpuRequest,
+  MemoryMiBRequest,
   MountPoint,
   NamespaceNotFoundException,
+  NetworkBandwidthGbpsRequest,
   NetworkBinding,
   NetworkConfiguration,
+  NetworkInterfaceCountRequest,
   PlacementConstraint,
   PlacementStrategy,
-  PlatformDevice,
   PlatformTaskDefinitionIncompatibilityException,
   PlatformUnknownException,
   PortMapping,
   ProtectedTask,
   ProxyConfiguration,
-  PutAccountSettingDefaultRequest,
   PutAccountSettingRequest,
-  PutAttributesRequest,
-  PutClusterCapacityProvidersRequest,
-  RegisterContainerInstanceRequest,
-  RegisterContainerInstanceResponse,
-  RegisterTaskDefinitionRequest,
-  RegisterTaskDefinitionResponse,
   RepositoryCredentials,
   Resource,
-  ResourceInUseException,
   ResourceNotFoundException,
   ResourceRequirement,
   Rollback,
-  RunTaskRequest,
-  RunTaskResponse,
   RuntimePlatform,
   Scale,
   Secret,
@@ -346,7 +357,6 @@ import {
   ServiceConnectTlsConfiguration,
   ServiceDeployment,
   ServiceDeploymentBrief,
-  ServiceDeploymentNotFoundException,
   ServiceDeploymentStatus,
   ServiceEvent,
   ServiceField,
@@ -356,10 +366,6 @@ import {
   ServiceRegistry,
   ServiceRevision,
   ServiceVolumeConfiguration,
-  StartTaskRequest,
-  StartTaskResponse,
-  StopServiceDeploymentRequest,
-  StopTaskRequest,
   SystemControl,
   Tag,
   TargetNotConnectedException,
@@ -369,18 +375,17 @@ import {
   TaskDefinitionField,
   TaskDefinitionPlacementConstraint,
   TaskField,
-  TaskManagedEBSVolumeConfiguration,
-  TaskManagedEBSVolumeTerminationPolicy,
   TaskOverride,
   TaskSet,
   TaskSetField,
   TaskSetNotFoundException,
-  TaskVolumeConfiguration,
   TimeoutConfiguration,
   Tmpfs,
+  TotalLocalStorageGBRequest,
   Ulimit,
   UnsupportedFeatureException,
   UpdateInProgressException,
+  VCpuCountRangeRequest,
   VersionInfo,
   Volume,
   VolumeFrom,
@@ -388,24 +393,49 @@ import {
 } from "../models/models_0";
 import {
   AttachmentStateChange,
+  AttributeLimitExceededException,
   AutoScalingGroupProviderUpdate,
+  BlockedException,
+  ConflictException,
   ContainerStateChange,
+  InstanceLaunchTemplateUpdate,
   ManagedAgentStateChange,
   MissingVersionException,
   NoUpdateAvailableException,
+  PlatformDevice,
+  PutAccountSettingDefaultRequest,
+  PutAttributesRequest,
+  PutClusterCapacityProvidersRequest,
+  RegisterContainerInstanceRequest,
+  RegisterContainerInstanceResponse,
+  RegisterTaskDefinitionRequest,
+  RegisterTaskDefinitionResponse,
+  ResourceInUseException,
+  RunTaskRequest,
+  RunTaskResponse,
+  ServiceDeploymentNotFoundException,
+  StartTaskRequest,
+  StartTaskResponse,
+  StopServiceDeploymentRequest,
+  StopTaskRequest,
   StopTaskResponse,
   SubmitAttachmentStateChangesRequest,
   SubmitContainerStateChangeRequest,
   SubmitTaskStateChangeRequest,
   TagResourceRequest,
+  TaskManagedEBSVolumeConfiguration,
+  TaskManagedEBSVolumeTerminationPolicy,
+  TaskVolumeConfiguration,
   UntagResourceRequest,
   UpdateCapacityProviderRequest,
+  UpdateCapacityProviderResponse,
   UpdateClusterRequest,
   UpdateClusterSettingsRequest,
   UpdateContainerAgentRequest,
   UpdateContainerAgentResponse,
   UpdateContainerInstancesStateRequest,
   UpdateContainerInstancesStateResponse,
+  UpdateManagedInstancesProviderConfiguration,
   UpdateServicePrimaryTaskSetRequest,
   UpdateServicePrimaryTaskSetResponse,
   UpdateServiceRequest,
@@ -425,7 +455,7 @@ export const se_CreateCapacityProviderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateCapacityProvider");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateCapacityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -451,7 +481,7 @@ export const se_CreateServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateService");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1088,7 +1118,7 @@ export const se_UpdateCapacityProviderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCapacityProvider");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdateCapacityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1153,7 +1183,7 @@ export const se_UpdateServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateService");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1208,7 +1238,7 @@ export const de_CreateCapacityProviderCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_CreateCapacityProviderResponse(data, context);
   const response: CreateCapacityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1328,7 +1358,7 @@ export const de_DeleteCapacityProviderCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_DeleteCapacityProviderResponse(data, context);
   const response: DeleteCapacityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1468,7 +1498,7 @@ export const de_DescribeCapacityProvidersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_DescribeCapacityProvidersResponse(data, context);
   const response: DescribeCapacityProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2228,7 +2258,7 @@ export const de_UpdateCapacityProviderCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_UpdateCapacityProviderResponse(data, context);
   const response: UpdateCapacityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2409,6 +2439,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ClientException":
     case "com.amazonaws.ecs#ClientException":
       throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
+      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecs#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
@@ -2418,6 +2451,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ServerException":
     case "com.amazonaws.ecs#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
+      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
     case "UpdateInProgressException":
     case "com.amazonaws.ecs#UpdateInProgressException":
       throw await de_UpdateInProgressExceptionRes(parsedOutput, context);
@@ -2427,18 +2463,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.ecs#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
     case "PlatformTaskDefinitionIncompatibilityException":
     case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
       throw await de_PlatformTaskDefinitionIncompatibilityExceptionRes(parsedOutput, context);
     case "PlatformUnknownException":
     case "com.amazonaws.ecs#PlatformUnknownException":
       throw await de_PlatformUnknownExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
     case "ServiceNotActiveException":
     case "com.amazonaws.ecs#ServiceNotActiveException":
       throw await de_ServiceNotActiveExceptionRes(parsedOutput, context);
@@ -2448,6 +2478,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TargetNotFoundException":
     case "com.amazonaws.ecs#TargetNotFoundException":
       throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
+    case "ClusterContainsCapacityProviderException":
+    case "com.amazonaws.ecs#ClusterContainsCapacityProviderException":
+      throw await de_ClusterContainsCapacityProviderExceptionRes(parsedOutput, context);
     case "ClusterContainsContainerInstancesException":
     case "com.amazonaws.ecs#ClusterContainsContainerInstancesException":
       throw await de_ClusterContainsContainerInstancesExceptionRes(parsedOutput, context);
@@ -2549,6 +2582,22 @@ const de_ClientExceptionRes = async (parsedOutput: any, context: __SerdeContext)
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ClientException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ClusterContainsCapacityProviderExceptionRes
+ */
+const de_ClusterContainsCapacityProviderExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ClusterContainsCapacityProviderException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ClusterContainsCapacityProviderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2917,7 +2966,19 @@ const de_UpdateInProgressExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
+// se_AcceleratorCountRequest omitted.
+
+// se_AcceleratorManufacturerSet omitted.
+
+// se_AcceleratorNameSet omitted.
+
+// se_AcceleratorTotalMemoryMiBRequest omitted.
+
+// se_AcceleratorTypeSet omitted.
+
 // se_AdvancedConfiguration omitted.
+
+// se_AllowedInstanceTypeSet omitted.
 
 // se_AttachmentStateChange omitted.
 
@@ -2932,6 +2993,8 @@ const de_UpdateInProgressExceptionRes = async (
 // se_AutoScalingGroupProviderUpdate omitted.
 
 // se_AwsVpcConfiguration omitted.
+
+// se_BaselineEbsBandwidthMbpsRequest omitted.
 
 // se_CapacityProviderFieldList omitted.
 
@@ -2971,7 +3034,20 @@ const de_UpdateInProgressExceptionRes = async (
 
 // se_ContainerStateChanges omitted.
 
-// se_CreateCapacityProviderRequest omitted.
+// se_CpuManufacturerSet omitted.
+
+/**
+ * serializeAws_json1_1CreateCapacityProviderRequest
+ */
+const se_CreateCapacityProviderRequest = (input: CreateCapacityProviderRequest, context: __SerdeContext): any => {
+  return take(input, {
+    autoScalingGroupProvider: _json,
+    cluster: [],
+    managedInstancesProvider: (_) => se_CreateManagedInstancesProviderConfiguration(_, context),
+    name: [],
+    tags: _json,
+  });
+};
 
 // se_CreateClusterRequest omitted.
 
@@ -2985,7 +3061,53 @@ const se_CreatedAt = (input: CreatedAt, context: __SerdeContext): any => {
   });
 };
 
-// se_CreateServiceRequest omitted.
+/**
+ * serializeAws_json1_1CreateManagedInstancesProviderConfiguration
+ */
+const se_CreateManagedInstancesProviderConfiguration = (
+  input: CreateManagedInstancesProviderConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    infrastructureRoleArn: [],
+    instanceLaunchTemplate: (_) => se_InstanceLaunchTemplate(_, context),
+    propagateTags: [],
+  });
+};
+
+/**
+ * serializeAws_json1_1CreateServiceRequest
+ */
+const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    availabilityZoneRebalancing: [],
+    capacityProviderStrategy: _json,
+    clientToken: [],
+    cluster: [],
+    deploymentConfiguration: (_) => se_DeploymentConfiguration(_, context),
+    deploymentController: _json,
+    desiredCount: [],
+    enableECSManagedTags: [],
+    enableExecuteCommand: [],
+    healthCheckGracePeriodSeconds: [],
+    launchType: [],
+    loadBalancers: _json,
+    networkConfiguration: _json,
+    placementConstraints: _json,
+    placementStrategy: _json,
+    platformVersion: [],
+    propagateTags: [],
+    role: [],
+    schedulingStrategy: [],
+    serviceConnectConfiguration: _json,
+    serviceName: [],
+    serviceRegistries: _json,
+    tags: _json,
+    taskDefinition: [],
+    volumeConfigurations: _json,
+    vpcLatticeConfigurations: _json,
+  });
+};
 
 /**
  * serializeAws_json1_1CreateTaskSetRequest
@@ -3026,13 +3148,45 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 
 // se_DeploymentCircuitBreaker omitted.
 
-// se_DeploymentConfiguration omitted.
+/**
+ * serializeAws_json1_1DeploymentConfiguration
+ */
+const se_DeploymentConfiguration = (input: DeploymentConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    alarms: _json,
+    bakeTimeInMinutes: [],
+    deploymentCircuitBreaker: _json,
+    lifecycleHooks: (_) => se_DeploymentLifecycleHookList(_, context),
+    maximumPercent: [],
+    minimumHealthyPercent: [],
+    strategy: [],
+  });
+};
 
 // se_DeploymentController omitted.
 
-// se_DeploymentLifecycleHook omitted.
+/**
+ * serializeAws_json1_1DeploymentLifecycleHook
+ */
+const se_DeploymentLifecycleHook = (input: DeploymentLifecycleHook, context: __SerdeContext): any => {
+  return take(input, {
+    hookDetails: (_) => se_HookDetails(_, context),
+    hookTargetArn: [],
+    lifecycleStages: _json,
+    roleArn: [],
+  });
+};
 
-// se_DeploymentLifecycleHookList omitted.
+/**
+ * serializeAws_json1_1DeploymentLifecycleHookList
+ */
+const se_DeploymentLifecycleHookList = (input: DeploymentLifecycleHook[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_DeploymentLifecycleHook(entry, context);
+    });
+};
 
 // se_DeploymentLifecycleHookStageList omitted.
 
@@ -3086,6 +3240,8 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 
 // se_EphemeralStorage omitted.
 
+// se_ExcludedInstanceTypeSet omitted.
+
 // se_ExecuteCommandConfiguration omitted.
 
 // se_ExecuteCommandLogConfiguration omitted.
@@ -3104,6 +3260,13 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 
 // se_HealthCheck omitted.
 
+/**
+ * serializeAws_json1_1HookDetails
+ */
+const se_HookDetails = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
 // se_HostEntry omitted.
 
 // se_HostEntryList omitted.
@@ -3117,6 +3280,66 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 // se_InferenceAcceleratorOverrides omitted.
 
 // se_InferenceAccelerators omitted.
+
+// se_InstanceGenerationSet omitted.
+
+/**
+ * serializeAws_json1_1InstanceLaunchTemplate
+ */
+const se_InstanceLaunchTemplate = (input: InstanceLaunchTemplate, context: __SerdeContext): any => {
+  return take(input, {
+    ec2InstanceProfileArn: [],
+    instanceRequirements: (_) => se_InstanceRequirementsRequest(_, context),
+    monitoring: [],
+    networkConfiguration: _json,
+    storageConfiguration: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1InstanceLaunchTemplateUpdate
+ */
+const se_InstanceLaunchTemplateUpdate = (input: InstanceLaunchTemplateUpdate, context: __SerdeContext): any => {
+  return take(input, {
+    ec2InstanceProfileArn: [],
+    instanceRequirements: (_) => se_InstanceRequirementsRequest(_, context),
+    monitoring: [],
+    networkConfiguration: _json,
+    storageConfiguration: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1InstanceRequirementsRequest
+ */
+const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    acceleratorCount: _json,
+    acceleratorManufacturers: _json,
+    acceleratorNames: _json,
+    acceleratorTotalMemoryMiB: _json,
+    acceleratorTypes: _json,
+    allowedInstanceTypes: _json,
+    bareMetal: [],
+    baselineEbsBandwidthMbps: _json,
+    burstablePerformance: [],
+    cpuManufacturers: _json,
+    excludedInstanceTypes: _json,
+    instanceGenerations: _json,
+    localStorage: [],
+    localStorageTypes: _json,
+    maxSpotPriceAsPercentageOfOptimalOnDemandPrice: [],
+    memoryGiBPerVCpu: (_) => se_MemoryGiBPerVCpuRequest(_, context),
+    memoryMiB: _json,
+    networkBandwidthGbps: (_) => se_NetworkBandwidthGbpsRequest(_, context),
+    networkInterfaceCount: _json,
+    onDemandMaxPricePercentageOverLowestPrice: [],
+    requireHibernateSupport: [],
+    spotMaxPricePercentageOverLowestPrice: [],
+    totalLocalStorageGB: (_) => se_TotalLocalStorageGBRequest(_, context),
+    vCpuCount: _json,
+  });
+};
 
 // se_IntegerList omitted.
 
@@ -3164,6 +3387,8 @@ const se_ListServiceDeploymentsRequest = (input: ListServiceDeploymentsRequest, 
 
 // se_LoadBalancers omitted.
 
+// se_LocalStorageTypeSet omitted.
+
 // se_LogConfiguration omitted.
 
 // se_LogConfigurationOptionsMap omitted.
@@ -3172,19 +3397,47 @@ const se_ListServiceDeploymentsRequest = (input: ListServiceDeploymentsRequest, 
 
 // se_ManagedAgentStateChanges omitted.
 
+// se_ManagedInstancesNetworkConfiguration omitted.
+
+// se_ManagedInstancesStorageConfiguration omitted.
+
 // se_ManagedScaling omitted.
 
 // se_ManagedStorageConfiguration omitted.
 
+/**
+ * serializeAws_json1_1MemoryGiBPerVCpuRequest
+ */
+const se_MemoryGiBPerVCpuRequest = (input: MemoryGiBPerVCpuRequest, context: __SerdeContext): any => {
+  return take(input, {
+    max: __serializeFloat,
+    min: __serializeFloat,
+  });
+};
+
+// se_MemoryMiBRequest omitted.
+
 // se_MountPoint omitted.
 
 // se_MountPointList omitted.
+
+/**
+ * serializeAws_json1_1NetworkBandwidthGbpsRequest
+ */
+const se_NetworkBandwidthGbpsRequest = (input: NetworkBandwidthGbpsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    max: __serializeFloat,
+    min: __serializeFloat,
+  });
+};
 
 // se_NetworkBinding omitted.
 
 // se_NetworkBindings omitted.
 
 // se_NetworkConfiguration omitted.
+
+// se_NetworkInterfaceCountRequest omitted.
 
 // se_PlacementConstraint omitted.
 
@@ -3411,13 +3664,33 @@ const se_SubmitTaskStateChangeRequest = (input: SubmitTaskStateChangeRequest, co
 
 // se_TmpfsList omitted.
 
+/**
+ * serializeAws_json1_1TotalLocalStorageGBRequest
+ */
+const se_TotalLocalStorageGBRequest = (input: TotalLocalStorageGBRequest, context: __SerdeContext): any => {
+  return take(input, {
+    max: __serializeFloat,
+    min: __serializeFloat,
+  });
+};
+
 // se_Ulimit omitted.
 
 // se_UlimitList omitted.
 
 // se_UntagResourceRequest omitted.
 
-// se_UpdateCapacityProviderRequest omitted.
+/**
+ * serializeAws_json1_1UpdateCapacityProviderRequest
+ */
+const se_UpdateCapacityProviderRequest = (input: UpdateCapacityProviderRequest, context: __SerdeContext): any => {
+  return take(input, {
+    autoScalingGroupProvider: _json,
+    cluster: [],
+    managedInstancesProvider: (_) => se_UpdateManagedInstancesProviderConfiguration(_, context),
+    name: [],
+  });
+};
 
 // se_UpdateClusterRequest omitted.
 
@@ -3427,9 +3700,51 @@ const se_SubmitTaskStateChangeRequest = (input: SubmitTaskStateChangeRequest, co
 
 // se_UpdateContainerInstancesStateRequest omitted.
 
+/**
+ * serializeAws_json1_1UpdateManagedInstancesProviderConfiguration
+ */
+const se_UpdateManagedInstancesProviderConfiguration = (
+  input: UpdateManagedInstancesProviderConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    infrastructureRoleArn: [],
+    instanceLaunchTemplate: (_) => se_InstanceLaunchTemplateUpdate(_, context),
+    propagateTags: [],
+  });
+};
+
 // se_UpdateServicePrimaryTaskSetRequest omitted.
 
-// se_UpdateServiceRequest omitted.
+/**
+ * serializeAws_json1_1UpdateServiceRequest
+ */
+const se_UpdateServiceRequest = (input: UpdateServiceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    availabilityZoneRebalancing: [],
+    capacityProviderStrategy: _json,
+    cluster: [],
+    deploymentConfiguration: (_) => se_DeploymentConfiguration(_, context),
+    deploymentController: _json,
+    desiredCount: [],
+    enableECSManagedTags: [],
+    enableExecuteCommand: [],
+    forceNewDeployment: [],
+    healthCheckGracePeriodSeconds: [],
+    loadBalancers: _json,
+    networkConfiguration: _json,
+    placementConstraints: _json,
+    placementStrategy: _json,
+    platformVersion: [],
+    propagateTags: [],
+    service: [],
+    serviceConnectConfiguration: _json,
+    serviceRegistries: _json,
+    taskDefinition: [],
+    volumeConfigurations: _json,
+    vpcLatticeConfigurations: _json,
+  });
+};
 
 // se_UpdateTaskProtectionRequest omitted.
 
@@ -3445,6 +3760,8 @@ const se_UpdateTaskSetRequest = (input: UpdateTaskSetRequest, context: __SerdeCo
   });
 };
 
+// se_VCpuCountRangeRequest omitted.
+
 // se_VersionInfo omitted.
 
 // se_Volume omitted.
@@ -3459,9 +3776,21 @@ const se_UpdateTaskSetRequest = (input: UpdateTaskSetRequest, context: __SerdeCo
 
 // se_VpcLatticeConfigurations omitted.
 
+// de_AcceleratorCountRequest omitted.
+
+// de_AcceleratorManufacturerSet omitted.
+
+// de_AcceleratorNameSet omitted.
+
+// de_AcceleratorTotalMemoryMiBRequest omitted.
+
+// de_AcceleratorTypeSet omitted.
+
 // de_AccessDeniedException omitted.
 
 // de_AdvancedConfiguration omitted.
+
+// de_AllowedInstanceTypeSet omitted.
 
 // de_Attachment omitted.
 
@@ -3479,11 +3808,39 @@ const se_UpdateTaskSetRequest = (input: UpdateTaskSetRequest, context: __SerdeCo
 
 // de_AwsVpcConfiguration omitted.
 
+// de_BaselineEbsBandwidthMbpsRequest omitted.
+
 // de_BlockedException omitted.
 
-// de_CapacityProvider omitted.
+/**
+ * deserializeAws_json1_1CapacityProvider
+ */
+const de_CapacityProvider = (output: any, context: __SerdeContext): CapacityProvider => {
+  return take(output, {
+    autoScalingGroupProvider: _json,
+    capacityProviderArn: __expectString,
+    cluster: __expectString,
+    managedInstancesProvider: (_: any) => de_ManagedInstancesProvider(_, context),
+    name: __expectString,
+    status: __expectString,
+    tags: _json,
+    type: __expectString,
+    updateStatus: __expectString,
+    updateStatusReason: __expectString,
+  }) as any;
+};
 
-// de_CapacityProviders omitted.
+/**
+ * deserializeAws_json1_1CapacityProviders
+ */
+const de_CapacityProviders = (output: any, context: __SerdeContext): CapacityProvider[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CapacityProvider(entry, context);
+    });
+  return retVal;
+};
 
 // de_CapacityProviderStrategy omitted.
 
@@ -3494,6 +3851,8 @@ const se_UpdateTaskSetRequest = (input: UpdateTaskSetRequest, context: __SerdeCo
 // de_Cluster omitted.
 
 // de_ClusterConfiguration omitted.
+
+// de_ClusterContainsCapacityProviderException omitted.
 
 // de_ClusterContainsContainerInstancesException omitted.
 
@@ -3618,7 +3977,16 @@ const de_Containers = (output: any, context: __SerdeContext): Container[] => {
   return retVal;
 };
 
-// de_CreateCapacityProviderResponse omitted.
+// de_CpuManufacturerSet omitted.
+
+/**
+ * deserializeAws_json1_1CreateCapacityProviderResponse
+ */
+const de_CreateCapacityProviderResponse = (output: any, context: __SerdeContext): CreateCapacityProviderResponse => {
+  return take(output, {
+    capacityProvider: (_: any) => de_CapacityProvider(_, context),
+  }) as any;
+};
 
 // de_CreateClusterResponse omitted.
 
@@ -3644,7 +4012,14 @@ const de_CreateTaskSetResponse = (output: any, context: __SerdeContext): CreateT
 
 // de_DeleteAttributesResponse omitted.
 
-// de_DeleteCapacityProviderResponse omitted.
+/**
+ * deserializeAws_json1_1DeleteCapacityProviderResponse
+ */
+const de_DeleteCapacityProviderResponse = (output: any, context: __SerdeContext): DeleteCapacityProviderResponse => {
+  return take(output, {
+    capacityProvider: (_: any) => de_CapacityProvider(_, context),
+  }) as any;
+};
 
 // de_DeleteClusterResponse omitted.
 
@@ -3709,15 +4084,48 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
 
 // de_DeploymentCircuitBreaker omitted.
 
-// de_DeploymentConfiguration omitted.
+/**
+ * deserializeAws_json1_1DeploymentConfiguration
+ */
+const de_DeploymentConfiguration = (output: any, context: __SerdeContext): DeploymentConfiguration => {
+  return take(output, {
+    alarms: _json,
+    bakeTimeInMinutes: __expectInt32,
+    deploymentCircuitBreaker: _json,
+    lifecycleHooks: (_: any) => de_DeploymentLifecycleHookList(_, context),
+    maximumPercent: __expectInt32,
+    minimumHealthyPercent: __expectInt32,
+    strategy: __expectString,
+  }) as any;
+};
 
 // de_DeploymentController omitted.
 
 // de_DeploymentEphemeralStorage omitted.
 
-// de_DeploymentLifecycleHook omitted.
+/**
+ * deserializeAws_json1_1DeploymentLifecycleHook
+ */
+const de_DeploymentLifecycleHook = (output: any, context: __SerdeContext): DeploymentLifecycleHook => {
+  return take(output, {
+    hookDetails: (_: any) => de_HookDetails(_, context),
+    hookTargetArn: __expectString,
+    lifecycleStages: _json,
+    roleArn: __expectString,
+  }) as any;
+};
 
-// de_DeploymentLifecycleHookList omitted.
+/**
+ * deserializeAws_json1_1DeploymentLifecycleHookList
+ */
+const de_DeploymentLifecycleHookList = (output: any, context: __SerdeContext): DeploymentLifecycleHook[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DeploymentLifecycleHook(entry, context);
+    });
+  return retVal;
+};
 
 // de_DeploymentLifecycleHookStageList omitted.
 
@@ -3757,7 +4165,19 @@ const de_DeregisterTaskDefinitionResponse = (
   }) as any;
 };
 
-// de_DescribeCapacityProvidersResponse omitted.
+/**
+ * deserializeAws_json1_1DescribeCapacityProvidersResponse
+ */
+const de_DescribeCapacityProvidersResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeCapacityProvidersResponse => {
+  return take(output, {
+    capacityProviders: (_: any) => de_CapacityProviders(_, context),
+    failures: _json,
+    nextToken: __expectString,
+  }) as any;
+};
 
 // de_DescribeClustersResponse omitted.
 
@@ -3868,6 +4288,8 @@ const de_DescribeTasksResponse = (output: any, context: __SerdeContext): Describ
 
 // de_EphemeralStorage omitted.
 
+// de_ExcludedInstanceTypeSet omitted.
+
 // de_ExecuteCommandConfiguration omitted.
 
 // de_ExecuteCommandLogConfiguration omitted.
@@ -3900,6 +4322,13 @@ const de_GetTaskProtectionResponse = (output: any, context: __SerdeContext): Get
 
 // de_HealthCheck omitted.
 
+/**
+ * deserializeAws_json1_1HookDetails
+ */
+const de_HookDetails = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
 // de_HostEntry omitted.
 
 // de_HostEntryList omitted.
@@ -3913,6 +4342,8 @@ const de_GetTaskProtectionResponse = (output: any, context: __SerdeContext): Get
 // de_InferenceAcceleratorOverrides omitted.
 
 // de_InferenceAccelerators omitted.
+
+// de_InstanceGenerationSet omitted.
 
 /**
  * deserializeAws_json1_1InstanceHealthCheckResult
@@ -3936,6 +4367,51 @@ const de_InstanceHealthCheckResultList = (output: any, context: __SerdeContext):
       return de_InstanceHealthCheckResult(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1InstanceLaunchTemplate
+ */
+const de_InstanceLaunchTemplate = (output: any, context: __SerdeContext): InstanceLaunchTemplate => {
+  return take(output, {
+    ec2InstanceProfileArn: __expectString,
+    instanceRequirements: (_: any) => de_InstanceRequirementsRequest(_, context),
+    monitoring: __expectString,
+    networkConfiguration: _json,
+    storageConfiguration: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InstanceRequirementsRequest
+ */
+const de_InstanceRequirementsRequest = (output: any, context: __SerdeContext): InstanceRequirementsRequest => {
+  return take(output, {
+    acceleratorCount: _json,
+    acceleratorManufacturers: _json,
+    acceleratorNames: _json,
+    acceleratorTotalMemoryMiB: _json,
+    acceleratorTypes: _json,
+    allowedInstanceTypes: _json,
+    bareMetal: __expectString,
+    baselineEbsBandwidthMbps: _json,
+    burstablePerformance: __expectString,
+    cpuManufacturers: _json,
+    excludedInstanceTypes: _json,
+    instanceGenerations: _json,
+    localStorage: __expectString,
+    localStorageTypes: _json,
+    maxSpotPriceAsPercentageOfOptimalOnDemandPrice: __expectInt32,
+    memoryGiBPerVCpu: (_: any) => de_MemoryGiBPerVCpuRequest(_, context),
+    memoryMiB: _json,
+    networkBandwidthGbps: (_: any) => de_NetworkBandwidthGbpsRequest(_, context),
+    networkInterfaceCount: _json,
+    onDemandMaxPricePercentageOverLowestPrice: __expectInt32,
+    requireHibernateSupport: __expectBoolean,
+    spotMaxPricePercentageOverLowestPrice: __expectInt32,
+    totalLocalStorageGB: (_: any) => de_TotalLocalStorageGBRequest(_, context),
+    vCpuCount: _json,
+  }) as any;
 };
 
 // de_IntegerList omitted.
@@ -3984,6 +4460,8 @@ const de_ListServiceDeploymentsResponse = (output: any, context: __SerdeContext)
 
 // de_LoadBalancers omitted.
 
+// de_LocalStorageTypeSet omitted.
+
 // de_LogConfiguration omitted.
 
 // de_LogConfigurationOptionsMap omitted.
@@ -4012,9 +4490,36 @@ const de_ManagedAgents = (output: any, context: __SerdeContext): ManagedAgent[] 
   return retVal;
 };
 
+// de_ManagedInstancesNetworkConfiguration omitted.
+
+/**
+ * deserializeAws_json1_1ManagedInstancesProvider
+ */
+const de_ManagedInstancesProvider = (output: any, context: __SerdeContext): ManagedInstancesProvider => {
+  return take(output, {
+    infrastructureRoleArn: __expectString,
+    instanceLaunchTemplate: (_: any) => de_InstanceLaunchTemplate(_, context),
+    propagateTags: __expectString,
+  }) as any;
+};
+
+// de_ManagedInstancesStorageConfiguration omitted.
+
 // de_ManagedScaling omitted.
 
 // de_ManagedStorageConfiguration omitted.
+
+/**
+ * deserializeAws_json1_1MemoryGiBPerVCpuRequest
+ */
+const de_MemoryGiBPerVCpuRequest = (output: any, context: __SerdeContext): MemoryGiBPerVCpuRequest => {
+  return take(output, {
+    max: __limitedParseDouble,
+    min: __limitedParseDouble,
+  }) as any;
+};
+
+// de_MemoryMiBRequest omitted.
 
 // de_MissingVersionException omitted.
 
@@ -4024,6 +4529,16 @@ const de_ManagedAgents = (output: any, context: __SerdeContext): ManagedAgent[] 
 
 // de_NamespaceNotFoundException omitted.
 
+/**
+ * deserializeAws_json1_1NetworkBandwidthGbpsRequest
+ */
+const de_NetworkBandwidthGbpsRequest = (output: any, context: __SerdeContext): NetworkBandwidthGbpsRequest => {
+  return take(output, {
+    max: __limitedParseDouble,
+    min: __limitedParseDouble,
+  }) as any;
+};
+
 // de_NetworkBinding omitted.
 
 // de_NetworkBindings omitted.
@@ -4031,6 +4546,8 @@ const de_ManagedAgents = (output: any, context: __SerdeContext): ManagedAgent[] 
 // de_NetworkConfiguration omitted.
 
 // de_NetworkInterface omitted.
+
+// de_NetworkInterfaceCountRequest omitted.
 
 // de_NetworkInterfaces omitted.
 
@@ -4200,7 +4717,7 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
     clusterArn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
-    deploymentConfiguration: _json,
+    deploymentConfiguration: (_: any) => de_DeploymentConfiguration(_, context),
     deploymentController: _json,
     deployments: (_: any) => de_Deployments(_, context),
     desiredCount: __expectInt32,
@@ -4263,7 +4780,7 @@ const de_ServiceDeployment = (output: any, context: __SerdeContext): ServiceDepl
     clusterArn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     deploymentCircuitBreaker: _json,
-    deploymentConfiguration: _json,
+    deploymentConfiguration: (_: any) => de_DeploymentConfiguration(_, context),
     finishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lifecycleStage: __expectString,
     rollback: (_: any) => de_Rollback(_, context),
@@ -4638,6 +5155,16 @@ const de_TaskSets = (output: any, context: __SerdeContext): TaskSet[] => {
 
 // de_TmpfsList omitted.
 
+/**
+ * deserializeAws_json1_1TotalLocalStorageGBRequest
+ */
+const de_TotalLocalStorageGBRequest = (output: any, context: __SerdeContext): TotalLocalStorageGBRequest => {
+  return take(output, {
+    max: __limitedParseDouble,
+    min: __limitedParseDouble,
+  }) as any;
+};
+
 // de_Ulimit omitted.
 
 // de_UlimitList omitted.
@@ -4646,7 +5173,14 @@ const de_TaskSets = (output: any, context: __SerdeContext): TaskSet[] => {
 
 // de_UntagResourceResponse omitted.
 
-// de_UpdateCapacityProviderResponse omitted.
+/**
+ * deserializeAws_json1_1UpdateCapacityProviderResponse
+ */
+const de_UpdateCapacityProviderResponse = (output: any, context: __SerdeContext): UpdateCapacityProviderResponse => {
+  return take(output, {
+    capacityProvider: (_: any) => de_CapacityProvider(_, context),
+  }) as any;
+};
 
 // de_UpdateClusterResponse omitted.
 
@@ -4715,6 +5249,8 @@ const de_UpdateTaskSetResponse = (output: any, context: __SerdeContext): UpdateT
     taskSet: (_: any) => de_TaskSet(_, context),
   }) as any;
 };
+
+// de_VCpuCountRangeRequest omitted.
 
 // de_VersionInfo omitted.
 

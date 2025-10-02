@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { UpdateLifecyclePolicyRequest } from "../models/models_0";
-import { UpdateLifecyclePolicyResponse } from "../models/models_1";
+import { UpdateLifecyclePolicyRequest, UpdateLifecyclePolicyResponse } from "../models/models_1";
 import { de_UpdateLifecyclePolicyCommand, se_UpdateLifecyclePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -35,6 +34,8 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * ```javascript
  * import { ImagebuilderClient, UpdateLifecyclePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateLifecyclePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // UpdateLifecyclePolicyRequest
  *   lifecyclePolicyArn: "STRING_VALUE", // required

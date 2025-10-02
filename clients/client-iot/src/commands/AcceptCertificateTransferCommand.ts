@@ -38,6 +38,8 @@ export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer
  * ```javascript
  * import { IoTClient, AcceptCertificateTransferCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AcceptCertificateTransferCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // AcceptCertificateTransferRequest
  *   certificateId: "STRING_VALUE", // required

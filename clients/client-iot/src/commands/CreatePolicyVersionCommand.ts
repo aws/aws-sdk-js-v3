@@ -41,6 +41,8 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * ```javascript
  * import { IoTClient, CreatePolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreatePolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreatePolicyVersionRequest
  *   policyName: "STRING_VALUE", // required

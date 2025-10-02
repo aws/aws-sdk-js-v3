@@ -34,6 +34,8 @@ export interface AssociateMemberToFleetCommandOutput extends AssociateMemberToFl
  * ```javascript
  * import { DeadlineClient, AssociateMemberToFleetCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, AssociateMemberToFleetCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // AssociateMemberToFleetRequest
  *   farmId: "STRING_VALUE", // required

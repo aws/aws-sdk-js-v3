@@ -36,6 +36,8 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * ```javascript
  * import { AppStreamClient, CreateUpdatedImageCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateUpdatedImageCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // CreateUpdatedImageRequest
  *   existingImageName: "STRING_VALUE", // required

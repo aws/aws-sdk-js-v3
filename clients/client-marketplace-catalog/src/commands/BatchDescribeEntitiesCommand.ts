@@ -38,6 +38,8 @@ export interface BatchDescribeEntitiesCommandOutput extends BatchDescribeEntitie
  * ```javascript
  * import { MarketplaceCatalogClient, BatchDescribeEntitiesCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, BatchDescribeEntitiesCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * // import type { MarketplaceCatalogClientConfig } from "@aws-sdk/client-marketplace-catalog";
+ * const config = {}; // type is MarketplaceCatalogClientConfig
  * const client = new MarketplaceCatalogClient(config);
  * const input = { // BatchDescribeEntitiesRequest
  *   EntityRequestList: [ // EntityRequestList // required

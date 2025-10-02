@@ -43,6 +43,8 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * ```javascript
  * import { DynamoDBClient, DescribeTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // import type { DynamoDBClientConfig } from "@aws-sdk/client-dynamodb";
+ * const config = {}; // type is DynamoDBClientConfig
  * const client = new DynamoDBClient(config);
  * const input = { // DescribeTableInput
  *   TableName: "STRING_VALUE", // required

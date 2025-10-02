@@ -62,6 +62,8 @@ export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutio
  * ```javascript
  * import { SWFClient, DescribeWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // DescribeWorkflowExecutionInput
  *   domain: "STRING_VALUE", // required

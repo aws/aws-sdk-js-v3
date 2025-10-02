@@ -34,6 +34,8 @@ export interface CreateEnvironmentHostCommandOutput extends CreateEnvironmentHos
  * ```javascript
  * import { EvsClient, CreateEnvironmentHostCommand } from "@aws-sdk/client-evs"; // ES Modules import
  * // const { EvsClient, CreateEnvironmentHostCommand } = require("@aws-sdk/client-evs"); // CommonJS import
+ * // import type { EvsClientConfig } from "@aws-sdk/client-evs";
+ * const config = {}; // type is EvsClientConfig
  * const client = new EvsClient(config);
  * const input = { // CreateEnvironmentHostRequest
  *   clientToken: "STRING_VALUE",
@@ -88,7 +90,7 @@ export interface CreateEnvironmentHostCommandOutput extends CreateEnvironmentHos
  * @see {@link EvsClientResolvedConfig | config} for EvsClient's `config` shape.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The <code>CreateEnvironmentHost</code> operation couldn't be performed because the service is throttling requests. This exception is thrown when the <code>CreateEnvironmentHost</code> request exceeds concurrency of 1 transaction per second (TPS).</p>
+ *  <p>The operation couldn't be performed because the service is throttling requests. This exception is thrown when there are too many requests accepted concurrently from the service endpoint.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>

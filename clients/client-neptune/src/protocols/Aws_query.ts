@@ -7157,12 +7157,12 @@ const de_CreateDBClusterEndpointOutput = (output: any, context: __SerdeContext):
   if (output[_CET] != null) {
     contents[_CET] = __expectString(output[_CET]);
   }
-  if (output.StaticMembers === "") {
+  if (String(output.StaticMembers).trim() === "") {
     contents[_SM] = [];
   } else if (output[_SM] != null && output[_SM][_me] != null) {
     contents[_SM] = de_StringList(__getArrayIfSingleItem(output[_SM][_me]), context);
   }
-  if (output.ExcludedMembers === "") {
+  if (String(output.ExcludedMembers).trim() === "") {
     contents[_EM] = [];
   } else if (output[_EM] != null && output[_EM][_me] != null) {
     contents[_EM] = de_StringList(__getArrayIfSingleItem(output[_EM][_me]), context);
@@ -7272,7 +7272,7 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_AS] != null) {
     contents[_AS] = __strictParseInt32(output[_AS]) as number;
   }
-  if (output.AvailabilityZones === "") {
+  if (String(output.AvailabilityZones).trim() === "") {
     contents[_AZ] = [];
   } else if (output[_AZ] != null && output[_AZ][_AZv] != null) {
     contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_AZv]), context);
@@ -7328,7 +7328,7 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_MU] != null) {
     contents[_MU] = __expectString(output[_MU]);
   }
-  if (output.DBClusterOptionGroupMemberships === "") {
+  if (String(output.DBClusterOptionGroupMemberships).trim() === "") {
     contents[_DBCOGM] = [];
   } else if (output[_DBCOGM] != null && output[_DBCOGM][_DBCOG] != null) {
     contents[_DBCOGM] = de_DBClusterOptionGroupMemberships(__getArrayIfSingleItem(output[_DBCOGM][_DBCOG]), context);
@@ -7342,17 +7342,17 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_RSI] != null) {
     contents[_RSI] = __expectString(output[_RSI]);
   }
-  if (output.ReadReplicaIdentifiers === "") {
+  if (String(output.ReadReplicaIdentifiers).trim() === "") {
     contents[_RRI] = [];
   } else if (output[_RRI] != null && output[_RRI][_RRIe] != null) {
     contents[_RRI] = de_ReadReplicaIdentifierList(__getArrayIfSingleItem(output[_RRI][_RRIe]), context);
   }
-  if (output.DBClusterMembers === "") {
+  if (String(output.DBClusterMembers).trim() === "") {
     contents[_DBCM] = [];
   } else if (output[_DBCM] != null && output[_DBCM][_DBCMl] != null) {
     contents[_DBCM] = de_DBClusterMemberList(__getArrayIfSingleItem(output[_DBCM][_DBCMl]), context);
   }
-  if (output.VpcSecurityGroups === "") {
+  if (String(output.VpcSecurityGroups).trim() === "") {
     contents[_VSG] = [];
   } else if (output[_VSG] != null && output[_VSG][_VSGM] != null) {
     contents[_VSG] = de_VpcSecurityGroupMembershipList(__getArrayIfSingleItem(output[_VSG][_VSGM]), context);
@@ -7372,7 +7372,7 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_DBCA] != null) {
     contents[_DBCA] = __expectString(output[_DBCA]);
   }
-  if (output.AssociatedRoles === "") {
+  if (String(output.AssociatedRoles).trim() === "") {
     contents[_AR] = [];
   } else if (output[_AR] != null && output[_AR][_DBCR] != null) {
     contents[_AR] = de_DBClusterRoles(__getArrayIfSingleItem(output[_AR][_DBCR]), context);
@@ -7389,7 +7389,7 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_CTTS] != null) {
     contents[_CTTS] = __parseBoolean(output[_CTTS]);
   }
-  if (output.EnabledCloudwatchLogsExports === "") {
+  if (String(output.EnabledCloudwatchLogsExports).trim() === "") {
     contents[_ECLEn] = [];
   } else if (output[_ECLEn] != null && output[_ECLEn][_me] != null) {
     contents[_ECLEn] = de_LogTypeList(__getArrayIfSingleItem(output[_ECLEn][_me]), context);
@@ -7458,12 +7458,12 @@ const de_DBClusterEndpoint = (output: any, context: __SerdeContext): DBClusterEn
   if (output[_CET] != null) {
     contents[_CET] = __expectString(output[_CET]);
   }
-  if (output.StaticMembers === "") {
+  if (String(output.StaticMembers).trim() === "") {
     contents[_SM] = [];
   } else if (output[_SM] != null && output[_SM][_me] != null) {
     contents[_SM] = de_StringList(__getArrayIfSingleItem(output[_SM][_me]), context);
   }
-  if (output.ExcludedMembers === "") {
+  if (String(output.ExcludedMembers).trim() === "") {
     contents[_EM] = [];
   } else if (output[_EM] != null && output[_EM][_me] != null) {
     contents[_EM] = de_StringList(__getArrayIfSingleItem(output[_EM][_me]), context);
@@ -7507,7 +7507,7 @@ const de_DBClusterEndpointMessage = (output: any, context: __SerdeContext): DBCl
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.DBClusterEndpoints === "") {
+  if (String(output.DBClusterEndpoints).trim() === "") {
     contents[_DBCE] = [];
   } else if (output[_DBCE] != null && output[_DBCE][_DBCEL] != null) {
     contents[_DBCE] = de_DBClusterEndpointList(__getArrayIfSingleItem(output[_DBCE][_DBCEL]), context);
@@ -7590,7 +7590,7 @@ const de_DBClusterMessage = (output: any, context: __SerdeContext): DBClusterMes
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.DBClusters === "") {
+  if (String(output.DBClusters).trim() === "") {
     contents[_DBCl] = [];
   } else if (output[_DBCl] != null && output[_DBCl][_DBC] != null) {
     contents[_DBCl] = de_DBClusterList(__getArrayIfSingleItem(output[_DBCl][_DBC]), context);
@@ -7659,7 +7659,7 @@ const de_DBClusterParameterGroup = (output: any, context: __SerdeContext): DBClu
  */
 const de_DBClusterParameterGroupDetails = (output: any, context: __SerdeContext): DBClusterParameterGroupDetails => {
   const contents: any = {};
-  if (output.Parameters === "") {
+  if (String(output.Parameters).trim() === "") {
     contents[_Pa] = [];
   } else if (output[_Pa] != null && output[_Pa][_Par] != null) {
     contents[_Pa] = de_ParametersList(__getArrayIfSingleItem(output[_Pa][_Par]), context);
@@ -7717,7 +7717,7 @@ const de_DBClusterParameterGroupsMessage = (output: any, context: __SerdeContext
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.DBClusterParameterGroups === "") {
+  if (String(output.DBClusterParameterGroups).trim() === "") {
     contents[_DBCPGl] = [];
   } else if (output[_DBCPGl] != null && output[_DBCPGl][_DBCPG] != null) {
     contents[_DBCPGl] = de_DBClusterParameterGroupList(__getArrayIfSingleItem(output[_DBCPGl][_DBCPG]), context);
@@ -7802,7 +7802,7 @@ const de_DBClusterRoles = (output: any, context: __SerdeContext): DBClusterRole[
  */
 const de_DBClusterSnapshot = (output: any, context: __SerdeContext): DBClusterSnapshot => {
   const contents: any = {};
-  if (output.AvailabilityZones === "") {
+  if (String(output.AvailabilityZones).trim() === "") {
     contents[_AZ] = [];
   } else if (output[_AZ] != null && output[_AZ][_AZv] != null) {
     contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_AZv]), context);
@@ -7892,7 +7892,7 @@ const de_DBClusterSnapshotAttribute = (output: any, context: __SerdeContext): DB
   if (output[_AN] != null) {
     contents[_AN] = __expectString(output[_AN]);
   }
-  if (output.AttributeValues === "") {
+  if (String(output.AttributeValues).trim() === "") {
     contents[_AVt] = [];
   } else if (output[_AVt] != null && output[_AVt][_AVtt] != null) {
     contents[_AVt] = de_AttributeValueList(__getArrayIfSingleItem(output[_AVt][_AVtt]), context);
@@ -7922,7 +7922,7 @@ const de_DBClusterSnapshotAttributesResult = (
   if (output[_DBCSI] != null) {
     contents[_DBCSI] = __expectString(output[_DBCSI]);
   }
-  if (output.DBClusterSnapshotAttributes === "") {
+  if (String(output.DBClusterSnapshotAttributes).trim() === "") {
     contents[_DBCSAl] = [];
   } else if (output[_DBCSAl] != null && output[_DBCSAl][_DBCSAlu] != null) {
     contents[_DBCSAl] = de_DBClusterSnapshotAttributeList(__getArrayIfSingleItem(output[_DBCSAl][_DBCSAlu]), context);
@@ -7949,7 +7949,7 @@ const de_DBClusterSnapshotMessage = (output: any, context: __SerdeContext): DBCl
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.DBClusterSnapshots === "") {
+  if (String(output.DBClusterSnapshots).trim() === "") {
     contents[_DBCSl] = [];
   } else if (output[_DBCSl] != null && output[_DBCSl][_DBCS] != null) {
     contents[_DBCSl] = de_DBClusterSnapshotList(__getArrayIfSingleItem(output[_DBCSl][_DBCS]), context);
@@ -7991,22 +7991,22 @@ const de_DBEngineVersion = (output: any, context: __SerdeContext): DBEngineVersi
   if (output[_DCS] != null) {
     contents[_DCS] = de_CharacterSet(output[_DCS], context);
   }
-  if (output.SupportedCharacterSets === "") {
+  if (String(output.SupportedCharacterSets).trim() === "") {
     contents[_SCS] = [];
   } else if (output[_SCS] != null && output[_SCS][_CS] != null) {
     contents[_SCS] = de_SupportedCharacterSetsList(__getArrayIfSingleItem(output[_SCS][_CS]), context);
   }
-  if (output.ValidUpgradeTarget === "") {
+  if (String(output.ValidUpgradeTarget).trim() === "") {
     contents[_VUT] = [];
   } else if (output[_VUT] != null && output[_VUT][_UT] != null) {
     contents[_VUT] = de_ValidUpgradeTargetList(__getArrayIfSingleItem(output[_VUT][_UT]), context);
   }
-  if (output.SupportedTimezones === "") {
+  if (String(output.SupportedTimezones).trim() === "") {
     contents[_STu] = [];
   } else if (output[_STu] != null && output[_STu][_Ti] != null) {
     contents[_STu] = de_SupportedTimezonesList(__getArrayIfSingleItem(output[_STu][_Ti]), context);
   }
-  if (output.ExportableLogTypes === "") {
+  if (String(output.ExportableLogTypes).trim() === "") {
     contents[_ELTx] = [];
   } else if (output[_ELTx] != null && output[_ELTx][_me] != null) {
     contents[_ELTx] = de_LogTypeList(__getArrayIfSingleItem(output[_ELTx][_me]), context);
@@ -8042,7 +8042,7 @@ const de_DBEngineVersionMessage = (output: any, context: __SerdeContext): DBEngi
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.DBEngineVersions === "") {
+  if (String(output.DBEngineVersions).trim() === "") {
     contents[_DBEV] = [];
   } else if (output[_DBEV] != null && output[_DBEV][_DBEVn] != null) {
     contents[_DBEV] = de_DBEngineVersionList(__getArrayIfSingleItem(output[_DBEV][_DBEVn]), context);
@@ -8088,17 +8088,17 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output[_BRP] != null) {
     contents[_BRP] = __strictParseInt32(output[_BRP]) as number;
   }
-  if (output.DBSecurityGroups === "") {
+  if (String(output.DBSecurityGroups).trim() === "") {
     contents[_DBSG] = [];
   } else if (output[_DBSG] != null && output[_DBSG][_DBSGe] != null) {
     contents[_DBSG] = de_DBSecurityGroupMembershipList(__getArrayIfSingleItem(output[_DBSG][_DBSGe]), context);
   }
-  if (output.VpcSecurityGroups === "") {
+  if (String(output.VpcSecurityGroups).trim() === "") {
     contents[_VSG] = [];
   } else if (output[_VSG] != null && output[_VSG][_VSGM] != null) {
     contents[_VSG] = de_VpcSecurityGroupMembershipList(__getArrayIfSingleItem(output[_VSG][_VSGM]), context);
   }
-  if (output.DBParameterGroups === "") {
+  if (String(output.DBParameterGroups).trim() === "") {
     contents[_DBPGa] = [];
   } else if (output[_DBPGa] != null && output[_DBPGa][_DBPG] != null) {
     contents[_DBPGa] = de_DBParameterGroupStatusList(__getArrayIfSingleItem(output[_DBPGa][_DBPG]), context);
@@ -8130,7 +8130,7 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output[_RRSDBII] != null) {
     contents[_RRSDBII] = __expectString(output[_RRSDBII]);
   }
-  if (output.ReadReplicaDBInstanceIdentifiers === "") {
+  if (String(output.ReadReplicaDBInstanceIdentifiers).trim() === "") {
     contents[_RRDBII] = [];
   } else if (output[_RRDBII] != null && output[_RRDBII][_RRDBIIe] != null) {
     contents[_RRDBII] = de_ReadReplicaDBInstanceIdentifierList(
@@ -8138,7 +8138,7 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
       context
     );
   }
-  if (output.ReadReplicaDBClusterIdentifiers === "") {
+  if (String(output.ReadReplicaDBClusterIdentifiers).trim() === "") {
     contents[_RRDBCI] = [];
   } else if (output[_RRDBCI] != null && output[_RRDBCI][_RRDBCIe] != null) {
     contents[_RRDBCI] = de_ReadReplicaDBClusterIdentifierList(
@@ -8152,7 +8152,7 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output[_I] != null) {
     contents[_I] = __strictParseInt32(output[_I]) as number;
   }
-  if (output.OptionGroupMemberships === "") {
+  if (String(output.OptionGroupMemberships).trim() === "") {
     contents[_OGM] = [];
   } else if (output[_OGM] != null && output[_OGM][_OGMp] != null) {
     contents[_OGM] = de_OptionGroupMembershipList(__getArrayIfSingleItem(output[_OGM][_OGMp]), context);
@@ -8166,7 +8166,7 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output[_PA] != null) {
     contents[_PA] = __parseBoolean(output[_PA]);
   }
-  if (output.StatusInfos === "") {
+  if (String(output.StatusInfos).trim() === "") {
     contents[_SIt] = [];
   } else if (output[_SIt] != null && output[_SIt][_DBISI] != null) {
     contents[_SIt] = de_DBInstanceStatusInfoList(__getArrayIfSingleItem(output[_SIt][_DBISI]), context);
@@ -8195,7 +8195,7 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output[_CACI] != null) {
     contents[_CACI] = __expectString(output[_CACI]);
   }
-  if (output.DomainMemberships === "") {
+  if (String(output.DomainMemberships).trim() === "") {
     contents[_DM] = [];
   } else if (output[_DM] != null && output[_DM][_DMo] != null) {
     contents[_DM] = de_DomainMembershipList(__getArrayIfSingleItem(output[_DM][_DMo]), context);
@@ -8230,7 +8230,7 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output[_PIKMSKI] != null) {
     contents[_PIKMSKI] = __expectString(output[_PIKMSKI]);
   }
-  if (output.EnabledCloudwatchLogsExports === "") {
+  if (String(output.EnabledCloudwatchLogsExports).trim() === "") {
     contents[_ECLEn] = [];
   } else if (output[_ECLEn] != null && output[_ECLEn][_me] != null) {
     contents[_ECLEn] = de_LogTypeList(__getArrayIfSingleItem(output[_ECLEn][_me]), context);
@@ -8271,7 +8271,7 @@ const de_DBInstanceMessage = (output: any, context: __SerdeContext): DBInstanceM
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.DBInstances === "") {
+  if (String(output.DBInstances).trim() === "") {
     contents[_DBIn] = [];
   } else if (output[_DBIn] != null && output[_DBIn][_DBI] != null) {
     contents[_DBIn] = de_DBInstanceList(__getArrayIfSingleItem(output[_DBIn][_DBI]), context);
@@ -8360,7 +8360,7 @@ const de_DBParameterGroupAlreadyExistsFault = (
  */
 const de_DBParameterGroupDetails = (output: any, context: __SerdeContext): DBParameterGroupDetails => {
   const contents: any = {};
-  if (output.Parameters === "") {
+  if (String(output.Parameters).trim() === "") {
     contents[_Pa] = [];
   } else if (output[_Pa] != null && output[_Pa][_Par] != null) {
     contents[_Pa] = de_ParametersList(__getArrayIfSingleItem(output[_Pa][_Par]), context);
@@ -8426,7 +8426,7 @@ const de_DBParameterGroupsMessage = (output: any, context: __SerdeContext): DBPa
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.DBParameterGroups === "") {
+  if (String(output.DBParameterGroups).trim() === "") {
     contents[_DBPGa] = [];
   } else if (output[_DBPGa] != null && output[_DBPGa][_DBPG] != null) {
     contents[_DBPGa] = de_DBParameterGroupList(__getArrayIfSingleItem(output[_DBPGa][_DBPG]), context);
@@ -8534,7 +8534,7 @@ const de_DBSubnetGroup = (output: any, context: __SerdeContext): DBSubnetGroup =
   if (output[_SGS] != null) {
     contents[_SGS] = __expectString(output[_SGS]);
   }
-  if (output.Subnets === "") {
+  if (String(output.Subnets).trim() === "") {
     contents[_Su] = [];
   } else if (output[_Su] != null && output[_Su][_Sub] != null) {
     contents[_Su] = de_SubnetList(__getArrayIfSingleItem(output[_Su][_Sub]), context);
@@ -8578,7 +8578,7 @@ const de_DBSubnetGroupMessage = (output: any, context: __SerdeContext): DBSubnet
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.DBSubnetGroups === "") {
+  if (String(output.DBSubnetGroups).trim() === "") {
     contents[_DBSGub] = [];
   } else if (output[_DBSGub] != null && output[_DBSGub][_DBSGu] != null) {
     contents[_DBSGub] = de_DBSubnetGroups(__getArrayIfSingleItem(output[_DBSGub][_DBSGu]), context);
@@ -8667,12 +8667,12 @@ const de_DeleteDBClusterEndpointOutput = (output: any, context: __SerdeContext):
   if (output[_CET] != null) {
     contents[_CET] = __expectString(output[_CET]);
   }
-  if (output.StaticMembers === "") {
+  if (String(output.StaticMembers).trim() === "") {
     contents[_SM] = [];
   } else if (output[_SM] != null && output[_SM][_me] != null) {
     contents[_SM] = de_StringList(__getArrayIfSingleItem(output[_SM][_me]), context);
   }
-  if (output.ExcludedMembers === "") {
+  if (String(output.ExcludedMembers).trim() === "") {
     contents[_EM] = [];
   } else if (output[_EM] != null && output[_EM][_me] != null) {
     contents[_EM] = de_StringList(__getArrayIfSingleItem(output[_EM][_me]), context);
@@ -8889,7 +8889,7 @@ const de_EngineDefaults = (output: any, context: __SerdeContext): EngineDefaults
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.Parameters === "") {
+  if (String(output.Parameters).trim() === "") {
     contents[_Pa] = [];
   } else if (output[_Pa] != null && output[_Pa][_Par] != null) {
     contents[_Pa] = de_ParametersList(__getArrayIfSingleItem(output[_Pa][_Par]), context);
@@ -8911,7 +8911,7 @@ const de_Event = (output: any, context: __SerdeContext): Event => {
   if (output[_Me] != null) {
     contents[_Me] = __expectString(output[_Me]);
   }
-  if (output.EventCategories === "") {
+  if (String(output.EventCategories).trim() === "") {
     contents[_EC] = [];
   } else if (output[_EC] != null && output[_EC][_ECv] != null) {
     contents[_EC] = de_EventCategoriesList(__getArrayIfSingleItem(output[_EC][_ECv]), context);
@@ -8944,7 +8944,7 @@ const de_EventCategoriesMap = (output: any, context: __SerdeContext): EventCateg
   if (output[_STo] != null) {
     contents[_STo] = __expectString(output[_STo]);
   }
-  if (output.EventCategories === "") {
+  if (String(output.EventCategories).trim() === "") {
     contents[_EC] = [];
   } else if (output[_EC] != null && output[_EC][_ECv] != null) {
     contents[_EC] = de_EventCategoriesList(__getArrayIfSingleItem(output[_EC][_ECv]), context);
@@ -8968,7 +8968,7 @@ const de_EventCategoriesMapList = (output: any, context: __SerdeContext): EventC
  */
 const de_EventCategoriesMessage = (output: any, context: __SerdeContext): EventCategoriesMessage => {
   const contents: any = {};
-  if (output.EventCategoriesMapList === "") {
+  if (String(output.EventCategoriesMapList).trim() === "") {
     contents[_ECML] = [];
   } else if (output[_ECML] != null && output[_ECML][_ECM] != null) {
     contents[_ECML] = de_EventCategoriesMapList(__getArrayIfSingleItem(output[_ECML][_ECM]), context);
@@ -8995,7 +8995,7 @@ const de_EventsMessage = (output: any, context: __SerdeContext): EventsMessage =
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.Events === "") {
+  if (String(output.Events).trim() === "") {
     contents[_Ev] = [];
   } else if (output[_Ev] != null && output[_Ev][_Eve] != null) {
     contents[_Ev] = de_EventList(__getArrayIfSingleItem(output[_Ev][_Eve]), context);
@@ -9026,12 +9026,12 @@ const de_EventSubscription = (output: any, context: __SerdeContext): EventSubscr
   if (output[_STo] != null) {
     contents[_STo] = __expectString(output[_STo]);
   }
-  if (output.SourceIdsList === "") {
+  if (String(output.SourceIdsList).trim() === "") {
     contents[_SIL] = [];
   } else if (output[_SIL] != null && output[_SIL][_SIou] != null) {
     contents[_SIL] = de_SourceIdsList(__getArrayIfSingleItem(output[_SIL][_SIou]), context);
   }
-  if (output.EventCategoriesList === "") {
+  if (String(output.EventCategoriesList).trim() === "") {
     contents[_ECL] = [];
   } else if (output[_ECL] != null && output[_ECL][_ECv] != null) {
     contents[_ECL] = de_EventCategoriesList(__getArrayIfSingleItem(output[_ECL][_ECv]), context);
@@ -9078,7 +9078,7 @@ const de_EventSubscriptionsMessage = (output: any, context: __SerdeContext): Eve
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.EventSubscriptionsList === "") {
+  if (String(output.EventSubscriptionsList).trim() === "") {
     contents[_ESL] = [];
   } else if (output[_ESL] != null && output[_ESL][_ES] != null) {
     contents[_ESL] = de_EventSubscriptionsList(__getArrayIfSingleItem(output[_ESL][_ES]), context);
@@ -9157,7 +9157,7 @@ const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster =
   if (output[_DP] != null) {
     contents[_DP] = __parseBoolean(output[_DP]);
   }
-  if (output.GlobalClusterMembers === "") {
+  if (String(output.GlobalClusterMembers).trim() === "") {
     contents[_GCM] = [];
   } else if (output[_GCM] != null && output[_GCM][_GCMl] != null) {
     contents[_GCM] = de_GlobalClusterMemberList(__getArrayIfSingleItem(output[_GCM][_GCMl]), context);
@@ -9198,7 +9198,7 @@ const de_GlobalClusterMember = (output: any, context: __SerdeContext): GlobalClu
   if (output[_DBCA] != null) {
     contents[_DBCA] = __expectString(output[_DBCA]);
   }
-  if (output.Readers === "") {
+  if (String(output.Readers).trim() === "") {
     contents[_R] = [];
   } else if (output[_R] != null && output[_R][_me] != null) {
     contents[_R] = de_ReadersArnList(__getArrayIfSingleItem(output[_R][_me]), context);
@@ -9250,7 +9250,7 @@ const de_GlobalClustersMessage = (output: any, context: __SerdeContext): GlobalC
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
-  if (output.GlobalClusters === "") {
+  if (String(output.GlobalClusters).trim() === "") {
     contents[_GCl] = [];
   } else if (output[_GCl] != null && output[_GCl][_GCMl] != null) {
     contents[_GCl] = de_GlobalClusterList(__getArrayIfSingleItem(output[_GCl][_GCMl]), context);
@@ -9528,12 +9528,12 @@ const de_ModifyDBClusterEndpointOutput = (output: any, context: __SerdeContext):
   if (output[_CET] != null) {
     contents[_CET] = __expectString(output[_CET]);
   }
-  if (output.StaticMembers === "") {
+  if (String(output.StaticMembers).trim() === "") {
     contents[_SM] = [];
   } else if (output[_SM] != null && output[_SM][_me] != null) {
     contents[_SM] = de_StringList(__getArrayIfSingleItem(output[_SM][_me]), context);
   }
-  if (output.ExcludedMembers === "") {
+  if (String(output.ExcludedMembers).trim() === "") {
     contents[_EM] = [];
   } else if (output[_EM] != null && output[_EM][_me] != null) {
     contents[_EM] = de_StringList(__getArrayIfSingleItem(output[_EM][_me]), context);
@@ -9666,7 +9666,7 @@ const de_OrderableDBInstanceOption = (output: any, context: __SerdeContext): Ord
   if (output[_LM] != null) {
     contents[_LM] = __expectString(output[_LM]);
   }
-  if (output.AvailabilityZones === "") {
+  if (String(output.AvailabilityZones).trim() === "") {
     contents[_AZ] = [];
   } else if (output[_AZ] != null && output[_AZ][_AZv] != null) {
     contents[_AZ] = de_AvailabilityZoneList(__getArrayIfSingleItem(output[_AZ][_AZv]), context);
@@ -9741,7 +9741,7 @@ const de_OrderableDBInstanceOptionsMessage = (
   context: __SerdeContext
 ): OrderableDBInstanceOptionsMessage => {
   const contents: any = {};
-  if (output.OrderableDBInstanceOptions === "") {
+  if (String(output.OrderableDBInstanceOptions).trim() === "") {
     contents[_ODBIO] = [];
   } else if (output[_ODBIO] != null && output[_ODBIO][_ODBIOr] != null) {
     contents[_ODBIO] = de_OrderableDBInstanceOptionsList(__getArrayIfSingleItem(output[_ODBIO][_ODBIOr]), context);
@@ -9806,12 +9806,12 @@ const de_ParametersList = (output: any, context: __SerdeContext): Parameter[] =>
  */
 const de_PendingCloudwatchLogsExports = (output: any, context: __SerdeContext): PendingCloudwatchLogsExports => {
   const contents: any = {};
-  if (output.LogTypesToEnable === "") {
+  if (String(output.LogTypesToEnable).trim() === "") {
     contents[_LTTE] = [];
   } else if (output[_LTTE] != null && output[_LTTE][_me] != null) {
     contents[_LTTE] = de_LogTypeList(__getArrayIfSingleItem(output[_LTTE][_me]), context);
   }
-  if (output.LogTypesToDisable === "") {
+  if (String(output.LogTypesToDisable).trim() === "") {
     contents[_LTTD] = [];
   } else if (output[_LTTD] != null && output[_LTTD][_me] != null) {
     contents[_LTTD] = de_LogTypeList(__getArrayIfSingleItem(output[_LTTD][_me]), context);
@@ -9875,7 +9875,7 @@ const de_PendingMaintenanceActionsMessage = (
   context: __SerdeContext
 ): PendingMaintenanceActionsMessage => {
   const contents: any = {};
-  if (output.PendingMaintenanceActions === "") {
+  if (String(output.PendingMaintenanceActions).trim() === "") {
     contents[_PMA] = [];
   } else if (output[_PMA] != null && output[_PMA][_RPMA] != null) {
     contents[_PMA] = de_PendingMaintenanceActions(__getArrayIfSingleItem(output[_PMA][_RPMA]), context);
@@ -10094,7 +10094,7 @@ const de_ResourcePendingMaintenanceActions = (
   if (output[_RI] != null) {
     contents[_RI] = __expectString(output[_RI]);
   }
-  if (output.PendingMaintenanceActionDetails === "") {
+  if (String(output.PendingMaintenanceActionDetails).trim() === "") {
     contents[_PMAD] = [];
   } else if (output[_PMAD] != null && output[_PMAD][_PMAe] != null) {
     contents[_PMAD] = de_PendingMaintenanceActionDetails(__getArrayIfSingleItem(output[_PMAD][_PMAe]), context);
@@ -10420,7 +10420,7 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
  */
 const de_TagListMessage = (output: any, context: __SerdeContext): TagListMessage => {
   const contents: any = {};
-  if (output.TagList === "") {
+  if (String(output.TagList).trim() === "") {
     contents[_TL] = [];
   } else if (output[_TL] != null && output[_TL][_Ta] != null) {
     contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Ta]), context);
@@ -10473,7 +10473,7 @@ const de_ValidDBInstanceModificationsMessage = (
   context: __SerdeContext
 ): ValidDBInstanceModificationsMessage => {
   const contents: any = {};
-  if (output.Storage === "") {
+  if (String(output.Storage).trim() === "") {
     contents[_Sto] = [];
   } else if (output[_Sto] != null && output[_Sto][_VSO] != null) {
     contents[_Sto] = de_ValidStorageOptionsList(__getArrayIfSingleItem(output[_Sto][_VSO]), context);
@@ -10489,17 +10489,17 @@ const de_ValidStorageOptions = (output: any, context: __SerdeContext): ValidStor
   if (output[_ST] != null) {
     contents[_ST] = __expectString(output[_ST]);
   }
-  if (output.StorageSize === "") {
+  if (String(output.StorageSize).trim() === "") {
     contents[_SSt] = [];
   } else if (output[_SSt] != null && output[_SSt][_Ra] != null) {
     contents[_SSt] = de_RangeList(__getArrayIfSingleItem(output[_SSt][_Ra]), context);
   }
-  if (output.ProvisionedIops === "") {
+  if (String(output.ProvisionedIops).trim() === "") {
     contents[_PI] = [];
   } else if (output[_PI] != null && output[_PI][_Ra] != null) {
     contents[_PI] = de_RangeList(__getArrayIfSingleItem(output[_PI][_Ra]), context);
   }
-  if (output.IopsToStorageRatio === "") {
+  if (String(output.IopsToStorageRatio).trim() === "") {
     contents[_ITSR] = [];
   } else if (output[_ITSR] != null && output[_ITSR][_DR] != null) {
     contents[_ITSR] = de_DoubleRangeList(__getArrayIfSingleItem(output[_ITSR][_DR]), context);

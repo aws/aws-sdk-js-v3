@@ -28,7 +28,7 @@ export interface DescribeIndexPoliciesCommandInput extends DescribeIndexPolicies
 export interface DescribeIndexPoliciesCommandOutput extends DescribeIndexPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the field index policies of one or more log groups. For more information about
+ * <p>Returns the field index policies of the specified log group. For more information about
  *       field index policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>.</p>
  *          <p>If a specified log group has a log-group level index policy, that policy is returned by
  *       this operation.</p>
@@ -40,6 +40,8 @@ export interface DescribeIndexPoliciesCommandOutput extends DescribeIndexPolicie
  * ```javascript
  * import { CloudWatchLogsClient, DescribeIndexPoliciesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeIndexPoliciesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeIndexPoliciesRequest
  *   logGroupIdentifiers: [ // DescribeIndexPoliciesLogGroupIdentifiers // required

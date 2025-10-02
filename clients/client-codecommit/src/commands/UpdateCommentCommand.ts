@@ -34,6 +34,8 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  * ```javascript
  * import { CodeCommitClient, UpdateCommentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateCommentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // UpdateCommentInput
  *   commentId: "STRING_VALUE", // required

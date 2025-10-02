@@ -34,6 +34,8 @@ export interface ListWebhooksCommandOutput extends ListWebhooksResult, __Metadat
  * ```javascript
  * import { AmplifyClient, ListWebhooksCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListWebhooksCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // ListWebhooksRequest
  *   appId: "STRING_VALUE", // required

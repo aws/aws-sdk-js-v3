@@ -36,12 +36,14 @@ export interface DeleteAgentRuntimeEndpointCommandInput extends DeleteAgentRunti
 export interface DeleteAgentRuntimeEndpointCommandOutput extends DeleteAgentRuntimeEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Secure AgentEndpoint.</p>
+ * <p>Deletes an AAgentCore Runtime endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, DeleteAgentRuntimeEndpointCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, DeleteAgentRuntimeEndpointCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // DeleteAgentRuntimeEndpointRequest
  *   agentRuntimeId: "STRING_VALUE", // required

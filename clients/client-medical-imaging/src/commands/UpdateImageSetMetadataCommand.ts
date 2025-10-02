@@ -38,6 +38,8 @@ export interface UpdateImageSetMetadataCommandOutput extends UpdateImageSetMetad
  * ```javascript
  * import { MedicalImagingClient, UpdateImageSetMetadataCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, UpdateImageSetMetadataCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // UpdateImageSetMetadataRequest
  *   datastoreId: "STRING_VALUE", // required
@@ -59,7 +61,7 @@ export interface UpdateImageSetMetadataCommandOutput extends UpdateImageSetMetad
  * //   imageSetId: "STRING_VALUE", // required
  * //   latestVersionId: "STRING_VALUE", // required
  * //   imageSetState: "ACTIVE" || "LOCKED" || "DELETED", // required
- * //   imageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED",
+ * //   imageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED" || "IMPORTING" || "IMPORTED" || "IMPORT_FAILED",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   message: "STRING_VALUE",

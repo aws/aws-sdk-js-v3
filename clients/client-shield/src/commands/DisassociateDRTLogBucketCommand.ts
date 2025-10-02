@@ -34,6 +34,8 @@ export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLo
  * ```javascript
  * import { ShieldClient, DisassociateDRTLogBucketCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DisassociateDRTLogBucketCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * // import type { ShieldClientConfig } from "@aws-sdk/client-shield";
+ * const config = {}; // type is ShieldClientConfig
  * const client = new ShieldClient(config);
  * const input = { // DisassociateDRTLogBucketRequest
  *   LogBucket: "STRING_VALUE", // required

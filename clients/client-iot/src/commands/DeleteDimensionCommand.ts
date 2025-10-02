@@ -35,6 +35,8 @@ export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, _
  * ```javascript
  * import { IoTClient, DeleteDimensionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteDimensionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // DeleteDimensionRequest
  *   name: "STRING_VALUE", // required

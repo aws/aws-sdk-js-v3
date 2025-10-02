@@ -36,6 +36,8 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * ```javascript
  * import { MTurkClient, GetAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // GetAssignmentRequest
  *   AssignmentId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  * ```javascript
  * import { CodeCommitClient, MergeBranchesByThreeWayCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergeBranchesByThreeWayCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // MergeBranchesByThreeWayInput
  *   repositoryName: "STRING_VALUE", // required

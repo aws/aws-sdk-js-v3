@@ -35,6 +35,8 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  * ```javascript
  * import { CloudDirectoryClient, ListTypedLinkFacetNamesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListTypedLinkFacetNamesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListTypedLinkFacetNamesRequest
  *   SchemaArn: "STRING_VALUE", // required

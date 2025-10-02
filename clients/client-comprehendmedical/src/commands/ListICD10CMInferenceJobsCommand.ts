@@ -38,6 +38,8 @@ export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInfere
  * ```javascript
  * import { ComprehendMedicalClient, ListICD10CMInferenceJobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, ListICD10CMInferenceJobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // import type { ComprehendMedicalClientConfig } from "@aws-sdk/client-comprehendmedical";
+ * const config = {}; // type is ComprehendMedicalClientConfig
  * const client = new ComprehendMedicalClient(config);
  * const input = { // ListICD10CMInferenceJobsRequest
  *   Filter: { // ComprehendMedicalAsyncJobFilter

@@ -34,6 +34,8 @@ export interface BatchUpdateClusterCommandOutput extends BatchUpdateClusterRespo
  * ```javascript
  * import { MemoryDBClient, BatchUpdateClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, BatchUpdateClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // BatchUpdateClusterRequest
  *   ClusterNames: [ // ClusterNameList // required

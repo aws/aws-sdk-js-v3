@@ -39,6 +39,8 @@ export interface SearchUserProfilesCommandOutput extends SearchUserProfilesOutpu
  * ```javascript
  * import { DataZoneClient, SearchUserProfilesCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, SearchUserProfilesCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // SearchUserProfilesInput
  *   domainIdentifier: "STRING_VALUE", // required
@@ -59,6 +61,7 @@ export interface SearchUserProfilesCommandOutput extends SearchUserProfilesOutpu
  * //       details: { // UserProfileDetails Union: only one key present
  * //         iam: { // IamUserProfileDetails
  * //           arn: "STRING_VALUE",
+ * //           principalId: "STRING_VALUE",
  * //         },
  * //         sso: { // SsoUserProfileDetails
  * //           username: "STRING_VALUE",

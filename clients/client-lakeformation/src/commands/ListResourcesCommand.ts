@@ -34,6 +34,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * ```javascript
  * import { LakeFormationClient, ListResourcesCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ListResourcesCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // ListResourcesRequest
  *   FilterConditionList: [ // FilterConditionList

@@ -219,6 +219,8 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * ```javascript
  * import { S3Client, PutObjectAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // PutObjectAclRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",

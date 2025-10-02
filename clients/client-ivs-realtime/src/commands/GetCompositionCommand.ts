@@ -34,6 +34,8 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * ```javascript
  * import { IVSRealTimeClient, GetCompositionCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, GetCompositionCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // GetCompositionRequest
  *   arn: "STRING_VALUE", // required
@@ -52,6 +54,7 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * //         videoAspectRatio: "AUTO" || "VIDEO" || "SQUARE" || "PORTRAIT",
  * //         videoFillMode: "FILL" || "COVER" || "CONTAIN",
  * //         gridGap: Number("int"),
+ * //         participantOrderAttribute: "STRING_VALUE",
  * //       },
  * //       pip: { // PipConfiguration
  * //         featuredParticipantAttribute: "STRING_VALUE",
@@ -64,6 +67,7 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * //         pipPosition: "TOP_LEFT" || "TOP_RIGHT" || "BOTTOM_LEFT" || "BOTTOM_RIGHT",
  * //         pipWidth: Number("int"),
  * //         pipHeight: Number("int"),
+ * //         participantOrderAttribute: "STRING_VALUE",
  * //       },
  * //     },
  * //     destinations: [ // DestinationList // required

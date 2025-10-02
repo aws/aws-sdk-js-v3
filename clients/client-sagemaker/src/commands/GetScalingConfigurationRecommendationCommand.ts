@@ -43,6 +43,8 @@ export interface GetScalingConfigurationRecommendationCommandOutput
  * ```javascript
  * import { SageMakerClient, GetScalingConfigurationRecommendationCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetScalingConfigurationRecommendationCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // GetScalingConfigurationRecommendationRequest
  *   InferenceRecommendationsJobName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetTestCaseCommandOutput extends GetTestCaseResponse, __Metadat
  * ```javascript
  * import { AppTestClient, GetTestCaseCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, GetTestCaseCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // GetTestCaseRequest
  *   testCaseId: "STRING_VALUE", // required

@@ -35,15 +35,14 @@ export interface UpdateServiceLevelObjectiveCommandInput extends UpdateServiceLe
 export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceLevelObjectiveOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing service level objective (SLO). If you omit parameters, the previous values
- *          of those parameters are retained. </p>
- *          <p>You cannot change from a period-based SLO to a request-based SLO,
- *          or change from a request-based SLO to a period-based SLO.</p>
+ * <p>Updates an existing service level objective (SLO). If you omit parameters, the previous values of those parameters are retained. </p> <p>You cannot change from a period-based SLO to a request-based SLO, or change from a request-based SLO to a period-based SLO.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationSignalsClient, UpdateServiceLevelObjectiveCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, UpdateServiceLevelObjectiveCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // UpdateServiceLevelObjectiveInput
  *   Id: "STRING_VALUE", // required
@@ -55,6 +54,7 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  *       },
  *       OperationName: "STRING_VALUE",
  *       MetricType: "LATENCY" || "AVAILABILITY",
+ *       MetricName: "STRING_VALUE",
  *       Statistic: "STRING_VALUE",
  *       PeriodSeconds: Number("int"),
  *       MetricDataQueries: [ // MetricDataQueries

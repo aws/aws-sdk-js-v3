@@ -35,6 +35,8 @@ export interface SearchContactFlowModulesCommandOutput extends SearchContactFlow
  * ```javascript
  * import { ConnectClient, SearchContactFlowModulesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchContactFlowModulesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // SearchContactFlowModulesRequest
  *   InstanceId: "STRING_VALUE", // required

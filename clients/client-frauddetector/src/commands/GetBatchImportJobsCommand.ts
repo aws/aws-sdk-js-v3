@@ -37,6 +37,8 @@ export interface GetBatchImportJobsCommandOutput extends GetBatchImportJobsResul
  * ```javascript
  * import { FraudDetectorClient, GetBatchImportJobsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetBatchImportJobsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // GetBatchImportJobsRequest
  *   jobId: "STRING_VALUE",

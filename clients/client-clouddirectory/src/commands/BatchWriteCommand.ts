@@ -35,6 +35,8 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  * ```javascript
  * import { CloudDirectoryClient, BatchWriteCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, BatchWriteCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // BatchWriteRequest
  *   DirectoryArn: "STRING_VALUE", // required

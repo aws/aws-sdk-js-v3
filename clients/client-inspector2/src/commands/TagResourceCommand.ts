@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { Inspector2Client, TagResourceCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, TagResourceCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // import type { Inspector2ClientConfig } from "@aws-sdk/client-inspector2";
+ * const config = {}; // type is Inspector2ClientConfig
  * const client = new Inspector2Client(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

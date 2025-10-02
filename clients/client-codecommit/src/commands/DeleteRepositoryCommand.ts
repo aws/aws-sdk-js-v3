@@ -39,6 +39,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * ```javascript
  * import { CodeCommitClient, DeleteRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeleteRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // DeleteRepositoryInput
  *   repositoryName: "STRING_VALUE", // required

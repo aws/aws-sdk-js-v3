@@ -190,6 +190,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * ```javascript
  * import { ECSClient, CreateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // CreateServiceRequest
  *   cluster: "STRING_VALUE",
@@ -220,7 +222,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   ],
  *   desiredCount: Number("int"),
  *   clientToken: "STRING_VALUE",
- *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  *   capacityProviderStrategy: [ // CapacityProviderStrategy
  *     { // CapacityProviderStrategyItem
  *       capacityProvider: "STRING_VALUE", // required
@@ -253,6 +255,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *         lifecycleStages: [ // DeploymentLifecycleHookStageList
  *           "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  *         ],
+ *         hookDetails: "DOCUMENT_VALUE",
  *       },
  *     ],
  *   },
@@ -411,7 +414,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //     desiredCount: Number("int"),
  * //     runningCount: Number("int"),
  * //     pendingCount: Number("int"),
- * //     launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //     launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //     capacityProviderStrategy: [ // CapacityProviderStrategy
  * //       { // CapacityProviderStrategyItem
  * //         capacityProvider: "STRING_VALUE", // required
@@ -445,6 +448,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //           lifecycleStages: [ // DeploymentLifecycleHookStageList
  * //             "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  * //           ],
+ * //           hookDetails: "DOCUMENT_VALUE",
  * //         },
  * //       ],
  * //     },
@@ -463,7 +467,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //         runningCount: Number("int"),
  * //         createdAt: new Date("TIMESTAMP"),
  * //         updatedAt: new Date("TIMESTAMP"),
- * //         launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //         launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //         capacityProviderStrategy: [
  * //           {
  * //             capacityProvider: "STRING_VALUE", // required
@@ -541,7 +545,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //             base: Number("int"),
  * //           },
  * //         ],
- * //         launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //         launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  * //         platformVersion: "STRING_VALUE",
  * //         platformFamily: "STRING_VALUE",
  * //         networkConfiguration: {

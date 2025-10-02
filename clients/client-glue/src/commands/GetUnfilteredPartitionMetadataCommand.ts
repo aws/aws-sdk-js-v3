@@ -41,6 +41,8 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
  * ```javascript
  * import { GlueClient, GetUnfilteredPartitionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetUnfilteredPartitionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetUnfilteredPartitionMetadataRequest
  *   Region: "STRING_VALUE",

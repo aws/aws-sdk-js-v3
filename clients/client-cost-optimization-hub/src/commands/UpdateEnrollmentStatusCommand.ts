@@ -38,6 +38,8 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * ```javascript
  * import { CostOptimizationHubClient, UpdateEnrollmentStatusCommand } from "@aws-sdk/client-cost-optimization-hub"; // ES Modules import
  * // const { CostOptimizationHubClient, UpdateEnrollmentStatusCommand } = require("@aws-sdk/client-cost-optimization-hub"); // CommonJS import
+ * // import type { CostOptimizationHubClientConfig } from "@aws-sdk/client-cost-optimization-hub";
+ * const config = {}; // type is CostOptimizationHubClientConfig
  * const client = new CostOptimizationHubClient(config);
  * const input = { // UpdateEnrollmentStatusRequest
  *   status: "Active" || "Inactive", // required

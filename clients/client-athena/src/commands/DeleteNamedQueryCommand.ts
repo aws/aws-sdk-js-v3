@@ -35,6 +35,8 @@ export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, _
  * ```javascript
  * import { AthenaClient, DeleteNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeleteNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // DeleteNamedQueryInput
  *   NamedQueryId: "STRING_VALUE", // required

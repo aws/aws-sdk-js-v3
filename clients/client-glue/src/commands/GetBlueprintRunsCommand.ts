@@ -34,6 +34,8 @@ export interface GetBlueprintRunsCommandOutput extends GetBlueprintRunsResponse,
  * ```javascript
  * import { GlueClient, GetBlueprintRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetBlueprintRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // GetBlueprintRunsRequest
  *   BlueprintName: "STRING_VALUE", // required

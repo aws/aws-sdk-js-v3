@@ -39,6 +39,8 @@ export interface StartSourceNetworkRecoveryCommandOutput extends StartSourceNetw
  * ```javascript
  * import { DrsClient, StartSourceNetworkRecoveryCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, StartSourceNetworkRecoveryCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // StartSourceNetworkRecoveryRequest
  *   sourceNetworks: [ // StartSourceNetworkRecoveryRequestNetworkEntries // required

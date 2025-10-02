@@ -28,12 +28,14 @@ export interface DescribeKeyRegistrationCommandInput extends DescribeKeyRegistra
 export interface DescribeKeyRegistrationCommandOutput extends DescribeKeyRegistrationResponse, __MetadataBearer {}
 
 /**
- * <p>Describes all customer managed key registrations in a Amazon QuickSight account.</p>
+ * <p>Describes all customer managed key registrations in a QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DescribeKeyRegistrationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeKeyRegistrationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeKeyRegistrationRequest
  *   AwsAccountId: "STRING_VALUE", // required
@@ -49,6 +51,10 @@ export interface DescribeKeyRegistrationCommandOutput extends DescribeKeyRegistr
  * //       DefaultKey: true || false,
  * //     },
  * //   ],
+ * //   QDataKey: { // QDataKey
+ * //     QDataKeyArn: "STRING_VALUE",
+ * //     QDataKeyType: "AWS_OWNED" || "CMK",
+ * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * // };

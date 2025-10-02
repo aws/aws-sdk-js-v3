@@ -70,6 +70,8 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * ```javascript
  * import { KMSClient, ListResourceTagsCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListResourceTagsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // ListResourceTagsRequest
  *   KeyId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * ```javascript
  * import { GroundStationClient, CancelContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CancelContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // CancelContactRequest
  *   contactId: "STRING_VALUE", // required

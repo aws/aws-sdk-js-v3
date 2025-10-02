@@ -34,6 +34,8 @@ export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, _
  * ```javascript
  * import { DataBrewClient, UpdateRecipeJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateRecipeJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // UpdateRecipeJobRequest
  *   EncryptionKeyArn: "STRING_VALUE",

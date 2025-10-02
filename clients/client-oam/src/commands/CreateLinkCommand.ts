@@ -34,6 +34,8 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * ```javascript
  * import { OAMClient, CreateLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, CreateLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * // import type { OAMClientConfig } from "@aws-sdk/client-oam";
+ * const config = {}; // type is OAMClientConfig
  * const client = new OAMClient(config);
  * const input = { // CreateLinkInput
  *   LabelTemplate: "STRING_VALUE", // required

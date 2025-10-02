@@ -43,6 +43,8 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * ```javascript
  * import { PinpointSMSVoiceClient, DeleteConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, DeleteConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
+ * // import type { PinpointSMSVoiceClientConfig } from "@aws-sdk/client-pinpoint-sms-voice";
+ * const config = {}; // type is PinpointSMSVoiceClientConfig
  * const client = new PinpointSMSVoiceClient(config);
  * const input = { // DeleteConfigurationSetEventDestinationRequest
  *   ConfigurationSetName: "STRING_VALUE", // required

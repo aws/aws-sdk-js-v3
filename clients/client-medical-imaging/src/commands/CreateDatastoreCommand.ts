@@ -34,6 +34,8 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * ```javascript
  * import { MedicalImagingClient, CreateDatastoreCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, CreateDatastoreCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // CreateDatastoreRequest
  *   datastoreName: "STRING_VALUE",
@@ -42,6 +44,7 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  *     "<keys>": "STRING_VALUE",
  *   },
  *   kmsKeyArn: "STRING_VALUE",
+ *   lambdaAuthorizerArn: "STRING_VALUE",
  * };
  * const command = new CreateDatastoreCommand(input);
  * const response = await client.send(command);
@@ -66,6 +69,9 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred during processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource which does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request caused a service quota to be exceeded.</p>

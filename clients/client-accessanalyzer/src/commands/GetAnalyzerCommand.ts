@@ -34,6 +34,8 @@ export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __Metadat
  * ```javascript
  * import { AccessAnalyzerClient, GetAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // import type { AccessAnalyzerClientConfig } from "@aws-sdk/client-accessanalyzer";
+ * const config = {}; // type is AccessAnalyzerClientConfig
  * const client = new AccessAnalyzerClient(config);
  * const input = { // GetAnalyzerRequest
  *   analyzerName: "STRING_VALUE", // required

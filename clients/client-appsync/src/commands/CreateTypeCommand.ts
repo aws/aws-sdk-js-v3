@@ -34,6 +34,8 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * ```javascript
  * import { AppSyncClient, CreateTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // CreateTypeRequest
  *   apiId: "STRING_VALUE", // required

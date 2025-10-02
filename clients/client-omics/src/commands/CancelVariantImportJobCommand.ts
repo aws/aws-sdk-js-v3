@@ -34,6 +34,8 @@ export interface CancelVariantImportJobCommandOutput extends CancelVariantImport
  * ```javascript
  * import { OmicsClient, CancelVariantImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CancelVariantImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // CancelVariantImportRequest
  *   jobId: "STRING_VALUE", // required

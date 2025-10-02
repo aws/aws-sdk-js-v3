@@ -42,6 +42,8 @@ export interface CancelCertificateTransferCommandOutput extends __MetadataBearer
  * ```javascript
  * import { IoTClient, CancelCertificateTransferCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CancelCertificateTransferCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CancelCertificateTransferRequest
  *   certificateId: "STRING_VALUE", // required

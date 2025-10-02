@@ -34,6 +34,8 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  * ```javascript
  * import { S3VectorsClient, GetIndexCommand } from "@aws-sdk/client-s3vectors"; // ES Modules import
  * // const { S3VectorsClient, GetIndexCommand } = require("@aws-sdk/client-s3vectors"); // CommonJS import
+ * // import type { S3VectorsClientConfig } from "@aws-sdk/client-s3vectors";
+ * const config = {}; // type is S3VectorsClientConfig
  * const client = new S3VectorsClient(config);
  * const input = { // GetIndexInput
  *   vectorBucketName: "STRING_VALUE",

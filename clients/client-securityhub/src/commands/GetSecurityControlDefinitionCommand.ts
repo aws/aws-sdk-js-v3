@@ -41,6 +41,8 @@ export interface GetSecurityControlDefinitionCommandOutput
  * ```javascript
  * import { SecurityHubClient, GetSecurityControlDefinitionCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetSecurityControlDefinitionCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // GetSecurityControlDefinitionRequest
  *   SecurityControlId: "STRING_VALUE", // required

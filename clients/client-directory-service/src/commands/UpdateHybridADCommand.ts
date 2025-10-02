@@ -46,6 +46,8 @@ export interface UpdateHybridADCommandOutput extends UpdateHybridADResult, __Met
  * ```javascript
  * import { DirectoryServiceClient, UpdateHybridADCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UpdateHybridADCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // UpdateHybridADRequest
  *   DirectoryId: "STRING_VALUE", // required

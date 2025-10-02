@@ -38,6 +38,8 @@ export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSour
  * ```javascript
  * import { AutoScalingClient, DescribeTrafficSourcesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeTrafficSourcesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // DescribeTrafficSourcesRequest
  *   AutoScalingGroupName: "STRING_VALUE", // required

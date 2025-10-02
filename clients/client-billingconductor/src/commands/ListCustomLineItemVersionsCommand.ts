@@ -38,6 +38,8 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * ```javascript
  * import { BillingconductorClient, ListCustomLineItemVersionsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListCustomLineItemVersionsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // import type { BillingconductorClientConfig } from "@aws-sdk/client-billingconductor";
+ * const config = {}; // type is BillingconductorClientConfig
  * const client = new BillingconductorClient(config);
  * const input = { // ListCustomLineItemVersionsInput
  *   Arn: "STRING_VALUE", // required

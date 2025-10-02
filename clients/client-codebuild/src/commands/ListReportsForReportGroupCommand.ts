@@ -36,6 +36,8 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * ```javascript
  * import { CodeBuildClient, ListReportsForReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListReportsForReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // ListReportsForReportGroupInput
  *   reportGroupArn: "STRING_VALUE", // required

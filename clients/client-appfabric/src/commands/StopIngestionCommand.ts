@@ -34,6 +34,8 @@ export interface StopIngestionCommandOutput extends StopIngestionResponse, __Met
  * ```javascript
  * import { AppFabricClient, StopIngestionCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, StopIngestionCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // StopIngestionRequest
  *   ingestionIdentifier: "STRING_VALUE", // required

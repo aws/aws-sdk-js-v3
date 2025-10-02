@@ -39,6 +39,8 @@ export interface DescribeAssociationExecutionsCommandOutput
  * ```javascript
  * import { SSMClient, DescribeAssociationExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAssociationExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeAssociationExecutionsRequest
  *   AssociationId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { MarketplaceDeploymentClient, ListTagsForResourceCommand } from "@aws-sdk/client-marketplace-deployment"; // ES Modules import
  * // const { MarketplaceDeploymentClient, ListTagsForResourceCommand } = require("@aws-sdk/client-marketplace-deployment"); // CommonJS import
+ * // import type { MarketplaceDeploymentClientConfig } from "@aws-sdk/client-marketplace-deployment";
+ * const config = {}; // type is MarketplaceDeploymentClientConfig
  * const client = new MarketplaceDeploymentClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

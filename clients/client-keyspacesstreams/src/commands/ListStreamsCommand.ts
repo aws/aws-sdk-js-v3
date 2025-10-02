@@ -34,6 +34,8 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * ```javascript
  * import { KeyspacesStreamsClient, ListStreamsCommand } from "@aws-sdk/client-keyspacesstreams"; // ES Modules import
  * // const { KeyspacesStreamsClient, ListStreamsCommand } = require("@aws-sdk/client-keyspacesstreams"); // CommonJS import
+ * // import type { KeyspacesStreamsClientConfig } from "@aws-sdk/client-keyspacesstreams";
+ * const config = {}; // type is KeyspacesStreamsClientConfig
  * const client = new KeyspacesStreamsClient(config);
  * const input = { // ListStreamsInput
  *   keyspaceName: "STRING_VALUE",

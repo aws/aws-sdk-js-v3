@@ -34,6 +34,8 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
  * ```javascript
  * import { RedshiftClient, DescribeReservedNodesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeReservedNodesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeReservedNodesMessage
  *   ReservedNodeId: "STRING_VALUE",

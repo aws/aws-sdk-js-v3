@@ -38,6 +38,8 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  * ```javascript
  * import { ApplicationSignalsClient, ListServiceLevelObjectivesCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, ListServiceLevelObjectivesCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // ListServiceLevelObjectivesInput
  *   KeyAttributes: { // Attributes
@@ -52,11 +54,11 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   IncludeLinkedAccounts: true || false,
+ *   SloOwnerAwsAccountId: "STRING_VALUE",
  *   MetricSourceTypes: [ // MetricSourceTypes
  *     "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency",
  *   ],
- *   IncludeLinkedAccounts: true || false,
- *   SloOwnerAwsAccountId: "STRING_VALUE",
  * };
  * const command = new ListServiceLevelObjectivesCommand(input);
  * const response = await client.send(command);

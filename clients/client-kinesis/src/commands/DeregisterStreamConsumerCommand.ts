@@ -41,6 +41,8 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { KinesisClient, DeregisterStreamConsumerCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DeregisterStreamConsumerCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // DeregisterStreamConsumerInput
  *   StreamARN: "STRING_VALUE",

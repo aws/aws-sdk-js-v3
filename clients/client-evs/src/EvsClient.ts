@@ -53,6 +53,7 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { AssociateEipToVlanCommandInput, AssociateEipToVlanCommandOutput } from "./commands/AssociateEipToVlanCommand";
 import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
 import {
   CreateEnvironmentHostCommandInput,
@@ -63,6 +64,10 @@ import {
   DeleteEnvironmentHostCommandInput,
   DeleteEnvironmentHostCommandOutput,
 } from "./commands/DeleteEnvironmentHostCommand";
+import {
+  DisassociateEipFromVlanCommandInput,
+  DisassociateEipFromVlanCommandOutput,
+} from "./commands/DisassociateEipFromVlanCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
 import {
   ListEnvironmentHostsCommandInput,
@@ -94,10 +99,12 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateEipToVlanCommandInput
   | CreateEnvironmentCommandInput
   | CreateEnvironmentHostCommandInput
   | DeleteEnvironmentCommandInput
   | DeleteEnvironmentHostCommandInput
+  | DisassociateEipFromVlanCommandInput
   | GetEnvironmentCommandInput
   | ListEnvironmentHostsCommandInput
   | ListEnvironmentVlansCommandInput
@@ -110,10 +117,12 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateEipToVlanCommandOutput
   | CreateEnvironmentCommandOutput
   | CreateEnvironmentHostCommandOutput
   | DeleteEnvironmentCommandOutput
   | DeleteEnvironmentHostCommandOutput
+  | DisassociateEipFromVlanCommandOutput
   | GetEnvironmentCommandOutput
   | ListEnvironmentHostsCommandOutput
   | ListEnvironmentVlansCommandOutput

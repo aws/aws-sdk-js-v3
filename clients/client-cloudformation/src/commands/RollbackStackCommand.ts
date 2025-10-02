@@ -68,6 +68,8 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * ```javascript
  * import { CloudFormationClient, RollbackStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, RollbackStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // RollbackStackInput
  *   StackName: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * ```javascript
  * import { ECSClient, DeleteClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DeleteClusterRequest
  *   cluster: "STRING_VALUE", // required
@@ -131,6 +133,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterContainsCapacityProviderException} (client fault)
+ *  <p>The cluster contains one or more capacity providers that prevent the requested operation. This exception occurs when you try to delete a cluster that still has active capacity providers, including Amazon ECS Managed Instances capacity providers. You must first delete all capacity providers from the cluster before you can delete the cluster itself.</p>
  *
  * @throws {@link ClusterContainsContainerInstancesException} (client fault)
  *  <p>You can't delete a cluster that has registered container instances. First, deregister

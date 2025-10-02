@@ -34,6 +34,8 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * ```javascript
  * import { CodeBuildClient, CreateProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, CreateProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // CreateProjectInput
  *   name: "STRING_VALUE", // required

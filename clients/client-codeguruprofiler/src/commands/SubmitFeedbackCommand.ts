@@ -35,6 +35,8 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  * ```javascript
  * import { CodeGuruProfilerClient, SubmitFeedbackCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, SubmitFeedbackCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * // import type { CodeGuruProfilerClientConfig } from "@aws-sdk/client-codeguruprofiler";
+ * const config = {}; // type is CodeGuruProfilerClientConfig
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // SubmitFeedbackRequest
  *   profilingGroupName: "STRING_VALUE", // required

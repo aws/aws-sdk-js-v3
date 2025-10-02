@@ -41,6 +41,8 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * ```javascript
  * import { MgnClient, UpdateLaunchConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // UpdateLaunchConfigurationTemplateRequest
  *   launchConfigurationTemplateID: "STRING_VALUE", // required

@@ -40,6 +40,8 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  * ```javascript
  * import { XRayClient, GetTimeSeriesServiceStatisticsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetTimeSeriesServiceStatisticsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // import type { XRayClientConfig } from "@aws-sdk/client-xray";
+ * const config = {}; // type is XRayClientConfig
  * const client = new XRayClient(config);
  * const input = { // GetTimeSeriesServiceStatisticsRequest
  *   StartTime: new Date("TIMESTAMP"), // required

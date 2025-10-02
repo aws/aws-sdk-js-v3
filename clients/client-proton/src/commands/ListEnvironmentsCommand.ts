@@ -38,6 +38,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * ```javascript
  * import { ProtonClient, ListEnvironmentsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListEnvironmentsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // ListEnvironmentsInput
  *   nextToken: "STRING_VALUE",

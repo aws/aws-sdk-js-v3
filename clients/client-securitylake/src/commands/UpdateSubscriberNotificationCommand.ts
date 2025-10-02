@@ -40,6 +40,8 @@ export interface UpdateSubscriberNotificationCommandOutput
  * ```javascript
  * import { SecurityLakeClient, UpdateSubscriberNotificationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, UpdateSubscriberNotificationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // import type { SecurityLakeClientConfig } from "@aws-sdk/client-securitylake";
+ * const config = {}; // type is SecurityLakeClientConfig
  * const client = new SecurityLakeClient(config);
  * const input = { // UpdateSubscriberNotificationRequest
  *   subscriberId: "STRING_VALUE", // required

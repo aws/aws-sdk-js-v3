@@ -2378,6 +2378,7 @@ export const AppInstanceType = {
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
   ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
   ML_R5_12XLARGE: "ml.r5.12xlarge",
   ML_R5_16XLARGE: "ml.r5.16xlarge",
   ML_R5_24XLARGE: "ml.r5.24xlarge",

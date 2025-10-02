@@ -38,6 +38,8 @@ export interface UpdateDeliveryConfigurationCommandOutput
  * ```javascript
  * import { CloudWatchLogsClient, UpdateDeliveryConfigurationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, UpdateDeliveryConfigurationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // UpdateDeliveryConfigurationRequest
  *   id: "STRING_VALUE", // required

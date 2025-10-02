@@ -34,6 +34,8 @@ export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutpu
  * ```javascript
  * import { WellArchitectedClient, ListCheckSummariesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListCheckSummariesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // ListCheckSummariesInput
  *   WorkloadId: "STRING_VALUE", // required

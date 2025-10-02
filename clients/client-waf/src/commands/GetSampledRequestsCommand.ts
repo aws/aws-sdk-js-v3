@@ -46,6 +46,8 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * ```javascript
  * import { WAFClient, GetSampledRequestsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetSampledRequestsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // GetSampledRequestsRequest
  *   WebAclId: "STRING_VALUE", // required

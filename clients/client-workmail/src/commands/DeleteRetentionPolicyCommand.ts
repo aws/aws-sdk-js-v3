@@ -34,6 +34,8 @@ export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolic
  * ```javascript
  * import { WorkMailClient, DeleteRetentionPolicyCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteRetentionPolicyCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // DeleteRetentionPolicyRequest
  *   OrganizationId: "STRING_VALUE", // required

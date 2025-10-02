@@ -37,6 +37,8 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * ```javascript
  * import { SSMClient, CreateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // CreateDocumentRequest
  *   Content: "STRING_VALUE", // required

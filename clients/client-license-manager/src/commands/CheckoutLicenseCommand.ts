@@ -38,6 +38,8 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  * ```javascript
  * import { LicenseManagerClient, CheckoutLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CheckoutLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // CheckoutLicenseRequest
  *   ProductSKU: "STRING_VALUE", // required

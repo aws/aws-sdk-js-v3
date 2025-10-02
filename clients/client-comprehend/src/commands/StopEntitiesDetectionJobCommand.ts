@@ -43,6 +43,8 @@ export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetec
  * ```javascript
  * import { ComprehendClient, StopEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // StopEntitiesDetectionJobRequest
  *   JobId: "STRING_VALUE", // required

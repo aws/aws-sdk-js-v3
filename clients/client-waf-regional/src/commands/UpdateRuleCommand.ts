@@ -83,6 +83,8 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * ```javascript
  * import { WAFRegionalClient, UpdateRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // UpdateRuleRequest
  *   RuleId: "STRING_VALUE", // required

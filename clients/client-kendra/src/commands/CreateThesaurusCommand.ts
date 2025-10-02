@@ -38,6 +38,8 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
  * ```javascript
  * import { KendraClient, CreateThesaurusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // CreateThesaurusRequest
  *   IndexId: "STRING_VALUE", // required

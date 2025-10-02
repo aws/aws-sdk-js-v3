@@ -28,12 +28,30 @@ export interface DeleteBrandCommandInput extends DeleteBrandRequest {}
 export interface DeleteBrandCommandOutput extends DeleteBrandResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon QuickSight brand.</p>
+ * <important>
+ *             <p>This API permanently deletes the specified QuickSight brand. When you delete a brand:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>The brand and all its associated branding elements are permanently removed</p>
+ *                </li>
+ *                <li>
+ *                   <p>Any applications or dashboards using this brand will revert to default styling</p>
+ *                </li>
+ *                <li>
+ *                   <p>This action cannot be undone through the API</p>
+ *                </li>
+ *             </ul>
+ *             <p>
+ *                <b>Before proceeding:</b> Verify that the brand is no longer needed and consider the impact on any applications currently using this brand.</p>
+ *          </important>
+ *          <p>Deletes an QuickSight brand.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DeleteBrandCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteBrandCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteBrandRequest
  *   AwsAccountId: "STRING_VALUE", // required

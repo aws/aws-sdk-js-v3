@@ -34,6 +34,8 @@ export interface ListVectorBucketsCommandOutput extends ListVectorBucketsOutput,
  * ```javascript
  * import { S3VectorsClient, ListVectorBucketsCommand } from "@aws-sdk/client-s3vectors"; // ES Modules import
  * // const { S3VectorsClient, ListVectorBucketsCommand } = require("@aws-sdk/client-s3vectors"); // CommonJS import
+ * // import type { S3VectorsClientConfig } from "@aws-sdk/client-s3vectors";
+ * const config = {}; // type is S3VectorsClientConfig
  * const client = new S3VectorsClient(config);
  * const input = { // ListVectorBucketsInput
  *   maxResults: Number("int"),

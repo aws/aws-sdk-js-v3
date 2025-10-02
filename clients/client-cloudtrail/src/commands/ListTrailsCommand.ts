@@ -34,6 +34,8 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  * ```javascript
  * import { CloudTrailClient, ListTrailsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListTrailsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // ListTrailsRequest
  *   NextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  * ```javascript
  * import { AppSyncClient, ListGraphqlApisCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListGraphqlApisCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // ListGraphqlApisRequest
  *   nextToken: "STRING_VALUE",

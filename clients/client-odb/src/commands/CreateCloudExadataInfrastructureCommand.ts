@@ -43,6 +43,8 @@ export interface CreateCloudExadataInfrastructureCommandOutput
  * ```javascript
  * import { OdbClient, CreateCloudExadataInfrastructureCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, CreateCloudExadataInfrastructureCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // CreateCloudExadataInfrastructureInput
  *   displayName: "STRING_VALUE", // required

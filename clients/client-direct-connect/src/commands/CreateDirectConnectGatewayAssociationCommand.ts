@@ -44,6 +44,8 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
  * ```javascript
  * import { DirectConnectClient, CreateDirectConnectGatewayAssociationCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateDirectConnectGatewayAssociationCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
+ * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
  * const input = { // CreateDirectConnectGatewayAssociationRequest
  *   directConnectGatewayId: "STRING_VALUE", // required

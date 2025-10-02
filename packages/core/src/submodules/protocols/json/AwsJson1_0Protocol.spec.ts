@@ -115,7 +115,6 @@ describe(AwsJson1_0Protocol.name, () => {
       );
 
       expect(request.headers).toEqual({
-        "content-length": "60",
         "content-type": "application/x-amz-json-1.0",
         "x-amz-target": "JsonRpc10.MyOperation",
       });

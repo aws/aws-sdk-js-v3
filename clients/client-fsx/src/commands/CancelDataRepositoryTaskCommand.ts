@@ -49,6 +49,8 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
  * ```javascript
  * import { FSxClient, CancelDataRepositoryTaskCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CancelDataRepositoryTaskCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // CancelDataRepositoryTaskRequest
  *   TaskId: "STRING_VALUE", // required

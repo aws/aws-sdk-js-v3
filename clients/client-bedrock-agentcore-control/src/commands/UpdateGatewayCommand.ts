@@ -37,12 +37,14 @@ export interface UpdateGatewayCommandInput extends UpdateGatewayRequest {}
 export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing Gateway.</p>
+ * <p>Updates an existing gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, UpdateGatewayCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, UpdateGatewayCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // UpdateGatewayRequest
  *   gatewayIdentifier: "STRING_VALUE", // required

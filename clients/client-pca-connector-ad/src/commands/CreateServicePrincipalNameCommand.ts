@@ -36,6 +36,8 @@ export interface CreateServicePrincipalNameCommandOutput extends __MetadataBeare
  * ```javascript
  * import { PcaConnectorAdClient, CreateServicePrincipalNameCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, CreateServicePrincipalNameCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // CreateServicePrincipalNameRequest
  *   DirectoryRegistrationArn: "STRING_VALUE", // required

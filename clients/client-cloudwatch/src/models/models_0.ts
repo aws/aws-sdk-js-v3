@@ -19,6 +19,36 @@ export const ActionsSuppressedBy = {
 export type ActionsSuppressedBy = (typeof ActionsSuppressedBy)[keyof typeof ActionsSuppressedBy];
 
 /**
+ * <p>Represents an individual contributor to a multi-timeseries alarm, containing information about a specific time series and its contribution to the alarm's state.</p>
+ * @public
+ */
+export interface AlarmContributor {
+  /**
+   * <p>The unique identifier for this alarm contributor.</p>
+   * @public
+   */
+  ContributorId: string | undefined;
+
+  /**
+   * <p>A map of attributes that describe the contributor, such as metric dimensions and other identifying characteristics.</p>
+   * @public
+   */
+  ContributorAttributes: Record<string, string> | undefined;
+
+  /**
+   * <p>An explanation for the contributor's current state, providing context about why it is in its current condition.</p>
+   * @public
+   */
+  StateReason: string | undefined;
+
+  /**
+   * <p>The timestamp when the contributor last transitioned to its current state.</p>
+   * @public
+   */
+  StateTransitionedTimestamp?: Date | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -38,6 +68,8 @@ export type AlarmType = (typeof AlarmType)[keyof typeof AlarmType];
  */
 export const HistoryItemType = {
   Action: "Action",
+  AlarmContributorAction: "AlarmContributorAction",
+  AlarmContributorStateUpdate: "AlarmContributorStateUpdate",
   ConfigurationUpdate: "ConfigurationUpdate",
   StateUpdate: "StateUpdate",
 } as const;
@@ -57,6 +89,12 @@ export interface AlarmHistoryItem {
    * @public
    */
   AlarmName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the alarm contributor associated with this history item, if applicable.</p>
+   * @public
+   */
+  AlarmContributorId?: string | undefined;
 
   /**
    * <p>The type of alarm, either metric alarm or composite alarm.</p>
@@ -87,6 +125,12 @@ export interface AlarmHistoryItem {
    * @public
    */
   HistoryData?: string | undefined;
+
+  /**
+   * <p>A map of attributes that describe the alarm contributor associated with this history item, providing context about the contributor's characteristics at the time of the event.</p>
+   * @public
+   */
+  AlarmContributorAttributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -1311,6 +1355,60 @@ export interface DeleteMetricStreamOutput {}
 
 /**
  * @public
+ */
+export interface DescribeAlarmContributorsInput {
+  /**
+   * <p>The name of the alarm for which to retrieve contributor information.</p>
+   * @public
+   */
+  AlarmName: string | undefined;
+
+  /**
+   * <p>The token returned by a previous call to indicate that there is more data available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAlarmContributorsOutput {
+  /**
+   * <p>A list of alarm contributors that provide details about the individual time series contributing to the alarm's state.</p>
+   * @public
+   */
+  AlarmContributors: AlarmContributor[] | undefined;
+
+  /**
+   * <p>The token that marks the start of the next batch of returned results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The next token specified is invalid.</p>
+ * @public
+ */
+export class InvalidNextToken extends __BaseException {
+  readonly name: "InvalidNextToken" = "InvalidNextToken";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextToken, __BaseException>) {
+    super({
+      name: "InvalidNextToken",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextToken.prototype);
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const ScanBy = {
@@ -1332,6 +1430,12 @@ export interface DescribeAlarmHistoryInput {
    * @public
    */
   AlarmName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of a specific alarm contributor to filter the alarm history results.</p>
+   * @public
+   */
+  AlarmContributorId?: string | undefined;
 
   /**
    * <p>Use this parameter to specify whether you want the operation to return metric alarms
@@ -1396,26 +1500,6 @@ export interface DescribeAlarmHistoryOutput {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>The next token specified is invalid.</p>
- * @public
- */
-export class InvalidNextToken extends __BaseException {
-  readonly name: "InvalidNextToken" = "InvalidNextToken";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextToken, __BaseException>) {
-    super({
-      name: "InvalidNextToken",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextToken.prototype);
-  }
 }
 
 /**
@@ -4130,7 +4214,7 @@ export interface PutInsightRuleInput {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Specify <code>true</code> to have this rule evalute log events after they have been transformed by
+   * <p>Specify <code>true</code> to have this rule evaluate log events after they have been transformed by
    *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html">Log transformation</a>. If you specify <code>true</code>, then the log events in log groups that have transformers will
    *        be evaluated by Contributor Insights after being transformed. Log groups that don't have
    *         transformers will still have their original log events evaluated by Contributor Insights.</p>

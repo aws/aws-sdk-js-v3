@@ -30,7 +30,7 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
 /**
  * <p>Updates Amazon QuickSight customizations for the current Amazon Web Services Region. Currently, the only customization that you can use is a theme.</p>
  *          <p>You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a
- *             Amazon QuickSight namespace instead. Customizations that apply to a namespace override
+ *             QuickSight namespace instead. Customizations that apply to a namespace override
  *             customizations that apply to an Amazon Web Services account. To find out which customizations apply, use
  *             the <code>DescribeAccountCustomization</code> API operation. </p>
  * @example
@@ -38,6 +38,8 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  * ```javascript
  * import { QuickSightClient, UpdateAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateAccountCustomizationRequest
  *   AwsAccountId: "STRING_VALUE", // required

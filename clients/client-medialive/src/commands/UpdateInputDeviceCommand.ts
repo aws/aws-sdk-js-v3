@@ -34,6 +34,8 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * ```javascript
  * import { MediaLiveClient, UpdateInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // UpdateInputDeviceRequest
  *   HdDeviceSettings: { // InputDeviceConfigurableSettings

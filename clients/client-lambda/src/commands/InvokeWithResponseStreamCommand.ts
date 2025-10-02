@@ -46,6 +46,8 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * ```javascript
  * import { LambdaClient, InvokeWithResponseStreamCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, InvokeWithResponseStreamCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // InvokeWithResponseStreamRequest
  *   FunctionName: "STRING_VALUE", // required

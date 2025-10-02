@@ -38,6 +38,8 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * ```javascript
  * import { BedrockAgentCoreControlClient, GetBrowserCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, GetBrowserCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetBrowserRequest
  *   browserId: "STRING_VALUE", // required
@@ -51,7 +53,15 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * //   description: "STRING_VALUE",
  * //   executionRoleArn: "STRING_VALUE",
  * //   networkConfiguration: { // BrowserNetworkConfiguration
- * //     networkMode: "PUBLIC", // required
+ * //     networkMode: "PUBLIC" || "VPC", // required
+ * //     vpcConfig: { // VpcConfig
+ * //       securityGroups: [ // SecurityGroups // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnets: [ // Subnets // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * //   recording: { // RecordingConfig
  * //     enabled: true || false,
@@ -61,6 +71,7 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * //     },
  * //   },
  * //   status: "CREATING" || "CREATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED" || "DELETED", // required
+ * //   failureReason: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * // };

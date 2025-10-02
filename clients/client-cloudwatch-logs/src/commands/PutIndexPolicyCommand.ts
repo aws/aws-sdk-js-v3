@@ -46,6 +46,32 @@ export interface PutIndexPolicyCommandOutput extends PutIndexPolicyResponse, __M
  *             </code> or <code>requestId IN [<i>value</i>,
  *           <i>value</i>, ...]</code> will process fewer log events to reduce costs, and
  *       have improved performance.</p>
+ *          <p>CloudWatch Logs provides default field indexes for all log groups in the Standard log
+ *       class. Default field indexes are automatically available for the following fields: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>@aws.region</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>@aws.account</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>@source.log</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>traceId</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Default field indexes are in addition to any custom field indexes you define within your
+ *       policy. Default field indexes are not counted towards your field index quota. </p>
  *          <p>Each index policy has the following quotas and restrictions:</p>
  *          <ul>
  *             <li>
@@ -67,6 +93,8 @@ export interface PutIndexPolicyCommandOutput extends PutIndexPolicyResponse, __M
  * ```javascript
  * import { CloudWatchLogsClient, PutIndexPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutIndexPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutIndexPolicyRequest
  *   logGroupIdentifier: "STRING_VALUE", // required

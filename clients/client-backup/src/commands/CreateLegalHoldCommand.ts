@@ -41,6 +41,8 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * ```javascript
  * import { BackupClient, CreateLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // CreateLegalHoldInput
  *   Title: "STRING_VALUE", // required

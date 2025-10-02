@@ -155,6 +155,8 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * ```javascript
  * import { STSClient, AssumeRoleWithWebIdentityCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleWithWebIdentityCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * // import type { STSClientConfig } from "@aws-sdk/client-sts";
+ * const config = {}; // type is STSClientConfig
  * const client = new STSClient(config);
  * const input = { // AssumeRoleWithWebIdentityRequest
  *   RoleArn: "STRING_VALUE", // required

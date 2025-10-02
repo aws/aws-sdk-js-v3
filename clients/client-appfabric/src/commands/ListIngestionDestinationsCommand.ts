@@ -34,6 +34,8 @@ export interface ListIngestionDestinationsCommandOutput extends ListIngestionDes
  * ```javascript
  * import { AppFabricClient, ListIngestionDestinationsCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, ListIngestionDestinationsCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // ListIngestionDestinationsRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

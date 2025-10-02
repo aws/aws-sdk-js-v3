@@ -44,7 +44,7 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *             <p>
  *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
  *             </p>
- *             <p>Amazon SQS does not throw an exception or completely reject the message if it contains invalid characters. Instead, it replaces those invalid characters with U+FFFD before storing the message in the queue, as long as the message body contains at least one valid character.</p>
+ *             <p>If a message contains characters outside the allowed set, Amazon SQS rejects the message and returns an InvalidMessageContents error. Ensure that your message body includes only valid characters to avoid this exception.</p>
  *          </important>
  *          <p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses
  *             the default value for the queue.</p>
@@ -53,6 +53,8 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * ```javascript
  * import { SQSClient, SendMessageBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, SendMessageBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * // import type { SQSClientConfig } from "@aws-sdk/client-sqs";
+ * const config = {}; // type is SQSClientConfig
  * const client = new SQSClient(config);
  * const input = { // SendMessageBatchRequest
  *   QueueUrl: "STRING_VALUE", // required

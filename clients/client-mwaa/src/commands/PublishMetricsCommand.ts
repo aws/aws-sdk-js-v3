@@ -37,6 +37,8 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * ```javascript
  * import { MWAAClient, PublishMetricsCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, PublishMetricsCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * // import type { MWAAClientConfig } from "@aws-sdk/client-mwaa";
+ * const config = {}; // type is MWAAClientConfig
  * const client = new MWAAClient(config);
  * const input = { // PublishMetricsInput
  *   EnvironmentName: "STRING_VALUE", // required

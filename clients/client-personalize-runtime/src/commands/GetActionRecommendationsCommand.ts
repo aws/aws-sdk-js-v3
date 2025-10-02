@@ -47,6 +47,8 @@ export interface GetActionRecommendationsCommandOutput extends GetActionRecommen
  * ```javascript
  * import { PersonalizeRuntimeClient, GetActionRecommendationsCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
  * // const { PersonalizeRuntimeClient, GetActionRecommendationsCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
+ * // import type { PersonalizeRuntimeClientConfig } from "@aws-sdk/client-personalize-runtime";
+ * const config = {}; // type is PersonalizeRuntimeClientConfig
  * const client = new PersonalizeRuntimeClient(config);
  * const input = { // GetActionRecommendationsRequest
  *   campaignArn: "STRING_VALUE",

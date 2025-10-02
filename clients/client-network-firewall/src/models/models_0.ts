@@ -1156,7 +1156,7 @@ export interface CreateFirewallRequest {
   TransitGatewayId?: string | undefined;
 
   /**
-   * <p>Required. The Availability Zones where you want to create firewall endpoints for a transit gateway-attached firewall. You must specify at least one Availability Zone. Consider enabling the firewall in every Availability Zone where you have workloads to maintain Availability Zone independence.</p>
+   * <p>Required. The Availability Zones where you want to create firewall endpoints for a transit gateway-attached firewall. You must specify at least one Availability Zone. Consider enabling the firewall in every Availability Zone where you have workloads to maintain Availability Zone isolation.</p>
    *          <p>You can modify Availability Zones later using <a>AssociateAvailabilityZones</a> or <a>DisassociateAvailabilityZones</a>, but this may briefly disrupt traffic. The <code>AvailabilityZoneChangeProtection</code> setting controls whether you can make these modifications.</p>
    * @public
    */
@@ -1666,12 +1666,11 @@ export type StreamExceptionPolicy = (typeof StreamExceptionPolicy)[keyof typeof 
 export interface StatefulEngineOptions {
   /**
    * <p>Indicates how to manage the order of stateful rule evaluation for the policy. <code>STRICT_ORDER</code> is the
-   *          recommended option, but <code>DEFAULT_ACTION_ORDER</code> is the default option.
-   *          With <code>STRICT_ORDER</code>, provide your rules in the order that you want them to be evaluated.
+   *          recommended option, but <code>DEFAULT_ACTION_ORDER</code> is the default option. With <code>STRICT_ORDER</code>,
+   *          provide your rules in the order that you want them to be evaluated.
    *          You can then choose one or more default actions for packets that don't match any rules.
    *          Choose <code>STRICT_ORDER</code> to have the stateful rules engine determine the evaluation order of your rules.
-   *          The default action for this rule order is
-   *          <code>PASS</code>, followed by <code>DROP</code>, <code>REJECT</code>, and <code>ALERT</code> actions.
+   *          The default action for this rule order is <code>PASS</code>, followed by <code>DROP</code>, <code>REJECT</code>, and <code>ALERT</code> actions.
    *          Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on your settings.
    *          For more information, see
    *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.
@@ -1940,6 +1939,12 @@ export interface FirewallPolicy {
    * @public
    */
   PolicyVariables?: PolicyVariables | undefined;
+
+  /**
+   * <p>When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.</p>
+   * @public
+   */
+  EnableTLSSessionHolding?: boolean | undefined;
 }
 
 /**
@@ -2132,8 +2137,10 @@ export interface ReferenceSets {
  * @enum
  */
 export const GeneratedRulesType = {
+  ALERTLIST: "ALERTLIST",
   ALLOWLIST: "ALLOWLIST",
   DENYLIST: "DENYLIST",
+  REJECTLIST: "REJECTLIST",
 } as const;
 
 /**
@@ -2184,7 +2191,11 @@ export interface RulesSourceList {
   TargetTypes: TargetType[] | undefined;
 
   /**
-   * <p>Whether you want to allow or deny access to the domains in your target list.</p>
+   * <p>Whether you want to apply allow, reject, alert, or drop behavior to the domains in your target list.</p>
+   *          <note>
+   *             <p>When logging is enabled and you choose Alert, traffic that matches the domain specifications
+   *             generates an alert in the firewall's logs. Then, traffic either passes, is rejected, or drops based on other rules in the firewall policy.</p>
+   *          </note>
    * @public
    */
   GeneratedRulesType: GeneratedRulesType | undefined;

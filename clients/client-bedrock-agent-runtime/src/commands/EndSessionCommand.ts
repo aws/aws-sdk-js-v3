@@ -38,6 +38,8 @@ export interface EndSessionCommandOutput extends EndSessionResponse, __MetadataB
  * ```javascript
  * import { BedrockAgentRuntimeClient, EndSessionCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, EndSessionCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // EndSessionRequest
  *   sessionIdentifier: "STRING_VALUE", // required

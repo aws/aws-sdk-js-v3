@@ -39,6 +39,8 @@ export interface GetLinkedWhatsAppBusinessAccountCommandOutput
  * ```javascript
  * import { SocialMessagingClient, GetLinkedWhatsAppBusinessAccountCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
  * // const { SocialMessagingClient, GetLinkedWhatsAppBusinessAccountCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * // import type { SocialMessagingClientConfig } from "@aws-sdk/client-socialmessaging";
+ * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
  * const input = { // GetLinkedWhatsAppBusinessAccountInput
  *   id: "STRING_VALUE", // required

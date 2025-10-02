@@ -35,6 +35,8 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * ```javascript
  * import { OpenSearchClient, DescribePackagesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribePackagesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // DescribePackagesRequest
  *   Filters: [ // DescribePackagesFilterList

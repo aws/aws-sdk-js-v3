@@ -28,13 +28,16 @@ export interface ListPipelinesCommandInput extends ListPipelinesRequest {}
 export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services account and Region. For
- *    more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html">Viewing Amazon OpenSearch Ingestion pipelines</a>.</p>
+ * <p>Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services account and Region.
+ *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html">Viewing Amazon OpenSearch
+ *     Ingestion pipelines</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OSISClient, ListPipelinesCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, ListPipelinesCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // import type { OSISClientConfig } from "@aws-sdk/client-osis";
+ * const config = {}; // type is OSISClientConfig
  * const client = new OSISClient(config);
  * const input = { // ListPipelinesRequest
  *   MaxResults: Number("int"),

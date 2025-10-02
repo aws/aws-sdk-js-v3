@@ -38,6 +38,8 @@ export interface GetDbParameterGroupCommandOutput extends GetDbParameterGroupOut
  * ```javascript
  * import { TimestreamInfluxDBClient, GetDbParameterGroupCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, GetDbParameterGroupCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
+ * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // GetDbParameterGroupInput
  *   identifier: "STRING_VALUE", // required

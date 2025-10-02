@@ -37,6 +37,8 @@ export interface DeleteApplicationAccessScopeCommandOutput extends __MetadataBea
  * ```javascript
  * import { SSOAdminClient, DeleteApplicationAccessScopeCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DeleteApplicationAccessScopeCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // DeleteApplicationAccessScopeRequest
  *   ApplicationArn: "STRING_VALUE", // required

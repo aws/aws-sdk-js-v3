@@ -42,6 +42,8 @@ export interface CreateInferenceRecommendationsJobCommandOutput
  * ```javascript
  * import { SageMakerClient, CreateInferenceRecommendationsJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateInferenceRecommendationsJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateInferenceRecommendationsJobRequest
  *   JobName: "STRING_VALUE", // required

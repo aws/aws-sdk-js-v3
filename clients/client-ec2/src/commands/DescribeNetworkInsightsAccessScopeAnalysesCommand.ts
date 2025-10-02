@@ -43,6 +43,8 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesCommandOutput
  * ```javascript
  * import { EC2Client, DescribeNetworkInsightsAccessScopeAnalysesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkInsightsAccessScopeAnalysesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeNetworkInsightsAccessScopeAnalysesRequest
  *   NetworkInsightsAccessScopeAnalysisIds: [ // NetworkInsightsAccessScopeAnalysisIdList

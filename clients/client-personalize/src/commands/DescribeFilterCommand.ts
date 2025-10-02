@@ -38,6 +38,8 @@ export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __M
  * ```javascript
  * import { PersonalizeClient, DescribeFilterCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeFilterCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeFilterRequest
  *   filterArn: "STRING_VALUE", // required

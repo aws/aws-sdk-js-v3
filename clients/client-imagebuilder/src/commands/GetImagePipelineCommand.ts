@@ -34,6 +34,8 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  * ```javascript
  * import { ImagebuilderClient, GetImagePipelineCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImagePipelineCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // GetImagePipelineRequest
  *   imagePipelineArn: "STRING_VALUE", // required
@@ -60,11 +62,15 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  * //       scheduleExpression: "STRING_VALUE",
  * //       timezone: "STRING_VALUE",
  * //       pipelineExecutionStartCondition: "EXPRESSION_MATCH_ONLY" || "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+ * //       autoDisablePolicy: { // AutoDisablePolicy
+ * //         failureCount: Number("int"), // required
+ * //       },
  * //     },
  * //     status: "DISABLED" || "ENABLED",
  * //     dateCreated: "STRING_VALUE",
  * //     dateUpdated: "STRING_VALUE",
  * //     dateLastRun: "STRING_VALUE",
+ * //     lastRunStatus: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
  * //     dateNextRun: "STRING_VALUE",
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
@@ -94,6 +100,11 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  * //         onFailure: "CONTINUE" || "ABORT",
  * //       },
  * //     ],
+ * //     loggingConfiguration: { // PipelineLoggingConfiguration
+ * //       imageLogGroupName: "STRING_VALUE",
+ * //       pipelineLogGroupName: "STRING_VALUE",
+ * //     },
+ * //     consecutiveFailures: Number("int"),
  * //   },
  * // };
  *

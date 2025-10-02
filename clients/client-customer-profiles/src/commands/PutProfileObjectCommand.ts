@@ -10,7 +10,7 @@ import {
   PutProfileObjectRequest,
   PutProfileObjectRequestFilterSensitiveLog,
   PutProfileObjectResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_PutProfileObjectCommand, se_PutProfileObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -47,6 +47,8 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  * ```javascript
  * import { CustomerProfilesClient, PutProfileObjectCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, PutProfileObjectCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // PutProfileObjectRequest
  *   ObjectTypeName: "STRING_VALUE", // required

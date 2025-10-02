@@ -34,6 +34,8 @@ export interface ListMetricAttributionsCommandOutput extends ListMetricAttributi
  * ```javascript
  * import { PersonalizeClient, ListMetricAttributionsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListMetricAttributionsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // ListMetricAttributionsRequest
  *   datasetGroupArn: "STRING_VALUE",

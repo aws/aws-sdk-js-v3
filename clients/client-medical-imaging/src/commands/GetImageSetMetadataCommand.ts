@@ -42,6 +42,8 @@ export interface GetImageSetMetadataCommandOutput
  * ```javascript
  * import { MedicalImagingClient, GetImageSetMetadataCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, GetImageSetMetadataCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // GetImageSetMetadataRequest
  *   datastoreId: "STRING_VALUE", // required

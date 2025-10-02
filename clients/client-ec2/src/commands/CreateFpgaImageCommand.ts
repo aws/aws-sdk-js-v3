@@ -29,8 +29,8 @@ export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __M
 
 /**
  * <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p>
- *          <p>The create operation is asynchronous. To verify that the AFI is ready for use,
- *          check the output logs.</p>
+ *          <p>The create operation is asynchronous. To verify that the AFI was successfully
+ *          created and is ready for use, check the output logs.</p>
  *          <p>An AFI contains the FPGA bitstream that is ready to download to an FPGA.
  *          You can securely deploy an AFI on multiple FPGA-accelerated instances.
  *          For more information, see the <a href="https://github.com/aws/aws-fpga/">Amazon Web Services FPGA Hardware Development Kit</a>.</p>
@@ -39,6 +39,8 @@ export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __M
  * ```javascript
  * import { EC2Client, CreateFpgaImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateFpgaImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateFpgaImageRequest
  *   DryRun: true || false,

@@ -38,6 +38,8 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * ```javascript
  * import { LambdaClient, ListFunctionsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListFunctionsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // ListFunctionsRequest
  *   MasterRegion: "STRING_VALUE",

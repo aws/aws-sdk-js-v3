@@ -47,6 +47,8 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  * ```javascript
  * import { SSMClient, GetParametersByPathCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetParametersByPathCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // GetParametersByPathRequest
  *   Path: "STRING_VALUE", // required

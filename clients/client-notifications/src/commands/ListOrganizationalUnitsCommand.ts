@@ -34,6 +34,8 @@ export interface ListOrganizationalUnitsCommandOutput extends ListOrganizational
  * ```javascript
  * import { NotificationsClient, ListOrganizationalUnitsCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, ListOrganizationalUnitsCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // ListOrganizationalUnitsRequest
  *   notificationConfigurationArn: "STRING_VALUE", // required

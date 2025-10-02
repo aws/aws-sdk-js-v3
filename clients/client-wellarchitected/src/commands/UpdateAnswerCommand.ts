@@ -34,6 +34,8 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
  * ```javascript
  * import { WellArchitectedClient, UpdateAnswerCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateAnswerCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateAnswerInput
  *   WorkloadId: "STRING_VALUE", // required

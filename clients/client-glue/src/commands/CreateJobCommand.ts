@@ -35,6 +35,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * ```javascript
  * import { GlueClient, CreateJobCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateJobCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // CreateJobRequest
  *   Name: "STRING_VALUE", // required

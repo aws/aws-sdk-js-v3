@@ -35,7 +35,7 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
 /**
  * <p>
  *            Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
- *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
  *            in the
  *            <i>Amazon Chime Developer Guide</i>.
  *        </p>
@@ -44,6 +44,8 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * ```javascript
  * import { ChimeSDKMeetingsClient, CreateAttendeeCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, CreateAttendeeCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * // import type { ChimeSDKMeetingsClientConfig } from "@aws-sdk/client-chime-sdk-meetings";
+ * const config = {}; // type is ChimeSDKMeetingsClientConfig
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // CreateAttendeeRequest
  *   MeetingId: "STRING_VALUE", // required

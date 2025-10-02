@@ -49,6 +49,8 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  * ```javascript
  * import { TnbClient, PutSolNetworkPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, PutSolNetworkPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // import type { TnbClientConfig } from "@aws-sdk/client-tnb";
+ * const config = {}; // type is TnbClientConfig
  * const client = new TnbClient(config);
  * const input = { // PutSolNetworkPackageContentInput
  *   nsdInfoId: "STRING_VALUE", // required

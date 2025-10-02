@@ -35,6 +35,8 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  * ```javascript
  * import { AthenaClient, CreateWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreateWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // CreateWorkGroupInput
  *   Name: "STRING_VALUE", // required

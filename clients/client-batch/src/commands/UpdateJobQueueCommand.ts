@@ -34,6 +34,8 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  * ```javascript
  * import { BatchClient, UpdateJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UpdateJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // import type { BatchClientConfig } from "@aws-sdk/client-batch";
+ * const config = {}; // type is BatchClientConfig
  * const client = new BatchClient(config);
  * const input = { // UpdateJobQueueRequest
  *   jobQueue: "STRING_VALUE", // required

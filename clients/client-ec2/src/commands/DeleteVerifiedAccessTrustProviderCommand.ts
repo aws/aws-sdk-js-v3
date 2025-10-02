@@ -43,6 +43,8 @@ export interface DeleteVerifiedAccessTrustProviderCommandOutput
  * ```javascript
  * import { EC2Client, DeleteVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DeleteVerifiedAccessTrustProviderRequest
  *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required

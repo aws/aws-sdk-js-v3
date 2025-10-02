@@ -149,6 +149,8 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * ```javascript
  * import { RekognitionClient, DetectLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // DetectLabelsRequest
  *   Image: { // Image

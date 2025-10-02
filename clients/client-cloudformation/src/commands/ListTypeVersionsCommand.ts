@@ -34,6 +34,8 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  * ```javascript
  * import { CloudFormationClient, ListTypeVersionsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListTypeVersionsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // ListTypeVersionsInput
  *   Type: "RESOURCE" || "MODULE" || "HOOK",

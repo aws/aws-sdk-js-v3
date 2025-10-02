@@ -47,6 +47,8 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  * ```javascript
  * import { IAMClient, RemoveRoleFromInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, RemoveRoleFromInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // RemoveRoleFromInstanceProfileRequest
  *   InstanceProfileName: "STRING_VALUE", // required

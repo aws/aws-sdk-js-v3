@@ -34,6 +34,8 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  * ```javascript
  * import { LakeFormationClient, UpdateDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, UpdateDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateDataCellsFilterRequest
  *   TableData: { // DataCellsFilter

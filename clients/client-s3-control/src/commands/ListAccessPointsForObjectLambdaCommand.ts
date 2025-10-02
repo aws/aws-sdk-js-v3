@@ -6,7 +6,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAccessPointsForObjectLambdaRequest, ListAccessPointsForObjectLambdaResult } from "../models/models_0";
+import { ListAccessPointsForObjectLambdaRequest } from "../models/models_0";
+import { ListAccessPointsForObjectLambdaResult } from "../models/models_1";
 import {
   de_ListAccessPointsForObjectLambdaCommand,
   se_ListAccessPointsForObjectLambdaCommand,
@@ -67,6 +68,8 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
  * ```javascript
  * import { S3ControlClient, ListAccessPointsForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListAccessPointsForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // ListAccessPointsForObjectLambdaRequest
  *   AccountId: "STRING_VALUE",

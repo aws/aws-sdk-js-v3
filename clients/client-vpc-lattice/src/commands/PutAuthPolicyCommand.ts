@@ -28,15 +28,14 @@ export interface PutAuthPolicyCommandInput extends PutAuthPolicyRequest {}
 export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the auth policy. The policy string in JSON must not contain newlines or
- *    blank lines.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html">Auth policies</a> in the <i>Amazon VPC
- *     Lattice User Guide</i>.</p>
+ * <p>Creates or updates the auth policy. The policy string in JSON must not contain newlines or blank lines.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html">Auth policies</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { VPCLatticeClient, PutAuthPolicyCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, PutAuthPolicyCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // PutAuthPolicyRequest
  *   resourceIdentifier: "STRING_VALUE", // required
@@ -70,8 +69,7 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

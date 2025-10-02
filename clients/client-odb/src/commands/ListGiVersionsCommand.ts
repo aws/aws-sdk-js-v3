@@ -34,6 +34,8 @@ export interface ListGiVersionsCommandOutput extends ListGiVersionsOutput, __Met
  * ```javascript
  * import { OdbClient, ListGiVersionsCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, ListGiVersionsCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // ListGiVersionsInput
  *   maxResults: Number("int"),

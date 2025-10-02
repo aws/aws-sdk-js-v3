@@ -34,6 +34,8 @@ export interface DeleteRunGroupCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OmicsClient, DeleteRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // DeleteRunGroupRequest
  *   id: "STRING_VALUE", // required

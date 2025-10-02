@@ -34,6 +34,8 @@ export interface TestParsingCommandOutput extends TestParsingResponse, __Metadat
  * ```javascript
  * import { B2biClient, TestParsingCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, TestParsingCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // TestParsingRequest
  *   inputFile: { // S3Location

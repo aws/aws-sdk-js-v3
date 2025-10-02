@@ -35,6 +35,8 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * ```javascript
  * import { AppStreamClient, CreateImageBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateImageBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // CreateImageBuilderRequest
  *   Name: "STRING_VALUE", // required

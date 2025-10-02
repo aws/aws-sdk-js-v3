@@ -34,6 +34,8 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * ```javascript
  * import { SecurityIRClient, UntagResourceCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, UntagResourceCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // UntagResourceInput
  *   resourceArn: "STRING_VALUE", // required

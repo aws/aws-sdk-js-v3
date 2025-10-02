@@ -39,6 +39,8 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * ```javascript
  * import { PIClient, DescribeDimensionKeysCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, DescribeDimensionKeysCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * // import type { PIClientConfig } from "@aws-sdk/client-pi";
+ * const config = {}; // type is PIClientConfig
  * const client = new PIClient(config);
  * const input = { // DescribeDimensionKeysRequest
  *   ServiceType: "RDS" || "DOCDB", // required

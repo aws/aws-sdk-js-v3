@@ -35,6 +35,8 @@ export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayO
  * ```javascript
  * import { AppMeshClient, DeleteVirtualGatewayCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DeleteVirtualGatewayCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // DeleteVirtualGatewayInput
  *   virtualGatewayName: "STRING_VALUE", // required

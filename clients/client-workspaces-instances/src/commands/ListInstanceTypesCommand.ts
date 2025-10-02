@@ -43,6 +43,8 @@ export interface ListInstanceTypesCommandOutput extends ListInstanceTypesRespons
  * ```javascript
  * import { WorkspacesInstancesClient, ListInstanceTypesCommand } from "@aws-sdk/client-workspaces-instances"; // ES Modules import
  * // const { WorkspacesInstancesClient, ListInstanceTypesCommand } = require("@aws-sdk/client-workspaces-instances"); // CommonJS import
+ * // import type { WorkspacesInstancesClientConfig } from "@aws-sdk/client-workspaces-instances";
+ * const config = {}; // type is WorkspacesInstancesClientConfig
  * const client = new WorkspacesInstancesClient(config);
  * const input = { // ListInstanceTypesRequest
  *   MaxResults: Number("int"),

@@ -29,7 +29,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { CreateAgentRuntimeCommandInput, CreateAgentRuntimeCommandOutput } from "../commands/CreateAgentRuntimeCommand";
 import {
@@ -136,10 +136,16 @@ import {
   ListOauth2CredentialProvidersCommandOutput,
 } from "../commands/ListOauth2CredentialProvidersCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   ListWorkloadIdentitiesCommandInput,
   ListWorkloadIdentitiesCommandOutput,
 } from "../commands/ListWorkloadIdentitiesCommand";
 import { SetTokenVaultCMKCommandInput, SetTokenVaultCMKCommandOutput } from "../commands/SetTokenVaultCMKCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAgentRuntimeCommandInput, UpdateAgentRuntimeCommandOutput } from "../commands/UpdateAgentRuntimeCommand";
 import {
   UpdateAgentRuntimeEndpointCommandInput,
@@ -166,9 +172,9 @@ import {
 import { BedrockAgentCoreControlServiceException as __BaseException } from "../models/BedrockAgentCoreControlServiceException";
 import {
   AccessDeniedException,
-  Agent,
-  AgentArtifact,
-  AgentEndpoint,
+  AgentRuntime,
+  AgentRuntimeArtifact,
+  AgentRuntimeEndpoint,
   ApiKeyCredentialProviderItem,
   ApiSchemaConfiguration,
   AuthorizerConfiguration,
@@ -218,6 +224,7 @@ import {
   OAuthCredentialProvider,
   ProtocolConfiguration,
   RecordingConfig,
+  RequestHeaderConfiguration,
   ResourceLimitExceededException,
   ResourceNotFoundException,
   S3Configuration,
@@ -246,6 +253,7 @@ import {
   UserPreferenceOverrideConsolidationConfigurationInput,
   UserPreferenceOverrideExtractionConfigurationInput,
   ValidationException,
+  VpcConfig,
 } from "../models/models_0";
 
 /**
@@ -271,7 +279,9 @@ export const se_CreateAgentRuntimeCommand = async (
       environmentVariables: (_) => _json(_),
       networkConfiguration: (_) => _json(_),
       protocolConfiguration: (_) => _json(_),
+      requestHeaderConfiguration: (_) => _json(_),
       roleArn: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -298,6 +308,7 @@ export const se_CreateAgentRuntimeEndpointCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -348,6 +359,7 @@ export const se_CreateBrowserCommand = async (
       name: [],
       networkConfiguration: (_) => _json(_),
       recording: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -374,6 +386,7 @@ export const se_CreateCodeInterpreterCommand = async (
       executionRoleArn: [],
       name: [],
       networkConfiguration: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -405,6 +418,7 @@ export const se_CreateGatewayCommand = async (
       protocolConfiguration: (_) => _json(_),
       protocolType: [],
       roleArn: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1118,6 +1132,22 @@ export const se_ListOauth2CredentialProvidersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListWorkloadIdentitiesCommand
  */
 export const se_ListWorkloadIdentitiesCommand = async (
@@ -1164,6 +1194,48 @@ export const se_SetTokenVaultCMKCommand = async (
 };
 
 /**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  const query: any = map({
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateAgentRuntimeCommand
  */
 export const se_UpdateAgentRuntimeCommand = async (
@@ -1186,6 +1258,7 @@ export const se_UpdateAgentRuntimeCommand = async (
       environmentVariables: (_) => _json(_),
       networkConfiguration: (_) => _json(_),
       protocolConfiguration: (_) => _json(_),
+      requestHeaderConfiguration: (_) => _json(_),
       roleArn: [],
     })
   );
@@ -1865,6 +1938,7 @@ export const de_GetAgentRuntimeCommand = async (
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     networkConfiguration: _json,
     protocolConfiguration: _json,
+    requestHeaderConfiguration: (_) => _json(__expectUnion(_)),
     roleArn: __expectString,
     status: __expectString,
     workloadIdentityDetails: _json,
@@ -1949,6 +2023,7 @@ export const de_GetBrowserCommand = async (
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     executionRoleArn: __expectString,
+    failureReason: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     networkConfiguration: _json,
@@ -1979,6 +2054,7 @@ export const de_GetCodeInterpreterCommand = async (
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     executionRoleArn: __expectString,
+    failureReason: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     networkConfiguration: _json,
@@ -2167,7 +2243,7 @@ export const de_ListAgentRuntimeEndpointsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     nextToken: __expectString,
-    runtimeEndpoints: (_) => de_AgentEndpoints(_, context),
+    runtimeEndpoints: (_) => de_AgentRuntimeEndpoints(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2188,7 +2264,7 @@ export const de_ListAgentRuntimesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    agentRuntimes: (_) => de_Agents(_, context),
+    agentRuntimes: (_) => de_AgentRuntimes(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2210,7 +2286,7 @@ export const de_ListAgentRuntimeVersionsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    agentRuntimes: (_) => de_Agents(_, context),
+    agentRuntimes: (_) => de_AgentRuntimes(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2372,6 +2448,27 @@ export const de_ListOauth2CredentialProvidersCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListWorkloadIdentitiesCommand
  */
 export const de_ListWorkloadIdentitiesCommand = async (
@@ -2413,6 +2510,40 @@ export const de_SetTokenVaultCMKCommand = async (
     tokenVaultId: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -2959,7 +3090,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-// se_AgentArtifact omitted.
+// se_AgentRuntimeArtifact omitted.
 
 // se_AllowedAudienceList omitted.
 
@@ -3073,6 +3204,10 @@ const se_McpTargetConfiguration = (input: McpTargetConfiguration, context: __Ser
 
 // se_RecordingConfig omitted.
 
+// se_RequestHeaderAllowlist omitted.
+
+// se_RequestHeaderConfiguration omitted.
+
 // se_RequiredProperties omitted.
 
 // se_ResourceOauth2ReturnUrlListType omitted.
@@ -3111,6 +3246,8 @@ const se_SchemaProperties = (input: Record<string, SchemaDefinition>, context: _
   }, {});
 };
 
+// se_SecurityGroups omitted.
+
 // se_SemanticMemoryStrategyInput omitted.
 
 // se_SemanticOverrideConfigurationInput omitted.
@@ -3121,11 +3258,15 @@ const se_SchemaProperties = (input: Record<string, SchemaDefinition>, context: _
 
 // se_SlackOauth2ProviderConfigInput omitted.
 
+// se_Subnets omitted.
+
 // se_SummaryMemoryStrategyInput omitted.
 
 // se_SummaryOverrideConfigurationInput omitted.
 
 // se_SummaryOverrideConsolidationConfigurationInput omitted.
+
+// se_TagsMap omitted.
 
 /**
  * serializeAws_restJson1TargetConfiguration
@@ -3179,10 +3320,12 @@ const se_ToolSchema = (input: ToolSchema, context: __SerdeContext): any => {
 
 // se_UserPreferenceOverrideExtractionConfigurationInput omitted.
 
+// se_VpcConfig omitted.
+
 /**
- * deserializeAws_restJson1Agent
+ * deserializeAws_restJson1AgentRuntime
  */
-const de_Agent = (output: any, context: __SerdeContext): Agent => {
+const de_AgentRuntime = (output: any, context: __SerdeContext): AgentRuntime => {
   return take(output, {
     agentRuntimeArn: __expectString,
     agentRuntimeId: __expectString,
@@ -3194,12 +3337,12 @@ const de_Agent = (output: any, context: __SerdeContext): Agent => {
   }) as any;
 };
 
-// de_AgentArtifact omitted.
+// de_AgentRuntimeArtifact omitted.
 
 /**
- * deserializeAws_restJson1AgentEndpoint
+ * deserializeAws_restJson1AgentRuntimeEndpoint
  */
-const de_AgentEndpoint = (output: any, context: __SerdeContext): AgentEndpoint => {
+const de_AgentRuntimeEndpoint = (output: any, context: __SerdeContext): AgentRuntimeEndpoint => {
   return take(output, {
     agentRuntimeArn: __expectString,
     agentRuntimeEndpointArn: __expectString,
@@ -3215,25 +3358,25 @@ const de_AgentEndpoint = (output: any, context: __SerdeContext): AgentEndpoint =
 };
 
 /**
- * deserializeAws_restJson1AgentEndpoints
+ * deserializeAws_restJson1AgentRuntimeEndpoints
  */
-const de_AgentEndpoints = (output: any, context: __SerdeContext): AgentEndpoint[] => {
+const de_AgentRuntimeEndpoints = (output: any, context: __SerdeContext): AgentRuntimeEndpoint[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return de_AgentEndpoint(entry, context);
+      return de_AgentRuntimeEndpoint(entry, context);
     });
   return retVal;
 };
 
 /**
- * deserializeAws_restJson1Agents
+ * deserializeAws_restJson1AgentRuntimes
  */
-const de_Agents = (output: any, context: __SerdeContext): Agent[] => {
+const de_AgentRuntimes = (output: any, context: __SerdeContext): AgentRuntime[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return de_Agent(entry, context);
+      return de_AgentRuntime(entry, context);
     });
   return retVal;
 };
@@ -3545,6 +3688,10 @@ const de_Oauth2CredentialProviders = (output: any, context: __SerdeContext): Oau
 
 // de_RecordingConfig omitted.
 
+// de_RequestHeaderAllowlist omitted.
+
+// de_RequestHeaderConfiguration omitted.
+
 // de_RequiredProperties omitted.
 
 // de_ResourceOauth2ReturnUrlListType omitted.
@@ -3585,6 +3732,8 @@ const de_SchemaProperties = (output: any, context: __SerdeContext): Record<strin
 
 // de_Secret omitted.
 
+// de_SecurityGroups omitted.
+
 // de_SemanticConsolidationOverride omitted.
 
 // de_SemanticExtractionOverride omitted.
@@ -3595,7 +3744,11 @@ const de_SchemaProperties = (output: any, context: __SerdeContext): Record<strin
 
 // de_StrategyConfiguration omitted.
 
+// de_Subnets omitted.
+
 // de_SummaryConsolidationOverride omitted.
+
+// de_TagsMap omitted.
 
 /**
  * deserializeAws_restJson1TargetConfiguration
@@ -3684,6 +3837,8 @@ const de_ToolSchema = (output: any, context: __SerdeContext): ToolSchema => {
 
 // de_ValidationExceptionFieldList omitted.
 
+// de_VpcConfig omitted.
+
 // de_WorkloadIdentityDetails omitted.
 
 // de_WorkloadIdentityList omitted.
@@ -3707,4 +3862,5 @@ const _cT = "clientToken";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _t = "type";
+const _tK = "tagKeys";
 const _v = "version";

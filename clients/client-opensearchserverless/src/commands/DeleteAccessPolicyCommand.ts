@@ -38,6 +38,8 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  * ```javascript
  * import { OpenSearchServerlessClient, DeleteAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
+ * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // DeleteAccessPolicyRequest
  *   type: "STRING_VALUE", // required

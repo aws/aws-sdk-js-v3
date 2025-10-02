@@ -34,6 +34,8 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * ```javascript
  * import { MediaLiveClient, ListVersionsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListVersionsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = {};
  * const command = new ListVersionsCommand(input);

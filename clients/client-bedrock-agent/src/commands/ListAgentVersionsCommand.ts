@@ -34,6 +34,8 @@ export interface ListAgentVersionsCommandOutput extends ListAgentVersionsRespons
  * ```javascript
  * import { BedrockAgentClient, ListAgentVersionsCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, ListAgentVersionsCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // ListAgentVersionsRequest
  *   agentId: "STRING_VALUE", // required

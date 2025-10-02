@@ -34,6 +34,8 @@ export interface DeleteQuickResponseCommandOutput extends DeleteQuickResponseRes
  * ```javascript
  * import { WisdomClient, DeleteQuickResponseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteQuickResponseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // DeleteQuickResponseRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

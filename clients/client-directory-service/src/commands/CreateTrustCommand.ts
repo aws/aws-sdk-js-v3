@@ -40,6 +40,8 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * ```javascript
  * import { DirectoryServiceClient, CreateTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // CreateTrustRequest
  *   DirectoryId: "STRING_VALUE", // required
@@ -48,6 +50,9 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  *   TrustDirection: "One-Way: Outgoing" || "One-Way: Incoming" || "Two-Way", // required
  *   TrustType: "Forest" || "External",
  *   ConditionalForwarderIpAddrs: [ // DnsIpAddrs
+ *     "STRING_VALUE",
+ *   ],
+ *   ConditionalForwarderIpv6Addrs: [ // DnsIpv6Addrs
  *     "STRING_VALUE",
  *   ],
  *   SelectiveAuth: "Enabled" || "Disabled",

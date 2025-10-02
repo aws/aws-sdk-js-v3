@@ -34,6 +34,8 @@ export interface DeleteCommentCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WorkDocsClient, DeleteCommentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteCommentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // DeleteCommentRequest
  *   AuthenticationToken: "STRING_VALUE",

@@ -40,6 +40,8 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * ```javascript
  * import { CodePipelineClient, CreatePipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, CreatePipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // CreatePipelineInput
  *   pipeline: { // PipelineDeclaration

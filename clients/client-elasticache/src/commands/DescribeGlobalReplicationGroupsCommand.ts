@@ -40,6 +40,8 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
  * ```javascript
  * import { ElastiCacheClient, DescribeGlobalReplicationGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeGlobalReplicationGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DescribeGlobalReplicationGroupsMessage
  *   GlobalReplicationGroupId: "STRING_VALUE",

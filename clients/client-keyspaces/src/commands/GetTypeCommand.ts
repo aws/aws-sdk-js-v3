@@ -34,6 +34,8 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * ```javascript
  * import { KeyspacesClient, GetTypeCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, GetTypeCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * // import type { KeyspacesClientConfig } from "@aws-sdk/client-keyspaces";
+ * const config = {}; // type is KeyspacesClientConfig
  * const client = new KeyspacesClient(config);
  * const input = { // GetTypeRequest
  *   keyspaceName: "STRING_VALUE", // required

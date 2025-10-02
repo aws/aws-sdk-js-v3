@@ -42,6 +42,8 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * ```javascript
  * import { RDSClient, CreateDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // CreateDBParameterGroupMessage
  *   DBParameterGroupName: "STRING_VALUE", // required

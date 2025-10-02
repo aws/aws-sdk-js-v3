@@ -38,6 +38,8 @@ export interface AcceptPredictionsCommandOutput extends AcceptPredictionsOutput,
  * ```javascript
  * import { DataZoneClient, AcceptPredictionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, AcceptPredictionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // AcceptPredictionsInput
  *   domainIdentifier: "STRING_VALUE", // required

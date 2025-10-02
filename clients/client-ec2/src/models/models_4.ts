@@ -6015,7 +6015,7 @@ export interface ResourceTypeOption {
    *                <ul>
    *                   <li>
    *                      <p>Valid values: <code>pending</code> | <code>running</code> | <code>shutting-down</code> |
-   *             <code>terminated</code> | <code>stopping</code> | <code>stopped</code>
+   *               <code>terminated</code> | <code>stopping</code> | <code>stopped</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -6056,7 +6056,7 @@ export interface ResourceTypeRequest {
 
   /**
    * <p>The options that affect the scope of the response. Valid only when
-   *         <code>ResourceType</code> is <code>ec2:Instance</code> or
+   *       <code>ResourceType</code> is <code>ec2:Instance</code> or
    *       <code>ec2:LaunchTemplate</code>.</p>
    * @public
    */
@@ -6076,13 +6076,13 @@ export interface DescribeImageReferencesRequest {
   /**
    * <p>Specifies whether to check all supported Amazon Web Services resource types for image references. When
    *       specified, default values are applied for <code>ResourceTypeOptions</code>. For the default
-   *       values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ami-references-works.html">How AMI reference checks
-   *         work</a> in the <i>Amazon EC2 User Guide</i>. If you also specify
-   *         <code>ResourceTypes</code> with <code>ResourceTypeOptions</code>, your specified values
-   *       override the default values.</p>
+   *       values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-references.html#how-ami-references-works">How AMI
+   *         reference checks work</a> in the <i>Amazon EC2 User Guide</i>. If you also
+   *       specify <code>ResourceTypes</code> with <code>ResourceTypeOptions</code>, your specified
+   *       values override the default values.</p>
    *          <p>Supported resource types: <code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code> |
-   *         <code>ssm:Parameter</code> | <code>imagebuilder:ImageRecipe</code> |
-   *         <code>imagebuilder:ContainerRecipe</code>
+   *       <code>ssm:Parameter</code> | <code>imagebuilder:ImageRecipe</code> |
+   *       <code>imagebuilder:ContainerRecipe</code>
    *          </p>
    *          <p>Either <code>IncludeAllResourceTypes</code> or <code>ResourceTypes</code> must be
    *       specified.</p>
@@ -6906,7 +6906,7 @@ export interface DescribeImageUsageReportEntriesRequest {
    *             <li>
    *                <p>
    *                   <code>resource-type</code> - The resource type (<code>ec2:Instance</code> |
-   *             <code>ec2:LaunchTemplate</code>).</p>
+   *           <code>ec2:LaunchTemplate</code>).</p>
    *             </li>
    *          </ul>
    * @public
@@ -7028,7 +7028,7 @@ export interface DescribeImageUsageReportsRequest {
    *             <li>
    *                <p>
    *                   <code>state</code> - The state of the report (<code>available</code> |
-   *             <code>pending</code> | <code>error</code>).</p>
+   *           <code>pending</code> | <code>error</code>).</p>
    *             </li>
    *          </ul>
    * @public
@@ -9097,7 +9097,7 @@ export interface DescribeInstancesRequest {
    *                <p>
    *                   <code>platform-details</code> - The platform (<code>Linux/UNIX</code> |
    *                         <code>Red Hat BYOL Linux</code> | <code> Red Hat Enterprise Linux</code> |
-   *                         <code>Red Hat Enterprise Linux with HA</code> | <code>Red Hat Enterprise
+   *                     <code>Red Hat Enterprise Linux with HA</code> | <code>Red Hat Enterprise Linux with High Availability</code> | <code>Red Hat Enterprise
    *                         Linux with SQL Server Standard and HA</code> | <code>Red Hat Enterprise
    *                         Linux with SQL Server Enterprise and HA</code> | <code>Red Hat Enterprise
    *                         Linux with SQL Server Standard</code> | <code>Red Hat Enterprise Linux with

@@ -35,6 +35,8 @@ export interface GetContainerServicesCommandOutput extends ContainerServicesList
  * ```javascript
  * import { LightsailClient, GetContainerServicesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerServicesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetContainerServicesRequest
  *   serviceName: "STRING_VALUE",

@@ -37,6 +37,8 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
  * ```javascript
  * import { IoTThingsGraphClient, GetFlowTemplateRevisionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetFlowTemplateRevisionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * // import type { IoTThingsGraphClientConfig } from "@aws-sdk/client-iotthingsgraph";
+ * const config = {}; // type is IoTThingsGraphClientConfig
  * const client = new IoTThingsGraphClient(config);
  * const input = { // GetFlowTemplateRevisionsRequest
  *   id: "STRING_VALUE", // required

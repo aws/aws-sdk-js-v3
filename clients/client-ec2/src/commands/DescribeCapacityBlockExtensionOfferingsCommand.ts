@@ -44,6 +44,8 @@ export interface DescribeCapacityBlockExtensionOfferingsCommandOutput
  * ```javascript
  * import { EC2Client, DescribeCapacityBlockExtensionOfferingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeCapacityBlockExtensionOfferingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeCapacityBlockExtensionOfferingsRequest
  *   DryRun: true || false,

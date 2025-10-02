@@ -34,6 +34,8 @@ export interface DescribeSlackWorkspacesCommandOutput extends DescribeSlackWorks
  * ```javascript
  * import { ChatbotClient, DescribeSlackWorkspacesCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, DescribeSlackWorkspacesCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // DescribeSlackWorkspacesRequest
  *   MaxResults: Number("int"),

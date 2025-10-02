@@ -35,6 +35,8 @@ export interface GetAnalysisReportResultsCommandOutput extends GetAnalysisReport
  * ```javascript
  * import { NetworkFirewallClient, GetAnalysisReportResultsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, GetAnalysisReportResultsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // GetAnalysisReportResultsRequest
  *   FirewallName: "STRING_VALUE",

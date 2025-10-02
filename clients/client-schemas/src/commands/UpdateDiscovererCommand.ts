@@ -34,6 +34,8 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  * ```javascript
  * import { SchemasClient, UpdateDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, UpdateDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // import type { SchemasClientConfig } from "@aws-sdk/client-schemas";
+ * const config = {}; // type is SchemasClientConfig
  * const client = new SchemasClient(config);
  * const input = { // UpdateDiscovererRequest
  *   Description: "STRING_VALUE",

@@ -39,6 +39,8 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * ```javascript
  * import { KinesisVideoArchivedMediaClient, GetImagesCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetImagesCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * // import type { KinesisVideoArchivedMediaClientConfig } from "@aws-sdk/client-kinesis-video-archived-media";
+ * const config = {}; // type is KinesisVideoArchivedMediaClientConfig
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetImagesInput
  *   StreamName: "STRING_VALUE",

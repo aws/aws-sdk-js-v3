@@ -37,6 +37,8 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
  * ```javascript
  * import { SageMakerClient, DeleteNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DeleteNotebookInstanceLifecycleConfigInput
  *   NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required

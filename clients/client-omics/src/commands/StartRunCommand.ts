@@ -34,6 +34,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * ```javascript
  * import { OmicsClient, StartRunCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartRunCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // StartRunRequest
  *   workflowId: "STRING_VALUE",

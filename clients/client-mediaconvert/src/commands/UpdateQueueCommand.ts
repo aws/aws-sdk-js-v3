@@ -34,6 +34,8 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * ```javascript
  * import { MediaConvertClient, UpdateQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, UpdateQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // UpdateQueueRequest
  *   ConcurrentJobs: Number("int"),

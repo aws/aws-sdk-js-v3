@@ -39,6 +39,8 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  * ```javascript
  * import { DataZoneClient, CreateSubscriptionRequestCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateSubscriptionRequestCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateSubscriptionRequestInput
  *   domainIdentifier: "STRING_VALUE", // required

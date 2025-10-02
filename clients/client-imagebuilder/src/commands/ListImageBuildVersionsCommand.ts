@@ -34,9 +34,11 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * ```javascript
  * import { ImagebuilderClient, ListImageBuildVersionsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImageBuildVersionsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImageBuildVersionsRequest
- *   imageVersionArn: "STRING_VALUE", // required
+ *   imageVersionArn: "STRING_VALUE",
  *   filters: [ // FilterList
  *     { // Filter
  *       name: "STRING_VALUE",
@@ -96,6 +98,9 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
  * //       deprecationTime: new Date("TIMESTAMP"),
  * //       lifecycleExecutionId: "STRING_VALUE",
+ * //       loggingConfiguration: { // ImageLoggingConfiguration
+ * //         logGroupName: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

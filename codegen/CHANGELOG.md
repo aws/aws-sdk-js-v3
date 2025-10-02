@@ -1,9 +1,27 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.36.0 (2025-09-30)
+
+### Features
+- Upgraded to smithy-typescript 0.36.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0360-2025-09-30))
+- Upgraded smithy version to 1.62.0 ([#7386](https://github.com/aws/aws-sdk-js-v3/pull/7386))
+- Used DOMParser for browser XML parsing ([#7347](https://github.com/aws/aws-sdk-js-v3/pull/7347))
+- Replaced 'uuid' with '@smithy/uuid' ([#7372](https://github.com/aws/aws-sdk-js-v3/pull/7372))
+
+## 0.35.0 (2025-09-18)
+
+### Features
+- Upgraded to smithy-typescript 0.35.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0350-2025-09-18))
+
+## 0.34.1 (2025-09-10)
+
+### Features
+- Upgraded to smithy-typescript 0.34.1 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0341-2025-09-10))
+
 ## 0.34.0 (2025-07-30)
 
 ### Features
-- Upgraded to smithy-typescript 0.34.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0330-2025-07-30))
+- Upgraded to smithy-typescript 0.34.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0340-2025-07-30))
 - Upgraded smithy version to 1.61.0 ([#7233](https://github.com/aws/aws-sdk-js-v3/pull/7233))
 
 ## 0.33.0 (2025-07-10)

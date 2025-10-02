@@ -84,6 +84,8 @@ export interface DeleteContainerGroupDefinitionCommandOutput
  * ```javascript
  * import { GameLiftClient, DeleteContainerGroupDefinitionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteContainerGroupDefinitionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // DeleteContainerGroupDefinitionInput
  *   Name: "STRING_VALUE", // required

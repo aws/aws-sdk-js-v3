@@ -124,6 +124,8 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * ```javascript
  * import { PersonalizeClient, CreateDatasetGroupCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateDatasetGroupCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // CreateDatasetGroupRequest
  *   name: "STRING_VALUE", // required

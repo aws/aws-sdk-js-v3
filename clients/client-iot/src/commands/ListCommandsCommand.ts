@@ -34,6 +34,8 @@ export interface ListCommandsCommandOutput extends ListCommandsResponse, __Metad
  * ```javascript
  * import { IoTClient, ListCommandsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListCommandsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // ListCommandsRequest
  *   maxResults: Number("int"),

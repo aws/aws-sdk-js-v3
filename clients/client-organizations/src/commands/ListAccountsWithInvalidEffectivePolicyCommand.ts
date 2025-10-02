@@ -38,8 +38,10 @@ export interface ListAccountsWithInvalidEffectivePolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all the accounts in an organization that have invalid effective policies.
- *             An <i>invalid effective policy</i> is an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective policy</a> that fails validation checks, resulting in the effective policy not being fully enforced on all the intended accounts within an organization.</p>
+ * <p>Lists all the accounts in an organization that have invalid effective policies. An
+ *                 <i>invalid effective policy</i> is an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective
+ *                 policy</a> that fails validation checks, resulting in the effective policy not
+ *             being fully enforced on all the intended accounts within an organization.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator.</p>
  * @example
@@ -47,6 +49,8 @@ export interface ListAccountsWithInvalidEffectivePolicyCommandOutput
  * ```javascript
  * import { OrganizationsClient, ListAccountsWithInvalidEffectivePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListAccountsWithInvalidEffectivePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // ListAccountsWithInvalidEffectivePolicyRequest
  *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY", // required
@@ -63,6 +67,7 @@ export interface ListAccountsWithInvalidEffectivePolicyCommandOutput
  * //       Email: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ * //       State: "PENDING_ACTIVATION" || "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE" || "CLOSED",
  * //       JoinedMethod: "INVITED" || "CREATED",
  * //       JoinedTimestamp: new Date("TIMESTAMP"),
  * //     },

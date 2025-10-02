@@ -38,6 +38,8 @@ export interface ListDbParameterGroupsCommandOutput extends ListDbParameterGroup
  * ```javascript
  * import { TimestreamInfluxDBClient, ListDbParameterGroupsCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, ListDbParameterGroupsCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
+ * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // ListDbParameterGroupsInput
  *   nextToken: "STRING_VALUE",

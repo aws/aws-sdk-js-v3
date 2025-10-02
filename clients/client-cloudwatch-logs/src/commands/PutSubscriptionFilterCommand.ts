@@ -68,6 +68,8 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudWatchLogsClient, PutSubscriptionFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutSubscriptionFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutSubscriptionFilterRequest
  *   logGroupName: "STRING_VALUE", // required
@@ -77,6 +79,10 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *   roleArn: "STRING_VALUE",
  *   distribution: "Random" || "ByLogStream",
  *   applyOnTransformedLogs: true || false,
+ *   fieldSelectionCriteria: "STRING_VALUE",
+ *   emitSystemFields: [ // EmitSystemFields
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new PutSubscriptionFilterCommand(input);
  * const response = await client.send(command);

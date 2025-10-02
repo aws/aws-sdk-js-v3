@@ -34,6 +34,8 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  * ```javascript
  * import { AppStreamClient, UpdateStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // UpdateStackRequest
  *   DisplayName: "STRING_VALUE",

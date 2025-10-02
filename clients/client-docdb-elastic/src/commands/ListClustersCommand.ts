@@ -34,6 +34,8 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * ```javascript
  * import { DocDBElasticClient, ListClustersCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, ListClustersCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * // import type { DocDBElasticClientConfig } from "@aws-sdk/client-docdb-elastic";
+ * const config = {}; // type is DocDBElasticClientConfig
  * const client = new DocDBElasticClient(config);
  * const input = { // ListClustersInput
  *   nextToken: "STRING_VALUE",

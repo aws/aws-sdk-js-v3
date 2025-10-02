@@ -60,6 +60,8 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * ```javascript
  * import { FSxClient, DescribeBackupsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeBackupsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // DescribeBackupsRequest
  *   BackupIds: [ // BackupIds
@@ -162,6 +164,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //             Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //             Iops: Number("long"),
  * //           },
+ * //           PreferredFileServerIpv6: "STRING_VALUE",
  * //         },
  * //         LustreConfiguration: { // LustreFileSystemConfiguration
  * //           WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -270,6 +273,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //                   Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //                   Iops: Number("long"),
  * //                 },
+ * //                 PreferredFileServerIpv6: "STRING_VALUE",
  * //               },
  * //               LustreConfiguration: {
  * //                 WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -454,10 +458,16 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //                     IpAddresses: [ // OntapEndpointIpAddresses
  * //                       "STRING_VALUE",
  * //                     ],
+ * //                     Ipv6Addresses: [
+ * //                       "STRING_VALUE",
+ * //                     ],
  * //                   },
  * //                   Management: {
  * //                     DNSName: "STRING_VALUE",
  * //                     IpAddresses: [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Ipv6Addresses: [
  * //                       "STRING_VALUE",
  * //                     ],
  * //                   },
@@ -475,6 +485,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //                 FsxAdminPassword: "STRING_VALUE",
  * //                 HAPairs: Number("int"),
  * //                 ThroughputCapacityPerHAPair: Number("int"),
+ * //                 EndpointIpv6AddressRange: "STRING_VALUE",
  * //               },
  * //               FileSystemTypeVersion: "STRING_VALUE",
  * //               OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -637,12 +648,12 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //               IpAddresses: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //               Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //             },
  * //             Management: {
  * //               DNSName: "STRING_VALUE",
- * //               IpAddresses: [
- * //                 "STRING_VALUE",
- * //               ],
+ * //               IpAddresses: "<OntapEndpointIpAddresses>",
+ * //               Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //             },
  * //           },
  * //           DiskIopsConfiguration: {
@@ -658,6 +669,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //           FsxAdminPassword: "STRING_VALUE",
  * //           HAPairs: Number("int"),
  * //           ThroughputCapacityPerHAPair: Number("int"),
+ * //           EndpointIpv6AddressRange: "STRING_VALUE",
  * //         },
  * //         FileSystemTypeVersion: "STRING_VALUE",
  * //         OpenZFSConfiguration: {

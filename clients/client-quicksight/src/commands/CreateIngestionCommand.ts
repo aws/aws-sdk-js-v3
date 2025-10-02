@@ -40,6 +40,8 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * ```javascript
  * import { QuickSightClient, CreateIngestionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateIngestionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateIngestionRequest
  *   DataSetId: "STRING_VALUE", // required

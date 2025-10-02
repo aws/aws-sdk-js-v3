@@ -39,6 +39,8 @@ export interface GetDefaultScraperConfigurationCommandOutput
  * ```javascript
  * import { AmpClient, GetDefaultScraperConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, GetDefaultScraperConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = {};
  * const command = new GetDefaultScraperConfigurationCommand(input);

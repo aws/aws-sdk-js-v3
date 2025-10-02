@@ -38,6 +38,8 @@ export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, _
  * ```javascript
  * import { BedrockClient, CreateGuardrailCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreateGuardrailCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // CreateGuardrailRequest
  *   name: "STRING_VALUE", // required

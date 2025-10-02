@@ -34,6 +34,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * ```javascript
  * import { Macie2Client, ListFindingsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListFindingsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * // import type { Macie2ClientConfig } from "@aws-sdk/client-macie2";
+ * const config = {}; // type is Macie2ClientConfig
  * const client = new Macie2Client(config);
  * const input = { // ListFindingsRequest
  *   findingCriteria: { // FindingCriteria

@@ -34,6 +34,8 @@ export interface PutMeteredProductCommandOutput extends PutMeteredProductRespons
  * ```javascript
  * import { DeadlineClient, PutMeteredProductCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, PutMeteredProductCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // PutMeteredProductRequest
  *   licenseEndpointId: "STRING_VALUE", // required

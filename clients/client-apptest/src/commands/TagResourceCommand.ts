@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { AppTestClient, TagResourceCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, TagResourceCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

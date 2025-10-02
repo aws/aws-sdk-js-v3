@@ -103,6 +103,8 @@ export interface RotateKeyOnDemandCommandOutput extends RotateKeyOnDemandRespons
  * ```javascript
  * import { KMSClient, RotateKeyOnDemandCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, RotateKeyOnDemandCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // RotateKeyOnDemandRequest
  *   KeyId: "STRING_VALUE", // required

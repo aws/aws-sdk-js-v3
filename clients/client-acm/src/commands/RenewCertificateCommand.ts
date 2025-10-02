@@ -34,6 +34,8 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ACMClient, RenewCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, RenewCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * // import type { ACMClientConfig } from "@aws-sdk/client-acm";
+ * const config = {}; // type is ACMClientConfig
  * const client = new ACMClient(config);
  * const input = { // RenewCertificateRequest
  *   CertificateArn: "STRING_VALUE", // required

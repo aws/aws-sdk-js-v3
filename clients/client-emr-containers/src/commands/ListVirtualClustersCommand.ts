@@ -39,6 +39,8 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * ```javascript
  * import { EMRContainersClient, ListVirtualClustersCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, ListVirtualClustersCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // ListVirtualClustersRequest
  *   containerProviderId: "STRING_VALUE",
@@ -67,6 +69,7 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * //         info: { // ContainerInfo Union: only one key present
  * //           eksInfo: { // EksInfo
  * //             namespace: "STRING_VALUE",
+ * //             nodeLabel: "STRING_VALUE",
  * //           },
  * //         },
  * //       },

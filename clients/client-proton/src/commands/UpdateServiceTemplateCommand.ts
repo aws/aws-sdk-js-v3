@@ -39,6 +39,8 @@ export interface UpdateServiceTemplateCommandOutput extends UpdateServiceTemplat
  * ```javascript
  * import { ProtonClient, UpdateServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // UpdateServiceTemplateInput
  *   name: "STRING_VALUE", // required

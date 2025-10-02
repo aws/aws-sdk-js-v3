@@ -62,6 +62,8 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  * ```javascript
  * import { ResourceGroupsClient, SearchResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, SearchResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // import type { ResourceGroupsClientConfig } from "@aws-sdk/client-resource-groups";
+ * const config = {}; // type is ResourceGroupsClientConfig
  * const client = new ResourceGroupsClient(config);
  * const input = { // SearchResourcesInput
  *   ResourceQuery: { // ResourceQuery

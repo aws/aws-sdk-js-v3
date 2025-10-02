@@ -38,6 +38,8 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * ```javascript
  * import { GlacierClient, InitiateJobCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, InitiateJobCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // import type { GlacierClientConfig } from "@aws-sdk/client-glacier";
+ * const config = {}; // type is GlacierClientConfig
  * const client = new GlacierClient(config);
  * const input = { // InitiateJobInput
  *   accountId: "STRING_VALUE", // required

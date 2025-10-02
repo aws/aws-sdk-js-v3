@@ -83,6 +83,8 @@ export interface StartMedicalScribeJobCommandOutput extends StartMedicalScribeJo
  * ```javascript
  * import { TranscribeClient, StartMedicalScribeJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, StartMedicalScribeJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // import type { TranscribeClientConfig } from "@aws-sdk/client-transcribe";
+ * const config = {}; // type is TranscribeClientConfig
  * const client = new TranscribeClient(config);
  * const input = { // StartMedicalScribeJobRequest
  *   MedicalScribeJobName: "STRING_VALUE", // required

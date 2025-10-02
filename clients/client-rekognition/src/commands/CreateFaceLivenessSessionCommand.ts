@@ -43,6 +43,8 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * ```javascript
  * import { RekognitionClient, CreateFaceLivenessSessionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateFaceLivenessSessionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // CreateFaceLivenessSessionRequest
  *   KmsKeyId: "STRING_VALUE",

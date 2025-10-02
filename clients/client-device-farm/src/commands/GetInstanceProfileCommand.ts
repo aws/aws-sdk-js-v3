@@ -34,6 +34,8 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResul
  * ```javascript
  * import { DeviceFarmClient, GetInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // GetInstanceProfileRequest
  *   arn: "STRING_VALUE", // required

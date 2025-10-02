@@ -34,6 +34,8 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * ```javascript
  * import { DSQLClient, ListClustersCommand } from "@aws-sdk/client-dsql"; // ES Modules import
  * // const { DSQLClient, ListClustersCommand } = require("@aws-sdk/client-dsql"); // CommonJS import
+ * // import type { DSQLClientConfig } from "@aws-sdk/client-dsql";
+ * const config = {}; // type is DSQLClientConfig
  * const client = new DSQLClient(config);
  * const input = { // ListClustersInput
  *   maxResults: Number("int"),

@@ -39,6 +39,8 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  * ```javascript
  * import { NetworkFirewallClient, AssociateSubnetsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, AssociateSubnetsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // AssociateSubnetsRequest
  *   UpdateToken: "STRING_VALUE",

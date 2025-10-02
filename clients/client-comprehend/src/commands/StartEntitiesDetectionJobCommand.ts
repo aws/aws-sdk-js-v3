@@ -38,6 +38,8 @@ export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDet
  * ```javascript
  * import { ComprehendClient, StartEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // StartEntitiesDetectionJobRequest
  *   InputDataConfig: { // InputDataConfig

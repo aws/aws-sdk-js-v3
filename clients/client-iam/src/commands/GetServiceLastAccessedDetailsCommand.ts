@@ -90,6 +90,8 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  * ```javascript
  * import { IAMClient, GetServiceLastAccessedDetailsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetServiceLastAccessedDetailsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // GetServiceLastAccessedDetailsRequest
  *   JobId: "STRING_VALUE", // required

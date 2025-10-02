@@ -36,6 +36,8 @@ export interface GetExtensionAssociationCommandOutput extends ExtensionAssociati
  * ```javascript
  * import { AppConfigClient, GetExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // GetExtensionAssociationRequest
  *   ExtensionAssociationId: "STRING_VALUE", // required

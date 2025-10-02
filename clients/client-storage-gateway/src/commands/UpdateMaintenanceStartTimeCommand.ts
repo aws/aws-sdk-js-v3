@@ -49,6 +49,8 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * ```javascript
  * import { StorageGatewayClient, UpdateMaintenanceStartTimeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateMaintenanceStartTimeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateMaintenanceStartTimeInput
  *   GatewayARN: "STRING_VALUE", // required

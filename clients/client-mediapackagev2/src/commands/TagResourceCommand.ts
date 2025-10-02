@@ -28,17 +28,14 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Assigns one of more tags (key-value pairs) to the specified MediaPackage resource.</p>
- *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
- *          permissions, by granting a user permission to access or change only resources with certain tag values.
- *          You can use the TagResource operation with a resource that already has tags. If you specify a new tag
- *          key for the resource, this tag is appended to the list of tags associated with the resource. If you
- *          specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.</p>
+ * <p>Assigns one of more tags (key-value pairs) to the specified MediaPackage resource.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values. You can use the TagResource operation with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaPackageV2Client, TagResourceCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, TagResourceCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // import type { MediaPackageV2ClientConfig } from "@aws-sdk/client-mediapackagev2";
+ * const config = {}; // type is MediaPackageV2ClientConfig
  * const client = new MediaPackageV2Client(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

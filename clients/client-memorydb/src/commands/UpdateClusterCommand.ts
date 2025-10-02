@@ -34,6 +34,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * ```javascript
  * import { MemoryDBClient, UpdateClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
+ * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
  * const input = { // UpdateClusterRequest
  *   ClusterName: "STRING_VALUE", // required

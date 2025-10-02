@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { FisClient, TagResourceCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, TagResourceCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

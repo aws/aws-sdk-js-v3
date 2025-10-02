@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_0";
+import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_1";
 import { de_PutClusterCapacityProvidersCommand, se_PutClusterCapacityProvidersCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -44,11 +44,14 @@ export interface PutClusterCapacityProvidersCommandOutput
  * 			We recommend that you define a default capacity provider strategy for your cluster.
  * 			However, you must specify an empty array (<code>[]</code>) to bypass defining a default
  * 			strategy.</p>
+ *          <p>Amazon ECS Managed Instances doesn't support this, because when you create a capacity provider with Amazon ECS Managed Instances, it becomes available only within the specified cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, PutClusterCapacityProvidersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutClusterCapacityProvidersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // PutClusterCapacityProvidersRequest
  *   cluster: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListImageSetVersionsCommandOutput extends ListImageSetVersionsR
  * ```javascript
  * import { MedicalImagingClient, ListImageSetVersionsCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, ListImageSetVersionsCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // import type { MedicalImagingClientConfig } from "@aws-sdk/client-medical-imaging";
+ * const config = {}; // type is MedicalImagingClientConfig
  * const client = new MedicalImagingClient(config);
  * const input = { // ListImageSetVersionsRequest
  *   datastoreId: "STRING_VALUE", // required
@@ -49,7 +51,7 @@ export interface ListImageSetVersionsCommandOutput extends ListImageSetVersionsR
  * //       imageSetId: "STRING_VALUE", // required
  * //       versionId: "STRING_VALUE", // required
  * //       imageSetState: "ACTIVE" || "LOCKED" || "DELETED", // required
- * //       ImageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED",
+ * //       ImageSetWorkflowStatus: "CREATED" || "COPIED" || "COPYING" || "COPYING_WITH_READ_ONLY_ACCESS" || "COPY_FAILED" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED" || "IMPORTING" || "IMPORTED" || "IMPORT_FAILED",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       deletedAt: new Date("TIMESTAMP"),

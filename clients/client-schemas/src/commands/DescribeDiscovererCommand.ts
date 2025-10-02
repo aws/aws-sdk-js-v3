@@ -34,6 +34,8 @@ export interface DescribeDiscovererCommandOutput extends DescribeDiscovererRespo
  * ```javascript
  * import { SchemasClient, DescribeDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DescribeDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // import type { SchemasClientConfig } from "@aws-sdk/client-schemas";
+ * const config = {}; // type is SchemasClientConfig
  * const client = new SchemasClient(config);
  * const input = { // DescribeDiscovererRequest
  *   DiscovererId: "STRING_VALUE", // required

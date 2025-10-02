@@ -39,6 +39,8 @@ export interface CreateCloudAutonomousVmClusterCommandOutput
  * ```javascript
  * import { OdbClient, CreateCloudAutonomousVmClusterCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, CreateCloudAutonomousVmClusterCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // CreateCloudAutonomousVmClusterInput
  *   cloudExadataInfrastructureId: "STRING_VALUE", // required

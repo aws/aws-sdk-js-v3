@@ -34,6 +34,8 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * ```javascript
  * import { SageMakerClient, ListTagsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTagsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListTagsInput
  *   ResourceArn: "STRING_VALUE", // required

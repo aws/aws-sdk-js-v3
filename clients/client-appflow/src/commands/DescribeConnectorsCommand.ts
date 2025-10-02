@@ -37,6 +37,8 @@ export interface DescribeConnectorsCommandOutput extends DescribeConnectorsRespo
  * ```javascript
  * import { AppflowClient, DescribeConnectorsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeConnectorsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // import type { AppflowClientConfig } from "@aws-sdk/client-appflow";
+ * const config = {}; // type is AppflowClientConfig
  * const client = new AppflowClient(config);
  * const input = { // DescribeConnectorsRequest
  *   connectorTypes: [ // ConnectorTypeList

@@ -47,6 +47,8 @@ export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __M
  * ```javascript
  * import { ProtonClient, UpdateComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
+ * const config = {}; // type is ProtonClientConfig
  * const client = new ProtonClient(config);
  * const input = { // UpdateComponentInput
  *   name: "STRING_VALUE", // required

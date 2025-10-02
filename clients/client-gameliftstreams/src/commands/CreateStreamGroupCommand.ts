@@ -34,6 +34,8 @@ export interface CreateStreamGroupCommandOutput extends CreateStreamGroupOutput,
  * ```javascript
  * import { GameLiftStreamsClient, CreateStreamGroupCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, CreateStreamGroupCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // CreateStreamGroupInput
  *   Description: "STRING_VALUE", // required

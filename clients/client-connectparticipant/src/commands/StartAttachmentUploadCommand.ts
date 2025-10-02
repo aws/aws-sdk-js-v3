@@ -47,6 +47,8 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * ```javascript
  * import { ConnectParticipantClient, StartAttachmentUploadCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, StartAttachmentUploadCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // import type { ConnectParticipantClientConfig } from "@aws-sdk/client-connectparticipant";
+ * const config = {}; // type is ConnectParticipantClientConfig
  * const client = new ConnectParticipantClient(config);
  * const input = { // StartAttachmentUploadRequest
  *   ContentType: "STRING_VALUE", // required

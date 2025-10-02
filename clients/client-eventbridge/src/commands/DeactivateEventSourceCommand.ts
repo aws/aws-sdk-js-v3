@@ -38,6 +38,8 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EventBridgeClient, DeactivateEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeactivateEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // DeactivateEventSourceRequest
  *   Name: "STRING_VALUE", // required

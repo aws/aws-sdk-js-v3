@@ -36,6 +36,8 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * ```javascript
  * import { PersonalizeClient, DescribeBatchInferenceJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeBatchInferenceJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeBatchInferenceJobRequest
  *   batchInferenceJobArn: "STRING_VALUE", // required

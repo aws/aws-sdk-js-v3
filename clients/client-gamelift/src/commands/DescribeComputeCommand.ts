@@ -75,6 +75,8 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
  * ```javascript
  * import { GameLiftClient, DescribeComputeCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeComputeCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // DescribeComputeInput
  *   FleetId: "STRING_VALUE", // required

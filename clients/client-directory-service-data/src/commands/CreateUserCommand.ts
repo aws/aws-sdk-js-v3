@@ -38,6 +38,8 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
  * ```javascript
  * import { DirectoryServiceDataClient, CreateUserCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, CreateUserCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // import type { DirectoryServiceDataClientConfig } from "@aws-sdk/client-directory-service-data";
+ * const config = {}; // type is DirectoryServiceDataClientConfig
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // CreateUserRequest
  *   DirectoryId: "STRING_VALUE", // required

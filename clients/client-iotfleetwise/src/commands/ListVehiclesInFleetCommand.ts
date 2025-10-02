@@ -37,6 +37,8 @@ export interface ListVehiclesInFleetCommandOutput extends ListVehiclesInFleetRes
  * ```javascript
  * import { IoTFleetWiseClient, ListVehiclesInFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListVehiclesInFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // import type { IoTFleetWiseClientConfig } from "@aws-sdk/client-iotfleetwise";
+ * const config = {}; // type is IoTFleetWiseClientConfig
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListVehiclesInFleetRequest
  *   fleetId: "STRING_VALUE", // required

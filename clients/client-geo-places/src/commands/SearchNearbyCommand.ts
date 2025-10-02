@@ -39,6 +39,8 @@ export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __Metad
  * ```javascript
  * import { GeoPlacesClient, SearchNearbyCommand } from "@aws-sdk/client-geo-places"; // ES Modules import
  * // const { GeoPlacesClient, SearchNearbyCommand } = require("@aws-sdk/client-geo-places"); // CommonJS import
+ * // import type { GeoPlacesClientConfig } from "@aws-sdk/client-geo-places";
+ * const config = {}; // type is GeoPlacesClientConfig
  * const client = new GeoPlacesClient(config);
  * const input = { // SearchNearbyRequest
  *   QueryPosition: [ // Position // required

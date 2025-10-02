@@ -38,6 +38,8 @@ export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceRespons
  * ```javascript
  * import { ChimeSDKIdentityClient, UpdateAppInstanceCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, UpdateAppInstanceCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * // import type { ChimeSDKIdentityClientConfig } from "@aws-sdk/client-chime-sdk-identity";
+ * const config = {}; // type is ChimeSDKIdentityClientConfig
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // UpdateAppInstanceRequest
  *   AppInstanceArn: "STRING_VALUE", // required

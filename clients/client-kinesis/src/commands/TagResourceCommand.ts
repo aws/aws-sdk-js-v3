@@ -34,6 +34,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KinesisClient, TagResourceCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, TagResourceCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // TagResourceInput
  *   Tags: { // TagMap // required

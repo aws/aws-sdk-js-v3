@@ -34,6 +34,8 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * ```javascript
  * import { NetworkManagerClient, GetNetworkRoutesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetNetworkRoutesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // GetNetworkRoutesRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

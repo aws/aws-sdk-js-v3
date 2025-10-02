@@ -41,6 +41,8 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  * ```javascript
  * import { DevOpsGuruClient, SearchOrganizationInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, SearchOrganizationInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // import type { DevOpsGuruClientConfig } from "@aws-sdk/client-devops-guru";
+ * const config = {}; // type is DevOpsGuruClientConfig
  * const client = new DevOpsGuruClient(config);
  * const input = { // SearchOrganizationInsightsRequest
  *   AccountIds: [ // SearchInsightsAccountIdList // required

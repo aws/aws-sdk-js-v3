@@ -34,6 +34,8 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * ```javascript
  * import { ImagebuilderClient, ListImagePipelineImagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImagePipelineImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImagePipelineImagesRequest
  *   imagePipelineArn: "STRING_VALUE", // required
@@ -96,6 +98,9 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
  * //       deprecationTime: new Date("TIMESTAMP"),
  * //       lifecycleExecutionId: "STRING_VALUE",
+ * //       loggingConfiguration: { // ImageLoggingConfiguration
+ * //         logGroupName: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

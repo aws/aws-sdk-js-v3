@@ -38,6 +38,8 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * ```javascript
  * import { BedrockAgentRuntimeClient, CreateSessionCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, CreateSessionCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // import type { BedrockAgentRuntimeClientConfig } from "@aws-sdk/client-bedrock-agent-runtime";
+ * const config = {}; // type is BedrockAgentRuntimeClientConfig
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // CreateSessionRequest
  *   sessionMetadata: { // SessionMetadataMap

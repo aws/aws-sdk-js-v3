@@ -301,6 +301,14 @@ DeleteScraper
 </details>
 <details>
 <summary>
+DeleteScraperLoggingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/DeleteScraperLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DeleteScraperLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DeleteScraperLoggingConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteWorkspace
 </summary>
 
@@ -353,6 +361,14 @@ DescribeScraper
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/DescribeScraperCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DescribeScraperCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DescribeScraperCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeScraperLoggingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/DescribeScraperLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DescribeScraperLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/DescribeScraperLoggingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -473,6 +489,14 @@ UpdateScraper
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/UpdateScraperCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateScraperCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateScraperCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateScraperLoggingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amp/command/UpdateScraperLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateScraperLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amp/Interface/UpdateScraperLoggingConfigurationCommandOutput/)
 
 </details>
 <details>

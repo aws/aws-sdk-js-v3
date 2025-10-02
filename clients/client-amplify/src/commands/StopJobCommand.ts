@@ -34,6 +34,8 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * ```javascript
  * import { AmplifyClient, StopJobCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, StopJobCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // StopJobRequest
  *   appId: "STRING_VALUE", // required

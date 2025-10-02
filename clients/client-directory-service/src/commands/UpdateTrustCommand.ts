@@ -35,6 +35,8 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  * ```javascript
  * import { DirectoryServiceClient, UpdateTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UpdateTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // UpdateTrustRequest
  *   TrustId: "STRING_VALUE", // required

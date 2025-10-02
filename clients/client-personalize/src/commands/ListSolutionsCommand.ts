@@ -37,6 +37,8 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * ```javascript
  * import { PersonalizeClient, ListSolutionsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListSolutionsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // ListSolutionsRequest
  *   datasetGroupArn: "STRING_VALUE",

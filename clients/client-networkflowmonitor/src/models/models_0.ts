@@ -49,6 +49,7 @@ export class ConflictException extends __BaseException {
  */
 export const MonitorLocalResourceType = {
   AWS_AZ: "AWS::AvailabilityZone",
+  AWS_REGION: "AWS::Region",
   AWS_SUBNET: "AWS::EC2::Subnet",
   AWS_VPC: "AWS::EC2::VPC",
 } as const;
@@ -59,18 +60,18 @@ export const MonitorLocalResourceType = {
 export type MonitorLocalResourceType = (typeof MonitorLocalResourceType)[keyof typeof MonitorLocalResourceType];
 
 /**
- * <p>A local resource is the host where the agent is installed. Local resources can be a a subnet, a VPC, or an Availability Zone.</p>
+ * <p>A local resource is the host where the agent is installed. Local resources can be a a subnet, a VPC, an Availability Zone, or an Amazon Web Services service.</p>
  * @public
  */
 export interface MonitorLocalResource {
   /**
-   * <p>The type of the local resource. Valid values are <code>AWS::EC2::VPC</code> <code>AWS::AvailabilityZone</code> or <code>AWS::EC2::Subnet</code>.</p>
+   * <p>The type of the local resource. Valid values are <code>AWS::EC2::VPC</code> <code>AWS::AvailabilityZone</code>, <code>AWS::EC2::Subnet</code>, or <code>AWS::Region</code>.</p>
    * @public
    */
   type: MonitorLocalResourceType | undefined;
 
   /**
-   * <p>The identifier of the local resource, such as an ARN.</p>
+   * <p>The identifier of the local resource. For a VPC or subnet, this identifier is the VPC Amazon Resource Name (ARN) or subnet ARN. For an Availability Zone, this identifier is the AZ name, for example, us-west-2b.</p>
    * @public
    */
   identifier: string | undefined;
@@ -82,6 +83,7 @@ export interface MonitorLocalResource {
  */
 export const MonitorRemoteResourceType = {
   AWS_AZ: "AWS::AvailabilityZone",
+  AWS_REGION: "AWS::Region",
   AWS_SERVICE: "AWS::AWSService",
   AWS_SUBNET: "AWS::EC2::Subnet",
   AWS_VPC: "AWS::EC2::VPC",
@@ -93,18 +95,18 @@ export const MonitorRemoteResourceType = {
 export type MonitorRemoteResourceType = (typeof MonitorRemoteResourceType)[keyof typeof MonitorRemoteResourceType];
 
 /**
- * <p>A remote resource is the other endpoint in a network flow. That is, one endpoint is the local resource and the other is the remote resource. Remote resources can be a a subnet, a VPC, an Availability Zone, or an Amazon Web Services service. </p>
+ * <p>A remote resource is the other endpoint in a network flow. That is, one endpoint is the local resource and the other is the remote resource. Remote resources can be a a subnet, a VPC, an Availability Zone, an Amazon Web Services service, or an Amazon Web Services Region.</p> <p>When a remote resource is an Amazon Web Services Region, Network Flow Monitor provides network performance measurements up to the edge of the Region that you specify.</p>
  * @public
  */
 export interface MonitorRemoteResource {
   /**
-   * <p>The type of the remote resource. Valid values are <code>AWS::EC2::VPC</code> <code>AWS::AvailabilityZone</code>, <code>AWS::EC2::Subnet</code>, or <code>AWS::AWSService</code>.</p>
+   * <p>The type of the remote resource. Valid values are <code>AWS::EC2::VPC</code> <code>AWS::AvailabilityZone</code>, <code>AWS::EC2::Subnet</code>, <code>AWS::AWSService</code>, or <code>AWS::Region</code>.</p>
    * @public
    */
   type: MonitorRemoteResourceType | undefined;
 
   /**
-   * <p>The identifier of the remote resource, such as an ARN.</p>
+   * <p>The identifier of the remote resource. For a VPC or subnet, this identifier is the VPC Amazon Resource Name (ARN) or subnet ARN. For an Availability Zone, this identifier is the AZ name, for example, us-west-2b. For an Amazon Web Services Region , this identifier is the Region name, for example, us-west-2. </p>
    * @public
    */
   identifier: string | undefined;
@@ -121,13 +123,13 @@ export interface CreateMonitorInput {
   monitorName: string | undefined;
 
   /**
-   * <p>The local resources to monitor. A local resource, in a bi-directional flow of a workload, is the host where the agent is installed. For example, if a workload consists of an interaction between a web service and a backend database (for example, Amazon Relational Database Service (RDS)), the EC2 instance hosting the web service, which also runs the agent, is the local resource.</p>
+   * <p>The local resources to monitor. A local resource in a workload is the location of the host, or hosts, where the Network Flow Monitor agent is installed. For example, if a workload consists of an interaction between a web service and a backend database (for example, Amazon Dynamo DB), the subnet with the EC2 instance that hosts the web service, which also runs the agent, is the local resource.</p> <p>Be aware that all local resources must belong to the current Region.</p>
    * @public
    */
   localResources: MonitorLocalResource[] | undefined;
 
   /**
-   * <p>The remote resources to monitor. A remote resource is the other endpoint in the bi-directional flow of a workload, with a local resource. For example, Amazon Relational Database Service (RDS) can be a remote resource.</p>
+   * <p>The remote resources to monitor. A remote resource is the other endpoint in the bi-directional flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource.</p> <p>When you specify remote resources, be aware that specific combinations of resources are allowed and others are not, including the following constraints:</p> <ul> <li> <p>All remote resources that you specify must all belong to a single Region.</p> </li> <li> <p>If you specify Amazon Web Services services as remote resources, any other remote resources that you specify must be in the current Region.</p> </li> <li> <p>When you specify a remote resource for another Region, you can only specify the <code>Region</code> resource type. You cannot specify a subnet, VPC, or Availability Zone in another Region.</p> </li> <li> <p>If you leave the <code>RemoteResources</code> parameter empty, the monitor will include all network flows that terminate in the current Region.</p> </li> </ul>
    * @public
    */
   remoteResources?: MonitorRemoteResource[] | undefined;
@@ -191,13 +193,13 @@ export interface CreateMonitorOutput {
   monitorStatus: MonitorStatus | undefined;
 
   /**
-   * <p>The local resources to monitor. A local resource, in a bi-directional flow of a workload, is the host where the agent is installed. </p>
+   * <p>The local resources to monitor. A local resource in a workload is the location of hosts where the Network Flow Monitor agent is installed. </p>
    * @public
    */
   localResources: MonitorLocalResource[] | undefined;
 
   /**
-   * <p>The remote resources to monitor. A remote resource is the other endpoint in the bi-directional flow of a workload, with a local resource. For example, Amazon Relational Database Service (RDS) can be a remote resource. The remote resource is identified by its ARN or an identifier.</p>
+   * <p>The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. </p>
    * @public
    */
   remoteResources: MonitorRemoteResource[] | undefined;
@@ -357,36 +359,36 @@ export const TargetType = {
 export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
- * <p>A target identifier is a pair of identifying information for a resource that is included in a target. A target identifier includes the target ID and the target type.</p>
+ * <p>A target identifier is a pair of identifying information for a scope that is included in a target. A target identifier is made up of a target ID and a target type. Currently the target ID is always an account ID and the target type is always ACCOUNT.</p>
  * @public
  */
 export interface TargetIdentifier {
   /**
-   * <p>The identifier for a target.</p>
+   * <p>The identifier for a target, which is currently always an account ID .</p>
    * @public
    */
   targetId: TargetId | undefined;
 
   /**
-   * <p>The type of a target. A target type is currently always <code>ACCOUNT</code> because a target is currently a single Amazon Web Services account.</p>
+   * <p>The type of a target. A target type is currently always <code>ACCOUNT</code>.</p>
    * @public
    */
   targetType: TargetType | undefined;
 }
 
 /**
- * <p>A target resource in a scope. The resource is identified by a Region and a target identifier, which includes a target ID and a target type.</p>
+ * <p>A target resource in a scope. The resource is identified by a Region and an account, defined by a target identifier. A target identifier is made up of a target ID (currently always an account ID) and a target type (currently always <code>ACCOUNT</code>).</p>
  * @public
  */
 export interface TargetResource {
   /**
-   * <p>A target identifier is a pair of identifying information for a resource that is included in a target. A target identifier includes the target ID and the target type.</p>
+   * <p>A target identifier is a pair of identifying information for a scope. A target identifier is made up of a targetID (currently always an account ID) and a targetType (currently always an account).</p>
    * @public
    */
   targetIdentifier: TargetIdentifier | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the target resource is located.</p>
+   * <p>The Amazon Web Services Region for the scope.</p>
    * @public
    */
   region: string | undefined;
@@ -397,7 +399,7 @@ export interface TargetResource {
  */
 export interface CreateScopeInput {
   /**
-   * <p>The targets to define the scope to be monitored. Currently, a target is an Amazon Web Services account.</p>
+   * <p>The targets to define the scope to be monitored. A target is an array of targetResources, which are currently Region-account pairs, defined by targetResource constructs.</p>
    * @public
    */
   targets: TargetResource[] | undefined;
@@ -521,6 +523,7 @@ export const DestinationCategory = {
   AMAZON_DYNAMODB: "AMAZON_DYNAMODB",
   AMAZON_S3: "AMAZON_S3",
   INTER_AZ: "INTER_AZ",
+  INTER_REGION: "INTER_REGION",
   INTER_VPC: "INTER_VPC",
   INTRA_AZ: "INTRA_AZ",
   UNCLASSIFIED: "UNCLASSIFIED",
@@ -565,13 +568,13 @@ export interface GetMonitorOutput {
   monitorStatus: MonitorStatus | undefined;
 
   /**
-   * <p>The local resources for this monitor.</p>
+   * <p>The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed. </p>
    * @public
    */
   localResources: MonitorLocalResource[] | undefined;
 
   /**
-   * <p>The remote resources for this monitor.</p>
+   * <p>The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. </p>
    * @public
    */
   remoteResources: MonitorRemoteResource[] | undefined;
@@ -684,7 +687,7 @@ export interface TraversedComponent {
   componentType?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a tranversed component.</p>
+   * <p>The Amazon Resource Name (ARN) of a traversed component.</p>
    * @public
    */
   componentArn?: string | undefined;
@@ -750,7 +753,7 @@ export interface MonitorTopContributorsRow {
   targetPort?: number | undefined;
 
   /**
-   * <p>The destination category for a top contributors row. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
+   * <p>The destination category for a top contributors row. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
    * @public
    */
   destinationCategory?: DestinationCategory | undefined;
@@ -979,7 +982,7 @@ export interface WorkloadInsightsTopContributorsRow {
   localRegion?: string | undefined;
 
   /**
-   * <p>The identifier of a remote resource.</p>
+   * <p>The identifier of a remote resource. For a VPC or subnet, this identifier is the VPC Amazon Resource Name (ARN) or subnet ARN. For an Availability Zone, this identifier is the AZ name, for example, us-west-2b. For an Amazon Web Services Region , this identifier is the Region name, for example, us-west-2.</p>
    * @public
    */
   remoteIdentifier?: string | undefined;
@@ -1231,7 +1234,7 @@ export interface GetScopeOutput {
   scopeArn: string | undefined;
 
   /**
-   * <p>The targets for a scope</p>
+   * <p>The targets to define the scope to be monitored. A target is an array of targetResources, which are currently Region-account pairs, defined by targetResource constructs.</p>
    * @public
    */
   targets: TargetResource[] | undefined;
@@ -1267,7 +1270,7 @@ export interface ListMonitorsInput {
 }
 
 /**
- * <p>A summary of information about a monitor, includ the ARN, the name, and the status.</p>
+ * <p>A summary of information about a monitor, including the ARN, the name, and the status.</p>
  * @public
  */
 export interface MonitorSummary {
@@ -1330,7 +1333,7 @@ export interface ListScopesInput {
  */
 export interface ScopeSummary {
   /**
-   * <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
+   * <p>The identifier for the scope that includes the resources that you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for the accounts in a scope.</p>
    * @public
    */
   scopeId: string | undefined;
@@ -1414,7 +1417,7 @@ export interface StartQueryMonitorTopContributorsInput {
   monitorName: string | undefined;
 
   /**
-   * <p>The timestamp that is the date and time beginning of the period that you want to retrieve results for with your query.</p>
+   * <p>The timestamp that is the date and time that is the beginning of the period that you want to retrieve results for with your query.</p>
    * @public
    */
   startTime: Date | undefined;
@@ -1432,7 +1435,7 @@ export interface StartQueryMonitorTopContributorsInput {
   metricName: MonitorMetric | undefined;
 
   /**
-   * <p>The category that you want to query top contributors for, for a specific monitor. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AMAZON_S3</code>: Top contributor network flows to or from Amazon S3</p> </li> <li> <p> <code>AMAZON_DYNAMODB</code>: Top contributor network flows to or from Amazon Dynamo DB</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
+   * <p>The category that you want to query top contributors for, for a specific monitor. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AMAZON_S3</code>: Top contributor network flows to or from Amazon S3</p> </li> <li> <p> <code>AMAZON_DYNAMODB</code>: Top contributor network flows to or from Amazon Dynamo DB</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
    * @public
    */
   destinationCategory: DestinationCategory | undefined;
@@ -1488,7 +1491,7 @@ export interface UpdateMonitorInput {
   monitorName: string | undefined;
 
   /**
-   * <p>The local resources to add, as an array of resources with identifiers and types.</p>
+   * <p>Additional local resources to specify network flows for a monitor, as an array of resources with identifiers and types. A local resource in a workload is the location of hosts where the Network Flow Monitor agent is installed. </p>
    * @public
    */
   localResourcesToAdd?: MonitorLocalResource[] | undefined;
@@ -1500,13 +1503,13 @@ export interface UpdateMonitorInput {
   localResourcesToRemove?: MonitorLocalResource[] | undefined;
 
   /**
-   * <p>The remove resources to add, as an array of resources with identifiers and types.</p>
+   * <p>The remote resources to add, as an array of resources with identifiers and types.</p> <p>A remote resource is the other endpoint in the flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. </p>
    * @public
    */
   remoteResourcesToAdd?: MonitorRemoteResource[] | undefined;
 
   /**
-   * <p>The remove resources to remove, as an array of resources with identifiers and types.</p>
+   * <p>The remote resources to remove, as an array of resources with identifiers and types.</p> <p>A remote resource is the other endpoint specified for the network flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. </p>
    * @public
    */
   remoteResourcesToRemove?: MonitorRemoteResource[] | undefined;
@@ -1541,13 +1544,13 @@ export interface UpdateMonitorOutput {
   monitorStatus: MonitorStatus | undefined;
 
   /**
-   * <p>The local resources updated for a monitor, as an array of resources with identifiers and types.</p>
+   * <p>The local resources to monitor. A local resource in a workload is the location of hosts where the Network Flow Monitor agent is installed. </p>
    * @public
    */
   localResources: MonitorLocalResource[] | undefined;
 
   /**
-   * <p>The remote resources updated for a monitor, as an array of resources with identifiers and types.</p>
+   * <p>The remote resources updated for a monitor, as an array of resources with identifiers and types.</p> <p>A remote resource is the other endpoint specified for the network flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource.</p>
    * @public
    */
   remoteResources: MonitorRemoteResource[] | undefined;
@@ -1597,7 +1600,7 @@ export interface StartQueryWorkloadInsightsTopContributorsInput {
   scopeId: string | undefined;
 
   /**
-   * <p>The timestamp that is the date and time beginning of the period that you want to retrieve results for with your query.</p>
+   * <p>The timestamp that is the date and time that is the beginning of the period that you want to retrieve results for with your query.</p>
    * @public
    */
   startTime: Date | undefined;
@@ -1615,7 +1618,7 @@ export interface StartQueryWorkloadInsightsTopContributorsInput {
   metricName: WorkloadInsightsMetric | undefined;
 
   /**
-   * <p>The destination category for a top contributors row. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
+   * <p>The destination category for a top contributors row. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
    * @public
    */
   destinationCategory: DestinationCategory | undefined;
@@ -1649,7 +1652,7 @@ export interface StartQueryWorkloadInsightsTopContributorsDataInput {
   scopeId: string | undefined;
 
   /**
-   * <p>The timestamp that is the date and time beginning of the period that you want to retrieve results for with your query.</p>
+   * <p>The timestamp that is the date and time that is the beginning of the period that you want to retrieve results for with your query.</p>
    * @public
    */
   startTime: Date | undefined;
@@ -1667,7 +1670,7 @@ export interface StartQueryWorkloadInsightsTopContributorsDataInput {
   metricName: WorkloadInsightsMetric | undefined;
 
   /**
-   * <p>The destination category for a top contributors. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
+   * <p>The destination category for a top contributors. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
    * @public
    */
   destinationCategory: DestinationCategory | undefined;

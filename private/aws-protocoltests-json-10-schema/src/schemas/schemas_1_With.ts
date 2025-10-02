@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { error, list, map, op, struct, struct as uni } from "@smithy/core/schema";
+import { error, list, map, op, struct, struct as uni, TypeRegistry } from "@smithy/core/schema";
 
 import {
   ComplexError as __ComplexError,
@@ -137,9 +137,10 @@ export var ComplexError = error(
   },
   [_TL, _N],
   [0, [() => ComplexNestedErrorData, 0]],
-
-  __ComplexError
+  null
 );
+TypeRegistry.for(n0).registerError(ComplexError, __ComplexError);
+
 export var ComplexNestedErrorData = struct(
   n0,
   _CNED,
@@ -214,9 +215,10 @@ export var FooError = error(
   },
   [],
   [],
-
-  __FooError
+  null
 );
+TypeRegistry.for(n0).registerError(FooError, __FooError);
+
 export var GreetingWithErrorsInput = struct(n0, _GWEI, 0, [_g], [0]);
 export var GreetingWithErrorsOutput = struct(n0, _GWEO, 0, [_g], [0]);
 export var InvalidGreeting = error(
@@ -227,9 +229,10 @@ export var InvalidGreeting = error(
   },
   [_M],
   [0],
-
-  __InvalidGreeting
+  null
 );
+TypeRegistry.for(n0).registerError(InvalidGreeting, __InvalidGreeting);
+
 export var JsonUnionsInput = struct(n0, _JUI, 0, [_co], [() => MyUnion]);
 export var JsonUnionsOutput = struct(n0, _JUO, 0, [_co], [() => MyUnion]);
 export var OperationWithDefaultsInput = struct(

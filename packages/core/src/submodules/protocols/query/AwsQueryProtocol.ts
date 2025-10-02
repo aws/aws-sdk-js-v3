@@ -82,9 +82,8 @@ export class AwsQueryProtocol extends RpcProtocol {
       request.body = request.body.slice(-1);
     }
 
-    try {
-      request.headers["content-length"] = this.mixin.calculateContentLength(request.body, this.serdeContext);
-    } catch (e) {}
+    // content-length header is set by the contentLengthMiddleware.
+
     return request;
   }
 
@@ -142,6 +141,13 @@ export class AwsQueryProtocol extends RpcProtocol {
   ): Promise<never> {
     const errorIdentifier = this.loadQueryErrorCode(response, dataObject) ?? "Unknown";
     const errorData = this.loadQueryError(dataObject);
+    const message = this.loadQueryErrorMessage(dataObject);
+    errorData.message = message;
+    errorData.Error = {
+      Type: errorData.Type,
+      Code: errorData.Code,
+      Message: message,
+    };
 
     const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
       errorIdentifier,
@@ -156,10 +162,12 @@ export class AwsQueryProtocol extends RpcProtocol {
     );
 
     const ns = NormalizedSchema.of(errorSchema);
-    const message = this.loadQueryErrorMessage(dataObject);
-    const exception = new errorSchema.ctor(message);
+    const ErrorCtor = TypeRegistry.for(errorSchema.namespace).getErrorCtor(errorSchema) ?? Error;
+    const exception = new ErrorCtor(message);
 
-    const output = {} as any;
+    const output = {
+      Error: errorData.Error,
+    } as any;
 
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().xmlName ?? name;

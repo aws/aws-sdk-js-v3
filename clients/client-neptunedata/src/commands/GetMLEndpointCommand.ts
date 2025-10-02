@@ -34,6 +34,8 @@ export interface GetMLEndpointCommandOutput extends GetMLEndpointOutput, __Metad
  * ```javascript
  * import { NeptunedataClient, GetMLEndpointCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, GetMLEndpointCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // GetMLEndpointInput
  *   id: "STRING_VALUE", // required

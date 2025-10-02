@@ -43,6 +43,8 @@ export interface EncryptDataCommandOutput extends EncryptDataOutput, __MetadataB
  * ```javascript
  * import { PaymentCryptographyDataClient, EncryptDataCommand } from "@aws-sdk/client-payment-cryptography-data"; // ES Modules import
  * // const { PaymentCryptographyDataClient, EncryptDataCommand } = require("@aws-sdk/client-payment-cryptography-data"); // CommonJS import
+ * // import type { PaymentCryptographyDataClientConfig } from "@aws-sdk/client-payment-cryptography-data";
+ * const config = {}; // type is PaymentCryptographyDataClientConfig
  * const client = new PaymentCryptographyDataClient(config);
  * const input = { // EncryptDataInput
  *   KeyIdentifier: "STRING_VALUE", // required

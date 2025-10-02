@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopServiceDeploymentRequest, StopServiceDeploymentResponse } from "../models/models_0";
+import { StopServiceDeploymentRequest, StopServiceDeploymentResponse } from "../models/models_1";
 import { de_StopServiceDeploymentCommand, se_StopServiceDeploymentCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -46,6 +46,8 @@ export interface StopServiceDeploymentCommandOutput extends StopServiceDeploymen
  * ```javascript
  * import { ECSClient, StopServiceDeploymentCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, StopServiceDeploymentCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // StopServiceDeploymentRequest
  *   serviceDeploymentArn: "STRING_VALUE", // required

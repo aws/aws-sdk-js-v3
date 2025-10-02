@@ -37,6 +37,8 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * ```javascript
  * import { AthenaClient, CancelCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CancelCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // CancelCapacityReservationInput
  *   Name: "STRING_VALUE", // required

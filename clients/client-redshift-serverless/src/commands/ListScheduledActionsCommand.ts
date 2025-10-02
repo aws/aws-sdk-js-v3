@@ -38,6 +38,8 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * ```javascript
  * import { RedshiftServerlessClient, ListScheduledActionsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListScheduledActionsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // import type { RedshiftServerlessClientConfig } from "@aws-sdk/client-redshift-serverless";
+ * const config = {}; // type is RedshiftServerlessClientConfig
  * const client = new RedshiftServerlessClient(config);
  * const input = { // ListScheduledActionsRequest
  *   nextToken: "STRING_VALUE",

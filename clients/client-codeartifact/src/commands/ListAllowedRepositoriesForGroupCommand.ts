@@ -41,6 +41,8 @@ export interface ListAllowedRepositoriesForGroupCommandOutput
  * ```javascript
  * import { CodeartifactClient, ListAllowedRepositoriesForGroupCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListAllowedRepositoriesForGroupCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // ListAllowedRepositoriesForGroupRequest
  *   domain: "STRING_VALUE", // required

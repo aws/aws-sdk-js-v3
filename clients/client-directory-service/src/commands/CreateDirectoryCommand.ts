@@ -41,6 +41,8 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * ```javascript
  * import { DirectoryServiceClient, CreateDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // CreateDirectoryRequest
  *   Name: "STRING_VALUE", // required
@@ -60,6 +62,7 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   NetworkType: "Dual-stack" || "IPv4" || "IPv6",
  * };
  * const command = new CreateDirectoryCommand(input);
  * const response = await client.send(command);

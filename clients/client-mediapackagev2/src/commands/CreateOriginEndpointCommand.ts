@@ -34,6 +34,8 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * ```javascript
  * import { MediaPackageV2Client, CreateOriginEndpointCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, CreateOriginEndpointCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // import type { MediaPackageV2ClientConfig } from "@aws-sdk/client-mediapackagev2";
+ * const config = {}; // type is MediaPackageV2ClientConfig
  * const client = new MediaPackageV2Client(config);
  * const input = { // CreateOriginEndpointRequest
  *   ChannelGroupName: "STRING_VALUE", // required
@@ -82,7 +84,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       ManifestName: "STRING_VALUE", // required
  *       ChildManifestName: "STRING_VALUE",
  *       ScteHls: { // ScteHls
- *         AdMarkerHls: "DATERANGE",
+ *         AdMarkerHls: "DATERANGE" || "SCTE35_ENHANCED",
  *       },
  *       StartTag: { // StartTag
  *         TimeOffset: Number("float"), // required
@@ -105,7 +107,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       ManifestName: "STRING_VALUE", // required
  *       ChildManifestName: "STRING_VALUE",
  *       ScteHls: {
- *         AdMarkerHls: "DATERANGE",
+ *         AdMarkerHls: "DATERANGE" || "SCTE35_ENHANCED",
  *       },
  *       StartTag: {
  *         TimeOffset: Number("float"), // required
@@ -265,7 +267,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       ManifestWindowSeconds: Number("int"),
  * //       ProgramDateTimeIntervalSeconds: Number("int"),
  * //       ScteHls: { // ScteHls
- * //         AdMarkerHls: "DATERANGE",
+ * //         AdMarkerHls: "DATERANGE" || "SCTE35_ENHANCED",
  * //       },
  * //       FilterConfiguration: { // FilterConfiguration
  * //         ManifestFilter: "STRING_VALUE",
@@ -289,7 +291,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       ManifestWindowSeconds: Number("int"),
  * //       ProgramDateTimeIntervalSeconds: Number("int"),
  * //       ScteHls: {
- * //         AdMarkerHls: "DATERANGE",
+ * //         AdMarkerHls: "DATERANGE" || "SCTE35_ENHANCED",
  * //       },
  * //       FilterConfiguration: {
  * //         ManifestFilter: "STRING_VALUE",
@@ -406,9 +408,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * @see {@link MediaPackageV2ClientResolvedConfig | config} for MediaPackageV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least
- *          one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception
- *          if MediaPackage receives a throttling error from Secrets Manager.</p>
+ *  <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>Updating or deleting this resource can cause an inconsistent state.</p>

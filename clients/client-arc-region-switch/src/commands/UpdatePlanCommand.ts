@@ -34,6 +34,8 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  * ```javascript
  * import { ARCRegionSwitchClient, UpdatePlanCommand } from "@aws-sdk/client-arc-region-switch"; // ES Modules import
  * // const { ARCRegionSwitchClient, UpdatePlanCommand } = require("@aws-sdk/client-arc-region-switch"); // CommonJS import
+ * // import type { ARCRegionSwitchClientConfig } from "@aws-sdk/client-arc-region-switch";
+ * const config = {}; // type is ARCRegionSwitchClientConfig
  * const client = new ARCRegionSwitchClient(config);
  * const input = { // UpdatePlanRequest
  *   arn: "STRING_VALUE", // required

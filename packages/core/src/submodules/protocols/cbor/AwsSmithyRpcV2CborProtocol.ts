@@ -1,5 +1,5 @@
 import { loadSmithyRpcV2CborErrorCode, SmithyRpcV2CborProtocol } from "@smithy/core/cbor";
-import { NormalizedSchema } from "@smithy/core/schema";
+import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -72,7 +72,8 @@ export class AwsSmithyRpcV2CborProtocol extends SmithyRpcV2CborProtocol {
 
     const ns = NormalizedSchema.of(errorSchema);
     const message = dataObject.message ?? dataObject.Message ?? "Unknown";
-    const exception = new errorSchema.ctor(message);
+    const ErrorCtor = TypeRegistry.for(errorSchema.namespace).getErrorCtor(errorSchema) ?? Error;
+    const exception = new ErrorCtor(message);
 
     const output = {} as any;
     for (const [name, member] of ns.structIterator()) {

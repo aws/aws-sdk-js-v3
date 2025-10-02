@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContactRoutingDataResponse } from "../models/models_2";
-import { UpdateContactRoutingDataRequest } from "../models/models_3";
+import { UpdateContactRoutingDataRequest, UpdateContactRoutingDataResponse } from "../models/models_3";
 import { de_UpdateContactRoutingDataCommand, se_UpdateContactRoutingDataCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -47,6 +46,8 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  * ```javascript
  * import { ConnectClient, UpdateContactRoutingDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactRoutingDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateContactRoutingDataRequest
  *   InstanceId: "STRING_VALUE", // required

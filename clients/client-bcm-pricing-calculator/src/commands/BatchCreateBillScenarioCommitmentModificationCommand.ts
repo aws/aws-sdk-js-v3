@@ -47,6 +47,8 @@ export interface BatchCreateBillScenarioCommitmentModificationCommandOutput
  * ```javascript
  * import { BCMPricingCalculatorClient, BatchCreateBillScenarioCommitmentModificationCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, BatchCreateBillScenarioCommitmentModificationCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // BatchCreateBillScenarioCommitmentModificationRequest
  *   billScenarioId: "STRING_VALUE", // required

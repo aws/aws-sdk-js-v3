@@ -38,6 +38,8 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * ```javascript
  * import { ElasticsearchServiceClient, DeleteVpcEndpointCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DeleteVpcEndpointCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // import type { ElasticsearchServiceClientConfig } from "@aws-sdk/client-elasticsearch-service";
+ * const config = {}; // type is ElasticsearchServiceClientConfig
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // DeleteVpcEndpointRequest
  *   VpcEndpointId: "STRING_VALUE", // required

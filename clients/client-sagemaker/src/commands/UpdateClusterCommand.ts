@@ -34,6 +34,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * ```javascript
  * import { SageMakerClient, UpdateClusterCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateClusterCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateClusterRequest
  *   ClusterName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBeare
  * ```javascript
  * import { DataZoneClient, GetDomainCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetDomainCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetDomainInput
  *   identifier: "STRING_VALUE", // required

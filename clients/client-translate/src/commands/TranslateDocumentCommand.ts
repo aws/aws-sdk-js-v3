@@ -49,6 +49,8 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
  * ```javascript
  * import { TranslateClient, TranslateDocumentCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, TranslateDocumentCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // import type { TranslateClientConfig } from "@aws-sdk/client-translate";
+ * const config = {}; // type is TranslateClientConfig
  * const client = new TranslateClient(config);
  * const input = { // TranslateDocumentRequest
  *   Document: { // Document

@@ -36,8 +36,8 @@ export interface DescribeDeliveriesCommandOutput extends DescribeDeliveriesRespo
  *                <i>delivery destination</i>
  *             </a>.</p>
  *          <p>A delivery source represents an Amazon Web Services resource that sends logs to an logs
- *       delivery destination. The destination can be CloudWatch Logs, Amazon S3, Firehose or X-Ray. Only some Amazon Web Services services support being configured as a delivery
- *       source. These services are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable logging from
+ *       delivery destination. The destination can be CloudWatch Logs, Amazon S3, Firehose or X-Ray. Only some Amazon Web Services services support being
+ *       configured as a delivery source. These services are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable logging from
  *           Amazon Web Services services.</a>
  *          </p>
  * @example
@@ -45,6 +45,8 @@ export interface DescribeDeliveriesCommandOutput extends DescribeDeliveriesRespo
  * ```javascript
  * import { CloudWatchLogsClient, DescribeDeliveriesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeDeliveriesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeDeliveriesRequest
  *   nextToken: "STRING_VALUE",

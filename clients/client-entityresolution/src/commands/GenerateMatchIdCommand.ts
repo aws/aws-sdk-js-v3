@@ -38,6 +38,8 @@ export interface GenerateMatchIdCommandOutput extends GenerateMatchIdOutput, __M
  * ```javascript
  * import { EntityResolutionClient, GenerateMatchIdCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, GenerateMatchIdCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // GenerateMatchIdInput
  *   workflowName: "STRING_VALUE", // required
@@ -91,7 +93,7 @@ export interface GenerateMatchIdCommandOutput extends GenerateMatchIdOutput, __M
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *  <p>The resource couldn't be found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>

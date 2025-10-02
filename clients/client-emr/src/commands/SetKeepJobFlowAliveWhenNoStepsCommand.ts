@@ -40,6 +40,8 @@ export interface SetKeepJobFlowAliveWhenNoStepsCommandOutput extends __MetadataB
  * ```javascript
  * import { EMRClient, SetKeepJobFlowAliveWhenNoStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, SetKeepJobFlowAliveWhenNoStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // import type { EMRClientConfig } from "@aws-sdk/client-emr";
+ * const config = {}; // type is EMRClientConfig
  * const client = new EMRClient(config);
  * const input = { // SetKeepJobFlowAliveWhenNoStepsInput
  *   JobFlowIds: [ // XmlStringList // required

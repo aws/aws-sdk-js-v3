@@ -34,6 +34,8 @@ export interface DeleteDomainCommandOutput extends DeleteDomainOutput, __Metadat
  * ```javascript
  * import { DataZoneClient, DeleteDomainCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteDomainCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteDomainInput
  *   identifier: "STRING_VALUE", // required

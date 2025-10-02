@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEvaluationFormResponse } from "../models/models_2";
-import { UpdateEvaluationFormRequest } from "../models/models_3";
+import { UpdateEvaluationFormRequest, UpdateEvaluationFormResponse } from "../models/models_3";
 import { de_UpdateEvaluationFormCommand, se_UpdateEvaluationFormCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -39,6 +38,8 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  * ```javascript
  * import { ConnectClient, UpdateEvaluationFormCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateEvaluationFormCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateEvaluationFormRequest
  *   InstanceId: "STRING_VALUE", // required

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-env",
-  "version": "3.883.0",
+  "version": "3.901.0",
   "description": "AWS credential provider that sources credentials from known environment variables",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -19,6 +19,7 @@
     "aws",
     "credentials"
   ],
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -27,8 +28,8 @@
   "dependencies": {
     "@aws-sdk/core": "*",
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^4.0.5",
-    "@smithy/types": "^4.3.2",
+    "@smithy/property-provider": "^4.2.0",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

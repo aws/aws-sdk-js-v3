@@ -40,6 +40,8 @@ export interface DeleteDBClusterAutomatedBackupCommandOutput
  * ```javascript
  * import { RDSClient, DeleteDBClusterAutomatedBackupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBClusterAutomatedBackupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DeleteDBClusterAutomatedBackupMessage
  *   DbClusterResourceId: "STRING_VALUE", // required
@@ -76,8 +78,8 @@ export interface DeleteDBClusterAutomatedBackupCommandOutput
  * //     KmsKeyId: "STRING_VALUE",
  * //     StorageType: "STRING_VALUE",
  * //     Iops: Number("int"),
- * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //     StorageThroughput: Number("int"),
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
  * //   },
  * // };
  *

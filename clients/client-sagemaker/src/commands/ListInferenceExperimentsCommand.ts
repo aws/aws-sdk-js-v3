@@ -34,6 +34,8 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  * ```javascript
  * import { SageMakerClient, ListInferenceExperimentsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListInferenceExperimentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListInferenceExperimentsRequest
  *   NameContains: "STRING_VALUE",

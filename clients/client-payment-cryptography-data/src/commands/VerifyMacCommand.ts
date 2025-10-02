@@ -38,6 +38,8 @@ export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBeare
  * ```javascript
  * import { PaymentCryptographyDataClient, VerifyMacCommand } from "@aws-sdk/client-payment-cryptography-data"; // ES Modules import
  * // const { PaymentCryptographyDataClient, VerifyMacCommand } = require("@aws-sdk/client-payment-cryptography-data"); // CommonJS import
+ * // import type { PaymentCryptographyDataClientConfig } from "@aws-sdk/client-payment-cryptography-data";
+ * const config = {}; // type is PaymentCryptographyDataClientConfig
  * const client = new PaymentCryptographyDataClient(config);
  * const input = { // VerifyMacInput
  *   KeyIdentifier: "STRING_VALUE", // required

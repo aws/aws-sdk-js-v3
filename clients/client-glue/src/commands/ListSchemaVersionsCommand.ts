@@ -34,6 +34,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * ```javascript
  * import { GlueClient, ListSchemaVersionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListSchemaVersionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // ListSchemaVersionsInput
  *   SchemaId: { // SchemaId

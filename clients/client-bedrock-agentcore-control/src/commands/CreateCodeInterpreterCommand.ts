@@ -42,15 +42,28 @@ export interface CreateCodeInterpreterCommandOutput extends CreateCodeInterprete
  * ```javascript
  * import { BedrockAgentCoreControlClient, CreateCodeInterpreterCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, CreateCodeInterpreterCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // CreateCodeInterpreterRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   executionRoleArn: "STRING_VALUE",
  *   networkConfiguration: { // CodeInterpreterNetworkConfiguration
- *     networkMode: "PUBLIC" || "SANDBOX", // required
+ *     networkMode: "PUBLIC" || "SANDBOX" || "VPC", // required
+ *     vpcConfig: { // VpcConfig
+ *       securityGroups: [ // SecurityGroups // required
+ *         "STRING_VALUE",
+ *       ],
+ *       subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   clientToken: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateCodeInterpreterCommand(input);
  * const response = await client.send(command);

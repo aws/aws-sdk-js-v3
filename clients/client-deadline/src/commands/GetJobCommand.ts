@@ -34,6 +34,8 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * ```javascript
  * import { DeadlineClient, GetJobCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetJobCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetJobRequest
  *   farmId: "STRING_VALUE", // required

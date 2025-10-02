@@ -2,7 +2,7 @@
 
 This folder contains handwritten documentation from the developers of this SDK to supplement the programmatically generated documentation.
 
-#### [Clients](./CLIENTS.md)
+### [Clients](./CLIENTS.md)
 
 Information about initializing an SDK client and common configurable constructor parameters.
 
@@ -18,6 +18,10 @@ Best practices for working within AWS Lambda using the AWS SDK for JavaScript (v
 
 Details what steps the AWS SDK team has taken to optimize performance of the SDK,
 and includes tips for configuring the SDK to run efficiently.
+
+#### [Effective Practices](./EFFECTIVE_PRACTICES.md)
+
+General recommended practices for working with AWS SDK clients.
 
 #### [TypeScript](./TYPESCRIPT.md)
 

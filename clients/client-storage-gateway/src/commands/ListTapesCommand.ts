@@ -43,6 +43,8 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  * ```javascript
  * import { StorageGatewayClient, ListTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // ListTapesInput
  *   TapeARNs: [ // TapeARNs

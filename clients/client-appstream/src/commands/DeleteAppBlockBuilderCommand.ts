@@ -36,6 +36,8 @@ export interface DeleteAppBlockBuilderCommandOutput extends DeleteAppBlockBuilde
  * ```javascript
  * import { AppStreamClient, DeleteAppBlockBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteAppBlockBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // DeleteAppBlockBuilderRequest
  *   Name: "STRING_VALUE", // required

@@ -32,12 +32,14 @@ export interface DeleteGatewayTargetCommandInput extends DeleteGatewayTargetRequ
 export interface DeleteGatewayTargetCommandOutput extends DeleteGatewayTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Gateway Target.</p>
+ * <p>Deletes a gateway target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, DeleteGatewayTargetCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, DeleteGatewayTargetCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // DeleteGatewayTargetRequest
  *   gatewayIdentifier: "STRING_VALUE", // required

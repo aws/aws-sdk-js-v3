@@ -34,6 +34,8 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  * ```javascript
  * import { LakeFormationClient, GetLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // GetLFTagRequest
  *   CatalogId: "STRING_VALUE",

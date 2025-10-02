@@ -46,6 +46,8 @@ export interface DescribeRetentionConfigurationsCommandOutput
  * ```javascript
  * import { ConfigServiceClient, DescribeRetentionConfigurationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeRetentionConfigurationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeRetentionConfigurationsRequest
  *   RetentionConfigurationNames: [ // RetentionConfigurationNameList

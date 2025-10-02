@@ -34,6 +34,8 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  * ```javascript
  * import { KeyspacesClient, DeleteTypeCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, DeleteTypeCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * // import type { KeyspacesClientConfig } from "@aws-sdk/client-keyspaces";
+ * const config = {}; // type is KeyspacesClientConfig
  * const client = new KeyspacesClient(config);
  * const input = { // DeleteTypeRequest
  *   keyspaceName: "STRING_VALUE", // required

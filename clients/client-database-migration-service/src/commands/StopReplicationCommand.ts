@@ -40,6 +40,8 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * ```javascript
  * import { DatabaseMigrationServiceClient, StopReplicationCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StopReplicationCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // import type { DatabaseMigrationServiceClientConfig } from "@aws-sdk/client-database-migration-service";
+ * const config = {}; // type is DatabaseMigrationServiceClientConfig
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // StopReplicationMessage
  *   ReplicationConfigArn: "STRING_VALUE", // required

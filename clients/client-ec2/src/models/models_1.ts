@@ -298,9 +298,9 @@ export interface CopySnapshotRequest {
 
   /**
    * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled,
-   *       enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots
-   *       are encrypted, even if you omit this parameter and encryption by default is not enabled. You
-   *       cannot set this parameter to false. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the
+   *       enable encryption using this parameter. Otherwise, omit this parameter. Copies of encrypted
+   *       snapshots are encrypted, even if you omit this parameter and encryption by default is not
+   *       enabled. You cannot set this parameter to false. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the
    *       <i>Amazon EBS User Guide</i>.</p>
    * @public
    */
@@ -1862,6 +1862,8 @@ export const _InstanceType = {
   mac2_m2_metal: "mac2-m2.metal",
   mac2_m2pro_metal: "mac2-m2pro.metal",
   mac2_metal: "mac2.metal",
+  mac_m4_metal: "mac-m4.metal",
+  mac_m4pro_metal: "mac-m4pro.metal",
   p2_16xlarge: "p2.16xlarge",
   p2_8xlarge: "p2.8xlarge",
   p2_xlarge: "p2.xlarge",
@@ -2093,6 +2095,18 @@ export const _InstanceType = {
   r8gd_metal_24xl: "r8gd.metal-24xl",
   r8gd_metal_48xl: "r8gd.metal-48xl",
   r8gd_xlarge: "r8gd.xlarge",
+  r8gn_12xlarge: "r8gn.12xlarge",
+  r8gn_16xlarge: "r8gn.16xlarge",
+  r8gn_24xlarge: "r8gn.24xlarge",
+  r8gn_2xlarge: "r8gn.2xlarge",
+  r8gn_48xlarge: "r8gn.48xlarge",
+  r8gn_4xlarge: "r8gn.4xlarge",
+  r8gn_8xlarge: "r8gn.8xlarge",
+  r8gn_large: "r8gn.large",
+  r8gn_medium: "r8gn.medium",
+  r8gn_metal_24xl: "r8gn.metal-24xl",
+  r8gn_metal_48xl: "r8gn.metal-48xl",
+  r8gn_xlarge: "r8gn.xlarge",
   r8i_12xlarge: "r8i.12xlarge",
   r8i_16xlarge: "r8i.16xlarge",
   r8i_24xlarge: "r8i.24xlarge",
@@ -4694,7 +4708,7 @@ export interface FleetEbsBlockDeviceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 80,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4717,7 +4731,7 @@ export interface FleetEbsBlockDeviceRequest {
   /**
    * <p>The throughput that the volume supports, in MiB/s.</p>
    *          <p>This parameter is valid only for <code>gp3</code> volumes.</p>
-   *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
    * @public
    */
   Throughput?: number | undefined;
@@ -4745,7 +4759,11 @@ export interface FleetEbsBlockDeviceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
+   *                   <code>gp2</code>: 1 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 1 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8023,7 +8041,7 @@ export interface EbsBlockDevice {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 80,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8057,7 +8075,11 @@ export interface EbsBlockDevice {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
+   *                   <code>gp2</code>: 1 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 1 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8100,7 +8122,7 @@ export interface EbsBlockDevice {
   /**
    * <p>The throughput that the volume supports, in MiB/s.</p>
    *          <p>This parameter is valid only for <code>gp3</code> volumes.</p>
-   *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
    * @public
    */
   Throughput?: number | undefined;
@@ -8496,7 +8518,7 @@ export interface CreateImageUsageReportRequest {
 
   /**
    * <p>The tags to apply to the report on creation. The <code>ResourceType</code> must be set to
-   *         <code>image-usage-report</code>; any other value will cause the report creation to
+   *       <code>image-usage-report</code>; any other value will cause the report creation to
    *       fail.</p>
    *          <p>To tag a report after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    * @public
@@ -10621,7 +10643,7 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 80,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10658,7 +10680,11 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
+   *                   <code>gp2</code>: 1 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 1 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10689,9 +10715,9 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
   VolumeType?: VolumeType | undefined;
 
   /**
-   * <p>The throughput to provision for a <code>gp3</code> volume, with a maximum of 1,000
+   * <p>The throughput to provision for a <code>gp3</code> volume, with a maximum of 2,000
    *             MiB/s.</p>
-   *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   *          <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
    * @public
    */
   Throughput?: number | undefined;
@@ -10926,8 +10952,7 @@ export interface LaunchTemplateElasticInferenceAccelerator {
   Type: string | undefined;
 
   /**
-   * <p> The number of elastic inference accelerators to attach to the instance. </p>
-   *          <p>Default: 1</p>
+   * <p>The number of elastic inference accelerators to attach to the instance. </p>
    * @public
    */
   Count?: number | undefined;
@@ -12650,15 +12675,14 @@ export interface ElasticGpuSpecificationResponse {
  */
 export interface LaunchTemplateElasticInferenceAcceleratorResponse {
   /**
-   * <p> The type of elastic inference accelerator. The possible values are eia1.medium,
+   * <p>The type of elastic inference accelerator. The possible values are eia1.medium,
    *             eia1.large, and eia1.xlarge. </p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p> The number of elastic inference accelerators to attach to the instance. </p>
-   *          <p>Default: 1</p>
+   * <p>The number of elastic inference accelerators to attach to the instance. </p>
    * @public
    */
   Count?: number | undefined;

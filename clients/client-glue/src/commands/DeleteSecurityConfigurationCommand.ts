@@ -36,6 +36,8 @@ export interface DeleteSecurityConfigurationCommandOutput
  * ```javascript
  * import { GlueClient, DeleteSecurityConfigurationCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteSecurityConfigurationCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // DeleteSecurityConfigurationRequest
  *   Name: "STRING_VALUE", // required

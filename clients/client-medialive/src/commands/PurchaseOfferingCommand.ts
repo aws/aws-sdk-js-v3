@@ -34,6 +34,8 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * ```javascript
  * import { MediaLiveClient, PurchaseOfferingCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, PurchaseOfferingCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // PurchaseOfferingRequest
  *   Count: Number("int"), // required

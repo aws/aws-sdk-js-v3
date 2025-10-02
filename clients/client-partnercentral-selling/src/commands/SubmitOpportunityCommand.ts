@@ -38,6 +38,8 @@ export interface SubmitOpportunityCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { PartnerCentralSellingClient, SubmitOpportunityCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, SubmitOpportunityCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // SubmitOpportunityRequest
  *   Catalog: "STRING_VALUE", // required

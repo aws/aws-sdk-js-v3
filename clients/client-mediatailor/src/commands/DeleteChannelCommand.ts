@@ -34,6 +34,8 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * ```javascript
  * import { MediaTailorClient, DeleteChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // DeleteChannelRequest
  *   ChannelName: "STRING_VALUE", // required

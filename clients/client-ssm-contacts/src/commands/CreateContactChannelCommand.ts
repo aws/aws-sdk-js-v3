@@ -34,6 +34,8 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  * ```javascript
  * import { SSMContactsClient, CreateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, CreateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // import type { SSMContactsClientConfig } from "@aws-sdk/client-ssm-contacts";
+ * const config = {}; // type is SSMContactsClientConfig
  * const client = new SSMContactsClient(config);
  * const input = { // CreateContactChannelRequest
  *   ContactId: "STRING_VALUE", // required

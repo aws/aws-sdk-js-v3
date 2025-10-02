@@ -34,6 +34,8 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * ```javascript
  * import { MediaTailorClient, ListPrefetchSchedulesCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListPrefetchSchedulesCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // ListPrefetchSchedulesRequest
  *   MaxResults: Number("int"),
@@ -66,9 +68,13 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * //         },
  * //         EndTime: new Date("TIMESTAMP"), // required
  * //         StartTime: new Date("TIMESTAMP"),
- * //         TrafficShapingType: "RETRIEVAL_WINDOW",
+ * //         TrafficShapingType: "RETRIEVAL_WINDOW" || "TPS",
  * //         TrafficShapingRetrievalWindow: { // TrafficShapingRetrievalWindow
  * //           RetrievalWindowDurationSeconds: Number("int"),
+ * //         },
+ * //         TrafficShapingTpsConfiguration: { // TrafficShapingTpsConfiguration
+ * //           PeakTps: Number("int"),
+ * //           PeakConcurrentUsers: Number("int"),
  * //         },
  * //       },
  * //       ScheduleType: "SINGLE" || "RECURRING",
@@ -89,9 +95,13 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * //             "<keys>": "STRING_VALUE",
  * //           },
  * //           DelayAfterAvailEndSeconds: Number("int"),
- * //           TrafficShapingType: "RETRIEVAL_WINDOW",
+ * //           TrafficShapingType: "RETRIEVAL_WINDOW" || "TPS",
  * //           TrafficShapingRetrievalWindow: {
  * //             RetrievalWindowDurationSeconds: Number("int"),
+ * //           },
+ * //           TrafficShapingTpsConfiguration: {
+ * //             PeakTps: Number("int"),
+ * //             PeakConcurrentUsers: Number("int"),
  * //           },
  * //         },
  * //       },

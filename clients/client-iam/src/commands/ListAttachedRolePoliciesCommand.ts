@@ -43,6 +43,8 @@ export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRoleP
  * ```javascript
  * import { IAMClient, ListAttachedRolePoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListAttachedRolePoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ListAttachedRolePoliciesRequest
  *   RoleName: "STRING_VALUE", // required

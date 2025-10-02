@@ -33,12 +33,14 @@ export interface UpdateSPICECapacityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the SPICE capacity configuration for a Amazon QuickSight account.</p>
+ * <p>Updates the SPICE capacity configuration for a QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, UpdateSPICECapacityConfigurationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateSPICECapacityConfigurationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdateSPICECapacityConfigurationRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DisableBaselineCommandOutput extends DisableBaselineOutput, __M
  * ```javascript
  * import { ControlTowerClient, DisableBaselineCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, DisableBaselineCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // DisableBaselineInput
  *   enabledBaselineIdentifier: "STRING_VALUE", // required

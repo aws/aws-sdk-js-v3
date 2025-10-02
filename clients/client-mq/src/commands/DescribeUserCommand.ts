@@ -34,6 +34,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * ```javascript
  * import { MqClient, DescribeUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DescribeUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // import type { MqClientConfig } from "@aws-sdk/client-mq";
+ * const config = {}; // type is MqClientConfig
  * const client = new MqClient(config);
  * const input = { // DescribeUserRequest
  *   BrokerId: "STRING_VALUE", // required

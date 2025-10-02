@@ -37,6 +37,8 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RDSClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // RemoveTagsFromResourceMessage
  *   ResourceName: "STRING_VALUE", // required
@@ -68,11 +70,17 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
+ * @throws {@link DBProxyEndpointNotFoundFault} (client fault)
+ *  <p>The DB proxy endpoint doesn't exist.</p>
+ *
  * @throws {@link DBProxyNotFoundFault} (client fault)
  *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  *
  * @throws {@link DBProxyTargetGroupNotFoundFault} (client fault)
  *  <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * @throws {@link DBShardGroupNotFoundFault} (client fault)
+ *  <p>The specified DB shard group name wasn't found.</p>
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
  *  <p>
@@ -83,6 +91,15 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
  *  <p>The specified integration could not be found.</p>
+ *
+ * @throws {@link InvalidDBClusterEndpointStateFault} (client fault)
+ *  <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
  *
  * @throws {@link TenantDatabaseNotFoundFault} (client fault)
  *  <p>The specified tenant database wasn't found in the DB instance.</p>

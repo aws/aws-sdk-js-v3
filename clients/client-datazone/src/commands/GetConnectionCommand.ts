@@ -34,6 +34,8 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * ```javascript
  * import { DataZoneClient, GetConnectionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetConnectionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetConnectionInput
  *   domainIdentifier: "STRING_VALUE", // required
@@ -195,6 +197,12 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * //       pythonVirtualEnv: "STRING_VALUE",
  * //       runtimeRole: "STRING_VALUE",
  * //       trustedCertificatesS3Uri: "STRING_VALUE",
+ * //       certificateData: "STRING_VALUE",
+ * //       managedEndpointArn: "STRING_VALUE",
+ * //       managedEndpointCredentials: { // ManagedEndpointCredentials
+ * //         id: "STRING_VALUE",
+ * //         token: "STRING_VALUE",
+ * //       },
  * //     },
  * //     sparkGlueProperties: { // SparkGluePropertiesOutput
  * //       additionalArgs: { // SparkGlueArgs

@@ -38,6 +38,8 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
  * ```javascript
  * import { LocationClient, CreateGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // CreateGeofenceCollectionRequest
  *   CollectionName: "STRING_VALUE", // required

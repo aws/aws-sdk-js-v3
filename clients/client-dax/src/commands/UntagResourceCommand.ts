@@ -29,12 +29,14 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * <p>Removes the association of tags from a DAX resource. You can call
- *             <code>UntagResource</code> up to 5 times per second, per account. </p>
+ *                 <code>UntagResource</code> up to 5 times per second, per account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, UntagResourceCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UntagResourceCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceName: "STRING_VALUE", // required
@@ -62,14 +64,15 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *  <p>The requested cluster ID does not refer to an existing DAX
+ *             cluster.</p>
  *
  * @throws {@link InvalidARNFault} (client fault)
  *  <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the <i>available</i>
- *             state.</p>
+ *  <p>The requested DAX cluster is not in the
+ *                 <i>available</i> state.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>

@@ -34,6 +34,8 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * ```javascript
  * import { SSOAdminClient, CreateInstanceCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, CreateInstanceCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // CreateInstanceRequest
  *   Name: "STRING_VALUE",

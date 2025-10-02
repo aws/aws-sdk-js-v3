@@ -50,6 +50,8 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * ```javascript
  * import { HealthClient, DescribeAffectedEntitiesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeAffectedEntitiesCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * // import type { HealthClientConfig } from "@aws-sdk/client-health";
+ * const config = {}; // type is HealthClientConfig
  * const client = new HealthClient(config);
  * const input = { // DescribeAffectedEntitiesRequest
  *   filter: { // EntityFilter

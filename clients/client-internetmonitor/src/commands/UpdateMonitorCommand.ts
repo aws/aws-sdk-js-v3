@@ -37,6 +37,8 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * ```javascript
  * import { InternetMonitorClient, UpdateMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, UpdateMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // import type { InternetMonitorClientConfig } from "@aws-sdk/client-internetmonitor";
+ * const config = {}; // type is InternetMonitorClientConfig
  * const client = new InternetMonitorClient(config);
  * const input = { // UpdateMonitorInput
  *   MonitorName: "STRING_VALUE", // required

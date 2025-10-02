@@ -36,6 +36,8 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * ```javascript
  * import { FinspaceDataClient, UpdateDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, UpdateDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // import type { FinspaceDataClientConfig } from "@aws-sdk/client-finspace-data";
+ * const config = {}; // type is FinspaceDataClientConfig
  * const client = new FinspaceDataClient(config);
  * const input = { // UpdateDatasetRequest
  *   clientToken: "STRING_VALUE",

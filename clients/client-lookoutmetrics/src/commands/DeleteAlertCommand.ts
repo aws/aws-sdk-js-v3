@@ -34,6 +34,8 @@ export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __Metadat
  * ```javascript
  * import { LookoutMetricsClient, DeleteAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DeleteAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // DeleteAlertRequest
  *   AlertArn: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * ```javascript
  * import { SchemasClient, DescribeRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DescribeRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // import type { SchemasClientConfig } from "@aws-sdk/client-schemas";
+ * const config = {}; // type is SchemasClientConfig
  * const client = new SchemasClient(config);
  * const input = { // DescribeRegistryRequest
  *   RegistryName: "STRING_VALUE", // required

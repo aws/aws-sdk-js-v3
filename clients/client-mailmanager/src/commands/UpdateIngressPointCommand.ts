@@ -38,6 +38,8 @@ export interface UpdateIngressPointCommandOutput extends UpdateIngressPointRespo
  * ```javascript
  * import { MailManagerClient, UpdateIngressPointCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, UpdateIngressPointCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // UpdateIngressPointRequest
  *   IngressPointId: "STRING_VALUE", // required

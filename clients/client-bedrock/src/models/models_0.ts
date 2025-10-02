@@ -673,6 +673,26 @@ export interface DeleteAutomatedReasoningPolicyBuildWorkflowRequest {
 export interface DeleteAutomatedReasoningPolicyBuildWorkflowResponse {}
 
 /**
+ * <p>Thrown when attempting to delete or modify a resource that is currently being used by other resources or operations. For example, trying to delete an Automated Reasoning policy that is referenced by an active guardrail.</p>
+ * @public
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
+}
+
+/**
  * @public
  */
 export interface DeleteAutomatedReasoningPolicyTestCaseRequest {
@@ -699,26 +719,6 @@ export interface DeleteAutomatedReasoningPolicyTestCaseRequest {
  * @public
  */
 export interface DeleteAutomatedReasoningPolicyTestCaseResponse {}
-
-/**
- * <p>Thrown when attempting to delete or modify a resource that is currently being used by other resources or operations. For example, trying to delete an Automated Reasoning policy that is referenced by an active guardrail.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
 
 /**
  * @public
@@ -3822,12 +3822,6 @@ export interface UpdateAutomatedReasoningPolicyTestCaseRequest {
    * @public
    */
   confidenceThreshold?: number | undefined;
-
-  /**
-   * <p>The KMS key ARN for encrypting the test at rest. If not provided, the key will not be updated. Use <code>DISCARD</code> to remove the key.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.</p>
@@ -8368,6 +8362,7 @@ export const AutomatedReasoningPolicyBuildWorkflowDocumentFilterSensitiveLog = (
   obj: AutomatedReasoningPolicyBuildWorkflowDocument
 ): any => ({
   ...obj,
+  ...(obj.document && { document: SENSITIVE_STRING }),
   ...(obj.documentName && { documentName: SENSITIVE_STRING }),
   ...(obj.documentDescription && { documentDescription: SENSITIVE_STRING }),
 });

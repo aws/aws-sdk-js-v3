@@ -36,6 +36,8 @@ export interface GetReferenceCommandOutput extends Omit<GetReferenceResponse, "p
  * ```javascript
  * import { OmicsClient, GetReferenceCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReferenceCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // GetReferenceRequest
  *   id: "STRING_VALUE", // required

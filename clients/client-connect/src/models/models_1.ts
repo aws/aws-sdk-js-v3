@@ -34,7 +34,6 @@ import {
   HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
   InstanceStorageResourceType,
-  IntegrationType,
   LexBot,
   LexV2Bot,
   ListFlowAssociationResourceType,
@@ -65,6 +64,83 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteHoursOfOperationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHoursOfOperationOverrideRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation override.</p>
+   * @public
+   */
+  HoursOfOperationOverrideId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstanceRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntegrationAssociationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   * @public
+   */
+  IntegrationAssociationId: string | undefined;
+}
 
 /**
  * @public
@@ -2000,7 +2076,7 @@ export interface HoursOfOperationOverride {
   EffectiveFrom?: string | undefined;
 
   /**
-   * <p>The date till which the hours of operation override would be effective.</p>
+   * <p>The date until the hours of operation override is effective.</p>
    * @public
    */
   EffectiveTill?: string | undefined;
@@ -2814,6 +2890,28 @@ export interface DescribePredefinedAttributeRequest {
 }
 
 /**
+ * <p>Custom metadata that is associated to predefined attributes to control behavior in upstream
+ *    services, such as controlling how a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+ * @public
+ */
+export interface PredefinedAttributeConfiguration {
+  /**
+   * <p>When this parameter is set to true, Amazon Connect enforces strict validation on the
+   *    specific values, if the values are predefined in attributes. The contact will store only valid
+   *    and predefined values for teh predefined attribute key.</p>
+   * @public
+   */
+  EnableValueValidationOnAssociation?: boolean | undefined;
+
+  /**
+   * <p>A boolean flag used to indicate whether a predefined attribute should be displayed in the
+   *    Amazon Connect admin website.</p>
+   * @public
+   */
+  IsReadOnly?: boolean | undefined;
+}
+
+/**
  * <p>Information about a predefined attribute.</p>
  * @public
  */
@@ -2829,6 +2927,20 @@ export interface PredefinedAttribute {
    * @public
    */
   Values?: PredefinedAttributeValues | undefined;
+
+  /**
+   * <p>Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Amazon Connect admin website.</p>
+   * @public
+   */
+  Purposes?: string[] | undefined;
+
+  /**
+   * <p>Custom metadata that is associated to predefined attributes to control behavior
+   * in upstream services, such as controlling
+   * how a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+   * @public
+   */
+  AttributeConfiguration?: PredefinedAttributeConfiguration | undefined;
 
   /**
    * <p>Last modified time.</p>
@@ -3210,6 +3322,12 @@ export interface RoutingProfile {
   NumberOfAssociatedQueues?: number | undefined;
 
   /**
+   * <p>The number of associated manual assignment queues in routing profile.</p>
+   * @public
+   */
+  NumberOfAssociatedManualAssignmentQueues?: number | undefined;
+
+  /**
    * <p>The number of associated users in routing profile.</p>
    * @public
    */
@@ -3246,6 +3364,12 @@ export interface RoutingProfile {
    * @public
    */
   AssociatedQueueIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the associated manual assignment queues.</p>
+   * @public
+   */
+  AssociatedManualAssignmentQueueIds?: string[] | undefined;
 }
 
 /**
@@ -4357,7 +4481,13 @@ export interface DisassociateRoutingProfileQueuesRequest {
    * <p>The queues to disassociate from this routing profile.</p>
    * @public
    */
-  QueueReferences: RoutingProfileQueueReference[] | undefined;
+  QueueReferences?: RoutingProfileQueueReference[] | undefined;
+
+  /**
+   * <p>The manual assignment queues to disassociate with this routing profile.</p>
+   * @public
+   */
+  ManualAssignmentQueueReferences?: RoutingProfileQueueReference[] | undefined;
 }
 
 /**
@@ -6910,6 +7040,8 @@ export interface GetMetricDataV2Request {
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature,
    *       contact/segmentAttributes/connect:Subtype, Q in Connect</p>
+   *                <p>Valid metric filter key: <code>INITIATION_METHOD</code>
+   *                </p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-queue-abandon-time">Average
    *        queue abandon time</a>
    *                </p>
@@ -7249,9 +7381,20 @@ export interface GetMetricDataV2Request {
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-queue-answer-time">Average
    *        queue answer time</a>
    *                </p>
+   *                <p>Valid metric level filters: <code>INITIATION_METHOD</code>, <code>FEATURE</code>,
+   *        <code>DISCONNECT_REASON</code>
+   *                </p>
    *                <note>
    *                   <p>Feature is a valid filter but not a valid grouping.</p>
    *                </note>
+   *             </dd>
+   *             <dt>AVG_QUEUE_ANSWER_TIME_CUSTOMER_FIRST_CALLBACK</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Feature,
+   *       contact/segmentAttributes/connect:Subtype, Q in Connect, Agent Hierarchy</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-queue-answer-time-customer-first-callback">Avg. queue answer time - customer first callback</a>
+   *                </p>
    *             </dd>
    *             <dt>AVG_RESPONSE_TIME_AGENT</dt>
    *             <dd>
@@ -7322,6 +7465,14 @@ export interface GetMetricDataV2Request {
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Campaign</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-wait-time-after-customer-connection">Average wait time after customer connection</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AVG_WAIT_TIME_AFTER_CUSTOMER_FIRST_CALLBACK_CONNECTION</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Feature,
+   *       contact/segmentAttributes/connect:Subtype, Q in Connect, Agent Hierarchy</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-wait-time-after-customer-connection-customer-first-callback">Avg. wait time after customer connection - customer first callback</a>
    *                </p>
    *             </dd>
    *             <dt>AVG_WEIGHTED_EVALUATION_SCORE</dt>
@@ -7448,7 +7599,7 @@ export interface GetMetricDataV2Request {
    *                </p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature,
    *       contact/segmentAttributes/connect:Subtype, RoutingStepExpression, Q in Connect</p>
-   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#api-contacts-handled">API contacts
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-handled">Contacts
    *        handled</a>
    *                </p>
    *                <note>
@@ -7897,7 +8048,8 @@ export interface GetMetricDataV2Request {
    *                <p>Unit: Seconds</p>
    *                <p>Valid metric filter key: <code>INITIATION_METHOD</code>. This metric only supports the
    *       following filter keys as <code>INITIATION_METHOD</code>: <code>INBOUND</code> |
-   *        <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code>
+   *        <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> |
+   *        <code>CALLBACK_CUSTOMER_FIRST_DIALED</code>
    *                </p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-api-connecting-time">Agent API
@@ -7914,9 +8066,9 @@ export interface GetMetricDataV2Request {
    *                <p>Metric filter: </p>
    *                <ul>
    *                   <li>
-   *                      <p>Valid values: <code>API</code>| <code>Incoming</code> | <code>Outbound</code> |
-   *          <code>Transfer</code> | <code>Callback</code> | <code>Queue_Transfer</code>|
-   *          <code>Disconnect</code>
+   *                      <p>Valid values: <code>API</code>| <code>INCOMING</code> | <code>OUTBOUND</code> |
+   *          <code>TRANSFER</code> | <code>CALLBACK</code> | <code>QUEUE_TRANSFER</code>|
+   *          <code>Disconnect</code> | <code>CALLBACK_CUSTOMER_FIRST_DIALED</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -10196,172 +10348,6 @@ export interface ListInstancesRequest {
 }
 
 /**
- * <p>Information about the instance.</p>
- * @public
- */
-export interface InstanceSummary {
-  /**
-   * <p>The identifier of the instance.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The identity management type of the instance.</p>
-   * @public
-   */
-  IdentityManagementType?: DirectoryType | undefined;
-
-  /**
-   * <p>The alias of the instance.</p>
-   * @public
-   */
-  InstanceAlias?: string | undefined;
-
-  /**
-   * <p>When the instance was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The service role of the instance.</p>
-   * @public
-   */
-  ServiceRole?: string | undefined;
-
-  /**
-   * <p>The state of the instance.</p>
-   * @public
-   */
-  InstanceStatus?: InstanceStatus | undefined;
-
-  /**
-   * <p>Whether inbound calls are enabled.</p>
-   * @public
-   */
-  InboundCallsEnabled?: boolean | undefined;
-
-  /**
-   * <p>Whether outbound calls are enabled.</p>
-   * @public
-   */
-  OutboundCallsEnabled?: boolean | undefined;
-
-  /**
-   * <p>This URL allows contact center users to access the Amazon Connect admin website.</p>
-   * @public
-   */
-  InstanceAccessUrl?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInstancesResponse {
-  /**
-   * <p>Information about the instances.</p>
-   * @public
-   */
-  InstanceSummaryList?: InstanceSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInstanceStorageConfigsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A valid resource type.</p>
-   * @public
-   */
-  ResourceType: InstanceStorageResourceType | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInstanceStorageConfigsResponse {
-  /**
-   * <p>A valid storage type.</p>
-   * @public
-   */
-  StorageConfigs?: InstanceStorageConfig[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIntegrationAssociationsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The integration type.</p>
-   * @public
-   */
-  IntegrationType?: IntegrationType | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the integration.</p>
-   * @public
-   */
-  IntegrationArn?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const DescribeEmailAddressResponseFilterSensitiveLog = (obj: DescribeEmailAddressResponse): any => ({
@@ -10426,22 +10412,4 @@ export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
 export const GetFederationTokenResponseFilterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
   ...obj,
   ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InstanceSummaryFilterSensitiveLog = (obj: InstanceSummary): any => ({
-  ...obj,
-  ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListInstancesResponseFilterSensitiveLog = (obj: ListInstancesResponse): any => ({
-  ...obj,
-  ...(obj.InstanceSummaryList && {
-    InstanceSummaryList: obj.InstanceSummaryList.map((item) => InstanceSummaryFilterSensitiveLog(item)),
-  }),
 });

@@ -40,6 +40,8 @@ export interface CreatePlaybackRestrictionPolicyCommandOutput
  * ```javascript
  * import { IvsClient, CreatePlaybackRestrictionPolicyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, CreatePlaybackRestrictionPolicyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * // import type { IvsClientConfig } from "@aws-sdk/client-ivs";
+ * const config = {}; // type is IvsClientConfig
  * const client = new IvsClient(config);
  * const input = { // CreatePlaybackRestrictionPolicyRequest
  *   allowedCountries: [ // PlaybackRestrictionPolicyAllowedCountryList

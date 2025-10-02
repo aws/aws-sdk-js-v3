@@ -28,14 +28,15 @@ export interface DisableDirectoryDataAccessCommandInput extends DisableDirectory
 export interface DisableDirectoryDataAccessCommandOutput extends DisableDirectoryDataAccessResult, __MetadataBearer {}
 
 /**
- * <p>Deactivates access to directory data via the Directory Service Data API for the specified
- *       directory. For
+ * <p>Deactivates access to directory data via the Directory Service Data API for the specified directory. For
  *       more information, see <a href="https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html">Directory Service Data API Reference</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, DisableDirectoryDataAccessCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DisableDirectoryDataAccessCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DisableDirectoryDataAccessRequest
  *   DirectoryId: "STRING_VALUE", // required

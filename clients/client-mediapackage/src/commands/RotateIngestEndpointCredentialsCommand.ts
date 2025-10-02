@@ -43,6 +43,8 @@ export interface RotateIngestEndpointCredentialsCommandOutput
  * ```javascript
  * import { MediaPackageClient, RotateIngestEndpointCredentialsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, RotateIngestEndpointCredentialsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * // import type { MediaPackageClientConfig } from "@aws-sdk/client-mediapackage";
+ * const config = {}; // type is MediaPackageClientConfig
  * const client = new MediaPackageClient(config);
  * const input = { // RotateIngestEndpointCredentialsRequest
  *   Id: "STRING_VALUE", // required

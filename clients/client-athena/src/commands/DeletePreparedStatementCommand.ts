@@ -35,6 +35,8 @@ export interface DeletePreparedStatementCommandOutput extends DeletePreparedStat
  * ```javascript
  * import { AthenaClient, DeletePreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeletePreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // DeletePreparedStatementInput
  *   StatementName: "STRING_VALUE", // required

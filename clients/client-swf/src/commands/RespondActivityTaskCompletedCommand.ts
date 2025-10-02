@@ -73,6 +73,8 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  * ```javascript
  * import { SWFClient, RespondActivityTaskCompletedCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RespondActivityTaskCompletedCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // RespondActivityTaskCompletedInput
  *   taskToken: "STRING_VALUE", // required

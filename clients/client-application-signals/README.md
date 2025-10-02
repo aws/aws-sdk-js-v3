@@ -6,25 +6,7 @@
 
 AWS SDK for JavaScript ApplicationSignals Client for Node.js, Browser and React Native.
 
-<p>Use CloudWatch Application Signals for comprehensive observability of your cloud-based applications.
-It enables real-time service health dashboards and helps you track long-term performance trends against your business goals.
-The application-centric view provides you with unified visibility across your applications, services, and
-dependencies, so you can proactively monitor and efficiently triage any issues that may arise,
-ensuring optimal customer experience.</p>
-<p>Application Signals provides the following benefits:</p>
-<ul>
-<li>
-<p>Automatically collect metrics and traces from your applications, and display key metrics such as call volume, availability, latency, faults, and errors. </p>
-</li>
-<li>
-<p>Create and monitor service level objectives (SLOs). </p>
-</li>
-<li>
-<p>See a map of your application topology that Application Signals automatically discovers, that gives you a visual representation of your applications, dependencies, and their connectivity.</p>
-</li>
-</ul>
-<p>Application Signals works with CloudWatch RUM, CloudWatch Synthetics canaries, and Amazon Web Services Service Catalog AppRegistry, to display your client pages, Synthetics canaries,
-and application names within dashboards and maps.</p>
+<p>Use CloudWatch Application Signals for comprehensive observability of your cloud-based applications. It enables real-time service health dashboards and helps you track long-term performance trends against your business goals. The application-centric view provides you with unified visibility across your applications, services, and dependencies, so you can proactively monitor and efficiently triage any issues that may arise, ensuring optimal customer experience.</p> <p>Application Signals provides the following benefits:</p> <ul> <li> <p>Automatically collect metrics and traces from your applications, and display key metrics such as call volume, availability, latency, faults, and errors. </p> </li> <li> <p>Create and monitor service level objectives (SLOs). </p> </li> <li> <p>See a map of your application topology that Application Signals automatically discovers, that gives you a visual representation of your applications, dependencies, and their connectivity.</p> </li> </ul> <p>Application Signals works with CloudWatch RUM, CloudWatch Synthetics canaries, and Amazon Web Services Service Catalog AppRegistry, to display your client pages, Synthetics canaries, and application names within dashboards and maps.</p>
 
 ## Installing
 
@@ -247,6 +229,14 @@ CreateServiceLevelObjective
 </details>
 <details>
 <summary>
+DeleteGroupingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/DeleteGroupingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/DeleteGroupingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/DeleteGroupingConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteServiceLevelObjective
 </summary>
 
@@ -267,6 +257,22 @@ GetServiceLevelObjective
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/GetServiceLevelObjectiveCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/GetServiceLevelObjectiveCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/GetServiceLevelObjectiveCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAuditFindings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/ListAuditFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListAuditFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListAuditFindingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListGroupingAttributeDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/ListGroupingAttributeDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListGroupingAttributeDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListGroupingAttributeDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -319,10 +325,26 @@ ListServices
 </details>
 <details>
 <summary>
+ListServiceStates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/ListServiceStatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListServiceStatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListServiceStatesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutGroupingConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/PutGroupingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/PutGroupingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/PutGroupingConfigurationCommandOutput/)
 
 </details>
 <details>

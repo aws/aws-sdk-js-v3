@@ -40,6 +40,8 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  * ```javascript
  * import { ComprehendClient, DetectSentimentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectSentimentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // DetectSentimentRequest
  *   Text: "STRING_VALUE", // required

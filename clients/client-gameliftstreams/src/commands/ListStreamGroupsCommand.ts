@@ -34,6 +34,8 @@ export interface ListStreamGroupsCommandOutput extends ListStreamGroupsOutput, _
  * ```javascript
  * import { GameLiftStreamsClient, ListStreamGroupsCommand } from "@aws-sdk/client-gameliftstreams"; // ES Modules import
  * // const { GameLiftStreamsClient, ListStreamGroupsCommand } = require("@aws-sdk/client-gameliftstreams"); // CommonJS import
+ * // import type { GameLiftStreamsClientConfig } from "@aws-sdk/client-gameliftstreams";
+ * const config = {}; // type is GameLiftStreamsClientConfig
  * const client = new GameLiftStreamsClient(config);
  * const input = { // ListStreamGroupsInput
  *   NextToken: "STRING_VALUE",

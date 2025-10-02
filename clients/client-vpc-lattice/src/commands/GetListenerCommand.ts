@@ -34,6 +34,8 @@ export interface GetListenerCommandOutput extends GetListenerResponse, __Metadat
  * ```javascript
  * import { VPCLatticeClient, GetListenerCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, GetListenerCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // GetListenerRequest
  *   serviceIdentifier: "STRING_VALUE", // required
@@ -87,8 +89,7 @@ export interface GetListenerCommandOutput extends GetListenerResponse, __Metadat
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

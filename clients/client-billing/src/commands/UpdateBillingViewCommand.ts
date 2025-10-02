@@ -38,6 +38,8 @@ export interface UpdateBillingViewCommandOutput extends UpdateBillingViewRespons
  * ```javascript
  * import { BillingClient, UpdateBillingViewCommand } from "@aws-sdk/client-billing"; // ES Modules import
  * // const { BillingClient, UpdateBillingViewCommand } = require("@aws-sdk/client-billing"); // CommonJS import
+ * // import type { BillingClientConfig } from "@aws-sdk/client-billing";
+ * const config = {}; // type is BillingClientConfig
  * const client = new BillingClient(config);
  * const input = { // UpdateBillingViewRequest
  *   arn: "STRING_VALUE", // required
@@ -55,6 +57,10 @@ export interface UpdateBillingViewCommandOutput extends UpdateBillingViewRespons
  *       values: [ // required
  *         "STRING_VALUE",
  *       ],
+ *     },
+ *     timeRange: { // TimeRange
+ *       beginDateInclusive: new Date("TIMESTAMP"),
+ *       endDateInclusive: new Date("TIMESTAMP"),
  *     },
  *   },
  * };
@@ -75,6 +81,9 @@ export interface UpdateBillingViewCommandOutput extends UpdateBillingViewRespons
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BillingViewHealthStatusException} (client fault)
+ *  <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>

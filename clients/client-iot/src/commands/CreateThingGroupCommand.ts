@@ -42,6 +42,8 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  * ```javascript
  * import { IoTClient, CreateThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreateThingGroupRequest
  *   thingGroupName: "STRING_VALUE", // required

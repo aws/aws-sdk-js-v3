@@ -43,6 +43,8 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
  * ```javascript
  * import { ConfigServiceClient, DescribeConfigRuleEvaluationStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigRuleEvaluationStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
+ * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeConfigRuleEvaluationStatusRequest
  *   ConfigRuleNames: [ // ConfigRuleNames

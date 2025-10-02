@@ -38,6 +38,8 @@ export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomai
  * ```javascript
  * import { AppRunnerClient, AssociateCustomDomainCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, AssociateCustomDomainCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // import type { AppRunnerClientConfig } from "@aws-sdk/client-apprunner";
+ * const config = {}; // type is AppRunnerClientConfig
  * const client = new AppRunnerClient(config);
  * const input = { // AssociateCustomDomainRequest
  *   ServiceArn: "STRING_VALUE", // required

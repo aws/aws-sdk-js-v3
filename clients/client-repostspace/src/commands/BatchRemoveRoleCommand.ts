@@ -34,6 +34,8 @@ export interface BatchRemoveRoleCommandOutput extends BatchRemoveRoleOutput, __M
  * ```javascript
  * import { RepostspaceClient, BatchRemoveRoleCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, BatchRemoveRoleCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // BatchRemoveRoleInput
  *   spaceId: "STRING_VALUE", // required

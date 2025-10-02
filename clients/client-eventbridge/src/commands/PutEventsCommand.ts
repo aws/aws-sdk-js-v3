@@ -46,6 +46,8 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * ```javascript
  * import { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutEventsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // PutEventsRequest
  *   Entries: [ // PutEventsRequestEntryList // required

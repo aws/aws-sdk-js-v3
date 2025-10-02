@@ -38,6 +38,8 @@ export interface StartResourceSnapshotJobCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { PartnerCentralSellingClient, StartResourceSnapshotJobCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, StartResourceSnapshotJobCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // StartResourceSnapshotJobRequest
  *   Catalog: "STRING_VALUE", // required

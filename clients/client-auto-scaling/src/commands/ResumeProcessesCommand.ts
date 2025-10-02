@@ -37,6 +37,8 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AutoScalingClient, ResumeProcessesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, ResumeProcessesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // ScalingProcessQuery
  *   AutoScalingGroupName: "STRING_VALUE", // required

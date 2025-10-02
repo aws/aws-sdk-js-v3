@@ -40,6 +40,8 @@ export interface CreateFeaturedResultsSetCommandOutput extends CreateFeaturedRes
  * ```javascript
  * import { KendraClient, CreateFeaturedResultsSetCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateFeaturedResultsSetCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // import type { KendraClientConfig } from "@aws-sdk/client-kendra";
+ * const config = {}; // type is KendraClientConfig
  * const client = new KendraClient(config);
  * const input = { // CreateFeaturedResultsSetRequest
  *   IndexId: "STRING_VALUE", // required

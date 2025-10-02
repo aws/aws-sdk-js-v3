@@ -34,6 +34,8 @@ export interface PutAccountNameCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AccountClient, PutAccountNameCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, PutAccountNameCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * // import type { AccountClientConfig } from "@aws-sdk/client-account";
+ * const config = {}; // type is AccountClientConfig
  * const client = new AccountClient(config);
  * const input = { // PutAccountNameRequest
  *   AccountName: "STRING_VALUE", // required

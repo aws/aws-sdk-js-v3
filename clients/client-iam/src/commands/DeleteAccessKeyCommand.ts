@@ -38,6 +38,8 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, DeleteAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // DeleteAccessKeyRequest
  *   UserName: "STRING_VALUE",

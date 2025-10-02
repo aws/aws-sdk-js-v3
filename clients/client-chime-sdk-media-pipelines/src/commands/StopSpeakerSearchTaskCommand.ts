@@ -38,6 +38,8 @@ export interface StopSpeakerSearchTaskCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, StopSpeakerSearchTaskCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, StopSpeakerSearchTaskCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // StopSpeakerSearchTaskRequest
  *   Identifier: "STRING_VALUE", // required

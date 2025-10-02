@@ -34,6 +34,8 @@ export interface GetPipelineCommandOutput extends GetPipelineResponse, __Metadat
  * ```javascript
  * import { OSISClient, GetPipelineCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, GetPipelineCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // import type { OSISClientConfig } from "@aws-sdk/client-osis";
+ * const config = {}; // type is OSISClientConfig
  * const client = new OSISClient(config);
  * const input = { // GetPipelineRequest
  *   PipelineName: "STRING_VALUE", // required

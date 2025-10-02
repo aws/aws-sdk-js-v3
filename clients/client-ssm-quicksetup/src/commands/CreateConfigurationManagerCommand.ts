@@ -40,6 +40,8 @@ export interface CreateConfigurationManagerCommandOutput extends CreateConfigura
  * ```javascript
  * import { SSMQuickSetupClient, CreateConfigurationManagerCommand } from "@aws-sdk/client-ssm-quicksetup"; // ES Modules import
  * // const { SSMQuickSetupClient, CreateConfigurationManagerCommand } = require("@aws-sdk/client-ssm-quicksetup"); // CommonJS import
+ * // import type { SSMQuickSetupClientConfig } from "@aws-sdk/client-ssm-quicksetup";
+ * const config = {}; // type is SSMQuickSetupClientConfig
  * const client = new SSMQuickSetupClient(config);
  * const input = { // CreateConfigurationManagerInput
  *   Name: "STRING_VALUE",

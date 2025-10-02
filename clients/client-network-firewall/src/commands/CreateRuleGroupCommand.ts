@@ -37,6 +37,8 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * ```javascript
  * import { NetworkFirewallClient, CreateRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, CreateRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // CreateRuleGroupRequest
  *   RuleGroupName: "STRING_VALUE", // required
@@ -73,7 +75,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *         TargetTypes: [ // TargetTypes // required
  *           "TLS_SNI" || "HTTP_HOST",
  *         ],
- *         GeneratedRulesType: "ALLOWLIST" || "DENYLIST", // required
+ *         GeneratedRulesType: "ALLOWLIST" || "DENYLIST" || "REJECTLIST" || "ALERTLIST", // required
  *       },
  *       StatefulRules: [ // StatefulRules
  *         { // StatefulRule

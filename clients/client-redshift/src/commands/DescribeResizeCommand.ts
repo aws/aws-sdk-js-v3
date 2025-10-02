@@ -40,6 +40,8 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * ```javascript
  * import { RedshiftClient, DescribeResizeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeResizeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeResizeMessage
  *   ClusterIdentifier: "STRING_VALUE", // required

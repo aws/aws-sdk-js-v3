@@ -35,6 +35,8 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SESClient, VerifyEmailAddressCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, VerifyEmailAddressCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // VerifyEmailAddressRequest
  *   EmailAddress: "STRING_VALUE", // required

@@ -40,6 +40,8 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  * ```javascript
  * import { StorageGatewayClient, DescribeChapCredentialsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeChapCredentialsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeChapCredentialsInput
  *   TargetARN: "STRING_VALUE", // required

@@ -41,6 +41,8 @@ export interface AssociateExternalConnectionCommandOutput extends AssociateExter
  * ```javascript
  * import { CodeartifactClient, AssociateExternalConnectionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, AssociateExternalConnectionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // AssociateExternalConnectionRequest
  *   domain: "STRING_VALUE", // required

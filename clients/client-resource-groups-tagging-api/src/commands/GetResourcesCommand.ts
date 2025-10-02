@@ -61,6 +61,8 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * ```javascript
  * import { ResourceGroupsTaggingAPIClient, GetResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, GetResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * // import type { ResourceGroupsTaggingAPIClientConfig } from "@aws-sdk/client-resource-groups-tagging-api";
+ * const config = {}; // type is ResourceGroupsTaggingAPIClientConfig
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const input = { // GetResourcesInput
  *   PaginationToken: "STRING_VALUE",

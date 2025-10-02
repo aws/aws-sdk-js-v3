@@ -34,6 +34,8 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * ```javascript
  * import { KeyspacesStreamsClient, GetRecordsCommand } from "@aws-sdk/client-keyspacesstreams"; // ES Modules import
  * // const { KeyspacesStreamsClient, GetRecordsCommand } = require("@aws-sdk/client-keyspacesstreams"); // CommonJS import
+ * // import type { KeyspacesStreamsClientConfig } from "@aws-sdk/client-keyspacesstreams";
+ * const config = {}; // type is KeyspacesStreamsClientConfig
  * const client = new KeyspacesStreamsClient(config);
  * const input = { // GetRecordsInput
  *   shardIterator: "STRING_VALUE", // required

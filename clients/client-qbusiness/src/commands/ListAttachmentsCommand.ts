@@ -34,6 +34,8 @@ export interface ListAttachmentsCommandOutput extends ListAttachmentsResponse, _
  * ```javascript
  * import { QBusinessClient, ListAttachmentsCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, ListAttachmentsCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // ListAttachmentsRequest
  *   applicationId: "STRING_VALUE", // required

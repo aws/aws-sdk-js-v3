@@ -34,6 +34,8 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * ```javascript
  * import { OpenSearchClient, UpdateVpcEndpointCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, UpdateVpcEndpointCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
+ * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
  * const input = { // UpdateVpcEndpointRequest
  *   VpcEndpointId: "STRING_VALUE", // required

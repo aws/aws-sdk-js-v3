@@ -34,6 +34,8 @@ export interface ListControlOperationsCommandOutput extends ListControlOperation
  * ```javascript
  * import { ControlTowerClient, ListControlOperationsCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, ListControlOperationsCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // import type { ControlTowerClientConfig } from "@aws-sdk/client-controltower";
+ * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // ListControlOperationsInput
  *   filter: { // ControlOperationFilter

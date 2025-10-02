@@ -36,6 +36,8 @@ export interface UpdateCertificateProviderCommandOutput extends UpdateCertificat
  * ```javascript
  * import { IoTClient, UpdateCertificateProviderCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateCertificateProviderCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // UpdateCertificateProviderRequest
  *   certificateProviderName: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * ```javascript
  * import { BedrockRuntimeClient, ConverseCommand } from "@aws-sdk/client-bedrock-runtime"; // ES Modules import
  * // const { BedrockRuntimeClient, ConverseCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
+ * // import type { BedrockRuntimeClientConfig } from "@aws-sdk/client-bedrock-runtime";
+ * const config = {}; // type is BedrockRuntimeClientConfig
  * const client = new BedrockRuntimeClient(config);
  * const input = { // ConverseRequest
  *   modelId: "STRING_VALUE", // required
@@ -441,7 +443,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //       ],
  * //     },
  * //   },
- * //   stopReason: "end_turn" || "tool_use" || "max_tokens" || "stop_sequence" || "guardrail_intervened" || "content_filtered", // required
+ * //   stopReason: "end_turn" || "tool_use" || "max_tokens" || "stop_sequence" || "guardrail_intervened" || "content_filtered" || "model_context_window_exceeded", // required
  * //   usage: { // TokenUsage
  * //     inputTokens: Number("int"), // required
  * //     outputTokens: Number("int"), // required

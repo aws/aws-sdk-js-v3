@@ -34,6 +34,8 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * ```javascript
  * import { NetworkFirewallClient, DescribeRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // DescribeRuleGroupRequest
  *   RuleGroupName: "STRING_VALUE",
@@ -78,7 +80,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * //         TargetTypes: [ // TargetTypes // required
  * //           "TLS_SNI" || "HTTP_HOST",
  * //         ],
- * //         GeneratedRulesType: "ALLOWLIST" || "DENYLIST", // required
+ * //         GeneratedRulesType: "ALLOWLIST" || "DENYLIST" || "REJECTLIST" || "ALERTLIST", // required
  * //       },
  * //       StatefulRules: [ // StatefulRules
  * //         { // StatefulRule

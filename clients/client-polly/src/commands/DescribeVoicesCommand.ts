@@ -49,6 +49,8 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  * ```javascript
  * import { PollyClient, DescribeVoicesCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, DescribeVoicesCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * // import type { PollyClientConfig } from "@aws-sdk/client-polly";
+ * const config = {}; // type is PollyClientConfig
  * const client = new PollyClient(config);
  * const input = { // DescribeVoicesInput
  *   Engine: "standard" || "neural" || "long-form" || "generative",

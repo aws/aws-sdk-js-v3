@@ -35,6 +35,8 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * ```javascript
  * import { LicenseManagerClient, CreateGrantVersionCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateGrantVersionCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // CreateGrantVersionRequest
  *   ClientToken: "STRING_VALUE", // required

@@ -48,6 +48,8 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  * ```javascript
  * import { ComprehendMedicalClient, DetectEntitiesV2Command } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DetectEntitiesV2Command } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // import type { ComprehendMedicalClientConfig } from "@aws-sdk/client-comprehendmedical";
+ * const config = {}; // type is ComprehendMedicalClientConfig
  * const client = new ComprehendMedicalClient(config);
  * const input = { // DetectEntitiesV2Request
  *   Text: "STRING_VALUE", // required

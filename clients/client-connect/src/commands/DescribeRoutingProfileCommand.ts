@@ -39,6 +39,8 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * ```javascript
  * import { ConnectClient, DescribeRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DescribeRoutingProfileRequest
  *   InstanceId: "STRING_VALUE", // required
@@ -67,12 +69,16 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     NumberOfAssociatedQueues: Number("long"),
+ * //     NumberOfAssociatedManualAssignmentQueues: Number("long"),
  * //     NumberOfAssociatedUsers: Number("long"),
  * //     AgentAvailabilityTimer: "TIME_SINCE_LAST_ACTIVITY" || "TIME_SINCE_LAST_INBOUND",
  * //     LastModifiedTime: new Date("TIMESTAMP"),
  * //     LastModifiedRegion: "STRING_VALUE",
  * //     IsDefault: true || false,
  * //     AssociatedQueueIds: [ // AssociatedQueueIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AssociatedManualAssignmentQueueIds: [
  * //       "STRING_VALUE",
  * //     ],
  * //   },

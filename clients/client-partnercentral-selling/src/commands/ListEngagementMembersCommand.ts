@@ -42,6 +42,8 @@ export interface ListEngagementMembersCommandOutput extends ListEngagementMember
  * ```javascript
  * import { PartnerCentralSellingClient, ListEngagementMembersCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, ListEngagementMembersCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // ListEngagementMembersRequest
  *   Catalog: "STRING_VALUE", // required

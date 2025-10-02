@@ -44,6 +44,8 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * ```javascript
  * import { OutpostsClient, StartConnectionCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, StartConnectionCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // import type { OutpostsClientConfig } from "@aws-sdk/client-outposts";
+ * const config = {}; // type is OutpostsClientConfig
  * const client = new OutpostsClient(config);
  * const input = { // StartConnectionRequest
  *   DeviceSerialNumber: "STRING_VALUE",

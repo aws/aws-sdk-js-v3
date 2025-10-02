@@ -35,6 +35,8 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  * ```javascript
  * import { InspectorClient, GetTelemetryMetadataCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, GetTelemetryMetadataCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // import type { InspectorClientConfig } from "@aws-sdk/client-inspector";
+ * const config = {}; // type is InspectorClientConfig
  * const client = new InspectorClient(config);
  * const input = { // GetTelemetryMetadataRequest
  *   assessmentRunArn: "STRING_VALUE", // required

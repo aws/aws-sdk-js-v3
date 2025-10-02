@@ -34,6 +34,8 @@ export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse,
  * ```javascript
  * import { KafkaClient, ListScramSecretsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListScramSecretsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // ListScramSecretsRequest
  *   ClusterArn: "STRING_VALUE", // required

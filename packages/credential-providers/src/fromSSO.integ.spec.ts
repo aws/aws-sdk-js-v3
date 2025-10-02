@@ -1,6 +1,8 @@
-import fs from "fs";
+import { REFRESH_MESSAGE } from "@aws-sdk/token-providers/src/constants";
+import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
 import { homedir } from "os";
 import { join } from "path";
+import { describe, expect, test as it } from "vitest";
 
 import { fromSSO } from "./fromSSO";
 
@@ -15,31 +17,36 @@ sso_start_url = https://my-sso-portal.awsapps.com/start
 sso_registration_scopes = sso:account:access
 `;
 
-jest.mock("fs", () => {
-  return {
-    promises: {
-      readFile: jest.fn(),
-    },
-  };
-});
-
 describe("fromSSO integration test", () => {
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
-
   it("should expand relative homedir", async () => {
-    const mockReadFile = (fs.promises.readFile as jest.Mock).mockResolvedValue(SAMPLE_CONFIG);
+    const customConfigPath = join(homedir(), "custom/path/to/config");
+    const customCredentialsPath = join(homedir(), "custom/path/to/config");
 
-    try {
-      await fromSSO({
+    externalDataInterceptor.interceptFile(customConfigPath, SAMPLE_CONFIG);
+    externalDataInterceptor.interceptFile(customCredentialsPath, SAMPLE_CONFIG);
+
+    /**
+     * todo(shared-ini-file-loader): this interception shouldn't be necessary. The "slurpFile" API
+     * todo(shared-ini-file-loader): should perform the replacement of the homedir shorthand.
+     * todo: loadSsoSessionData needs to also respect the ~/ replacement or this feature and test are rendered pointless.
+     */
+    externalDataInterceptor.interceptFile(customConfigPath.replace(homedir(), "~"), SAMPLE_CONFIG);
+    externalDataInterceptor.interceptFile(customCredentialsPath.replace(homedir(), "~"), SAMPLE_CONFIG);
+
+    externalDataInterceptor.interceptToken("my-sso", {
+      accessToken: "token-contents",
+      expiresAt: Date.now(),
+      clientId: "my-sso",
+      clientSecret: "a secret",
+      refreshToken: "token",
+    });
+
+    await expect(
+      fromSSO({
         profile: "dev",
         filepath: "~/custom/path/to/credentials",
         configFilepath: "~/custom/path/to/config",
-      })();
-    } catch (ignored) {}
-
-    expect(mockReadFile).toHaveBeenCalledWith(join(homedir(), "custom/path/to/credentials"), "utf8");
-    expect(mockReadFile).toHaveBeenCalledWith(join(homedir(), "custom/path/to/config"), "utf8");
+      })
+    ).rejects.toThrowError(`Token is expired. ${REFRESH_MESSAGE}`);
   });
 });

@@ -28,12 +28,14 @@ export interface CreateIdMappingWorkflowCommandInput extends CreateIdMappingWork
 export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an <code>IdMappingWorkflow</code> object which stores the configuration of the data processing job to be run. Each <code>IdMappingWorkflow</code> must have a unique workflow name. To modify an existing workflow, use the UpdateIdMappingWorkflow API.</p>
+ * <p>Creates an <code>IdMappingWorkflow</code> object which stores the configuration of the data processing job to be run. Each <code>IdMappingWorkflow</code> must have a unique workflow name. To modify an existing workflow, use the UpdateIdMappingWorkflow API.</p> <important> <p>Incremental processing is not supported for ID mapping workflows. </p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EntityResolutionClient, CreateIdMappingWorkflowCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, CreateIdMappingWorkflowCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // import type { EntityResolutionClientConfig } from "@aws-sdk/client-entityresolution";
+ * const config = {}; // type is EntityResolutionClientConfig
  * const client = new EntityResolutionClient(config);
  * const input = { // CreateIdMappingWorkflowInput
  *   workflowName: "STRING_VALUE", // required
@@ -73,6 +75,9 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  *         intermediateS3Path: "STRING_VALUE", // required
  *       },
  *     },
+ *   },
+ *   incrementalRunConfig: { // IdMappingIncrementalRunConfig
+ *     incrementalRunType: "ON_DEMAND",
  *   },
  *   roleArn: "STRING_VALUE",
  *   tags: { // TagMap
@@ -121,6 +126,9 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  * //       },
  * //     },
  * //   },
+ * //   incrementalRunConfig: { // IdMappingIncrementalRunConfig
+ * //     incrementalRunType: "ON_DEMAND",
+ * //   },
  * //   roleArn: "STRING_VALUE",
  * // };
  *
@@ -136,7 +144,7 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+ *  <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link ExceedsLimitException} (client fault)
  *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>

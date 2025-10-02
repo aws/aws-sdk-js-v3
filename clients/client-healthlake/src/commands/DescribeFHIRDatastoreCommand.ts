@@ -34,6 +34,8 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * ```javascript
  * import { HealthLakeClient, DescribeFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, DescribeFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * // import type { HealthLakeClientConfig } from "@aws-sdk/client-healthlake";
+ * const config = {}; // type is HealthLakeClientConfig
  * const client = new HealthLakeClient(config);
  * const input = { // DescribeFHIRDatastoreRequest
  *   DatastoreId: "STRING_VALUE", // required

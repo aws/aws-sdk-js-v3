@@ -34,6 +34,8 @@ export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataB
  * ```javascript
  * import { LakeFormationClient, ListLFTagsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ListLFTagsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // ListLFTagsRequest
  *   CatalogId: "STRING_VALUE",

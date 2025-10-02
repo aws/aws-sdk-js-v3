@@ -34,6 +34,8 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * ```javascript
  * import { CloudFrontClient, UpdateKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // UpdateKeyGroupRequest
  *   KeyGroupConfig: { // KeyGroupConfig

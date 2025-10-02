@@ -35,6 +35,8 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  * ```javascript
  * import { BillingconductorClient, AssociatePricingRulesCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, AssociatePricingRulesCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // import type { BillingconductorClientConfig } from "@aws-sdk/client-billingconductor";
+ * const config = {}; // type is BillingconductorClientConfig
  * const client = new BillingconductorClient(config);
  * const input = { // AssociatePricingRulesInput
  *   Arn: "STRING_VALUE", // required

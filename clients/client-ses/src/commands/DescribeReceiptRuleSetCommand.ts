@@ -37,6 +37,8 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  * ```javascript
  * import { SESClient, DescribeReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DescribeReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // DescribeReceiptRuleSetRequest
  *   RuleSetName: "STRING_VALUE", // required

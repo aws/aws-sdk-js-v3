@@ -34,6 +34,8 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  * ```javascript
  * import { LakeFormationClient, StartTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, StartTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // StartTransactionRequest
  *   TransactionType: "READ_AND_WRITE" || "READ_ONLY",

@@ -568,70 +568,6 @@ export interface CreateManagedEndpointResponse {
 }
 
 /**
- * <p>Configurations related to the security configuration for the request.</p>
- * @public
- */
-export interface SecurityConfigurationData {
-  /**
-   * <p>Authorization-related configuration input for the security configuration.</p>
-   * @public
-   */
-  authorizationConfiguration?: AuthorizationConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSecurityConfigurationRequest {
-  /**
-   * <p>The client idempotency token to use when creating the security configuration.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The name of the security configuration.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Security configuration input for the request.</p>
-   * @public
-   */
-  securityConfigurationData: SecurityConfigurationData | undefined;
-
-  /**
-   * <p>The tags to add to the security configuration.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSecurityConfigurationResponse {
-  /**
-   * <p>The ID of the security configuration.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The name of the security configuration.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The ARN (Amazon Resource Name) of the security configuration.</p>
-   * @public
-   */
-  arn?: string | undefined;
-}
-
-/**
  * <p>The information about the Amazon EKS cluster.</p>
  * @public
  */
@@ -641,6 +577,12 @@ export interface EksInfo {
    * @public
    */
   namespace?: string | undefined;
+
+  /**
+   * <p>The nodeLabel of the nodes where the resources of this virtual cluster can get scheduled. It requires relevant scaling and policy engine addons.</p>
+   * @public
+   */
+  nodeLabel?: string | undefined;
 }
 
 /**
@@ -717,6 +659,76 @@ export interface ContainerProvider {
    * @public
    */
   info?: ContainerInfo | undefined;
+}
+
+/**
+ * <p>Configurations related to the security configuration for the request.</p>
+ * @public
+ */
+export interface SecurityConfigurationData {
+  /**
+   * <p>Authorization-related configuration input for the security configuration.</p>
+   * @public
+   */
+  authorizationConfiguration?: AuthorizationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSecurityConfigurationRequest {
+  /**
+   * <p>The client idempotency token to use when creating the security configuration.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The name of the security configuration.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The container provider associated with the security configuration.</p>
+   * @public
+   */
+  containerProvider?: ContainerProvider | undefined;
+
+  /**
+   * <p>Security configuration input for the request.</p>
+   * @public
+   */
+  securityConfigurationData: SecurityConfigurationData | undefined;
+
+  /**
+   * <p>The tags to add to the security configuration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSecurityConfigurationResponse {
+  /**
+   * <p>The ID of the security configuration.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The name of the security configuration.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the security configuration.</p>
+   * @public
+   */
+  arn?: string | undefined;
 }
 
 /**

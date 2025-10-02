@@ -34,6 +34,8 @@ export interface CreateTableOptimizerCommandOutput extends CreateTableOptimizerR
  * ```javascript
  * import { GlueClient, CreateTableOptimizerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateTableOptimizerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // CreateTableOptimizerRequest
  *   CatalogId: "STRING_VALUE", // required

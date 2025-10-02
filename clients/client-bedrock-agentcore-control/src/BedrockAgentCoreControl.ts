@@ -197,6 +197,11 @@ import {
   ListOauth2CredentialProvidersCommandOutput,
 } from "./commands/ListOauth2CredentialProvidersCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListWorkloadIdentitiesCommand,
   ListWorkloadIdentitiesCommandInput,
   ListWorkloadIdentitiesCommandOutput,
@@ -206,6 +211,12 @@ import {
   SetTokenVaultCMKCommandInput,
   SetTokenVaultCMKCommandOutput,
 } from "./commands/SetTokenVaultCMKCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateAgentRuntimeCommand,
   UpdateAgentRuntimeCommandInput,
@@ -289,8 +300,11 @@ const commands = {
   ListGatewayTargetsCommand,
   ListMemoriesCommand,
   ListOauth2CredentialProvidersCommand,
+  ListTagsForResourceCommand,
   ListWorkloadIdentitiesCommand,
   SetTokenVaultCMKCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
   UpdateAgentRuntimeCommand,
   UpdateAgentRuntimeEndpointCommand,
   UpdateApiKeyCredentialProviderCommand,
@@ -927,6 +941,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListWorkloadIdentitiesCommand}
    */
   listWorkloadIdentities(): Promise<ListWorkloadIdentitiesCommandOutput>;
@@ -959,6 +990,28 @@ export interface BedrockAgentCoreControl {
     args: SetTokenVaultCMKCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SetTokenVaultCMKCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
   /**
@@ -1087,7 +1140,7 @@ export interface BedrockAgentCoreControl {
 }
 
 /**
- * <note> <p>Amazon Bedrock AgentCore is in preview release and is subject to change.</p> </note> <p>Amazon Bedrock Agent Core Control is a service that enables you to manage memory resources for your Amazon Bedrock agents.</p> <p>Use this API to create, retrieve, update, and delete memory resources and their associated memory strategies. Memory resources enable your agents to store and retrieve information from conversations and interactions.</p>
+ * <note> <p> is in preview release and is subject to change.</p> </note> <p>Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control plane actions configure, create, modify, and monitor Amazon Web Services resources.</p>
  * @public
  */
 export class BedrockAgentCoreControl extends BedrockAgentCoreControlClient implements BedrockAgentCoreControl {}

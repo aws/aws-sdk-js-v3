@@ -39,6 +39,8 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
  * ```javascript
  * import { KinesisClient, EnableEnhancedMonitoringCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, EnableEnhancedMonitoringCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // import type { KinesisClientConfig } from "@aws-sdk/client-kinesis";
+ * const config = {}; // type is KinesisClientConfig
  * const client = new KinesisClient(config);
  * const input = { // EnableEnhancedMonitoringInput
  *   StreamName: "STRING_VALUE",

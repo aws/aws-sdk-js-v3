@@ -44,6 +44,8 @@ export interface GetResourcePositionCommandOutput extends GetResourcePositionCom
  * ```javascript
  * import { IoTWirelessClient, GetResourcePositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetResourcePositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // GetResourcePositionRequest
  *   ResourceIdentifier: "STRING_VALUE", // required

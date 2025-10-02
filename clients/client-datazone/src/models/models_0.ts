@@ -1377,7 +1377,7 @@ export namespace PolicyGrantDetail {
   }
 
   /**
-   * <p>Specifies that this is a create glossary policy.</p>
+   * <p> Specifies that this is a create glossary policy.</p>
    * @public
    */
   export interface CreateGlossaryMember {
@@ -5439,6 +5439,12 @@ export interface SparkEmrPropertiesInput {
    * @public
    */
   trustedCertificatesS3Uri?: string | undefined;
+
+  /**
+   * <p>The managed endpoint ARN of the EMR on EKS cluster.</p>
+   * @public
+   */
+  managedEndpointArn?: string | undefined;
 }
 
 /**
@@ -5917,6 +5923,24 @@ export const GovernanceType = {
 export type GovernanceType = (typeof GovernanceType)[keyof typeof GovernanceType];
 
 /**
+ * <p>The managed endpoint credentials of the EMR on EKS cluster.</p>
+ * @public
+ */
+export interface ManagedEndpointCredentials {
+  /**
+   * <p>The identifier of the managed endpoint credentials.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The ARN of the managed endpoint credentials.</p>
+   * @public
+   */
+  token?: string | undefined;
+}
+
+/**
  * <p>The Spark EMR properties.</p>
  * @public
  */
@@ -5986,6 +6010,24 @@ export interface SparkEmrPropertiesOutput {
    * @public
    */
   trustedCertificatesS3Uri?: string | undefined;
+
+  /**
+   * <p>The certificate data of the EMR on EKS cluster.</p>
+   * @public
+   */
+  certificateData?: string | undefined;
+
+  /**
+   * <p>The managed endpoint ARN of the EMR on EKS cluster.</p>
+   * @public
+   */
+  managedEndpointArn?: string | undefined;
+
+  /**
+   * <p>The managed endpoint credentials of the EMR on EKS cluster.</p>
+   * @public
+   */
+  managedEndpointCredentials?: ManagedEndpointCredentials | undefined;
 }
 
 /**
@@ -6383,6 +6425,12 @@ export interface SparkEmrPropertiesPatch {
    * @public
    */
   trustedCertificatesS3Uri?: string | undefined;
+
+  /**
+   * <p>The managed endpoint ARN of the EMR on EKS cluster.</p>
+   * @public
+   */
+  managedEndpointArn?: string | undefined;
 }
 
 /**
@@ -8967,6 +9015,12 @@ export interface CustomParameter {
    * @public
    */
   isOptional?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether a parameter value can be updated after creation. </p>
+   * @public
+   */
+  isUpdateSupported?: boolean | undefined;
 }
 
 /**
@@ -9180,6 +9234,106 @@ export interface CreateEnvironmentActionOutput {
    * @public
    */
   description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEnvironmentBlueprintInput {
+  /**
+   * <p>The identifier of the domain in which this blueprint is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The name of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the Amazon DataZone blueprint.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The provisioning properties of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  provisioningProperties: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The user parameters of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  userParameters?: CustomParameter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEnvironmentBlueprintOutput {
+  /**
+   * <p>The ID of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The provider of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>The provisioning properties of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  provisioningProperties: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The deployment properties of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  deploymentProperties?: DeploymentProperties | undefined;
+
+  /**
+   * <p>The user parameters of this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  userParameters?: CustomParameter[] | undefined;
+
+  /**
+   * <p>The glossary terms attached to this Amazon DataZone blueprint.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The timestamp at which the environment blueprint was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when this blueprint was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -10461,103 +10615,6 @@ export interface CreateProjectProfileInput {
 }
 
 /**
- * @public
- */
-export interface CreateProjectProfileOutput {
-  /**
-   * <p>The ID of the domain where a project profile is created.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>Project profile ID.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>Project profile name.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A project profile description.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Project profile status.</p>
-   * @public
-   */
-  status?: Status | undefined;
-
-  /**
-   * <p>Environment configurations of a project profile.</p>
-   * @public
-   */
-  environmentConfigurations?: EnvironmentConfiguration[] | undefined;
-
-  /**
-   * <p>A user who created a project profile.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>A timestamp at which a project profile is created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>A timestamp when a project profile was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The ID of the domain unit where a project profile is created.</p>
-   * @public
-   */
-  domainUnitId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RuleAction = {
-  CREATE_LISTING_CHANGE_SET: "CREATE_LISTING_CHANGE_SET",
-  CREATE_SUBSCRIPTION_REQUEST: "CREATE_SUBSCRIPTION_REQUEST",
-} as const;
-
-/**
- * @public
- */
-export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
-
-/**
- * <p>The reference of a metadata form.</p>
- * @public
- */
-export interface MetadataFormReference {
-  /**
-   * <p>The type ID of the metadata form reference.</p>
-   * @public
-   */
-  typeIdentifier: string | undefined;
-
-  /**
-   * <p>The type revision of the metadata form reference.</p>
-   * @public
-   */
-  typeRevision: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -11028,9 +11085,17 @@ export const RedshiftPropertiesOutputFilterSensitiveLog = (obj: RedshiftProperti
 /**
  * @internal
  */
+export const ManagedEndpointCredentialsFilterSensitiveLog = (obj: ManagedEndpointCredentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SparkEmrPropertiesOutputFilterSensitiveLog = (obj: SparkEmrPropertiesOutput): any => ({
   ...obj,
   ...(obj.credentials && { credentials: SENSITIVE_STRING }),
+  ...(obj.managedEndpointCredentials && { managedEndpointCredentials: SENSITIVE_STRING }),
 });
 
 /**
@@ -11281,6 +11346,30 @@ export const CreateEnvironmentOutputFilterSensitiveLog = (obj: CreateEnvironment
 /**
  * @internal
  */
+export const CreateEnvironmentBlueprintInputFilterSensitiveLog = (obj: CreateEnvironmentBlueprintInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+  ...(obj.userParameters && {
+    userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentBlueprintOutputFilterSensitiveLog = (obj: CreateEnvironmentBlueprintOutput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+  ...(obj.userParameters && {
+    userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const CreateEnvironmentProfileInputFilterSensitiveLog = (obj: CreateEnvironmentProfileInput): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -11422,20 +11511,6 @@ export const EnvironmentConfigurationFilterSensitiveLog = (obj: EnvironmentConfi
  * @internal
  */
 export const CreateProjectProfileInputFilterSensitiveLog = (obj: CreateProjectProfileInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.environmentConfigurations && {
-    environmentConfigurations: obj.environmentConfigurations.map((item) =>
-      EnvironmentConfigurationFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateProjectProfileOutputFilterSensitiveLog = (obj: CreateProjectProfileOutput): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),

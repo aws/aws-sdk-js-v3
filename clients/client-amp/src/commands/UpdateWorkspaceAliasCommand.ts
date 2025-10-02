@@ -34,6 +34,8 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AmpClient, UpdateWorkspaceAliasCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, UpdateWorkspaceAliasCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // UpdateWorkspaceAliasRequest
  *   workspaceId: "STRING_VALUE", // required

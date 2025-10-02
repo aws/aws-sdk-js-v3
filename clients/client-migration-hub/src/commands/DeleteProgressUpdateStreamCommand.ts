@@ -64,6 +64,8 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  * ```javascript
  * import { MigrationHubClient, DeleteProgressUpdateStreamCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DeleteProgressUpdateStreamCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * // import type { MigrationHubClientConfig } from "@aws-sdk/client-migration-hub";
+ * const config = {}; // type is MigrationHubClientConfig
  * const client = new MigrationHubClient(config);
  * const input = { // DeleteProgressUpdateStreamRequest
  *   ProgressUpdateStreamName: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * ```javascript
  * import { ChimeClient, CreateRoomCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateRoomCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // CreateRoomRequest
  *   AccountId: "STRING_VALUE", // required

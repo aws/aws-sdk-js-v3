@@ -34,6 +34,8 @@ export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTDataPlaneClient, DeleteConnectionCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, DeleteConnectionCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * // import type { IoTDataPlaneClientConfig } from "@aws-sdk/client-iot-data-plane";
+ * const config = {}; // type is IoTDataPlaneClientConfig
  * const client = new IoTDataPlaneClient(config);
  * const input = { // DeleteConnectionRequest
  *   clientId: "STRING_VALUE", // required

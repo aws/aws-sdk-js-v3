@@ -40,6 +40,8 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  * ```javascript
  * import { IAMClient, UpdateServiceSpecificCredentialCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateServiceSpecificCredentialCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // UpdateServiceSpecificCredentialRequest
  *   UserName: "STRING_VALUE",

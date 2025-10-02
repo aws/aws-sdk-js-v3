@@ -34,6 +34,8 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  * ```javascript
  * import { MachineLearningClient, DeleteRealtimeEndpointCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteRealtimeEndpointCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * // import type { MachineLearningClientConfig } from "@aws-sdk/client-machine-learning";
+ * const config = {}; // type is MachineLearningClientConfig
  * const client = new MachineLearningClient(config);
  * const input = { // DeleteRealtimeEndpointInput
  *   MLModelId: "STRING_VALUE", // required

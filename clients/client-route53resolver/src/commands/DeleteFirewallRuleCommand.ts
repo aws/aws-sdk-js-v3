@@ -34,6 +34,8 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * ```javascript
  * import { Route53ResolverClient, DeleteFirewallRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DeleteFirewallRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
+ * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
  * const input = { // DeleteFirewallRuleRequest
  *   FirewallRuleGroupId: "STRING_VALUE", // required

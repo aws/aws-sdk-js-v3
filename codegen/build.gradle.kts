@@ -14,6 +14,7 @@
  */
 
 import org.jreleaser.model.Active
+import com.github.spotbugs.snom.Effort
 
 plugins {
     `java-library`
@@ -21,8 +22,8 @@ plugins {
     signing
     checkstyle
     jacoco
-    id("com.github.spotbugs") version "4.7.1"
-    id("org.jreleaser") version "1.18.0"
+    id("com.github.spotbugs") version "6.3.0"
+    id("org.jreleaser") version "1.20.0"
 }
 
 allprojects {
@@ -31,7 +32,7 @@ allprojects {
         mavenCentral()
     }
     group = "software.amazon.smithy.typescript"
-    version = "0.34.0"
+    version = "0.36.0"
 }
 
 // The root project doesn't produce a JAR.
@@ -72,10 +73,11 @@ subprojects {
 
         // Apply junit 5 and hamcrest test dependencies to all java projects.
         dependencies {
-            testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.0")
-            testImplementation("org.junit.jupiter:junit-jupiter-engine:5.4.0")
-            testImplementation("org.junit.jupiter:junit-jupiter-params:5.4.0")
-            testImplementation("org.hamcrest:hamcrest:2.1")
+            testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.4")
+            testImplementation("org.junit.jupiter:junit-jupiter-engine:5.13.4")
+            testImplementation("org.junit.jupiter:junit-jupiter-params:5.13.4")
+            testImplementation("org.hamcrest:hamcrest:3.0")
+            testRuntimeOnly("org.junit.platform:junit-platform-launcher")
         }
 
         // Reusable license copySpec
@@ -125,7 +127,7 @@ subprojects {
             repositories {
                 maven {
                     name = "stagingRepository"
-                    url = uri("${rootProject.buildDir}/staging")
+                    url = rootProject.layout.buildDirectory.dir("staging").get().asFile.toURI()
                 }
             }
 
@@ -217,7 +219,9 @@ subprojects {
             reports {
                 xml.required.set(false)
                 csv.required.set(false)
-                html.outputLocation.set(file("$buildDir/reports/jacoco"))
+                html.outputLocation.set(
+                    layout.buildDirectory.dir("reports/jacoco").get().asFile
+                )
             }
         }
 
@@ -240,7 +244,7 @@ subprojects {
 
         // Configure the bug filter for spotbugs.
         spotbugs {
-            setEffort("max")
+            effort.set(Effort.MAX)
             val excludeFile = rootProject.file("gradleConfig/spotbugs/filter.xml")
             if (excludeFile.exists()) {
                 excludeFilter.set(excludeFile)
@@ -288,7 +292,9 @@ jreleaser {
                 create("maven-central") {
                     active = Active.ALWAYS
                     url = "https://central.sonatype.com/api/v1/publisher"
-                    stagingRepositories.add("${rootProject.buildDir}/staging")
+                    stagingRepositories.add(
+                        rootProject.layout.buildDirectory.dir("staging").get().asFile.absolutePath
+                    )
                 }
             }
         }

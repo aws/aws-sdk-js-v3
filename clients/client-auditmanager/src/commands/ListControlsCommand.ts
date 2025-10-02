@@ -34,6 +34,8 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * ```javascript
  * import { AuditManagerClient, ListControlsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListControlsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // ListControlsRequest
  *   controlType: "Standard" || "Custom" || "Core", // required

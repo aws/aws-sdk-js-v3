@@ -50,6 +50,8 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AutoScalingClient, DeleteAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // DeleteAutoScalingGroupType
  *   AutoScalingGroupName: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface ListConfiguredAudienceModelAssociationsCommandOutput
  * ```javascript
  * import { CleanRoomsClient, ListConfiguredAudienceModelAssociationsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListConfiguredAudienceModelAssociationsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // ListConfiguredAudienceModelAssociationsInput
  *   membershipIdentifier: "STRING_VALUE", // required

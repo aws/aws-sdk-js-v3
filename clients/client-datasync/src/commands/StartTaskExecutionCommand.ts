@@ -42,6 +42,8 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  * ```javascript
  * import { DataSyncClient, StartTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, StartTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // StartTaskExecutionRequest
  *   TaskArn: "STRING_VALUE", // required

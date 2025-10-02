@@ -37,6 +37,8 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  * ```javascript
  * import { ElastiCacheClient, IncreaseReplicaCountCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, IncreaseReplicaCountCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // IncreaseReplicaCountMessage
  *   ReplicationGroupId: "STRING_VALUE", // required

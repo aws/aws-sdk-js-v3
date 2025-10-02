@@ -67,6 +67,8 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  * ```javascript
  * import { ConnectClient, StartChatContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartChatContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // StartChatContactRequest
  *   InstanceId: "STRING_VALUE", // required
@@ -101,9 +103,17 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *             "<keys>": "<SegmentAttributeValue>",
  *           },
  *           ValueInteger: Number("int"),
+ *           ValueList: [ // SegmentAttributeValueList
+ *             "<SegmentAttributeValue>",
+ *           ],
+ *           ValueArn: "STRING_VALUE",
  *         },
  *       },
  *       ValueInteger: Number("int"),
+ *       ValueList: [
+ *         "<SegmentAttributeValue>",
+ *       ],
+ *       ValueArn: "STRING_VALUE",
  *     },
  *   },
  *   CustomerId: "STRING_VALUE",

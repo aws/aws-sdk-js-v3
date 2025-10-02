@@ -42,6 +42,8 @@ export interface BatchRemoveChannelRoleFromAccessorsCommandOutput
  * ```javascript
  * import { RepostspaceClient, BatchRemoveChannelRoleFromAccessorsCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, BatchRemoveChannelRoleFromAccessorsCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // BatchRemoveChannelRoleFromAccessorsInput
  *   spaceId: "STRING_VALUE", // required

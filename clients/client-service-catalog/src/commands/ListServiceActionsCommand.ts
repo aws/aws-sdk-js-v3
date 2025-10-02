@@ -34,6 +34,8 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
  * ```javascript
  * import { ServiceCatalogClient, ListServiceActionsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListServiceActionsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // import type { ServiceCatalogClientConfig } from "@aws-sdk/client-service-catalog";
+ * const config = {}; // type is ServiceCatalogClientConfig
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListServiceActionsInput
  *   AcceptLanguage: "STRING_VALUE",

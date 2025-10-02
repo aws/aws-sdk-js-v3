@@ -38,6 +38,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * ```javascript
  * import { DataZoneClient, ListConnectionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListConnectionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // ListConnectionsInput
  *   domainIdentifier: "STRING_VALUE", // required
@@ -199,6 +201,12 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //           pythonVirtualEnv: "STRING_VALUE",
  * //           runtimeRole: "STRING_VALUE",
  * //           trustedCertificatesS3Uri: "STRING_VALUE",
+ * //           certificateData: "STRING_VALUE",
+ * //           managedEndpointArn: "STRING_VALUE",
+ * //           managedEndpointCredentials: { // ManagedEndpointCredentials
+ * //             id: "STRING_VALUE",
+ * //             token: "STRING_VALUE",
+ * //           },
  * //         },
  * //         sparkGlueProperties: { // SparkGluePropertiesOutput
  * //           additionalArgs: { // SparkGlueArgs

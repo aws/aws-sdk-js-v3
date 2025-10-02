@@ -36,6 +36,8 @@ export interface UpdateSecurityControlCommandOutput extends UpdateSecurityContro
  * ```javascript
  * import { SecurityHubClient, UpdateSecurityControlCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateSecurityControlCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // UpdateSecurityControlRequest
  *   SecurityControlId: "STRING_VALUE", // required

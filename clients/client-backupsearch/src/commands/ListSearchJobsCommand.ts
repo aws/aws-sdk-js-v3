@@ -34,6 +34,8 @@ export interface ListSearchJobsCommandOutput extends ListSearchJobsOutput, __Met
  * ```javascript
  * import { BackupSearchClient, ListSearchJobsCommand } from "@aws-sdk/client-backupsearch"; // ES Modules import
  * // const { BackupSearchClient, ListSearchJobsCommand } = require("@aws-sdk/client-backupsearch"); // CommonJS import
+ * // import type { BackupSearchClientConfig } from "@aws-sdk/client-backupsearch";
+ * const config = {}; // type is BackupSearchClientConfig
  * const client = new BackupSearchClient(config);
  * const input = { // ListSearchJobsInput
  *   ByStatus: "RUNNING" || "COMPLETED" || "STOPPING" || "STOPPED" || "FAILED",

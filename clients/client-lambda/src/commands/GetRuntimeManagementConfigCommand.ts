@@ -34,6 +34,8 @@ export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManag
  * ```javascript
  * import { LambdaClient, GetRuntimeManagementConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetRuntimeManagementConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // GetRuntimeManagementConfigRequest
  *   FunctionName: "STRING_VALUE", // required

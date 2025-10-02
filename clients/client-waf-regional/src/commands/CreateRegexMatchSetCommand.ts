@@ -65,6 +65,8 @@ export interface CreateRegexMatchSetCommandOutput extends CreateRegexMatchSetRes
  * ```javascript
  * import { WAFRegionalClient, CreateRegexMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateRegexMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // CreateRegexMatchSetRequest
  *   Name: "STRING_VALUE", // required

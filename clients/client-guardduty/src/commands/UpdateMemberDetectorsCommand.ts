@@ -42,6 +42,8 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  * ```javascript
  * import { GuardDutyClient, UpdateMemberDetectorsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateMemberDetectorsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateMemberDetectorsRequest
  *   DetectorId: "STRING_VALUE", // required

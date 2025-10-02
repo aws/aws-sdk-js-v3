@@ -34,6 +34,8 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  * ```javascript
  * import { CodeBuildClient, DeleteSourceCredentialsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteSourceCredentialsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // import type { CodeBuildClientConfig } from "@aws-sdk/client-codebuild";
+ * const config = {}; // type is CodeBuildClientConfig
  * const client = new CodeBuildClient(config);
  * const input = { // DeleteSourceCredentialsInput
  *   arn: "STRING_VALUE", // required

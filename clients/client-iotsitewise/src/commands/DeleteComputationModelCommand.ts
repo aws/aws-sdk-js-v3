@@ -34,6 +34,8 @@ export interface DeleteComputationModelCommandOutput extends DeleteComputationMo
  * ```javascript
  * import { IoTSiteWiseClient, DeleteComputationModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteComputationModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // DeleteComputationModelRequest
  *   computationModelId: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { KendraRankingClient, TagResourceCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, TagResourceCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
+ * // import type { KendraRankingClientConfig } from "@aws-sdk/client-kendra-ranking";
+ * const config = {}; // type is KendraRankingClientConfig
  * const client = new KendraRankingClient(config);
  * const input = { // TagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

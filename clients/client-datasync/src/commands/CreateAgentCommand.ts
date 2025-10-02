@@ -38,6 +38,8 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * ```javascript
  * import { DataSyncClient, CreateAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // CreateAgentRequest
  *   ActivationKey: "STRING_VALUE", // required

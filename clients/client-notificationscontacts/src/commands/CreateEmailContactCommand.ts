@@ -42,6 +42,8 @@ export interface CreateEmailContactCommandOutput extends CreateEmailContactRespo
  * ```javascript
  * import { NotificationsContactsClient, CreateEmailContactCommand } from "@aws-sdk/client-notificationscontacts"; // ES Modules import
  * // const { NotificationsContactsClient, CreateEmailContactCommand } = require("@aws-sdk/client-notificationscontacts"); // CommonJS import
+ * // import type { NotificationsContactsClientConfig } from "@aws-sdk/client-notificationscontacts";
+ * const config = {}; // type is NotificationsContactsClientConfig
  * const client = new NotificationsContactsClient(config);
  * const input = { // CreateEmailContactRequest
  *   name: "STRING_VALUE", // required

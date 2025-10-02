@@ -36,6 +36,8 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * ```javascript
  * import { PinpointEmailClient, GetEmailIdentityCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetEmailIdentityCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * // import type { PinpointEmailClientConfig } from "@aws-sdk/client-pinpoint-email";
+ * const config = {}; // type is PinpointEmailClientConfig
  * const client = new PinpointEmailClient(config);
  * const input = { // GetEmailIdentityRequest
  *   EmailIdentity: "STRING_VALUE", // required

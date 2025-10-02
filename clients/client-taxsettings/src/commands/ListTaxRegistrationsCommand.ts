@@ -40,6 +40,8 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * ```javascript
  * import { TaxSettingsClient, ListTaxRegistrationsCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, ListTaxRegistrationsCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // import type { TaxSettingsClientConfig } from "@aws-sdk/client-taxsettings";
+ * const config = {}; // type is TaxSettingsClientConfig
  * const client = new TaxSettingsClient(config);
  * const input = { // ListTaxRegistrationsRequest
  *   maxResults: Number("int"),

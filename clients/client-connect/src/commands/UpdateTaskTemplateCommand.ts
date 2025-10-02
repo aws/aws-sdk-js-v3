@@ -36,6 +36,8 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * ```javascript
  * import { ConnectClient, UpdateTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateTaskTemplateRequest
  *   TaskTemplateId: "STRING_VALUE", // required

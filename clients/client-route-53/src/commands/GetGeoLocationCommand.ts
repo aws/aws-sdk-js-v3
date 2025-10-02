@@ -59,6 +59,8 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  * ```javascript
  * import { Route53Client, GetGeoLocationCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetGeoLocationCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // GetGeoLocationRequest
  *   ContinentCode: "STRING_VALUE",

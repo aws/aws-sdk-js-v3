@@ -35,6 +35,8 @@ export interface DeleteExportCommandOutput extends DeleteExportResponse, __Metad
  * ```javascript
  * import { LexModelsV2Client, DeleteExportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteExportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // import type { LexModelsV2ClientConfig } from "@aws-sdk/client-lex-models-v2";
+ * const config = {}; // type is LexModelsV2ClientConfig
  * const client = new LexModelsV2Client(config);
  * const input = { // DeleteExportRequest
  *   exportId: "STRING_VALUE", // required

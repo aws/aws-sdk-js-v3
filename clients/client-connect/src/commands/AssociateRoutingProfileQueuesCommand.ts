@@ -37,11 +37,13 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  * ```javascript
  * import { ConnectClient, AssociateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // AssociateRoutingProfileQueuesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   RoutingProfileId: "STRING_VALUE", // required
- *   QueueConfigs: [ // RoutingProfileQueueConfigList // required
+ *   QueueConfigs: [ // RoutingProfileQueueConfigList
  *     { // RoutingProfileQueueConfig
  *       QueueReference: { // RoutingProfileQueueReference
  *         QueueId: "STRING_VALUE", // required
@@ -49,6 +51,14 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  *       },
  *       Priority: Number("int"), // required
  *       Delay: Number("int"), // required
+ *     },
+ *   ],
+ *   ManualAssignmentQueueConfigs: [ // RoutingProfileManualAssignmentQueueConfigList
+ *     { // RoutingProfileManualAssignmentQueueConfig
+ *       QueueReference: {
+ *         QueueId: "STRING_VALUE", // required
+ *         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
+ *       },
  *     },
  *   ],
  * };

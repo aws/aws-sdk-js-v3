@@ -41,6 +41,8 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * ```javascript
  * import { RDSClient, StartActivityStreamCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartActivityStreamCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // StartActivityStreamRequest
  *   ResourceArn: "STRING_VALUE", // required
@@ -56,8 +58,8 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * //   KinesisStreamName: "STRING_VALUE",
  * //   Status: "stopped" || "starting" || "started" || "stopping",
  * //   Mode: "sync" || "async",
- * //   ApplyImmediately: true || false,
  * //   EngineNativeAuditFieldsIncluded: true || false,
+ * //   ApplyImmediately: true || false,
  * // };
  *
  * ```

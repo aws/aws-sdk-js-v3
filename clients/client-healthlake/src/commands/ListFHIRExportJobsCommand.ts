@@ -34,6 +34,8 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  * ```javascript
  * import { HealthLakeClient, ListFHIRExportJobsCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, ListFHIRExportJobsCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * // import type { HealthLakeClientConfig } from "@aws-sdk/client-healthlake";
+ * const config = {}; // type is HealthLakeClientConfig
  * const client = new HealthLakeClient(config);
  * const input = { // ListFHIRExportJobsRequest
  *   DatastoreId: "STRING_VALUE", // required

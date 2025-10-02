@@ -34,6 +34,8 @@ export interface GetApiKeysCommandOutput extends ApiKeys, __MetadataBearer {}
  * ```javascript
  * import { APIGatewayClient, GetApiKeysCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetApiKeysCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // GetApiKeysRequest
  *   position: "STRING_VALUE",

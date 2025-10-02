@@ -42,6 +42,8 @@ export interface ListGeoMatchSetsCommandOutput extends ListGeoMatchSetsResponse,
  * ```javascript
  * import { WAFRegionalClient, ListGeoMatchSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListGeoMatchSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // ListGeoMatchSetsRequest
  *   NextMarker: "STRING_VALUE",

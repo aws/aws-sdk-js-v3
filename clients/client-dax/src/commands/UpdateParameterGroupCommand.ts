@@ -28,14 +28,15 @@ export interface UpdateParameterGroupCommandInput extends UpdateParameterGroupRe
 export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the parameters of a parameter group. You can modify up to 20
- *             parameters in a single request by submitting a list parameter name and value
- *             pairs.</p>
+ * <p>Modifies the parameters of a parameter group. You can modify up to 20 parameters in
+ *             a single request by submitting a list parameter name and value pairs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, UpdateParameterGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UpdateParameterGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // UpdateParameterGroupRequest
  *   ParameterGroupName: "STRING_VALUE", // required

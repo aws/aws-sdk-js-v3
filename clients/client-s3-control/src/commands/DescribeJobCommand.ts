@@ -69,6 +69,8 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * ```javascript
  * import { S3ControlClient, DescribeJobCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DescribeJobCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // DescribeJobRequest
  *   AccountId: "STRING_VALUE",
@@ -271,6 +273,20 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //           ObjectSizeLessThanBytes: Number("long"),
  * //           MatchAnyStorageClass: [ // StorageClassList
  * //             "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "GLACIER" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ * //           ],
+ * //           MatchAnyObjectEncryption: [ // ObjectEncryptionFilterList
+ * //             { // ObjectEncryptionFilter Union: only one key present
+ * //               SSES3: {},
+ * //               SSEKMS: { // SSEKMSFilter
+ * //                 KmsKeyArn: "STRING_VALUE",
+ * //                 BucketKeyEnabled: true || false,
+ * //               },
+ * //               DSSEKMS: { // DSSEKMSFilter
+ * //                 KmsKeyArn: "STRING_VALUE",
+ * //               },
+ * //               SSEC: {},
+ * //               NOTSSE: {},
+ * //             },
  * //           ],
  * //         },
  * //         EnableManifestOutput: true || false, // required

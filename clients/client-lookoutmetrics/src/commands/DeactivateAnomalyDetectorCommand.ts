@@ -34,6 +34,8 @@ export interface DeactivateAnomalyDetectorCommandOutput extends DeactivateAnomal
  * ```javascript
  * import { LookoutMetricsClient, DeactivateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DeactivateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // import type { LookoutMetricsClientConfig } from "@aws-sdk/client-lookoutmetrics";
+ * const config = {}; // type is LookoutMetricsClientConfig
  * const client = new LookoutMetricsClient(config);
  * const input = { // DeactivateAnomalyDetectorRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required

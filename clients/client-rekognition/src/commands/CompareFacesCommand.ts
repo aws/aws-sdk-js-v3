@@ -84,6 +84,8 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  * ```javascript
  * import { RekognitionClient, CompareFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CompareFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // import type { RekognitionClientConfig } from "@aws-sdk/client-rekognition";
+ * const config = {}; // type is RekognitionClientConfig
  * const client = new RekognitionClient(config);
  * const input = { // CompareFacesRequest
  *   SourceImage: { // Image

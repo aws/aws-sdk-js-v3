@@ -30,7 +30,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { BatchUpdateRuleCommandInput, BatchUpdateRuleCommandOutput } from "../commands/BatchUpdateRuleCommand";
 import {
@@ -379,6 +379,7 @@ export const se_CreateResourceGatewayCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ipAddressType: [],
+      ipv4AddressesPerEni: [],
       name: [],
       securityGroupIds: (_) => _json(_),
       subnetIds: (_) => _json(_),
@@ -1229,6 +1230,7 @@ export const se_ListServiceNetworkResourceAssociationsCommand = async (
     [_rCI]: [, input[_rCI]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_iC]: [() => input.includeChildren !== void 0, () => input[_iC]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1867,6 +1869,7 @@ export const de_CreateResourceGatewayCommand = async (
     arn: __expectString,
     id: __expectString,
     ipAddressType: __expectString,
+    ipv4AddressesPerEni: __expectInt32,
     name: __expectString,
     securityGroupIds: _json,
     status: __expectString,
@@ -2500,6 +2503,7 @@ export const de_GetResourceGatewayCommand = async (
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     id: __expectString,
     ipAddressType: __expectString,
+    ipv4AddressesPerEni: __expectInt32,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     securityGroupIds: _json,
@@ -3840,6 +3844,7 @@ const de_ResourceGatewaySummary = (output: any, context: __SerdeContext): Resour
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     id: __expectString,
     ipAddressType: __expectString,
+    ipv4AddressesPerEni: __expectInt32,
     lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     securityGroupIds: _json,
@@ -4170,6 +4175,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _iC = "includeChildren";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _rAS = "retryAfterSeconds";

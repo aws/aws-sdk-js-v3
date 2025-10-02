@@ -34,6 +34,8 @@ export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudFrontClient, DeleteKeyValueStoreCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteKeyValueStoreCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // DeleteKeyValueStoreRequest
  *   Name: "STRING_VALUE", // required

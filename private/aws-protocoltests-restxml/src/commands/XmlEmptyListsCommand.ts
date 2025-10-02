@@ -35,6 +35,8 @@ export interface XmlEmptyListsCommandOutput extends XmlEmptyListsResponse, __Met
  * ```javascript
  * import { RestXmlProtocolClient, XmlEmptyListsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEmptyListsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlEmptyListsRequest
  *   stringList: [ // StringList

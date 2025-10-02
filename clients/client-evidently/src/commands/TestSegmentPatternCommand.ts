@@ -35,6 +35,8 @@ export interface TestSegmentPatternCommandOutput extends TestSegmentPatternRespo
  * ```javascript
  * import { EvidentlyClient, TestSegmentPatternCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, TestSegmentPatternCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // TestSegmentPatternRequest
  *   pattern: "STRING_VALUE", // required

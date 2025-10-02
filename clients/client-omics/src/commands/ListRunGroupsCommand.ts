@@ -34,6 +34,8 @@ export interface ListRunGroupsCommandOutput extends ListRunGroupsResponse, __Met
  * ```javascript
  * import { OmicsClient, ListRunGroupsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListRunGroupsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // ListRunGroupsRequest
  *   name: "STRING_VALUE",

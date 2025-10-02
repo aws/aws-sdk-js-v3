@@ -35,6 +35,8 @@ export interface GetKxScalingGroupCommandOutput extends GetKxScalingGroupRespons
  * ```javascript
  * import { FinspaceClient, GetKxScalingGroupCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, GetKxScalingGroupCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // GetKxScalingGroupRequest
  *   environmentId: "STRING_VALUE", // required

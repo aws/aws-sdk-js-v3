@@ -60,6 +60,8 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  * ```javascript
  * import { MTurkClient, ListAssignmentsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListAssignmentsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // ListAssignmentsForHITRequest
  *   HITId: "STRING_VALUE", // required

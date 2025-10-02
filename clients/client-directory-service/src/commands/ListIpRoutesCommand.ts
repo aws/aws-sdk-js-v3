@@ -34,6 +34,8 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * ```javascript
  * import { DirectoryServiceClient, ListIpRoutesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListIpRoutesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // ListIpRoutesRequest
  *   DirectoryId: "STRING_VALUE", // required
@@ -47,6 +49,7 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * //     { // IpRouteInfo
  * //       DirectoryId: "STRING_VALUE",
  * //       CidrIp: "STRING_VALUE",
+ * //       CidrIpv6: "STRING_VALUE",
  * //       IpRouteStatusMsg: "Adding" || "Added" || "Removing" || "Removed" || "AddFailed" || "RemoveFailed",
  * //       AddedDateTime: new Date("TIMESTAMP"),
  * //       IpRouteStatusReason: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * ```javascript
  * import { MgnClient, ListTemplateActionsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListTemplateActionsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // ListTemplateActionsRequest
  *   launchConfigurationTemplateID: "STRING_VALUE", // required

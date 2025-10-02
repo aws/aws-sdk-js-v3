@@ -88,6 +88,8 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * ```javascript
  * import { KMSClient, ListRetirableGrantsCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListRetirableGrantsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // import type { KMSClientConfig } from "@aws-sdk/client-kms";
+ * const config = {}; // type is KMSClientConfig
  * const client = new KMSClient(config);
  * const input = { // ListRetirableGrantsRequest
  *   Limit: Number("int"),

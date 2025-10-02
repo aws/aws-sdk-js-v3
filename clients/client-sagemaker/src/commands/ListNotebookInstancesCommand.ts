@@ -34,6 +34,8 @@ export interface ListNotebookInstancesCommandOutput extends ListNotebookInstance
  * ```javascript
  * import { SageMakerClient, ListNotebookInstancesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListNotebookInstancesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListNotebookInstancesInput
  *   NextToken: "STRING_VALUE",

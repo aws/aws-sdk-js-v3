@@ -33,20 +33,35 @@ export interface UpdatePublicSharingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use the <code>UpdatePublicSharingSettings</code> operation to turn on or turn off the
- *             public sharing settings of an Amazon QuickSight dashboard.</p>
- *          <p>To use this operation, turn on session capacity pricing for your Amazon QuickSight
+ * <important>
+ *             <p>This API controls public sharing settings for your entire QuickSight account, affecting data security and access. When you enable public sharing:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Dashboards can be shared publicly</p>
+ *                </li>
+ *                <li>
+ *                   <p>This setting affects your entire Amazon Web Services account and all QuickSight users</p>
+ *                </li>
+ *             </ul>
+ *             <p>
+ *                <b>Before proceeding:</b> Ensure you understand the security implications and have proper IAM permissions configured.</p>
+ *          </important>
+ *          <p>Use the <code>UpdatePublicSharingSettings</code> operation to turn on or turn off the
+ *             public sharing settings of an QuickSight dashboard.</p>
+ *          <p>To use this operation, turn on session capacity pricing for your QuickSight
  *             account.</p>
  *          <p>Before you can turn on public sharing on your account, make sure to give public sharing
  *             permissions to an administrative user in the Identity and Access Management (IAM)
- *             console. For more information on using IAM with Amazon QuickSight, see
- *                 <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using Amazon QuickSight with IAM</a> in the <i>Amazon QuickSight
+ *             console. For more information on using IAM with QuickSight, see
+ *                 <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using QuickSight with IAM</a> in the <i>QuickSight
  *                 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, UpdatePublicSharingSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdatePublicSharingSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // UpdatePublicSharingSettingsRequest
  *   AwsAccountId: "STRING_VALUE", // required
@@ -88,8 +103,8 @@ export interface UpdatePublicSharingSettingsCommandOutput
  * @throws {@link UnsupportedPricingPlanException} (client fault)
  *  <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
  * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You
- * 		    can do this on the <b>Manage Amazon QuickSight</b> page. </p>
+ * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to QuickSight. You
+ * 		    can do this on the <b>Manage QuickSight</b> page. </p>
  *          <p>After capacity pricing is added, you can use the
  *             <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>

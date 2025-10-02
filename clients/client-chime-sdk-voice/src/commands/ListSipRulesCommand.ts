@@ -34,6 +34,8 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * ```javascript
  * import { ChimeSDKVoiceClient, ListSipRulesCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, ListSipRulesCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // ListSipRulesRequest
  *   SipMediaApplicationId: "STRING_VALUE",

@@ -47,6 +47,8 @@ export interface CreateRouteServerPeerCommandOutput extends CreateRouteServerPee
  * ```javascript
  * import { EC2Client, CreateRouteServerPeerCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateRouteServerPeerCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateRouteServerPeerRequest
  *   RouteServerEndpointId: "STRING_VALUE", // required

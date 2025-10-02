@@ -42,6 +42,8 @@ export interface UpdateAccountAuditConfigurationCommandOutput
  * ```javascript
  * import { IoTClient, UpdateAccountAuditConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateAccountAuditConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // UpdateAccountAuditConfigurationRequest
  *   roleArn: "STRING_VALUE",

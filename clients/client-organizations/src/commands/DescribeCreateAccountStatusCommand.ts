@@ -42,6 +42,8 @@ export interface DescribeCreateAccountStatusCommandOutput
  * ```javascript
  * import { OrganizationsClient, DescribeCreateAccountStatusCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeCreateAccountStatusCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // DescribeCreateAccountStatusRequest
  *   CreateAccountRequestId: "STRING_VALUE", // required

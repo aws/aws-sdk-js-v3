@@ -38,6 +38,8 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * ```javascript
  * import { MgnClient, UpdateLaunchConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateLaunchConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // UpdateLaunchConfigurationRequest
  *   sourceServerID: "STRING_VALUE", // required

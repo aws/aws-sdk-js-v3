@@ -40,6 +40,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * ```javascript
  * import { RDSClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeEventCategoriesMessage
  *   SourceType: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface GetPropertygraphSummaryCommandOutput extends GetPropertygraphSu
  * ```javascript
  * import { NeptunedataClient, GetPropertygraphSummaryCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, GetPropertygraphSummaryCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // GetPropertygraphSummaryInput
  *   mode: "basic" || "detailed",

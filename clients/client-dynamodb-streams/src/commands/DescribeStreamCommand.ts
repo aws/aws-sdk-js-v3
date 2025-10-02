@@ -42,6 +42,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * ```javascript
  * import { DynamoDBStreamsClient, DescribeStreamCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
  * // const { DynamoDBStreamsClient, DescribeStreamCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
+ * // import type { DynamoDBStreamsClientConfig } from "@aws-sdk/client-dynamodb-streams";
+ * const config = {}; // type is DynamoDBStreamsClientConfig
  * const client = new DynamoDBStreamsClient(config);
  * const input = { // DescribeStreamInput
  *   StreamArn: "STRING_VALUE", // required

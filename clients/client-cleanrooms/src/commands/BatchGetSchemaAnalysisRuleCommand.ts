@@ -34,6 +34,8 @@ export interface BatchGetSchemaAnalysisRuleCommandOutput extends BatchGetSchemaA
  * ```javascript
  * import { CleanRoomsClient, BatchGetSchemaAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, BatchGetSchemaAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // BatchGetSchemaAnalysisRuleInput
  *   collaborationIdentifier: "STRING_VALUE", // required

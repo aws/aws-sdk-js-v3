@@ -34,6 +34,8 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  * ```javascript
  * import { DeviceFarmClient, GetProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // GetProjectRequest
  *   arn: "STRING_VALUE", // required

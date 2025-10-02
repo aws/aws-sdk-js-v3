@@ -42,6 +42,8 @@ export interface StartCostAllocationTagBackfillCommandOutput
  * ```javascript
  * import { CostExplorerClient, StartCostAllocationTagBackfillCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, StartCostAllocationTagBackfillCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // import type { CostExplorerClientConfig } from "@aws-sdk/client-cost-explorer";
+ * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // StartCostAllocationTagBackfillRequest
  *   BackfillFrom: "STRING_VALUE", // required

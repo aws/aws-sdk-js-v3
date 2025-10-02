@@ -28,13 +28,15 @@ export interface DescribeAccountSettingsCommandInput extends DescribeAccountSett
 export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the settings that were used when your Amazon QuickSight subscription was first
+ * <p>Describes the settings that were used when your QuickSight subscription was first
  *             created in this Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DescribeAccountSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAccountSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeAccountSettingsRequest
  *   AwsAccountId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * ```javascript
  * import { CleanRoomsClient, GetSchemaCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetSchemaCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // GetSchemaInput
  *   collaborationIdentifier: "STRING_VALUE", // required
@@ -86,6 +88,7 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * //         analysisType: "DIRECT_ANALYSIS" || "ADDITIONAL_ANALYSIS", // required
  * //       },
  * //     ],
+ * //     resourceArn: "STRING_VALUE",
  * //     schemaTypeProperties: { // SchemaTypeProperties Union: only one key present
  * //       idMappingTable: { // IdMappingTableSchemaTypeProperties
  * //         idMappingTableInputSource: [ // IdMappingTableInputSourceList // required

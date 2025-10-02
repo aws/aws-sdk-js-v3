@@ -40,6 +40,8 @@ export interface StartUserAccessTasksCommandOutput extends StartUserAccessTasksR
  * ```javascript
  * import { AppFabricClient, StartUserAccessTasksCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, StartUserAccessTasksCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // StartUserAccessTasksRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

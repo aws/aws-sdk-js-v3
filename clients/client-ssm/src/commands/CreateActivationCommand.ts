@@ -43,6 +43,8 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  * ```javascript
  * import { SSMClient, CreateActivationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateActivationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // CreateActivationRequest
  *   Description: "STRING_VALUE",

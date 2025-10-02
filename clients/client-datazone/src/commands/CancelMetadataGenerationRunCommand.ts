@@ -31,12 +31,14 @@ export interface CancelMetadataGenerationRunCommandInput extends CancelMetadataG
 export interface CancelMetadataGenerationRunCommandOutput extends CancelMetadataGenerationRunOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels the metadata generation run.</p>
+ * <p>Cancels the metadata generation run.</p> <p>Prerequisites:</p> <ul> <li> <p>The run must exist and be in a cancelable status (e.g., SUBMITTED, IN_PROGRESS). </p> </li> <li> <p>Runs in SUCCEEDED status cannot be cancelled.</p> </li> <li> <p>User must have access to the run and cancel permissions.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, CancelMetadataGenerationRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CancelMetadataGenerationRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CancelMetadataGenerationRunInput
  *   domainIdentifier: "STRING_VALUE", // required

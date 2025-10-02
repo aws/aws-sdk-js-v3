@@ -41,6 +41,8 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * ```javascript
  * import { ImagebuilderClient, ImportVmImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ImportVmImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // ImportVmImageRequest
  *   name: "STRING_VALUE", // required
@@ -49,6 +51,9 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  *   platform: "Windows" || "Linux" || "macOS", // required
  *   osVersion: "STRING_VALUE",
  *   vmImportTaskId: "STRING_VALUE", // required
+ *   loggingConfiguration: { // ImageLoggingConfiguration
+ *     logGroupName: "STRING_VALUE",
+ *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

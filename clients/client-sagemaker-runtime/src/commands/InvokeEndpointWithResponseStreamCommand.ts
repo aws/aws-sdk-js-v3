@@ -75,6 +75,8 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  * ```javascript
  * import { SageMakerRuntimeClient, InvokeEndpointWithResponseStreamCommand } from "@aws-sdk/client-sagemaker-runtime"; // ES Modules import
  * // const { SageMakerRuntimeClient, InvokeEndpointWithResponseStreamCommand } = require("@aws-sdk/client-sagemaker-runtime"); // CommonJS import
+ * // import type { SageMakerRuntimeClientConfig } from "@aws-sdk/client-sagemaker-runtime";
+ * const config = {}; // type is SageMakerRuntimeClientConfig
  * const client = new SageMakerRuntimeClient(config);
  * const input = { // InvokeEndpointWithResponseStreamInput
  *   EndpointName: "STRING_VALUE", // required

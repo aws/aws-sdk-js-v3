@@ -39,6 +39,8 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * ```javascript
  * import { RDSClient, ModifyDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ModifyDBSnapshotMessage
  *   DBSnapshotIdentifier: "STRING_VALUE", // required
@@ -64,6 +66,7 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * //     LicenseModel: "STRING_VALUE",
  * //     SnapshotType: "STRING_VALUE",
  * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
  * //     OptionGroupName: "STRING_VALUE",
  * //     PercentProgress: Number("int"),
  * //     SourceRegion: "STRING_VALUE",
@@ -88,13 +91,12 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SnapshotTarget: "STRING_VALUE",
  * //     OriginalSnapshotCreateTime: new Date("TIMESTAMP"),
  * //     SnapshotDatabaseTime: new Date("TIMESTAMP"),
- * //     SnapshotTarget: "STRING_VALUE",
- * //     StorageThroughput: Number("int"),
  * //     DBSystemId: "STRING_VALUE",
- * //     DedicatedLogVolume: true || false,
  * //     MultiTenant: true || false,
+ * //     DedicatedLogVolume: true || false,
  * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //   },
  * // };
@@ -110,6 +112,12 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * @throws {@link InvalidDBSnapshotStateFault} (client fault)
+ *  <p>The state of the DB snapshot doesn't allow deletion.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

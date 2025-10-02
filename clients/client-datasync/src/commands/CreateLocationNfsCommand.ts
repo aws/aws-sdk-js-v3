@@ -39,6 +39,8 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * ```javascript
  * import { DataSyncClient, CreateLocationNfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationNfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationNfsRequest
  *   Subdirectory: "STRING_VALUE", // required

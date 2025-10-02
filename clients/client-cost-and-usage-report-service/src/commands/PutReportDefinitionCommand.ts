@@ -38,6 +38,8 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * ```javascript
  * import { CostAndUsageReportServiceClient, PutReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
  * // const { CostAndUsageReportServiceClient, PutReportDefinitionCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
+ * // import type { CostAndUsageReportServiceClientConfig } from "@aws-sdk/client-cost-and-usage-report-service";
+ * const config = {}; // type is CostAndUsageReportServiceClientConfig
  * const client = new CostAndUsageReportServiceClient(config);
  * const input = { // PutReportDefinitionRequest
  *   ReportDefinition: { // ReportDefinition

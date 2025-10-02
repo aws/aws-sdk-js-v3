@@ -34,6 +34,8 @@ export interface DescribeIntegrationsCommandOutput extends DescribeIntegrationsR
  * ```javascript
  * import { RDSClient, DescribeIntegrationsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeIntegrationsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DescribeIntegrationsMessage
  *   IntegrationIdentifier: "STRING_VALUE",
@@ -69,6 +71,8 @@ export interface DescribeIntegrationsCommandOutput extends DescribeIntegrationsR
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DataFilter: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
  * //       CreateTime: new Date("TIMESTAMP"),
  * //       Errors: [ // IntegrationErrorList
  * //         { // IntegrationError
@@ -76,8 +80,6 @@ export interface DescribeIntegrationsCommandOutput extends DescribeIntegrationsR
  * //           ErrorMessage: "STRING_VALUE",
  * //         },
  * //       ],
- * //       DataFilter: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

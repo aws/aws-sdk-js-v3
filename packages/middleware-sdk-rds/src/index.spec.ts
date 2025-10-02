@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { crossRegionPresignedUrlMiddleware } from "./";
-import { credentials, endpoint, MockSha256, region } from "./fixture";
+import { credentials, endpoint, MockSha256, region } from "./fixture.spec";
 
 const nextHandler = vi.fn();
 const arn = "arn:aws:rds:src-region:000000000000:src-snapshot:dist-snapshot";

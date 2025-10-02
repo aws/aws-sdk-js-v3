@@ -34,6 +34,8 @@ export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse,
  * ```javascript
  * import { WorkSpacesWebClient, DeleteTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DeleteTrustStoreRequest
  *   trustStoreArn: "STRING_VALUE", // required

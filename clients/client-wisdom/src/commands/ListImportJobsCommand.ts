@@ -34,6 +34,8 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  * ```javascript
  * import { WisdomClient, ListImportJobsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListImportJobsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // import type { WisdomClientConfig } from "@aws-sdk/client-wisdom";
+ * const config = {}; // type is WisdomClientConfig
  * const client = new WisdomClient(config);
  * const input = { // ListImportJobsRequest
  *   nextToken: "STRING_VALUE",

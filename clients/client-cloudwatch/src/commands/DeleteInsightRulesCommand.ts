@@ -36,6 +36,8 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * ```javascript
  * import { CloudWatchClient, DeleteInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DeleteInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // DeleteInsightRulesInput
  *   RuleNames: [ // InsightRuleNames // required

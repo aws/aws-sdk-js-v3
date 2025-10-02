@@ -39,6 +39,8 @@ export interface DescribeChannelPlacementGroupCommandOutput
  * ```javascript
  * import { MediaLiveClient, DescribeChannelPlacementGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeChannelPlacementGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // DescribeChannelPlacementGroupRequest
  *   ChannelPlacementGroupId: "STRING_VALUE", // required

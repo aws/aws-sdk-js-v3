@@ -38,6 +38,8 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipResponse,
  * ```javascript
  * import { SecurityIRClient, UpdateMembershipCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, UpdateMembershipCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // UpdateMembershipRequest
  *   membershipId: "STRING_VALUE", // required

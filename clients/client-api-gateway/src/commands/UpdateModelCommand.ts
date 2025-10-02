@@ -34,6 +34,8 @@ export interface UpdateModelCommandOutput extends Model, __MetadataBearer {}
  * ```javascript
  * import { APIGatewayClient, UpdateModelCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateModelCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateModelRequest
  *   restApiId: "STRING_VALUE", // required

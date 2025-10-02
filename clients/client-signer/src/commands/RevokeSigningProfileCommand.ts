@@ -36,6 +36,8 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SignerClient, RevokeSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, RevokeSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * // import type { SignerClientConfig } from "@aws-sdk/client-signer";
+ * const config = {}; // type is SignerClientConfig
  * const client = new SignerClient(config);
  * const input = { // RevokeSigningProfileRequest
  *   profileName: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface GetExportCommandOutput extends GetExportCommandOutputType, __Me
  * ```javascript
  * import { APIGatewayClient, GetExportCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetExportCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // GetExportRequest
  *   restApiId: "STRING_VALUE", // required

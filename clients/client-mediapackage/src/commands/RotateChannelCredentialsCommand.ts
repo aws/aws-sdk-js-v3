@@ -40,6 +40,8 @@ export interface RotateChannelCredentialsCommandOutput extends RotateChannelCred
  * ```javascript
  * import { MediaPackageClient, RotateChannelCredentialsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, RotateChannelCredentialsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * // import type { MediaPackageClientConfig } from "@aws-sdk/client-mediapackage";
+ * const config = {}; // type is MediaPackageClientConfig
  * const client = new MediaPackageClient(config);
  * const input = { // RotateChannelCredentialsRequest
  *   Id: "STRING_VALUE", // required

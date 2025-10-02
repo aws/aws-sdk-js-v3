@@ -39,6 +39,8 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  * ```javascript
  * import { ConnectClient, StopContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StopContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // StopContactRecordingRequest
  *   InstanceId: "STRING_VALUE", // required

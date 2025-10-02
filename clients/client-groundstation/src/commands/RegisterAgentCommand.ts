@@ -37,6 +37,8 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * ```javascript
  * import { GroundStationClient, RegisterAgentCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, RegisterAgentCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // RegisterAgentRequest
  *   discoveryData: { // DiscoveryData

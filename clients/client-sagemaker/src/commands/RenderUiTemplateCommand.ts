@@ -34,6 +34,8 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  * ```javascript
  * import { SageMakerClient, RenderUiTemplateCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, RenderUiTemplateCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // RenderUiTemplateRequest
  *   UiTemplate: { // UiTemplate

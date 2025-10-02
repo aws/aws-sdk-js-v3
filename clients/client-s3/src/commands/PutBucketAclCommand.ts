@@ -235,6 +235,8 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { S3Client, PutBucketAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // import type { S3ClientConfig } from "@aws-sdk/client-s3";
+ * const config = {}; // type is S3ClientConfig
  * const client = new S3Client(config);
  * const input = { // PutBucketAclRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",

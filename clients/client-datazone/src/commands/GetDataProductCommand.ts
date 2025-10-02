@@ -28,12 +28,14 @@ export interface GetDataProductCommandInput extends GetDataProductInput {}
 export interface GetDataProductCommandOutput extends GetDataProductOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the data product.</p>
+ * <p>Gets the data product.</p> <p>Prerequisites:</p> <ul> <li> <p>The data product ID must exist. </p> </li> <li> <p>The domain must be valid and accessible.</p> </li> <li> <p>User must have read or discovery permissions for the data product.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, GetDataProductCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetDataProductCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetDataProductInput
  *   domainIdentifier: "STRING_VALUE", // required

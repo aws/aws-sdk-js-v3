@@ -52,6 +52,8 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * ```javascript
  * import { CloudHSMClient, ModifyHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ModifyHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * // import type { CloudHSMClientConfig } from "@aws-sdk/client-cloudhsm";
+ * const config = {}; // type is CloudHSMClientConfig
  * const client = new CloudHSMClient(config);
  * const input = { // ModifyHsmRequest
  *   HsmArn: "STRING_VALUE", // required

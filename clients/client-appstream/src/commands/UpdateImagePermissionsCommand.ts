@@ -34,6 +34,8 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
  * ```javascript
  * import { AppStreamClient, UpdateImagePermissionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateImagePermissionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // UpdateImagePermissionsRequest
  *   Name: "STRING_VALUE", // required

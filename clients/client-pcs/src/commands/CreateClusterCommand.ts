@@ -34,6 +34,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * ```javascript
  * import { PCSClient, CreateClusterCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, CreateClusterCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // CreateClusterRequest
  *   clusterName: "STRING_VALUE", // required
@@ -60,8 +62,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       },
  *     ],
  *     accounting: { // AccountingRequest
- *       mode: "STANDARD" || "NONE", // required
  *       defaultPurgeTimeInDays: Number("int"),
+ *       mode: "STANDARD" || "NONE", // required
  *     },
  *   },
  *   clientToken: "STRING_VALUE",
@@ -97,8 +99,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //         secretVersion: "STRING_VALUE", // required
  * //       },
  * //       accounting: { // Accounting
- * //         mode: "STANDARD" || "NONE", // required
  * //         defaultPurgeTimeInDays: Number("int"),
+ * //         mode: "STANDARD" || "NONE", // required
  * //       },
  * //     },
  * //     networking: { // Networking

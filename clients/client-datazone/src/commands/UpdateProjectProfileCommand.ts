@@ -39,6 +39,8 @@ export interface UpdateProjectProfileCommandOutput extends UpdateProjectProfileO
  * ```javascript
  * import { DataZoneClient, UpdateProjectProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateProjectProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateProjectProfileInput
  *   domainIdentifier: "STRING_VALUE", // required

@@ -37,6 +37,8 @@ export interface DeletePermissionVersionCommandOutput extends DeletePermissionVe
  * ```javascript
  * import { RAMClient, DeletePermissionVersionCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, DeletePermissionVersionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // import type { RAMClientConfig } from "@aws-sdk/client-ram";
+ * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // DeletePermissionVersionRequest
  *   permissionArn: "STRING_VALUE", // required

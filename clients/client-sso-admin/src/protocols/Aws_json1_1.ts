@@ -24,7 +24,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import {
   AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
@@ -345,6 +345,7 @@ import {
   DescribeTrustedTokenIssuerRequest,
   DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
   DetachManagedPolicyFromPermissionSetRequest,
+  EncryptionConfiguration,
   GetApplicationAccessScopeRequest,
   GetApplicationAssignmentConfigurationRequest,
   GetApplicationAuthenticationMethodRequest,
@@ -3161,6 +3162,8 @@ const se_CreateTrustedTokenIssuerRequest = (input: CreateTrustedTokenIssuerReque
 
 // se_DetachManagedPolicyFromPermissionSetRequest omitted.
 
+// se_EncryptionConfiguration omitted.
+
 // se_GetApplicationAccessScopeRequest omitted.
 
 // se_GetApplicationAssignmentConfigurationRequest omitted.
@@ -3589,11 +3592,13 @@ const de_DescribeApplicationResponse = (output: any, context: __SerdeContext): D
 const de_DescribeInstanceResponse = (output: any, context: __SerdeContext): DescribeInstanceResponse => {
   return take(output, {
     CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EncryptionConfigurationDetails: _json,
     IdentityStoreId: __expectString,
     InstanceArn: __expectString,
     Name: __expectString,
     OwnerAccountId: __expectString,
     Status: __expectString,
+    StatusReason: __expectString,
   }) as any;
 };
 
@@ -3625,6 +3630,8 @@ const de_DescribePermissionSetResponse = (output: any, context: __SerdeContext):
 // de_DetachManagedPolicyFromPermissionSetResponse omitted.
 
 // de_DisplayData omitted.
+
+// de_EncryptionConfigurationDetails omitted.
 
 // de_GetApplicationAccessScopeResponse omitted.
 
@@ -3690,6 +3697,7 @@ const de_InstanceMetadata = (output: any, context: __SerdeContext): InstanceMeta
     Name: __expectString,
     OwnerAccountId: __expectString,
     Status: __expectString,
+    StatusReason: __expectString,
   }) as any;
 };
 

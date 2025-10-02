@@ -33,13 +33,15 @@ export interface DeleteIdentityPropagationConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes all access scopes and authorized targets that are associated with a service from the Amazon QuickSight IAM Identity Center application.</p>
- *          <p>This operation is only supported for Amazon QuickSight accounts that use IAM Identity Center.</p>
+ * <p>Deletes all access scopes and authorized targets that are associated with a service from the QuickSight IAM Identity Center application.</p>
+ *          <p>This operation is only supported for QuickSight accounts that use IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DeleteIdentityPropagationConfigCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteIdentityPropagationConfigCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DeleteIdentityPropagationConfigRequest
  *   AwsAccountId: "STRING_VALUE", // required

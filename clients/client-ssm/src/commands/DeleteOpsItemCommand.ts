@@ -61,6 +61,8 @@ export interface DeleteOpsItemCommandOutput extends DeleteOpsItemResponse, __Met
  * ```javascript
  * import { SSMClient, DeleteOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DeleteOpsItemRequest
  *   OpsItemId: "STRING_VALUE", // required

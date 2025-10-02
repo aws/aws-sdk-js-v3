@@ -34,7 +34,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { AcceptPredictionsCommandInput, AcceptPredictionsCommandOutput } from "../commands/AcceptPredictionsCommand";
 import {
@@ -77,6 +77,10 @@ import {
   CreateEnvironmentActionCommandInput,
   CreateEnvironmentActionCommandOutput,
 } from "../commands/CreateEnvironmentActionCommand";
+import {
+  CreateEnvironmentBlueprintCommandInput,
+  CreateEnvironmentBlueprintCommandOutput,
+} from "../commands/CreateEnvironmentBlueprintCommand";
 import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "../commands/CreateEnvironmentCommand";
 import {
   CreateEnvironmentProfileCommandInput,
@@ -126,6 +130,10 @@ import {
   DeleteEnvironmentActionCommandInput,
   DeleteEnvironmentActionCommandOutput,
 } from "../commands/DeleteEnvironmentActionCommand";
+import {
+  DeleteEnvironmentBlueprintCommandInput,
+  DeleteEnvironmentBlueprintCommandOutput,
+} from "../commands/DeleteEnvironmentBlueprintCommand";
 import {
   DeleteEnvironmentBlueprintConfigurationCommandInput,
   DeleteEnvironmentBlueprintConfigurationCommandOutput,
@@ -367,6 +375,10 @@ import {
   UpdateEnvironmentActionCommandInput,
   UpdateEnvironmentActionCommandOutput,
 } from "../commands/UpdateEnvironmentActionCommand";
+import {
+  UpdateEnvironmentBlueprintCommandInput,
+  UpdateEnvironmentBlueprintCommandOutput,
+} from "../commands/UpdateEnvironmentBlueprintCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "../commands/UpdateEnvironmentCommand";
 import {
   UpdateEnvironmentProfileCommandInput,
@@ -427,6 +439,7 @@ import {
   AwsLocation,
   BasicAuthenticationCredentials,
   BusinessNameGenerationConfiguration,
+  CloudFormationProperties,
   ColumnFilterConfiguration,
   ComputeEnvironments,
   ConflictException,
@@ -443,6 +456,7 @@ import {
   CreateProjectFromProjectProfilePolicyGrantDetail,
   CreateProjectPolicyGrantDetail,
   CustomAccountPoolHandler,
+  CustomParameter,
   DataProductItem,
   DataSourceConfigurationInput,
   DomainUnitFilterForProject,
@@ -483,7 +497,6 @@ import {
   LikeExpression,
   LineageSyncSchedule,
   Member,
-  MetadataFormReference,
   Model,
   NotEqualToExpression,
   NotInExpression,
@@ -502,6 +515,7 @@ import {
   PredictionConfiguration,
   ProjectGrantFilter,
   ProjectPolicyGrantPrincipal,
+  ProvisioningProperties,
   RecommendationConfiguration,
   RedshiftClusterStorage,
   RedshiftCredentialConfiguration,
@@ -565,7 +579,7 @@ import {
   ListingItem,
   ListingRevisionInput,
   MetadataFormEnforcementDetail,
-  MetadataGenerationRunTarget,
+  MetadataFormReference,
   NotificationOutput,
   PolicyGrantMember,
   ProjectProfileSummary,
@@ -595,6 +609,7 @@ import {
   GlossaryTermItem,
   LineageNodeTypeItem,
   MetadataGenerationRunItem,
+  MetadataGenerationRunTarget,
   RejectChoice,
   RejectRule,
   RowFilter,
@@ -1165,6 +1180,32 @@ export const se_CreateEnvironmentActionCommand = async (
       description: [],
       name: [],
       parameters: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateEnvironmentBlueprintCommand
+ */
+export const se_CreateEnvironmentBlueprintCommand = async (
+  input: CreateEnvironmentBlueprintCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/environment-blueprints");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      provisioningProperties: (_) => _json(_),
+      userParameters: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1744,6 +1785,23 @@ export const se_DeleteEnvironmentActionCommand = async (
   b.bp("/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions/{identifier}");
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   b.p("environmentIdentifier", () => input.environmentIdentifier!, "{environmentIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteEnvironmentBlueprintCommand
+ */
+export const se_DeleteEnvironmentBlueprintCommand = async (
+  input: DeleteEnvironmentBlueprintCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/environment-blueprints/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
@@ -3523,6 +3581,7 @@ export const se_PutEnvironmentBlueprintConfigurationCommand = async (
     take(input, {
       enabledRegions: (_) => _json(_),
       environmentRolePermissionBoundary: [],
+      globalParameters: (_) => _json(_),
       manageAccessRoleArn: [],
       provisioningConfigurations: (_) => _json(_),
       provisioningRoleArn: [],
@@ -4112,6 +4171,32 @@ export const se_UpdateEnvironmentActionCommand = async (
       description: [],
       name: [],
       parameters: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateEnvironmentBlueprintCommand
+ */
+export const se_UpdateEnvironmentBlueprintCommand = async (
+  input: UpdateEnvironmentBlueprintCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/environment-blueprints/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      provisioningProperties: (_) => _json(_),
+      userParameters: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -5039,6 +5124,36 @@ export const de_CreateEnvironmentActionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateEnvironmentBlueprintCommand
+ */
+export const de_CreateEnvironmentBlueprintCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEnvironmentBlueprintCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    deploymentProperties: _json,
+    description: __expectString,
+    glossaryTerms: _json,
+    id: __expectString,
+    name: __expectString,
+    provider: __expectString,
+    provisioningProperties: (_) => _json(__expectUnion(_)),
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    userParameters: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateEnvironmentProfileCommand
  */
 export const de_CreateEnvironmentProfileCommand = async (
@@ -5647,6 +5762,23 @@ export const de_DeleteEnvironmentActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentActionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteEnvironmentBlueprintCommand
+ */
+export const de_DeleteEnvironmentBlueprintCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEnvironmentBlueprintCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -8432,6 +8564,36 @@ export const de_UpdateEnvironmentActionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateEnvironmentBlueprintCommand
+ */
+export const de_UpdateEnvironmentBlueprintCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEnvironmentBlueprintCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    deploymentProperties: _json,
+    description: __expectString,
+    glossaryTerms: _json,
+    id: __expectString,
+    name: __expectString,
+    provider: __expectString,
+    provisioningProperties: (_) => _json(__expectUnion(_)),
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    userParameters: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateEnvironmentProfileCommand
  */
 export const de_UpdateEnvironmentProfileCommand = async (
@@ -9042,6 +9204,8 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 
 // se_BusinessNameGenerationConfiguration omitted.
 
+// se_CloudFormationProperties omitted.
+
 // se_ColumnFilterConfiguration omitted.
 
 // se_ColumnNameList omitted.
@@ -9071,6 +9235,10 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 // se_CredentialMap omitted.
 
 // se_CustomAccountPoolHandler omitted.
+
+// se_CustomParameter omitted.
+
+// se_CustomParameterList omitted.
 
 // se_DataProductItem omitted.
 
@@ -9158,6 +9326,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 // se_FormInputList omitted.
 
 // se_FormsInputMap omitted.
+
+// se_GlobalParameterMap omitted.
 
 // se_GlossaryTerms omitted.
 
@@ -9266,6 +9436,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 // se_ProvisioningConfiguration omitted.
 
 // se_ProvisioningConfigurationList omitted.
+
+// se_ProvisioningProperties omitted.
 
 // se_RecommendationConfiguration omitted.
 
@@ -10599,6 +10771,8 @@ const de_ListingItem = (output: any, context: __SerdeContext): ListingItem => {
 
 // de_ListingSummaryItems omitted.
 
+// de_ManagedEndpointCredentials omitted.
+
 // de_MatchCriteria omitted.
 
 // de_MatchOffset omitted.
@@ -11106,6 +11280,7 @@ const de_SearchTypesResultItems = (output: any, context: __SerdeContext): Search
  */
 const de_SparkEmrPropertiesOutput = (output: any, context: __SerdeContext): SparkEmrPropertiesOutput => {
   return take(output, {
+    certificateData: __expectString,
     computeArn: __expectString,
     credentials: _json,
     credentialsExpiration: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -11114,6 +11289,8 @@ const de_SparkEmrPropertiesOutput = (output: any, context: __SerdeContext): Spar
     javaVirtualEnv: __expectString,
     livyEndpoint: __expectString,
     logUri: __expectString,
+    managedEndpointArn: __expectString,
+    managedEndpointCredentials: _json,
     pythonVirtualEnv: __expectString,
     runtimeRole: __expectString,
     trustedCertificatesS3Uri: __expectString,

@@ -38,6 +38,8 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * ```javascript
  * import { KafkaConnectClient, UpdateConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, UpdateConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * // import type { KafkaConnectClientConfig } from "@aws-sdk/client-kafkaconnect";
+ * const config = {}; // type is KafkaConnectClientConfig
  * const client = new KafkaConnectClient(config);
  * const input = { // UpdateConnectorRequest
  *   capacity: { // CapacityUpdate

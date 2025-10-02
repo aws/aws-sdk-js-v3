@@ -61,6 +61,8 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * ```javascript
  * import { WAFRegionalClient, CreateRegexPatternSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateRegexPatternSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // CreateRegexPatternSetRequest
  *   Name: "STRING_VALUE", // required

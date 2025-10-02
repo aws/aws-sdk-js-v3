@@ -35,6 +35,8 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  * ```javascript
  * import { LightsailClient, GetInstancePortStatesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstancePortStatesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // GetInstancePortStatesRequest
  *   instanceName: "STRING_VALUE", // required

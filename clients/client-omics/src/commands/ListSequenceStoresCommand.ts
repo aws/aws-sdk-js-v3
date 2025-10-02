@@ -34,6 +34,8 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * ```javascript
  * import { OmicsClient, ListSequenceStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListSequenceStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // ListSequenceStoresRequest
  *   maxResults: Number("int"),

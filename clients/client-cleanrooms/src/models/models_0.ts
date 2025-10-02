@@ -9,6 +9,174 @@ import { CleanRoomsServiceException as __BaseException } from "./CleanRoomsServi
  * @public
  * @enum
  */
+export const AutoRefreshMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoRefreshMode = (typeof AutoRefreshMode)[keyof typeof AutoRefreshMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessBudgetType = {
+  CALENDAR_DAY: "CALENDAR_DAY",
+  CALENDAR_MONTH: "CALENDAR_MONTH",
+  CALENDAR_WEEK: "CALENDAR_WEEK",
+  LIFETIME: "LIFETIME",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessBudgetType = (typeof AccessBudgetType)[keyof typeof AccessBudgetType];
+
+/**
+ * <p>Detailed information about an access budget including time bounds, budget allocation, and configuration settings.</p>
+ * @public
+ */
+export interface AccessBudgetDetails {
+  /**
+   * <p>The start time for the access budget period.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end time for the access budget period.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The remaining budget amount available for use within this access budget.</p>
+   * @public
+   */
+  remainingBudget: number | undefined;
+
+  /**
+   * <p>The total budget allocation amount for this access budget.</p>
+   * @public
+   */
+  budget: number | undefined;
+
+  /**
+   * <p>Specifies the time period for limiting table usage in queries and jobs. For calendar-based periods, the budget can renew if auto refresh is enabled. For lifetime budgets, the limit applies to the total usage throughout the collaboration. Valid values are:</p> <p> <code>CALENDAR_DAY</code> - Limit table usage per day.</p> <p> <code>CALENDAR_WEEK</code> - Limit table usage per week.</p> <p> <code>CALENDAR_MONTH</code> - Limit table usage per month.</p> <p> <code>LIFETIME</code> - Limit total table usage for the collaboration duration.</p>
+   * @public
+   */
+  budgetType: AccessBudgetType | undefined;
+
+  /**
+   * <p>Indicates whether the budget automatically refreshes for each time period specified in <code>budgetType</code>. Valid values are:</p> <p> <code>ENABLED</code> - The budget refreshes automatically at the start of each period.</p> <p> <code>DISABLED</code> - The budget must be refreshed manually.</p> <p> <code>NULL</code> - The value is null when <code>budgetType</code> is set to <code>LIFETIME</code>.</p>
+   * @public
+   */
+  autoRefresh?: AutoRefreshMode | undefined;
+}
+
+/**
+ * <p>Controls and tracks usage limits for associated configured tables within a collaboration across queries and job. Supports both period-based budgets that can renew (daily, weekly, or monthly) and fixed lifetime budgets. Contains the resource ARN, remaining budget information, and up to two budget configurations (period-based and lifetime). By default, table usage is unlimited unless a budget is configured.</p>
+ * @public
+ */
+export interface AccessBudget {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the access budget resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Detailed budget information including time bounds, remaining budget, and refresh settings.</p>
+   * @public
+   */
+  details: AccessBudgetDetails[] | undefined;
+
+  /**
+   * <p>The total remaining budget across all budget parameters, showing the lower value between the per-period budget and lifetime budget for this access budget. For individual parameter budgets, see <code>remainingBudget</code>.</p>
+   * @public
+   */
+  aggregateRemainingBudget: number | undefined;
+}
+
+/**
+ * <p>Individual budget parameter configuration that defines specific budget allocation settings for access budgets.</p>
+ * @public
+ */
+export interface BudgetParameter {
+  /**
+   * <p>The type of budget parameter being configured.</p>
+   * @public
+   */
+  type: AccessBudgetType | undefined;
+
+  /**
+   * <p>The budget allocation amount for this specific parameter.</p>
+   * @public
+   */
+  budget: number | undefined;
+
+  /**
+   * <p>Whether this individual budget parameter automatically refreshes when the budget period resets.</p>
+   * @public
+   */
+  autoRefresh?: AutoRefreshMode | undefined;
+}
+
+/**
+ * <p>Input parameters for privacy budget templates that support access budgets functionality, enabling enhanced budget management capabilities.</p>
+ * @public
+ */
+export interface AccessBudgetsPrivacyTemplateParametersInput {
+  /**
+   * <p>An array of budget parameters that define the access budget configuration for the privacy template.</p>
+   * @public
+   */
+  budgetParameters: BudgetParameter[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource associated with this privacy budget template.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * <p>Output parameters for privacy budget templates with access budgets support, containing the configured budget information.</p>
+ * @public
+ */
+export interface AccessBudgetsPrivacyTemplateParametersOutput {
+  /**
+   * <p>An array of budget parameters returned from the access budget configuration.</p>
+   * @public
+   */
+  budgetParameters: BudgetParameter[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource associated with this privacy budget template.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * <p>Update parameters for privacy budget templates with access budgets functionality, allowing modification of existing budget configurations.</p>
+ * @public
+ */
+export interface AccessBudgetsPrivacyTemplateUpdateParameters {
+  /**
+   * <p>Updated array of budget parameters for the access budget configuration.</p>
+   * @public
+   */
+  budgetParameters: BudgetParameter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AccessDeniedExceptionReason = {
   INSUFFICIENT_PERMISSIONS: "INSUFFICIENT_PERMISSIONS",
 } as const;
@@ -2625,6 +2793,12 @@ export interface Schema {
   schemaStatusDetails: SchemaStatusDetail[] | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the schema resource.</p>
+   * @public
+   */
+  resourceArn?: string | undefined;
+
+  /**
    * <p>The schema type properties.</p>
    * @public
    */
@@ -3810,6 +3984,7 @@ export interface DifferentialPrivacyTemplateParametersOutput {
  * @public
  */
 export type PrivacyBudgetTemplateParametersOutput =
+  | PrivacyBudgetTemplateParametersOutput.AccessBudgetMember
   | PrivacyBudgetTemplateParametersOutput.DifferentialPrivacyMember
   | PrivacyBudgetTemplateParametersOutput.$UnknownMember;
 
@@ -3823,6 +3998,17 @@ export namespace PrivacyBudgetTemplateParametersOutput {
    */
   export interface DifferentialPrivacyMember {
     differentialPrivacy: DifferentialPrivacyTemplateParametersOutput;
+    accessBudget?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Access budget configuration returned from the privacy budget template, containing the configured access budget settings.</p>
+   * @public
+   */
+  export interface AccessBudgetMember {
+    differentialPrivacy?: never;
+    accessBudget: AccessBudgetsPrivacyTemplateParametersOutput;
     $unknown?: never;
   }
 
@@ -3831,16 +4017,19 @@ export namespace PrivacyBudgetTemplateParametersOutput {
    */
   export interface $UnknownMember {
     differentialPrivacy?: never;
+    accessBudget?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     differentialPrivacy: (value: DifferentialPrivacyTemplateParametersOutput) => T;
+    accessBudget: (value: AccessBudgetsPrivacyTemplateParametersOutput) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: PrivacyBudgetTemplateParametersOutput, visitor: Visitor<T>): T => {
     if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    if (value.accessBudget !== undefined) return visitor.accessBudget(value.accessBudget);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3850,6 +4039,7 @@ export namespace PrivacyBudgetTemplateParametersOutput {
  * @enum
  */
 export const PrivacyBudgetType = {
+  ACCESS_BUDGET: "ACCESS_BUDGET",
   DIFFERENTIAL_PRIVACY: "DIFFERENTIAL_PRIVACY",
 } as const;
 
@@ -4444,6 +4634,12 @@ export interface ListCollaborationPrivacyBudgetsInput {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Configured Table Association (ConfiguredTableAssociation) used to filter privacy budgets.</p>
+   * @public
+   */
+  accessBudgetResourceArn?: string | undefined;
 }
 
 /**
@@ -4510,7 +4706,10 @@ export interface DifferentialPrivacyPrivacyBudget {
  * <p>The epsilon parameter value and number of each aggregation function that you can perform.</p>
  * @public
  */
-export type PrivacyBudget = PrivacyBudget.DifferentialPrivacyMember | PrivacyBudget.$UnknownMember;
+export type PrivacyBudget =
+  | PrivacyBudget.AccessBudgetMember
+  | PrivacyBudget.DifferentialPrivacyMember
+  | PrivacyBudget.$UnknownMember;
 
 /**
  * @public
@@ -4522,6 +4721,17 @@ export namespace PrivacyBudget {
    */
   export interface DifferentialPrivacyMember {
     differentialPrivacy: DifferentialPrivacyPrivacyBudget;
+    accessBudget?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Access budget information associated with this privacy budget.</p>
+   * @public
+   */
+  export interface AccessBudgetMember {
+    differentialPrivacy?: never;
+    accessBudget: AccessBudget;
     $unknown?: never;
   }
 
@@ -4530,16 +4740,19 @@ export namespace PrivacyBudget {
    */
   export interface $UnknownMember {
     differentialPrivacy?: never;
+    accessBudget?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     differentialPrivacy: (value: DifferentialPrivacyPrivacyBudget) => T;
+    accessBudget: (value: AccessBudget) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: PrivacyBudget, visitor: Visitor<T>): T => {
     if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
+    if (value.accessBudget !== undefined) return visitor.accessBudget(value.accessBudget);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5040,6 +5253,12 @@ export interface SchemaSummary {
    * @public
    */
   analysisMethod?: AnalysisMethod | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema summary resource.</p>
+   * @public
+   */
+  resourceArn?: string | undefined;
 
   /**
    * <p> The selected analysis methods for the schema.</p>
@@ -7085,6 +7304,21 @@ export interface ListIdMappingTablesOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const JobType = {
+  BATCH: "BATCH",
+  DELETE_ONLY: "DELETE_ONLY",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
  */
 export interface PopulateIdMappingTableInput {
   /**
@@ -7098,6 +7332,12 @@ export interface PopulateIdMappingTableInput {
    * @public
    */
   membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The job type of the rule-based ID mapping job. Valid values include:</p> <p> <code>INCREMENTAL</code>: Processes only new or changed data since the last job run. This is the default job type if the ID mapping workflow was created in Entity Resolution with <code>incrementalRunConfig</code> specified.</p> <p> <code>BATCH</code>: Processes all data from the input source, regardless of previous job runs. This is the default job type if the ID mapping workflow was created in Entity Resolution but <code>incrementalRunConfig</code> wasn't specified.</p> <p> <code>DELETE_ONLY</code>: Processes only deletion requests from <code>BatchDeleteUniqueId</code>, which is set in Entity Resolution.</p> <p>For more information about <code>incrementalRunConfig</code> and <code>BatchDeleteUniqueId</code>, see the <a href="https://docs.aws.amazon.com/entityresolution/latest/apireference/Welcome.html">Entity Resolution API Reference</a>.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
 }
 
 /**
@@ -7682,142 +7922,6 @@ export namespace MembershipProtectedQueryOutputConfiguration {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
-
-/**
- * <p>Contains configurations for protected query results.</p>
- * @public
- */
-export interface MembershipProtectedQueryResultConfiguration {
-  /**
-   * <p>Configuration for protected query results.</p>
-   * @public
-   */
-  outputConfiguration: MembershipProtectedQueryOutputConfiguration | undefined;
-
-  /**
-   * <p>The unique ARN for an IAM role that is used by Clean Rooms to write protected query results to the result location, given by the member who can receive results.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MembershipJobLogStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type MembershipJobLogStatus = (typeof MembershipJobLogStatus)[keyof typeof MembershipJobLogStatus];
-
-/**
- * <p>An object representing the payment responsibilities accepted by the collaboration member for query and job compute costs.</p>
- * @public
- */
-export interface MembershipJobComputePaymentConfig {
-  /**
-   * <p>Indicates whether the collaboration member has accepted to pay for job compute costs (<code>TRUE</code>) or has not accepted to pay for query and job compute costs (<code>FALSE</code>).</p> <p>There is only one member who pays for queries and jobs. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for query and job compute costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for query and job compute costs. </p> </li> </ul>
-   * @public
-   */
-  isResponsible: boolean | undefined;
-}
-
-/**
- * <p>An object representing the collaboration member's model inference payment responsibilities set by the collaboration creator.</p>
- * @public
- */
-export interface MembershipModelInferencePaymentConfig {
-  /**
-   * <p>Indicates whether the collaboration member has accepted to pay for model inference costs (<code>TRUE</code>) or has not accepted to pay for model inference costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for model inference costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for model inference costs. </p> </li> </ul>
-   * @public
-   */
-  isResponsible: boolean | undefined;
-}
-
-/**
- * <p>An object representing the collaboration member's model training payment responsibilities set by the collaboration creator.</p>
- * @public
- */
-export interface MembershipModelTrainingPaymentConfig {
-  /**
-   * <p>Indicates whether the collaboration member has accepted to pay for model training costs (<code>TRUE</code>) or has not accepted to pay for model training costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for model training costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for model training costs. </p> </li> </ul>
-   * @public
-   */
-  isResponsible: boolean | undefined;
-}
-
-/**
- * <p>An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.</p>
- * @public
- */
-export interface MembershipMLPaymentConfig {
-  /**
-   * <p>The payment responsibilities accepted by the member for model training.</p>
-   * @public
-   */
-  modelTraining?: MembershipModelTrainingPaymentConfig | undefined;
-
-  /**
-   * <p>The payment responsibilities accepted by the member for model inference.</p>
-   * @public
-   */
-  modelInference?: MembershipModelInferencePaymentConfig | undefined;
-}
-
-/**
- * <p>An object representing the payment responsibilities accepted by the collaboration member for query compute costs.</p>
- * @public
- */
-export interface MembershipQueryComputePaymentConfig {
-  /**
-   * <p>Indicates whether the collaboration member has accepted to pay for query compute costs (<code>TRUE</code>) or has not accepted to pay for query compute costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for query compute costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for query compute costs. </p> </li> </ul>
-   * @public
-   */
-  isResponsible: boolean | undefined;
-}
-
-/**
- * <p>An object representing the payment responsibilities accepted by the collaboration member.</p>
- * @public
- */
-export interface MembershipPaymentConfiguration {
-  /**
-   * <p>The payment responsibilities accepted by the collaboration member for query compute costs.</p>
-   * @public
-   */
-  queryCompute: MembershipQueryComputePaymentConfig | undefined;
-
-  /**
-   * <p>The payment responsibilities accepted by the collaboration member for machine learning costs.</p>
-   * @public
-   */
-  machineLearning?: MembershipMLPaymentConfig | undefined;
-
-  /**
-   * <p>The payment responsibilities accepted by the collaboration member for job compute costs.</p>
-   * @public
-   */
-  jobCompute?: MembershipJobComputePaymentConfig | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MembershipQueryLogStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof typeof MembershipQueryLogStatus];
 
 /**
  * @internal

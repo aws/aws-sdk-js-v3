@@ -13,8 +13,12 @@ const buildSmithyTypeScript = async (repo, commit) => {
     await spawnProcess("git", ["clone", "https://github.com/awslabs/smithy-typescript.git", repo, "--depth=1"]);
   }
 
-  // Checkout commit
-  await spawnProcess("git", ["fetch", "origin", commit, "--depth=1"], { cwd: repo });
+  // Checkout commit (connect to remote only when necessary)
+  try {
+    await spawnProcess("git", ["cat-file", "-e", commit], { cwd: repo });
+  } catch (error) {
+    await spawnProcess("git", ["fetch", "origin", commit, "--depth=1"], { cwd: repo });
+  }
 
   // Switch to branch with commit
   const tempBranchName = `temp-${commit}`;

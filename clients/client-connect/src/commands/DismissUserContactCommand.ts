@@ -38,6 +38,8 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  * ```javascript
  * import { ConnectClient, DismissUserContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DismissUserContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // DismissUserContactRequest
  *   UserId: "STRING_VALUE", // required

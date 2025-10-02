@@ -34,6 +34,8 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  * ```javascript
  * import { IoTTwinMakerClient, BatchPutPropertyValuesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, BatchPutPropertyValuesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // import type { IoTTwinMakerClientConfig } from "@aws-sdk/client-iottwinmaker";
+ * const config = {}; // type is IoTTwinMakerClientConfig
  * const client = new IoTTwinMakerClient(config);
  * const input = { // BatchPutPropertyValuesRequest
  *   workspaceId: "STRING_VALUE", // required

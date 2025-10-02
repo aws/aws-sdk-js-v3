@@ -708,6 +708,15 @@ export interface CancelInstanceRefreshType {
    * @public
    */
   AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>When cancelling an instance refresh, this indicates whether to wait for in-flight launches
+   *             and terminations to complete. The default is true.</p>
+   *          <p>When set to false, Amazon EC2 Auto Scaling cancels the instance refresh
+   *             without waiting for any pending launches or terminations to complete.</p>
+   * @public
+   */
+  WaitForTransitioningInstances?: boolean | undefined;
 }
 
 /**

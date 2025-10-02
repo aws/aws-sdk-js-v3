@@ -48,6 +48,8 @@ export interface ListEngagementResourceAssociationsCommandOutput
  * ```javascript
  * import { PartnerCentralSellingClient, ListEngagementResourceAssociationsCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, ListEngagementResourceAssociationsCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // import type { PartnerCentralSellingClientConfig } from "@aws-sdk/client-partnercentral-selling";
+ * const config = {}; // type is PartnerCentralSellingClientConfig
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // ListEngagementResourceAssociationsRequest
  *   Catalog: "STRING_VALUE", // required

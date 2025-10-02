@@ -34,6 +34,8 @@ export interface ListEventStreamsCommandOutput extends ListEventStreamsResponse,
  * ```javascript
  * import { CustomerProfilesClient, ListEventStreamsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListEventStreamsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListEventStreamsRequest
  *   DomainName: "STRING_VALUE", // required

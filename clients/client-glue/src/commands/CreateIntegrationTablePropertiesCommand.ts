@@ -39,6 +39,8 @@ export interface CreateIntegrationTablePropertiesCommandOutput
  * ```javascript
  * import { GlueClient, CreateIntegrationTablePropertiesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateIntegrationTablePropertiesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // CreateIntegrationTablePropertiesRequest
  *   ResourceArn: "STRING_VALUE", // required

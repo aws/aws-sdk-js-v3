@@ -55,6 +55,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * ```javascript
  * import { DynamoDBClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // import type { DynamoDBClientConfig } from "@aws-sdk/client-dynamodb";
+ * const config = {}; // type is DynamoDBClientConfig
  * const client = new DynamoDBClient(config);
  * const input = { // DeleteResourcePolicyInput
  *   ResourceArn: "STRING_VALUE", // required

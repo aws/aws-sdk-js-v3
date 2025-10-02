@@ -34,6 +34,8 @@ export interface UpdateAccountSettingsCommandOutput extends AccountSettings, __M
  * ```javascript
  * import { AppConfigClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // UpdateAccountSettingsRequest
  *   DeletionProtection: { // DeletionProtectionSettings

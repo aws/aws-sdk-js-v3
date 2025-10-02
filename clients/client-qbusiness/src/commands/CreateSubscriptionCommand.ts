@@ -34,6 +34,8 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * ```javascript
  * import { QBusinessClient, CreateSubscriptionCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, CreateSubscriptionCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // CreateSubscriptionRequest
  *   applicationId: "STRING_VALUE", // required

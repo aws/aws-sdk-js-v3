@@ -43,6 +43,8 @@ export interface UpdateEncryptionConfigurationCommandOutput
  * ```javascript
  * import { IoTClient, UpdateEncryptionConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateEncryptionConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // UpdateEncryptionConfigurationRequest
  *   encryptionType: "CUSTOMER_MANAGED_KMS_KEY" || "AWS_OWNED_KMS_KEY", // required

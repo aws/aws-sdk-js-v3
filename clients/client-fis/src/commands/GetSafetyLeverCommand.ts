@@ -36,6 +36,8 @@ export interface GetSafetyLeverCommandOutput extends GetSafetyLeverResponse, __M
  * ```javascript
  * import { FisClient, GetSafetyLeverCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, GetSafetyLeverCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // GetSafetyLeverRequest
  *   id: "STRING_VALUE", // required

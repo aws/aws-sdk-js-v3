@@ -34,6 +34,8 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * ```javascript
  * import { QConnectClient, PutFeedbackCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, PutFeedbackCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // PutFeedbackRequest
  *   assistantId: "STRING_VALUE", // required

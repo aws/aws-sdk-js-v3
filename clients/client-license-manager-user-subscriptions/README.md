@@ -6,8 +6,7 @@
 
 AWS SDK for JavaScript LicenseManagerUserSubscriptions Client for Node.js, Browser and React Native.
 
-<p>With License Manager, you can create user-based subscriptions to utilize licensed software with
-a per user subscription fee on Amazon EC2 instances.</p>
+<p>With License Manager, you can create user-based subscriptions to utilize licensed software with a per user subscription fee on Amazon EC2 instances.</p>
 
 ## Installing
 

@@ -35,6 +35,8 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  * ```javascript
  * import { AppMeshClient, ListGatewayRoutesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListGatewayRoutesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // ListGatewayRoutesInput
  *   meshName: "STRING_VALUE", // required

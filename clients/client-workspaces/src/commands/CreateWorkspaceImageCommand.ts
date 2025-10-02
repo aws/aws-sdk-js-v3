@@ -34,6 +34,8 @@ export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageR
  * ```javascript
  * import { WorkSpacesClient, CreateWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // CreateWorkspaceImageRequest
  *   Name: "STRING_VALUE", // required

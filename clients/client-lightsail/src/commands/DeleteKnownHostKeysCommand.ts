@@ -42,6 +42,8 @@ export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysRes
  * ```javascript
  * import { LightsailClient, DeleteKnownHostKeysCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteKnownHostKeysCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // DeleteKnownHostKeysRequest
  *   instanceName: "STRING_VALUE", // required

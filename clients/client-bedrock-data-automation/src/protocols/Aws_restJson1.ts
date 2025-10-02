@@ -21,7 +21,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "../commands/CreateBlueprintCommand";
 import {
@@ -63,6 +63,7 @@ import {
   AccessDeniedException,
   AudioExtractionCategory,
   AudioExtractionCategoryType,
+  AudioExtractionCategoryTypeConfiguration,
   AudioOverrideConfiguration,
   AudioStandardExtraction,
   AudioStandardGenerativeField,
@@ -72,6 +73,7 @@ import {
   BlueprintFilter,
   BlueprintItem,
   BlueprintSummary,
+  ChannelLabelingConfiguration,
   ConflictException,
   CustomOutputConfiguration,
   DataAutomationProject,
@@ -103,10 +105,12 @@ import {
   OverrideConfiguration,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  SpeakerLabelingConfiguration,
   SplitterConfiguration,
   StandardOutputConfiguration,
   Tag,
   ThrottlingException,
+  TranscriptConfiguration,
   ValidationException,
   VideoBoundingBox,
   VideoExtractionCategory,
@@ -920,6 +924,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AudioExtractionCategory omitted.
 
+// se_AudioExtractionCategoryTypeConfiguration omitted.
+
 // se_AudioExtractionCategoryTypes omitted.
 
 // se_AudioOverrideConfiguration omitted.
@@ -937,6 +943,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_BlueprintItem omitted.
 
 // se_BlueprintItems omitted.
+
+// se_ChannelLabelingConfiguration omitted.
 
 // se_CustomOutputConfiguration omitted.
 
@@ -990,6 +998,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_OverrideConfiguration omitted.
 
+// se_SpeakerLabelingConfiguration omitted.
+
 // se_SplitterConfiguration omitted.
 
 // se_StandardOutputConfiguration omitted.
@@ -999,6 +1009,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagKeyList omitted.
 
 // se_TagList omitted.
+
+// se_TranscriptConfiguration omitted.
 
 // se_VideoBoundingBox omitted.
 
@@ -1017,6 +1029,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_VideoStandardOutputConfiguration omitted.
 
 // de_AudioExtractionCategory omitted.
+
+// de_AudioExtractionCategoryTypeConfiguration omitted.
 
 // de_AudioExtractionCategoryTypes omitted.
 
@@ -1077,6 +1091,8 @@ const de_BlueprintSummary = (output: any, context: __SerdeContext): BlueprintSum
     lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_ChannelLabelingConfiguration omitted.
 
 // de_CustomOutputConfiguration omitted.
 
@@ -1170,6 +1186,8 @@ const de_DataAutomationProjectSummary = (output: any, context: __SerdeContext): 
 
 // de_OverrideConfiguration omitted.
 
+// de_SpeakerLabelingConfiguration omitted.
+
 // de_SplitterConfiguration omitted.
 
 // de_StandardOutputConfiguration omitted.
@@ -1177,6 +1195,8 @@ const de_DataAutomationProjectSummary = (output: any, context: __SerdeContext): 
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+// de_TranscriptConfiguration omitted.
 
 // de_ValidationExceptionField omitted.
 

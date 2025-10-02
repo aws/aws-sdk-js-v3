@@ -223,6 +223,8 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  * ```javascript
  * import { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * // import type { KinesisVideoArchivedMediaClientConfig } from "@aws-sdk/client-kinesis-video-archived-media";
+ * const config = {}; // type is KinesisVideoArchivedMediaClientConfig
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetHLSStreamingSessionURLInput
  *   StreamName: "STRING_VALUE",

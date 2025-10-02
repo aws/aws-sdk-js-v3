@@ -34,6 +34,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResult, __MetadataBea
  * ```javascript
  * import { WorkSpacesClient, DeleteTagsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteTagsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // DeleteTagsRequest
  *   ResourceId: "STRING_VALUE", // required

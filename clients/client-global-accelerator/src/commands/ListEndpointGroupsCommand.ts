@@ -38,6 +38,8 @@ export interface ListEndpointGroupsCommandOutput extends ListEndpointGroupsRespo
  * ```javascript
  * import { GlobalAcceleratorClient, ListEndpointGroupsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListEndpointGroupsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // import type { GlobalAcceleratorClientConfig } from "@aws-sdk/client-global-accelerator";
+ * const config = {}; // type is GlobalAcceleratorClientConfig
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ListEndpointGroupsRequest
  *   ListenerArn: "STRING_VALUE", // required

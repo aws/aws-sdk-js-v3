@@ -34,6 +34,8 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * ```javascript
  * import { MediaConvertClient, SearchJobsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, SearchJobsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
+ * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
  * const input = { // SearchJobsRequest
  *   InputFile: "STRING_VALUE",

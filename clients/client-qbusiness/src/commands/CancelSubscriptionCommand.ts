@@ -34,6 +34,8 @@ export interface CancelSubscriptionCommandOutput extends CancelSubscriptionRespo
  * ```javascript
  * import { QBusinessClient, CancelSubscriptionCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, CancelSubscriptionCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // CancelSubscriptionRequest
  *   applicationId: "STRING_VALUE", // required

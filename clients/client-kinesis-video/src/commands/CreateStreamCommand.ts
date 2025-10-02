@@ -41,6 +41,8 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  * ```javascript
  * import { KinesisVideoClient, CreateStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, CreateStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * // import type { KinesisVideoClientConfig } from "@aws-sdk/client-kinesis-video";
+ * const config = {}; // type is KinesisVideoClientConfig
  * const client = new KinesisVideoClient(config);
  * const input = { // CreateStreamInput
  *   DeviceName: "STRING_VALUE",

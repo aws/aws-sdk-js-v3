@@ -34,6 +34,8 @@ export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __Met
  * ```javascript
  * import { AppSyncClient, FlushApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, FlushApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // FlushApiCacheRequest
  *   apiId: "STRING_VALUE", // required

@@ -36,6 +36,8 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * ```javascript
  * import { EC2Client, CreateClientVpnEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateClientVpnEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateClientVpnEndpointRequest
  *   ClientCidrBlock: "STRING_VALUE",

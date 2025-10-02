@@ -45,6 +45,8 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  * ```javascript
  * import { SecurityHubClient, BatchUpdateStandardsControlAssociationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchUpdateStandardsControlAssociationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // BatchUpdateStandardsControlAssociationsRequest
  *   StandardsControlAssociationUpdates: [ // StandardsControlAssociationUpdates // required
@@ -67,7 +69,7 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  * //         AssociationStatus: "ENABLED" || "DISABLED", // required
  * //         UpdatedReason: "STRING_VALUE",
  * //       },
- * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
+ * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "RESOURCE_NOT_FOUND" || "LIMIT_EXCEEDED", // required
  * //       ErrorReason: "STRING_VALUE",
  * //     },
  * //   ],

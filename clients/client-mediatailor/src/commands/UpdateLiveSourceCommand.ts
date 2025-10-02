@@ -34,6 +34,8 @@ export interface UpdateLiveSourceCommandOutput extends UpdateLiveSourceResponse,
  * ```javascript
  * import { MediaTailorClient, UpdateLiveSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UpdateLiveSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
  * const client = new MediaTailorClient(config);
  * const input = { // UpdateLiveSourceRequest
  *   HttpPackageConfigurations: [ // HttpPackageConfigurations // required

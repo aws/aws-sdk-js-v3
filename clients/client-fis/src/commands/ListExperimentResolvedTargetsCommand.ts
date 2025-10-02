@@ -39,6 +39,8 @@ export interface ListExperimentResolvedTargetsCommandOutput
  * ```javascript
  * import { FisClient, ListExperimentResolvedTargetsCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, ListExperimentResolvedTargetsCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // ListExperimentResolvedTargetsRequest
  *   experimentId: "STRING_VALUE", // required

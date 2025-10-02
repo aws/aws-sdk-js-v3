@@ -57,6 +57,8 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudWatchLogsClient, PutMetricFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutMetricFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutMetricFilterRequest
  *   logGroupName: "STRING_VALUE", // required
@@ -75,6 +77,10 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *     },
  *   ],
  *   applyOnTransformedLogs: true || false,
+ *   fieldSelectionCriteria: "STRING_VALUE",
+ *   emitSystemFieldDimensions: [ // EmitSystemFields
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new PutMetricFilterCommand(input);
  * const response = await client.send(command);

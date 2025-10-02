@@ -34,6 +34,8 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * ```javascript
  * import { FisClient, StopExperimentCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, StopExperimentCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // import type { FisClientConfig } from "@aws-sdk/client-fis";
+ * const config = {}; // type is FisClientConfig
  * const client = new FisClient(config);
  * const input = { // StopExperimentRequest
  *   id: "STRING_VALUE", // required

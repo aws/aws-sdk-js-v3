@@ -41,6 +41,8 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * ```javascript
  * import { TnbClient, UpdateSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, UpdateSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // import type { TnbClientConfig } from "@aws-sdk/client-tnb";
+ * const config = {}; // type is TnbClientConfig
  * const client = new TnbClient(config);
  * const input = { // UpdateSolNetworkInstanceInput
  *   nsInstanceId: "STRING_VALUE", // required

@@ -35,6 +35,8 @@ export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse,
  * ```javascript
  * import { EventBridgeClient, ListEventSourcesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListEventSourcesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // ListEventSourcesRequest
  *   NamePrefix: "STRING_VALUE",

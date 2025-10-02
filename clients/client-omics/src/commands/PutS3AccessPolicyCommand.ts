@@ -34,6 +34,8 @@ export interface PutS3AccessPolicyCommandOutput extends PutS3AccessPolicyRespons
  * ```javascript
  * import { OmicsClient, PutS3AccessPolicyCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, PutS3AccessPolicyCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // PutS3AccessPolicyRequest
  *   s3AccessPointArn: "STRING_VALUE", // required

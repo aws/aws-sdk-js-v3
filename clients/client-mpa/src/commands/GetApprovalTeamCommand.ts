@@ -38,6 +38,8 @@ export interface GetApprovalTeamCommandOutput extends GetApprovalTeamResponse, _
  * ```javascript
  * import { MPAClient, GetApprovalTeamCommand } from "@aws-sdk/client-mpa"; // ES Modules import
  * // const { MPAClient, GetApprovalTeamCommand } = require("@aws-sdk/client-mpa"); // CommonJS import
+ * // import type { MPAClientConfig } from "@aws-sdk/client-mpa";
+ * const config = {}; // type is MPAClientConfig
  * const client = new MPAClient(config);
  * const input = { // GetApprovalTeamRequest
  *   Arn: "STRING_VALUE", // required

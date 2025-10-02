@@ -34,6 +34,8 @@ export interface ListOdbNetworksCommandOutput extends ListOdbNetworksOutput, __M
  * ```javascript
  * import { OdbClient, ListOdbNetworksCommand } from "@aws-sdk/client-odb"; // ES Modules import
  * // const { OdbClient, ListOdbNetworksCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
+ * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // ListOdbNetworksInput
  *   maxResults: Number("int"),

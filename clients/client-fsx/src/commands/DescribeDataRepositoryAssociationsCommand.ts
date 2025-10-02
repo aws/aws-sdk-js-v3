@@ -60,6 +60,8 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  * ```javascript
  * import { FSxClient, DescribeDataRepositoryAssociationsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeDataRepositoryAssociationsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // DescribeDataRepositoryAssociationsRequest
  *   AssociationIds: [ // DataRepositoryAssociationIds

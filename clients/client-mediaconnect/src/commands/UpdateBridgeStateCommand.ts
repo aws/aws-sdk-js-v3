@@ -34,6 +34,8 @@ export interface UpdateBridgeStateCommandOutput extends UpdateBridgeStateRespons
  * ```javascript
  * import { MediaConnectClient, UpdateBridgeStateCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateBridgeStateCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // import type { MediaConnectClientConfig } from "@aws-sdk/client-mediaconnect";
+ * const config = {}; // type is MediaConnectClientConfig
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateBridgeStateRequest
  *   BridgeArn: "STRING_VALUE", // required

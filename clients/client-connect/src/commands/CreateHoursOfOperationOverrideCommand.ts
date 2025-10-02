@@ -40,6 +40,8 @@ export interface CreateHoursOfOperationOverrideCommandOutput
  * ```javascript
  * import { ConnectClient, CreateHoursOfOperationOverrideCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateHoursOfOperationOverrideCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // CreateHoursOfOperationOverrideRequest
  *   InstanceId: "STRING_VALUE", // required

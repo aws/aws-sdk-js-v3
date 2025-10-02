@@ -35,6 +35,8 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * ```javascript
  * import { RDSClient, DeleteIntegrationCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteIntegrationCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DeleteIntegrationMessage
  *   IntegrationIdentifier: "STRING_VALUE", // required
@@ -57,6 +59,8 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * //       Value: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   DataFilter: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
  * //   CreateTime: new Date("TIMESTAMP"),
  * //   Errors: [ // IntegrationErrorList
  * //     { // IntegrationError
@@ -64,8 +68,6 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //   ],
- * //   DataFilter: "STRING_VALUE",
- * //   Description: "STRING_VALUE",
  * // };
  *
  * ```

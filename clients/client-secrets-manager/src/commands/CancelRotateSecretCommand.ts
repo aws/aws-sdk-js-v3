@@ -52,6 +52,8 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  * ```javascript
  * import { SecretsManagerClient, CancelRotateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, CancelRotateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * // import type { SecretsManagerClientConfig } from "@aws-sdk/client-secrets-manager";
+ * const config = {}; // type is SecretsManagerClientConfig
  * const client = new SecretsManagerClient(config);
  * const input = { // CancelRotateSecretRequest
  *   SecretId: "STRING_VALUE", // required

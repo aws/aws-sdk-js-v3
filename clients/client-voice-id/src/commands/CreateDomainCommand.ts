@@ -40,6 +40,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * ```javascript
  * import { VoiceIDClient, CreateDomainCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, CreateDomainCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // import type { VoiceIDClientConfig } from "@aws-sdk/client-voice-id";
+ * const config = {}; // type is VoiceIDClientConfig
  * const client = new VoiceIDClient(config);
  * const input = { // CreateDomainRequest
  *   Name: "STRING_VALUE", // required

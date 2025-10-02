@@ -40,6 +40,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * ```javascript
  * import { EventBridgeClient, CreateConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, CreateConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // CreateConnectionRequest
  *   Name: "STRING_VALUE", // required

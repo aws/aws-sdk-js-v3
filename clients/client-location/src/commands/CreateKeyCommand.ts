@@ -43,6 +43,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * ```javascript
  * import { LocationClient, CreateKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // CreateKeyRequest
  *   KeyName: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface GetMicrosoftTeamsChannelConfigurationCommandOutput
  * ```javascript
  * import { ChatbotClient, GetMicrosoftTeamsChannelConfigurationCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, GetMicrosoftTeamsChannelConfigurationCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // GetTeamsChannelConfigurationRequest
  *   ChatConfigurationArn: "STRING_VALUE", // required

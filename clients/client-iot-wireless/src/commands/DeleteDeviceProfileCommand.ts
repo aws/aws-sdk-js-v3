@@ -34,6 +34,8 @@ export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileRes
  * ```javascript
  * import { IoTWirelessClient, DeleteDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // DeleteDeviceProfileRequest
  *   Id: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface GetTrailStatusCommandOutput extends GetTrailStatusResponse, __M
  * ```javascript
  * import { CloudTrailClient, GetTrailStatusCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetTrailStatusCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // import type { CloudTrailClientConfig } from "@aws-sdk/client-cloudtrail";
+ * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // GetTrailStatusRequest
  *   Name: "STRING_VALUE", // required

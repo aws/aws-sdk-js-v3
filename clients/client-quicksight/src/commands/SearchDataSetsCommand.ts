@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchDataSetsRequest, SearchDataSetsResponse } from "../models/models_4";
+import { SearchDataSetsRequest, SearchDataSetsResponse } from "../models/models_5";
 import { de_SearchDataSetsCommand, se_SearchDataSetsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -34,6 +34,8 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  * ```javascript
  * import { QuickSightClient, SearchDataSetsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchDataSetsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // SearchDataSetsRequest
  *   AwsAccountId: "STRING_VALUE", // required

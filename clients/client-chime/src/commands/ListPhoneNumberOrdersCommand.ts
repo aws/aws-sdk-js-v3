@@ -38,6 +38,8 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  * ```javascript
  * import { ChimeClient, ListPhoneNumberOrdersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListPhoneNumberOrdersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // ListPhoneNumberOrdersRequest
  *   NextToken: "STRING_VALUE",

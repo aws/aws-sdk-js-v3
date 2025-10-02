@@ -34,6 +34,8 @@ export interface BatchAddRoleCommandOutput extends BatchAddRoleOutput, __Metadat
  * ```javascript
  * import { RepostspaceClient, BatchAddRoleCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, BatchAddRoleCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // BatchAddRoleInput
  *   spaceId: "STRING_VALUE", // required

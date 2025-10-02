@@ -40,6 +40,8 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * ```javascript
  * import { DocDBClient, AddSourceIdentifierToSubscriptionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, AddSourceIdentifierToSubscriptionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // AddSourceIdentifierToSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required

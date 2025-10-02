@@ -34,6 +34,8 @@ export interface CreateAutomationRuleV2CommandOutput extends CreateAutomationRul
  * ```javascript
  * import { SecurityHubClient, CreateAutomationRuleV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, CreateAutomationRuleV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // CreateAutomationRuleV2Request
  *   RuleName: "STRING_VALUE", // required

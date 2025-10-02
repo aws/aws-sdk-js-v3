@@ -89,6 +89,8 @@ export interface PutGraphqlApiEnvironmentVariablesCommandOutput
  * ```javascript
  * import { AppSyncClient, PutGraphqlApiEnvironmentVariablesCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, PutGraphqlApiEnvironmentVariablesCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // PutGraphqlApiEnvironmentVariablesRequest
  *   apiId: "STRING_VALUE", // required

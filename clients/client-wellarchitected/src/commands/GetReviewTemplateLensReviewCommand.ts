@@ -37,6 +37,8 @@ export interface GetReviewTemplateLensReviewCommandOutput extends GetReviewTempl
  * ```javascript
  * import { WellArchitectedClient, GetReviewTemplateLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetReviewTemplateLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // GetReviewTemplateLensReviewInput
  *   TemplateArn: "STRING_VALUE", // required

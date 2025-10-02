@@ -38,6 +38,8 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CodeCommitClient, UpdateRepositoryNameCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateRepositoryNameCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // UpdateRepositoryNameInput
  *   oldName: "STRING_VALUE", // required

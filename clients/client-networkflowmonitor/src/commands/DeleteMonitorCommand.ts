@@ -38,6 +38,8 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * ```javascript
  * import { NetworkFlowMonitorClient, DeleteMonitorCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, DeleteMonitorCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // DeleteMonitorInput
  *   monitorName: "STRING_VALUE", // required
@@ -56,6 +58,9 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested resource is in use.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error occurred.</p>

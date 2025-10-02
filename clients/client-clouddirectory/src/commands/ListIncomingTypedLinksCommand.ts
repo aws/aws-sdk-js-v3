@@ -36,6 +36,8 @@ export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLi
  * ```javascript
  * import { CloudDirectoryClient, ListIncomingTypedLinksCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListIncomingTypedLinksCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // ListIncomingTypedLinksRequest
  *   DirectoryArn: "STRING_VALUE", // required

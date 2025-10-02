@@ -20,7 +20,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import {
   ActivateOrganizationsAccessCommandInput,
@@ -7748,17 +7748,17 @@ const de_BatchDescribeTypeConfigurationsOutput = (
   context: __SerdeContext
 ): BatchDescribeTypeConfigurationsOutput => {
   const contents: any = {};
-  if (output.Errors === "") {
+  if (String(output.Errors).trim() === "") {
     contents[_Er] = [];
   } else if (output[_Er] != null && output[_Er][_m] != null) {
     contents[_Er] = de_BatchDescribeTypeConfigurationsErrors(__getArrayIfSingleItem(output[_Er][_m]), context);
   }
-  if (output.UnprocessedTypeConfigurations === "") {
+  if (String(output.UnprocessedTypeConfigurations).trim() === "") {
     contents[_UTC] = [];
   } else if (output[_UTC] != null && output[_UTC][_m] != null) {
     contents[_UTC] = de_UnprocessedTypeConfigurations(__getArrayIfSingleItem(output[_UTC][_m]), context);
   }
-  if (output.TypeConfigurations === "") {
+  if (String(output.TypeConfigurations).trim() === "") {
     contents[_TCy] = [];
   } else if (output[_TCy] != null && output[_TCy][_m] != null) {
     contents[_TCy] = de_TypeConfigurationDetailsList(__getArrayIfSingleItem(output[_TCy][_m]), context);
@@ -8109,7 +8109,7 @@ const de_DeleteStackSetOutput = (output: any, context: __SerdeContext): DeleteSt
  */
 const de_DeploymentTargets = (output: any, context: __SerdeContext): DeploymentTargets => {
   const contents: any = {};
-  if (output.Accounts === "") {
+  if (String(output.Accounts).trim() === "") {
     contents[_Ac] = [];
   } else if (output[_Ac] != null && output[_Ac][_m] != null) {
     contents[_Ac] = de_AccountList(__getArrayIfSingleItem(output[_Ac][_m]), context);
@@ -8117,7 +8117,7 @@ const de_DeploymentTargets = (output: any, context: __SerdeContext): DeploymentT
   if (output[_AUc] != null) {
     contents[_AUc] = __expectString(output[_AUc]);
   }
-  if (output.OrganizationalUnitIds === "") {
+  if (String(output.OrganizationalUnitIds).trim() === "") {
     contents[_OUI] = [];
   } else if (output[_OUI] != null && output[_OUI][_m] != null) {
     contents[_OUI] = de_OrganizationalUnitIdList(__getArrayIfSingleItem(output[_OUI][_m]), context);
@@ -8141,7 +8141,7 @@ const de_DeregisterTypeOutput = (output: any, context: __SerdeContext): Deregist
  */
 const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): DescribeAccountLimitsOutput => {
   const contents: any = {};
-  if (output.AccountLimits === "") {
+  if (String(output.AccountLimits).trim() === "") {
     contents[_AL] = [];
   } else if (output[_AL] != null && output[_AL][_m] != null) {
     contents[_AL] = de_AccountLimitList(__getArrayIfSingleItem(output[_AL][_m]), context);
@@ -8163,7 +8163,7 @@ const de_DescribeChangeSetHooksOutput = (output: any, context: __SerdeContext): 
   if (output[_CSN] != null) {
     contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output.Hooks === "") {
+  if (String(output.Hooks).trim() === "") {
     contents[_H] = [];
   } else if (output[_H] != null && output[_H][_m] != null) {
     contents[_H] = de_ChangeSetHooks(__getArrayIfSingleItem(output[_H][_m]), context);
@@ -8203,7 +8203,7 @@ const de_DescribeChangeSetOutput = (output: any, context: __SerdeContext): Descr
   if (output[_D] != null) {
     contents[_D] = __expectString(output[_D]);
   }
-  if (output.Parameters === "") {
+  if (String(output.Parameters).trim() === "") {
     contents[_P] = [];
   } else if (output[_P] != null && output[_P][_m] != null) {
     contents[_P] = de_Parameters(__getArrayIfSingleItem(output[_P][_m]), context);
@@ -8220,7 +8220,7 @@ const de_DescribeChangeSetOutput = (output: any, context: __SerdeContext): Descr
   if (output[_SRt] != null) {
     contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output.NotificationARNs === "") {
+  if (String(output.NotificationARNs).trim() === "") {
     contents[_NARN] = [];
   } else if (output[_NARN] != null && output[_NARN][_m] != null) {
     contents[_NARN] = de_NotificationARNs(__getArrayIfSingleItem(output[_NARN][_m]), context);
@@ -8228,17 +8228,17 @@ const de_DescribeChangeSetOutput = (output: any, context: __SerdeContext): Descr
   if (output[_RC] != null) {
     contents[_RC] = de_RollbackConfiguration(output[_RC], context);
   }
-  if (output.Capabilities === "") {
+  if (String(output.Capabilities).trim() === "") {
     contents[_C] = [];
   } else if (output[_C] != null && output[_C][_m] != null) {
     contents[_C] = de_Capabilities(__getArrayIfSingleItem(output[_C][_m]), context);
   }
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_Ta] != null && output[_Ta][_m] != null) {
     contents[_Ta] = de_Tags(__getArrayIfSingleItem(output[_Ta][_m]), context);
   }
-  if (output.Changes === "") {
+  if (String(output.Changes).trim() === "") {
     contents[_Ch] = [];
   } else if (output[_Ch] != null && output[_Ch][_m] != null) {
     contents[_Ch] = de_Changes(__getArrayIfSingleItem(output[_Ch][_m]), context);
@@ -8275,7 +8275,7 @@ const de_DescribeGeneratedTemplateOutput = (output: any, context: __SerdeContext
   if (output[_GTN] != null) {
     contents[_GTN] = __expectString(output[_GTN]);
   }
-  if (output.Resources === "") {
+  if (String(output.Resources).trim() === "") {
     contents[_R] = [];
   } else if (output[_R] != null && output[_R][_m] != null) {
     contents[_R] = de_ResourceDetails(__getArrayIfSingleItem(output[_R][_m]), context);
@@ -8364,7 +8364,7 @@ const de_DescribeResourceScanOutput = (output: any, context: __SerdeContext): De
   if (output[_PC] != null) {
     contents[_PC] = __strictParseFloat(output[_PC]) as number;
   }
-  if (output.ResourceTypes === "") {
+  if (String(output.ResourceTypes).trim() === "") {
     contents[_RTe] = [];
   } else if (output[_RTe] != null && output[_RTe][_m] != null) {
     contents[_RTe] = de_ResourceTypes(__getArrayIfSingleItem(output[_RTe][_m]), context);
@@ -8375,7 +8375,7 @@ const de_DescribeResourceScanOutput = (output: any, context: __SerdeContext): De
   if (output[_RRes] != null) {
     contents[_RRes] = __strictParseInt32(output[_RRes]) as number;
   }
-  if (output.ScanFilters === "") {
+  if (String(output.ScanFilters).trim() === "") {
     contents[_SF] = [];
   } else if (output[_SF] != null && output[_SF][_m] != null) {
     contents[_SF] = de_ScanFilters(__getArrayIfSingleItem(output[_SF][_m]), context);
@@ -8420,7 +8420,7 @@ const de_DescribeStackDriftDetectionStatusOutput = (
  */
 const de_DescribeStackEventsOutput = (output: any, context: __SerdeContext): DescribeStackEventsOutput => {
   const contents: any = {};
-  if (output.StackEvents === "") {
+  if (String(output.StackEvents).trim() === "") {
     contents[_SE] = [];
   } else if (output[_SE] != null && output[_SE][_m] != null) {
     contents[_SE] = de_StackEvents(__getArrayIfSingleItem(output[_SE][_m]), context);
@@ -8453,7 +8453,7 @@ const de_DescribeStackRefactorOutput = (output: any, context: __SerdeContext): D
   if (output[_SRI] != null) {
     contents[_SRI] = __expectString(output[_SRI]);
   }
-  if (output.StackIds === "") {
+  if (String(output.StackIds).trim() === "") {
     contents[_SIt] = [];
   } else if (output[_SIt] != null && output[_SIt][_m] != null) {
     contents[_SIt] = de_StackIds(__getArrayIfSingleItem(output[_SIt][_m]), context);
@@ -8481,7 +8481,7 @@ const de_DescribeStackResourceDriftsOutput = (
   context: __SerdeContext
 ): DescribeStackResourceDriftsOutput => {
   const contents: any = {};
-  if (output.StackResourceDrifts === "") {
+  if (String(output.StackResourceDrifts).trim() === "") {
     contents[_SRD] = [];
   } else if (output[_SRD] != null && output[_SRD][_m] != null) {
     contents[_SRD] = de_StackResourceDrifts(__getArrayIfSingleItem(output[_SRD][_m]), context);
@@ -8508,7 +8508,7 @@ const de_DescribeStackResourceOutput = (output: any, context: __SerdeContext): D
  */
 const de_DescribeStackResourcesOutput = (output: any, context: __SerdeContext): DescribeStackResourcesOutput => {
   const contents: any = {};
-  if (output.StackResources === "") {
+  if (String(output.StackResources).trim() === "") {
     contents[_SRta] = [];
   } else if (output[_SRta] != null && output[_SRta][_m] != null) {
     contents[_SRta] = de_StackResources(__getArrayIfSingleItem(output[_SRta][_m]), context);
@@ -8543,7 +8543,7 @@ const de_DescribeStackSetOutput = (output: any, context: __SerdeContext): Descri
  */
 const de_DescribeStacksOutput = (output: any, context: __SerdeContext): DescribeStacksOutput => {
   const contents: any = {};
-  if (output.Stacks === "") {
+  if (String(output.Stacks).trim() === "") {
     contents[_St] = [];
   } else if (output[_St] != null && output[_St][_m] != null) {
     contents[_St] = de_Stacks(__getArrayIfSingleItem(output[_St][_m]), context);
@@ -8595,7 +8595,7 @@ const de_DescribeTypeOutput = (output: any, context: __SerdeContext): DescribeTy
   if (output[_LC] != null) {
     contents[_LC] = de_LoggingConfig(output[_LC], context);
   }
-  if (output.RequiredActivatedTypes === "") {
+  if (String(output.RequiredActivatedTypes).trim() === "") {
     contents[_RAT] = [];
   } else if (output[_RAT] != null && output[_RAT][_m] != null) {
     contents[_RAT] = de_RequiredActivatedTypes(__getArrayIfSingleItem(output[_RAT][_m]), context);
@@ -8792,7 +8792,7 @@ const de_GetTemplateOutput = (output: any, context: __SerdeContext): GetTemplate
   if (output[_TB] != null) {
     contents[_TB] = __expectString(output[_TB]);
   }
-  if (output.StagesAvailable === "") {
+  if (String(output.StagesAvailable).trim() === "") {
     contents[_SA] = [];
   } else if (output[_SA] != null && output[_SA][_m] != null) {
     contents[_SA] = de_StageList(__getArrayIfSingleItem(output[_SA][_m]), context);
@@ -8805,7 +8805,7 @@ const de_GetTemplateOutput = (output: any, context: __SerdeContext): GetTemplate
  */
 const de_GetTemplateSummaryOutput = (output: any, context: __SerdeContext): GetTemplateSummaryOutput => {
   const contents: any = {};
-  if (output.Parameters === "") {
+  if (String(output.Parameters).trim() === "") {
     contents[_P] = [];
   } else if (output[_P] != null && output[_P][_m] != null) {
     contents[_P] = de_ParameterDeclarations(__getArrayIfSingleItem(output[_P][_m]), context);
@@ -8813,7 +8813,7 @@ const de_GetTemplateSummaryOutput = (output: any, context: __SerdeContext): GetT
   if (output[_D] != null) {
     contents[_D] = __expectString(output[_D]);
   }
-  if (output.Capabilities === "") {
+  if (String(output.Capabilities).trim() === "") {
     contents[_C] = [];
   } else if (output[_C] != null && output[_C][_m] != null) {
     contents[_C] = de_Capabilities(__getArrayIfSingleItem(output[_C][_m]), context);
@@ -8821,7 +8821,7 @@ const de_GetTemplateSummaryOutput = (output: any, context: __SerdeContext): GetT
   if (output[_CR] != null) {
     contents[_CR] = __expectString(output[_CR]);
   }
-  if (output.ResourceTypes === "") {
+  if (String(output.ResourceTypes).trim() === "") {
     contents[_RTe] = [];
   } else if (output[_RTe] != null && output[_RTe][_m] != null) {
     contents[_RTe] = de_ResourceTypes(__getArrayIfSingleItem(output[_RTe][_m]), context);
@@ -8832,12 +8832,12 @@ const de_GetTemplateSummaryOutput = (output: any, context: __SerdeContext): GetT
   if (output[_Me] != null) {
     contents[_Me] = __expectString(output[_Me]);
   }
-  if (output.DeclaredTransforms === "") {
+  if (String(output.DeclaredTransforms).trim() === "") {
     contents[_DTec] = [];
   } else if (output[_DTec] != null && output[_DTec][_m] != null) {
     contents[_DTec] = de_TransformsList(__getArrayIfSingleItem(output[_DTec][_m]), context);
   }
-  if (output.ResourceIdentifierSummaries === "") {
+  if (String(output.ResourceIdentifierSummaries).trim() === "") {
     contents[_RIS] = [];
   } else if (output[_RIS] != null && output[_RIS][_m] != null) {
     contents[_RIS] = de_ResourceIdentifierSummaries(__getArrayIfSingleItem(output[_RIS][_m]), context);
@@ -9015,7 +9015,7 @@ const de_LimitExceededException = (output: any, context: __SerdeContext): LimitE
  */
 const de_ListChangeSetsOutput = (output: any, context: __SerdeContext): ListChangeSetsOutput => {
   const contents: any = {};
-  if (output.Summaries === "") {
+  if (String(output.Summaries).trim() === "") {
     contents[_Su] = [];
   } else if (output[_Su] != null && output[_Su][_m] != null) {
     contents[_Su] = de_ChangeSetSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
@@ -9031,7 +9031,7 @@ const de_ListChangeSetsOutput = (output: any, context: __SerdeContext): ListChan
  */
 const de_ListExportsOutput = (output: any, context: __SerdeContext): ListExportsOutput => {
   const contents: any = {};
-  if (output.Exports === "") {
+  if (String(output.Exports).trim() === "") {
     contents[_Ex] = [];
   } else if (output[_Ex] != null && output[_Ex][_m] != null) {
     contents[_Ex] = de_Exports(__getArrayIfSingleItem(output[_Ex][_m]), context);
@@ -9047,7 +9047,7 @@ const de_ListExportsOutput = (output: any, context: __SerdeContext): ListExports
  */
 const de_ListGeneratedTemplatesOutput = (output: any, context: __SerdeContext): ListGeneratedTemplatesOutput => {
   const contents: any = {};
-  if (output.Summaries === "") {
+  if (String(output.Summaries).trim() === "") {
     contents[_Su] = [];
   } else if (output[_Su] != null && output[_Su][_m] != null) {
     contents[_Su] = de_TemplateSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
@@ -9069,7 +9069,7 @@ const de_ListHookResultsOutput = (output: any, context: __SerdeContext): ListHoo
   if (output[_TI] != null) {
     contents[_TI] = __expectString(output[_TI]);
   }
-  if (output.HookResults === "") {
+  if (String(output.HookResults).trim() === "") {
     contents[_HR] = [];
   } else if (output[_HR] != null && output[_HR][_m] != null) {
     contents[_HR] = de_HookResultSummaries(__getArrayIfSingleItem(output[_HR][_m]), context);
@@ -9085,7 +9085,7 @@ const de_ListHookResultsOutput = (output: any, context: __SerdeContext): ListHoo
  */
 const de_ListImportsOutput = (output: any, context: __SerdeContext): ListImportsOutput => {
   const contents: any = {};
-  if (output.Imports === "") {
+  if (String(output.Imports).trim() === "") {
     contents[_Im] = [];
   } else if (output[_Im] != null && output[_Im][_m] != null) {
     contents[_Im] = de_Imports(__getArrayIfSingleItem(output[_Im][_m]), context);
@@ -9104,7 +9104,7 @@ const de_ListResourceScanRelatedResourcesOutput = (
   context: __SerdeContext
 ): ListResourceScanRelatedResourcesOutput => {
   const contents: any = {};
-  if (output.RelatedResources === "") {
+  if (String(output.RelatedResources).trim() === "") {
     contents[_RRel] = [];
   } else if (output[_RRel] != null && output[_RRel][_m] != null) {
     contents[_RRel] = de_RelatedResources(__getArrayIfSingleItem(output[_RRel][_m]), context);
@@ -9120,7 +9120,7 @@ const de_ListResourceScanRelatedResourcesOutput = (
  */
 const de_ListResourceScanResourcesOutput = (output: any, context: __SerdeContext): ListResourceScanResourcesOutput => {
   const contents: any = {};
-  if (output.Resources === "") {
+  if (String(output.Resources).trim() === "") {
     contents[_R] = [];
   } else if (output[_R] != null && output[_R][_m] != null) {
     contents[_R] = de_ScannedResources(__getArrayIfSingleItem(output[_R][_m]), context);
@@ -9136,7 +9136,7 @@ const de_ListResourceScanResourcesOutput = (output: any, context: __SerdeContext
  */
 const de_ListResourceScansOutput = (output: any, context: __SerdeContext): ListResourceScansOutput => {
   const contents: any = {};
-  if (output.ResourceScanSummaries === "") {
+  if (String(output.ResourceScanSummaries).trim() === "") {
     contents[_RSS] = [];
   } else if (output[_RSS] != null && output[_RSS][_m] != null) {
     contents[_RSS] = de_ResourceScanSummaries(__getArrayIfSingleItem(output[_RSS][_m]), context);
@@ -9155,7 +9155,7 @@ const de_ListStackInstanceResourceDriftsOutput = (
   context: __SerdeContext
 ): ListStackInstanceResourceDriftsOutput => {
   const contents: any = {};
-  if (output.Summaries === "") {
+  if (String(output.Summaries).trim() === "") {
     contents[_Su] = [];
   } else if (output[_Su] != null && output[_Su][_m] != null) {
     contents[_Su] = de_StackInstanceResourceDriftsSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
@@ -9171,7 +9171,7 @@ const de_ListStackInstanceResourceDriftsOutput = (
  */
 const de_ListStackInstancesOutput = (output: any, context: __SerdeContext): ListStackInstancesOutput => {
   const contents: any = {};
-  if (output.Summaries === "") {
+  if (String(output.Summaries).trim() === "") {
     contents[_Su] = [];
   } else if (output[_Su] != null && output[_Su][_m] != null) {
     contents[_Su] = de_StackInstanceSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
@@ -9187,7 +9187,7 @@ const de_ListStackInstancesOutput = (output: any, context: __SerdeContext): List
  */
 const de_ListStackRefactorActionsOutput = (output: any, context: __SerdeContext): ListStackRefactorActionsOutput => {
   const contents: any = {};
-  if (output.StackRefactorActions === "") {
+  if (String(output.StackRefactorActions).trim() === "") {
     contents[_SRA] = [];
   } else if (output[_SRA] != null && output[_SRA][_m] != null) {
     contents[_SRA] = de_StackRefactorActions(__getArrayIfSingleItem(output[_SRA][_m]), context);
@@ -9203,7 +9203,7 @@ const de_ListStackRefactorActionsOutput = (output: any, context: __SerdeContext)
  */
 const de_ListStackRefactorsOutput = (output: any, context: __SerdeContext): ListStackRefactorsOutput => {
   const contents: any = {};
-  if (output.StackRefactorSummaries === "") {
+  if (String(output.StackRefactorSummaries).trim() === "") {
     contents[_SRSt] = [];
   } else if (output[_SRSt] != null && output[_SRSt][_m] != null) {
     contents[_SRSt] = de_StackRefactorSummaries(__getArrayIfSingleItem(output[_SRSt][_m]), context);
@@ -9219,7 +9219,7 @@ const de_ListStackRefactorsOutput = (output: any, context: __SerdeContext): List
  */
 const de_ListStackResourcesOutput = (output: any, context: __SerdeContext): ListStackResourcesOutput => {
   const contents: any = {};
-  if (output.StackResourceSummaries === "") {
+  if (String(output.StackResourceSummaries).trim() === "") {
     contents[_SRSta] = [];
   } else if (output[_SRSta] != null && output[_SRSta][_m] != null) {
     contents[_SRSta] = de_StackResourceSummaries(__getArrayIfSingleItem(output[_SRSta][_m]), context);
@@ -9238,7 +9238,7 @@ const de_ListStackSetAutoDeploymentTargetsOutput = (
   context: __SerdeContext
 ): ListStackSetAutoDeploymentTargetsOutput => {
   const contents: any = {};
-  if (output.Summaries === "") {
+  if (String(output.Summaries).trim() === "") {
     contents[_Su] = [];
   } else if (output[_Su] != null && output[_Su][_m] != null) {
     contents[_Su] = de_StackSetAutoDeploymentTargetSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
@@ -9257,7 +9257,7 @@ const de_ListStackSetOperationResultsOutput = (
   context: __SerdeContext
 ): ListStackSetOperationResultsOutput => {
   const contents: any = {};
-  if (output.Summaries === "") {
+  if (String(output.Summaries).trim() === "") {
     contents[_Su] = [];
   } else if (output[_Su] != null && output[_Su][_m] != null) {
     contents[_Su] = de_StackSetOperationResultSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
@@ -9273,7 +9273,7 @@ const de_ListStackSetOperationResultsOutput = (
  */
 const de_ListStackSetOperationsOutput = (output: any, context: __SerdeContext): ListStackSetOperationsOutput => {
   const contents: any = {};
-  if (output.Summaries === "") {
+  if (String(output.Summaries).trim() === "") {
     contents[_Su] = [];
   } else if (output[_Su] != null && output[_Su][_m] != null) {
     contents[_Su] = de_StackSetOperationSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
@@ -9289,7 +9289,7 @@ const de_ListStackSetOperationsOutput = (output: any, context: __SerdeContext): 
  */
 const de_ListStackSetsOutput = (output: any, context: __SerdeContext): ListStackSetsOutput => {
   const contents: any = {};
-  if (output.Summaries === "") {
+  if (String(output.Summaries).trim() === "") {
     contents[_Su] = [];
   } else if (output[_Su] != null && output[_Su][_m] != null) {
     contents[_Su] = de_StackSetSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
@@ -9305,7 +9305,7 @@ const de_ListStackSetsOutput = (output: any, context: __SerdeContext): ListStack
  */
 const de_ListStacksOutput = (output: any, context: __SerdeContext): ListStacksOutput => {
   const contents: any = {};
-  if (output.StackSummaries === "") {
+  if (String(output.StackSummaries).trim() === "") {
     contents[_SSt] = [];
   } else if (output[_SSt] != null && output[_SSt][_m] != null) {
     contents[_SSt] = de_StackSummaries(__getArrayIfSingleItem(output[_SSt][_m]), context);
@@ -9321,7 +9321,7 @@ const de_ListStacksOutput = (output: any, context: __SerdeContext): ListStacksOu
  */
 const de_ListTypeRegistrationsOutput = (output: any, context: __SerdeContext): ListTypeRegistrationsOutput => {
   const contents: any = {};
-  if (output.RegistrationTokenList === "") {
+  if (String(output.RegistrationTokenList).trim() === "") {
     contents[_RTL] = [];
   } else if (output[_RTL] != null && output[_RTL][_m] != null) {
     contents[_RTL] = de_RegistrationTokenList(__getArrayIfSingleItem(output[_RTL][_m]), context);
@@ -9337,7 +9337,7 @@ const de_ListTypeRegistrationsOutput = (output: any, context: __SerdeContext): L
  */
 const de_ListTypesOutput = (output: any, context: __SerdeContext): ListTypesOutput => {
   const contents: any = {};
-  if (output.TypeSummaries === "") {
+  if (String(output.TypeSummaries).trim() === "") {
     contents[_TSy] = [];
   } else if (output[_TSy] != null && output[_TSy][_m] != null) {
     contents[_TSy] = de_TypeSummaries(__getArrayIfSingleItem(output[_TSy][_m]), context);
@@ -9353,7 +9353,7 @@ const de_ListTypesOutput = (output: any, context: __SerdeContext): ListTypesOutp
  */
 const de_ListTypeVersionsOutput = (output: any, context: __SerdeContext): ListTypeVersionsOutput => {
   const contents: any = {};
-  if (output.TypeVersionSummaries === "") {
+  if (String(output.TypeVersionSummaries).trim() === "") {
     contents[_TVS] = [];
   } else if (output[_TVS] != null && output[_TVS][_m] != null) {
     contents[_TVS] = de_TypeVersionSummaries(__getArrayIfSingleItem(output[_TVS][_m]), context);
@@ -9553,7 +9553,7 @@ const de_Parameter = (output: any, context: __SerdeContext): Parameter => {
  */
 const de_ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   const contents: any = {};
-  if (output.AllowedValues === "") {
+  if (String(output.AllowedValues).trim() === "") {
     contents[_AV] = [];
   } else if (output[_AV] != null && output[_AV][_m] != null) {
     contents[_AV] = de_AllowedValues(__getArrayIfSingleItem(output[_AV][_m]), context);
@@ -9759,7 +9759,7 @@ const de_RequiredActivatedType = (output: any, context: __SerdeContext): Require
   if (output[_PI] != null) {
     contents[_PI] = __expectString(output[_PI]);
   }
-  if (output.SupportedMajorVersions === "") {
+  if (String(output.SupportedMajorVersions).trim() === "") {
     contents[_SMV] = [];
   } else if (output[_SMV] != null && output[_SMV][_m] != null) {
     contents[_SMV] = de_SupportedMajorVersions(__getArrayIfSingleItem(output[_SMV][_m]), context);
@@ -9801,12 +9801,12 @@ const de_ResourceChange = (output: any, context: __SerdeContext): ResourceChange
   if (output[_Rep] != null) {
     contents[_Rep] = __expectString(output[_Rep]);
   }
-  if (output.Scope === "") {
+  if (String(output.Scope).trim() === "") {
     contents[_Sco] = [];
   } else if (output[_Sco] != null && output[_Sco][_m] != null) {
     contents[_Sco] = de_Scope(__getArrayIfSingleItem(output[_Sco][_m]), context);
   }
-  if (output.Details === "") {
+  if (String(output.Details).trim() === "") {
     contents[_Det] = [];
   } else if (output[_Det] != null && output[_Det][_m] != null) {
     contents[_Det] = de_ResourceChangeDetails(__getArrayIfSingleItem(output[_Det][_m]), context);
@@ -9868,7 +9868,7 @@ const de_ResourceDetail = (output: any, context: __SerdeContext): ResourceDetail
   if (output[_LRI] != null) {
     contents[_LRI] = __expectString(output[_LRI]);
   }
-  if (output.ResourceIdentifier === "") {
+  if (String(output.ResourceIdentifier).trim() === "") {
     contents[_RI] = {};
   } else if (output[_RI] != null && output[_RI][_e] != null) {
     contents[_RI] = de_ResourceIdentifierProperties(__getArrayIfSingleItem(output[_RI][_e]), context);
@@ -9879,7 +9879,7 @@ const de_ResourceDetail = (output: any, context: __SerdeContext): ResourceDetail
   if (output[_RSR] != null) {
     contents[_RSR] = __expectString(output[_RSR]);
   }
-  if (output.Warnings === "") {
+  if (String(output.Warnings).trim() === "") {
     contents[_W] = [];
   } else if (output[_W] != null && output[_W][_m] != null) {
     contents[_W] = de_WarningDetails(__getArrayIfSingleItem(output[_W][_m]), context);
@@ -9941,12 +9941,12 @@ const de_ResourceIdentifierSummary = (output: any, context: __SerdeContext): Res
   if (output[_RTes] != null) {
     contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output.LogicalResourceIds === "") {
+  if (String(output.LogicalResourceIds).trim() === "") {
     contents[_LRIo] = [];
   } else if (output[_LRIo] != null && output[_LRIo][_m] != null) {
     contents[_LRIo] = de_LogicalResourceIds(__getArrayIfSingleItem(output[_LRIo][_m]), context);
   }
-  if (output.ResourceIdentifiers === "") {
+  if (String(output.ResourceIdentifiers).trim() === "") {
     contents[_RIe] = [];
   } else if (output[_RIe] != null && output[_RIe][_m] != null) {
     contents[_RIe] = de_ResourceIdentifiers(__getArrayIfSingleItem(output[_RIe][_m]), context);
@@ -10114,7 +10114,7 @@ const de_ResourceTypes = (output: any, context: __SerdeContext): string[] => {
  */
 const de_RollbackConfiguration = (output: any, context: __SerdeContext): RollbackConfiguration => {
   const contents: any = {};
-  if (output.RollbackTriggers === "") {
+  if (String(output.RollbackTriggers).trim() === "") {
     contents[_RTo] = [];
   } else if (output[_RTo] != null && output[_RTo][_m] != null) {
     contents[_RTo] = de_RollbackTriggers(__getArrayIfSingleItem(output[_RTo][_m]), context);
@@ -10166,7 +10166,7 @@ const de_RollbackTriggers = (output: any, context: __SerdeContext): RollbackTrig
  */
 const de_ScanFilter = (output: any, context: __SerdeContext): ScanFilter => {
   const contents: any = {};
-  if (output.Types === "") {
+  if (String(output.Types).trim() === "") {
     contents[_Ty] = [];
   } else if (output[_Ty] != null && output[_Ty][_m] != null) {
     contents[_Ty] = de_ResourceTypeFilters(__getArrayIfSingleItem(output[_Ty][_m]), context);
@@ -10193,7 +10193,7 @@ const de_ScannedResource = (output: any, context: __SerdeContext): ScannedResour
   if (output[_RTes] != null) {
     contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output.ResourceIdentifier === "") {
+  if (String(output.ResourceIdentifier).trim() === "") {
     contents[_RI] = {};
   } else if (output[_RI] != null && output[_RI][_e] != null) {
     contents[_RI] = de_JazzResourceIdentifierProperties(__getArrayIfSingleItem(output[_RI][_e]), context);
@@ -10262,7 +10262,7 @@ const de_Stack = (output: any, context: __SerdeContext): Stack => {
   if (output[_D] != null) {
     contents[_D] = __expectString(output[_D]);
   }
-  if (output.Parameters === "") {
+  if (String(output.Parameters).trim() === "") {
     contents[_P] = [];
   } else if (output[_P] != null && output[_P][_m] != null) {
     contents[_P] = de_Parameters(__getArrayIfSingleItem(output[_P][_m]), context);
@@ -10288,7 +10288,7 @@ const de_Stack = (output: any, context: __SerdeContext): Stack => {
   if (output[_DR] != null) {
     contents[_DR] = __parseBoolean(output[_DR]);
   }
-  if (output.NotificationARNs === "") {
+  if (String(output.NotificationARNs).trim() === "") {
     contents[_NARN] = [];
   } else if (output[_NARN] != null && output[_NARN][_m] != null) {
     contents[_NARN] = de_NotificationARNs(__getArrayIfSingleItem(output[_NARN][_m]), context);
@@ -10296,12 +10296,12 @@ const de_Stack = (output: any, context: __SerdeContext): Stack => {
   if (output[_TIM] != null) {
     contents[_TIM] = __strictParseInt32(output[_TIM]) as number;
   }
-  if (output.Capabilities === "") {
+  if (String(output.Capabilities).trim() === "") {
     contents[_C] = [];
   } else if (output[_C] != null && output[_C][_m] != null) {
     contents[_C] = de_Capabilities(__getArrayIfSingleItem(output[_C][_m]), context);
   }
-  if (output.Outputs === "") {
+  if (String(output.Outputs).trim() === "") {
     contents[_O] = [];
   } else if (output[_O] != null && output[_O][_m] != null) {
     contents[_O] = de_Outputs(__getArrayIfSingleItem(output[_O][_m]), context);
@@ -10309,7 +10309,7 @@ const de_Stack = (output: any, context: __SerdeContext): Stack => {
   if (output[_RARN] != null) {
     contents[_RARN] = __expectString(output[_RARN]);
   }
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_Ta] != null && output[_Ta][_m] != null) {
     contents[_Ta] = de_Tags(__getArrayIfSingleItem(output[_Ta][_m]), context);
@@ -10467,7 +10467,7 @@ const de_StackInstance = (output: any, context: __SerdeContext): StackInstance =
   if (output[_SI] != null) {
     contents[_SI] = __expectString(output[_SI]);
   }
-  if (output.ParameterOverrides === "") {
+  if (String(output.ParameterOverrides).trim() === "") {
     contents[_PO] = [];
   } else if (output[_PO] != null && output[_PO][_m] != null) {
     contents[_PO] = de_Parameters(__getArrayIfSingleItem(output[_PO][_m]), context);
@@ -10552,7 +10552,7 @@ const de_StackInstanceResourceDriftsSummary = (
   if (output[_PRI] != null) {
     contents[_PRI] = __expectString(output[_PRI]);
   }
-  if (output.PhysicalResourceIdContext === "") {
+  if (String(output.PhysicalResourceIdContext).trim() === "") {
     contents[_PRIC] = [];
   } else if (output[_PRIC] != null && output[_PRIC][_m] != null) {
     contents[_PRIC] = de_PhysicalResourceIdContext(__getArrayIfSingleItem(output[_PRIC][_m]), context);
@@ -10560,7 +10560,7 @@ const de_StackInstanceResourceDriftsSummary = (
   if (output[_RTes] != null) {
     contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output.PropertyDifferences === "") {
+  if (String(output.PropertyDifferences).trim() === "") {
     contents[_PD] = [];
   } else if (output[_PD] != null && output[_PD][_m] != null) {
     contents[_PD] = de_PropertyDifferences(__getArrayIfSingleItem(output[_PD][_m]), context);
@@ -10663,12 +10663,12 @@ const de_StackRefactorAction = (output: any, context: __SerdeContext): StackRefa
   if (output[_DRe] != null) {
     contents[_DRe] = __expectString(output[_DRe]);
   }
-  if (output.TagResources === "") {
+  if (String(output.TagResources).trim() === "") {
     contents[_TR] = [];
   } else if (output[_TR] != null && output[_TR][_m] != null) {
     contents[_TR] = de_StackRefactorTagResources(__getArrayIfSingleItem(output[_TR][_m]), context);
   }
-  if (output.UntagResources === "") {
+  if (String(output.UntagResources).trim() === "") {
     contents[_UR] = [];
   } else if (output[_UR] != null && output[_UR][_m] != null) {
     contents[_UR] = de_StackRefactorUntagResources(__getArrayIfSingleItem(output[_UR][_m]), context);
@@ -10859,7 +10859,7 @@ const de_StackResourceDrift = (output: any, context: __SerdeContext): StackResou
   if (output[_PRI] != null) {
     contents[_PRI] = __expectString(output[_PRI]);
   }
-  if (output.PhysicalResourceIdContext === "") {
+  if (String(output.PhysicalResourceIdContext).trim() === "") {
     contents[_PRIC] = [];
   } else if (output[_PRIC] != null && output[_PRIC][_m] != null) {
     contents[_PRIC] = de_PhysicalResourceIdContext(__getArrayIfSingleItem(output[_PRIC][_m]), context);
@@ -10873,7 +10873,7 @@ const de_StackResourceDrift = (output: any, context: __SerdeContext): StackResou
   if (output[_AP] != null) {
     contents[_AP] = __expectString(output[_AP]);
   }
-  if (output.PropertyDifferences === "") {
+  if (String(output.PropertyDifferences).trim() === "") {
     contents[_PD] = [];
   } else if (output[_PD] != null && output[_PD][_m] != null) {
     contents[_PD] = de_PropertyDifferences(__getArrayIfSingleItem(output[_PD][_m]), context);
@@ -11020,17 +11020,17 @@ const de_StackSet = (output: any, context: __SerdeContext): StackSet => {
   if (output[_TB] != null) {
     contents[_TB] = __expectString(output[_TB]);
   }
-  if (output.Parameters === "") {
+  if (String(output.Parameters).trim() === "") {
     contents[_P] = [];
   } else if (output[_P] != null && output[_P][_m] != null) {
     contents[_P] = de_Parameters(__getArrayIfSingleItem(output[_P][_m]), context);
   }
-  if (output.Capabilities === "") {
+  if (String(output.Capabilities).trim() === "") {
     contents[_C] = [];
   } else if (output[_C] != null && output[_C][_m] != null) {
     contents[_C] = de_Capabilities(__getArrayIfSingleItem(output[_C][_m]), context);
   }
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_Ta] = [];
   } else if (output[_Ta] != null && output[_Ta][_m] != null) {
     contents[_Ta] = de_Tags(__getArrayIfSingleItem(output[_Ta][_m]), context);
@@ -11053,7 +11053,7 @@ const de_StackSet = (output: any, context: __SerdeContext): StackSet => {
   if (output[_PM] != null) {
     contents[_PM] = __expectString(output[_PM]);
   }
-  if (output.OrganizationalUnitIds === "") {
+  if (String(output.OrganizationalUnitIds).trim() === "") {
     contents[_OUI] = [];
   } else if (output[_OUI] != null && output[_OUI][_m] != null) {
     contents[_OUI] = de_OrganizationalUnitIdList(__getArrayIfSingleItem(output[_OUI][_m]), context);
@@ -11061,7 +11061,7 @@ const de_StackSet = (output: any, context: __SerdeContext): StackSet => {
   if (output[_ME] != null) {
     contents[_ME] = de_ManagedExecution(output[_ME], context);
   }
-  if (output.Regions === "") {
+  if (String(output.Regions).trim() === "") {
     contents[_Re] = [];
   } else if (output[_Re] != null && output[_Re][_m] != null) {
     contents[_Re] = de_RegionList(__getArrayIfSingleItem(output[_Re][_m]), context);
@@ -11094,7 +11094,7 @@ const de_StackSetAutoDeploymentTargetSummary = (
   if (output[_OUIr] != null) {
     contents[_OUIr] = __expectString(output[_OUIr]);
   }
-  if (output.Regions === "") {
+  if (String(output.Regions).trim() === "") {
     contents[_Re] = [];
   } else if (output[_Re] != null && output[_Re][_m] != null) {
     contents[_Re] = de_RegionList(__getArrayIfSingleItem(output[_Re][_m]), context);
@@ -11214,7 +11214,7 @@ const de_StackSetOperationPreferences = (output: any, context: __SerdeContext): 
   if (output[_RCT] != null) {
     contents[_RCT] = __expectString(output[_RCT]);
   }
-  if (output.RegionOrder === "") {
+  if (String(output.RegionOrder).trim() === "") {
     contents[_RO] = [];
   } else if (output[_RO] != null && output[_RO][_m] != null) {
     contents[_RO] = de_RegionList(__getArrayIfSingleItem(output[_RO][_m]), context);
@@ -11907,7 +11907,7 @@ const de_UpdateTerminationProtectionOutput = (
  */
 const de_ValidateTemplateOutput = (output: any, context: __SerdeContext): ValidateTemplateOutput => {
   const contents: any = {};
-  if (output.Parameters === "") {
+  if (String(output.Parameters).trim() === "") {
     contents[_P] = [];
   } else if (output[_P] != null && output[_P][_m] != null) {
     contents[_P] = de_TemplateParameters(__getArrayIfSingleItem(output[_P][_m]), context);
@@ -11915,7 +11915,7 @@ const de_ValidateTemplateOutput = (output: any, context: __SerdeContext): Valida
   if (output[_D] != null) {
     contents[_D] = __expectString(output[_D]);
   }
-  if (output.Capabilities === "") {
+  if (String(output.Capabilities).trim() === "") {
     contents[_C] = [];
   } else if (output[_C] != null && output[_C][_m] != null) {
     contents[_C] = de_Capabilities(__getArrayIfSingleItem(output[_C][_m]), context);
@@ -11923,7 +11923,7 @@ const de_ValidateTemplateOutput = (output: any, context: __SerdeContext): Valida
   if (output[_CR] != null) {
     contents[_CR] = __expectString(output[_CR]);
   }
-  if (output.DeclaredTransforms === "") {
+  if (String(output.DeclaredTransforms).trim() === "") {
     contents[_DTec] = [];
   } else if (output[_DTec] != null && output[_DTec][_m] != null) {
     contents[_DTec] = de_TransformsList(__getArrayIfSingleItem(output[_DTec][_m]), context);
@@ -11939,7 +11939,7 @@ const de_WarningDetail = (output: any, context: __SerdeContext): WarningDetail =
   if (output[_T] != null) {
     contents[_T] = __expectString(output[_T]);
   }
-  if (output.Properties === "") {
+  if (String(output.Properties).trim() === "") {
     contents[_Pro] = [];
   } else if (output[_Pro] != null && output[_Pro][_m] != null) {
     contents[_Pro] = de_WarningProperties(__getArrayIfSingleItem(output[_Pro][_m]), context);
@@ -11991,7 +11991,7 @@ const de_WarningProperty = (output: any, context: __SerdeContext): WarningProper
  */
 const de_Warnings = (output: any, context: __SerdeContext): Warnings => {
   const contents: any = {};
-  if (output.UnrecognizedResourceTypes === "") {
+  if (String(output.UnrecognizedResourceTypes).trim() === "") {
     contents[_URT] = [];
   } else if (output[_URT] != null && output[_URT][_m] != null) {
     contents[_URT] = de_ResourceTypes(__getArrayIfSingleItem(output[_URT][_m]), context);

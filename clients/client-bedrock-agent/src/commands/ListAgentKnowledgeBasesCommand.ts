@@ -34,6 +34,8 @@ export interface ListAgentKnowledgeBasesCommandOutput extends ListAgentKnowledge
  * ```javascript
  * import { BedrockAgentClient, ListAgentKnowledgeBasesCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, ListAgentKnowledgeBasesCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // ListAgentKnowledgeBasesRequest
  *   agentId: "STRING_VALUE", // required

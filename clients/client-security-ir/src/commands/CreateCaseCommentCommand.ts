@@ -38,6 +38,8 @@ export interface CreateCaseCommentCommandOutput extends CreateCaseCommentRespons
  * ```javascript
  * import { SecurityIRClient, CreateCaseCommentCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, CreateCaseCommentCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // CreateCaseCommentRequest
  *   caseId: "STRING_VALUE", // required

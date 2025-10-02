@@ -34,6 +34,8 @@ export interface ListCaseEditsCommandOutput extends ListCaseEditsResponse, __Met
  * ```javascript
  * import { SecurityIRClient, ListCaseEditsCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, ListCaseEditsCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // import type { SecurityIRClientConfig } from "@aws-sdk/client-security-ir";
+ * const config = {}; // type is SecurityIRClientConfig
  * const client = new SecurityIRClient(config);
  * const input = { // ListCaseEditsRequest
  *   nextToken: "STRING_VALUE",

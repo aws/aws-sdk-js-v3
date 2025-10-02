@@ -46,6 +46,8 @@ export interface DescribeLunaClientCommandOutput extends DescribeLunaClientRespo
  * ```javascript
  * import { CloudHSMClient, DescribeLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DescribeLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * // import type { CloudHSMClientConfig } from "@aws-sdk/client-cloudhsm";
+ * const config = {}; // type is CloudHSMClientConfig
  * const client = new CloudHSMClient(config);
  * const input = { // DescribeLunaClientRequest
  *   ClientArn: "STRING_VALUE",

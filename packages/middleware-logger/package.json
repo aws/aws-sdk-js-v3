@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-logger",
-  "version": "3.876.0",
+  "version": "3.901.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-logger",
@@ -14,6 +14,7 @@
     "test:watch": "yarn g:vitest watch",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "email": "",
@@ -25,7 +26,7 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/types": "^4.3.2",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

@@ -43,6 +43,8 @@ export interface DisableNotificationsAccessForOrganizationCommandOutput
  * ```javascript
  * import { NotificationsClient, DisableNotificationsAccessForOrganizationCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, DisableNotificationsAccessForOrganizationCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = {};
  * const command = new DisableNotificationsAccessForOrganizationCommand(input);

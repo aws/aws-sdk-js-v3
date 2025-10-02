@@ -37,6 +37,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * ```javascript
  * import { IAMClient, GetUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // GetUserRequest
  *   UserName: "STRING_VALUE",

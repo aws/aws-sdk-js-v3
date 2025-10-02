@@ -36,6 +36,8 @@ export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput,
  * ```javascript
  * import { AppMeshClient, DeleteVirtualNodeCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DeleteVirtualNodeCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // import type { AppMeshClientConfig } from "@aws-sdk/client-app-mesh";
+ * const config = {}; // type is AppMeshClientConfig
  * const client = new AppMeshClient(config);
  * const input = { // DeleteVirtualNodeInput
  *   virtualNodeName: "STRING_VALUE", // required

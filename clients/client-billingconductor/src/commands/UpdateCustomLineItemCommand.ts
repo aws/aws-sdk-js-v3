@@ -41,6 +41,8 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * ```javascript
  * import { BillingconductorClient, UpdateCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, UpdateCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // import type { BillingconductorClientConfig } from "@aws-sdk/client-billingconductor";
+ * const config = {}; // type is BillingconductorClientConfig
  * const client = new BillingconductorClient(config);
  * const input = { // UpdateCustomLineItemInput
  *   Arn: "STRING_VALUE", // required

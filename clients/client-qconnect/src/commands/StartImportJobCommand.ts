@@ -38,6 +38,8 @@ export interface StartImportJobCommandOutput extends StartImportJobResponse, __M
  * ```javascript
  * import { QConnectClient, StartImportJobCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, StartImportJobCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
+ * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
  * const input = { // StartImportJobRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListLongTermPricingCommandOutput extends ListLongTermPricingRes
  * ```javascript
  * import { SnowballClient, ListLongTermPricingCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListLongTermPricingCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * // import type { SnowballClientConfig } from "@aws-sdk/client-snowball";
+ * const config = {}; // type is SnowballClientConfig
  * const client = new SnowballClient(config);
  * const input = { // ListLongTermPricingRequest
  *   MaxResults: Number("int"),

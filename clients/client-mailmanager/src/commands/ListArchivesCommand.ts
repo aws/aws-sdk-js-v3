@@ -34,6 +34,8 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * ```javascript
  * import { MailManagerClient, ListArchivesCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, ListArchivesCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // ListArchivesRequest
  *   NextToken: "STRING_VALUE",

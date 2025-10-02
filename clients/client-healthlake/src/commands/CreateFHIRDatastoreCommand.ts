@@ -34,6 +34,8 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * ```javascript
  * import { HealthLakeClient, CreateFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, CreateFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * // import type { HealthLakeClientConfig } from "@aws-sdk/client-healthlake";
+ * const config = {}; // type is HealthLakeClientConfig
  * const client = new HealthLakeClient(config);
  * const input = { // CreateFHIRDatastoreRequest
  *   DatastoreName: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface CreateModelCopyJobCommandOutput extends CreateModelCopyJobRespo
  * ```javascript
  * import { BedrockClient, CreateModelCopyJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreateModelCopyJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // import type { BedrockClientConfig } from "@aws-sdk/client-bedrock";
+ * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // CreateModelCopyJobRequest
  *   sourceModelArn: "STRING_VALUE", // required

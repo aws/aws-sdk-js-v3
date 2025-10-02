@@ -34,6 +34,8 @@ export interface CreateKxUserCommandOutput extends CreateKxUserResponse, __Metad
  * ```javascript
  * import { FinspaceClient, CreateKxUserCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, CreateKxUserCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // CreateKxUserRequest
  *   environmentId: "STRING_VALUE", // required

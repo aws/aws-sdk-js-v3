@@ -36,6 +36,8 @@ export interface UpdateBucketCommandOutput extends UpdateBucketResult, __Metadat
  * ```javascript
  * import { LightsailClient, UpdateBucketCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateBucketCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // UpdateBucketRequest
  *   bucketName: "STRING_VALUE", // required

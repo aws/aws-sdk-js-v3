@@ -43,16 +43,16 @@ export type AccountingMode = (typeof AccountingMode)[keyof typeof AccountingMode
  */
 export interface Accounting {
   /**
-   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
-   * @public
-   */
-  mode: AccountingMode | undefined;
-
-  /**
    * <p>The default value for all purge settings for <code>slurmdbd.conf</code>. For more information, see the <a href="https://slurm.schedmd.com/slurmdbd.conf.html">slurmdbd.conf documentation at SchedMD</a>.</p> <p>The default value for <code>defaultPurgeTimeInDays</code> is <code>-1</code>.</p> <p>A value of <code>-1</code> means there is no purge time and records persist as long as the cluster exists.</p> <important> <p> <code>0</code> isn't a valid value.</p> </important>
    * @public
    */
   defaultPurgeTimeInDays?: number | undefined;
+
+  /**
+   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
+   * @public
+   */
+  mode: AccountingMode | undefined;
 }
 
 /**
@@ -61,16 +61,16 @@ export interface Accounting {
  */
 export interface AccountingRequest {
   /**
-   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
-   * @public
-   */
-  mode: AccountingMode | undefined;
-
-  /**
    * <p>The default value for all purge settings for <code>slurmdbd.conf</code>. For more information, see the <a href="https://slurm.schedmd.com/slurmdbd.conf.html">slurmdbd.conf documentation at SchedMD</a>.</p> <p>The default value for <code>defaultPurgeTimeInDays</code> is <code>-1</code>.</p> <p>A value of <code>-1</code> means there is no purge time and records persist as long as the cluster exists.</p> <important> <p> <code>0</code> isn't a valid value.</p> </important>
    * @public
    */
   defaultPurgeTimeInDays?: number | undefined;
+
+  /**
+   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
+   * @public
+   */
+  mode: AccountingMode | undefined;
 }
 
 /**
@@ -142,6 +142,7 @@ export interface InstanceConfig {
  * @enum
  */
 export const PurchaseOption = {
+  CAPACITY_BLOCK: "CAPACITY_BLOCK",
   ONDEMAND: "ONDEMAND",
   SPOT: "SPOT",
 } as const;
@@ -170,12 +171,12 @@ export interface ScalingConfigurationRequest {
 }
 
 /**
- * <p>Additional settings that directly map to Slurm settings.</p>
+ * <p>Additional settings that directly map to Slurm settings.</p> <important> <p>PCS supports a subset of Slurm settings. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-custom-settings.html">Configuring custom Slurm settings in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
  * @public
  */
 export interface SlurmCustomSetting {
   /**
-   * <p>PCS supports configuration of the following Slurm parameters:</p> <ul> <li> <p>For <b>clusters</b> </p> <ul> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1"> <code>Prolog</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1"> <code>Epilog</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters"> <code>SelectTypeParameters</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageEnforce"> <code>AccountingStorageEnforce</code> </a> </p> <important> <p>PCS supports a subset of the options for <code>AccountingStorageEnforce</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-accounting.html">Slurm accounting in PCS</a> in the <i>PCS User Guide</i>.</p> </important> </li> </ul> </li> <li> <p>For <b>compute node groups</b> </p> <ul> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Weight"> <code>Weight</code> </a> </p> </li> <li> <p> <a href="https://slurm.schedmd.com/slurm.conf.html#OPT_Weight"> <code>RealMemory</code> </a> </p> </li> </ul> </li> </ul>
+   * <p>PCS supports custom Slurm settings for clusters, compute node groups, and queues. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-custom-settings.html">Configuring custom Slurm settings in PCS</a> in the <i>PCS User Guide</i>.</p>
    * @public
    */
   parameterName: string | undefined;
@@ -220,7 +221,7 @@ export type SpotAllocationStrategy = (typeof SpotAllocationStrategy)[keyof typeo
  */
 export interface SpotOptions {
   /**
-   * <p>The Amazon EC2 allocation strategy Amazon Web Services PCS uses to provision EC2 instances. Amazon Web Services PCS supports <b>lowest price</b>, <b>capacity optimized</b>, and <b>price capacity optimized</b>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Use allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to <b>price capacity optimized</b>.</p>
+   * <p>The Amazon EC2 allocation strategy PCS uses to provision EC2 instances. PCS supports <b>lowest price</b>, <b>capacity optimized</b>, and <b>price capacity optimized</b>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Use allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to <b>price capacity optimized</b>.</p>
    * @public
    */
   allocationStrategy?: SpotAllocationStrategy | undefined;
@@ -255,7 +256,7 @@ export interface CreateComputeNodeGroupRequest {
   subnetIds: string[] | undefined;
 
   /**
-   * <p>Specifies how EC2 instances are purchased on your behalf. Amazon Web Services PCS supports On-Demand and Spot instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
+   * <p>Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, and Amazon EC2 Capacity Blocks for ML. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Amazon EC2 billing and purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about PCS support for Capacity Blocks, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html">Using Amazon EC2 Capacity Blocks for ML with PCS</a> in the <i>PCS User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
    * @public
    */
   purchaseOption?: PurchaseOption | undefined;
@@ -279,7 +280,7 @@ export interface CreateComputeNodeGroupRequest {
   scalingConfiguration: ScalingConfigurationRequest | undefined;
 
   /**
-   * <p>A list of EC2 instance configurations that Amazon Web Services PCS can provision in the compute node group.</p>
+   * <p>A list of EC2 instance configurations that PCS can provision in the compute node group.</p>
    * @public
    */
   instanceConfigs: InstanceConfig[] | undefined;
@@ -439,7 +440,7 @@ export interface ComputeNodeGroup {
   subnetIds: string[] | undefined;
 
   /**
-   * <p>Specifies how EC2 instances are purchased on your behalf. Amazon Web Services PCS supports On-Demand and Spot instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
+   * <p>Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, and Amazon EC2 Capacity Blocks for ML. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Amazon EC2 billing and purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about PCS support for Capacity Blocks, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html">Using Amazon EC2 Capacity Blocks for ML with PCS</a> in the <i>PCS User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
    * @public
    */
   purchaseOption?: PurchaseOption | undefined;
@@ -463,7 +464,7 @@ export interface ComputeNodeGroup {
   scalingConfiguration: ScalingConfiguration | undefined;
 
   /**
-   * <p>A list of EC2 instance configurations that Amazon Web Services PCS can provision in the compute node group.</p>
+   * <p>A list of EC2 instance configurations that PCS can provision in the compute node group.</p>
    * @public
    */
   instanceConfigs: InstanceConfig[] | undefined;
@@ -888,7 +889,7 @@ export interface UpdateComputeNodeGroupRequest {
   customLaunchTemplate?: CustomLaunchTemplate | undefined;
 
   /**
-   * <p>Specifies how EC2 instances are purchased on your behalf. Amazon Web Services PCS supports On-Demand and Spot instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
+   * <p>Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, and Amazon EC2 Capacity Blocks for ML. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Amazon EC2 billing and purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about PCS support for Capacity Blocks, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html">Using Amazon EC2 Capacity Blocks for ML with PCS</a> in the <i>PCS User Guide</i>. If you don't provide this option, it defaults to On-Demand.</p>
    * @public
    */
   purchaseOption?: PurchaseOption | undefined;
@@ -955,7 +956,7 @@ export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
  */
 export interface NetworkingRequest {
   /**
-   * <p>The list of subnet IDs where Amazon Web Services PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and Amazon Web Services PCS resources. Subnet IDs have the form <code>subnet-0123456789abcdef0</code>.</p> <p>Subnets can't be in Outposts, Wavelength or an Amazon Web Services Local Zone.</p> <note> <p>Amazon Web Services PCS currently supports only 1 subnet in this list.</p> </note>
+   * <p>The list of subnet IDs where PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and PCS resources. Subnet IDs have the form <code>subnet-0123456789abcdef0</code>.</p> <p>Subnets can't be in Outposts, Wavelength or an Amazon Web Services Local Zone.</p> <note> <p>PCS currently supports only 1 subnet in this list.</p> </note>
    * @public
    */
   subnetIds?: string[] | undefined;
@@ -1188,7 +1189,7 @@ export interface Scheduler {
  */
 export interface SlurmAuthKey {
   /**
-   * <p>The Amazon Resource Name (ARN) of the the shared Slurm key.</p>
+   * <p>The Amazon Resource Name (ARN) of the shared Slurm key.</p>
    * @public
    */
   secretArn: string | undefined;
@@ -1367,7 +1368,7 @@ export interface DeleteClusterResponse {}
  */
 export interface GetClusterRequest {
   /**
-   * <p>The name or ID of the cluster of the queue.</p>
+   * <p>The name or ID of the cluster.</p>
    * @public
    */
   clusterIdentifier: string | undefined;
@@ -1473,6 +1474,18 @@ export interface ComputeNodeGroupConfiguration {
 }
 
 /**
+ * <p>Additional options related to the Slurm scheduler.</p>
+ * @public
+ */
+export interface QueueSlurmConfigurationRequest {
+  /**
+   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * @public
+   */
+  slurmCustomSettings?: SlurmCustomSetting[] | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateQueueRequest {
@@ -1495,6 +1508,12 @@ export interface CreateQueueRequest {
   computeNodeGroupConfigurations?: ComputeNodeGroupConfiguration[] | undefined;
 
   /**
+   * <p>Additional options related to the Slurm scheduler.</p>
+   * @public
+   */
+  slurmConfiguration?: QueueSlurmConfigurationRequest | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
    * @public
    */
@@ -1505,6 +1524,18 @@ export interface CreateQueueRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Additional options related to the Slurm scheduler.</p>
+ * @public
+ */
+export interface QueueSlurmConfiguration {
+  /**
+   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * @public
+   */
+  slurmCustomSettings?: SlurmCustomSetting[] | undefined;
 }
 
 /**
@@ -1580,6 +1611,12 @@ export interface Queue {
    * @public
    */
   computeNodeGroupConfigurations: ComputeNodeGroupConfiguration[] | undefined;
+
+  /**
+   * <p>Additional options related to the Slurm scheduler.</p>
+   * @public
+   */
+  slurmConfiguration?: QueueSlurmConfiguration | undefined;
 
   /**
    * <p>The list of errors that occurred during queue provisioning.</p>
@@ -1744,6 +1781,18 @@ export interface ListQueuesResponse {
 }
 
 /**
+ * <p>Additional options related to the Slurm scheduler.</p>
+ * @public
+ */
+export interface UpdateQueueSlurmConfigurationRequest {
+  /**
+   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * @public
+   */
+  slurmCustomSettings?: SlurmCustomSetting[] | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateQueueRequest {
@@ -1764,6 +1813,12 @@ export interface UpdateQueueRequest {
    * @public
    */
   computeNodeGroupConfigurations?: ComputeNodeGroupConfiguration[] | undefined;
+
+  /**
+   * <p>Additional options related to the Slurm scheduler.</p>
+   * @public
+   */
+  slurmConfiguration?: UpdateQueueSlurmConfigurationRequest | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
@@ -1821,6 +1876,82 @@ export interface RegisterComputeNodeGroupInstanceResponse {
    * @public
    */
   endpoints: Endpoint[] | undefined;
+}
+
+/**
+ * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
+ * @public
+ */
+export interface UpdateAccountingRequest {
+  /**
+   * <p>The default value for all purge settings for <code>slurmdbd.conf</code>. For more information, see the <a href="https://slurm.schedmd.com/slurmdbd.conf.html">slurmdbd.conf documentation at SchedMD</a>.</p> <p>The default value for <code>defaultPurgeTimeInDays</code> is <code>-1</code>.</p> <p>A value of <code>-1</code> means there is no purge time and records persist as long as the cluster exists.</p> <important> <p> <code>0</code> isn't a valid value.</p> </important>
+   * @public
+   */
+  defaultPurgeTimeInDays?: number | undefined;
+
+  /**
+   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
+   * @public
+   */
+  mode?: AccountingMode | undefined;
+}
+
+/**
+ * <p>Additional options related to the Slurm scheduler.</p>
+ * @public
+ */
+export interface UpdateClusterSlurmConfigurationRequest {
+  /**
+   * <p>The time (in seconds) before an idle node is scaled down.</p> <p>Default: <code>600</code> </p>
+   * @public
+   */
+  scaleDownIdleTimeInSeconds?: number | undefined;
+
+  /**
+   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * @public
+   */
+  slurmCustomSettings?: SlurmCustomSetting[] | undefined;
+
+  /**
+   * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
+   * @public
+   */
+  accounting?: UpdateAccountingRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterRequest {
+  /**
+   * <p>The name or ID of the cluster to update.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Additional options related to the Slurm scheduler.</p>
+   * @public
+   */
+  slurmConfiguration?: UpdateClusterSlurmConfigurationRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterResponse {
+  /**
+   * <p>The cluster resource and configuration.</p>
+   * @public
+   */
+  cluster?: Cluster | undefined;
 }
 
 /**

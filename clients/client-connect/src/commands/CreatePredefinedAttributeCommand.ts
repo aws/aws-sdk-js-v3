@@ -28,15 +28,37 @@ export interface CreatePredefinedAttributeCommandInput extends CreatePredefinedA
 export interface CreatePredefinedAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a new predefined attribute for the specified Amazon Connect instance. <i>Predefined
- *     attributes</i> are attributes in an Amazon Connect instance that can be used to route
- *    contacts to an agent or pools of agents within a queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
- *     predefined attributes for routing contacts to agents</a>.</p>
+ * <p>Creates a new predefined attribute for the specified Amazon Connect instance. A <i>predefined
+ *     attribute</i> is made up of a name and a value.</p>
+ *          <p>For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect quotas</a>.</p>
+ *          <p>
+ *             <b>Use cases</b>
+ *          </p>
+ *          <p>Following are common uses cases for this API:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Create an attribute for routing proficiency (for example, agent certification) that has
+ *      predefined values (for example, a list of possible certifications). For more information, see
+ *       <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
+ *       predefined attributes for routing contacts to agents</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Create an attribute for business unit name that has a list of predefined business unit
+ *      names used in your organization. This is a use case where information for a contact varies
+ *      between transfers or conferences. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use contact segment
+ *       attributes</a>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
+ *    quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, CreatePredefinedAttributeCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreatePredefinedAttributeCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // CreatePredefinedAttributeRequest
  *   InstanceId: "STRING_VALUE", // required
@@ -45,6 +67,12 @@ export interface CreatePredefinedAttributeCommandOutput extends __MetadataBearer
  *     StringList: [ // PredefinedAttributeStringValuesList
  *       "STRING_VALUE",
  *     ],
+ *   },
+ *   Purposes: [ // PredefinedAttributePurposeNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   AttributeConfiguration: { // InputPredefinedAttributeConfiguration
+ *     EnableValueValidationOnAssociation: true || false,
  *   },
  * };
  * const command = new CreatePredefinedAttributeCommand(input);

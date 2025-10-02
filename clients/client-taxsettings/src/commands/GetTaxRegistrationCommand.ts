@@ -38,6 +38,8 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * ```javascript
  * import { TaxSettingsClient, GetTaxRegistrationCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, GetTaxRegistrationCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // import type { TaxSettingsClientConfig } from "@aws-sdk/client-taxsettings";
+ * const config = {}; // type is TaxSettingsClientConfig
  * const client = new TaxSettingsClient(config);
  * const input = { // GetTaxRegistrationRequest
  *   accountId: "STRING_VALUE",

@@ -268,8 +268,8 @@ export interface AccountDetail {
   AccountId: string | undefined;
 
   /**
-   * <p>The email address of the member account.</p>
-   *          <p>The rules for a valid email address:</p>
+   * <p>The email address of the member account. The following list includes the
+   *       rules for a valid email address:</p>
    *          <ul>
    *             <li>
    *                <p>The email address must be a minimum of 6 and a maximum of 64 characters long.</p>

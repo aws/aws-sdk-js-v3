@@ -37,6 +37,8 @@ export interface GetProbeCommandOutput extends GetProbeOutput, __MetadataBearer 
  * ```javascript
  * import { NetworkMonitorClient, GetProbeCommand } from "@aws-sdk/client-networkmonitor"; // ES Modules import
  * // const { NetworkMonitorClient, GetProbeCommand } = require("@aws-sdk/client-networkmonitor"); // CommonJS import
+ * // import type { NetworkMonitorClientConfig } from "@aws-sdk/client-networkmonitor";
+ * const config = {}; // type is NetworkMonitorClientConfig
  * const client = new NetworkMonitorClient(config);
  * const input = { // GetProbeInput
  *   monitorName: "STRING_VALUE", // required

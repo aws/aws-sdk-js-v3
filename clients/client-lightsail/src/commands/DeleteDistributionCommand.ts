@@ -34,6 +34,8 @@ export interface DeleteDistributionCommandOutput extends DeleteDistributionResul
  * ```javascript
  * import { LightsailClient, DeleteDistributionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteDistributionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // DeleteDistributionRequest
  *   distributionName: "STRING_VALUE",

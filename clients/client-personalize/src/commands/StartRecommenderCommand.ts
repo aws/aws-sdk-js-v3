@@ -35,6 +35,8 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  * ```javascript
  * import { PersonalizeClient, StartRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, StartRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // import type { PersonalizeClientConfig } from "@aws-sdk/client-personalize";
+ * const config = {}; // type is PersonalizeClientConfig
  * const client = new PersonalizeClient(config);
  * const input = { // StartRecommenderRequest
  *   recommenderArn: "STRING_VALUE", // required

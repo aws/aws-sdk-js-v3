@@ -34,6 +34,8 @@ export interface StartLoaderJobCommandOutput extends StartLoaderJobOutput, __Met
  * ```javascript
  * import { NeptunedataClient, StartLoaderJobCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, StartLoaderJobCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // StartLoaderJobInput
  *   source: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface RejectClientVpcConnectionCommandOutput extends RejectClientVpcC
  * ```javascript
  * import { KafkaClient, RejectClientVpcConnectionCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, RejectClientVpcConnectionCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // RejectClientVpcConnectionRequest
  *   ClusterArn: "STRING_VALUE", // required

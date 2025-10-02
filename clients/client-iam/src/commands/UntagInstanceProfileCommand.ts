@@ -35,6 +35,8 @@ export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, UntagInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // UntagInstanceProfileRequest
  *   InstanceProfileName: "STRING_VALUE", // required

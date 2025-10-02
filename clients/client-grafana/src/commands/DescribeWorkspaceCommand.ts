@@ -38,6 +38,8 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * ```javascript
  * import { GrafanaClient, DescribeWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DescribeWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // import type { GrafanaClientConfig } from "@aws-sdk/client-grafana";
+ * const config = {}; // type is GrafanaClientConfig
  * const client = new GrafanaClient(config);
  * const input = { // DescribeWorkspaceRequest
  *   workspaceId: "STRING_VALUE", // required

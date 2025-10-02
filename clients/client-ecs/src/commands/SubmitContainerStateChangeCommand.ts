@@ -37,6 +37,8 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  * ```javascript
  * import { ECSClient, SubmitContainerStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, SubmitContainerStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // SubmitContainerStateChangeRequest
  *   cluster: "STRING_VALUE",

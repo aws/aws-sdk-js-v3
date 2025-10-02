@@ -34,6 +34,8 @@ export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer
  * ```javascript
  * import { ChimeClient, DeleteEventsConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteEventsConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // DeleteEventsConfigurationRequest
  *   AccountId: "STRING_VALUE", // required

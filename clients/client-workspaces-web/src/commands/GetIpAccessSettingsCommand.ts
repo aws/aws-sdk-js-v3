@@ -38,6 +38,8 @@ export interface GetIpAccessSettingsCommandOutput extends GetIpAccessSettingsRes
  * ```javascript
  * import { WorkSpacesWebClient, GetIpAccessSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetIpAccessSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // GetIpAccessSettingsRequest
  *   ipAccessSettingsArn: "STRING_VALUE", // required

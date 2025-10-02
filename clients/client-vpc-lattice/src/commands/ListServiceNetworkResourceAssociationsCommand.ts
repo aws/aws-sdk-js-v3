@@ -43,12 +43,15 @@ export interface ListServiceNetworkResourceAssociationsCommandOutput
  * ```javascript
  * import { VPCLatticeClient, ListServiceNetworkResourceAssociationsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListServiceNetworkResourceAssociationsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // import type { VPCLatticeClientConfig } from "@aws-sdk/client-vpc-lattice";
+ * const config = {}; // type is VPCLatticeClientConfig
  * const client = new VPCLatticeClient(config);
  * const input = { // ListServiceNetworkResourceAssociationsRequest
  *   serviceNetworkIdentifier: "STRING_VALUE",
  *   resourceConfigurationIdentifier: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   includeChildren: true || false,
  * };
  * const command = new ListServiceNetworkResourceAssociationsCommand(input);
  * const response = await client.send(command);
@@ -99,8 +102,7 @@ export interface ListServiceNetworkResourceAssociationsCommandOutput
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
- *    service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>

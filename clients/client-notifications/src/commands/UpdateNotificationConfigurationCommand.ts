@@ -39,6 +39,8 @@ export interface UpdateNotificationConfigurationCommandOutput
  * ```javascript
  * import { NotificationsClient, UpdateNotificationConfigurationCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, UpdateNotificationConfigurationCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // UpdateNotificationConfigurationRequest
  *   arn: "STRING_VALUE", // required

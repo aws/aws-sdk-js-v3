@@ -38,6 +38,8 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  * ```javascript
  * import { LocationClient, UpdateRouteCalculatorCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdateRouteCalculatorCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // UpdateRouteCalculatorRequest
  *   CalculatorName: "STRING_VALUE", // required

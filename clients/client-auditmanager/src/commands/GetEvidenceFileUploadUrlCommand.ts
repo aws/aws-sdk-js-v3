@@ -56,6 +56,8 @@ export interface GetEvidenceFileUploadUrlCommandOutput extends GetEvidenceFileUp
  * ```javascript
  * import { AuditManagerClient, GetEvidenceFileUploadUrlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetEvidenceFileUploadUrlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // import type { AuditManagerClientConfig } from "@aws-sdk/client-auditmanager";
+ * const config = {}; // type is AuditManagerClientConfig
  * const client = new AuditManagerClient(config);
  * const input = { // GetEvidenceFileUploadUrlRequest
  *   fileName: "STRING_VALUE", // required

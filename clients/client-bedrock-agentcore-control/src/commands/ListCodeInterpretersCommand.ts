@@ -42,6 +42,8 @@ export interface ListCodeInterpretersCommandOutput extends ListCodeInterpretersR
  * ```javascript
  * import { BedrockAgentCoreControlClient, ListCodeInterpretersCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, ListCodeInterpretersCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListCodeInterpretersRequest
  *   maxResults: Number("int"),

@@ -8,7 +8,9 @@ import {
   LifecycleRule,
   MultiRegionAccessPointReport,
   MultiRegionAccessPointRoute,
+  ObjectLambdaAccessPoint,
   ObjectLambdaConfiguration,
+  Permission,
   PublicAccessBlockConfiguration,
   PutMultiRegionAccessPointPolicyInput,
   ReplicationConfiguration,
@@ -21,6 +23,177 @@ import {
 } from "./models_0";
 
 import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
+
+/**
+ * @public
+ */
+export interface ListAccessPointsForObjectLambdaResult {
+  /**
+   * <p>Returns list of Object Lambda Access Points.</p>
+   * @public
+   */
+  ObjectLambdaAccessPointList?: ObjectLambdaAccessPoint[] | undefined;
+
+  /**
+   * <p>If the list has more access points than can be returned in one call to this API, this field
+   *          contains a continuation token that you can provide in subsequent calls to this API to
+   *          retrieve additional access points.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCallerAccessGrantsRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The S3 path of the data that you would like to access. Must start with
+   *             <code>s3://</code>. You can optionally pass only the beginning characters of a path, and
+   *          S3 Access Grants will search for all applicable grants for the path fragment. </p>
+   * @public
+   */
+  GrantScope?: string | undefined;
+
+  /**
+   * <p>A pagination token to request the next page of results. Pass this value into a
+   *          subsequent <code>List Caller Access Grants</code> request in order to retrieve the next
+   *          page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of access grants that you would like returned in the <code>List
+   *             Caller Access Grants</code> response. If the results include the pagination token
+   *             <code>NextToken</code>, make another call using the <code>NextToken</code> to determine
+   *          if there are more results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If this optional parameter is passed in the request, a filter is applied to the results.
+   *          The results will include only the access grants for the caller's Identity Center
+   *          application or for any other applications (<code>ALL</code>).</p>
+   * @public
+   */
+  AllowedByApplication?: boolean | undefined;
+}
+
+/**
+ * <p>Part of <code>ListCallerAccessGrantsResult</code>. Each entry includes the permission
+ *          level (READ, WRITE, or READWRITE) and the grant scope of the access grant. If the grant
+ *          also includes an application ARN, the grantee can only access the S3 data through this
+ *          application.</p>
+ * @public
+ */
+export interface ListCallerAccessGrantsEntry {
+  /**
+   * <p>The type of permission granted, which can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READ</code> - Grants read-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WRITE</code> - Grants write-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READWRITE</code> - Grants both read and write access to the S3 data.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Permission?: Permission | undefined;
+
+  /**
+   * <p>The S3 path of the data to which you have been granted access. </p>
+   * @public
+   */
+  GrantScope?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services IAM Identity Center application associated
+   *          with your Identity Center instance. If the grant includes an application ARN, the grantee
+   *          can only access the S3 data through this application. </p>
+   * @public
+   */
+  ApplicationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCallerAccessGrantsResult {
+  /**
+   * <p>A pagination token that you can use to request the next page of results. Pass this value
+   *          into a subsequent <code>List Caller Access Grants</code> request in order to retrieve the
+   *          next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of the caller's access grants that were created using S3 Access Grants and that grant the
+   *          caller access to the S3 data of the Amazon Web Services account ID that was specified in the request.
+   *       </p>
+   * @public
+   */
+  CallerAccessGrantsList?: ListCallerAccessGrantsEntry[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * @public

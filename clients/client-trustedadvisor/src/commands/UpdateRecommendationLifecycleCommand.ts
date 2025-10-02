@@ -40,6 +40,8 @@ export interface UpdateRecommendationLifecycleCommandOutput extends __MetadataBe
  * ```javascript
  * import { TrustedAdvisorClient, UpdateRecommendationLifecycleCommand } from "@aws-sdk/client-trustedadvisor"; // ES Modules import
  * // const { TrustedAdvisorClient, UpdateRecommendationLifecycleCommand } = require("@aws-sdk/client-trustedadvisor"); // CommonJS import
+ * // import type { TrustedAdvisorClientConfig } from "@aws-sdk/client-trustedadvisor";
+ * const config = {}; // type is TrustedAdvisorClientConfig
  * const client = new TrustedAdvisorClient(config);
  * const input = { // UpdateRecommendationLifecycleRequest
  *   lifecycleStage: "pending_response" || "in_progress" || "dismissed" || "resolved", // required

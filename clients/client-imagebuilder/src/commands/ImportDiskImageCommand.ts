@@ -40,6 +40,8 @@ export interface ImportDiskImageCommandOutput extends ImportDiskImageResponse, _
  * ```javascript
  * import { ImagebuilderClient, ImportDiskImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ImportDiskImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // ImportDiskImageRequest
  *   name: "STRING_VALUE", // required
@@ -50,6 +52,9 @@ export interface ImportDiskImageCommandOutput extends ImportDiskImageResponse, _
  *   executionRole: "STRING_VALUE",
  *   infrastructureConfigurationArn: "STRING_VALUE", // required
  *   uri: "STRING_VALUE", // required
+ *   loggingConfiguration: { // ImageLoggingConfiguration
+ *     logGroupName: "STRING_VALUE",
+ *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

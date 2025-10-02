@@ -37,6 +37,8 @@ export interface ListFlowOperationResultsCommandOutput extends ListFlowOperation
  * ```javascript
  * import { NetworkFirewallClient, ListFlowOperationResultsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, ListFlowOperationResultsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // import type { NetworkFirewallClientConfig } from "@aws-sdk/client-network-firewall";
+ * const config = {}; // type is NetworkFirewallClientConfig
  * const client = new NetworkFirewallClient(config);
  * const input = { // ListFlowOperationResultsRequest
  *   FirewallArn: "STRING_VALUE", // required

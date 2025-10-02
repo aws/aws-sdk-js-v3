@@ -70,6 +70,8 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * ```javascript
  * import { MarketplaceMeteringClient, BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, BatchMeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
+ * // import type { MarketplaceMeteringClientConfig } from "@aws-sdk/client-marketplace-metering";
+ * const config = {}; // type is MarketplaceMeteringClientConfig
  * const client = new MarketplaceMeteringClient(config);
  * const input = { // BatchMeterUsageRequest
  *   UsageRecords: [ // UsageRecordList // required

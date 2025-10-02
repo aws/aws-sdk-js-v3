@@ -34,6 +34,8 @@ export interface DeleteGraphSnapshotCommandOutput extends DeleteGraphSnapshotOut
  * ```javascript
  * import { NeptuneGraphClient, DeleteGraphSnapshotCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, DeleteGraphSnapshotCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // import type { NeptuneGraphClientConfig } from "@aws-sdk/client-neptune-graph";
+ * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // DeleteGraphSnapshotInput
  *   snapshotIdentifier: "STRING_VALUE", // required

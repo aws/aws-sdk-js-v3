@@ -47,6 +47,8 @@ export interface UpdateDataAutomationProjectCommandOutput
  * ```javascript
  * import { BedrockDataAutomationClient, UpdateDataAutomationProjectCommand } from "@aws-sdk/client-bedrock-data-automation"; // ES Modules import
  * // const { BedrockDataAutomationClient, UpdateDataAutomationProjectCommand } = require("@aws-sdk/client-bedrock-data-automation"); // CommonJS import
+ * // import type { BedrockDataAutomationClientConfig } from "@aws-sdk/client-bedrock-data-automation";
+ * const config = {}; // type is BedrockDataAutomationClientConfig
  * const client = new BedrockDataAutomationClient(config);
  * const input = { // UpdateDataAutomationProjectRequest
  *   projectArn: "STRING_VALUE", // required
@@ -123,6 +125,16 @@ export interface UpdateDataAutomationProjectCommandOutput
  *           types: [ // AudioExtractionCategoryTypes
  *             "AUDIO_CONTENT_MODERATION" || "TRANSCRIPT" || "TOPIC_CONTENT_MODERATION",
  *           ],
+ *           typeConfiguration: { // AudioExtractionCategoryTypeConfiguration
+ *             transcript: { // TranscriptConfiguration
+ *               speakerLabeling: { // SpeakerLabelingConfiguration
+ *                 state: "ENABLED" || "DISABLED", // required
+ *               },
+ *               channelLabeling: { // ChannelLabelingConfiguration
+ *                 state: "ENABLED" || "DISABLED", // required
+ *               },
+ *             },
+ *           },
  *         },
  *       },
  *       generativeField: { // AudioStandardGenerativeField

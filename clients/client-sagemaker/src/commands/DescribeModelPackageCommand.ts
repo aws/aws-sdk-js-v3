@@ -38,6 +38,8 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * ```javascript
  * import { SageMakerClient, DescribeModelPackageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelPackageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeModelPackageInput
  *   ModelPackageName: "STRING_VALUE", // required

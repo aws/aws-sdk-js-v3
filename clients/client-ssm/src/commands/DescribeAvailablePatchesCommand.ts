@@ -38,6 +38,8 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  * ```javascript
  * import { SSMClient, DescribeAvailablePatchesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAvailablePatchesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeAvailablePatchesRequest
  *   Filters: [ // PatchOrchestratorFilterList

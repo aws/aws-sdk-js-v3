@@ -34,6 +34,8 @@ export interface ListAppAuthorizationsCommandOutput extends ListAppAuthorization
  * ```javascript
  * import { AppFabricClient, ListAppAuthorizationsCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, ListAppAuthorizationsCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // import type { AppFabricClientConfig } from "@aws-sdk/client-appfabric";
+ * const config = {}; // type is AppFabricClientConfig
  * const client = new AppFabricClient(config);
  * const input = { // ListAppAuthorizationsRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * ```javascript
  * import { PipesClient, ListPipesCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, ListPipesCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
+ * // import type { PipesClientConfig } from "@aws-sdk/client-pipes";
+ * const config = {}; // type is PipesClientConfig
  * const client = new PipesClient(config);
  * const input = { // ListPipesRequest
  *   NamePrefix: "STRING_VALUE",

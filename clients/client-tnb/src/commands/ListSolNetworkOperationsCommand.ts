@@ -36,6 +36,8 @@ export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOpe
  * ```javascript
  * import { TnbClient, ListSolNetworkOperationsCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ListSolNetworkOperationsCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // import type { TnbClientConfig } from "@aws-sdk/client-tnb";
+ * const config = {}; // type is TnbClientConfig
  * const client = new TnbClient(config);
  * const input = { // ListSolNetworkOperationsInput
  *   nsInstanceId: "STRING_VALUE",

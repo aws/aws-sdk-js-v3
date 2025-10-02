@@ -6,10 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
-  GetNetworkInsightsAccessScopeAnalysisFindingsResult,
-} from "../models/models_6";
+import { GetNetworkInsightsAccessScopeAnalysisFindingsRequest } from "../models/models_6";
+import { GetNetworkInsightsAccessScopeAnalysisFindingsResult } from "../models/models_7";
 import {
   de_GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
   se_GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
@@ -43,6 +41,8 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * ```javascript
  * import { EC2Client, GetNetworkInsightsAccessScopeAnalysisFindingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetNetworkInsightsAccessScopeAnalysisFindingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // GetNetworkInsightsAccessScopeAnalysisFindingsRequest
  *   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE", // required

@@ -72,6 +72,8 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  * ```javascript
  * import { SWFClient, DescribeActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // DescribeActivityTypeInput
  *   domain: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * ```javascript
  * import { EventBridgeClient, UpdateEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, UpdateEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // import type { EventBridgeClientConfig } from "@aws-sdk/client-eventbridge";
+ * const config = {}; // type is EventBridgeClientConfig
  * const client = new EventBridgeClient(config);
  * const input = { // UpdateEndpointRequest
  *   Name: "STRING_VALUE", // required

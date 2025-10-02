@@ -34,6 +34,8 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  * ```javascript
  * import { DAXClient, IncreaseReplicationFactorCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, IncreaseReplicationFactorCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // import type { DAXClientConfig } from "@aws-sdk/client-dax";
+ * const config = {}; // type is DAXClientConfig
  * const client = new DAXClient(config);
  * const input = { // IncreaseReplicationFactorRequest
  *   ClusterName: "STRING_VALUE", // required
@@ -99,6 +101,7 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  * //       Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //     },
  * //     ClusterEndpointEncryptionType: "NONE" || "TLS",
+ * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //   },
  * // };
  *
@@ -111,15 +114,16 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *  <p>The requested cluster ID does not refer to an existing DAX
+ *             cluster.</p>
  *
  * @throws {@link InsufficientClusterCapacityFault} (client fault)
  *  <p>There are not enough system resources to create the cluster you requested (or to
  *             resize an already-existing cluster). </p>
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the <i>available</i>
- *             state.</p>
+ *  <p>The requested DAX cluster is not in the
+ *                 <i>available</i> state.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>
@@ -135,8 +139,7 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  *             cluster.</p>
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>You have attempted to exceed the maximum number of nodes for your AWS
- *             account.</p>
+ *  <p>You have attempted to exceed the maximum number of nodes for your Amazon Web Services account.</p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>

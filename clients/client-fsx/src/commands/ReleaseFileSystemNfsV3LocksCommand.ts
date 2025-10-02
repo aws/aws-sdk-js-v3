@@ -41,6 +41,8 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * ```javascript
  * import { FSxClient, ReleaseFileSystemNfsV3LocksCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, ReleaseFileSystemNfsV3LocksCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // ReleaseFileSystemNfsV3LocksRequest
  *   FileSystemId: "STRING_VALUE", // required
@@ -114,6 +116,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * //         Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //         Iops: Number("long"),
  * //       },
+ * //       PreferredFileServerIpv6: "STRING_VALUE",
  * //     },
  * //     LustreConfiguration: { // LustreFileSystemConfiguration
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -227,6 +230,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * //               Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //               Iops: Number("long"),
  * //             },
+ * //             PreferredFileServerIpv6: "STRING_VALUE",
  * //           },
  * //           LustreConfiguration: {
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -411,10 +415,16 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * //                 IpAddresses: [ // OntapEndpointIpAddresses
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 Ipv6Addresses: [
+ * //                   "STRING_VALUE",
+ * //                 ],
  * //               },
  * //               Management: {
  * //                 DNSName: "STRING_VALUE",
  * //                 IpAddresses: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 Ipv6Addresses: [
  * //                   "STRING_VALUE",
  * //                 ],
  * //               },
@@ -432,6 +442,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * //             FsxAdminPassword: "STRING_VALUE",
  * //             HAPairs: Number("int"),
  * //             ThroughputCapacityPerHAPair: Number("int"),
+ * //             EndpointIpv6AddressRange: "STRING_VALUE",
  * //           },
  * //           FileSystemTypeVersion: "STRING_VALUE",
  * //           OpenZFSConfiguration: { // OpenZFSFileSystemConfiguration
@@ -594,12 +605,12 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * //           IpAddresses: [
  * //             "STRING_VALUE",
  * //           ],
+ * //           Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //         },
  * //         Management: {
  * //           DNSName: "STRING_VALUE",
- * //           IpAddresses: [
- * //             "STRING_VALUE",
- * //           ],
+ * //           IpAddresses: "<OntapEndpointIpAddresses>",
+ * //           Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //         },
  * //       },
  * //       DiskIopsConfiguration: {
@@ -615,6 +626,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * //       FsxAdminPassword: "STRING_VALUE",
  * //       HAPairs: Number("int"),
  * //       ThroughputCapacityPerHAPair: Number("int"),
+ * //       EndpointIpv6AddressRange: "STRING_VALUE",
  * //     },
  * //     FileSystemTypeVersion: "STRING_VALUE",
  * //     OpenZFSConfiguration: {
@@ -668,7 +680,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web ServicesSupport.</p>
+ *             some service limits by contacting Amazon Web Services Support.</p>
  *
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>

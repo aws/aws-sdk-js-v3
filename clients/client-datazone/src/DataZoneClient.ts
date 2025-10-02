@@ -94,6 +94,10 @@ import {
   CreateEnvironmentActionCommandInput,
   CreateEnvironmentActionCommandOutput,
 } from "./commands/CreateEnvironmentActionCommand";
+import {
+  CreateEnvironmentBlueprintCommandInput,
+  CreateEnvironmentBlueprintCommandOutput,
+} from "./commands/CreateEnvironmentBlueprintCommand";
 import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
 import {
   CreateEnvironmentProfileCommandInput,
@@ -143,6 +147,10 @@ import {
   DeleteEnvironmentActionCommandInput,
   DeleteEnvironmentActionCommandOutput,
 } from "./commands/DeleteEnvironmentActionCommand";
+import {
+  DeleteEnvironmentBlueprintCommandInput,
+  DeleteEnvironmentBlueprintCommandOutput,
+} from "./commands/DeleteEnvironmentBlueprintCommand";
 import {
   DeleteEnvironmentBlueprintConfigurationCommandInput,
   DeleteEnvironmentBlueprintConfigurationCommandOutput,
@@ -384,6 +392,10 @@ import {
   UpdateEnvironmentActionCommandInput,
   UpdateEnvironmentActionCommandOutput,
 } from "./commands/UpdateEnvironmentActionCommand";
+import {
+  UpdateEnvironmentBlueprintCommandInput,
+  UpdateEnvironmentBlueprintCommandOutput,
+} from "./commands/UpdateEnvironmentBlueprintCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
 import {
   UpdateEnvironmentProfileCommandInput,
@@ -446,6 +458,7 @@ export type ServiceInputTypes =
   | CreateDomainCommandInput
   | CreateDomainUnitCommandInput
   | CreateEnvironmentActionCommandInput
+  | CreateEnvironmentBlueprintCommandInput
   | CreateEnvironmentCommandInput
   | CreateEnvironmentProfileCommandInput
   | CreateFormTypeCommandInput
@@ -471,6 +484,7 @@ export type ServiceInputTypes =
   | DeleteDomainCommandInput
   | DeleteDomainUnitCommandInput
   | DeleteEnvironmentActionCommandInput
+  | DeleteEnvironmentBlueprintCommandInput
   | DeleteEnvironmentBlueprintConfigurationCommandInput
   | DeleteEnvironmentCommandInput
   | DeleteEnvironmentProfileCommandInput
@@ -580,6 +594,7 @@ export type ServiceInputTypes =
   | UpdateDomainCommandInput
   | UpdateDomainUnitCommandInput
   | UpdateEnvironmentActionCommandInput
+  | UpdateEnvironmentBlueprintCommandInput
   | UpdateEnvironmentCommandInput
   | UpdateEnvironmentProfileCommandInput
   | UpdateGlossaryCommandInput
@@ -617,6 +632,7 @@ export type ServiceOutputTypes =
   | CreateDomainCommandOutput
   | CreateDomainUnitCommandOutput
   | CreateEnvironmentActionCommandOutput
+  | CreateEnvironmentBlueprintCommandOutput
   | CreateEnvironmentCommandOutput
   | CreateEnvironmentProfileCommandOutput
   | CreateFormTypeCommandOutput
@@ -642,6 +658,7 @@ export type ServiceOutputTypes =
   | DeleteDomainCommandOutput
   | DeleteDomainUnitCommandOutput
   | DeleteEnvironmentActionCommandOutput
+  | DeleteEnvironmentBlueprintCommandOutput
   | DeleteEnvironmentBlueprintConfigurationCommandOutput
   | DeleteEnvironmentCommandOutput
   | DeleteEnvironmentProfileCommandOutput
@@ -751,6 +768,7 @@ export type ServiceOutputTypes =
   | UpdateDomainCommandOutput
   | UpdateDomainUnitCommandOutput
   | UpdateEnvironmentActionCommandOutput
+  | UpdateEnvironmentBlueprintCommandOutput
   | UpdateEnvironmentCommandOutput
   | UpdateEnvironmentProfileCommandOutput
   | UpdateGlossaryCommandOutput

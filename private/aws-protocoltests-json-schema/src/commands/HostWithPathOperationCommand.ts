@@ -33,6 +33,8 @@ export interface HostWithPathOperationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { JsonProtocolClient, HostWithPathOperationCommand } from "@aws-sdk/aws-protocoltests-json-schema"; // ES Modules import
  * // const { JsonProtocolClient, HostWithPathOperationCommand } = require("@aws-sdk/aws-protocoltests-json-schema"); // CommonJS import
+ * // import type { JsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-json-schema";
+ * const config = {}; // type is JsonProtocolClientConfig
  * const client = new JsonProtocolClient(config);
  * const input = {};
  * const command = new HostWithPathOperationCommand(input);

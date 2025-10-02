@@ -34,6 +34,8 @@ export interface UpdateCommandCommandOutput extends UpdateCommandResponse, __Met
  * ```javascript
  * import { IoTClient, UpdateCommandCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateCommandCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // UpdateCommandRequest
  *   commandId: "STRING_VALUE", // required

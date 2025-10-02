@@ -34,6 +34,8 @@ export interface ListProfilesCommandOutput extends ListProfilesOutput, __Metadat
  * ```javascript
  * import { WellArchitectedClient, ListProfilesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListProfilesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // ListProfilesInput
  *   ProfileNamePrefix: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface RegisterNamespaceCommandOutput extends RegisterNamespaceOutputM
  * ```javascript
  * import { RedshiftClient, RegisterNamespaceCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RegisterNamespaceCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // RegisterNamespaceInputMessage
  *   NamespaceIdentifier: { // NamespaceIdentifierUnion Union: only one key present

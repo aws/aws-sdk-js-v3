@@ -34,6 +34,8 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * ```javascript
  * import { FMSClient, ListProtocolsListsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListProtocolsListsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // import type { FMSClientConfig } from "@aws-sdk/client-fms";
+ * const config = {}; // type is FMSClientConfig
  * const client = new FMSClient(config);
  * const input = { // ListProtocolsListsRequest
  *   DefaultLists: true || false,

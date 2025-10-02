@@ -34,6 +34,8 @@ export interface GetRuleCommandOutput extends GetRuleOutput, __MetadataBearer {}
  * ```javascript
  * import { DataZoneClient, GetRuleCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetRuleCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetRuleInput
  *   domainIdentifier: "STRING_VALUE", // required

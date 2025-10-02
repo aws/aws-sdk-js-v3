@@ -34,6 +34,8 @@ export interface GetArchiveCommandOutput extends GetArchiveResponse, __MetadataB
  * ```javascript
  * import { MailManagerClient, GetArchiveCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, GetArchiveCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // GetArchiveRequest
  *   ArchiveId: "STRING_VALUE", // required

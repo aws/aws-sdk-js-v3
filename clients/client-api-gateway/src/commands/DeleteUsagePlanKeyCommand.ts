@@ -34,6 +34,8 @@ export interface DeleteUsagePlanKeyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { APIGatewayClient, DeleteUsagePlanKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteUsagePlanKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // DeleteUsagePlanKeyRequest
  *   usagePlanId: "STRING_VALUE", // required

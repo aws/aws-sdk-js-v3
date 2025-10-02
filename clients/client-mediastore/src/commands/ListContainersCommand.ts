@@ -42,6 +42,8 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * ```javascript
  * import { MediaStoreClient, ListContainersCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, ListContainersCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // import type { MediaStoreClientConfig } from "@aws-sdk/client-mediastore";
+ * const config = {}; // type is MediaStoreClientConfig
  * const client = new MediaStoreClient(config);
  * const input = { // ListContainersInput
  *   NextToken: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ACMClient, ResendValidationEmailCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ResendValidationEmailCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * // import type { ACMClientConfig } from "@aws-sdk/client-acm";
+ * const config = {}; // type is ACMClientConfig
  * const client = new ACMClient(config);
  * const input = { // ResendValidationEmailRequest
  *   CertificateArn: "STRING_VALUE", // required

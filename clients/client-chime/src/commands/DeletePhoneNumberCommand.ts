@@ -39,6 +39,8 @@ export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ChimeClient, DeletePhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeletePhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // DeletePhoneNumberRequest
  *   PhoneNumberId: "STRING_VALUE", // required

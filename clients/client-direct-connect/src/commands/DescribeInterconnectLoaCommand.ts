@@ -42,6 +42,8 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  * ```javascript
  * import { DirectConnectClient, DescribeInterconnectLoaCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeInterconnectLoaCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
+ * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
  * const input = { // DescribeInterconnectLoaRequest
  *   interconnectId: "STRING_VALUE", // required

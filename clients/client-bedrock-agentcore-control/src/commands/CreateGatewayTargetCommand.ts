@@ -37,12 +37,14 @@ export interface CreateGatewayTargetCommandInput extends CreateGatewayTargetRequ
 export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a target for a gateway. A target defines an endpoint that the gateway can connect to.</p> <p>To create a target, you must specify the gateway identifier and target configuration.</p>
+ * <p>Creates a target for a gateway. A target defines an endpoint that the gateway can connect to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, CreateGatewayTargetCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, CreateGatewayTargetCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // CreateGatewayTargetRequest
  *   gatewayIdentifier: "STRING_VALUE", // required

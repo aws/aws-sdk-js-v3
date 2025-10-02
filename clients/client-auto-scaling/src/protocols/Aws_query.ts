@@ -3430,6 +3430,9 @@ const se_CancelInstanceRefreshType = (input: CancelInstanceRefreshType, context:
   if (input[_ASGN] != null) {
     entries[_ASGN] = input[_ASGN];
   }
+  if (input[_WFTI] != null) {
+    entries[_WFTI] = input[_WFTI];
+  }
   return entries;
 };
 
@@ -6738,7 +6741,7 @@ const de_Activities = (output: any, context: __SerdeContext): Activity[] => {
  */
 const de_ActivitiesType = (output: any, context: __SerdeContext): ActivitiesType => {
   const contents: any = {};
-  if (output.Activities === "") {
+  if (String(output.Activities).trim() === "") {
     contents[_Ac] = [];
   } else if (output[_Ac] != null && output[_Ac][_me] != null) {
     contents[_Ac] = de_Activities(__getArrayIfSingleItem(output[_Ac][_me]), context);
@@ -6867,7 +6870,7 @@ const de_Alarms = (output: any, context: __SerdeContext): Alarm[] => {
  */
 const de_AlarmSpecification = (output: any, context: __SerdeContext): AlarmSpecification => {
   const contents: any = {};
-  if (output.Alarms === "") {
+  if (String(output.Alarms).trim() === "") {
     contents[_Al] = [];
   } else if (output[_Al] != null && output[_Al][_me] != null) {
     contents[_Al] = de_AlarmList(__getArrayIfSingleItem(output[_Al][_me]), context);
@@ -6959,17 +6962,17 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
   if (output[_DCe] != null) {
     contents[_DCe] = __strictParseInt32(output[_DCe]) as number;
   }
-  if (output.AvailabilityZones === "") {
+  if (String(output.AvailabilityZones).trim() === "") {
     contents[_AZ] = [];
   } else if (output[_AZ] != null && output[_AZ][_me] != null) {
     contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_me]), context);
   }
-  if (output.LoadBalancerNames === "") {
+  if (String(output.LoadBalancerNames).trim() === "") {
     contents[_LBN] = [];
   } else if (output[_LBN] != null && output[_LBN][_me] != null) {
     contents[_LBN] = de_LoadBalancerNames(__getArrayIfSingleItem(output[_LBN][_me]), context);
   }
-  if (output.TargetGroupARNs === "") {
+  if (String(output.TargetGroupARNs).trim() === "") {
     contents[_TGARN] = [];
   } else if (output[_TGARN] != null && output[_TGARN][_me] != null) {
     contents[_TGARN] = de_TargetGroupARNs(__getArrayIfSingleItem(output[_TGARN][_me]), context);
@@ -6980,7 +6983,7 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
   if (output[_HCGP] != null) {
     contents[_HCGP] = __strictParseInt32(output[_HCGP]) as number;
   }
-  if (output.Instances === "") {
+  if (String(output.Instances).trim() === "") {
     contents[_In] = [];
   } else if (output[_In] != null && output[_In][_me] != null) {
     contents[_In] = de_Instances(__getArrayIfSingleItem(output[_In][_me]), context);
@@ -6988,7 +6991,7 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
   if (output[_CT] != null) {
     contents[_CT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CT]));
   }
-  if (output.SuspendedProcesses === "") {
+  if (String(output.SuspendedProcesses).trim() === "") {
     contents[_SPu] = [];
   } else if (output[_SPu] != null && output[_SPu][_me] != null) {
     contents[_SPu] = de_SuspendedProcesses(__getArrayIfSingleItem(output[_SPu][_me]), context);
@@ -6999,7 +7002,7 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
   if (output[_VPCZI] != null) {
     contents[_VPCZI] = __expectString(output[_VPCZI]);
   }
-  if (output.EnabledMetrics === "") {
+  if (String(output.EnabledMetrics).trim() === "") {
     contents[_EM] = [];
   } else if (output[_EM] != null && output[_EM][_me] != null) {
     contents[_EM] = de_EnabledMetrics(__getArrayIfSingleItem(output[_EM][_me]), context);
@@ -7007,12 +7010,12 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
   if (output[_Sta] != null) {
     contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_T] = [];
   } else if (output[_T] != null && output[_T][_me] != null) {
     contents[_T] = de_TagDescriptionList(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output.TerminationPolicies === "") {
+  if (String(output.TerminationPolicies).trim() === "") {
     contents[_TP] = [];
   } else if (output[_TP] != null && output[_TP][_me] != null) {
     contents[_TP] = de_TerminationPolicies(__getArrayIfSingleItem(output[_TP][_me]), context);
@@ -7044,7 +7047,7 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
   if (output[_DIW] != null) {
     contents[_DIW] = __strictParseInt32(output[_DIW]) as number;
   }
-  if (output.TrafficSources === "") {
+  if (String(output.TrafficSources).trim() === "") {
     contents[_TS] = [];
   } else if (output[_TS] != null && output[_TS][_me] != null) {
     contents[_TS] = de_TrafficSources(__getArrayIfSingleItem(output[_TS][_me]), context);
@@ -7080,7 +7083,7 @@ const de_AutoScalingGroups = (output: any, context: __SerdeContext): AutoScaling
  */
 const de_AutoScalingGroupsType = (output: any, context: __SerdeContext): AutoScalingGroupsType => {
   const contents: any = {};
-  if (output.AutoScalingGroups === "") {
+  if (String(output.AutoScalingGroups).trim() === "") {
     contents[_ASG] = [];
   } else if (output[_ASG] != null && output[_ASG][_me] != null) {
     contents[_ASG] = de_AutoScalingGroups(__getArrayIfSingleItem(output[_ASG][_me]), context);
@@ -7145,7 +7148,7 @@ const de_AutoScalingInstances = (output: any, context: __SerdeContext): AutoScal
  */
 const de_AutoScalingInstancesType = (output: any, context: __SerdeContext): AutoScalingInstancesType => {
   const contents: any = {};
-  if (output.AutoScalingInstances === "") {
+  if (String(output.AutoScalingInstances).trim() === "") {
     contents[_ASI] = [];
   } else if (output[_ASI] != null && output[_ASI][_me] != null) {
     contents[_ASI] = de_AutoScalingInstances(__getArrayIfSingleItem(output[_ASI][_me]), context);
@@ -7242,7 +7245,7 @@ const de_BatchDeleteScheduledActionAnswer = (
   context: __SerdeContext
 ): BatchDeleteScheduledActionAnswer => {
   const contents: any = {};
-  if (output.FailedScheduledActions === "") {
+  if (String(output.FailedScheduledActions).trim() === "") {
     contents[_FSA] = [];
   } else if (output[_FSA] != null && output[_FSA][_me] != null) {
     contents[_FSA] = de_FailedScheduledUpdateGroupActionRequests(__getArrayIfSingleItem(output[_FSA][_me]), context);
@@ -7258,7 +7261,7 @@ const de_BatchPutScheduledUpdateGroupActionAnswer = (
   context: __SerdeContext
 ): BatchPutScheduledUpdateGroupActionAnswer => {
   const contents: any = {};
-  if (output.FailedScheduledUpdateGroupActions === "") {
+  if (String(output.FailedScheduledUpdateGroupActions).trim() === "") {
     contents[_FSUGA] = [];
   } else if (output[_FSUGA] != null && output[_FSUGA][_me] != null) {
     contents[_FSUGA] = de_FailedScheduledUpdateGroupActionRequests(
@@ -7316,12 +7319,12 @@ const de_CancelInstanceRefreshAnswer = (output: any, context: __SerdeContext): C
  */
 const de_CapacityForecast = (output: any, context: __SerdeContext): CapacityForecast => {
   const contents: any = {};
-  if (output.Timestamps === "") {
+  if (String(output.Timestamps).trim() === "") {
     contents[_Tim] = [];
   } else if (output[_Tim] != null && output[_Tim][_me] != null) {
     contents[_Tim] = de_PredictiveScalingForecastTimestamps(__getArrayIfSingleItem(output[_Tim][_me]), context);
   }
-  if (output.Values === "") {
+  if (String(output.Values).trim() === "") {
     contents[_Va] = [];
   } else if (output[_Va] != null && output[_Va][_me] != null) {
     contents[_Va] = de_PredictiveScalingForecastValues(__getArrayIfSingleItem(output[_Va][_me]), context);
@@ -7373,12 +7376,12 @@ const de_CapacityReservationSpecification = (
  */
 const de_CapacityReservationTarget = (output: any, context: __SerdeContext): CapacityReservationTarget => {
   const contents: any = {};
-  if (output.CapacityReservationIds === "") {
+  if (String(output.CapacityReservationIds).trim() === "") {
     contents[_CRI] = [];
   } else if (output[_CRI] != null && output[_CRI][_me] != null) {
     contents[_CRI] = de_CapacityReservationIds(__getArrayIfSingleItem(output[_CRI][_me]), context);
   }
-  if (output.CapacityReservationResourceGroupArns === "") {
+  if (String(output.CapacityReservationResourceGroupArns).trim() === "") {
     contents[_CRRGA] = [];
   } else if (output[_CRRGA] != null && output[_CRRGA][_me] != null) {
     contents[_CRRGA] = de_CapacityReservationResourceGroupArns(__getArrayIfSingleItem(output[_CRRGA][_me]), context);
@@ -7432,7 +7435,7 @@ const de_CpuManufacturers = (output: any, context: __SerdeContext): CpuManufactu
  */
 const de_CpuPerformanceFactorRequest = (output: any, context: __SerdeContext): CpuPerformanceFactorRequest => {
   const contents: any = {};
-  if (output.Reference === "") {
+  if (String(output.Reference).trim() === "") {
     contents[_R] = [];
   } else if (output[_Ref] != null && output[_Ref][_i] != null) {
     contents[_R] = de_PerformanceFactorReferenceSetRequest(__getArrayIfSingleItem(output[_Ref][_i]), context);
@@ -7451,7 +7454,7 @@ const de_CustomizedMetricSpecification = (output: any, context: __SerdeContext):
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
   }
-  if (output.Dimensions === "") {
+  if (String(output.Dimensions).trim() === "") {
     contents[_D] = [];
   } else if (output[_D] != null && output[_D][_me] != null) {
     contents[_D] = de_MetricDimensions(__getArrayIfSingleItem(output[_D][_me]), context);
@@ -7465,7 +7468,7 @@ const de_CustomizedMetricSpecification = (output: any, context: __SerdeContext):
   if (output[_P] != null) {
     contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output.Metrics === "") {
+  if (String(output.Metrics).trim() === "") {
     contents[_Me] = [];
   } else if (output[_Me] != null && output[_Me][_me] != null) {
     contents[_Me] = de_TargetTrackingMetricDataQueries(__getArrayIfSingleItem(output[_Me][_me]), context);
@@ -7514,7 +7517,7 @@ const de_DescribeAccountLimitsAnswer = (output: any, context: __SerdeContext): D
  */
 const de_DescribeAdjustmentTypesAnswer = (output: any, context: __SerdeContext): DescribeAdjustmentTypesAnswer => {
   const contents: any = {};
-  if (output.AdjustmentTypes === "") {
+  if (String(output.AdjustmentTypes).trim() === "") {
     contents[_ATdj] = [];
   } else if (output[_ATdj] != null && output[_ATdj][_me] != null) {
     contents[_ATdj] = de_AdjustmentTypes(__getArrayIfSingleItem(output[_ATdj][_me]), context);
@@ -7530,7 +7533,7 @@ const de_DescribeAutoScalingNotificationTypesAnswer = (
   context: __SerdeContext
 ): DescribeAutoScalingNotificationTypesAnswer => {
   const contents: any = {};
-  if (output.AutoScalingNotificationTypes === "") {
+  if (String(output.AutoScalingNotificationTypes).trim() === "") {
     contents[_ASNT] = [];
   } else if (output[_ASNT] != null && output[_ASNT][_me] != null) {
     contents[_ASNT] = de_AutoScalingNotificationTypes(__getArrayIfSingleItem(output[_ASNT][_me]), context);
@@ -7543,7 +7546,7 @@ const de_DescribeAutoScalingNotificationTypesAnswer = (
  */
 const de_DescribeInstanceRefreshesAnswer = (output: any, context: __SerdeContext): DescribeInstanceRefreshesAnswer => {
   const contents: any = {};
-  if (output.InstanceRefreshes === "") {
+  if (String(output.InstanceRefreshes).trim() === "") {
     contents[_IRn] = [];
   } else if (output[_IRn] != null && output[_IRn][_me] != null) {
     contents[_IRn] = de_InstanceRefreshes(__getArrayIfSingleItem(output[_IRn][_me]), context);
@@ -7559,7 +7562,7 @@ const de_DescribeInstanceRefreshesAnswer = (output: any, context: __SerdeContext
  */
 const de_DescribeLifecycleHooksAnswer = (output: any, context: __SerdeContext): DescribeLifecycleHooksAnswer => {
   const contents: any = {};
-  if (output.LifecycleHooks === "") {
+  if (String(output.LifecycleHooks).trim() === "") {
     contents[_LH] = [];
   } else if (output[_LH] != null && output[_LH][_me] != null) {
     contents[_LH] = de_LifecycleHooks(__getArrayIfSingleItem(output[_LH][_me]), context);
@@ -7575,7 +7578,7 @@ const de_DescribeLifecycleHookTypesAnswer = (
   context: __SerdeContext
 ): DescribeLifecycleHookTypesAnswer => {
   const contents: any = {};
-  if (output.LifecycleHookTypes === "") {
+  if (String(output.LifecycleHookTypes).trim() === "") {
     contents[_LHT] = [];
   } else if (output[_LHT] != null && output[_LHT][_me] != null) {
     contents[_LHT] = de_AutoScalingNotificationTypes(__getArrayIfSingleItem(output[_LHT][_me]), context);
@@ -7588,7 +7591,7 @@ const de_DescribeLifecycleHookTypesAnswer = (
  */
 const de_DescribeLoadBalancersResponse = (output: any, context: __SerdeContext): DescribeLoadBalancersResponse => {
   const contents: any = {};
-  if (output.LoadBalancers === "") {
+  if (String(output.LoadBalancers).trim() === "") {
     contents[_LB] = [];
   } else if (output[_LB] != null && output[_LB][_me] != null) {
     contents[_LB] = de_LoadBalancerStates(__getArrayIfSingleItem(output[_LB][_me]), context);
@@ -7607,7 +7610,7 @@ const de_DescribeLoadBalancerTargetGroupsResponse = (
   context: __SerdeContext
 ): DescribeLoadBalancerTargetGroupsResponse => {
   const contents: any = {};
-  if (output.LoadBalancerTargetGroups === "") {
+  if (String(output.LoadBalancerTargetGroups).trim() === "") {
     contents[_LBTG] = [];
   } else if (output[_LBTG] != null && output[_LBTG][_me] != null) {
     contents[_LBTG] = de_LoadBalancerTargetGroupStates(__getArrayIfSingleItem(output[_LBTG][_me]), context);
@@ -7626,12 +7629,12 @@ const de_DescribeMetricCollectionTypesAnswer = (
   context: __SerdeContext
 ): DescribeMetricCollectionTypesAnswer => {
   const contents: any = {};
-  if (output.Metrics === "") {
+  if (String(output.Metrics).trim() === "") {
     contents[_Me] = [];
   } else if (output[_Me] != null && output[_Me][_me] != null) {
     contents[_Me] = de_MetricCollectionTypes(__getArrayIfSingleItem(output[_Me][_me]), context);
   }
-  if (output.Granularities === "") {
+  if (String(output.Granularities).trim() === "") {
     contents[_Gr] = [];
   } else if (output[_Gr] != null && output[_Gr][_me] != null) {
     contents[_Gr] = de_MetricGranularityTypes(__getArrayIfSingleItem(output[_Gr][_me]), context);
@@ -7647,7 +7650,7 @@ const de_DescribeNotificationConfigurationsAnswer = (
   context: __SerdeContext
 ): DescribeNotificationConfigurationsAnswer => {
   const contents: any = {};
-  if (output.NotificationConfigurations === "") {
+  if (String(output.NotificationConfigurations).trim() === "") {
     contents[_NC] = [];
   } else if (output[_NC] != null && output[_NC][_me] != null) {
     contents[_NC] = de_NotificationConfigurations(__getArrayIfSingleItem(output[_NC][_me]), context);
@@ -7666,7 +7669,7 @@ const de_DescribeTerminationPolicyTypesAnswer = (
   context: __SerdeContext
 ): DescribeTerminationPolicyTypesAnswer => {
   const contents: any = {};
-  if (output.TerminationPolicyTypes === "") {
+  if (String(output.TerminationPolicyTypes).trim() === "") {
     contents[_TPT] = [];
   } else if (output[_TPT] != null && output[_TPT][_me] != null) {
     contents[_TPT] = de_TerminationPolicies(__getArrayIfSingleItem(output[_TPT][_me]), context);
@@ -7679,7 +7682,7 @@ const de_DescribeTerminationPolicyTypesAnswer = (
  */
 const de_DescribeTrafficSourcesResponse = (output: any, context: __SerdeContext): DescribeTrafficSourcesResponse => {
   const contents: any = {};
-  if (output.TrafficSources === "") {
+  if (String(output.TrafficSources).trim() === "") {
     contents[_TS] = [];
   } else if (output[_TS] != null && output[_TS][_me] != null) {
     contents[_TS] = de_TrafficSourceStates(__getArrayIfSingleItem(output[_TS][_me]), context);
@@ -7698,7 +7701,7 @@ const de_DescribeWarmPoolAnswer = (output: any, context: __SerdeContext): Descri
   if (output[_WPC] != null) {
     contents[_WPC] = de_WarmPoolConfiguration(output[_WPC], context);
   }
-  if (output.Instances === "") {
+  if (String(output.Instances).trim() === "") {
     contents[_In] = [];
   } else if (output[_In] != null && output[_In][_me] != null) {
     contents[_In] = de_Instances(__getArrayIfSingleItem(output[_In][_me]), context);
@@ -7728,7 +7731,7 @@ const de_DesiredConfiguration = (output: any, context: __SerdeContext): DesiredC
  */
 const de_DetachInstancesAnswer = (output: any, context: __SerdeContext): DetachInstancesAnswer => {
   const contents: any = {};
-  if (output.Activities === "") {
+  if (String(output.Activities).trim() === "") {
     contents[_Ac] = [];
   } else if (output[_Ac] != null && output[_Ac][_me] != null) {
     contents[_Ac] = de_Activities(__getArrayIfSingleItem(output[_Ac][_me]), context);
@@ -7822,7 +7825,7 @@ const de_EnabledMetrics = (output: any, context: __SerdeContext): EnabledMetric[
  */
 const de_EnterStandbyAnswer = (output: any, context: __SerdeContext): EnterStandbyAnswer => {
   const contents: any = {};
-  if (output.Activities === "") {
+  if (String(output.Activities).trim() === "") {
     contents[_Ac] = [];
   } else if (output[_Ac] != null && output[_Ac][_me] != null) {
     contents[_Ac] = de_Activities(__getArrayIfSingleItem(output[_Ac][_me]), context);
@@ -7846,7 +7849,7 @@ const de_ExcludedInstanceTypes = (output: any, context: __SerdeContext): string[
  */
 const de_ExitStandbyAnswer = (output: any, context: __SerdeContext): ExitStandbyAnswer => {
   const contents: any = {};
-  if (output.Activities === "") {
+  if (String(output.Activities).trim() === "") {
     contents[_Ac] = [];
   } else if (output[_Ac] != null && output[_Ac][_me] != null) {
     contents[_Ac] = de_Activities(__getArrayIfSingleItem(output[_Ac][_me]), context);
@@ -7896,7 +7899,7 @@ const de_GetPredictiveScalingForecastAnswer = (
   context: __SerdeContext
 ): GetPredictiveScalingForecastAnswer => {
   const contents: any = {};
-  if (output.LoadForecast === "") {
+  if (String(output.LoadForecast).trim() === "") {
     contents[_LF] = [];
   } else if (output[_LF] != null && output[_LF][_me] != null) {
     contents[_LF] = de_LoadForecasts(__getArrayIfSingleItem(output[_LF][_me]), context);
@@ -8117,7 +8120,7 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_MMB] != null) {
     contents[_MMB] = de_MemoryMiBRequest(output[_MMB], context);
   }
-  if (output.CpuManufacturers === "") {
+  if (String(output.CpuManufacturers).trim() === "") {
     contents[_CM] = [];
   } else if (output[_CM] != null && output[_CM][_me] != null) {
     contents[_CM] = de_CpuManufacturers(__getArrayIfSingleItem(output[_CM][_me]), context);
@@ -8125,12 +8128,12 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_MGBPVC] != null) {
     contents[_MGBPVC] = de_MemoryGiBPerVCpuRequest(output[_MGBPVC], context);
   }
-  if (output.ExcludedInstanceTypes === "") {
+  if (String(output.ExcludedInstanceTypes).trim() === "") {
     contents[_EIT] = [];
   } else if (output[_EIT] != null && output[_EIT][_me] != null) {
     contents[_EIT] = de_ExcludedInstanceTypes(__getArrayIfSingleItem(output[_EIT][_me]), context);
   }
-  if (output.InstanceGenerations === "") {
+  if (String(output.InstanceGenerations).trim() === "") {
     contents[_IG] = [];
   } else if (output[_IG] != null && output[_IG][_me] != null) {
     contents[_IG] = de_InstanceGenerations(__getArrayIfSingleItem(output[_IG][_me]), context);
@@ -8159,7 +8162,7 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_LS] != null) {
     contents[_LS] = __expectString(output[_LS]);
   }
-  if (output.LocalStorageTypes === "") {
+  if (String(output.LocalStorageTypes).trim() === "") {
     contents[_LST] = [];
   } else if (output[_LST] != null && output[_LST][_me] != null) {
     contents[_LST] = de_LocalStorageTypes(__getArrayIfSingleItem(output[_LST][_me]), context);
@@ -8170,7 +8173,7 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_BEBM] != null) {
     contents[_BEBM] = de_BaselineEbsBandwidthMbpsRequest(output[_BEBM], context);
   }
-  if (output.AcceleratorTypes === "") {
+  if (String(output.AcceleratorTypes).trim() === "") {
     contents[_AT] = [];
   } else if (output[_AT] != null && output[_AT][_me] != null) {
     contents[_AT] = de_AcceleratorTypes(__getArrayIfSingleItem(output[_AT][_me]), context);
@@ -8178,12 +8181,12 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_AC] != null) {
     contents[_AC] = de_AcceleratorCountRequest(output[_AC], context);
   }
-  if (output.AcceleratorManufacturers === "") {
+  if (String(output.AcceleratorManufacturers).trim() === "") {
     contents[_AM] = [];
   } else if (output[_AM] != null && output[_AM][_me] != null) {
     contents[_AM] = de_AcceleratorManufacturers(__getArrayIfSingleItem(output[_AM][_me]), context);
   }
-  if (output.AcceleratorNames === "") {
+  if (String(output.AcceleratorNames).trim() === "") {
     contents[_AN] = [];
   } else if (output[_AN] != null && output[_AN][_me] != null) {
     contents[_AN] = de_AcceleratorNames(__getArrayIfSingleItem(output[_AN][_me]), context);
@@ -8194,7 +8197,7 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_NBG] != null) {
     contents[_NBG] = de_NetworkBandwidthGbpsRequest(output[_NBG], context);
   }
-  if (output.AllowedInstanceTypes === "") {
+  if (String(output.AllowedInstanceTypes).trim() === "") {
     contents[_AIT] = [];
   } else if (output[_AIT] != null && output[_AIT][_me] != null) {
     contents[_AIT] = de_AllowedInstanceTypes(__getArrayIfSingleItem(output[_AIT][_me]), context);
@@ -8295,7 +8298,7 @@ const de_LaunchConfiguration = (output: any, context: __SerdeContext): LaunchCon
   if (output[_KN] != null) {
     contents[_KN] = __expectString(output[_KN]);
   }
-  if (output.SecurityGroups === "") {
+  if (String(output.SecurityGroups).trim() === "") {
     contents[_SG] = [];
   } else if (output[_SG] != null && output[_SG][_me] != null) {
     contents[_SG] = de_SecurityGroups(__getArrayIfSingleItem(output[_SG][_me]), context);
@@ -8303,7 +8306,7 @@ const de_LaunchConfiguration = (output: any, context: __SerdeContext): LaunchCon
   if (output[_CLVPCI] != null) {
     contents[_CLVPCI] = __expectString(output[_CLVPCI]);
   }
-  if (output.ClassicLinkVPCSecurityGroups === "") {
+  if (String(output.ClassicLinkVPCSecurityGroups).trim() === "") {
     contents[_CLVPCSG] = [];
   } else if (output[_CLVPCSG] != null && output[_CLVPCSG][_me] != null) {
     contents[_CLVPCSG] = de_ClassicLinkVPCSecurityGroups(__getArrayIfSingleItem(output[_CLVPCSG][_me]), context);
@@ -8320,7 +8323,7 @@ const de_LaunchConfiguration = (output: any, context: __SerdeContext): LaunchCon
   if (output[_RI] != null) {
     contents[_RI] = __expectString(output[_RI]);
   }
-  if (output.BlockDeviceMappings === "") {
+  if (String(output.BlockDeviceMappings).trim() === "") {
     contents[_BDM] = [];
   } else if (output[_BDM] != null && output[_BDM][_me] != null) {
     contents[_BDM] = de_BlockDeviceMappings(__getArrayIfSingleItem(output[_BDM][_me]), context);
@@ -8368,7 +8371,7 @@ const de_LaunchConfigurations = (output: any, context: __SerdeContext): LaunchCo
  */
 const de_LaunchConfigurationsType = (output: any, context: __SerdeContext): LaunchConfigurationsType => {
   const contents: any = {};
-  if (output.LaunchConfigurations === "") {
+  if (String(output.LaunchConfigurations).trim() === "") {
     contents[_LC] = [];
   } else if (output[_LC] != null && output[_LC][_me] != null) {
     contents[_LC] = de_LaunchConfigurations(__getArrayIfSingleItem(output[_LC][_me]), context);
@@ -8387,7 +8390,7 @@ const de_LaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate
   if (output[_LTS] != null) {
     contents[_LTS] = de_LaunchTemplateSpecification(output[_LTS], context);
   }
-  if (output.Overrides === "") {
+  if (String(output.Overrides).trim() === "") {
     contents[_O] = [];
   } else if (output[_O] != null && output[_O][_me] != null) {
     contents[_O] = de_Overrides(__getArrayIfSingleItem(output[_O][_me]), context);
@@ -8555,12 +8558,12 @@ const de_LoadBalancerTargetGroupStates = (output: any, context: __SerdeContext):
  */
 const de_LoadForecast = (output: any, context: __SerdeContext): LoadForecast => {
   const contents: any = {};
-  if (output.Timestamps === "") {
+  if (String(output.Timestamps).trim() === "") {
     contents[_Tim] = [];
   } else if (output[_Tim] != null && output[_Tim][_me] != null) {
     contents[_Tim] = de_PredictiveScalingForecastTimestamps(__getArrayIfSingleItem(output[_Tim][_me]), context);
   }
-  if (output.Values === "") {
+  if (String(output.Values).trim() === "") {
     contents[_Va] = [];
   } else if (output[_Va] != null && output[_Va][_me] != null) {
     contents[_Va] = de_PredictiveScalingForecastValues(__getArrayIfSingleItem(output[_Va][_me]), context);
@@ -8632,7 +8635,7 @@ const de_Metric = (output: any, context: __SerdeContext): Metric => {
   if (output[_MN] != null) {
     contents[_MN] = __expectString(output[_MN]);
   }
-  if (output.Dimensions === "") {
+  if (String(output.Dimensions).trim() === "") {
     contents[_D] = [];
   } else if (output[_D] != null && output[_D][_me] != null) {
     contents[_D] = de_MetricDimensions(__getArrayIfSingleItem(output[_D][_me]), context);
@@ -8874,7 +8877,7 @@ const de_PerformanceFactorReferenceSetRequest = (
  */
 const de_PoliciesType = (output: any, context: __SerdeContext): PoliciesType => {
   const contents: any = {};
-  if (output.ScalingPolicies === "") {
+  if (String(output.ScalingPolicies).trim() === "") {
     contents[_SPca] = [];
   } else if (output[_SPca] != null && output[_SPca][_me] != null) {
     contents[_SPca] = de_ScalingPolicies(__getArrayIfSingleItem(output[_SPca][_me]), context);
@@ -8893,7 +8896,7 @@ const de_PolicyARNType = (output: any, context: __SerdeContext): PolicyARNType =
   if (output[_PARN] != null) {
     contents[_PARN] = __expectString(output[_PARN]);
   }
-  if (output.Alarms === "") {
+  if (String(output.Alarms).trim() === "") {
     contents[_Al] = [];
   } else if (output[_Al] != null && output[_Al][_me] != null) {
     contents[_Al] = de_Alarms(__getArrayIfSingleItem(output[_Al][_me]), context);
@@ -8920,7 +8923,7 @@ const de_PredefinedMetricSpecification = (output: any, context: __SerdeContext):
  */
 const de_PredictiveScalingConfiguration = (output: any, context: __SerdeContext): PredictiveScalingConfiguration => {
   const contents: any = {};
-  if (output.MetricSpecifications === "") {
+  if (String(output.MetricSpecifications).trim() === "") {
     contents[_MSet] = [];
   } else if (output[_MSet] != null && output[_MSet][_me] != null) {
     contents[_MSet] = de_PredictiveScalingMetricSpecifications(__getArrayIfSingleItem(output[_MSet][_me]), context);
@@ -8948,7 +8951,7 @@ const de_PredictiveScalingCustomizedCapacityMetric = (
   context: __SerdeContext
 ): PredictiveScalingCustomizedCapacityMetric => {
   const contents: any = {};
-  if (output.MetricDataQueries === "") {
+  if (String(output.MetricDataQueries).trim() === "") {
     contents[_MDQ] = [];
   } else if (output[_MDQ] != null && output[_MDQ][_me] != null) {
     contents[_MDQ] = de_MetricDataQueries(__getArrayIfSingleItem(output[_MDQ][_me]), context);
@@ -8964,7 +8967,7 @@ const de_PredictiveScalingCustomizedLoadMetric = (
   context: __SerdeContext
 ): PredictiveScalingCustomizedLoadMetric => {
   const contents: any = {};
-  if (output.MetricDataQueries === "") {
+  if (String(output.MetricDataQueries).trim() === "") {
     contents[_MDQ] = [];
   } else if (output[_MDQ] != null && output[_MDQ][_me] != null) {
     contents[_MDQ] = de_MetricDataQueries(__getArrayIfSingleItem(output[_MDQ][_me]), context);
@@ -8980,7 +8983,7 @@ const de_PredictiveScalingCustomizedScalingMetric = (
   context: __SerdeContext
 ): PredictiveScalingCustomizedScalingMetric => {
   const contents: any = {};
-  if (output.MetricDataQueries === "") {
+  if (String(output.MetricDataQueries).trim() === "") {
     contents[_MDQ] = [];
   } else if (output[_MDQ] != null && output[_MDQ][_me] != null) {
     contents[_MDQ] = de_MetricDataQueries(__getArrayIfSingleItem(output[_MDQ][_me]), context);
@@ -9123,7 +9126,7 @@ const de_Processes = (output: any, context: __SerdeContext): ProcessType[] => {
  */
 const de_ProcessesType = (output: any, context: __SerdeContext): ProcessesType => {
   const contents: any = {};
-  if (output.Processes === "") {
+  if (String(output.Processes).trim() === "") {
     contents[_Proc] = [];
   } else if (output[_Proc] != null && output[_Proc][_me] != null) {
     contents[_Proc] = de_Processes(__getArrayIfSingleItem(output[_Proc][_me]), context);
@@ -9180,7 +9183,7 @@ const de_RefreshPreferences = (output: any, context: __SerdeContext): RefreshPre
   if (output[_IW] != null) {
     contents[_IW] = __strictParseInt32(output[_IW]) as number;
   }
-  if (output.CheckpointPercentages === "") {
+  if (String(output.CheckpointPercentages).trim() === "") {
     contents[_CP] = [];
   } else if (output[_CP] != null && output[_CP][_me] != null) {
     contents[_CP] = de_CheckpointPercentages(__getArrayIfSingleItem(output[_CP][_me]), context);
@@ -9322,7 +9325,7 @@ const de_ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy =
   if (output[_Coo] != null) {
     contents[_Coo] = __strictParseInt32(output[_Coo]) as number;
   }
-  if (output.StepAdjustments === "") {
+  if (String(output.StepAdjustments).trim() === "") {
     contents[_SAt] = [];
   } else if (output[_SAt] != null && output[_SAt][_me] != null) {
     contents[_SAt] = de_StepAdjustments(__getArrayIfSingleItem(output[_SAt][_me]), context);
@@ -9333,7 +9336,7 @@ const de_ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy =
   if (output[_EIW] != null) {
     contents[_EIW] = __strictParseInt32(output[_EIW]) as number;
   }
-  if (output.Alarms === "") {
+  if (String(output.Alarms).trim() === "") {
     contents[_Al] = [];
   } else if (output[_Al] != null && output[_Al][_me] != null) {
     contents[_Al] = de_Alarms(__getArrayIfSingleItem(output[_Al][_me]), context);
@@ -9355,7 +9358,7 @@ const de_ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy =
  */
 const de_ScheduledActionsType = (output: any, context: __SerdeContext): ScheduledActionsType => {
   const contents: any = {};
-  if (output.ScheduledUpdateGroupActions === "") {
+  if (String(output.ScheduledUpdateGroupActions).trim() === "") {
     contents[_SUGA] = [];
   } else if (output[_SUGA] != null && output[_SUGA][_me] != null) {
     contents[_SUGA] = de_ScheduledUpdateGroupActions(__getArrayIfSingleItem(output[_SUGA][_me]), context);
@@ -9551,7 +9554,7 @@ const de_TagDescriptionList = (output: any, context: __SerdeContext): TagDescrip
  */
 const de_TagsType = (output: any, context: __SerdeContext): TagsType => {
   const contents: any = {};
-  if (output.Tags === "") {
+  if (String(output.Tags).trim() === "") {
     contents[_T] = [];
   } else if (output[_T] != null && output[_T][_me] != null) {
     contents[_T] = de_TagDescriptionList(__getArrayIfSingleItem(output[_T][_me]), context);
@@ -10180,6 +10183,7 @@ const _VT = "VolumeType";
 const _Va = "Values";
 const _Val = "Value";
 const _WC = "WeightedCapacity";
+const _WFTI = "WaitForTransitioningInstances";
 const _WPC = "WarmPoolConfiguration";
 const _WPP = "WarmPoolProgress";
 const _WPS = "WarmPoolSize";

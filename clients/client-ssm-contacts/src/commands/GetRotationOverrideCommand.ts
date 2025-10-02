@@ -34,6 +34,8 @@ export interface GetRotationOverrideCommandOutput extends GetRotationOverrideRes
  * ```javascript
  * import { SSMContactsClient, GetRotationOverrideCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, GetRotationOverrideCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // import type { SSMContactsClientConfig } from "@aws-sdk/client-ssm-contacts";
+ * const config = {}; // type is SSMContactsClientConfig
  * const client = new SSMContactsClient(config);
  * const input = { // GetRotationOverrideRequest
  *   RotationId: "STRING_VALUE", // required

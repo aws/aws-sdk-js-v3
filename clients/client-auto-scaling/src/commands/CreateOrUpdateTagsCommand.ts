@@ -38,6 +38,8 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AutoScalingClient, CreateOrUpdateTagsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CreateOrUpdateTagsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // CreateOrUpdateTagsType
  *   Tags: [ // Tags // required

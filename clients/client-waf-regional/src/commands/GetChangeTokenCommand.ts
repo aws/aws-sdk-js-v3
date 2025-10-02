@@ -48,6 +48,8 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * ```javascript
  * import { WAFRegionalClient, GetChangeTokenCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetChangeTokenCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = {};
  * const command = new GetChangeTokenCommand(input);

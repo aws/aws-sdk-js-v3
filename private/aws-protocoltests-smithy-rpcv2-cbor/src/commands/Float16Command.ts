@@ -35,6 +35,8 @@ export interface Float16CommandOutput extends Float16Output, __MetadataBearer {}
  * ```javascript
  * import { RpcV2ProtocolClient, Float16Command } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor"; // ES Modules import
  * // const { RpcV2ProtocolClient, Float16Command } = require("@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor"); // CommonJS import
+ * // import type { RpcV2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor";
+ * const config = {}; // type is RpcV2ProtocolClientConfig
  * const client = new RpcV2ProtocolClient(config);
  * const input = {};
  * const command = new Float16Command(input);

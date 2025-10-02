@@ -1,10 +1,11 @@
+import { EventEmitter, Readable } from "stream";
 import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
+import { Progress, Upload } from "./index";
 
 /* eslint-disable no-var */
 var hostname = "s3.region.amazonaws.com";
 var port: number | undefined;
-
-import { EventEmitter, Readable } from "stream";
 
 vi.mock("@aws-sdk/client-s3", async () => {
   const sendMock = vi.fn().mockImplementation(async (x) => x);
@@ -73,12 +74,20 @@ import {
 } from "@aws-sdk/client-s3";
 import { AbortController } from "@smithy/abort-controller";
 
-import { Progress, Upload } from "./index";
-
 const DEFAULT_PART_SIZE = 1024 * 1024 * 5;
 
+type Expose = {
+  totalBytes: number | undefined;
+};
+type VisibleForTesting = Omit<Upload, keyof Expose> & Expose;
+
 describe(Upload.name, () => {
-  const s3MockInstance = new S3Client();
+  const s3MockInstance = new S3Client({
+    credentials: {
+      accessKeyId: "UNIT",
+      secretAccessKey: "UNIT",
+    },
+  });
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -106,6 +115,29 @@ describe(Upload.name, () => {
     Bucket: "example-bucket",
     Body: "this-is-a-sample-payload",
   };
+
+  it("uses the input parameters for object length if provided", async () => {
+    let upload = new Upload({
+      params: {
+        Bucket: "",
+        Key: "",
+        Body: Buffer.from("a".repeat(256)),
+        ContentLength: 6 * 1024 * 1024,
+      },
+      client: s3MockInstance,
+    }) as unknown as VisibleForTesting;
+    expect(upload.totalBytes).toEqual(6 * 1024 * 1024);
+
+    upload = new Upload({
+      params: {
+        Bucket: "",
+        Key: "",
+        Body: Buffer.from("a".repeat(256)),
+      },
+      client: s3MockInstance,
+    }) as unknown as VisibleForTesting;
+    expect(upload.totalBytes).toEqual(256);
+  });
 
   it("correctly exposes the event emitter API", () => {
     const upload = new Upload({
@@ -791,5 +823,250 @@ describe(Upload.name, () => {
     await expect(() => upload.done()).rejects.toEqual(
       new Error("@aws-sdk/lib-storage: this instance of Upload has already executed .done(). Create a new instance.")
     );
+  });
+
+  describe("Upload constructor options validation", () => {
+    it("should use custom queueSize when provided", () => {
+      const customQueueSize = 8;
+      const upload = new Upload({
+        params,
+        queueSize: customQueueSize,
+        client: new S3({}),
+      });
+
+      expect((upload as any).queueSize).toBe(customQueueSize);
+    });
+
+    it("should use default queueSize when not provided", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      expect((upload as any).queueSize).toBe(4); // Default value
+    });
+
+    it("should use custom partSize when provided", () => {
+      const customPartSize = 10 * 1024 * 1024; // 10MB
+      const upload = new Upload({
+        params,
+        partSize: customPartSize,
+        client: new S3({}),
+      });
+
+      expect((upload as any).partSize).toBe(customPartSize);
+    });
+
+    it("should calculate partSize based on body size when not provided", () => {
+      const largeBuffer = Buffer.from("#".repeat(100 * 1024 * 1024)); // 100MB
+      const upload = new Upload({
+        params: { ...params, Body: largeBuffer },
+        client: new S3({}),
+      });
+
+      // Should use calculated part size based on total size and MAX_PARTS
+      const MIN_PART_SIZE = 1024 * 1024 * 5; // 5MB - same as Upload.MIN_PART_SIZE
+      const expectedPartSize = Math.max(MIN_PART_SIZE, Math.floor(largeBuffer.length / 10_000));
+      expect((upload as any).partSize).toBe(expectedPartSize);
+    });
+
+    it("should use custom leavePartsOnError when provided", () => {
+      const upload = new Upload({
+        params,
+        leavePartsOnError: true,
+        client: new S3({}),
+      });
+
+      expect((upload as any).leavePartsOnError).toBe(true);
+    });
+
+    it("should use default leavePartsOnError when not provided", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      expect((upload as any).leavePartsOnError).toBe(false); // Default value
+    });
+
+    it("should use custom tags when provided", () => {
+      const customTags = [
+        { Key: "Environment", Value: "test" },
+        { Key: "Project", Value: "upload-test" },
+      ];
+      const upload = new Upload({
+        params,
+        tags: customTags,
+        client: new S3({}),
+      });
+
+      expect((upload as any).tags).toEqual(customTags);
+    });
+
+    it("should use empty tags array when not provided", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      expect((upload as any).tags).toEqual([]);
+    });
+
+    it("should use custom abortController when provided", () => {
+      const customAbortController = new AbortController();
+      const upload = new Upload({
+        params,
+        abortController: customAbortController,
+        client: new S3({}),
+      });
+
+      expect((upload as any).abortController).toBe(customAbortController);
+    });
+
+    it("should create default abortController when not provided", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      expect((upload as any).abortController).toBeInstanceOf(AbortController);
+    });
+
+    it("should calculate expectedPartsCount correctly when totalBytes is known", () => {
+      const buffer = Buffer.from("#".repeat(15 * 1024 * 1024)); // 15MB
+      const customPartSize = 5 * 1024 * 1024; // 5MB
+      const upload = new Upload({
+        params: { ...params, Body: buffer },
+        partSize: customPartSize,
+        client: new S3({}),
+      });
+
+      expect((upload as any).expectedPartsCount).toBe(3); // 15MB / 5MB = 3 parts
+    });
+
+    it("should validate required params", () => {
+      expect(() => {
+        new Upload({
+          params: null as any,
+          client: new S3({}),
+        });
+      }).toThrow("InputError: Upload requires params to be passed to upload.");
+    });
+
+    it("should validate required client", () => {
+      expect(() => {
+        new Upload({
+          params,
+          client: null as any,
+        });
+      }).toThrow("InputError: Upload requires a AWS client to do uploads with.");
+    });
+
+    it("should validate minimum partSize", () => {
+      expect(() => {
+        new Upload({
+          params,
+          partSize: 1024, // Too small
+          client: new S3({}),
+        });
+      }).toThrow(/EntityTooSmall: Your proposed upload part size/);
+    });
+
+    it("should validate minimum queueSize", () => {
+      expect(() => {
+        new Upload({
+          params,
+          queueSize: -1, // Invalid queue size
+          client: new S3({}),
+        });
+      }).toThrow("Queue size: Must have at least one uploading queue.");
+    });
+  });
+
+  describe("Upload Part and parts count validation", () => {
+    const MOCK_PART_SIZE = 1024 * 1024 * 5; // 5MB
+
+    it("should throw error when uploaded parts count doesn't match expected parts count", async () => {
+      const largeBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE * 2 + 100));
+      const upload = new Upload({
+        params: { ...params, Body: largeBuffer },
+        client: new S3({}),
+      });
+
+      (upload as any).__doConcurrentUpload = vi.fn().mockResolvedValue(undefined);
+
+      (upload as any).uploadedParts = [{ PartNumber: 1, ETag: "etag1" }];
+      (upload as any).isMultiPart = true;
+
+      await expect(upload.done()).rejects.toThrow(/Expected \d+ part\(s\) but uploaded \d+ part\(s\)\./);
+    });
+
+    it("should throw error when part size doesn't match expected size except for last part", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      const invalidPart = {
+        partNumber: 1,
+        data: Buffer.from("small"),
+        lastPart: false,
+      };
+
+      expect(() => {
+        (upload as any).__validateUploadPart(invalidPart);
+      }).toThrow(`The byte size for part number 1, size 5 does not match expected size ${MOCK_PART_SIZE}`);
+    });
+
+    it("should allow smaller size for last part", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      const lastPart = {
+        partNumber: 2,
+        data: Buffer.from("small"),
+        lastPart: true,
+      };
+
+      expect(() => {
+        (upload as any).__validateUploadPart(lastPart);
+      }).not.toThrow();
+    });
+
+    it("should throw error when part has zero content length", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      const emptyPart = {
+        partNumber: 1,
+        data: Buffer.from(""),
+        lastPart: false,
+      };
+
+      expect(() => {
+        (upload as any).__validateUploadPart(emptyPart);
+      }).toThrow(`The byte size for part number 1, size 0 does not match expected size ${MOCK_PART_SIZE}`);
+    });
+
+    it("should skip validation for single-part uploads", () => {
+      const upload = new Upload({
+        params,
+        client: new S3({}),
+      });
+
+      const singlePart = {
+        partNumber: 1,
+        data: Buffer.from("small"),
+        lastPart: true,
+      };
+
+      expect(() => {
+        (upload as any).__validateUploadPart(singlePart);
+      }).not.toThrow();
+    });
   });
 });

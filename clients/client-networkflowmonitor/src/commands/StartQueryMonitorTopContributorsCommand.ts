@@ -43,13 +43,15 @@ export interface StartQueryMonitorTopContributorsCommandOutput
  * ```javascript
  * import { NetworkFlowMonitorClient, StartQueryMonitorTopContributorsCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, StartQueryMonitorTopContributorsCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // StartQueryMonitorTopContributorsInput
  *   monitorName: "STRING_VALUE", // required
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
  *   metricName: "ROUND_TRIP_TIME" || "TIMEOUTS" || "RETRANSMISSIONS" || "DATA_TRANSFERRED", // required
- *   destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB", // required
+ *   destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB" || "INTER_REGION", // required
  *   limit: Number("int"),
  * };
  * const command = new StartQueryMonitorTopContributorsCommand(input);

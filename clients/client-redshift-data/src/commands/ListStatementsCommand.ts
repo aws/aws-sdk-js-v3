@@ -43,6 +43,8 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * ```javascript
  * import { RedshiftDataClient, ListStatementsCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, ListStatementsCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * // import type { RedshiftDataClientConfig } from "@aws-sdk/client-redshift-data";
+ * const config = {}; // type is RedshiftDataClientConfig
  * const client = new RedshiftDataClient(config);
  * const input = { // ListStatementsRequest
  *   NextToken: "STRING_VALUE",

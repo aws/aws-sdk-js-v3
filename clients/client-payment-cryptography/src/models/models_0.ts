@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { PaymentCryptographyServiceException as __BaseException } from "./PaymentCryptographyServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,313 +26,21 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Contains information about an alias.</p>
+ * <p>Input parameters for adding replication regions to a specific key.</p>
  * @public
  */
-export interface Alias {
+export interface AddKeyReplicationRegionsInput {
   /**
-   * <p>A friendly name that you can use to refer to a key. The value must begin with <code>alias/</code>.</p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
+   * <p>The key identifier (ARN or alias) of the key for which to add replication regions.</p> <p>This key must exist and be in a valid state for replication operations.</p>
    * @public
    */
-  AliasName: string | undefined;
+  KeyIdentifier: string | undefined;
 
   /**
-   * <p>The <code>KeyARN</code> of the key associated with the alias.</p>
+   * <p>The list of Amazon Web Services Regions to add to the key's replication configuration.</p> <p>Each region must be a valid Amazon Web Services Region where Amazon Web Services Payment Cryptography is available. The key will be replicated to these regions, allowing cryptographic operations to be performed closer to your applications.</p>
    * @public
    */
-  KeyArn?: string | undefined;
-}
-
-/**
- * <p>This request can cause an inconsistent state for the resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateAliasInput {
-  /**
-   * <p>A friendly name that you can use to refer to a key. An alias must begin with <code>alias/</code> followed by a name, for example <code>alias/ExampleAlias</code>. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-).</p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
-   * @public
-   */
-  AliasName: string | undefined;
-
-  /**
-   * <p>The <code>KeyARN</code> of the key to associate with the alias.</p>
-   * @public
-   */
-  KeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateAliasOutput {
-  /**
-   * <p>The alias for the key.</p>
-   * @public
-   */
-  Alias: Alias | undefined;
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception, or failure.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to an invalid resource error.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The string for the exception.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.ResourceId = opts.ResourceId;
-  }
-}
-
-/**
- * <p>This request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The service cannot complete the request.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to an invalid request error.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface DeleteAliasInput {
-  /**
-   * <p>A friendly name that you can use to refer Amazon Web Services Payment Cryptography key. This value must begin with <code>alias/</code> followed by a name, such as <code>alias/ExampleAlias</code>.</p>
-   * @public
-   */
-  AliasName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAliasOutput {}
-
-/**
- * @public
- */
-export interface GetAliasInput {
-  /**
-   * <p>The alias of the Amazon Web Services Payment Cryptography key.</p>
-   * @public
-   */
-  AliasName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAliasOutput {
-  /**
-   * <p>The alias of the Amazon Web Services Payment Cryptography key.</p>
-   * @public
-   */
-  Alias: Alias | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAliasesInput {
-  /**
-   * <p>The <code>keyARN</code> for which you want to list all aliases.</p>
-   * @public
-   */
-  KeyArn?: string | undefined;
-
-  /**
-   * <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAliasesOutput {
-  /**
-   * <p>The list of aliases. Each alias describes the <code>KeyArn</code> contained within.</p>
-   * @public
-   */
-  Aliases: Alias[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or an empty or null value if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAliasInput {
-  /**
-   * <p>The alias whose associated key is changing.</p>
-   * @public
-   */
-  AliasName: string | undefined;
-
-  /**
-   * <p>The <code>KeyARN</code> for the key that you are updating or removing from the alias.</p>
-   * @public
-   */
-  KeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAliasOutput {
-  /**
-   * <p>The alias name.</p>
-   * @public
-   */
-  Alias: Alias | undefined;
+  ReplicationRegions: string[] | undefined;
 }
 
 /**
@@ -542,71 +250,13 @@ export const KeyCheckValueAlgorithm = {
   ANSI_X9_24: "ANSI_X9_24",
   CMAC: "CMAC",
   HMAC: "HMAC",
+  SHA_1: "SHA_1",
 } as const;
 
 /**
  * @public
  */
 export type KeyCheckValueAlgorithm = (typeof KeyCheckValueAlgorithm)[keyof typeof KeyCheckValueAlgorithm];
-
-/**
- * <p>A structure that contains information about a tag.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>The key of the tag.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The value of the tag.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateKeyInput {
-  /**
-   * <p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.</p>
-   * @public
-   */
-  KeyAttributes: KeyAttributes | undefined;
-
-  /**
-   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p> <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
-   * @public
-   */
-  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
-
-  /**
-   * <p>Specifies whether the key is exportable from the service.</p>
-   * @public
-   */
-  Exportable: boolean | undefined;
-
-  /**
-   * <p>Specifies whether to enable the key. If the key is enabled, it is activated for use within the service. If the key is not enabled, then it is created but not activated. The default value is enabled.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is created. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p> <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. </p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important> <note> <p>Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.</p> </note>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The intended cryptographic usage of keys derived from the ECC key pair to be created.</p> <p>After creating an ECC key pair, you cannot change the intended cryptographic usage of keys derived from it using ECDH.</p>
-   * @public
-   */
-  DeriveKeyUsage?: DeriveKeyUsage | undefined;
-}
 
 /**
  * @public
@@ -637,6 +287,54 @@ export const KeyState = {
  * @public
  */
 export type KeyState = (typeof KeyState)[keyof typeof KeyState];
+
+/**
+ * @public
+ * @enum
+ */
+export const MultiRegionKeyType = {
+  PRIMARY: "PRIMARY",
+  REPLICA: "REPLICA",
+} as const;
+
+/**
+ * @public
+ */
+export type MultiRegionKeyType = (typeof MultiRegionKeyType)[keyof typeof MultiRegionKeyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyReplicationState = {
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SYNCHRONIZED: "SYNCHRONIZED",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyReplicationState = (typeof KeyReplicationState)[keyof typeof KeyReplicationState];
+
+/**
+ * <p>Represents the replication status information for a key in a replication region.</p> <p>This structure contains details about the current state of key replication, including any status messages and operational information about the replication process.</p>
+ * @public
+ */
+export interface ReplicationStatusType {
+  /**
+   * <p>The current status of key replication in this region.</p> <p>This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as SYNCRHONIZED, IN_PROGRESS, DELETE_IN_PROGRESS, or FAILED. This provides visibility into the replication process for monitoring and troubleshooting purposes.</p>
+   * @public
+   */
+  Status: KeyReplicationState | undefined;
+
+  /**
+   * <p>A message that provides additional information about the current replication status of the key.</p> <p>This field contains details about any issues or progress updates related to key replication operations. It may include information about replication failures, synchronization status, or other operational details.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
 
 /**
  * <p>Metadata about an Amazon Web Services Payment Cryptography key.</p>
@@ -726,6 +424,465 @@ export interface Key {
    * @public
    */
   DeriveKeyUsage?: DeriveKeyUsage | undefined;
+
+  /**
+   * <p>Indicates whether this key is a multi-region key and its role in the multi-region key hierarchy.</p> <p>Multi-region keys allow the same key material to be used across multiple Amazon Web Services Regions. This field specifies whether the key is a primary key (which can be replicated to other regions) or a replica key (which is a copy of a primary key in another region).</p>
+   * @public
+   */
+  MultiRegionKeyType?: MultiRegionKeyType | undefined;
+
+  /**
+   * <p>An Amazon Web Services Region identifier in the standard format (e.g., <code>us-east-1</code>, <code>eu-west-1</code>).</p> <p>Used to specify regions for key replication operations. The region must be a valid Amazon Web Services Region where Amazon Web Services Payment Cryptography is available.</p>
+   * @public
+   */
+  PrimaryRegion?: string | undefined;
+
+  /**
+   * <p>Information about the replication status of the key across different regions.</p> <p>This field provides details about the current state of key replication, including any status messages or operational information. It helps track the progress and health of key replication operations.</p>
+   * @public
+   */
+  ReplicationStatus?: Record<string, ReplicationStatusType> | undefined;
+
+  /**
+   * <p>Indicates whether this key is using the account's default replication regions configuration.</p> <p>When set to <code>true</code>, the key automatically replicates to the regions specified in the account's default replication settings. When set to <code>false</code>, the key has a custom replication configuration that overrides the account defaults.</p>
+   * @public
+   */
+  UsingDefaultReplicationRegions?: boolean | undefined;
+}
+
+/**
+ * <p>Output from adding replication regions to a key.</p>
+ * @public
+ */
+export interface AddKeyReplicationRegionsOutput {
+  /**
+   * <p>The updated key metadata after adding the replication regions.</p> <p>This includes the current state of the key and its replication configuration.</p>
+   * @public
+   */
+  Key: Key | undefined;
+}
+
+/**
+ * <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The identifier of the resource that was not found.</p> <p>This field contains the specific resource identifier (such as a key ARN or alias name) that could not be located.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.ResourceId = opts.ResourceId;
+  }
+}
+
+/**
+ * <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Contains information about an alias.</p>
+ * @public
+ */
+export interface Alias {
+  /**
+   * <p>A friendly name that you can use to refer to a key. The value must begin with <code>alias/</code>.</p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
+   * @public
+   */
+  AliasName: string | undefined;
+
+  /**
+   * <p>The <code>KeyARN</code> of the key associated with the alias.</p>
+   * @public
+   */
+  KeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAliasInput {
+  /**
+   * <p>A friendly name that you can use to refer to a key. An alias must begin with <code>alias/</code> followed by a name, for example <code>alias/ExampleAlias</code>. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-).</p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
+   * @public
+   */
+  AliasName: string | undefined;
+
+  /**
+   * <p>The <code>KeyARN</code> of the key to associate with the alias.</p>
+   * @public
+   */
+  KeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAliasOutput {
+  /**
+   * <p>The alias for the key.</p>
+   * @public
+   */
+  Alias: Alias | undefined;
+}
+
+/**
+ * <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteAliasInput {
+  /**
+   * <p>A friendly name that you can use to refer Amazon Web Services Payment Cryptography key. This value must begin with <code>alias/</code> followed by a name, such as <code>alias/ExampleAlias</code>.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAliasOutput {}
+
+/**
+ * @public
+ */
+export interface GetAliasInput {
+  /**
+   * <p>The alias of the Amazon Web Services Payment Cryptography key.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAliasOutput {
+  /**
+   * <p>The alias of the Amazon Web Services Payment Cryptography key.</p>
+   * @public
+   */
+  Alias: Alias | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAliasesInput {
+  /**
+   * <p>The <code>keyARN</code> for which you want to list all aliases.</p>
+   * @public
+   */
+  KeyArn?: string | undefined;
+
+  /**
+   * <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAliasesOutput {
+  /**
+   * <p>The list of aliases. Each alias describes the <code>KeyArn</code> contained within.</p>
+   * @public
+   */
+  Aliases: Alias[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or an empty or null value if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAliasInput {
+  /**
+   * <p>The alias whose associated key is changing.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+
+  /**
+   * <p>The <code>KeyARN</code> for the key that you are updating or removing from the alias.</p>
+   * @public
+   */
+  KeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAliasOutput {
+  /**
+   * <p>The alias name.</p>
+   * @public
+   */
+  Alias: Alias | undefined;
+}
+
+/**
+ * Metadata used in generating the CSR
+ * @public
+ */
+export interface CertificateSubjectType {
+  /**
+   * Common Name to be used in the certificate signing request
+   * @public
+   */
+  CommonName: string | undefined;
+
+  /**
+   * Organization Unit to be used in the certificate signing request
+   * @public
+   */
+  OrganizationUnit?: string | undefined;
+
+  /**
+   * Organization to be used in the certificate signing request
+   * @public
+   */
+  Organization?: string | undefined;
+
+  /**
+   * City to be used in the certificate signing request
+   * @public
+   */
+  City?: string | undefined;
+
+  /**
+   * Country to be used in the certificate signing request
+   * @public
+   */
+  Country?: string | undefined;
+
+  /**
+   * State Or Province to be used in the certificate signing request
+   * @public
+   */
+  StateOrProvince?: string | undefined;
+
+  /**
+   * Email to be used in the certificate signing request
+   * @public
+   */
+  EmailAddress?: string | undefined;
+}
+
+/**
+ * <p>A structure that contains information about a tag.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The key of the tag.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value of the tag.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateKeyInput {
+  /**
+   * <p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.</p>
+   * @public
+   */
+  KeyAttributes: KeyAttributes | undefined;
+
+  /**
+   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p> <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
+   * @public
+   */
+  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
+
+  /**
+   * <p>Specifies whether the key is exportable from the service.</p>
+   * @public
+   */
+  Exportable: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable the key. If the key is enabled, it is activated for use within the service. If the key is not enabled, then it is created but not activated. The default value is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is created. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p> <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. </p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important> <note> <p>Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.</p> </note>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The intended cryptographic usage of keys derived from the ECC key pair to be created.</p> <p>After creating an ECC key pair, you cannot change the intended cryptographic usage of keys derived from it using ECDH.</p>
+   * @public
+   */
+  DeriveKeyUsage?: DeriveKeyUsage | undefined;
+
+  /**
+   * <p>A list of Amazon Web Services Regions for key replication operations.</p> <p>Each region in the list must be a valid Amazon Web Services Region identifier where Amazon Web Services Payment Cryptography is available. This list is used to specify which regions should be added to or removed from a key's replication configuration.</p>
+   * @public
+   */
+  ReplicationRegions?: string[] | undefined;
 }
 
 /**
@@ -805,6 +962,54 @@ export namespace DiffieHellmanDerivationData {
     if (value.SharedInformation !== undefined) return visitor.SharedInformation(value.SharedInformation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * <p>Input parameters for disabling default key replication regions for the account.</p>
+ * @public
+ */
+export interface DisableDefaultKeyReplicationRegionsInput {
+  /**
+   * <p>The list of Amazon Web Services Regions to remove from the account's default replication regions.</p> <p>New keys created after this operation will not automatically be replicated to these regions, though existing keys with replication to these regions will be unaffected.</p>
+   * @public
+   */
+  ReplicationRegions: string[] | undefined;
+}
+
+/**
+ * <p>Output from disabling default key replication regions for the account.</p>
+ * @public
+ */
+export interface DisableDefaultKeyReplicationRegionsOutput {
+  /**
+   * <p>The remaining list of regions where default key replication is still enabled for the account.</p> <p>This reflects the account's default replication configuration after removing the specified regions.</p>
+   * @public
+   */
+  EnabledReplicationRegions: string[] | undefined;
+}
+
+/**
+ * <p>Input parameters for enabling default key replication regions for the account.</p>
+ * @public
+ */
+export interface EnableDefaultKeyReplicationRegionsInput {
+  /**
+   * <p>The list of Amazon Web Services Regions to enable as default replication regions for the account.</p> <p>New keys created in this account will automatically be replicated to these regions unless explicitly overridden during key creation.</p>
+   * @public
+   */
+  ReplicationRegions: string[] | undefined;
+}
+
+/**
+ * <p>Output from enabling default key replication regions for the account.</p>
+ * @public
+ */
+export interface EnableDefaultKeyReplicationRegionsOutput {
+  /**
+   * <p>The complete list of regions where default key replication is now enabled for the account.</p> <p>This includes both previously enabled regions and the newly added regions from this operation.</p>
+   * @public
+   */
+  EnabledReplicationRegions: string[] | undefined;
 }
 
 /**
@@ -1076,7 +1281,19 @@ export interface ExportTr34KeyBlock {
    * <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. It also contains the signing key certificate that will sign the wrapped key during TR-34 key block generation. Call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a> to receive an export token. It expires after 30 days. You can use the same export token to export multiple keys from the same service account.</p>
    * @public
    */
-  ExportToken: string | undefined;
+  ExportToken?: string | undefined;
+
+  /**
+   * Key Identifier used for signing the export key
+   * @public
+   */
+  SigningKeyIdentifier?: string | undefined;
+
+  /**
+   * Certificate used for signing the export key
+   * @public
+   */
+  SigningKeyCertificate?: string | undefined;
 
   /**
    * <p>The format of key block that Amazon Web Services Payment Cryptography will use during key export.</p>
@@ -1276,6 +1493,74 @@ export interface ExportKeyOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const SigningAlgorithmType = {
+  SHA224: "SHA224",
+  SHA256: "SHA256",
+  SHA384: "SHA384",
+  SHA512: "SHA512",
+} as const;
+
+/**
+ * @public
+ */
+export type SigningAlgorithmType = (typeof SigningAlgorithmType)[keyof typeof SigningAlgorithmType];
+
+/**
+ * @public
+ */
+export interface GetCertificateSigningRequestInput {
+  /**
+   * Asymmetric key used for generating the certificate signing request
+   * @public
+   */
+  KeyIdentifier: string | undefined;
+
+  /**
+   * Algorithm used to generate the certificate signing request
+   * @public
+   */
+  SigningAlgorithm: SigningAlgorithmType | undefined;
+
+  /**
+   * Certificate subject data
+   * @public
+   */
+  CertificateSubject: CertificateSubjectType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCertificateSigningRequestOutput {
+  /**
+   * Certificate signing request
+   * @public
+   */
+  CertificateSigningRequest: string | undefined;
+}
+
+/**
+ * <p>Input parameters for retrieving the account's default key replication regions. This operation requires no input parameters.</p>
+ * @public
+ */
+export interface GetDefaultKeyReplicationRegionsInput {}
+
+/**
+ * <p>Output containing the account's current default key replication configuration.</p>
+ * @public
+ */
+export interface GetDefaultKeyReplicationRegionsOutput {
+  /**
+   * <p>The list of regions where default key replication is currently enabled for the account.</p> <p>New keys created in this account will automatically be replicated to these regions unless explicitly configured otherwise during key creation.</p>
+   * @public
+   */
+  EnabledReplicationRegions: string[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface GetKeyInput {
   /**
@@ -1290,7 +1575,7 @@ export interface GetKeyInput {
  */
 export interface GetKeyOutput {
   /**
-   * <p>The key material, including the immutable and mutable data for the key.</p>
+   * <p>Contains the key metadata, including both immutable and mutable attributes for the key, but does not include actual cryptographic key material.</p>
    * @public
    */
   Key: Key | undefined;
@@ -1592,7 +1877,19 @@ export interface ImportTr34KeyBlock {
    * <p>The import token that initiates key import using the asymmetric TR-34 key exchange method into Amazon Web Services Payment Cryptography. It expires after 30 days. You can use the same import token to import multiple keys to the same service account.</p>
    * @public
    */
-  ImportToken: string | undefined;
+  ImportToken?: string | undefined;
+
+  /**
+   * Key Identifier used for unwrapping the import key
+   * @public
+   */
+  WrappingKeyIdentifier?: string | undefined;
+
+  /**
+   * Key Identifier used for unwrapping the import key
+   * @public
+   */
+  WrappingKeyCertificate?: string | undefined;
 
   /**
    * <p>The TR-34 wrapped key block to import.</p>
@@ -1802,6 +2099,12 @@ export interface ImportKeyInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A list of Amazon Web Services Regions for key replication operations.</p> <p>Each region in the list must be a valid Amazon Web Services Region identifier where Amazon Web Services Payment Cryptography is available. This list is used to specify which regions should be added to or removed from a key's replication configuration.</p>
+   * @public
+   */
+  ReplicationRegions?: string[] | undefined;
 }
 
 /**
@@ -1878,6 +2181,18 @@ export interface KeySummary {
    * @public
    */
   Enabled: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this key is a multi-region key and its role in the multi-region key hierarchy.</p> <p>Multi-region keys allow the same key material to be used across multiple Amazon Web Services Regions. This field specifies whether the key is a primary key (which can be replicated to other regions) or a replica key (which is a copy of a primary key in another region).</p>
+   * @public
+   */
+  MultiRegionKeyType?: MultiRegionKeyType | undefined;
+
+  /**
+   * <p>An Amazon Web Services Region identifier in the standard format (e.g., <code>us-east-1</code>, <code>eu-west-1</code>).</p> <p>Used to specify regions for key replication operations. The region must be a valid Amazon Web Services Region where Amazon Web Services Payment Cryptography is available.</p>
+   * @public
+   */
+  PrimaryRegion?: string | undefined;
 }
 
 /**
@@ -1895,6 +2210,36 @@ export interface ListKeysOutput {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * <p>Input parameters for removing replication regions from a specific key.</p>
+ * @public
+ */
+export interface RemoveKeyReplicationRegionsInput {
+  /**
+   * <p>The key identifier (ARN or alias) of the key from which to remove replication regions.</p> <p>This key must exist and have replication enabled in the specified regions.</p>
+   * @public
+   */
+  KeyIdentifier: string | undefined;
+
+  /**
+   * <p>The list of Amazon Web Services Regions to remove from the key's replication configuration.</p> <p>The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.</p>
+   * @public
+   */
+  ReplicationRegions: string[] | undefined;
+}
+
+/**
+ * <p>Output from removing replication regions from a key.</p>
+ * @public
+ */
+export interface RemoveKeyReplicationRegionsOutput {
+  /**
+   * <p>The updated key metadata after removing the replication regions.</p> <p>This reflects the current state of the key and its updated replication configuration.</p>
+   * @public
+   */
+  Key: Key | undefined;
 }
 
 /**
@@ -2060,17 +2405,8 @@ export const KeyBlockHeadersFilterSensitiveLog = (obj: KeyBlockHeaders): any => 
  */
 export const ExportDiffieHellmanTr31KeyBlockFilterSensitiveLog = (obj: ExportDiffieHellmanTr31KeyBlock): any => ({
   ...obj,
-  ...(obj.PublicKeyCertificate && { PublicKeyCertificate: SENSITIVE_STRING }),
   ...(obj.DerivationData && { DerivationData: obj.DerivationData }),
   ...(obj.KeyBlockHeaders && { KeyBlockHeaders: KeyBlockHeadersFilterSensitiveLog(obj.KeyBlockHeaders) }),
-});
-
-/**
- * @internal
- */
-export const ExportKeyCryptogramFilterSensitiveLog = (obj: ExportKeyCryptogram): any => ({
-  ...obj,
-  ...(obj.WrappingKeyCertificate && { WrappingKeyCertificate: SENSITIVE_STRING }),
 });
 
 /**
@@ -2086,7 +2422,6 @@ export const ExportTr31KeyBlockFilterSensitiveLog = (obj: ExportTr31KeyBlock): a
  */
 export const ExportTr34KeyBlockFilterSensitiveLog = (obj: ExportTr34KeyBlock): any => ({
   ...obj,
-  ...(obj.WrappingKeyCertificate && { WrappingKeyCertificate: SENSITIVE_STRING }),
   ...(obj.KeyBlockHeaders && { KeyBlockHeaders: KeyBlockHeadersFilterSensitiveLog(obj.KeyBlockHeaders) }),
 });
 
@@ -2096,8 +2431,7 @@ export const ExportTr34KeyBlockFilterSensitiveLog = (obj: ExportTr34KeyBlock): a
 export const ExportKeyMaterialFilterSensitiveLog = (obj: ExportKeyMaterial): any => {
   if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: ExportTr31KeyBlockFilterSensitiveLog(obj.Tr31KeyBlock) };
   if (obj.Tr34KeyBlock !== undefined) return { Tr34KeyBlock: ExportTr34KeyBlockFilterSensitiveLog(obj.Tr34KeyBlock) };
-  if (obj.KeyCryptogram !== undefined)
-    return { KeyCryptogram: ExportKeyCryptogramFilterSensitiveLog(obj.KeyCryptogram) };
+  if (obj.KeyCryptogram !== undefined) return { KeyCryptogram: obj.KeyCryptogram };
   if (obj.DiffieHellmanTr31KeyBlock !== undefined)
     return {
       DiffieHellmanTr31KeyBlock: ExportDiffieHellmanTr31KeyBlockFilterSensitiveLog(obj.DiffieHellmanTr31KeyBlock),
@@ -2132,28 +2466,9 @@ export const ExportKeyOutputFilterSensitiveLog = (obj: ExportKeyOutput): any => 
 /**
  * @internal
  */
-export const GetParametersForExportOutputFilterSensitiveLog = (obj: GetParametersForExportOutput): any => ({
+export const GetCertificateSigningRequestOutputFilterSensitiveLog = (obj: GetCertificateSigningRequestOutput): any => ({
   ...obj,
-  ...(obj.SigningKeyCertificate && { SigningKeyCertificate: SENSITIVE_STRING }),
-  ...(obj.SigningKeyCertificateChain && { SigningKeyCertificateChain: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetParametersForImportOutputFilterSensitiveLog = (obj: GetParametersForImportOutput): any => ({
-  ...obj,
-  ...(obj.WrappingKeyCertificate && { WrappingKeyCertificate: SENSITIVE_STRING }),
-  ...(obj.WrappingKeyCertificateChain && { WrappingKeyCertificateChain: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetPublicKeyCertificateOutputFilterSensitiveLog = (obj: GetPublicKeyCertificateOutput): any => ({
-  ...obj,
-  ...(obj.KeyCertificate && { KeyCertificate: SENSITIVE_STRING }),
-  ...(obj.KeyCertificateChain && { KeyCertificateChain: SENSITIVE_STRING }),
+  ...(obj.CertificateSigningRequest && { CertificateSigningRequest: SENSITIVE_STRING }),
 });
 
 /**
@@ -2161,7 +2476,6 @@ export const GetPublicKeyCertificateOutputFilterSensitiveLog = (obj: GetPublicKe
  */
 export const ImportDiffieHellmanTr31KeyBlockFilterSensitiveLog = (obj: ImportDiffieHellmanTr31KeyBlock): any => ({
   ...obj,
-  ...(obj.PublicKeyCertificate && { PublicKeyCertificate: SENSITIVE_STRING }),
   ...(obj.DerivationData && { DerivationData: obj.DerivationData }),
   ...(obj.WrappedKeyBlock && { WrappedKeyBlock: SENSITIVE_STRING }),
 });
@@ -2177,14 +2491,6 @@ export const ImportKeyCryptogramFilterSensitiveLog = (obj: ImportKeyCryptogram):
 /**
  * @internal
  */
-export const RootCertificatePublicKeyFilterSensitiveLog = (obj: RootCertificatePublicKey): any => ({
-  ...obj,
-  ...(obj.PublicKeyCertificate && { PublicKeyCertificate: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
 export const ImportTr31KeyBlockFilterSensitiveLog = (obj: ImportTr31KeyBlock): any => ({
   ...obj,
   ...(obj.WrappedKeyBlock && { WrappedKeyBlock: SENSITIVE_STRING }),
@@ -2195,28 +2501,16 @@ export const ImportTr31KeyBlockFilterSensitiveLog = (obj: ImportTr31KeyBlock): a
  */
 export const ImportTr34KeyBlockFilterSensitiveLog = (obj: ImportTr34KeyBlock): any => ({
   ...obj,
-  ...(obj.SigningKeyCertificate && { SigningKeyCertificate: SENSITIVE_STRING }),
   ...(obj.WrappedKeyBlock && { WrappedKeyBlock: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const TrustedCertificatePublicKeyFilterSensitiveLog = (obj: TrustedCertificatePublicKey): any => ({
-  ...obj,
-  ...(obj.PublicKeyCertificate && { PublicKeyCertificate: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
 export const ImportKeyMaterialFilterSensitiveLog = (obj: ImportKeyMaterial): any => {
-  if (obj.RootCertificatePublicKey !== undefined)
-    return { RootCertificatePublicKey: RootCertificatePublicKeyFilterSensitiveLog(obj.RootCertificatePublicKey) };
+  if (obj.RootCertificatePublicKey !== undefined) return { RootCertificatePublicKey: obj.RootCertificatePublicKey };
   if (obj.TrustedCertificatePublicKey !== undefined)
-    return {
-      TrustedCertificatePublicKey: TrustedCertificatePublicKeyFilterSensitiveLog(obj.TrustedCertificatePublicKey),
-    };
+    return { TrustedCertificatePublicKey: obj.TrustedCertificatePublicKey };
   if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: ImportTr31KeyBlockFilterSensitiveLog(obj.Tr31KeyBlock) };
   if (obj.Tr34KeyBlock !== undefined) return { Tr34KeyBlock: ImportTr34KeyBlockFilterSensitiveLog(obj.Tr34KeyBlock) };
   if (obj.KeyCryptogram !== undefined)

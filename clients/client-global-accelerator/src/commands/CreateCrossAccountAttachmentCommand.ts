@@ -60,6 +60,8 @@ export interface CreateCrossAccountAttachmentCommandOutput
  * ```javascript
  * import { GlobalAcceleratorClient, CreateCrossAccountAttachmentCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, CreateCrossAccountAttachmentCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // import type { GlobalAcceleratorClientConfig } from "@aws-sdk/client-global-accelerator";
+ * const config = {}; // type is GlobalAcceleratorClientConfig
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // CreateCrossAccountAttachmentRequest
  *   Name: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface DescribeAuthenticationProfilesCommandOutput
  * ```javascript
  * import { RedshiftClient, DescribeAuthenticationProfilesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeAuthenticationProfilesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // DescribeAuthenticationProfilesMessage
  *   AuthenticationProfileName: "STRING_VALUE",

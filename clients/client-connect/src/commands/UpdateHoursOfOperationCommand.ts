@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateHoursOfOperationRequest } from "../models/models_2";
+import { UpdateHoursOfOperationRequest } from "../models/models_3";
 import { de_UpdateHoursOfOperationCommand, se_UpdateHoursOfOperationCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -34,6 +34,8 @@ export interface UpdateHoursOfOperationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ConnectClient, UpdateHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // UpdateHoursOfOperationRequest
  *   InstanceId: "STRING_VALUE", // required

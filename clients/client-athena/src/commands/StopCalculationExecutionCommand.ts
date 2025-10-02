@@ -43,6 +43,8 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  * ```javascript
  * import { AthenaClient, StopCalculationExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StopCalculationExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // import type { AthenaClientConfig } from "@aws-sdk/client-athena";
+ * const config = {}; // type is AthenaClientConfig
  * const client = new AthenaClient(config);
  * const input = { // StopCalculationExecutionRequest
  *   CalculationExecutionId: "STRING_VALUE", // required

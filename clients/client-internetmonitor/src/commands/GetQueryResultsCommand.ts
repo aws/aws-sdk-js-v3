@@ -38,6 +38,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * ```javascript
  * import { InternetMonitorClient, GetQueryResultsCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, GetQueryResultsCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // import type { InternetMonitorClientConfig } from "@aws-sdk/client-internetmonitor";
+ * const config = {}; // type is InternetMonitorClientConfig
  * const client = new InternetMonitorClient(config);
  * const input = { // GetQueryResultsInput
  *   MonitorName: "STRING_VALUE", // required

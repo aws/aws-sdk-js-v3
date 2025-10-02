@@ -34,6 +34,8 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * ```javascript
  * import { ApiGatewayV2Client, CreateAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * // import type { ApiGatewayV2ClientConfig } from "@aws-sdk/client-apigatewayv2";
+ * const config = {}; // type is ApiGatewayV2ClientConfig
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateAuthorizerRequest
  *   ApiId: "STRING_VALUE", // required

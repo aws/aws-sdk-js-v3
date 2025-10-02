@@ -42,6 +42,8 @@ export interface ListPredictorBacktestExportJobsCommandOutput
  * ```javascript
  * import { ForecastClient, ListPredictorBacktestExportJobsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListPredictorBacktestExportJobsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // import type { ForecastClientConfig } from "@aws-sdk/client-forecast";
+ * const config = {}; // type is ForecastClientConfig
  * const client = new ForecastClient(config);
  * const input = { // ListPredictorBacktestExportJobsRequest
  *   NextToken: "STRING_VALUE",

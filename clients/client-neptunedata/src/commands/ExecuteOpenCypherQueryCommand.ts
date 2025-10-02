@@ -34,6 +34,8 @@ export interface ExecuteOpenCypherQueryCommandOutput extends ExecuteOpenCypherQu
  * ```javascript
  * import { NeptunedataClient, ExecuteOpenCypherQueryCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, ExecuteOpenCypherQueryCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // import type { NeptunedataClientConfig } from "@aws-sdk/client-neptunedata";
+ * const config = {}; // type is NeptunedataClientConfig
  * const client = new NeptunedataClient(config);
  * const input = { // ExecuteOpenCypherQueryInput
  *   openCypherQuery: "STRING_VALUE", // required

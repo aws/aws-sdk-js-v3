@@ -34,6 +34,8 @@ export interface GetApplicationAccessScopeCommandOutput extends GetApplicationAc
  * ```javascript
  * import { SSOAdminClient, GetApplicationAccessScopeCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, GetApplicationAccessScopeCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // GetApplicationAccessScopeRequest
  *   ApplicationArn: "STRING_VALUE", // required

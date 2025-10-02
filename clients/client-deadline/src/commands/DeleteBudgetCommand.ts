@@ -34,6 +34,8 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  * ```javascript
  * import { DeadlineClient, DeleteBudgetCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DeleteBudgetCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DeleteBudgetRequest
  *   farmId: "STRING_VALUE", // required

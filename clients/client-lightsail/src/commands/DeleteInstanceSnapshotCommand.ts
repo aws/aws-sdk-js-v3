@@ -38,6 +38,8 @@ export interface DeleteInstanceSnapshotCommandOutput extends DeleteInstanceSnaps
  * ```javascript
  * import { LightsailClient, DeleteInstanceSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteInstanceSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // DeleteInstanceSnapshotRequest
  *   instanceSnapshotName: "STRING_VALUE", // required

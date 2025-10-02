@@ -34,6 +34,8 @@ export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitor
  * ```javascript
  * import { SageMakerClient, DescribeMonitoringScheduleCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeMonitoringScheduleCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeMonitoringScheduleRequest
  *   MonitoringScheduleName: "STRING_VALUE", // required

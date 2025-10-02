@@ -34,6 +34,8 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  * ```javascript
  * import { TransferClient, UpdateAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // UpdateAccessRequest
  *   HomeDirectory: "STRING_VALUE",

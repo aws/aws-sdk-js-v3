@@ -43,6 +43,8 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
  * ```javascript
  * import { SageMakerClient, DescribeNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribeNotebookInstanceLifecycleConfigInput
  *   NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required

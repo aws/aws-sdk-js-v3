@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CreateCentralizationRuleForOrganizationCommand,
+  CreateCentralizationRuleForOrganizationCommandInput,
+  CreateCentralizationRuleForOrganizationCommandOutput,
+} from "./commands/CreateCentralizationRuleForOrganizationCommand";
+import {
   CreateTelemetryRuleCommand,
   CreateTelemetryRuleCommandInput,
   CreateTelemetryRuleCommandOutput,
@@ -13,6 +18,11 @@ import {
   CreateTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/CreateTelemetryRuleForOrganizationCommand";
 import {
+  DeleteCentralizationRuleForOrganizationCommand,
+  DeleteCentralizationRuleForOrganizationCommandInput,
+  DeleteCentralizationRuleForOrganizationCommandOutput,
+} from "./commands/DeleteCentralizationRuleForOrganizationCommand";
+import {
   DeleteTelemetryRuleCommand,
   DeleteTelemetryRuleCommandInput,
   DeleteTelemetryRuleCommandOutput,
@@ -22,6 +32,11 @@ import {
   DeleteTelemetryRuleForOrganizationCommandInput,
   DeleteTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/DeleteTelemetryRuleForOrganizationCommand";
+import {
+  GetCentralizationRuleForOrganizationCommand,
+  GetCentralizationRuleForOrganizationCommandInput,
+  GetCentralizationRuleForOrganizationCommandOutput,
+} from "./commands/GetCentralizationRuleForOrganizationCommand";
 import {
   GetTelemetryEvaluationStatusCommand,
   GetTelemetryEvaluationStatusCommandInput,
@@ -42,6 +57,11 @@ import {
   GetTelemetryRuleForOrganizationCommandInput,
   GetTelemetryRuleForOrganizationCommandOutput,
 } from "./commands/GetTelemetryRuleForOrganizationCommand";
+import {
+  ListCentralizationRulesForOrganizationCommand,
+  ListCentralizationRulesForOrganizationCommandInput,
+  ListCentralizationRulesForOrganizationCommandOutput,
+} from "./commands/ListCentralizationRulesForOrganizationCommand";
 import {
   ListResourceTelemetryCommand,
   ListResourceTelemetryCommandInput,
@@ -94,6 +114,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateCentralizationRuleForOrganizationCommand,
+  UpdateCentralizationRuleForOrganizationCommandInput,
+  UpdateCentralizationRuleForOrganizationCommandOutput,
+} from "./commands/UpdateCentralizationRuleForOrganizationCommand";
+import {
   UpdateTelemetryRuleCommand,
   UpdateTelemetryRuleCommandInput,
   UpdateTelemetryRuleCommandOutput,
@@ -106,14 +131,18 @@ import {
 import { ObservabilityAdminClient, ObservabilityAdminClientConfig } from "./ObservabilityAdminClient";
 
 const commands = {
+  CreateCentralizationRuleForOrganizationCommand,
   CreateTelemetryRuleCommand,
   CreateTelemetryRuleForOrganizationCommand,
+  DeleteCentralizationRuleForOrganizationCommand,
   DeleteTelemetryRuleCommand,
   DeleteTelemetryRuleForOrganizationCommand,
+  GetCentralizationRuleForOrganizationCommand,
   GetTelemetryEvaluationStatusCommand,
   GetTelemetryEvaluationStatusForOrganizationCommand,
   GetTelemetryRuleCommand,
   GetTelemetryRuleForOrganizationCommand,
+  ListCentralizationRulesForOrganizationCommand,
   ListResourceTelemetryCommand,
   ListResourceTelemetryForOrganizationCommand,
   ListTagsForResourceCommand,
@@ -125,11 +154,29 @@ const commands = {
   StopTelemetryEvaluationForOrganizationCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateCentralizationRuleForOrganizationCommand,
   UpdateTelemetryRuleCommand,
   UpdateTelemetryRuleForOrganizationCommand,
 };
 
 export interface ObservabilityAdmin {
+  /**
+   * @see {@link CreateCentralizationRuleForOrganizationCommand}
+   */
+  createCentralizationRuleForOrganization(
+    args: CreateCentralizationRuleForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCentralizationRuleForOrganizationCommandOutput>;
+  createCentralizationRuleForOrganization(
+    args: CreateCentralizationRuleForOrganizationCommandInput,
+    cb: (err: any, data?: CreateCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+  createCentralizationRuleForOrganization(
+    args: CreateCentralizationRuleForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateTelemetryRuleCommand}
    */
@@ -165,6 +212,23 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link DeleteCentralizationRuleForOrganizationCommand}
+   */
+  deleteCentralizationRuleForOrganization(
+    args: DeleteCentralizationRuleForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCentralizationRuleForOrganizationCommandOutput>;
+  deleteCentralizationRuleForOrganization(
+    args: DeleteCentralizationRuleForOrganizationCommandInput,
+    cb: (err: any, data?: DeleteCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+  deleteCentralizationRuleForOrganization(
+    args: DeleteCentralizationRuleForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTelemetryRuleCommand}
    */
   deleteTelemetryRule(
@@ -196,6 +260,23 @@ export interface ObservabilityAdmin {
     args: DeleteTelemetryRuleForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCentralizationRuleForOrganizationCommand}
+   */
+  getCentralizationRuleForOrganization(
+    args: GetCentralizationRuleForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCentralizationRuleForOrganizationCommandOutput>;
+  getCentralizationRuleForOrganization(
+    args: GetCentralizationRuleForOrganizationCommandInput,
+    cb: (err: any, data?: GetCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+  getCentralizationRuleForOrganization(
+    args: GetCentralizationRuleForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCentralizationRuleForOrganizationCommandOutput) => void
   ): void;
 
   /**
@@ -266,6 +347,24 @@ export interface ObservabilityAdmin {
     args: GetTelemetryRuleForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTelemetryRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCentralizationRulesForOrganizationCommand}
+   */
+  listCentralizationRulesForOrganization(): Promise<ListCentralizationRulesForOrganizationCommandOutput>;
+  listCentralizationRulesForOrganization(
+    args: ListCentralizationRulesForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCentralizationRulesForOrganizationCommandOutput>;
+  listCentralizationRulesForOrganization(
+    args: ListCentralizationRulesForOrganizationCommandInput,
+    cb: (err: any, data?: ListCentralizationRulesForOrganizationCommandOutput) => void
+  ): void;
+  listCentralizationRulesForOrganization(
+    args: ListCentralizationRulesForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCentralizationRulesForOrganizationCommandOutput) => void
   ): void;
 
   /**
@@ -449,6 +548,23 @@ export interface ObservabilityAdmin {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCentralizationRuleForOrganizationCommand}
+   */
+  updateCentralizationRuleForOrganization(
+    args: UpdateCentralizationRuleForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCentralizationRuleForOrganizationCommandOutput>;
+  updateCentralizationRuleForOrganization(
+    args: UpdateCentralizationRuleForOrganizationCommandInput,
+    cb: (err: any, data?: UpdateCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+  updateCentralizationRuleForOrganization(
+    args: UpdateCentralizationRuleForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCentralizationRuleForOrganizationCommandOutput) => void
   ): void;
 
   /**

@@ -34,6 +34,8 @@ export interface QueryParamsAsStringListMapCommandOutput extends __MetadataBeare
  * ```javascript
  * import { RestXmlProtocolClient, QueryParamsAsStringListMapCommand } from "@aws-sdk/aws-protocoltests-restxml-schema"; // ES Modules import
  * // const { RestXmlProtocolClient, QueryParamsAsStringListMapCommand } = require("@aws-sdk/aws-protocoltests-restxml-schema"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml-schema";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // QueryParamsAsStringListMapInput
  *   qux: "STRING_VALUE",

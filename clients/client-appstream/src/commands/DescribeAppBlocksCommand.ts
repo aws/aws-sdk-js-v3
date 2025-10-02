@@ -34,6 +34,8 @@ export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult,
  * ```javascript
  * import { AppStreamClient, DescribeAppBlocksCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeAppBlocksCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // DescribeAppBlocksRequest
  *   Arns: [ // ArnList

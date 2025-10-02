@@ -34,6 +34,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * ```javascript
  * import { TransferClient, DescribeUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // DescribeUserRequest
  *   ServerId: "STRING_VALUE", // required

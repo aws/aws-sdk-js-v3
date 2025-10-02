@@ -44,6 +44,8 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * ```javascript
  * import { EBSClient, ListSnapshotBlocksCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, ListSnapshotBlocksCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
+ * // import type { EBSClientConfig } from "@aws-sdk/client-ebs";
+ * const config = {}; // type is EBSClientConfig
  * const client = new EBSClient(config);
  * const input = { // ListSnapshotBlocksRequest
  *   SnapshotId: "STRING_VALUE", // required

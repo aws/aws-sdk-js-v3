@@ -34,6 +34,8 @@ export interface CreateShareCommandOutput extends CreateShareResponse, __Metadat
  * ```javascript
  * import { OmicsClient, CreateShareCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CreateShareCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // import type { OmicsClientConfig } from "@aws-sdk/client-omics";
+ * const config = {}; // type is OmicsClientConfig
  * const client = new OmicsClient(config);
  * const input = { // CreateShareRequest
  *   resourceArn: "STRING_VALUE", // required

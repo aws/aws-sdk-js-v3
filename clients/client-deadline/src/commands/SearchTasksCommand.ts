@@ -34,6 +34,8 @@ export interface SearchTasksCommandOutput extends SearchTasksResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, SearchTasksCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, SearchTasksCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // SearchTasksRequest
  *   farmId: "STRING_VALUE", // required

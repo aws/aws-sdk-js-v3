@@ -474,7 +474,7 @@ export interface PluginVisualConfiguration {
 
 /**
  * <p>A flexible visualization type that allows engineers
- *       to create new custom charts in Amazon QuickSight.</p>
+ *       to create new custom charts in QuickSight.</p>
  * @public
  */
 export interface PluginVisual {
@@ -2644,7 +2644,7 @@ export interface SheetDefinition {
   Description?: string | undefined;
 
   /**
-   * <p>The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+   * <p>The name of the sheet. This name is displayed on the sheet's tab in the QuickSight
    *             console.</p>
    * @public
    */
@@ -3055,7 +3055,7 @@ export interface AnalysisSummary {
   AnalysisId?: string | undefined;
 
   /**
-   * <p>The name of the analysis. This name is displayed in the Amazon QuickSight console.
+   * <p>The name of the analysis. This name is displayed in the QuickSight console.
    *             </p>
    * @public
    */
@@ -3175,7 +3175,7 @@ export interface AnonymousUserDashboardFeatureConfigurations {
  */
 export interface AnonymousUserDashboardEmbeddingConfiguration {
   /**
-   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this dashboard.</p>
+   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is included in the output URL. When the URL in response is accessed, QuickSight renders this dashboard.</p>
    *          <p>The Amazon Resource Name (ARN) of this dashboard must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
    * @public
    */
@@ -3213,24 +3213,24 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
  *                <p>The <code>VisualId</code> of the visual that you want to embed.</p>
  *             </li>
  *          </ul>
- *          <p>The <code>DashboardId</code>, <code>SheetId</code>, and <code>VisualId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
+ *          <p>The <code>DashboardId</code>, <code>SheetId</code>, and <code>VisualId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
  * @public
  */
 export interface DashboardVisualId {
   /**
-   * <p>The ID of the dashboard that has the visual that you want to embed. The <code>DashboardId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
+   * <p>The ID of the dashboard that has the visual that you want to embed. The <code>DashboardId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
    * @public
    */
   DashboardId: string | undefined;
 
   /**
-   * <p>The ID of the sheet that the has visual that you want to embed. The <code>SheetId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console.</p>
+   * <p>The ID of the sheet that the has visual that you want to embed. The <code>SheetId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console.</p>
    * @public
    */
   SheetId: string | undefined;
 
   /**
-   * <p>The ID of the visual that you want to embed. The <code>VisualID</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console.</p>
+   * <p>The ID of the visual that you want to embed. The <code>VisualID</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console.</p>
    * @public
    */
   VisualId: string | undefined;
@@ -3242,7 +3242,7 @@ export interface DashboardVisualId {
  */
 export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
   /**
-   * <p>The visual ID for the visual that you want the user to see. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this visual.</p>
+   * <p>The visual ID for the visual that you want the user to see. This ID is included in the output URL. When the URL in response is accessed, QuickSight renders this visual.</p>
    *          <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
    * @public
    */
@@ -3255,7 +3255,7 @@ export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
  */
 export interface AnonymousUserGenerativeQnAEmbeddingConfiguration {
   /**
-   * <p>The Amazon QuickSight Q topic ID of the new reader experience topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Generative Q&A experience with this new reader experience topic pre selected.</p>
+   * <p>The QuickSight Q topic ID of the new reader experience topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, QuickSight renders the Generative Q&A experience with this new reader experience topic pre selected.</p>
    *          <p>The Amazon Resource Name (ARN) of this Q new reader experience topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request fails with an <code>InvalidParameterValueException</code> error.</p>
    * @public
    */
@@ -3268,7 +3268,7 @@ export interface AnonymousUserGenerativeQnAEmbeddingConfiguration {
  */
 export interface AnonymousUserQSearchBarEmbeddingConfiguration {
   /**
-   * <p>The Amazon QuickSight Q topic ID of the legacy topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Q search bar with this legacy topic pre-selected.</p>
+   * <p>The QuickSight Q topic ID of the legacy topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, QuickSight renders the Q search bar with this legacy topic pre-selected.</p>
    *          <p>The Amazon Resource Name (ARN) of this Q legacy topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request fails with an <code>InvalidParameterValueException</code> error.</p>
    * @public
    */
@@ -3276,18 +3276,18 @@ export interface AnonymousUserQSearchBarEmbeddingConfiguration {
 }
 
 /**
- * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
+ * <p>The type of experience you want to embed. For anonymous users, you can embed QuickSight dashboards.</p>
  * @public
  */
 export interface AnonymousUserEmbeddingExperienceConfiguration {
   /**
-   * <p>The type of embedding experience. In this case, Amazon QuickSight dashboards.</p>
+   * <p>The type of embedding experience. In this case, QuickSight dashboards.</p>
    * @public
    */
   Dashboard?: AnonymousUserDashboardEmbeddingConfiguration | undefined;
 
   /**
-   * <p>The type of embedding experience. In this case, Amazon QuickSight visuals.</p>
+   * <p>The type of embedding experience. In this case, QuickSight visuals.</p>
    * @public
    */
   DashboardVisual?: AnonymousUserDashboardVisualEmbeddingConfiguration | undefined;
@@ -3408,7 +3408,7 @@ export interface SnapshotJobResultErrorInfo {
 }
 
 /**
- * <p>An optional structure that contains the Amazon S3 bucket configuration that the generated snapshots are stored in. If you don't provide this information, generated snapshots are stored in the default Amazon QuickSight bucket.</p>
+ * <p>An optional structure that contains the Amazon S3 bucket configuration that the generated snapshots are stored in. If you don't provide this information, generated snapshots are stored in the default QuickSight bucket.</p>
  * @public
  */
 export interface S3BucketConfiguration {
@@ -4237,7 +4237,7 @@ export interface AssetBundleImportJobDashboardOverrideParameters {
 }
 
 /**
- * <p>A structure that contains the configuration of a shared link to an Amazon QuickSight dashboard.</p>
+ * <p>A structure that contains the configuration of a shared link to an QuickSight dashboard.</p>
  * @public
  */
 export interface AssetBundleResourceLinkSharingConfiguration {
@@ -4535,8 +4535,8 @@ export interface AthenaParameters {
   RoleArn?: string | undefined;
 
   /**
-   * <p>An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your workgroup.</p>
-   *          <p>This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.</p>
+   * <p>An optional parameter that configures IAM Identity Center authentication to grant QuickSight access to your workgroup.</p>
+   *          <p>This parameter can only be specified if your QuickSight account is configured with IAM Identity Center.</p>
    * @public
    */
   IdentityCenterConfiguration?: IdentityCenterConfiguration | undefined;
@@ -4618,6 +4618,18 @@ export interface BigQueryParameters {
    * @public
    */
   DataSetRegion?: string | undefined;
+}
+
+/**
+ * <p>The parameters that are required to connect to a custom connection data source.</p>
+ * @public
+ */
+export interface CustomConnectionParameters {
+  /**
+   * <p>The type of custom connector.</p>
+   * @public
+   */
+  ConnectionType?: string | undefined;
 }
 
 /**
@@ -4849,26 +4861,26 @@ export interface RdsParameters {
 }
 
 /**
- * <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+ * <p>A structure that grants QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
  *                <code>GetClusterCredentials</code>
  *             </a>.</p>
  * @public
  */
 export interface RedshiftIAMParameters {
   /**
-   * <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
+   * <p>Use the <code>RoleArn</code> structure to allow QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to QuickSight. The role's trust policy must allow the QuickSight service principal to assume the role.</p>
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+   * <p>The user whose permissions and group memberships will be used by QuickSight to access the cluster. If this user already exists in your database, QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
    * @public
    */
   DatabaseUser?: string | undefined;
 
   /**
-   * <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+   * <p>A list of groups whose permissions will be granted to QuickSight to access the cluster. These permissions are combined with the permissions granted to QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
    * @public
    */
   DatabaseGroups?: string[] | undefined;
@@ -4912,14 +4924,14 @@ export interface RedshiftParameters {
   ClusterId?: string | undefined;
 
   /**
-   * <p>An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html">DataSourceCredentials</a>.</p>
+   * <p>An optional parameter that uses IAM authentication to grant QuickSight access to your cluster. This parameter can be used instead of <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html">DataSourceCredentials</a>.</p>
    * @public
    */
   IAMParameters?: RedshiftIAMParameters | undefined;
 
   /**
-   * <p>An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.</p>
-   *          <p>This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.</p>
+   * <p>An optional parameter that configures IAM Identity Center authentication to grant QuickSight access to your cluster.</p>
+   *          <p>This parameter can only be specified if your QuickSight account is configured with IAM Identity Center.</p>
    * @public
    */
   IdentityCenterConfiguration?: IdentityCenterConfiguration | undefined;
@@ -4950,7 +4962,7 @@ export interface ManifestFileLocation {
 export interface S3Parameters {
   /**
    * <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was
-   *             uploaded into Amazon QuickSight.</p>
+   *             uploaded into QuickSight.</p>
    * @public
    */
   ManifestFileLocation: ManifestFileLocation | undefined;
@@ -5067,7 +5079,7 @@ export interface SnowflakeParameters {
   DatabaseAccessControlRole?: string | undefined;
 
   /**
-   * <p>An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.</p>
+   * <p>An object that contains information needed to create a data source connection between an QuickSight account and Snowflake.</p>
    * @public
    */
   OAuthParameters?: OAuthParameters | undefined;
@@ -5171,7 +5183,7 @@ export interface StarburstParameters {
   AuthenticationType?: AuthenticationType | undefined;
 
   /**
-   * <p>An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.</p>
+   * <p>An object that contains information needed to create a data source connection between an QuickSight account and Starburst.</p>
    * @public
    */
   OAuthParameters?: OAuthParameters | undefined;
@@ -5257,6 +5269,7 @@ export type DataSourceParameters =
   | DataSourceParameters.AuroraPostgreSqlParametersMember
   | DataSourceParameters.AwsIotAnalyticsParametersMember
   | DataSourceParameters.BigQueryParametersMember
+  | DataSourceParameters.CustomConnectionParametersMember
   | DataSourceParameters.DatabricksParametersMember
   | DataSourceParameters.ExasolParametersMember
   | DataSourceParameters.ImpalaParametersMember
@@ -5315,6 +5328,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5350,6 +5364,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5385,6 +5400,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5420,6 +5436,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5455,6 +5472,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5490,6 +5508,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5525,6 +5544,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5560,6 +5580,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5595,6 +5616,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5630,6 +5652,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5665,6 +5688,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5700,6 +5724,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5735,6 +5760,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5770,6 +5796,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5805,6 +5832,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5840,6 +5868,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5875,6 +5904,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5910,6 +5940,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5945,6 +5976,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -5980,6 +6012,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -6015,6 +6048,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -6050,6 +6084,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -6085,6 +6120,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -6120,6 +6156,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -6155,6 +6192,7 @@ export namespace DataSourceParameters {
     TrinoParameters: TrinoParameters;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -6190,6 +6228,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters: BigQueryParameters;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown?: never;
   }
 
@@ -6225,6 +6264,43 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters: ImpalaParameters;
+    CustomConnectionParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for custom connectors.</p>
+   * @public
+   */
+  export interface CustomConnectionParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters?: never;
+    CustomConnectionParameters: CustomConnectionParameters;
     $unknown?: never;
   }
 
@@ -6259,6 +6335,7 @@ export namespace DataSourceParameters {
     TrinoParameters?: never;
     BigQueryParameters?: never;
     ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
     $unknown: [string, any];
   }
 
@@ -6290,6 +6367,7 @@ export namespace DataSourceParameters {
     TrinoParameters: (value: TrinoParameters) => T;
     BigQueryParameters: (value: BigQueryParameters) => T;
     ImpalaParameters: (value: ImpalaParameters) => T;
+    CustomConnectionParameters: (value: CustomConnectionParameters) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -6325,12 +6403,14 @@ export namespace DataSourceParameters {
     if (value.TrinoParameters !== undefined) return visitor.TrinoParameters(value.TrinoParameters);
     if (value.BigQueryParameters !== undefined) return visitor.BigQueryParameters(value.BigQueryParameters);
     if (value.ImpalaParameters !== undefined) return visitor.ImpalaParameters(value.ImpalaParameters);
+    if (value.CustomConnectionParameters !== undefined)
+      return visitor.CustomConnectionParameters(value.CustomConnectionParameters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
 
 /**
- * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
+ * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
  *             underlying data source.</p>
  * @public
  */
@@ -6374,7 +6454,7 @@ export interface AssetBundleImportJobDataSourceOverrideParameters {
   VpcConnectionProperties?: VpcConnectionProperties | undefined;
 
   /**
-   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
+   * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
    *             underlying data source.</p>
    * @public
    */
@@ -8402,24 +8482,6 @@ export interface LogoSet {
    * @public
    */
   Favicon?: ImageSet | undefined;
-}
-
-/**
- * <p>The logo configuration.</p>
- * @public
- */
-export interface Logo {
-  /**
-   * <p>The alt text for the logo.</p>
-   * @public
-   */
-  AltText: string | undefined;
-
-  /**
-   * <p>A set of configured logos.</p>
-   * @public
-   */
-  LogoSet: LogoSet | undefined;
 }
 
 /**

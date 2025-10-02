@@ -34,6 +34,8 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
  * ```javascript
  * import { GreengrassClient, DeleteResourceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteResourceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // DeleteResourceDefinitionRequest
  *   ResourceDefinitionId: "STRING_VALUE", // required

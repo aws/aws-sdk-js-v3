@@ -34,6 +34,8 @@ export interface GetStepCommandOutput extends GetStepResponse, __MetadataBearer 
  * ```javascript
  * import { DeadlineClient, GetStepCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetStepCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetStepRequest
  *   farmId: "STRING_VALUE", // required

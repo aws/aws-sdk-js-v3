@@ -25,7 +25,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import {
   CancelImageCreationCommandInput,
@@ -241,6 +241,7 @@ import { ImagebuilderServiceException as __BaseException } from "../models/Image
 import {
   AdditionalInstanceConfiguration,
   AmiDistributionConfiguration,
+  AutoDisablePolicy,
   CallRateLimitExceededException,
   ClientException,
   ComponentConfiguration,
@@ -258,6 +259,7 @@ import {
   ForbiddenException,
   IdempotentParameterMismatchException,
   Image,
+  ImageLoggingConfiguration,
   ImageScanFinding,
   ImageScanFindingsFilter,
   ImageScanningConfiguration,
@@ -290,6 +292,7 @@ import {
   LifecyclePolicySummary,
   Logging,
   PackageVulnerabilityDetails,
+  PipelineLoggingConfiguration,
   Placement,
   ResourceAlreadyExistsException,
   ResourceDependencyException,
@@ -476,6 +479,7 @@ export const se_CreateImageCommand = async (
       imageScanningConfiguration: (_) => _json(_),
       imageTestsConfiguration: (_) => _json(_),
       infrastructureConfigurationArn: [],
+      loggingConfiguration: (_) => _json(_),
       tags: (_) => _json(_),
       workflows: (_) => _json(_),
     })
@@ -509,6 +513,7 @@ export const se_CreateImagePipelineCommand = async (
       imageScanningConfiguration: (_) => _json(_),
       imageTestsConfiguration: (_) => _json(_),
       infrastructureConfigurationArn: [],
+      loggingConfiguration: (_) => _json(_),
       name: [],
       schedule: (_) => _json(_),
       status: [],
@@ -536,6 +541,7 @@ export const se_CreateImageRecipeCommand = async (
   body = JSON.stringify(
     take(input, {
       additionalInstanceConfiguration: (_) => _json(_),
+      amiTags: (_) => _json(_),
       blockDeviceMappings: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       components: (_) => _json(_),
@@ -1174,6 +1180,7 @@ export const se_ImportDiskImageCommand = async (
       description: [],
       executionRole: [],
       infrastructureConfigurationArn: [],
+      loggingConfiguration: (_) => _json(_),
       name: [],
       osVersion: [],
       platform: [],
@@ -1203,6 +1210,7 @@ export const se_ImportVmImageCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
+      loggingConfiguration: (_) => _json(_),
       name: [],
       osVersion: [],
       platform: [],
@@ -1880,6 +1888,7 @@ export const se_StartImagePipelineExecutionCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       imagePipelineArn: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2007,6 +2016,7 @@ export const se_UpdateImagePipelineCommand = async (
       imageScanningConfiguration: (_) => _json(_),
       imageTestsConfiguration: (_) => _json(_),
       infrastructureConfigurationArn: [],
+      loggingConfiguration: (_) => _json(_),
       schedule: (_) => _json(_),
       status: [],
       workflows: (_) => _json(_),
@@ -4188,6 +4198,8 @@ const de_ServiceUnavailableExceptionRes = async (
 
 // se_AmiDistributionConfiguration omitted.
 
+// se_AutoDisablePolicy omitted.
+
 // se_ComponentConfiguration omitted.
 
 // se_ComponentConfigurationList omitted.
@@ -4221,6 +4233,8 @@ const de_ServiceUnavailableExceptionRes = async (
 // se_FilterList omitted.
 
 // se_FilterValues omitted.
+
+// se_ImageLoggingConfiguration omitted.
 
 // se_ImageScanFindingsFilter omitted.
 
@@ -4280,6 +4294,8 @@ const de_ServiceUnavailableExceptionRes = async (
 
 // se_OsVersionList omitted.
 
+// se_PipelineLoggingConfiguration omitted.
+
 // se_Placement omitted.
 
 // se_ResourceState omitted.
@@ -4331,6 +4347,8 @@ const de_ServiceUnavailableExceptionRes = async (
 // de_AmiDistributionConfiguration omitted.
 
 // de_AmiList omitted.
+
+// de_AutoDisablePolicy omitted.
 
 // de_Component omitted.
 
@@ -4453,6 +4471,7 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
     imageTestsConfiguration: _json,
     infrastructureConfiguration: _json,
     lifecycleExecutionId: __expectString,
+    loggingConfiguration: _json,
     name: __expectString,
     osVersion: __expectString,
     outputResources: _json,
@@ -4469,6 +4488,8 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
 };
 
 // de_ImageAggregation omitted.
+
+// de_ImageLoggingConfiguration omitted.
 
 // de_ImagePackage omitted.
 
@@ -4541,6 +4562,7 @@ const de_ImageSummary = (output: any, context: __SerdeContext): ImageSummary => 
     deprecationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     imageSource: __expectString,
     lifecycleExecutionId: __expectString,
+    loggingConfiguration: _json,
     name: __expectString,
     osVersion: __expectString,
     outputResources: _json,
@@ -4772,6 +4794,8 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
     vulnerablePackages: _json,
   }) as any;
 };
+
+// de_PipelineLoggingConfiguration omitted.
 
 // de_Placement omitted.
 

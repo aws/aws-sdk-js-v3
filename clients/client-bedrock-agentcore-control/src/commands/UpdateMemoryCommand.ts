@@ -37,12 +37,14 @@ export interface UpdateMemoryCommandInput extends UpdateMemoryInput {}
 export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __MetadataBearer {}
 
 /**
- * <p>Update memory.</p>
+ * <p>Update an Amazon Bedrock AgentCore Memory resource memory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, UpdateMemoryCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, UpdateMemoryCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // UpdateMemoryInput
  *   clientToken: "STRING_VALUE",

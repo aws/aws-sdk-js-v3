@@ -36,6 +36,8 @@ export interface ModifyDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * ```javascript
  * import { RDSClient, ModifyDBShardGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBShardGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ModifyDBShardGroupMessage
  *   DBShardGroupIdentifier: "STRING_VALUE", // required

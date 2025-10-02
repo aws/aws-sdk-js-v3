@@ -34,6 +34,8 @@ export interface DisassociateMemberFromFarmCommandOutput extends DisassociateMem
  * ```javascript
  * import { DeadlineClient, DisassociateMemberFromFarmCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, DisassociateMemberFromFarmCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // DisassociateMemberFromFarmRequest
  *   farmId: "STRING_VALUE", // required

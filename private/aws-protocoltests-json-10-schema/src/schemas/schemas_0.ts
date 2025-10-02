@@ -121,6 +121,7 @@ export const _rT = "requiredTimestamp";
 export const _s = "server";
 export const _sV = "stringValue";
 export const _sVt = "structureValue";
+export const _sm = "smithy.ts.sdk.synthetic.aws.protocoltests.json10";
 export const _tL = "topLevel";
 export const _tLD = "topLevelDefault";
 export const _tV = "timestampValue";
@@ -135,17 +136,11 @@ export const n0 = "aws.protocoltests.json10";
 export const n1 = "aws.protocoltests.shared";
 
 // smithy-typescript generated code
-import { error } from "@smithy/core/schema";
+import { error, TypeRegistry } from "@smithy/core/schema";
 
 import { JSONRPC10ServiceException as __JSONRPC10ServiceException } from "../models/JSONRPC10ServiceException";
 
 /* eslint no-var: 0 */
 
-export var JSONRPC10ServiceException = error(
-  "smithy.ts.sdk.synthetic.aws.protocoltests.json10",
-  "JSONRPC10ServiceException",
-  0,
-  [],
-  [],
-  __JSONRPC10ServiceException
-);
+export var JSONRPC10ServiceException = error(_sm, "JSONRPC10ServiceException", 0, [], [], null);
+TypeRegistry.for(_sm).registerError(JSONRPC10ServiceException, __JSONRPC10ServiceException);

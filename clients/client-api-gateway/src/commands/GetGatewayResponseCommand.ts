@@ -34,6 +34,8 @@ export interface GetGatewayResponseCommandOutput extends GatewayResponse, __Meta
  * ```javascript
  * import { APIGatewayClient, GetGatewayResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetGatewayResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // import type { APIGatewayClientConfig } from "@aws-sdk/client-api-gateway";
+ * const config = {}; // type is APIGatewayClientConfig
  * const client = new APIGatewayClient(config);
  * const input = { // GetGatewayResponseRequest
  *   restApiId: "STRING_VALUE", // required

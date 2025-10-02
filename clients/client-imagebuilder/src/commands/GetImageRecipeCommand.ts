@@ -34,6 +34,8 @@ export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __M
  * ```javascript
  * import { ImagebuilderClient, GetImageRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImageRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // GetImageRecipeRequest
  *   imageRecipeArn: "STRING_VALUE", // required
@@ -91,6 +93,9 @@ export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __M
  * //         uninstallAfterBuild: true || false,
  * //       },
  * //       userDataOverride: "STRING_VALUE",
+ * //     },
+ * //     amiTags: {
+ * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
  * // };

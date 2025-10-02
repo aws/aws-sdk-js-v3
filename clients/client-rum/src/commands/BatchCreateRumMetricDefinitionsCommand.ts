@@ -79,6 +79,8 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  * ```javascript
  * import { RUMClient, BatchCreateRumMetricDefinitionsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, BatchCreateRumMetricDefinitionsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * // import type { RUMClientConfig } from "@aws-sdk/client-rum";
+ * const config = {}; // type is RUMClientConfig
  * const client = new RUMClient(config);
  * const input = { // BatchCreateRumMetricDefinitionsRequest
  *   AppMonitorName: "STRING_VALUE", // required

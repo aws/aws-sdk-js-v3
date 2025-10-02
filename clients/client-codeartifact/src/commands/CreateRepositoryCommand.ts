@@ -36,6 +36,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, _
  * ```javascript
  * import { CodeartifactClient, CreateRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, CreateRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // CreateRepositoryRequest
  *   domain: "STRING_VALUE", // required

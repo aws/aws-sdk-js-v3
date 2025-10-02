@@ -43,6 +43,8 @@ export interface DescribeDominantLanguageDetectionJobCommandOutput
  * ```javascript
  * import { ComprehendClient, DescribeDominantLanguageDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeDominantLanguageDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // DescribeDominantLanguageDetectionJobRequest
  *   JobId: "STRING_VALUE", // required

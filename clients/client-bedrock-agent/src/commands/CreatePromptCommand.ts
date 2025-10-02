@@ -39,6 +39,8 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * ```javascript
  * import { BedrockAgentClient, CreatePromptCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, CreatePromptCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // CreatePromptRequest
  *   name: "STRING_VALUE", // required

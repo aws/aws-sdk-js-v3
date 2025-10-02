@@ -46,6 +46,8 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  * ```javascript
  * import { CodeCommitClient, CreateUnreferencedMergeCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateUnreferencedMergeCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // CreateUnreferencedMergeCommitInput
  *   repositoryName: "STRING_VALUE", // required

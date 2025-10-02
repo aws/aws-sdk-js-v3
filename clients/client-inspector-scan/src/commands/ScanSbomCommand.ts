@@ -34,6 +34,8 @@ export interface ScanSbomCommandOutput extends ScanSbomResponse, __MetadataBeare
  * ```javascript
  * import { InspectorScanClient, ScanSbomCommand } from "@aws-sdk/client-inspector-scan"; // ES Modules import
  * // const { InspectorScanClient, ScanSbomCommand } = require("@aws-sdk/client-inspector-scan"); // CommonJS import
+ * // import type { InspectorScanClientConfig } from "@aws-sdk/client-inspector-scan";
+ * const config = {}; // type is InspectorScanClientConfig
  * const client = new InspectorScanClient(config);
  * const input = { // ScanSbomRequest
  *   sbom: "DOCUMENT_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  * ```javascript
  * import { ACMPCAClient, ListCertificateAuthoritiesCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, ListCertificateAuthoritiesCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * // import type { ACMPCAClientConfig } from "@aws-sdk/client-acm-pca";
+ * const config = {}; // type is ACMPCAClientConfig
  * const client = new ACMPCAClient(config);
  * const input = { // ListCertificateAuthoritiesRequest
  *   MaxResults: Number("int"),

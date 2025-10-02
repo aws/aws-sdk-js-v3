@@ -34,6 +34,8 @@ export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, _
  * ```javascript
  * import { FraudDetectorClient, UpdateEventLabelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateEventLabelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // import type { FraudDetectorClientConfig } from "@aws-sdk/client-frauddetector";
+ * const config = {}; // type is FraudDetectorClientConfig
  * const client = new FraudDetectorClient(config);
  * const input = { // UpdateEventLabelRequest
  *   eventId: "STRING_VALUE", // required

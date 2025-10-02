@@ -59,6 +59,8 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * ```javascript
  * import { WAFClient, PutLoggingConfigurationCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, PutLoggingConfigurationCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // PutLoggingConfigurationRequest
  *   LoggingConfiguration: { // LoggingConfiguration

@@ -34,6 +34,8 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  * ```javascript
  * import { MediaLiveClient, TransferInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, TransferInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // TransferInputDeviceRequest
  *   InputDeviceId: "STRING_VALUE", // required

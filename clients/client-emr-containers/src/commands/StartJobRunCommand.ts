@@ -35,6 +35,8 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * ```javascript
  * import { EMRContainersClient, StartJobRunCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, StartJobRunCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
+ * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
  * const input = { // StartJobRunRequest
  *   name: "STRING_VALUE",

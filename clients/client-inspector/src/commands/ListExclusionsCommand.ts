@@ -34,6 +34,8 @@ export interface ListExclusionsCommandOutput extends ListExclusionsResponse, __M
  * ```javascript
  * import { InspectorClient, ListExclusionsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListExclusionsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // import type { InspectorClientConfig } from "@aws-sdk/client-inspector";
+ * const config = {}; // type is InspectorClientConfig
  * const client = new InspectorClient(config);
  * const input = { // ListExclusionsRequest
  *   assessmentRunArn: "STRING_VALUE", // required

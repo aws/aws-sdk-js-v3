@@ -37,6 +37,8 @@ export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBear
  * ```javascript
  * import { ConnectCampaignsClient, DeleteInstanceOnboardingJobCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, DeleteInstanceOnboardingJobCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * // import type { ConnectCampaignsClientConfig } from "@aws-sdk/client-connectcampaigns";
+ * const config = {}; // type is ConnectCampaignsClientConfig
  * const client = new ConnectCampaignsClient(config);
  * const input = { // DeleteInstanceOnboardingJobRequest
  *   connectInstanceId: "STRING_VALUE", // required

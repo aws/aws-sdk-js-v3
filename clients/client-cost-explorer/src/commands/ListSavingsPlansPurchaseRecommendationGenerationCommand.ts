@@ -44,6 +44,8 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * ```javascript
  * import { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // import type { CostExplorerClientConfig } from "@aws-sdk/client-cost-explorer";
+ * const config = {}; // type is CostExplorerClientConfig
  * const client = new CostExplorerClient(config);
  * const input = { // ListSavingsPlansPurchaseRecommendationGenerationRequest
  *   GenerationStatus: "SUCCEEDED" || "PROCESSING" || "FAILED",

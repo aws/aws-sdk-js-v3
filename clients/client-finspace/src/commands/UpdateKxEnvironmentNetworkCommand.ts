@@ -35,6 +35,8 @@ export interface UpdateKxEnvironmentNetworkCommandOutput extends UpdateKxEnviron
  * ```javascript
  * import { FinspaceClient, UpdateKxEnvironmentNetworkCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, UpdateKxEnvironmentNetworkCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // import type { FinspaceClientConfig } from "@aws-sdk/client-finspace";
+ * const config = {}; // type is FinspaceClientConfig
  * const client = new FinspaceClient(config);
  * const input = { // UpdateKxEnvironmentNetworkRequest
  *   environmentId: "STRING_VALUE", // required

@@ -58,6 +58,8 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * ```javascript
  * import { ConnectClient, TransferContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, TransferContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // TransferContactRequest
  *   InstanceId: "STRING_VALUE", // required

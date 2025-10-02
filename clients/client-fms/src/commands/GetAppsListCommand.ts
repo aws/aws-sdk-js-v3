@@ -34,6 +34,8 @@ export interface GetAppsListCommandOutput extends GetAppsListResponse, __Metadat
  * ```javascript
  * import { FMSClient, GetAppsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetAppsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // import type { FMSClientConfig } from "@aws-sdk/client-fms";
+ * const config = {}; // type is FMSClientConfig
  * const client = new FMSClient(config);
  * const input = { // GetAppsListRequest
  *   ListId: "STRING_VALUE", // required

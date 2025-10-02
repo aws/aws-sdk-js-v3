@@ -34,6 +34,8 @@ export interface ListUploadJobsCommandOutput extends ListUploadJobsResponse, __M
  * ```javascript
  * import { CustomerProfilesClient, ListUploadJobsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListUploadJobsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListUploadJobsRequest
  *   DomainName: "STRING_VALUE", // required

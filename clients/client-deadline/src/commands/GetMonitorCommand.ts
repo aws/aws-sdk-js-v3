@@ -34,6 +34,8 @@ export interface GetMonitorCommandOutput extends GetMonitorResponse, __MetadataB
  * ```javascript
  * import { DeadlineClient, GetMonitorCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetMonitorCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // GetMonitorRequest
  *   monitorId: "STRING_VALUE", // required

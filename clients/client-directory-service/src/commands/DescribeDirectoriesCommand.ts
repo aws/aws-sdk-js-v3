@@ -48,6 +48,8 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * ```javascript
  * import { DirectoryServiceClient, DescribeDirectoriesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeDirectoriesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeDirectoriesRequest
  *   DirectoryIds: [ // DirectoryIds
@@ -65,11 +67,14 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * //       Name: "STRING_VALUE",
  * //       ShortName: "STRING_VALUE",
  * //       Size: "Small" || "Large",
- * //       Edition: "Enterprise" || "Standard",
+ * //       Edition: "Enterprise" || "Standard" || "Hybrid",
  * //       Alias: "STRING_VALUE",
  * //       AccessUrl: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       DnsIpAddrs: [ // DnsIpAddrs
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DnsIpv6Addrs: [ // DnsIpv6Addrs
  * //         "STRING_VALUE",
  * //       ],
  * //       Stage: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed" || "Updating",
@@ -102,9 +107,15 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * //         ConnectIps: [ // IpAddrs
  * //           "STRING_VALUE",
  * //         ],
+ * //         ConnectIpsV6: [ // IpV6Addrs
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       RadiusSettings: { // RadiusSettings
  * //         RadiusServers: [ // Servers
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         RadiusServersIpv6: [
  * //           "STRING_VALUE",
  * //         ],
  * //         RadiusPort: Number("int"),
@@ -125,6 +136,9 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * //         DnsIpAddrs: [
  * //           "STRING_VALUE",
  * //         ],
+ * //         DnsIpv6Addrs: [
+ * //           "STRING_VALUE",
+ * //         ],
  * //         VpcSettings: {
  * //           VpcId: "STRING_VALUE",
  * //           SubnetIds: [
@@ -139,6 +153,9 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * //           RadiusServers: [
  * //             "STRING_VALUE",
  * //           ],
+ * //           RadiusServersIpv6: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //           RadiusPort: Number("int"),
  * //           RadiusTimeout: Number("int"),
  * //           RadiusRetries: Number("int"),
@@ -148,6 +165,7 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * //           UseSameUsername: true || false,
  * //         },
  * //         RadiusStatus: "Creating" || "Completed" || "Failed",
+ * //         NetworkType: "Dual-stack" || "IPv4" || "IPv6",
  * //       },
  * //       RegionsInfo: { // RegionsInfo
  * //         PrimaryRegion: "STRING_VALUE",
@@ -164,6 +182,7 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       NetworkType: "Dual-stack" || "IPv4" || "IPv6",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

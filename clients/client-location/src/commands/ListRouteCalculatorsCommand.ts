@@ -38,6 +38,8 @@ export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsR
  * ```javascript
  * import { LocationClient, ListRouteCalculatorsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListRouteCalculatorsCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // ListRouteCalculatorsRequest
  *   MaxResults: Number("int"),

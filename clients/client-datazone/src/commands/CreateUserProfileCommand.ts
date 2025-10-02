@@ -38,6 +38,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileOutput,
  * ```javascript
  * import { DataZoneClient, CreateUserProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateUserProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateUserProfileInput
  *   domainIdentifier: "STRING_VALUE", // required
@@ -55,6 +57,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileOutput,
  * //   details: { // UserProfileDetails Union: only one key present
  * //     iam: { // IamUserProfileDetails
  * //       arn: "STRING_VALUE",
+ * //       principalId: "STRING_VALUE",
  * //     },
  * //     sso: { // SsoUserProfileDetails
  * //       username: "STRING_VALUE",

@@ -48,6 +48,8 @@ export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneA
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, StartVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, StartVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // import type { ChimeSDKMediaPipelinesClientConfig } from "@aws-sdk/client-chime-sdk-media-pipelines";
+ * const config = {}; // type is ChimeSDKMediaPipelinesClientConfig
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // StartVoiceToneAnalysisTaskRequest
  *   Identifier: "STRING_VALUE", // required

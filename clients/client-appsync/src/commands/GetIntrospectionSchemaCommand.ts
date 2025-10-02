@@ -44,6 +44,8 @@ export interface GetIntrospectionSchemaCommandOutput
  * ```javascript
  * import { AppSyncClient, GetIntrospectionSchemaCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetIntrospectionSchemaCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // import type { AppSyncClientConfig } from "@aws-sdk/client-appsync";
+ * const config = {}; // type is AppSyncClientConfig
  * const client = new AppSyncClient(config);
  * const input = { // GetIntrospectionSchemaRequest
  *   apiId: "STRING_VALUE", // required

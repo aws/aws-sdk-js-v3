@@ -34,6 +34,8 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  * ```javascript
  * import { WorkSpacesWebClient, GetNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // GetNetworkSettingsRequest
  *   networkSettingsArn: "STRING_VALUE", // required

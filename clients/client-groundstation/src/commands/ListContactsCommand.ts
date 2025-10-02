@@ -37,6 +37,8 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * ```javascript
  * import { GroundStationClient, ListContactsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListContactsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
+ * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // ListContactsRequest
  *   maxResults: Number("int"),

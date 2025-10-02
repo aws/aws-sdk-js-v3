@@ -36,6 +36,8 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * ```javascript
  * import { SecurityHubClient, BatchGetSecurityControlsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchGetSecurityControlsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // BatchGetSecurityControlsRequest
  *   SecurityControlIds: [ // StringList // required
@@ -82,7 +84,7 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * //   UnprocessedIds: [ // UnprocessedSecurityControls
  * //     { // UnprocessedSecurityControl
  * //       SecurityControlId: "STRING_VALUE", // required
- * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
+ * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "RESOURCE_NOT_FOUND" || "LIMIT_EXCEEDED", // required
  * //       ErrorReason: "STRING_VALUE",
  * //     },
  * //   ],

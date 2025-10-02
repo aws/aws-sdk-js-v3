@@ -59,6 +59,8 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * ```javascript
  * import { CloudFormationClient, RegisterTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, RegisterTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // import type { CloudFormationClientConfig } from "@aws-sdk/client-cloudformation";
+ * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // RegisterTypeInput
  *   Type: "RESOURCE" || "MODULE" || "HOOK",

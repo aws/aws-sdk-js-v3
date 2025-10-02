@@ -33,12 +33,14 @@ export interface UpdateGlossaryCommandInput extends UpdateGlossaryInput {}
 export interface UpdateGlossaryCommandOutput extends UpdateGlossaryOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the business glossary in Amazon DataZone.</p>
+ * <p>Updates the business glossary in Amazon DataZone.</p> <p>Prerequisites:</p> <ul> <li> <p>The glossary must exist in the given domain. </p> </li> <li> <p>The caller must have the <code>datazone:UpdateGlossary</code> permission to update it.</p> </li> <li> <p>When updating the name, the new name must be unique within the domain.</p> </li> <li> <p>The glossary must not be deleted or in a terminal state.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataZoneClient, UpdateGlossaryCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateGlossaryCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateGlossaryInput
  *   domainIdentifier: "STRING_VALUE", // required

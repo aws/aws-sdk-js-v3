@@ -83,6 +83,8 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * ```javascript
  * import { SFNClient, UpdateStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, UpdateStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // import type { SFNClientConfig } from "@aws-sdk/client-sfn";
+ * const config = {}; // type is SFNClientConfig
  * const client = new SFNClient(config);
  * const input = { // UpdateStateMachineInput
  *   stateMachineArn: "STRING_VALUE", // required

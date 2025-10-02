@@ -39,6 +39,8 @@ export interface AssociateApplicationToEntitlementCommandOutput
  * ```javascript
  * import { AppStreamClient, AssociateApplicationToEntitlementCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, AssociateApplicationToEntitlementCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // AssociateApplicationToEntitlementRequest
  *   StackName: "STRING_VALUE", // required

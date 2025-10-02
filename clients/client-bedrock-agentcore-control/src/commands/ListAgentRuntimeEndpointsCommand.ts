@@ -42,6 +42,8 @@ export interface ListAgentRuntimeEndpointsCommandOutput extends ListAgentRuntime
  * ```javascript
  * import { BedrockAgentCoreControlClient, ListAgentRuntimeEndpointsCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, ListAgentRuntimeEndpointsCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // ListAgentRuntimeEndpointsRequest
  *   agentRuntimeId: "STRING_VALUE", // required
@@ -51,8 +53,8 @@ export interface ListAgentRuntimeEndpointsCommandOutput extends ListAgentRuntime
  * const command = new ListAgentRuntimeEndpointsCommand(input);
  * const response = await client.send(command);
  * // { // ListAgentRuntimeEndpointsResponse
- * //   runtimeEndpoints: [ // AgentEndpoints // required
- * //     { // AgentEndpoint
+ * //   runtimeEndpoints: [ // AgentRuntimeEndpoints // required
+ * //     { // AgentRuntimeEndpoint
  * //       name: "STRING_VALUE", // required
  * //       liveVersion: "STRING_VALUE",
  * //       targetVersion: "STRING_VALUE",

@@ -34,6 +34,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * ```javascript
  * import { SSOAdminClient, ListInstancesCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListInstancesCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // import type { SSOAdminClientConfig } from "@aws-sdk/client-sso-admin";
+ * const config = {}; // type is SSOAdminClientConfig
  * const client = new SSOAdminClient(config);
  * const input = { // ListInstancesRequest
  *   MaxResults: Number("int"),
@@ -49,7 +51,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * //       OwnerAccountId: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       CreatedDate: new Date("TIMESTAMP"),
- * //       Status: "CREATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "ACTIVE",
+ * //       Status: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "ACTIVE",
+ * //       StatusReason: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

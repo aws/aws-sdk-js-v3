@@ -34,6 +34,8 @@ export interface ListFlowAliasesCommandOutput extends ListFlowAliasesResponse, _
  * ```javascript
  * import { BedrockAgentClient, ListFlowAliasesCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, ListFlowAliasesCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // ListFlowAliasesRequest
  *   flowIdentifier: "STRING_VALUE", // required

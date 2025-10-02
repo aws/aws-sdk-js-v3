@@ -34,6 +34,8 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
  * ```javascript
  * import { SageMakerClient, CreateEdgeDeploymentPlanCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEdgeDeploymentPlanCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // CreateEdgeDeploymentPlanRequest
  *   EdgeDeploymentPlanName: "STRING_VALUE", // required

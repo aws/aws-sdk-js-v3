@@ -34,6 +34,8 @@ export interface ListLicensesCommandOutput extends ListLicensesResponse, __Metad
  * ```javascript
  * import { LicenseManagerClient, ListLicensesCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListLicensesCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // ListLicensesRequest
  *   LicenseArns: [ // ArnList

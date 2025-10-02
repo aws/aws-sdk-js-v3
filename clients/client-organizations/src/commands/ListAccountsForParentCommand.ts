@@ -52,6 +52,8 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * ```javascript
  * import { OrganizationsClient, ListAccountsForParentCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListAccountsForParentCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // ListAccountsForParentRequest
  *   ParentId: "STRING_VALUE", // required
@@ -68,6 +70,7 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * //       Email: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ * //       State: "PENDING_ACTIVATION" || "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE" || "CLOSED",
  * //       JoinedMethod: "INVITED" || "CREATED",
  * //       JoinedTimestamp: new Date("TIMESTAMP"),
  * //     },

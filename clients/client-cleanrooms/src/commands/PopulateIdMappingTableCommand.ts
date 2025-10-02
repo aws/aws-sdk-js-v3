@@ -34,10 +34,13 @@ export interface PopulateIdMappingTableCommandOutput extends PopulateIdMappingTa
  * ```javascript
  * import { CleanRoomsClient, PopulateIdMappingTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, PopulateIdMappingTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // PopulateIdMappingTableInput
  *   idMappingTableIdentifier: "STRING_VALUE", // required
  *   membershipIdentifier: "STRING_VALUE", // required
+ *   jobType: "BATCH" || "INCREMENTAL" || "DELETE_ONLY",
  * };
  * const command = new PopulateIdMappingTableCommand(input);
  * const response = await client.send(command);

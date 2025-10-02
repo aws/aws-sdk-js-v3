@@ -28,12 +28,14 @@ export interface CreateRoleMembershipCommandInput extends CreateRoleMembershipRe
 export interface CreateRoleMembershipCommandOutput extends CreateRoleMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Use <code>CreateRoleMembership</code> to add an existing Amazon QuickSight group to an existing role.</p>
+ * <p>Use <code>CreateRoleMembership</code> to add an existing QuickSight group to an existing role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, CreateRoleMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateRoleMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // CreateRoleMembershipRequest
  *   MemberName: "STRING_VALUE", // required

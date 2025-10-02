@@ -34,6 +34,8 @@ export interface CancelTrainedModelCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CleanRoomsMLClient, CancelTrainedModelCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, CancelTrainedModelCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // CancelTrainedModelRequest
  *   membershipIdentifier: "STRING_VALUE", // required

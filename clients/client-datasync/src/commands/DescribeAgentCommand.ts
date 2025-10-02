@@ -35,6 +35,8 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * ```javascript
  * import { DataSyncClient, DescribeAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // DescribeAgentRequest
  *   AgentArn: "STRING_VALUE", // required
@@ -47,7 +49,7 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * //   Status: "ONLINE" || "OFFLINE",
  * //   LastConnectionTime: new Date("TIMESTAMP"),
  * //   CreationTime: new Date("TIMESTAMP"),
- * //   EndpointType: "PUBLIC" || "PRIVATE_LINK" || "FIPS",
+ * //   EndpointType: "PUBLIC" || "PRIVATE_LINK" || "FIPS" || "FIPS_PRIVATE_LINK",
  * //   PrivateLinkConfig: { // PrivateLinkConfig
  * //     VpcEndpointId: "STRING_VALUE",
  * //     PrivateLinkEndpoint: "STRING_VALUE",

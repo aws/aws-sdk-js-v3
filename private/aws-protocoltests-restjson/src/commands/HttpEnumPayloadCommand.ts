@@ -35,6 +35,8 @@ export interface HttpEnumPayloadCommandOutput extends EnumPayloadInput, __Metada
  * ```javascript
  * import { RestJsonProtocolClient, HttpEnumPayloadCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpEnumPayloadCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // EnumPayloadInput
  *   payload: "enumvalue",

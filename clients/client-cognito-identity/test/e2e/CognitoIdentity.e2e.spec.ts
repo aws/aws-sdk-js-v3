@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { CognitoIdentity } from "../../src/index";
 
 describe("@aws-sdk/client-cognito-identity", () => {
@@ -9,8 +9,8 @@ describe("@aws-sdk/client-cognito-identity", () => {
   let IdentityPoolId: string;
 
   beforeAll(async () => {
-    const integTestResourcesEnv = await getIntegTestResources();
-    Object.assign(process.env, integTestResourcesEnv);
+    const e2eTestResourcesEnv = await getE2eTestResources();
+    Object.assign(process.env, e2eTestResourcesEnv);
 
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
     IdentityPoolId =
@@ -38,4 +38,4 @@ describe("@aws-sdk/client-cognito-identity", () => {
     expect(typeof getCredentialsResult.Credentials?.AccessKeyId).to.equal("string");
     expect(typeof getCredentialsResult.Credentials?.SecretKey).to.equal("string");
   });
-});
+}, 60_000);

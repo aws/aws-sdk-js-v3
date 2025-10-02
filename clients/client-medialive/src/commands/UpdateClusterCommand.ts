@@ -34,6 +34,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * ```javascript
  * import { MediaLiveClient, UpdateClusterCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateClusterCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // UpdateClusterRequest
  *   ClusterId: "STRING_VALUE", // required

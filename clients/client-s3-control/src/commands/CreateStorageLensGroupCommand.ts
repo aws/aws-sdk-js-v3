@@ -50,6 +50,8 @@ export interface CreateStorageLensGroupCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { S3ControlClient, CreateStorageLensGroupCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateStorageLensGroupCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // CreateStorageLensGroupRequest
  *   AccountId: "STRING_VALUE",

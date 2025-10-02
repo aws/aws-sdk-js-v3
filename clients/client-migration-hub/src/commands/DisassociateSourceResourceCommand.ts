@@ -34,6 +34,8 @@ export interface DisassociateSourceResourceCommandOutput extends DisassociateSou
  * ```javascript
  * import { MigrationHubClient, DisassociateSourceResourceCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DisassociateSourceResourceCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * // import type { MigrationHubClientConfig } from "@aws-sdk/client-migration-hub";
+ * const config = {}; // type is MigrationHubClientConfig
  * const client = new MigrationHubClient(config);
  * const input = { // DisassociateSourceResourceRequest
  *   ProgressUpdateStream: "STRING_VALUE", // required

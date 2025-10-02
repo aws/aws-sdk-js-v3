@@ -34,6 +34,8 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * ```javascript
  * import { TransferClient, UpdateServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // import type { TransferClientConfig } from "@aws-sdk/client-transfer";
+ * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // UpdateServerRequest
  *   Certificate: "STRING_VALUE",
@@ -96,6 +98,7 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *     DirectoryListingOptimization: "ENABLED" || "DISABLED",
  *   },
  *   IpAddressType: "IPV4" || "DUALSTACK",
+ *   IdentityProviderType: "SERVICE_MANAGED" || "API_GATEWAY" || "AWS_DIRECTORY_SERVICE" || "AWS_LAMBDA",
  * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);

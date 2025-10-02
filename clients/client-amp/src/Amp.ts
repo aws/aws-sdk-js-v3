@@ -64,6 +64,11 @@ import {
   DeleteScraperCommandOutput,
 } from "./commands/DeleteScraperCommand";
 import {
+  DeleteScraperLoggingConfigurationCommand,
+  DeleteScraperLoggingConfigurationCommandInput,
+  DeleteScraperLoggingConfigurationCommandOutput,
+} from "./commands/DeleteScraperLoggingConfigurationCommand";
+import {
   DeleteWorkspaceCommand,
   DeleteWorkspaceCommandInput,
   DeleteWorkspaceCommandOutput,
@@ -98,6 +103,11 @@ import {
   DescribeScraperCommandInput,
   DescribeScraperCommandOutput,
 } from "./commands/DescribeScraperCommand";
+import {
+  DescribeScraperLoggingConfigurationCommand,
+  DescribeScraperLoggingConfigurationCommandInput,
+  DescribeScraperLoggingConfigurationCommandOutput,
+} from "./commands/DescribeScraperLoggingConfigurationCommand";
 import {
   DescribeWorkspaceCommand,
   DescribeWorkspaceCommandInput,
@@ -170,6 +180,11 @@ import {
   UpdateScraperCommandOutput,
 } from "./commands/UpdateScraperCommand";
 import {
+  UpdateScraperLoggingConfigurationCommand,
+  UpdateScraperLoggingConfigurationCommandInput,
+  UpdateScraperLoggingConfigurationCommandOutput,
+} from "./commands/UpdateScraperLoggingConfigurationCommand";
+import {
   UpdateWorkspaceAliasCommand,
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
@@ -193,6 +208,7 @@ const commands = {
   DeleteResourcePolicyCommand,
   DeleteRuleGroupsNamespaceCommand,
   DeleteScraperCommand,
+  DeleteScraperLoggingConfigurationCommand,
   DeleteWorkspaceCommand,
   DescribeAlertManagerDefinitionCommand,
   DescribeLoggingConfigurationCommand,
@@ -200,6 +216,7 @@ const commands = {
   DescribeResourcePolicyCommand,
   DescribeRuleGroupsNamespaceCommand,
   DescribeScraperCommand,
+  DescribeScraperLoggingConfigurationCommand,
   DescribeWorkspaceCommand,
   DescribeWorkspaceConfigurationCommand,
   GetDefaultScraperConfigurationCommand,
@@ -215,6 +232,7 @@ const commands = {
   UpdateLoggingConfigurationCommand,
   UpdateQueryLoggingConfigurationCommand,
   UpdateScraperCommand,
+  UpdateScraperLoggingConfigurationCommand,
   UpdateWorkspaceAliasCommand,
   UpdateWorkspaceConfigurationCommand,
 };
@@ -411,6 +429,23 @@ export interface Amp {
   ): void;
 
   /**
+   * @see {@link DeleteScraperLoggingConfigurationCommand}
+   */
+  deleteScraperLoggingConfiguration(
+    args: DeleteScraperLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteScraperLoggingConfigurationCommandOutput>;
+  deleteScraperLoggingConfiguration(
+    args: DeleteScraperLoggingConfigurationCommandInput,
+    cb: (err: any, data?: DeleteScraperLoggingConfigurationCommandOutput) => void
+  ): void;
+  deleteScraperLoggingConfiguration(
+    args: DeleteScraperLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteScraperLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteWorkspaceCommand}
    */
   deleteWorkspace(
@@ -521,6 +556,23 @@ export interface Amp {
     args: DescribeScraperCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeScraperCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeScraperLoggingConfigurationCommand}
+   */
+  describeScraperLoggingConfiguration(
+    args: DescribeScraperLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeScraperLoggingConfigurationCommandOutput>;
+  describeScraperLoggingConfiguration(
+    args: DescribeScraperLoggingConfigurationCommandInput,
+    cb: (err: any, data?: DescribeScraperLoggingConfigurationCommandOutput) => void
+  ): void;
+  describeScraperLoggingConfiguration(
+    args: DescribeScraperLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeScraperLoggingConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -752,6 +804,23 @@ export interface Amp {
     args: UpdateScraperCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateScraperCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateScraperLoggingConfigurationCommand}
+   */
+  updateScraperLoggingConfiguration(
+    args: UpdateScraperLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateScraperLoggingConfigurationCommandOutput>;
+  updateScraperLoggingConfiguration(
+    args: UpdateScraperLoggingConfigurationCommandInput,
+    cb: (err: any, data?: UpdateScraperLoggingConfigurationCommandOutput) => void
+  ): void;
+  updateScraperLoggingConfiguration(
+    args: UpdateScraperLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateScraperLoggingConfigurationCommandOutput) => void
   ): void;
 
   /**

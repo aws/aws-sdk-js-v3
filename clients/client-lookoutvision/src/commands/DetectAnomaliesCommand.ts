@@ -53,6 +53,8 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  * ```javascript
  * import { LookoutVisionClient, DetectAnomaliesCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DetectAnomaliesCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * // import type { LookoutVisionClientConfig } from "@aws-sdk/client-lookoutvision";
+ * const config = {}; // type is LookoutVisionClientConfig
  * const client = new LookoutVisionClient(config);
  * const input = { // DetectAnomaliesRequest
  *   ProjectName: "STRING_VALUE", // required

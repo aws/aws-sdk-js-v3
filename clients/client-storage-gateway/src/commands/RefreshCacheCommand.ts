@@ -74,6 +74,8 @@ export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __Metadat
  * ```javascript
  * import { StorageGatewayClient, RefreshCacheCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, RefreshCacheCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // RefreshCacheInput
  *   FileShareARN: "STRING_VALUE", // required

@@ -43,6 +43,8 @@ export interface DescribeAppBlockBuilderAppBlockAssociationsCommandOutput
  * ```javascript
  * import { AppStreamClient, DescribeAppBlockBuilderAppBlockAssociationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeAppBlockBuilderAppBlockAssociationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
+ * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
  * const input = { // DescribeAppBlockBuilderAppBlockAssociationsRequest
  *   AppBlockArn: "STRING_VALUE",

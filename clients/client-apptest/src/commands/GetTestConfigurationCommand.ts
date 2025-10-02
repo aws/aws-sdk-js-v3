@@ -34,6 +34,8 @@ export interface GetTestConfigurationCommandOutput extends GetTestConfigurationR
  * ```javascript
  * import { AppTestClient, GetTestConfigurationCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, GetTestConfigurationCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // import type { AppTestClientConfig } from "@aws-sdk/client-apptest";
+ * const config = {}; // type is AppTestClientConfig
  * const client = new AppTestClient(config);
  * const input = { // GetTestConfigurationRequest
  *   testConfigurationId: "STRING_VALUE", // required

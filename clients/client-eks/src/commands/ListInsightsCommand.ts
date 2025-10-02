@@ -50,6 +50,8 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * ```javascript
  * import { EKSClient, ListInsightsCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListInsightsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
+ * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
  * const input = { // ListInsightsRequest
  *   clusterName: "STRING_VALUE", // required

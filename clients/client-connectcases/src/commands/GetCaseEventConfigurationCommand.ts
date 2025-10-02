@@ -34,6 +34,8 @@ export interface GetCaseEventConfigurationCommandOutput extends GetCaseEventConf
  * ```javascript
  * import { ConnectCasesClient, GetCaseEventConfigurationCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetCaseEventConfigurationCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // GetCaseEventConfigurationRequest
  *   domainId: "STRING_VALUE", // required

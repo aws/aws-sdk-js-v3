@@ -3,7 +3,7 @@ import {
   HttpInterceptingShapeDeserializer,
   HttpInterceptingShapeSerializer,
 } from "@smithy/core/protocols";
-import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
+import { NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -78,11 +78,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
       request.body = "{}";
     }
 
-    if (request.body) {
-      try {
-        request.headers["content-length"] = this.mixin.calculateContentLength(request.body, this.serdeContext);
-      } catch (e) {}
-    }
+    // content-length header is set by the contentLengthMiddleware.
 
     return request;
   }
@@ -106,7 +102,8 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
 
     const ns = NormalizedSchema.of(errorSchema);
     const message = dataObject.message ?? dataObject.Message ?? "Unknown";
-    const exception = new errorSchema.ctor(message);
+    const ErrorCtor = TypeRegistry.for(errorSchema.namespace).getErrorCtor(errorSchema) ?? Error;
+    const exception = new ErrorCtor(message);
 
     await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;

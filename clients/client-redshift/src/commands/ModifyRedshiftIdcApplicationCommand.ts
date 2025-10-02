@@ -36,6 +36,8 @@ export interface ModifyRedshiftIdcApplicationCommandOutput
  * ```javascript
  * import { RedshiftClient, ModifyRedshiftIdcApplicationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyRedshiftIdcApplicationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // ModifyRedshiftIdcApplicationMessage
  *   RedshiftIdcApplicationArn: "STRING_VALUE", // required
@@ -106,6 +108,15 @@ export interface ModifyRedshiftIdcApplicationCommandOutput
  * //           },
  * //         ],
  * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     SsoTagKeys: [ // TagKeyList
+ * //       "STRING_VALUE",
  * //     ],
  * //   },
  * // };

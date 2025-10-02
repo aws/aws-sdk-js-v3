@@ -34,6 +34,8 @@ export interface PutMLConfigurationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CleanRoomsMLClient, PutMLConfigurationCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, PutMLConfigurationCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // PutMLConfigurationRequest
  *   membershipIdentifier: "STRING_VALUE", // required

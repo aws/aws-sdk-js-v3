@@ -41,6 +41,8 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  * ```javascript
  * import { LightsailClient, DeleteKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // DeleteKeyPairRequest
  *   keyPairName: "STRING_VALUE", // required

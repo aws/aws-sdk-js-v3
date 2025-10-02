@@ -38,6 +38,8 @@ export interface ListBillingViewsCommandOutput extends ListBillingViewsResponse,
  * ```javascript
  * import { BillingClient, ListBillingViewsCommand } from "@aws-sdk/client-billing"; // ES Modules import
  * // const { BillingClient, ListBillingViewsCommand } = require("@aws-sdk/client-billing"); // CommonJS import
+ * // import type { BillingClientConfig } from "@aws-sdk/client-billing";
+ * const config = {}; // type is BillingClientConfig
  * const client = new BillingClient(config);
  * const input = { // ListBillingViewsRequest
  *   activeTimeRange: { // ActiveTimeRange
@@ -51,6 +53,7 @@ export interface ListBillingViewsCommandOutput extends ListBillingViewsResponse,
  *     "PRIMARY" || "BILLING_GROUP" || "CUSTOM",
  *   ],
  *   ownerAccountId: "STRING_VALUE",
+ *   sourceAccountId: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
@@ -63,7 +66,14 @@ export interface ListBillingViewsCommandOutput extends ListBillingViewsResponse,
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       ownerAccountId: "STRING_VALUE",
+ * //       sourceAccountId: "STRING_VALUE",
  * //       billingViewType: "PRIMARY" || "BILLING_GROUP" || "CUSTOM",
+ * //       healthStatus: { // BillingViewHealthStatus
+ * //         statusCode: "HEALTHY" || "UNHEALTHY" || "CREATING" || "UPDATING",
+ * //         statusReasons: [ // BillingViewStatusReasons
+ * //           "SOURCE_VIEW_UNHEALTHY" || "SOURCE_VIEW_UPDATING" || "SOURCE_VIEW_ACCESS_DENIED" || "SOURCE_VIEW_NOT_FOUND" || "CYCLIC_DEPENDENCY" || "SOURCE_VIEW_DEPTH_EXCEEDED" || "AGGREGATE_SOURCE" || "VIEW_OWNER_NOT_MANAGEMENT_ACCOUNT",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

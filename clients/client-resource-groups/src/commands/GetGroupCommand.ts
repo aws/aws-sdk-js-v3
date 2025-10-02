@@ -45,6 +45,8 @@ export interface GetGroupCommandOutput extends GetGroupOutput, __MetadataBearer 
  * ```javascript
  * import { ResourceGroupsClient, GetGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // import type { ResourceGroupsClientConfig } from "@aws-sdk/client-resource-groups";
+ * const config = {}; // type is ResourceGroupsClientConfig
  * const client = new ResourceGroupsClient(config);
  * const input = { // GetGroupInput
  *   GroupName: "STRING_VALUE",

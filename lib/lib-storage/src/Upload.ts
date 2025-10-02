@@ -3,8 +3,10 @@ import {
   ChecksumAlgorithm,
   CompletedPart,
   CompleteMultipartUploadCommand,
+  CompleteMultipartUploadCommandInput,
   CompleteMultipartUploadCommandOutput,
   CreateMultipartUploadCommand,
+  CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput,
   PutObjectCommand,
   PutObjectCommandInput,
@@ -12,6 +14,7 @@ import {
   S3Client,
   Tag,
   UploadPartCommand,
+  UploadPartCommandInput,
 } from "@aws-sdk/client-s3";
 import {
   EndpointParameterInstructionsSupplier,
@@ -23,7 +26,8 @@ import { extendedEncodeURIComponent } from "@smithy/smithy-client";
 import type { Endpoint } from "@smithy/types";
 import { EventEmitter } from "events";
 
-import { byteLength } from "./bytelength";
+import { byteLength } from "./byteLength";
+import { BYTE_LENGTH_SOURCE, byteLengthSource } from "./byteLengthSource";
 import { getChunk } from "./chunker";
 import { wireSignal } from "./signal";
 import { BodyDataTypes, Options, Progress } from "./types";
@@ -47,15 +51,17 @@ export class Upload extends EventEmitter {
 
   // Defaults.
   private readonly queueSize: number = 4;
-  private readonly partSize = Upload.MIN_PART_SIZE;
+  private readonly partSize: number;
   private readonly leavePartsOnError: boolean = false;
   private readonly tags: Tag[] = [];
 
   private readonly client: S3Client;
-  private readonly params: PutObjectCommandInput;
+  private readonly params: PutObjectCommandInput &
+    Partial<CreateMultipartUploadCommandInput & UploadPartCommandInput & CompleteMultipartUploadCommandInput>;
 
   // used for reporting progress.
   private totalBytes?: number;
+  private readonly totalBytesSource?: BYTE_LENGTH_SOURCE;
   private bytesUploadedSoFar: number;
 
   // used in the upload.
@@ -65,6 +71,7 @@ export class Upload extends EventEmitter {
 
   private uploadedParts: CompletedPart[] = [];
   private uploadEnqueuedPartsCount = 0;
+  private expectedPartsCount?: number;
   /**
    * Last UploadId if the upload was done with MultipartUpload and not PutObject.
    */
@@ -80,21 +87,31 @@ export class Upload extends EventEmitter {
 
     // set defaults from options.
     this.queueSize = options.queueSize || this.queueSize;
-    this.partSize = options.partSize || this.partSize;
     this.leavePartsOnError = options.leavePartsOnError || this.leavePartsOnError;
     this.tags = options.tags || this.tags;
 
     this.client = options.client;
     this.params = options.params;
 
-    this.__validateInput();
-
-    // set progress defaults
-    this.totalBytes = byteLength(this.params.Body);
-    this.bytesUploadedSoFar = 0;
+    if (!this.params) {
+      throw new Error(`InputError: Upload requires params to be passed to upload.`);
+    }
 
     wireSignal(this.abortController, options.abortSignal);
     wireSignal(this.abortController, options.abortController?.signal);
+
+    // set progress defaults
+    this.totalBytes = this.params.ContentLength ?? byteLength(this.params.Body);
+    this.totalBytesSource = byteLengthSource(this.params.Body, this.params.ContentLength);
+    this.bytesUploadedSoFar = 0;
+    this.partSize =
+      options.partSize || Math.max(Upload.MIN_PART_SIZE, Math.floor((this.totalBytes || 0) / this.MAX_PARTS));
+
+    if (this.totalBytes !== undefined) {
+      this.expectedPartsCount = Math.ceil(this.totalBytes / this.partSize);
+    }
+
+    this.__validateInput();
   }
 
   async abort(): Promise<void> {
@@ -293,6 +310,8 @@ export class Upload extends EventEmitter {
 
       this.uploadEnqueuedPartsCount += 1;
 
+      this.__validateUploadPart(dataPart);
+
       const partResult = await this.client.send(
         new UploadPartCommand({
           ...this.params,
@@ -377,6 +396,16 @@ export class Upload extends EventEmitter {
 
     let result;
     if (this.isMultiPart) {
+      const { expectedPartsCount, uploadedParts, totalBytes, totalBytesSource } = this;
+      if (totalBytes !== undefined && expectedPartsCount !== undefined && uploadedParts.length !== expectedPartsCount) {
+        throw new Error(`Expected ${expectedPartsCount} part(s) but uploaded ${uploadedParts.length} part(s).
+The expected part count is based on the byte-count of the input.params.Body,
+which was read from ${totalBytesSource} and is ${totalBytes}.
+If this is not correct, provide an override value by setting a number
+to input.params.ContentLength in bytes.
+`);
+      }
+
       this.uploadedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
 
       const uploadCompleteParams = {
@@ -430,18 +459,36 @@ export class Upload extends EventEmitter {
     }
   }
 
-  private __validateInput(): void {
-    if (!this.params) {
-      throw new Error(`InputError: Upload requires params to be passed to upload.`);
+  private __validateUploadPart(dataPart: RawDataPart): void {
+    const actualPartSize = byteLength(dataPart.data);
+
+    if (actualPartSize === undefined) {
+      throw new Error(
+        `A dataPart was generated without a measurable data chunk size for part number ${dataPart.partNumber}`
+      );
     }
 
+    // Skip validation for single-part uploads (PUT operations)
+    if (dataPart.partNumber === 1 && dataPart.lastPart) {
+      return;
+    }
+
+    // Validate part size (last part may be smaller)
+    if (!dataPart.lastPart && actualPartSize !== this.partSize) {
+      throw new Error(
+        `The byte size for part number ${dataPart.partNumber}, size ${actualPartSize} does not match expected size ${this.partSize}`
+      );
+    }
+  }
+
+  private __validateInput(): void {
     if (!this.client) {
       throw new Error(`InputError: Upload requires a AWS client to do uploads with.`);
     }
 
     if (this.partSize < Upload.MIN_PART_SIZE) {
       throw new Error(
-        `EntityTooSmall: Your proposed upload partsize [${this.partSize}] is smaller than the minimum allowed size [${Upload.MIN_PART_SIZE}] (5MB)`
+        `EntityTooSmall: Your proposed upload part size [${this.partSize}] is smaller than the minimum allowed size [${Upload.MIN_PART_SIZE}] (5MB)`
       );
     }
 

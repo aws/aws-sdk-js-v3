@@ -40,6 +40,8 @@ export interface GetDeliveryDestinationPolicyCommandOutput
  * ```javascript
  * import { CloudWatchLogsClient, GetDeliveryDestinationPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetDeliveryDestinationPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // import type { CloudWatchLogsClientConfig } from "@aws-sdk/client-cloudwatch-logs";
+ * const config = {}; // type is CloudWatchLogsClientConfig
  * const client = new CloudWatchLogsClient(config);
  * const input = { // GetDeliveryDestinationPolicyRequest
  *   deliveryDestinationName: "STRING_VALUE", // required

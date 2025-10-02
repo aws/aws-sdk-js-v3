@@ -34,6 +34,8 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  * ```javascript
  * import { IoTSiteWiseClient, ListTimeSeriesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListTimeSeriesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListTimeSeriesRequest
  *   nextToken: "STRING_VALUE",

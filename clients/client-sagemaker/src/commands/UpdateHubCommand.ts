@@ -34,6 +34,8 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  * ```javascript
  * import { SageMakerClient, UpdateHubCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateHubCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateHubRequest
  *   HubName: "STRING_VALUE", // required

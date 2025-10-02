@@ -34,6 +34,8 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SagemakerEdgeClient, SendHeartbeatCommand } from "@aws-sdk/client-sagemaker-edge"; // ES Modules import
  * // const { SagemakerEdgeClient, SendHeartbeatCommand } = require("@aws-sdk/client-sagemaker-edge"); // CommonJS import
+ * // import type { SagemakerEdgeClientConfig } from "@aws-sdk/client-sagemaker-edge";
+ * const config = {}; // type is SagemakerEdgeClientConfig
  * const client = new SagemakerEdgeClient(config);
  * const input = { // SendHeartbeatRequest
  *   AgentMetrics: [ // EdgeMetrics

@@ -40,6 +40,8 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * ```javascript
  * import { TimestreamQueryClient, CancelQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, CancelQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * // import type { TimestreamQueryClientConfig } from "@aws-sdk/client-timestream-query";
+ * const config = {}; // type is TimestreamQueryClientConfig
  * const client = new TimestreamQueryClient(config);
  * const input = { // CancelQueryRequest
  *   QueryId: "STRING_VALUE", // required

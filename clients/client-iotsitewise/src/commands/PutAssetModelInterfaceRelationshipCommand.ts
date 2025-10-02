@@ -43,6 +43,8 @@ export interface PutAssetModelInterfaceRelationshipCommandOutput
  * ```javascript
  * import { IoTSiteWiseClient, PutAssetModelInterfaceRelationshipCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, PutAssetModelInterfaceRelationshipCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // PutAssetModelInterfaceRelationshipRequest
  *   assetModelId: "STRING_VALUE", // required

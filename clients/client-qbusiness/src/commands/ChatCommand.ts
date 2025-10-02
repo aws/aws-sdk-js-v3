@@ -36,6 +36,8 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * ```javascript
  * import { QBusinessClient, ChatCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, ChatCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // ChatInput
  *   applicationId: "STRING_VALUE", // required

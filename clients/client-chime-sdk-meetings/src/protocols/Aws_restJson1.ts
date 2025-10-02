@@ -20,7 +20,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import {
   BatchCreateAttendeeCommandInput,
@@ -182,6 +182,7 @@ export const se_CreateMeetingCommand = async (
     take(input, {
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExternalMeetingId: [],
+      MediaPlacementNetworkType: [],
       MediaRegion: [],
       MeetingFeatures: (_) => _json(_),
       MeetingHostId: [],
@@ -216,6 +217,7 @@ export const se_CreateMeetingWithAttendeesCommand = async (
       Attendees: (_) => _json(_),
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ExternalMeetingId: [],
+      MediaPlacementNetworkType: [],
       MediaRegion: [],
       MeetingFeatures: (_) => _json(_),
       MeetingHostId: [],

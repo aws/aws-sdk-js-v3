@@ -43,6 +43,8 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * ```javascript
  * import { ElasticBeanstalkClient, RetrieveEnvironmentInfoCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, RetrieveEnvironmentInfoCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * // import type { ElasticBeanstalkClientConfig } from "@aws-sdk/client-elastic-beanstalk";
+ * const config = {}; // type is ElasticBeanstalkClientConfig
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // RetrieveEnvironmentInfoMessage
  *   EnvironmentId: "STRING_VALUE",

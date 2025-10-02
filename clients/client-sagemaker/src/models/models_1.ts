@@ -4079,6 +4079,20 @@ export type ExecutionRoleIdentityConfig =
   (typeof ExecutionRoleIdentityConfig)[keyof typeof ExecutionRoleIdentityConfig];
 
 /**
+ * @public
+ * @enum
+ */
+export const IPAddressType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
+
+/**
  * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level app.</p>
  * @public
  */
@@ -4220,6 +4234,12 @@ export interface DomainSettings {
    * @public
    */
   UnifiedStudioSettings?: UnifiedStudioSettings | undefined;
+
+  /**
+   * <p>The IP address type for the domain. Specify <code>ipv4</code> for IPv4-only connectivity or <code>dualstack</code> for both IPv4 and IPv6 connectivity. When you specify <code>dualstack</code>, the subnet must support IPv6 CIDR blocks. If not specified, defaults to <code>ipv4</code>.</p>
+   * @public
+   */
+  IpAddressType?: IPAddressType | undefined;
 }
 
 /**
@@ -8087,18 +8107,3 @@ export interface CreateLabelingJobResponse {
    */
   LabelingJobArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TrackingServerSize = {
-  L: "Large",
-  M: "Medium",
-  S: "Small",
-} as const;
-
-/**
- * @public
- */
-export type TrackingServerSize = (typeof TrackingServerSize)[keyof typeof TrackingServerSize];

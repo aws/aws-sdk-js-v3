@@ -38,6 +38,8 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * ```javascript
  * import { SageMakerClient, UpdateWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // UpdateWorkforceRequest
  *   WorkforceName: "STRING_VALUE", // required

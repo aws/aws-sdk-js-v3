@@ -34,6 +34,8 @@ export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBea
  * ```javascript
  * import { PipesClient, StartPipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, StartPipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
+ * // import type { PipesClientConfig } from "@aws-sdk/client-pipes";
+ * const config = {}; // type is PipesClientConfig
  * const client = new PipesClient(config);
  * const input = { // StartPipeRequest
  *   Name: "STRING_VALUE", // required

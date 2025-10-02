@@ -34,6 +34,8 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * ```javascript
  * import { DataZoneClient, GetListingCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetListingCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // GetListingInput
  *   domainIdentifier: "STRING_VALUE", // required

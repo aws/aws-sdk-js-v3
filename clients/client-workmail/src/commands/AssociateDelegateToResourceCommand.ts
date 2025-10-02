@@ -36,6 +36,8 @@ export interface AssociateDelegateToResourceCommandOutput
  * ```javascript
  * import { WorkMailClient, AssociateDelegateToResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, AssociateDelegateToResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // import type { WorkMailClientConfig } from "@aws-sdk/client-workmail";
+ * const config = {}; // type is WorkMailClientConfig
  * const client = new WorkMailClient(config);
  * const input = { // AssociateDelegateToResourceRequest
  *   OrganizationId: "STRING_VALUE", // required

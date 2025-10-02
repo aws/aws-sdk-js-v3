@@ -35,6 +35,8 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  * ```javascript
  * import { ImagebuilderClient, CreateImagePipelineCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateImagePipelineCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
+ * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
  * const input = { // CreateImagePipelineRequest
  *   name: "STRING_VALUE", // required
@@ -52,6 +54,9 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  *     scheduleExpression: "STRING_VALUE",
  *     timezone: "STRING_VALUE",
  *     pipelineExecutionStartCondition: "EXPRESSION_MATCH_ONLY" || "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+ *     autoDisablePolicy: { // AutoDisablePolicy
+ *       failureCount: Number("int"), // required
+ *     },
  *   },
  *   status: "DISABLED" || "ENABLED",
  *   tags: { // TagMap
@@ -83,6 +88,10 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  *     },
  *   ],
  *   executionRole: "STRING_VALUE",
+ *   loggingConfiguration: { // PipelineLoggingConfiguration
+ *     imageLogGroupName: "STRING_VALUE",
+ *     pipelineLogGroupName: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateImagePipelineCommand(input);
  * const response = await client.send(command);

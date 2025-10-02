@@ -39,12 +39,14 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  *             root, and then use this operation.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator.</p>
- *          <p> To view the status of available policy types in the organization, use <a>DescribeOrganization</a>.</p>
+ *          <p> To view the status of available policy types in the organization, use <a>ListRoots</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OrganizationsClient, DisablePolicyTypeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DisablePolicyTypeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // DisablePolicyTypeRequest
  *   RootId: "STRING_VALUE", // required

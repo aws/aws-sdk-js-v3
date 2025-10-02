@@ -39,6 +39,8 @@ export interface CreateDomainUnitCommandOutput extends CreateDomainUnitOutput, _
  * ```javascript
  * import { DataZoneClient, CreateDomainUnitCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateDomainUnitCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // CreateDomainUnitInput
  *   domainIdentifier: "STRING_VALUE", // required

@@ -34,11 +34,14 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * ```javascript
  * import { ECSClient, DescribeCapacityProvidersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeCapacityProvidersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // import type { ECSClientConfig } from "@aws-sdk/client-ecs";
+ * const config = {}; // type is ECSClientConfig
  * const client = new ECSClient(config);
  * const input = { // DescribeCapacityProvidersRequest
  *   capacityProviders: [ // StringList
  *     "STRING_VALUE",
  *   ],
+ *   cluster: "STRING_VALUE",
  *   include: [ // CapacityProviderFieldList
  *     "TAGS",
  *   ],
@@ -52,7 +55,8 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * //     { // CapacityProvider
  * //       capacityProviderArn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       status: "ACTIVE" || "INACTIVE",
+ * //       cluster: "STRING_VALUE",
+ * //       status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "INACTIVE",
  * //       autoScalingGroupProvider: { // AutoScalingGroupProvider
  * //         autoScalingGroupArn: "STRING_VALUE", // required
  * //         managedScaling: { // ManagedScaling
@@ -65,7 +69,95 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * //         managedTerminationProtection: "ENABLED" || "DISABLED",
  * //         managedDraining: "ENABLED" || "DISABLED",
  * //       },
- * //       updateStatus: "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
+ * //       managedInstancesProvider: { // ManagedInstancesProvider
+ * //         infrastructureRoleArn: "STRING_VALUE",
+ * //         instanceLaunchTemplate: { // InstanceLaunchTemplate
+ * //           ec2InstanceProfileArn: "STRING_VALUE", // required
+ * //           networkConfiguration: { // ManagedInstancesNetworkConfiguration
+ * //             subnets: [ // StringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             securityGroups: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           storageConfiguration: { // ManagedInstancesStorageConfiguration
+ * //             storageSizeGiB: Number("int"),
+ * //           },
+ * //           monitoring: "BASIC" || "DETAILED",
+ * //           instanceRequirements: { // InstanceRequirementsRequest
+ * //             vCpuCount: { // VCpuCountRangeRequest
+ * //               min: Number("int"), // required
+ * //               max: Number("int"),
+ * //             },
+ * //             memoryMiB: { // MemoryMiBRequest
+ * //               min: Number("int"), // required
+ * //               max: Number("int"),
+ * //             },
+ * //             cpuManufacturers: [ // CpuManufacturerSet
+ * //               "intel" || "amd" || "amazon-web-services",
+ * //             ],
+ * //             memoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
+ * //               min: Number("double"),
+ * //               max: Number("double"),
+ * //             },
+ * //             excludedInstanceTypes: [ // ExcludedInstanceTypeSet
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             instanceGenerations: [ // InstanceGenerationSet
+ * //               "current" || "previous",
+ * //             ],
+ * //             spotMaxPricePercentageOverLowestPrice: Number("int"),
+ * //             onDemandMaxPricePercentageOverLowestPrice: Number("int"),
+ * //             bareMetal: "included" || "required" || "excluded",
+ * //             burstablePerformance: "included" || "required" || "excluded",
+ * //             requireHibernateSupport: true || false,
+ * //             networkInterfaceCount: { // NetworkInterfaceCountRequest
+ * //               min: Number("int"),
+ * //               max: Number("int"),
+ * //             },
+ * //             localStorage: "included" || "required" || "excluded",
+ * //             localStorageTypes: [ // LocalStorageTypeSet
+ * //               "hdd" || "ssd",
+ * //             ],
+ * //             totalLocalStorageGB: { // TotalLocalStorageGBRequest
+ * //               min: Number("double"),
+ * //               max: Number("double"),
+ * //             },
+ * //             baselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
+ * //               min: Number("int"),
+ * //               max: Number("int"),
+ * //             },
+ * //             acceleratorTypes: [ // AcceleratorTypeSet
+ * //               "gpu" || "fpga" || "inference",
+ * //             ],
+ * //             acceleratorCount: { // AcceleratorCountRequest
+ * //               min: Number("int"),
+ * //               max: Number("int"),
+ * //             },
+ * //             acceleratorManufacturers: [ // AcceleratorManufacturerSet
+ * //               "amazon-web-services" || "amd" || "nvidia" || "xilinx" || "habana",
+ * //             ],
+ * //             acceleratorNames: [ // AcceleratorNameSet
+ * //               "a100" || "inferentia" || "k520" || "k80" || "m60" || "radeon-pro-v520" || "t4" || "vu9p" || "v100" || "a10g" || "h100" || "t4g",
+ * //             ],
+ * //             acceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
+ * //               min: Number("int"),
+ * //               max: Number("int"),
+ * //             },
+ * //             networkBandwidthGbps: { // NetworkBandwidthGbpsRequest
+ * //               min: Number("double"),
+ * //               max: Number("double"),
+ * //             },
+ * //             allowedInstanceTypes: [ // AllowedInstanceTypeSet
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             maxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ * //           },
+ * //         },
+ * //         propagateTags: "CAPACITY_PROVIDER" || "NONE",
+ * //       },
+ * //       updateStatus: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
  * //       updateStatusReason: "STRING_VALUE",
  * //       tags: [ // Tags
  * //         { // Tag
@@ -73,6 +165,7 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       type: "EC2_AUTOSCALING" || "MANAGED_INSTANCES" || "FARGATE" || "FARGATE_SPOT",
  * //     },
  * //   ],
  * //   failures: [ // Failures
@@ -98,6 +191,9 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
@@ -106,6 +202,9 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>The specified task isn't supported in this Region.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>

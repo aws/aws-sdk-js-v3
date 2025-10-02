@@ -60,6 +60,8 @@ export interface GetUserAuthFactorsCommandOutput extends GetUserAuthFactorsRespo
  * ```javascript
  * import { CognitoIdentityProviderClient, GetUserAuthFactorsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetUserAuthFactorsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
+ * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // GetUserAuthFactorsRequest
  *   AccessToken: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * ```javascript
  * import { KafkaClient, RebootBrokerCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, RebootBrokerCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // import type { KafkaClientConfig } from "@aws-sdk/client-kafka";
+ * const config = {}; // type is KafkaClientConfig
  * const client = new KafkaClient(config);
  * const input = { // RebootBrokerRequest
  *   BrokerIds: [ // __listOf__string // required

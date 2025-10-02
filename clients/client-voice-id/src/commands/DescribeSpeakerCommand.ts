@@ -39,6 +39,8 @@ export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, _
  * ```javascript
  * import { VoiceIDClient, DescribeSpeakerCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DescribeSpeakerCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // import type { VoiceIDClientConfig } from "@aws-sdk/client-voice-id";
+ * const config = {}; // type is VoiceIDClientConfig
  * const client = new VoiceIDClient(config);
  * const input = { // DescribeSpeakerRequest
  *   DomainId: "STRING_VALUE", // required

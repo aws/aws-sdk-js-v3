@@ -72,6 +72,8 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * ```javascript
  * import { EC2Client, DescribeVolumeStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVolumeStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DescribeVolumeStatusRequest
  *   MaxResults: Number("int"),

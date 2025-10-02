@@ -1,12 +1,11 @@
 {
   "name": "@aws-sdk/credential-providers",
-  "version": "3.883.0",
+  "version": "3.901.0",
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "browser": "./dist-es/index.browser.js",
   "react-native": "./dist-es/index.browser.js",
-  "sideEffects": false,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline credential-providers",
@@ -17,13 +16,15 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",
-    "test:integration": "npx jest -c jest.config.integ.js",
-    "test:watch": "yarn g:vitest watch"
+    "test:watch": "yarn g:vitest watch",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
   "keywords": [
     "aws",
     "credentials"
   ],
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -42,12 +43,12 @@
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
-    "@smithy/config-resolver": "^4.1.5",
-    "@smithy/core": "^3.9.2",
-    "@smithy/credential-provider-imds": "^4.0.7",
-    "@smithy/node-config-provider": "^4.1.4",
-    "@smithy/property-provider": "^4.0.5",
-    "@smithy/types": "^4.3.2",
+    "@smithy/config-resolver": "^4.3.0",
+    "@smithy/core": "^3.14.0",
+    "@smithy/credential-provider-imds": "^4.2.0",
+    "@smithy/node-config-provider": "^4.3.0",
+    "@smithy/property-provider": "^4.2.0",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

@@ -36,7 +36,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { ApplyGuardrailCommandInput, ApplyGuardrailCommandOutput } from "../commands/ApplyGuardrailCommand";
 import { ConverseCommandInput, ConverseCommandOutput } from "../commands/ConverseCommand";
@@ -653,6 +653,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ServiceQuotaExceededException":
     case "com.amazonaws.bedrockruntime#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.bedrockruntime#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.bedrockruntime#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -668,9 +671,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ModelTimeoutException":
     case "com.amazonaws.bedrockruntime#ModelTimeoutException":
       throw await de_ModelTimeoutExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.bedrockruntime#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ModelStreamErrorException":
     case "com.amazonaws.bedrockruntime#ModelStreamErrorException":
       throw await de_ModelStreamErrorExceptionRes(parsedOutput, context);

@@ -39,6 +39,8 @@ export interface GetResourceOauth2TokenCommandOutput extends GetResourceOauth2To
  * ```javascript
  * import { BedrockAgentCoreClient, GetResourceOauth2TokenCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
  * // const { BedrockAgentCoreClient, GetResourceOauth2TokenCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
+ * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // GetResourceOauth2TokenRequest
  *   workloadIdentityToken: "STRING_VALUE", // required

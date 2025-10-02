@@ -43,6 +43,8 @@ export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandOutpu
  * ```javascript
  * import { CleanRoomsMLClient, GetCollaborationConfiguredModelAlgorithmAssociationCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, GetCollaborationConfiguredModelAlgorithmAssociationCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // import type { CleanRoomsMLClientConfig } from "@aws-sdk/client-cleanroomsml";
+ * const config = {}; // type is CleanRoomsMLClientConfig
  * const client = new CleanRoomsMLClient(config);
  * const input = { // GetCollaborationConfiguredModelAlgorithmAssociationRequest
  *   configuredModelAlgorithmAssociationArn: "STRING_VALUE", // required

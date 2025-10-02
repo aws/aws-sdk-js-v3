@@ -34,6 +34,8 @@ export interface GetAdminScopeCommandOutput extends GetAdminScopeResponse, __Met
  * ```javascript
  * import { FMSClient, GetAdminScopeCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetAdminScopeCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // import type { FMSClientConfig } from "@aws-sdk/client-fms";
+ * const config = {}; // type is FMSClientConfig
  * const client = new FMSClient(config);
  * const input = { // GetAdminScopeRequest
  *   AdminAccount: "STRING_VALUE", // required

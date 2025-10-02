@@ -46,6 +46,8 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * ```javascript
  * import { SecretsManagerClient, ListSecretsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ListSecretsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * // import type { SecretsManagerClientConfig } from "@aws-sdk/client-secrets-manager";
+ * const config = {}; // type is SecretsManagerClientConfig
  * const client = new SecretsManagerClient(config);
  * const input = { // ListSecretsRequest
  *   IncludePlannedDeletion: true || false,

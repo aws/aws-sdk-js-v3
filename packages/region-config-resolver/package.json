@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/region-config-resolver",
-  "version": "3.873.0",
+  "version": "3.901.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline region-config-resolver",
@@ -16,6 +16,7 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -23,10 +24,10 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^4.1.4",
-    "@smithy/types": "^4.3.2",
-    "@smithy/util-config-provider": "^4.0.0",
-    "@smithy/util-middleware": "^4.0.5",
+    "@smithy/node-config-provider": "^4.3.0",
+    "@smithy/types": "^4.6.0",
+    "@smithy/util-config-provider": "^4.2.0",
+    "@smithy/util-middleware": "^4.2.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

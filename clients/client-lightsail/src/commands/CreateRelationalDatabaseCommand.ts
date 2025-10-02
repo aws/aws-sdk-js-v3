@@ -40,6 +40,8 @@ export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalD
  * ```javascript
  * import { LightsailClient, CreateRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // import type { LightsailClientConfig } from "@aws-sdk/client-lightsail";
+ * const config = {}; // type is LightsailClientConfig
  * const client = new LightsailClient(config);
  * const input = { // CreateRelationalDatabaseRequest
  *   relationalDatabaseName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface ListRuleBasedMatchesCommandOutput extends ListRuleBasedMatchesR
  * ```javascript
  * import { CustomerProfilesClient, ListRuleBasedMatchesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListRuleBasedMatchesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // ListRuleBasedMatchesRequest
  *   NextToken: "STRING_VALUE",

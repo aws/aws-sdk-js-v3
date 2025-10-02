@@ -36,6 +36,8 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  * ```javascript
  * import { Route53Client, DeleteCidrCollectionCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteCidrCollectionCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // DeleteCidrCollectionRequest
  *   Id: "STRING_VALUE", // required

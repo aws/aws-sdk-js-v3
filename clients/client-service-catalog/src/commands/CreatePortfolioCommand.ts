@@ -35,6 +35,8 @@ export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __M
  * ```javascript
  * import { ServiceCatalogClient, CreatePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreatePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // import type { ServiceCatalogClientConfig } from "@aws-sdk/client-service-catalog";
+ * const config = {}; // type is ServiceCatalogClientConfig
  * const client = new ServiceCatalogClient(config);
  * const input = { // CreatePortfolioInput
  *   AcceptLanguage: "STRING_VALUE",

@@ -46,6 +46,8 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  * ```javascript
  * import { OrganizationsClient, ListChildrenCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListChildrenCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // import type { OrganizationsClientConfig } from "@aws-sdk/client-organizations";
+ * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // ListChildrenRequest
  *   ParentId: "STRING_VALUE", // required

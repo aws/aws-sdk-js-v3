@@ -38,6 +38,8 @@ export interface MalformedContentTypeWithGenericStringCommandOutput extends __Me
  * ```javascript
  * import { RestJsonProtocolClient, MalformedContentTypeWithGenericStringCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, MalformedContentTypeWithGenericStringCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // MalformedContentTypeWithGenericStringInput
  *   payload: "STRING_VALUE",

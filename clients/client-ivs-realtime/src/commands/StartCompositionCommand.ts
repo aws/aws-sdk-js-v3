@@ -57,6 +57,8 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  * ```javascript
  * import { IVSRealTimeClient, StartCompositionCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, StartCompositionCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // import type { IVSRealTimeClientConfig } from "@aws-sdk/client-ivs-realtime";
+ * const config = {}; // type is IVSRealTimeClientConfig
  * const client = new IVSRealTimeClient(config);
  * const input = { // StartCompositionRequest
  *   stageArn: "STRING_VALUE", // required
@@ -68,6 +70,7 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  *       videoAspectRatio: "AUTO" || "VIDEO" || "SQUARE" || "PORTRAIT",
  *       videoFillMode: "FILL" || "COVER" || "CONTAIN",
  *       gridGap: Number("int"),
+ *       participantOrderAttribute: "STRING_VALUE",
  *     },
  *     pip: { // PipConfiguration
  *       featuredParticipantAttribute: "STRING_VALUE",
@@ -80,6 +83,7 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  *       pipPosition: "TOP_LEFT" || "TOP_RIGHT" || "BOTTOM_LEFT" || "BOTTOM_RIGHT",
  *       pipWidth: Number("int"),
  *       pipHeight: Number("int"),
+ *       participantOrderAttribute: "STRING_VALUE",
  *     },
  *   },
  *   destinations: [ // DestinationConfigurationList // required
@@ -129,6 +133,7 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  * //         videoAspectRatio: "AUTO" || "VIDEO" || "SQUARE" || "PORTRAIT",
  * //         videoFillMode: "FILL" || "COVER" || "CONTAIN",
  * //         gridGap: Number("int"),
+ * //         participantOrderAttribute: "STRING_VALUE",
  * //       },
  * //       pip: { // PipConfiguration
  * //         featuredParticipantAttribute: "STRING_VALUE",
@@ -141,6 +146,7 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  * //         pipPosition: "TOP_LEFT" || "TOP_RIGHT" || "BOTTOM_LEFT" || "BOTTOM_RIGHT",
  * //         pipWidth: Number("int"),
  * //         pipHeight: Number("int"),
+ * //         participantOrderAttribute: "STRING_VALUE",
  * //       },
  * //     },
  * //     destinations: [ // DestinationList // required

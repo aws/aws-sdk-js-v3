@@ -45,6 +45,8 @@ export interface AssumeRootCommandOutput extends AssumeRootResponse, __MetadataB
  * ```javascript
  * import { STSClient, AssumeRootCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRootCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * // import type { STSClientConfig } from "@aws-sdk/client-sts";
+ * const config = {}; // type is STSClientConfig
  * const client = new STSClient(config);
  * const input = { // AssumeRootRequest
  *   TargetPrincipal: "STRING_VALUE", // required

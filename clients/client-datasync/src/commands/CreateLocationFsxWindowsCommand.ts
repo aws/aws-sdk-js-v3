@@ -43,6 +43,8 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  * ```javascript
  * import { DataSyncClient, CreateLocationFsxWindowsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxWindowsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // import type { DataSyncClientConfig } from "@aws-sdk/client-datasync";
+ * const config = {}; // type is DataSyncClientConfig
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationFsxWindowsRequest
  *   Subdirectory: "STRING_VALUE",

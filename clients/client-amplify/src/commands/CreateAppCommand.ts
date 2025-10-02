@@ -39,6 +39,8 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * ```javascript
  * import { AmplifyClient, CreateAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // import type { AmplifyClientConfig } from "@aws-sdk/client-amplify";
+ * const config = {}; // type is AmplifyClientConfig
  * const client = new AmplifyClient(config);
  * const input = { // CreateAppRequest
  *   name: "STRING_VALUE", // required

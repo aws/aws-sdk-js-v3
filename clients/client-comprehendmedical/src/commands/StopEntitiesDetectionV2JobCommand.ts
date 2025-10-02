@@ -38,6 +38,8 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  * ```javascript
  * import { ComprehendMedicalClient, StopEntitiesDetectionV2JobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StopEntitiesDetectionV2JobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // import type { ComprehendMedicalClientConfig } from "@aws-sdk/client-comprehendmedical";
+ * const config = {}; // type is ComprehendMedicalClientConfig
  * const client = new ComprehendMedicalClient(config);
  * const input = { // StopEntitiesDetectionV2JobRequest
  *   JobId: "STRING_VALUE", // required

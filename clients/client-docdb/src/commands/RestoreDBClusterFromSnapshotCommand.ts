@@ -38,6 +38,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * ```javascript
  * import { DocDBClient, RestoreDBClusterFromSnapshotCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RestoreDBClusterFromSnapshotCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // import type { DocDBClientConfig } from "@aws-sdk/client-docdb";
+ * const config = {}; // type is DocDBClientConfig
  * const client = new DocDBClient(config);
  * const input = { // RestoreDBClusterFromSnapshotMessage
  *   AvailabilityZones: [ // AvailabilityZones

@@ -36,6 +36,8 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ChimeSDKVoiceClient, DeleteVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, DeleteVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // DeleteVoiceConnectorRequest
  *   VoiceConnectorId: "STRING_VALUE", // required

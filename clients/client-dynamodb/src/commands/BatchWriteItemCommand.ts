@@ -123,6 +123,8 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * ```javascript
  * import { DynamoDBClient, BatchWriteItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, BatchWriteItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // import type { DynamoDBClientConfig } from "@aws-sdk/client-dynamodb";
+ * const config = {}; // type is DynamoDBClientConfig
  * const client = new DynamoDBClient(config);
  * const input = { // BatchWriteItemInput
  *   RequestItems: { // BatchWriteItemRequestMap // required

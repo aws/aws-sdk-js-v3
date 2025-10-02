@@ -36,6 +36,8 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * ```javascript
  * import { AppflowClient, ListConnectorsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, ListConnectorsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // import type { AppflowClientConfig } from "@aws-sdk/client-appflow";
+ * const config = {}; // type is AppflowClientConfig
  * const client = new AppflowClient(config);
  * const input = { // ListConnectorsRequest
  *   maxResults: Number("int"),

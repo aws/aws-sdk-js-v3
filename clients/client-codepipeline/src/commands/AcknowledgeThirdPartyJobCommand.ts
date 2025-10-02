@@ -35,6 +35,8 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * ```javascript
  * import { CodePipelineClient, AcknowledgeThirdPartyJobCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, AcknowledgeThirdPartyJobCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // import type { CodePipelineClientConfig } from "@aws-sdk/client-codepipeline";
+ * const config = {}; // type is CodePipelineClientConfig
  * const client = new CodePipelineClient(config);
  * const input = { // AcknowledgeThirdPartyJobInput
  *   jobId: "STRING_VALUE", // required

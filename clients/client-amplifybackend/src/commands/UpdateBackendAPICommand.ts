@@ -34,6 +34,8 @@ export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse,
  * ```javascript
  * import { AmplifyBackendClient, UpdateBackendAPICommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, UpdateBackendAPICommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // import type { AmplifyBackendClientConfig } from "@aws-sdk/client-amplifybackend";
+ * const config = {}; // type is AmplifyBackendClientConfig
  * const client = new AmplifyBackendClient(config);
  * const input = { // UpdateBackendAPIRequest
  *   AppId: "STRING_VALUE", // required

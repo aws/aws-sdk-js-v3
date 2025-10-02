@@ -47,6 +47,8 @@ export interface ListBillEstimateInputCommitmentModificationsCommandOutput
  * ```javascript
  * import { BCMPricingCalculatorClient, ListBillEstimateInputCommitmentModificationsCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, ListBillEstimateInputCommitmentModificationsCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // import type { BCMPricingCalculatorClientConfig } from "@aws-sdk/client-bcm-pricing-calculator";
+ * const config = {}; // type is BCMPricingCalculatorClientConfig
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // ListBillEstimateInputCommitmentModificationsRequest
  *   billEstimateId: "STRING_VALUE", // required

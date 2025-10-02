@@ -47,6 +47,8 @@ export interface ListServiceLevelObjectiveExclusionWindowsCommandOutput
  * ```javascript
  * import { ApplicationSignalsClient, ListServiceLevelObjectiveExclusionWindowsCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, ListServiceLevelObjectiveExclusionWindowsCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // import type { ApplicationSignalsClientConfig } from "@aws-sdk/client-application-signals";
+ * const config = {}; // type is ApplicationSignalsClientConfig
  * const client = new ApplicationSignalsClient(config);
  * const input = { // ListServiceLevelObjectiveExclusionWindowsInput
  *   Id: "STRING_VALUE", // required

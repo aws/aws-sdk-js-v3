@@ -43,6 +43,8 @@ export interface ListTemplateGroupAccessControlEntriesCommandOutput
  * ```javascript
  * import { PcaConnectorAdClient, ListTemplateGroupAccessControlEntriesCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, ListTemplateGroupAccessControlEntriesCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // import type { PcaConnectorAdClientConfig } from "@aws-sdk/client-pca-connector-ad";
+ * const config = {}; // type is PcaConnectorAdClientConfig
  * const client = new PcaConnectorAdClient(config);
  * const input = { // ListTemplateGroupAccessControlEntriesRequest
  *   MaxResults: Number("int"),

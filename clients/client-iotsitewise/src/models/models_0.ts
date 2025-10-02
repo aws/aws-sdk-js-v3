@@ -6423,6 +6423,12 @@ export interface DescribeComputationModelRequest {
    * @public
    */
   computationModelId: string | undefined;
+
+  /**
+   * <p>The version of the computation model.</p>
+   * @public
+   */
+  computationModelVersion?: string | undefined;
 }
 
 /**
@@ -7739,7 +7745,7 @@ export interface ExecuteQueryRequest {
    *                <p>Maximum is 20000</p>
    *             </li>
    *             <li>
-   *                <p>Default is 250</p>
+   *                <p>Default is 20000</p>
    *             </li>
    *          </ul>
    * @public

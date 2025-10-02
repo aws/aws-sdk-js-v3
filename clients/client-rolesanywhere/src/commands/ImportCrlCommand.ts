@@ -41,6 +41,8 @@ export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * ```javascript
  * import { RolesAnywhereClient, ImportCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ImportCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * // import type { RolesAnywhereClientConfig } from "@aws-sdk/client-rolesanywhere";
+ * const config = {}; // type is RolesAnywhereClientConfig
  * const client = new RolesAnywhereClient(config);
  * const input = { // ImportCrlRequest
  *   name: "STRING_VALUE", // required

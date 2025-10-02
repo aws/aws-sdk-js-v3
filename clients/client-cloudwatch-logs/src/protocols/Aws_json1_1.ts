@@ -24,7 +24,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "../commands/AssociateKmsKeyCommand";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "../commands/CancelExportTaskCommand";
@@ -3922,6 +3922,8 @@ const de_SessionTimeoutExceptionRes = async (
 
 // se_DisassociateKmsKeyRequest omitted.
 
+// se_EmitSystemFields omitted.
+
 // se_Entity omitted.
 
 // se_EntityAttributes omitted.
@@ -4073,6 +4075,8 @@ const se_MetricTransformations = (input: MetricTransformation[], context: __Serd
 const se_PutMetricFilterRequest = (input: PutMetricFilterRequest, context: __SerdeContext): any => {
   return take(input, {
     applyOnTransformedLogs: [],
+    emitSystemFieldDimensions: _json,
+    fieldSelectionCriteria: [],
     filterName: [],
     filterPattern: [],
     logGroupName: [],
@@ -4300,6 +4304,8 @@ const de_DescribeMetricFiltersResponse = (output: any, context: __SerdeContext):
 
 // de_Dimensions omitted.
 
+// de_EmitSystemFields omitted.
+
 // de_Enumerations omitted.
 
 // de_ExportTask omitted.
@@ -4463,6 +4469,8 @@ const de_MetricFilter = (output: any, context: __SerdeContext): MetricFilter => 
   return take(output, {
     applyOnTransformedLogs: __expectBoolean,
     creationTime: __expectLong,
+    emitSystemFieldDimensions: _json,
+    fieldSelectionCriteria: __expectString,
     filterName: __expectString,
     filterPattern: __expectString,
     logGroupName: __expectString,

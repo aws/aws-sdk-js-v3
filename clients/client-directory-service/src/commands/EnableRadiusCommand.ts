@@ -35,11 +35,16 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
  * ```javascript
  * import { DirectoryServiceClient, EnableRadiusCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, EnableRadiusCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // EnableRadiusRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   RadiusSettings: { // RadiusSettings
  *     RadiusServers: [ // Servers
+ *       "STRING_VALUE",
+ *     ],
+ *     RadiusServersIpv6: [
  *       "STRING_VALUE",
  *     ],
  *     RadiusPort: Number("int"),

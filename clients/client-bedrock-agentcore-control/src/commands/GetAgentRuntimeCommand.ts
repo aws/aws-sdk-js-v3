@@ -36,12 +36,14 @@ export interface GetAgentRuntimeCommandInput extends GetAgentRuntimeRequest {}
 export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, __MetadataBearer {}
 
 /**
- * <p>Gets an Amazon Secure Agent.</p>
+ * <p>Gets an Amazon Bedrock AgentCore Runtime.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, GetAgentRuntimeCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, GetAgentRuntimeCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetAgentRuntimeRequest
  *   agentRuntimeId: "STRING_VALUE", // required
@@ -61,13 +63,21 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * //   roleArn: "STRING_VALUE", // required
- * //   agentRuntimeArtifact: { // AgentArtifact Union: only one key present
+ * //   agentRuntimeArtifact: { // AgentRuntimeArtifact Union: only one key present
  * //     containerConfiguration: { // ContainerConfiguration
  * //       containerUri: "STRING_VALUE", // required
  * //     },
  * //   },
  * //   networkConfiguration: { // NetworkConfiguration
- * //     networkMode: "PUBLIC", // required
+ * //     networkMode: "PUBLIC" || "VPC", // required
+ * //     networkModeConfig: { // VpcConfig
+ * //       securityGroups: [ // SecurityGroups // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnets: [ // Subnets // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * //   protocolConfiguration: { // ProtocolConfiguration
  * //     serverProtocol: "MCP" || "HTTP", // required
@@ -85,6 +95,11 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //   },
+ * //   requestHeaderConfiguration: { // RequestHeaderConfiguration Union: only one key present
+ * //     requestHeaderAllowlist: [ // RequestHeaderAllowlist
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
  * // };

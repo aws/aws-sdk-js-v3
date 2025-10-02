@@ -35,6 +35,8 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { WorkDocsClient, RemoveResourcePermissionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, RemoveResourcePermissionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * // import type { WorkDocsClientConfig } from "@aws-sdk/client-workdocs";
+ * const config = {}; // type is WorkDocsClientConfig
  * const client = new WorkDocsClient(config);
  * const input = { // RemoveResourcePermissionRequest
  *   AuthenticationToken: "STRING_VALUE",

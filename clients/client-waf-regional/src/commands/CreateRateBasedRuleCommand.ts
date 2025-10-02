@@ -127,6 +127,8 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  * ```javascript
  * import { WAFRegionalClient, CreateRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // import type { WAFRegionalClientConfig } from "@aws-sdk/client-waf-regional";
+ * const config = {}; // type is WAFRegionalClientConfig
  * const client = new WAFRegionalClient(config);
  * const input = { // CreateRateBasedRuleRequest
  *   Name: "STRING_VALUE", // required

@@ -45,6 +45,10 @@ import {
   CreateServiceLevelObjectiveCommandOutput,
 } from "../commands/CreateServiceLevelObjectiveCommand";
 import {
+  DeleteGroupingConfigurationCommandInput,
+  DeleteGroupingConfigurationCommandOutput,
+} from "../commands/DeleteGroupingConfigurationCommand";
+import {
   DeleteServiceLevelObjectiveCommandInput,
   DeleteServiceLevelObjectiveCommandOutput,
 } from "../commands/DeleteServiceLevelObjectiveCommand";
@@ -53,6 +57,11 @@ import {
   GetServiceLevelObjectiveCommandInput,
   GetServiceLevelObjectiveCommandOutput,
 } from "../commands/GetServiceLevelObjectiveCommand";
+import { ListAuditFindingsCommandInput, ListAuditFindingsCommandOutput } from "../commands/ListAuditFindingsCommand";
+import {
+  ListGroupingAttributeDefinitionsCommandInput,
+  ListGroupingAttributeDefinitionsCommandOutput,
+} from "../commands/ListGroupingAttributeDefinitionsCommand";
 import {
   ListServiceDependenciesCommandInput,
   ListServiceDependenciesCommandOutput,
@@ -74,10 +83,15 @@ import {
   ListServiceOperationsCommandOutput,
 } from "../commands/ListServiceOperationsCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "../commands/ListServicesCommand";
+import { ListServiceStatesCommandInput, ListServiceStatesCommandOutput } from "../commands/ListServiceStatesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  PutGroupingConfigurationCommandInput,
+  PutGroupingConfigurationCommandOutput,
+} from "../commands/PutGroupingConfigurationCommand";
 import { StartDiscoveryCommandInput, StartDiscoveryCommandOutput } from "../commands/StartDiscoveryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -88,32 +102,47 @@ import {
 import { ApplicationSignalsServiceException as __BaseException } from "../models/ApplicationSignalsServiceException";
 import {
   AccessDeniedException,
+  AttributeFilter,
+  AuditFinding,
+  AuditTarget,
+  AuditTargetEntity,
   BurnRateConfiguration,
   CalendarInterval,
+  ChangeEvent,
   ConflictException,
   DependencyConfig,
+  DependencyGraph,
   Dimension,
+  Edge,
   ExclusionWindow,
   Goal,
+  GroupingAttributeDefinition,
+  GroupingConfiguration,
   Interval,
   Metric,
   MetricDataQuery,
+  MetricGraph,
   MetricSourceType,
   MetricStat,
   MonitoredRequestCountMetricDataQueries,
+  Node,
   RecurrenceRule,
   RequestBasedServiceLevelIndicator,
   RequestBasedServiceLevelIndicatorConfig,
   RequestBasedServiceLevelIndicatorMetricConfig,
   ResourceNotFoundException,
   RollingInterval,
+  ServiceEntity,
   ServiceLevelIndicator,
   ServiceLevelIndicatorConfig,
   ServiceLevelIndicatorMetricConfig,
   ServiceLevelObjective,
   ServiceLevelObjectiveBudgetReport,
+  ServiceLevelObjectiveEntity,
   ServiceLevelObjectiveSummary,
+  ServiceOperationEntity,
   ServiceQuotaExceededException,
+  ServiceState,
   Tag,
   ThrottlingException,
   ValidationException,
@@ -196,6 +225,21 @@ export const se_CreateServiceLevelObjectiveCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteGroupingConfigurationCommand
+ */
+export const se_DeleteGroupingConfigurationCommand = async (
+  input: DeleteGroupingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/grouping-configuration");
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteServiceLevelObjectiveCommand
  */
 export const se_DeleteServiceLevelObjectiveCommand = async (
@@ -250,6 +294,53 @@ export const se_GetServiceLevelObjectiveCommand = async (
   b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAuditFindingsCommand
+ */
+export const se_ListAuditFindingsCommand = async (
+  input: ListAuditFindingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/auditFindings");
+  const query: any = map({
+    [_ST]: [__expectNonNull(input.StartTime, `StartTime`) != null, () => __serializeDateTime(input[_ST]!).toString()],
+    [_ET]: [__expectNonNull(input.EndTime, `EndTime`) != null, () => __serializeDateTime(input[_ET]!).toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AuditTargets: (_) => _json(_),
+      Auditors: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListGroupingAttributeDefinitionsCommand
+ */
+export const se_ListGroupingAttributeDefinitionsCommand = async (
+  input: ListGroupingAttributeDefinitionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/grouping-attribute-definitions");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -412,6 +503,34 @@ export const se_ListServicesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListServiceStatesCommand
+ */
+export const se_ListServiceStatesCommand = async (
+  input: ListServiceStatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/service/states");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AttributeFilters: (_) => _json(_),
+      AwsAccountId: [],
+      EndTime: (_) => _.getTime() / 1_000,
+      IncludeLinkedAccounts: [],
+      MaxResults: [],
+      NextToken: [],
+      StartTime: (_) => _.getTime() / 1_000,
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -426,6 +545,28 @@ export const se_ListTagsForResourceCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutGroupingConfigurationCommand
+ */
+export const se_PutGroupingConfigurationCommand = async (
+  input: PutGroupingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/grouping-configuration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GroupingAttributeDefinitions: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -584,6 +725,23 @@ export const de_CreateServiceLevelObjectiveCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteGroupingConfigurationCommand
+ */
+export const de_DeleteGroupingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGroupingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteServiceLevelObjectiveCommand
  */
 export const de_DeleteServiceLevelObjectiveCommand = async (
@@ -640,6 +798,51 @@ export const de_GetServiceLevelObjectiveCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Slo: (_) => de_ServiceLevelObjective(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAuditFindingsCommand
+ */
+export const de_ListAuditFindingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAuditFindingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AuditFindings: (_) => de_AuditFindings(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListGroupingAttributeDefinitionsCommand
+ */
+export const de_ListGroupingAttributeDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGroupingAttributeDefinitionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    GroupingAttributeDefinitions: _json,
+    NextToken: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
   return contents;
@@ -786,6 +989,30 @@ export const de_ListServicesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListServiceStatesCommand
+ */
+export const de_ListServiceStatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceStatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextToken: __expectString,
+    ServiceStates: (_) => de_ServiceStates(_, context),
+    StartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -801,6 +1028,27 @@ export const de_ListTagsForResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutGroupingConfigurationCommand
+ */
+export const de_PutGroupingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutGroupingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    GroupingConfiguration: (_) => de_GroupingConfiguration(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1030,7 +1278,21 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AttributeFilter omitted.
+
+// se_AttributeFilters omitted.
+
+// se_AttributeFilterValues omitted.
+
 // se_Attributes omitted.
+
+// se_Auditors omitted.
+
+// se_AuditTarget omitted.
+
+// se_AuditTargetEntity omitted.
+
+// se_AuditTargets omitted.
 
 // se_BurnRateConfiguration omitted.
 
@@ -1087,6 +1349,12 @@ const se_Goal = (input: Goal, context: __SerdeContext): any => {
   });
 };
 
+// se_GroupingAttributeDefinition omitted.
+
+// se_GroupingAttributeDefinitions omitted.
+
+// se_GroupingSourceKeyStringList omitted.
+
 /**
  * serializeAws_restJson1Interval
  */
@@ -1130,6 +1398,8 @@ const se_RequestBasedServiceLevelIndicatorConfig = (
 
 // se_RollingInterval omitted.
 
+// se_ServiceEntity omitted.
+
 /**
  * serializeAws_restJson1ServiceLevelIndicatorConfig
  */
@@ -1143,7 +1413,11 @@ const se_ServiceLevelIndicatorConfig = (input: ServiceLevelIndicatorConfig, cont
 
 // se_ServiceLevelIndicatorMetricConfig omitted.
 
+// se_ServiceLevelObjectiveEntity omitted.
+
 // se_ServiceLevelObjectiveIds omitted.
+
+// se_ServiceOperationEntity omitted.
 
 // se_Tag omitted.
 
@@ -1153,11 +1427,47 @@ const se_ServiceLevelIndicatorConfig = (input: ServiceLevelIndicatorConfig, cont
 
 // se_Window omitted.
 
+// de_AttributeFilter omitted.
+
+// de_AttributeFilters omitted.
+
+// de_AttributeFilterValues omitted.
+
 // de_AttributeMap omitted.
 
 // de_AttributeMaps omitted.
 
 // de_Attributes omitted.
+
+/**
+ * deserializeAws_restJson1AuditFinding
+ */
+const de_AuditFinding = (output: any, context: __SerdeContext): AuditFinding => {
+  return take(output, {
+    AuditorResults: _json,
+    DependencyGraph: (_: any) => de_DependencyGraph(_, context),
+    KeyAttributes: _json,
+    MetricGraph: (_: any) => de_MetricGraph(_, context),
+    Operation: __expectString,
+    Type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AuditFindings
+ */
+const de_AuditFindings = (output: any, context: __SerdeContext): AuditFinding[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AuditFinding(entry, context);
+    });
+  return retVal;
+};
+
+// de_AuditorResult omitted.
+
+// de_AuditorResults omitted.
 
 // de_BatchUpdateExclusionWindowsError omitted.
 
@@ -1178,11 +1488,61 @@ const de_CalendarInterval = (output: any, context: __SerdeContext): CalendarInte
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1ChangeEvent
+ */
+const de_ChangeEvent = (output: any, context: __SerdeContext): ChangeEvent => {
+  return take(output, {
+    AccountId: __expectString,
+    ChangeEventType: __expectString,
+    Entity: _json,
+    EventId: __expectString,
+    EventName: __expectString,
+    Region: __expectString,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UserName: __expectString,
+  }) as any;
+};
+
 // de_DependencyConfig omitted.
+
+/**
+ * deserializeAws_restJson1DependencyGraph
+ */
+const de_DependencyGraph = (output: any, context: __SerdeContext): DependencyGraph => {
+  return take(output, {
+    Edges: (_: any) => de_Edges(_, context),
+    Nodes: (_: any) => de_Nodes(_, context),
+  }) as any;
+};
 
 // de_Dimension omitted.
 
 // de_Dimensions omitted.
+
+/**
+ * deserializeAws_restJson1Edge
+ */
+const de_Edge = (output: any, context: __SerdeContext): Edge => {
+  return take(output, {
+    ConnectionType: __expectString,
+    DestinationNodeId: __expectString,
+    Duration: __limitedParseDouble,
+    SourceNodeId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Edges
+ */
+const de_Edges = (output: any, context: __SerdeContext): Edge[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Edge(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1ExclusionWindow
@@ -1219,6 +1579,22 @@ const de_Goal = (output: any, context: __SerdeContext): Goal => {
   }) as any;
 };
 
+// de_GroupingAttributeDefinition omitted.
+
+// de_GroupingAttributeDefinitions omitted.
+
+/**
+ * deserializeAws_restJson1GroupingConfiguration
+ */
+const de_GroupingConfiguration = (output: any, context: __SerdeContext): GroupingConfiguration => {
+  return take(output, {
+    GroupingAttributeDefinitions: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_GroupingSourceKeyStringList omitted.
+
 /**
  * deserializeAws_restJson1Interval
  */
@@ -1236,6 +1612,18 @@ const de_Interval = (output: any, context: __SerdeContext): Interval => {
   return { $unknown: Object.entries(output)[0] };
 };
 
+/**
+ * deserializeAws_restJson1LatestChangeEvents
+ */
+const de_LatestChangeEvents = (output: any, context: __SerdeContext): ChangeEvent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ChangeEvent(entry, context);
+    });
+  return retVal;
+};
+
 // de_LogGroupReferences omitted.
 
 // de_Metric omitted.
@@ -1244,6 +1632,17 @@ const de_Interval = (output: any, context: __SerdeContext): Interval => {
 
 // de_MetricDataQuery omitted.
 
+/**
+ * deserializeAws_restJson1MetricGraph
+ */
+const de_MetricGraph = (output: any, context: __SerdeContext): MetricGraph => {
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MetricDataQueries: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 // de_MetricReference omitted.
 
 // de_MetricReferences omitted.
@@ -1251,6 +1650,33 @@ const de_Interval = (output: any, context: __SerdeContext): Interval => {
 // de_MetricStat omitted.
 
 // de_MonitoredRequestCountMetricDataQueries omitted.
+
+/**
+ * deserializeAws_restJson1Node
+ */
+const de_Node = (output: any, context: __SerdeContext): Node => {
+  return take(output, {
+    Duration: __limitedParseDouble,
+    KeyAttributes: _json,
+    Name: __expectString,
+    NodeId: __expectString,
+    Operation: __expectString,
+    Status: __expectString,
+    Type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Nodes
+ */
+const de_Nodes = (output: any, context: __SerdeContext): Node[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Node(entry, context);
+    });
+  return retVal;
+};
 
 // de_RecurrenceRule omitted.
 
@@ -1281,6 +1707,10 @@ const de_RequestBasedServiceLevelIndicator = (
 // de_ServiceDependent omitted.
 
 // de_ServiceDependents omitted.
+
+// de_ServiceGroup omitted.
+
+// de_ServiceGroups omitted.
 
 /**
  * deserializeAws_restJson1ServiceLevelIndicator
@@ -1389,6 +1819,29 @@ const de_ServiceLevelObjectiveSummary = (output: any, context: __SerdeContext): 
 // de_ServiceOperation omitted.
 
 // de_ServiceOperations omitted.
+
+/**
+ * deserializeAws_restJson1ServiceState
+ */
+const de_ServiceState = (output: any, context: __SerdeContext): ServiceState => {
+  return take(output, {
+    AttributeFilters: _json,
+    LatestChangeEvents: (_: any) => de_LatestChangeEvents(_, context),
+    Service: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ServiceStates
+ */
+const de_ServiceStates = (output: any, context: __SerdeContext): ServiceState[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceState(entry, context);
+    });
+  return retVal;
+};
 
 // de_ServiceSummaries omitted.
 

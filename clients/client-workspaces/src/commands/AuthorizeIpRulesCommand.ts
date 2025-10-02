@@ -36,6 +36,8 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * ```javascript
  * import { WorkSpacesClient, AuthorizeIpRulesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, AuthorizeIpRulesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // import type { WorkSpacesClientConfig } from "@aws-sdk/client-workspaces";
+ * const config = {}; // type is WorkSpacesClientConfig
  * const client = new WorkSpacesClient(config);
  * const input = { // AuthorizeIpRulesRequest
  *   GroupId: "STRING_VALUE", // required

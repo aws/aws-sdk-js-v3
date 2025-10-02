@@ -36,6 +36,8 @@ export interface DeprovisionPublicIpv4PoolCidrCommandOutput
  * ```javascript
  * import { EC2Client, DeprovisionPublicIpv4PoolCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeprovisionPublicIpv4PoolCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DeprovisionPublicIpv4PoolCidrRequest
  *   DryRun: true || false,

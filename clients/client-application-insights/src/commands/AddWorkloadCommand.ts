@@ -38,6 +38,8 @@ export interface AddWorkloadCommandOutput extends AddWorkloadResponse, __Metadat
  * ```javascript
  * import { ApplicationInsightsClient, AddWorkloadCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, AddWorkloadCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * // import type { ApplicationInsightsClientConfig } from "@aws-sdk/client-application-insights";
+ * const config = {}; // type is ApplicationInsightsClientConfig
  * const client = new ApplicationInsightsClient(config);
  * const input = { // AddWorkloadRequest
  *   ResourceGroupName: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ACMPCAClient, PutPolicyCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, PutPolicyCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * // import type { ACMPCAClientConfig } from "@aws-sdk/client-acm-pca";
+ * const config = {}; // type is ACMPCAClientConfig
  * const client = new ACMPCAClient(config);
  * const input = { // PutPolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

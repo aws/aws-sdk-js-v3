@@ -37,6 +37,8 @@ export interface GetPipelineChangeProgressCommandOutput extends GetPipelineChang
  * ```javascript
  * import { OSISClient, GetPipelineChangeProgressCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, GetPipelineChangeProgressCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // import type { OSISClientConfig } from "@aws-sdk/client-osis";
+ * const config = {}; // type is OSISClientConfig
  * const client = new OSISClient(config);
  * const input = { // GetPipelineChangeProgressRequest
  *   PipelineName: "STRING_VALUE", // required

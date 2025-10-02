@@ -41,6 +41,8 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  * ```javascript
  * import { RedshiftClient, CreateHsmClientCertificateCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateHsmClientCertificateCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // import type { RedshiftClientConfig } from "@aws-sdk/client-redshift";
+ * const config = {}; // type is RedshiftClientConfig
  * const client = new RedshiftClient(config);
  * const input = { // CreateHsmClientCertificateMessage
  *   HsmClientCertificateIdentifier: "STRING_VALUE", // required

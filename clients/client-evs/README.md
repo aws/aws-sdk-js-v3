@@ -205,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateEipToVlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evs/command/AssociateEipToVlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evs/Interface/AssociateEipToVlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evs/Interface/AssociateEipToVlanCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateEnvironment
 </summary>
 
@@ -233,6 +241,14 @@ DeleteEnvironmentHost
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evs/command/DeleteEnvironmentHostCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evs/Interface/DeleteEnvironmentHostCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evs/Interface/DeleteEnvironmentHostCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateEipFromVlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evs/command/DisassociateEipFromVlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evs/Interface/DisassociateEipFromVlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evs/Interface/DisassociateEipFromVlanCommandOutput/)
 
 </details>
 <details>

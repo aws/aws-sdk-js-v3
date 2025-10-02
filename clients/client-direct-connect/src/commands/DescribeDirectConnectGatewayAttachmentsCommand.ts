@@ -47,6 +47,8 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
  * ```javascript
  * import { DirectConnectClient, DescribeDirectConnectGatewayAttachmentsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeDirectConnectGatewayAttachmentsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
+ * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
  * const input = { // DescribeDirectConnectGatewayAttachmentsRequest
  *   directConnectGatewayId: "STRING_VALUE",

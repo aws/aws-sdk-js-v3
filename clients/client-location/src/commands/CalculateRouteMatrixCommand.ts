@@ -80,6 +80,8 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  * ```javascript
  * import { LocationClient, CalculateRouteMatrixCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CalculateRouteMatrixCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // CalculateRouteMatrixRequest
  *   CalculatorName: "STRING_VALUE", // required

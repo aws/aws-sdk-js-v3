@@ -33,7 +33,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "uuid";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { AssociateAssetsCommandInput, AssociateAssetsCommandOutput } from "../commands/AssociateAssetsCommand";
 import {
@@ -1646,6 +1646,9 @@ export const se_DescribeComputationModelCommand = async (
   const headers: any = {};
   b.bp("/computation-models/{computationModelId}");
   b.p("computationModelId", () => input.computationModelId!, "{computationModelId}", false);
+  const query: any = map({
+    [_cMV]: [, input[_cMV]!],
+  });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1655,7 +1658,7 @@ export const se_DescribeComputationModelCommand = async (
     }
   }
   b.hn(resolvedHostname);
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -7856,6 +7859,7 @@ const _aT = "aggregateTypes";
 const _aTc = "actionType";
 const _cI = "conversationId";
 const _cMT = "computationModelType";
+const _cMV = "computationModelVersion";
 const _cT = "clientToken";
 const _e = "etag";
 const _eD = "endDate";

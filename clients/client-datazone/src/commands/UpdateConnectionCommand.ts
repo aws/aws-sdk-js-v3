@@ -39,6 +39,8 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * ```javascript
  * import { DataZoneClient, UpdateConnectionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateConnectionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateConnectionInput
  *   domainIdentifier: "STRING_VALUE", // required
@@ -102,6 +104,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  *       pythonVirtualEnv: "STRING_VALUE",
  *       runtimeRole: "STRING_VALUE",
  *       trustedCertificatesS3Uri: "STRING_VALUE",
+ *       managedEndpointArn: "STRING_VALUE",
  *     },
  *     s3Properties: { // S3PropertiesPatch
  *       s3Uri: "STRING_VALUE", // required
@@ -257,6 +260,12 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //       pythonVirtualEnv: "STRING_VALUE",
  * //       runtimeRole: "STRING_VALUE",
  * //       trustedCertificatesS3Uri: "STRING_VALUE",
+ * //       certificateData: "STRING_VALUE",
+ * //       managedEndpointArn: "STRING_VALUE",
+ * //       managedEndpointCredentials: { // ManagedEndpointCredentials
+ * //         id: "STRING_VALUE",
+ * //         token: "STRING_VALUE",
+ * //       },
  * //     },
  * //     sparkGlueProperties: { // SparkGluePropertiesOutput
  * //       additionalArgs: { // SparkGlueArgs

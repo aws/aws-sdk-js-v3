@@ -34,6 +34,8 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  * ```javascript
  * import { IoTWirelessClient, CreateDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // import type { IoTWirelessClientConfig } from "@aws-sdk/client-iot-wireless";
+ * const config = {}; // type is IoTWirelessClientConfig
  * const client = new IoTWirelessClient(config);
  * const input = { // CreateDeviceProfileRequest
  *   Name: "STRING_VALUE",

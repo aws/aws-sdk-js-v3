@@ -36,12 +36,14 @@ export interface DescribeDefaultQBusinessApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes a Amazon Q Business application that is linked to an Amazon QuickSight account.</p>
+ * <p>Describes a Amazon Q Business application that is linked to an QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DescribeDefaultQBusinessApplicationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeDefaultQBusinessApplicationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
+ * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
  * const input = { // DescribeDefaultQBusinessApplicationRequest
  *   AwsAccountId: "STRING_VALUE", // required

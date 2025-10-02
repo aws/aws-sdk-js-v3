@@ -39,6 +39,8 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * ```javascript
  * import { GeoRoutesClient, CalculateRoutesCommand } from "@aws-sdk/client-geo-routes"; // ES Modules import
  * // const { GeoRoutesClient, CalculateRoutesCommand } = require("@aws-sdk/client-geo-routes"); // CommonJS import
+ * // import type { GeoRoutesClientConfig } from "@aws-sdk/client-geo-routes";
+ * const config = {}; // type is GeoRoutesClientConfig
  * const client = new GeoRoutesClient(config);
  * const input = { // CalculateRoutesRequest
  *   Allow: { // RouteAllowOptions

@@ -38,6 +38,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * ```javascript
  * import { ACMClient, ImportCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ImportCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * // import type { ACMClientConfig } from "@aws-sdk/client-acm";
+ * const config = {}; // type is ACMClientConfig
  * const client = new ACMClient(config);
  * const input = { // ImportCertificateRequest
  *   CertificateArn: "STRING_VALUE",

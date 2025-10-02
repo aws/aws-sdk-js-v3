@@ -34,6 +34,8 @@ export interface CancelSessionCommandOutput extends CancelSessionResponse, __Met
  * ```javascript
  * import { MPAClient, CancelSessionCommand } from "@aws-sdk/client-mpa"; // ES Modules import
  * // const { MPAClient, CancelSessionCommand } = require("@aws-sdk/client-mpa"); // CommonJS import
+ * // import type { MPAClientConfig } from "@aws-sdk/client-mpa";
+ * const config = {}; // type is MPAClientConfig
  * const client = new MPAClient(config);
  * const input = { // CancelSessionRequest
  *   SessionArn: "STRING_VALUE", // required

@@ -44,6 +44,8 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  * ```javascript
  * import { CloudDirectoryClient, AttachObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AttachObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * // import type { CloudDirectoryClientConfig } from "@aws-sdk/client-clouddirectory";
+ * const config = {}; // type is CloudDirectoryClientConfig
  * const client = new CloudDirectoryClient(config);
  * const input = { // AttachObjectRequest
  *   DirectoryArn: "STRING_VALUE", // required

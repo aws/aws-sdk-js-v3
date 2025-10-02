@@ -631,6 +631,23 @@ export type AccountJoinedMethod = (typeof AccountJoinedMethod)[keyof typeof Acco
  * @public
  * @enum
  */
+export const AccountState = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+  PENDING_ACTIVATION: "PENDING_ACTIVATION",
+  PENDING_CLOSURE: "PENDING_CLOSURE",
+  SUSPENDED: "SUSPENDED",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountState = (typeof AccountState)[keyof typeof AccountState];
+
+/**
+ * @public
+ * @enum
+ */
 export const AccountStatus = {
   ACTIVE: "ACTIVE",
   PENDING_CLOSURE: "PENDING_CLOSURE",
@@ -683,9 +700,26 @@ export interface Account {
 
   /**
    * <p>The status of the account in the organization.</p>
+   *          <important>
+   *             <p>The <code>Status</code> parameter in the <code>Account</code> object will be retired on September 9, 2026.
+   *                 Although both the account <code>State</code> and account <code>Status</code> parameters are currently
+   *                 available in the Organizations APIs (<code>DescribeAccount</code>, <code>ListAccounts</code>,
+   *                 <code>ListAccountsForParent</code>), we recommend that you update your scripts or other code to
+   *                 use the <code>State</code> parameter instead of <code>Status</code> before September 9, 2026.</p>
+   *          </important>
    * @public
    */
   Status?: AccountStatus | undefined;
+
+  /**
+   * <p>Each state represents a specific phase in the account lifecycle. Use this information
+   *             to manage account access, automate workflows, or trigger actions based on account state
+   *             changes.</p>
+   *          <p>For more information about account states and their implications, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_account_state.html">Monitor the state of your Amazon Web Services accounts </a> in the
+   *                 <i>Organizations User Guide</i>.</p>
+   * @public
+   */
+  State?: AccountState | undefined;
 
   /**
    * <p>The method by which the account joined the organization.</p>
@@ -2091,7 +2125,8 @@ export interface CreateOrganizationalUnitRequest {
  */
 export interface OrganizationalUnit {
   /**
-   * <p>The unique identifier (ID) associated with this OU. The ID is unique to the organization only.</p>
+   * <p>The unique identifier (ID) associated with this OU. The ID is unique to the
+   *             organization only.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
@@ -2622,6 +2657,13 @@ export interface DescribeAccountRequest {
 export interface DescribeAccountResponse {
   /**
    * <p>A structure that contains information about the requested account.</p>
+   *          <important>
+   *             <p>The <code>Status</code> parameter in the API response will be retired on September 9, 2026.
+   *                 Although both the account <code>State</code> and account <code>Status</code> parameters are currently
+   *                 available in the Organizations APIs (<code>DescribeAccount</code>, <code>ListAccounts</code>,
+   *                 <code>ListAccountsForParent</code>), we recommend that you update your scripts or other code to
+   *                 use the <code>State</code> parameter instead of <code>Status</code> before September 9, 2026.</p>
+   *          </important>
    * @public
    */
   Account?: Account | undefined;
@@ -2838,9 +2880,8 @@ export interface DescribeOrganizationResponse {
    *          <important>
    *             <p>The <code>AvailablePolicyTypes</code> part of the response is deprecated, and you
    *                 shouldn't use it in your apps. It doesn't include any policy type supported by Organizations
-   *                 other than SCPs. In the China (Ningxia) Region, no policy type is included.
-   *                 To determine which policy types are enabled in your organization,
-   *                 use the <code>
+   *                 other than SCPs. In the China (Ningxia) Region, no policy type is included. To
+   *                 determine which policy types are enabled in your organization, use the <code>
    *                   <a>ListRoots</a>
    *                </code> operation.</p>
    *          </important>
@@ -3100,7 +3141,8 @@ export interface DisablePolicyTypeRequest {
  */
 export interface Root {
   /**
-   * <p>The unique identifier (ID) for the root. The ID is unique to the organization only.</p>
+   * <p>The unique identifier (ID) for the root. The ID is unique to the organization
+   *             only.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
    * @public
@@ -3430,6 +3472,13 @@ export interface ListAccountsRequest {
 export interface ListAccountsResponse {
   /**
    * <p>A list of objects in the organization.</p>
+   *          <important>
+   *             <p>The <code>Status</code> parameter in the API response will be retired on September 9, 2026.
+   *                 Although both the account <code>State</code> and account <code>Status</code> parameters are currently
+   *                 available in the Organizations APIs (<code>DescribeAccount</code>, <code>ListAccounts</code>,
+   *                 <code>ListAccountsForParent</code>), we recommend that you update your scripts or other code to
+   *                 use the <code>State</code> parameter instead of <code>Status</code> before September 9, 2026.</p>
+   *          </important>
    * @public
    */
   Accounts?: Account[] | undefined;
@@ -3485,6 +3534,13 @@ export interface ListAccountsForParentRequest {
 export interface ListAccountsForParentResponse {
   /**
    * <p>A list of the accounts in the specified root or OU.</p>
+   *          <important>
+   *             <p>The <code>Status</code> parameter in the API response will be retired on September 9, 2026.
+   *                 Although both the account <code>State</code> and account <code>Status</code> parameters are currently
+   *                 available in the Organizations APIs (<code>DescribeAccount</code>, <code>ListAccounts</code>,
+   *                 <code>ListAccountsForParent</code>), we recommend that you update your scripts or other code to
+   *                 use the <code>State</code> parameter instead of <code>Status</code> before September 9, 2026.</p>
+   *          </important>
    * @public
    */
   Accounts?: Account[] | undefined;
@@ -4071,7 +4127,8 @@ export interface ListDelegatedServicesForAccountResponse {
  */
 export interface ListEffectivePolicyValidationErrorsRequest {
   /**
-   * <p>The ID of the account that you want details about. Specifying an organization root or organizational unit (OU) as the target is not supported.</p>
+   * <p>The ID of the account that you want details about. Specifying an organization root or
+   *             organizational unit (OU) as the target is not supported.</p>
    * @public
    */
   AccountId: string | undefined;
@@ -4140,13 +4197,16 @@ export interface ListEffectivePolicyValidationErrorsRequest {
 }
 
 /**
- * <p>Contains details about the
- *             validation errors that occurred when generating or enforcing an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective policy</a>, such as which policies contributed to the error and location of the error.</p>
+ * <p>Contains details about the validation errors that occurred when generating or
+ *             enforcing an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective
+ *                 policy</a>, such as which policies contributed to the error and location of the
+ *             error.</p>
  * @public
  */
 export interface EffectivePolicyValidationError {
   /**
-   * <p>The error code for the validation error. For example, <code>ELEMENTS_TOO_MANY</code>.</p>
+   * <p>The error code for the validation error. For example,
+   *             <code>ELEMENTS_TOO_MANY</code>.</p>
    * @public
    */
   ErrorCode?: string | undefined;
@@ -4164,7 +4224,8 @@ export interface EffectivePolicyValidationError {
   PathToError?: string | undefined;
 
   /**
-   * <p>The individual policies <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html">inherited</a>  and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_policies_attach.html">attached</a> to the account which contributed to the validation error.</p>
+   * <p>The individual policies <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html">inherited</a> and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_policies_attach.html">attached</a> to
+   *             the account which contributed to the validation error.</p>
    * @public
    */
   ContributingPolicies?: string[] | undefined;
@@ -4181,8 +4242,7 @@ export interface ListEffectivePolicyValidationErrorsResponse {
   AccountId?: string | undefined;
 
   /**
-   * <p>The specified policy type. One of the
-   *             following values:</p>
+   * <p>The specified policy type. One of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4226,7 +4286,8 @@ export interface ListEffectivePolicyValidationErrorsResponse {
   Path?: string | undefined;
 
   /**
-   * <p>The time when the latest effective policy was generated for the specified account.</p>
+   * <p>The time when the latest effective policy was generated for the specified
+   *             account.</p>
    * @public
    */
   EvaluationTimestamp?: Date | undefined;
@@ -4242,7 +4303,8 @@ export interface ListEffectivePolicyValidationErrorsResponse {
 
   /**
    * <p>The <code>EffectivePolicyValidationError</code> object contains details about the
-   *             validation errors that occurred when generating or enforcing an effective policy, such as which policies contributed to the error and location of the error.</p>
+   *             validation errors that occurred when generating or enforcing an effective policy, such
+   *             as which policies contributed to the error and location of the error.</p>
    * @public
    */
   EffectivePolicyValidationErrors?: EffectivePolicyValidationError[] | undefined;

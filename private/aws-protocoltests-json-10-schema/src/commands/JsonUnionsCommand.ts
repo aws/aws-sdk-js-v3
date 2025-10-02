@@ -33,6 +33,8 @@ export interface JsonUnionsCommandOutput extends JsonUnionsOutput, __MetadataBea
  * ```javascript
  * import { JSONRPC10Client, JsonUnionsCommand } from "@aws-sdk/aws-protocoltests-json-10-schema"; // ES Modules import
  * // const { JSONRPC10Client, JsonUnionsCommand } = require("@aws-sdk/aws-protocoltests-json-10-schema"); // CommonJS import
+ * // import type { JSONRPC10ClientConfig } from "@aws-sdk/aws-protocoltests-json-10-schema";
+ * const config = {}; // type is JSONRPC10ClientConfig
  * const client = new JSONRPC10Client(config);
  * const input = { // JsonUnionsInput
  *   contents: { // MyUnion Union: only one key present

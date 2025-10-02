@@ -63,6 +63,8 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * ```javascript
  * import { SecretsManagerClient, UpdateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, UpdateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * // import type { SecretsManagerClientConfig } from "@aws-sdk/client-secrets-manager";
+ * const config = {}; // type is SecretsManagerClientConfig
  * const client = new SecretsManagerClient(config);
  * const input = { // UpdateSecretRequest
  *   SecretId: "STRING_VALUE", // required

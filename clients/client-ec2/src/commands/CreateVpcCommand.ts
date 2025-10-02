@@ -45,6 +45,8 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * ```javascript
  * import { EC2Client, CreateVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateVpcRequest
  *   CidrBlock: "STRING_VALUE",

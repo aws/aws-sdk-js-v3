@@ -34,6 +34,8 @@ export interface CreateAddonInstanceCommandOutput extends CreateAddonInstanceRes
  * ```javascript
  * import { MailManagerClient, CreateAddonInstanceCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, CreateAddonInstanceCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // import type { MailManagerClientConfig } from "@aws-sdk/client-mailmanager";
+ * const config = {}; // type is MailManagerClientConfig
  * const client = new MailManagerClient(config);
  * const input = { // CreateAddonInstanceRequest
  *   ClientToken: "STRING_VALUE",

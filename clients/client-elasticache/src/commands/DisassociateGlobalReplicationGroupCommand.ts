@@ -44,6 +44,8 @@ export interface DisassociateGlobalReplicationGroupCommandOutput
  * ```javascript
  * import { ElastiCacheClient, DisassociateGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DisassociateGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // import type { ElastiCacheClientConfig } from "@aws-sdk/client-elasticache";
+ * const config = {}; // type is ElastiCacheClientConfig
  * const client = new ElastiCacheClient(config);
  * const input = { // DisassociateGlobalReplicationGroupMessage
  *   GlobalReplicationGroupId: "STRING_VALUE", // required

@@ -58,6 +58,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
  * ```javascript
  * import { AppConfigClient, GetConfigurationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetConfigurationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // GetConfigurationRequest
  *   Application: "STRING_VALUE", // required

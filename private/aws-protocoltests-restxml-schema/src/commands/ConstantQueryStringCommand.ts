@@ -36,6 +36,8 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RestXmlProtocolClient, ConstantQueryStringCommand } from "@aws-sdk/aws-protocoltests-restxml-schema"; // ES Modules import
  * // const { RestXmlProtocolClient, ConstantQueryStringCommand } = require("@aws-sdk/aws-protocoltests-restxml-schema"); // CommonJS import
+ * // import type { RestXmlProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restxml-schema";
+ * const config = {}; // type is RestXmlProtocolClientConfig
  * const client = new RestXmlProtocolClient(config);
  * const input = { // ConstantQueryStringInput
  *   hello: "STRING_VALUE", // required

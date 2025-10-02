@@ -38,6 +38,8 @@ export interface DeleteScopeCommandOutput extends DeleteScopeOutput, __MetadataB
  * ```javascript
  * import { NetworkFlowMonitorClient, DeleteScopeCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, DeleteScopeCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // DeleteScopeInput
  *   scopeId: "STRING_VALUE", // required

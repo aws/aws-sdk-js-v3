@@ -53,12 +53,32 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  AddKeyReplicationRegionsCommandInput,
+  AddKeyReplicationRegionsCommandOutput,
+} from "./commands/AddKeyReplicationRegionsCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import { DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
+import {
+  DisableDefaultKeyReplicationRegionsCommandInput,
+  DisableDefaultKeyReplicationRegionsCommandOutput,
+} from "./commands/DisableDefaultKeyReplicationRegionsCommand";
+import {
+  EnableDefaultKeyReplicationRegionsCommandInput,
+  EnableDefaultKeyReplicationRegionsCommandOutput,
+} from "./commands/EnableDefaultKeyReplicationRegionsCommand";
 import { ExportKeyCommandInput, ExportKeyCommandOutput } from "./commands/ExportKeyCommand";
 import { GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
+import {
+  GetCertificateSigningRequestCommandInput,
+  GetCertificateSigningRequestCommandOutput,
+} from "./commands/GetCertificateSigningRequestCommand";
+import {
+  GetDefaultKeyReplicationRegionsCommandInput,
+  GetDefaultKeyReplicationRegionsCommandOutput,
+} from "./commands/GetDefaultKeyReplicationRegionsCommand";
 import { GetKeyCommandInput, GetKeyCommandOutput } from "./commands/GetKeyCommand";
 import {
   GetParametersForExportCommandInput,
@@ -79,6 +99,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  RemoveKeyReplicationRegionsCommandInput,
+  RemoveKeyReplicationRegionsCommandOutput,
+} from "./commands/RemoveKeyReplicationRegionsCommand";
 import { RestoreKeyCommandInput, RestoreKeyCommandOutput } from "./commands/RestoreKeyCommand";
 import { StartKeyUsageCommandInput, StartKeyUsageCommandOutput } from "./commands/StartKeyUsageCommand";
 import { StopKeyUsageCommandInput, StopKeyUsageCommandOutput } from "./commands/StopKeyUsageCommand";
@@ -100,12 +124,17 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AddKeyReplicationRegionsCommandInput
   | CreateAliasCommandInput
   | CreateKeyCommandInput
   | DeleteAliasCommandInput
   | DeleteKeyCommandInput
+  | DisableDefaultKeyReplicationRegionsCommandInput
+  | EnableDefaultKeyReplicationRegionsCommandInput
   | ExportKeyCommandInput
   | GetAliasCommandInput
+  | GetCertificateSigningRequestCommandInput
+  | GetDefaultKeyReplicationRegionsCommandInput
   | GetKeyCommandInput
   | GetParametersForExportCommandInput
   | GetParametersForImportCommandInput
@@ -114,6 +143,7 @@ export type ServiceInputTypes =
   | ListAliasesCommandInput
   | ListKeysCommandInput
   | ListTagsForResourceCommandInput
+  | RemoveKeyReplicationRegionsCommandInput
   | RestoreKeyCommandInput
   | StartKeyUsageCommandInput
   | StopKeyUsageCommandInput
@@ -125,12 +155,17 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AddKeyReplicationRegionsCommandOutput
   | CreateAliasCommandOutput
   | CreateKeyCommandOutput
   | DeleteAliasCommandOutput
   | DeleteKeyCommandOutput
+  | DisableDefaultKeyReplicationRegionsCommandOutput
+  | EnableDefaultKeyReplicationRegionsCommandOutput
   | ExportKeyCommandOutput
   | GetAliasCommandOutput
+  | GetCertificateSigningRequestCommandOutput
+  | GetDefaultKeyReplicationRegionsCommandOutput
   | GetKeyCommandOutput
   | GetParametersForExportCommandOutput
   | GetParametersForImportCommandOutput
@@ -139,6 +174,7 @@ export type ServiceOutputTypes =
   | ListAliasesCommandOutput
   | ListKeysCommandOutput
   | ListTagsForResourceCommandOutput
+  | RemoveKeyReplicationRegionsCommandOutput
   | RestoreKeyCommandOutput
   | StartKeyUsageCommandOutput
   | StopKeyUsageCommandOutput

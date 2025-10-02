@@ -34,6 +34,8 @@ export interface PutAccountSettingsCommandOutput extends PutAccountSettingsRespo
  * ```javascript
  * import { ArtifactClient, PutAccountSettingsCommand } from "@aws-sdk/client-artifact"; // ES Modules import
  * // const { ArtifactClient, PutAccountSettingsCommand } = require("@aws-sdk/client-artifact"); // CommonJS import
+ * // import type { ArtifactClientConfig } from "@aws-sdk/client-artifact";
+ * const config = {}; // type is ArtifactClientConfig
  * const client = new ArtifactClient(config);
  * const input = { // PutAccountSettingsRequest
  *   notificationSubscriptionStatus: "SUBSCRIBED" || "NOT_SUBSCRIBED",

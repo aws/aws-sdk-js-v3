@@ -34,6 +34,8 @@ export interface UpdateUploadCommandOutput extends UpdateUploadResult, __Metadat
  * ```javascript
  * import { DeviceFarmClient, UpdateUploadCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateUploadCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // UpdateUploadRequest
  *   arn: "STRING_VALUE", // required

@@ -4,6 +4,19 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SSOOIDCServiceException as __BaseException } from "./SSOOIDCServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const AccessDeniedExceptionReason = {
+  KMS_ACCESS_DENIED: "KMS_AccessDeniedException",
+} as const;
+/**
+ * @public
+ */
+export type AccessDeniedExceptionReason =
+  (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
+
+/**
  * <p>You do not have sufficient access to perform this action.</p>
  * @public
  */
@@ -15,6 +28,12 @@ export class AccessDeniedException extends __BaseException {
    * @public
    */
   error?: string | undefined;
+
+  /**
+   * <p>A string that uniquely identifies a reason for the error.</p>
+   * @public
+   */
+  reason?: AccessDeniedExceptionReason | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the client developer
@@ -33,6 +52,7 @@ export class AccessDeniedException extends __BaseException {
     });
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
     this.error = opts.error;
+    this.reason = opts.reason;
     this.error_description = opts.error_description;
   }
 }
@@ -129,9 +149,7 @@ export interface CreateTokenRequest {
   refreshToken?: string | undefined;
 
   /**
-   * <p>The list of scopes for which authorization is requested. The access token that is issued
-   *       is limited to the scopes that are granted. If this value is not specified, IAM Identity Center authorizes
-   *       all scopes that are configured for the client during the call to <a>RegisterClient</a>.</p>
+   * <p>The list of scopes for which authorization is requested. This parameter has no effect; the access token will always include all scopes configured during client registration.</p>
    * @public
    */
   scope?: string[] | undefined;
@@ -360,6 +378,22 @@ export class InvalidGrantException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const InvalidRequestExceptionReason = {
+  KMS_DISABLED_KEY: "KMS_DisabledException",
+  KMS_INVALID_KEY_USAGE: "KMS_InvalidKeyUsageException",
+  KMS_INVALID_STATE: "KMS_InvalidStateException",
+  KMS_KEY_NOT_FOUND: "KMS_NotFoundException",
+} as const;
+/**
+ * @public
+ */
+export type InvalidRequestExceptionReason =
+  (typeof InvalidRequestExceptionReason)[keyof typeof InvalidRequestExceptionReason];
+
+/**
  * <p>Indicates that something is wrong with the input to the request. For example, a required
  *       parameter might be missing or out of range.</p>
  * @public
@@ -373,6 +407,12 @@ export class InvalidRequestException extends __BaseException {
    * @public
    */
   error?: string | undefined;
+
+  /**
+   * <p>A string that uniquely identifies a reason for the error.</p>
+   * @public
+   */
+  reason?: InvalidRequestExceptionReason | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the client developer
@@ -391,6 +431,7 @@ export class InvalidRequestException extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidRequestException.prototype);
     this.error = opts.error;
+    this.reason = opts.reason;
     this.error_description = opts.error_description;
   }
 }

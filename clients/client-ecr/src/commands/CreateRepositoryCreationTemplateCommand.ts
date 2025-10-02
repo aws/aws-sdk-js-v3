@@ -43,6 +43,8 @@ export interface CreateRepositoryCreationTemplateCommandOutput
  * ```javascript
  * import { ECRClient, CreateRepositoryCreationTemplateCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, CreateRepositoryCreationTemplateCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // import type { ECRClientConfig } from "@aws-sdk/client-ecr";
+ * const config = {}; // type is ECRClientConfig
  * const client = new ECRClient(config);
  * const input = { // CreateRepositoryCreationTemplateRequest
  *   prefix: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * ```javascript
  * import { ApiGatewayManagementApiClient, GetConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
  * // const { ApiGatewayManagementApiClient, GetConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
+ * // import type { ApiGatewayManagementApiClientConfig } from "@aws-sdk/client-apigatewaymanagementapi";
+ * const config = {}; // type is ApiGatewayManagementApiClientConfig
  * const client = new ApiGatewayManagementApiClient(config);
  * const input = { // GetConnectionRequest
  *   ConnectionId: "STRING_VALUE", // required

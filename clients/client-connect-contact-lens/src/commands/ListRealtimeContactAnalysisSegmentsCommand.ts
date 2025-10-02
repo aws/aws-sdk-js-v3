@@ -46,6 +46,8 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  * ```javascript
  * import { ConnectContactLensClient, ListRealtimeContactAnalysisSegmentsCommand } from "@aws-sdk/client-connect-contact-lens"; // ES Modules import
  * // const { ConnectContactLensClient, ListRealtimeContactAnalysisSegmentsCommand } = require("@aws-sdk/client-connect-contact-lens"); // CommonJS import
+ * // import type { ConnectContactLensClientConfig } from "@aws-sdk/client-connect-contact-lens";
+ * const config = {}; // type is ConnectContactLensClientConfig
  * const client = new ConnectContactLensClient(config);
  * const input = { // ListRealtimeContactAnalysisSegmentsRequest
  *   InstanceId: "STRING_VALUE", // required

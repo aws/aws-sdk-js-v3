@@ -34,6 +34,8 @@ export interface GetCloudWatchAlarmTemplateCommandOutput extends GetCloudWatchAl
  * ```javascript
  * import { MediaLiveClient, GetCloudWatchAlarmTemplateCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, GetCloudWatchAlarmTemplateCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
+ * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
  * const input = { // GetCloudWatchAlarmTemplateRequest
  *   Identifier: "STRING_VALUE", // required

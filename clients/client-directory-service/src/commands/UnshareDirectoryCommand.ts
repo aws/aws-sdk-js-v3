@@ -34,6 +34,8 @@ export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, _
  * ```javascript
  * import { DirectoryServiceClient, UnshareDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UnshareDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // UnshareDirectoryRequest
  *   DirectoryId: "STRING_VALUE", // required

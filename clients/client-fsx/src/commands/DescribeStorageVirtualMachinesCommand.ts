@@ -39,6 +39,8 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * ```javascript
  * import { FSxClient, DescribeStorageVirtualMachinesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeStorageVirtualMachinesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // import type { FSxClientConfig } from "@aws-sdk/client-fsx";
+ * const config = {}; // type is FSxClientConfig
  * const client = new FSxClient(config);
  * const input = { // DescribeStorageVirtualMachinesRequest
  *   StorageVirtualMachineIds: [ // StorageVirtualMachineIds
@@ -79,10 +81,16 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * //           IpAddresses: [ // OntapEndpointIpAddresses
  * //             "STRING_VALUE",
  * //           ],
+ * //           Ipv6Addresses: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //         Management: {
  * //           DNSName: "STRING_VALUE",
  * //           IpAddresses: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Ipv6Addresses: [
  * //             "STRING_VALUE",
  * //           ],
  * //         },
@@ -91,12 +99,12 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * //           IpAddresses: [
  * //             "STRING_VALUE",
  * //           ],
+ * //           Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //         },
  * //         Smb: {
  * //           DNSName: "STRING_VALUE",
- * //           IpAddresses: [
- * //             "STRING_VALUE",
- * //           ],
+ * //           IpAddresses: "<OntapEndpointIpAddresses>",
+ * //           Ipv6Addresses: "<OntapEndpointIpAddresses>",
  * //         },
  * //       },
  * //       FileSystemId: "STRING_VALUE",

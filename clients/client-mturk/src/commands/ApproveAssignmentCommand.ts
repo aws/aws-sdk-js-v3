@@ -63,6 +63,8 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * ```javascript
  * import { MTurkClient, ApproveAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ApproveAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // import type { MTurkClientConfig } from "@aws-sdk/client-mturk";
+ * const config = {}; // type is MTurkClientConfig
  * const client = new MTurkClient(config);
  * const input = { // ApproveAssignmentRequest
  *   AssignmentId: "STRING_VALUE", // required

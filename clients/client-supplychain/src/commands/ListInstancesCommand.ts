@@ -34,6 +34,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * ```javascript
  * import { SupplyChainClient, ListInstancesCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
  * // const { SupplyChainClient, ListInstancesCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * // import type { SupplyChainClientConfig } from "@aws-sdk/client-supplychain";
+ * const config = {}; // type is SupplyChainClientConfig
  * const client = new SupplyChainClient(config);
  * const input = { // ListInstancesRequest
  *   nextToken: "STRING_VALUE",

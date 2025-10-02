@@ -43,6 +43,8 @@ export interface ListAttachedUserPoliciesCommandOutput extends ListAttachedUserP
  * ```javascript
  * import { IAMClient, ListAttachedUserPoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListAttachedUserPoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // import type { IAMClientConfig } from "@aws-sdk/client-iam";
+ * const config = {}; // type is IAMClientConfig
  * const client = new IAMClient(config);
  * const input = { // ListAttachedUserPoliciesRequest
  *   UserName: "STRING_VALUE", // required

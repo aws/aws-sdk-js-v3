@@ -43,6 +43,8 @@ export interface StopQueryMonitorTopContributorsCommandOutput
  * ```javascript
  * import { NetworkFlowMonitorClient, StopQueryMonitorTopContributorsCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, StopQueryMonitorTopContributorsCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // StopQueryMonitorTopContributorsInput
  *   monitorName: "STRING_VALUE", // required

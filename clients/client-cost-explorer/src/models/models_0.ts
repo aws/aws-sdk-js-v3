@@ -804,6 +804,7 @@ export const Dimension = {
   LINKED_ACCOUNT_NAME: "LINKED_ACCOUNT_NAME",
   OPERATING_SYSTEM: "OPERATING_SYSTEM",
   OPERATION: "OPERATION",
+  PAYER_ACCOUNT: "PAYER_ACCOUNT",
   PAYMENT_OPTION: "PAYMENT_OPTION",
   PLATFORM: "PLATFORM",
   PURCHASE_TYPE: "PURCHASE_TYPE",
@@ -1820,6 +1821,30 @@ export class BillExpirationException extends __BaseException {
 }
 
 /**
+ * <p>
+ *             The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>.
+ *         </p>
+ * @public
+ */
+export class BillingViewHealthStatusException extends __BaseException {
+  readonly name: "BillingViewHealthStatusException" = "BillingViewHealthStatusException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BillingViewHealthStatusException, __BaseException>) {
+    super({
+      name: "BillingViewHealthStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BillingViewHealthStatusException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * @public
  * @enum
  */
@@ -2139,8 +2164,8 @@ export interface CostDriver {
    * <p>The category or classification of the cost driver.</p>
    *          <p>Values include: BUNDLED_DISCOUNT, CREDIT, OUT_OF_CYCLE_CHARGE, REFUND,
    *             RECURRING_RESERVATION_FEE, RESERVATION_USAGE, RI_VOLUME_DISCOUNT, SAVINGS_PLAN_USAGE,
-   *             SAVINGS_PLAN_NEGATION, SAVINGS_PLAN_RECURRING_FEE, SUPPORT_FEE, TAX,
-   *             UPFRONT_RESERVATION_FEE, USAGE_CHANGE, COMMITMENT</p>
+   *             SAVINGS_PLAN_RECURRING_FEE, SUPPORT_FEE, TAX, UPFRONT_RESERVATION_FEE, USAGE_CHANGE,
+   *             COMMITMENT</p>
    * @public
    */
   Type?: string | undefined;

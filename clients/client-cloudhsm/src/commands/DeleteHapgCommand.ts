@@ -46,6 +46,8 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  * ```javascript
  * import { CloudHSMClient, DeleteHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DeleteHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * // import type { CloudHSMClientConfig } from "@aws-sdk/client-cloudhsm";
+ * const config = {}; // type is CloudHSMClientConfig
  * const client = new CloudHSMClient(config);
  * const input = { // DeleteHapgRequest
  *   HapgArn: "STRING_VALUE", // required

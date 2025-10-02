@@ -144,6 +144,8 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  * ```javascript
  * import { GameLiftClient, StartGameSessionPlacementCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartGameSessionPlacementCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // import type { GameLiftClientConfig } from "@aws-sdk/client-gamelift";
+ * const config = {}; // type is GameLiftClientConfig
  * const client = new GameLiftClient(config);
  * const input = { // StartGameSessionPlacementInput
  *   PlacementId: "STRING_VALUE", // required

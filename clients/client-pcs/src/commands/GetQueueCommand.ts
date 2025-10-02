@@ -34,6 +34,8 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * ```javascript
  * import { PCSClient, GetQueueCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, GetQueueCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // import type { PCSClientConfig } from "@aws-sdk/client-pcs";
+ * const config = {}; // type is PCSClientConfig
  * const client = new PCSClient(config);
  * const input = { // GetQueueRequest
  *   clusterIdentifier: "STRING_VALUE", // required
@@ -55,6 +57,14 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * //         computeNodeGroupId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     slurmConfiguration: { // QueueSlurmConfiguration
+ * //       slurmCustomSettings: [ // SlurmCustomSettings
+ * //         { // SlurmCustomSetting
+ * //           parameterName: "STRING_VALUE", // required
+ * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //     errorInfo: [ // ErrorInfoList
  * //       { // ErrorInfo
  * //         code: "STRING_VALUE",

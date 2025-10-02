@@ -34,10 +34,13 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * ```javascript
  * import { RDSClient, ModifyDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ModifyDBProxyRequest
  *   DBProxyName: "STRING_VALUE", // required
  *   NewDBProxyName: "STRING_VALUE",
+ *   DefaultAuthScheme: "IAM_AUTH" || "NONE",
  *   Auth: [ // UserAuthConfigList
  *     { // UserAuthConfig
  *       Description: "STRING_VALUE",
@@ -71,6 +74,7 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * //     VpcSubnetIds: [
  * //       "STRING_VALUE",
  * //     ],
+ * //     DefaultAuthScheme: "STRING_VALUE",
  * //     Auth: [ // UserAuthConfigInfoList
  * //       { // UserAuthConfigInfo
  * //         Description: "STRING_VALUE",

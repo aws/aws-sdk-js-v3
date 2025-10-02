@@ -50,6 +50,8 @@ export interface DescribeSupportedLanguagesCommandOutput extends DescribeSupport
  * ```javascript
  * import { SupportClient, DescribeSupportedLanguagesCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeSupportedLanguagesCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * // import type { SupportClientConfig } from "@aws-sdk/client-support";
+ * const config = {}; // type is SupportClientConfig
  * const client = new SupportClient(config);
  * const input = { // DescribeSupportedLanguagesRequest
  *   issueType: "STRING_VALUE", // required

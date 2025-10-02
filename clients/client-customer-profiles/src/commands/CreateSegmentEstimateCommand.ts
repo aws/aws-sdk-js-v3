@@ -38,6 +38,8 @@ export interface CreateSegmentEstimateCommandOutput extends CreateSegmentEstimat
  * ```javascript
  * import { CustomerProfilesClient, CreateSegmentEstimateCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, CreateSegmentEstimateCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
+ * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
  * const input = { // CreateSegmentEstimateRequest
  *   DomainName: "STRING_VALUE", // required

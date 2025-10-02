@@ -43,6 +43,8 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
  * ```javascript
  * import { ChimeClient, AssociateSigninDelegateGroupsWithAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, AssociateSigninDelegateGroupsWithAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // AssociateSigninDelegateGroupsWithAccountRequest
  *   AccountId: "STRING_VALUE", // required

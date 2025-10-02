@@ -39,6 +39,8 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * ```javascript
  * import { ACMClient, ExportCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ExportCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * // import type { ACMClientConfig } from "@aws-sdk/client-acm";
+ * const config = {}; // type is ACMClientConfig
  * const client = new ACMClient(config);
  * const input = { // ExportCertificateRequest
  *   CertificateArn: "STRING_VALUE", // required

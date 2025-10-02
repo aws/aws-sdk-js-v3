@@ -37,6 +37,8 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * ```javascript
  * import { AppConfigDataClient, StartConfigurationSessionCommand } from "@aws-sdk/client-appconfigdata"; // ES Modules import
  * // const { AppConfigDataClient, StartConfigurationSessionCommand } = require("@aws-sdk/client-appconfigdata"); // CommonJS import
+ * // import type { AppConfigDataClientConfig } from "@aws-sdk/client-appconfigdata";
+ * const config = {}; // type is AppConfigDataClientConfig
  * const client = new AppConfigDataClient(config);
  * const input = { // StartConfigurationSessionRequest
  *   ApplicationIdentifier: "STRING_VALUE", // required

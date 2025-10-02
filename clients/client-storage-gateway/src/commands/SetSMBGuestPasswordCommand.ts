@@ -40,6 +40,8 @@ export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOut
  * ```javascript
  * import { StorageGatewayClient, SetSMBGuestPasswordCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, SetSMBGuestPasswordCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // SetSMBGuestPasswordInput
  *   GatewayARN: "STRING_VALUE", // required

@@ -34,6 +34,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  * ```javascript
  * import { DataZoneClient, DeleteProjectCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteProjectCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DeleteProjectInput
  *   domainIdentifier: "STRING_VALUE", // required

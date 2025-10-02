@@ -36,6 +36,8 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTClient, CreateTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
+ * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
  * const input = { // CreateTopicRuleRequest
  *   ruleName: "STRING_VALUE", // required

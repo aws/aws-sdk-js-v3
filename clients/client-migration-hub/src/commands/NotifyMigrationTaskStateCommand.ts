@@ -51,6 +51,8 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  * ```javascript
  * import { MigrationHubClient, NotifyMigrationTaskStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, NotifyMigrationTaskStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * // import type { MigrationHubClientConfig } from "@aws-sdk/client-migration-hub";
+ * const config = {}; // type is MigrationHubClientConfig
  * const client = new MigrationHubClient(config);
  * const input = { // NotifyMigrationTaskStateRequest
  *   ProgressUpdateStream: "STRING_VALUE", // required

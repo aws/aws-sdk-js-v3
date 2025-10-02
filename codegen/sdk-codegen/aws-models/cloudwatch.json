@@ -95,6 +95,50 @@
         }
       }
     },
+    "com.amazonaws.cloudwatch#AlarmContributor": {
+      "type": "structure",
+      "members": {
+        "ContributorId": {
+          "target": "com.amazonaws.cloudwatch#ContributorId",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The unique identifier for this alarm contributor.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ContributorAttributes": {
+          "target": "com.amazonaws.cloudwatch#ContributorAttributes",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>A map of attributes that describe the contributor, such as metric dimensions and other identifying characteristics.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StateReason": {
+          "target": "com.amazonaws.cloudwatch#StateReason",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>An explanation for the contributor's current state, providing context about why it is in its current condition.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StateTransitionedTimestamp": {
+          "target": "com.amazonaws.cloudwatch#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the contributor last transitioned to its current state.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents an individual contributor to a multi-timeseries alarm, containing information about a specific time series and its contribution to the alarm's state.</p>"
+      }
+    },
+    "com.amazonaws.cloudwatch#AlarmContributors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloudwatch#AlarmContributor"
+      }
+    },
     "com.amazonaws.cloudwatch#AlarmDescription": {
       "type": "string",
       "traits": {
@@ -111,6 +155,12 @@
           "target": "com.amazonaws.cloudwatch#AlarmName",
           "traits": {
             "smithy.api#documentation": "<p>The descriptive name for the alarm.</p>"
+          }
+        },
+        "AlarmContributorId": {
+          "target": "com.amazonaws.cloudwatch#ContributorId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the alarm contributor associated with this history item, if applicable.</p>"
           }
         },
         "AlarmType": {
@@ -141,6 +191,12 @@
           "target": "com.amazonaws.cloudwatch#HistoryData",
           "traits": {
             "smithy.api#documentation": "<p>Data about the alarm, in JSON format.</p>"
+          }
+        },
+        "AlarmContributorAttributes": {
+          "target": "com.amazonaws.cloudwatch#ContributorAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>A map of attributes that describe the alarm contributor associated with this history item, providing context about the contributor's characteristics at the time of the event.</p>"
           }
         }
       },
@@ -403,6 +459,24 @@
         "target": "com.amazonaws.cloudwatch#AnomalyDetector"
       }
     },
+    "com.amazonaws.cloudwatch#AttributeName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#AttributeValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        }
+      }
+    },
     "com.amazonaws.cloudwatch#AwsQueryErrorMessage": {
       "type": "string"
     },
@@ -615,6 +689,30 @@
         "smithy.api#documentation": "<p>This operation attempted to create a resource that already exists.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.cloudwatch#ContributorAttributes": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.cloudwatch#AttributeName"
+      },
+      "value": {
+        "target": "com.amazonaws.cloudwatch#AttributeValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 30
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#ContributorId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        }
       }
     },
     "com.amazonaws.cloudwatch#Counts": {
@@ -1106,6 +1204,70 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.cloudwatch#DescribeAlarmContributors": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloudwatch#DescribeAlarmContributorsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.cloudwatch#DescribeAlarmContributorsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloudwatch#InvalidNextToken"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns the information of the current alarm contributors that are in <code>ALARM</code> state. This operation returns details about the individual time series that contribute to the alarm's state.</p>"
+      }
+    },
+    "com.amazonaws.cloudwatch#DescribeAlarmContributorsInput": {
+      "type": "structure",
+      "members": {
+        "AlarmName": {
+          "target": "com.amazonaws.cloudwatch#AlarmName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the alarm for which to retrieve contributor information.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.cloudwatch#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token returned by a previous call to indicate that there is more data available.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloudwatch#DescribeAlarmContributorsOutput": {
+      "type": "structure",
+      "members": {
+        "AlarmContributors": {
+          "target": "com.amazonaws.cloudwatch#AlarmContributors",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>A list of alarm contributors that provide details about the individual time series contributing to the alarm's state.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.cloudwatch#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token that marks the start of the next batch of returned results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.cloudwatch#DescribeAlarmHistory": {
       "type": "operation",
       "input": {
@@ -1136,6 +1298,12 @@
           "target": "com.amazonaws.cloudwatch#AlarmName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the alarm.</p>"
+          }
+        },
+        "AlarmContributorId": {
+          "target": "com.amazonaws.cloudwatch#ContributorId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of a specific alarm contributor to filter the alarm history results.</p>"
           }
         },
         "AlarmTypes": {
@@ -2622,6 +2790,9 @@
           "target": "com.amazonaws.cloudwatch#DeleteMetricStream"
         },
         {
+          "target": "com.amazonaws.cloudwatch#DescribeAlarmContributors"
+        },
+        {
           "target": "com.amazonaws.cloudwatch#DescribeAlarmHistory"
         },
         {
@@ -2742,12 +2913,6 @@
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
           "parameters": {
-            "Region": {
-              "builtIn": "AWS::Region",
-              "required": false,
-              "documentation": "The AWS region used to dispatch the request.",
-              "type": "String"
-            },
             "UseDualStack": {
               "builtIn": "AWS::UseDualStack",
               "required": true,
@@ -2766,6 +2931,12 @@
               "builtIn": "SDK::Endpoint",
               "required": false,
               "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            },
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             }
           },
@@ -2798,58 +2969,7 @@
                   "type": "error"
                 },
                 {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                  "type": "error"
-                },
-                {
                   "conditions": [],
-                  "endpoint": {
-                    "url": {
-                      "ref": "Endpoint"
-                    },
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
-                }
-              ],
-              "type": "tree"
-            },
-            {
-              "conditions": [
-                {
-                  "fn": "isSet",
-                  "argv": [
-                    {
-                      "ref": "Region"
-                    }
-                  ]
-                }
-              ],
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "aws.partition",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ],
-                      "assign": "PartitionResult"
-                    }
-                  ],
                   "rules": [
                     {
                       "conditions": [
@@ -2857,209 +2977,21 @@
                           "fn": "booleanEquals",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
                               "ref": "UseDualStack"
                             },
                             true
                           ]
                         }
                       ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsFIPS"
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsDualStack"
-                                  ]
-                                }
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://monitoring-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [],
-                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                          "type": "error"
-                        }
-                      ],
-                      "type": "tree"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsFIPS"
-                                  ]
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "stringEquals",
-                                  "argv": [
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "name"
-                                      ]
-                                    },
-                                    "aws-us-gov"
-                                  ]
-                                }
-                              ],
-                              "endpoint": {
-                                "url": "https://monitoring.{Region}.amazonaws.com",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            },
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://monitoring-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [],
-                          "error": "FIPS is enabled but this partition does not support FIPS",
-                          "type": "error"
-                        }
-                      ],
-                      "type": "tree"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsDualStack"
-                                  ]
-                                }
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://monitoring.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [],
-                          "error": "DualStack is enabled but this partition does not support DualStack",
-                          "type": "error"
-                        }
-                      ],
-                      "type": "tree"
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
                     },
                     {
                       "conditions": [],
                       "endpoint": {
-                        "url": "https://monitoring.{Region}.{PartitionResult#dnsSuffix}",
+                        "url": {
+                          "ref": "Endpoint"
+                        },
                         "properties": {},
                         "headers": {}
                       },
@@ -3073,349 +3005,374 @@
             },
             {
               "conditions": [],
-              "error": "Invalid Configuration: Missing Region",
-              "type": "error"
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-us-gov"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://monitoring.{Region}.{PartitionResult#dnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-us-gov"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://monitoring.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://monitoring-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                    "properties": {},
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://monitoring-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                    "properties": {},
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://monitoring.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                    "properties": {},
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://monitoring.{Region}.{PartitionResult#dnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ],
+                      "type": "tree"
+                    }
+                  ],
+                  "type": "tree"
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ],
+              "type": "tree"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For custom endpoint with region not set and fips disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://monitoring.af-south-1.amazonaws.com"
+                  "url": "https://example.com"
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "Endpoint": "https://example.com",
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Endpoint": "https://example.com",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Endpoint": "https://example.com",
                 "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-3",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.ap-southeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-3",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-south-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "me-south-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring-fips.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseFIPS": true,
-                "UseDualStack": false
+                "UseDualStack": true
               }
             },
             {
@@ -3432,6 +3389,19 @@
               }
             },
             {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://monitoring-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
               "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
@@ -3445,16 +3415,55 @@
               }
             },
             {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://monitoring.cn-north-1.amazonaws.com.cn"
+                  "url": "https://monitoring.us-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "cn-north-1",
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://monitoring-fips.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://monitoring-fips.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://monitoring.cn-northwest-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -3471,81 +3480,16 @@
               }
             },
             {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://monitoring-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": false,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.us-gov-west-1.amazonaws.com"
+                  "url": "https://monitoring.us-gov-west-1.api.aws"
                 }
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseFIPS": false,
-                "UseDualStack": false
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -3562,53 +3506,27 @@
               }
             },
             {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://monitoring-fips.us-gov-east-1.api.aws"
+                  "url": "https://monitoring.us-gov-west-1.api.aws"
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
+                "Region": "us-gov-west-1",
                 "UseFIPS": false,
                 "UseDualStack": true
               }
             },
             {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://monitoring.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://monitoring.us-gov-west-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://monitoring.us-iso-west-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "Region": "us-iso-west-1",
+                "Region": "us-gov-west-1",
                 "UseFIPS": false,
                 "UseDualStack": false
               }
@@ -3627,14 +3545,14 @@
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://monitoring.us-isob-east-1.sc2s.sgov.gov"
+                  "url": "https://monitoring.us-iso-east-1.c2s.ic.gov"
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
+                "Region": "us-iso-east-1",
                 "UseFIPS": false,
                 "UseDualStack": false
               }
@@ -3653,54 +3571,94 @@
               }
             },
             {
-              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://example.com"
+                  "url": "https://monitoring.us-isob-east-1.sc2s.sgov.gov"
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "Region": "us-isob-east-1",
                 "UseFIPS": false,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "documentation": "For region eu-isoe-west-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://example.com"
+                  "url": "https://monitoring-fips.eu-isoe-west-1.cloud.adc-e.uk"
                 }
               },
               "params": {
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
-              "expect": {
-                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
-              },
-              "params": {
-                "Region": "us-east-1",
+                "Region": "eu-isoe-west-1",
                 "UseFIPS": true,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "documentation": "For region eu-isoe-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
-                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+                "endpoint": {
+                  "url": "https://monitoring.eu-isoe-west-1.cloud.adc-e.uk"
+                }
               },
               "params": {
-                "Region": "us-east-1",
+                "Region": "eu-isoe-west-1",
                 "UseFIPS": false,
-                "UseDualStack": true,
-                "Endpoint": "https://example.com"
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isof-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://monitoring-fips.us-isof-south-1.csp.hci.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isof-south-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isof-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://monitoring.us-isof-south-1.csp.hci.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isof-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eusc-de-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://monitoring-fips.eusc-de-east-1.amazonaws.eu"
+                }
+              },
+              "params": {
+                "Region": "eusc-de-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eusc-de-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://monitoring.eusc-de-east-1.amazonaws.eu"
+                }
+              },
+              "params": {
+                "Region": "eusc-de-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -3742,6 +3700,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "Action"
+          }
+        },
+        "AlarmContributorStateUpdate": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AlarmContributorStateUpdate"
+          }
+        },
+        "AlarmContributorAction": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AlarmContributorAction"
           }
         }
       }
@@ -5854,7 +5824,7 @@
         "ApplyOnTransformedLogs": {
           "target": "com.amazonaws.cloudwatch#InsightRuleOnTransformedLogs",
           "traits": {
-            "smithy.api#documentation": "<p>Specify <code>true</code> to have this rule evalute log events after they have been transformed by  \n            <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html\">Log transformation</a>. If you specify <code>true</code>, then the log events in log groups that have transformers will \n       be evaluated by Contributor Insights after being transformed. Log groups that don't have\n        transformers will still have their original log events evaluated by Contributor Insights.</p>\n         <p>The default is <code>false</code>\n         </p>\n         <note>\n            <p>If a log group has a transformer, and transformation fails for some log events, those log events won't be evaluated by\n        Contributor Insights. For information about investigating log transformation failures, see\n            <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Transformation-Errors-Metrics.html\">Transformation metrics and errors</a>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Specify <code>true</code> to have this rule evaluate log events after they have been transformed by  \n            <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html\">Log transformation</a>. If you specify <code>true</code>, then the log events in log groups that have transformers will \n       be evaluated by Contributor Insights after being transformed. Log groups that don't have\n        transformers will still have their original log events evaluated by Contributor Insights.</p>\n         <p>The default is <code>false</code>\n         </p>\n         <note>\n            <p>If a log group has a transformer, and transformation fails for some log events, those log events won't be evaluated by\n        Contributor Insights. For information about investigating log transformation failures, see\n            <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Transformation-Errors-Metrics.html\">Transformation metrics and errors</a>.</p>\n         </note>"
           }
         }
       },

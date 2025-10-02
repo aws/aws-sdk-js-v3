@@ -34,6 +34,8 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse,
  * ```javascript
  * import { IoTEventsDataClient, DescribeDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, DescribeDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * // import type { IoTEventsDataClientConfig } from "@aws-sdk/client-iot-events-data";
+ * const config = {}; // type is IoTEventsDataClientConfig
  * const client = new IoTEventsDataClient(config);
  * const input = { // DescribeDetectorRequest
  *   detectorModelName: "STRING_VALUE", // required

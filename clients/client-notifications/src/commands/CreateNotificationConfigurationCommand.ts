@@ -39,6 +39,8 @@ export interface CreateNotificationConfigurationCommandOutput
  * ```javascript
  * import { NotificationsClient, CreateNotificationConfigurationCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, CreateNotificationConfigurationCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // import type { NotificationsClientConfig } from "@aws-sdk/client-notifications";
+ * const config = {}; // type is NotificationsClientConfig
  * const client = new NotificationsClient(config);
  * const input = { // CreateNotificationConfigurationRequest
  *   name: "STRING_VALUE", // required

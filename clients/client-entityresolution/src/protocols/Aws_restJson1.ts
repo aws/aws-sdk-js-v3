@@ -128,6 +128,7 @@ import {
   AccessDeniedException,
   ConflictException,
   ExceedsLimitException,
+  IdMappingIncrementalRunConfig,
   IdMappingJobOutputSource,
   IdMappingRuleBasedProperties,
   IdMappingTechniques,
@@ -226,6 +227,7 @@ export const se_CreateIdMappingWorkflowCommand = async (
     take(input, {
       description: [],
       idMappingTechniques: (_) => se_IdMappingTechniques(_, context),
+      incrementalRunConfig: (_) => _json(_),
       inputSourceConfig: (_) => _json(_),
       outputSourceConfig: (_) => _json(_),
       roleArn: [],
@@ -771,6 +773,7 @@ export const se_StartIdMappingJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      jobType: [],
       outputSourceConfig: (_) => _json(_),
     })
   );
@@ -854,6 +857,7 @@ export const se_UpdateIdMappingWorkflowCommand = async (
     take(input, {
       description: [],
       idMappingTechniques: (_) => se_IdMappingTechniques(_, context),
+      incrementalRunConfig: (_) => _json(_),
       inputSourceConfig: (_) => _json(_),
       outputSourceConfig: (_) => _json(_),
       roleArn: [],
@@ -1005,6 +1009,7 @@ export const de_CreateIdMappingWorkflowCommand = async (
   const doc = take(data, {
     description: __expectString,
     idMappingTechniques: (_) => de_IdMappingTechniques(_, context),
+    incrementalRunConfig: _json,
     inputSourceConfig: _json,
     outputSourceConfig: _json,
     roleArn: __expectString,
@@ -1244,6 +1249,7 @@ export const de_GetIdMappingJobCommand = async (
     endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     errorDetails: _json,
     jobId: __expectString,
+    jobType: __expectString,
     metrics: _json,
     outputSourceConfig: _json,
     startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1271,6 +1277,7 @@ export const de_GetIdMappingWorkflowCommand = async (
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     idMappingTechniques: (_) => de_IdMappingTechniques(_, context),
+    incrementalRunConfig: _json,
     inputSourceConfig: _json,
     outputSourceConfig: _json,
     roleArn: __expectString,
@@ -1691,6 +1698,7 @@ export const de_StartIdMappingJobCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     jobId: __expectString,
+    jobType: __expectString,
     outputSourceConfig: _json,
   });
   Object.assign(contents, doc);
@@ -1769,6 +1777,7 @@ export const de_UpdateIdMappingWorkflowCommand = async (
   const doc = take(data, {
     description: __expectString,
     idMappingTechniques: (_) => de_IdMappingTechniques(_, context),
+    incrementalRunConfig: _json,
     inputSourceConfig: _json,
     outputSourceConfig: _json,
     roleArn: __expectString,
@@ -2034,6 +2043,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_IdMappingIncrementalRunConfig omitted.
+
 // se_IdMappingJobOutputSource omitted.
 
 // se_IdMappingJobOutputSourceConfig omitted.
@@ -2202,6 +2213,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 // de_FailedRecord omitted.
 
 // de_FailedRecordsList omitted.
+
+// de_IdMappingIncrementalRunConfig omitted.
 
 // de_IdMappingJobMetrics omitted.
 

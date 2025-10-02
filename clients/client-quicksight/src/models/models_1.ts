@@ -2246,7 +2246,7 @@ export interface CustomContentVisual {
 
 /**
  * <p>An empty visual.</p>
- *          <p>Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the Amazon QuickSight console is considered an <code>EmptyVisual</code> until a visual type is selected.</p>
+ *          <p>Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the QuickSight console is considered an <code>EmptyVisual</code> until a visual type is selected.</p>
  * @public
  */
 export interface EmptyVisual {
@@ -6717,7 +6717,7 @@ export interface ArcOptions {
  */
 export interface DonutCenterOptions {
   /**
-   * <p>Determines the visibility of the label in a donut chart. In the Amazon QuickSight console, this option is called <code>'Show total'</code>.</p>
+   * <p>Determines the visibility of the label in a donut chart. In the QuickSight console, this option is called <code>'Show total'</code>.</p>
    * @public
    */
   LabelVisibility?: Visibility | undefined;

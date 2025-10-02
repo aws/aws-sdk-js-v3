@@ -46,6 +46,8 @@ export interface GetQueryResultsMonitorTopContributorsCommandOutput
  * ```javascript
  * import { NetworkFlowMonitorClient, GetQueryResultsMonitorTopContributorsCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, GetQueryResultsMonitorTopContributorsCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // import type { NetworkFlowMonitorClientConfig } from "@aws-sdk/client-networkflowmonitor";
+ * const config = {}; // type is NetworkFlowMonitorClientConfig
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // GetQueryResultsMonitorTopContributorsInput
  *   monitorName: "STRING_VALUE", // required
@@ -67,7 +69,7 @@ export interface GetQueryResultsMonitorTopContributorsCommandOutput
  * //       localAz: "STRING_VALUE",
  * //       localSubnetId: "STRING_VALUE",
  * //       targetPort: Number("int"),
- * //       destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB",
+ * //       destinationCategory: "INTRA_AZ" || "INTER_AZ" || "INTER_VPC" || "UNCLASSIFIED" || "AMAZON_S3" || "AMAZON_DYNAMODB" || "INTER_REGION",
  * //       remoteVpcId: "STRING_VALUE",
  * //       remoteRegion: "STRING_VALUE",
  * //       remoteAz: "STRING_VALUE",

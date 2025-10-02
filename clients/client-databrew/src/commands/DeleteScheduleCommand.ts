@@ -34,6 +34,8 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * ```javascript
  * import { DataBrewClient, DeleteScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // import type { DataBrewClientConfig } from "@aws-sdk/client-databrew";
+ * const config = {}; // type is DataBrewClientConfig
  * const client = new DataBrewClient(config);
  * const input = { // DeleteScheduleRequest
  *   Name: "STRING_VALUE", // required

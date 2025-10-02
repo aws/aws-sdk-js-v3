@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4a",
-  "version": "3.862.0",
+  "version": "3.901.0",
   "description": "AWS SDK for JavaScript SignatureV4a package",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -14,7 +14,7 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo"
   },
   "dependencies": {
-    "@smithy/signature-v4a": "^3.0.5",
+    "@smithy/signature-v4a": "^3.1.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -44,6 +44,7 @@
     "directory": "packages/signature-v4a"
   },
   "license": "Apache-2.0",
+  "sideEffects": true,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

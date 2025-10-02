@@ -35,6 +35,8 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * ```javascript
  * import { EvidentlyClient, StartExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, StartExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * // import type { EvidentlyClientConfig } from "@aws-sdk/client-evidently";
+ * const config = {}; // type is EvidentlyClientConfig
  * const client = new EvidentlyClient(config);
  * const input = { // StartExperimentRequest
  *   project: "STRING_VALUE", // required

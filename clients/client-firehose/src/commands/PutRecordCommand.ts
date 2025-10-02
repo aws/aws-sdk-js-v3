@@ -74,6 +74,8 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * ```javascript
  * import { FirehoseClient, PutRecordCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, PutRecordCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * // import type { FirehoseClientConfig } from "@aws-sdk/client-firehose";
+ * const config = {}; // type is FirehoseClientConfig
  * const client = new FirehoseClient(config);
  * const input = { // PutRecordInput
  *   DeliveryStreamName: "STRING_VALUE", // required

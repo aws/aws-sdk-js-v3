@@ -39,6 +39,8 @@ export interface ListRecommendationResourcesCommandOutput
  * ```javascript
  * import { TrustedAdvisorClient, ListRecommendationResourcesCommand } from "@aws-sdk/client-trustedadvisor"; // ES Modules import
  * // const { TrustedAdvisorClient, ListRecommendationResourcesCommand } = require("@aws-sdk/client-trustedadvisor"); // CommonJS import
+ * // import type { TrustedAdvisorClientConfig } from "@aws-sdk/client-trustedadvisor";
+ * const config = {}; // type is TrustedAdvisorClientConfig
  * const client = new TrustedAdvisorClient(config);
  * const input = { // ListRecommendationResourcesRequest
  *   nextToken: "STRING_VALUE",

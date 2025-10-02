@@ -34,6 +34,8 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * ```javascript
  * import { LambdaClient, GetFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+ * const config = {}; // type is LambdaClientConfig
  * const client = new LambdaClient(config);
  * const input = { // GetFunctionRequest
  *   FunctionName: "STRING_VALUE", // required

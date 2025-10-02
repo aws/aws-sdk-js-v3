@@ -34,6 +34,8 @@ export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBea
  * ```javascript
  * import { DeviceFarmClient, ListSuitesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListSuitesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // ListSuitesRequest
  *   arn: "STRING_VALUE", // required

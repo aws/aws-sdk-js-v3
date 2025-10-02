@@ -38,6 +38,8 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * ```javascript
  * import { ApplicationCostProfilerClient, PutReportDefinitionCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
  * // const { ApplicationCostProfilerClient, PutReportDefinitionCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
+ * // import type { ApplicationCostProfilerClientConfig } from "@aws-sdk/client-applicationcostprofiler";
+ * const config = {}; // type is ApplicationCostProfilerClientConfig
  * const client = new ApplicationCostProfilerClient(config);
  * const input = { // PutReportDefinitionRequest
  *   reportId: "STRING_VALUE", // required

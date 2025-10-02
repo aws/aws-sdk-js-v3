@@ -39,6 +39,8 @@ export interface UpdateRuleCommandOutput extends UpdateRuleOutput, __MetadataBea
  * ```javascript
  * import { DataZoneClient, UpdateRuleCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateRuleCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // UpdateRuleInput
  *   domainIdentifier: "STRING_VALUE", // required

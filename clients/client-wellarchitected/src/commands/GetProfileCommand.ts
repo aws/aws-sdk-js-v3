@@ -34,6 +34,8 @@ export interface GetProfileCommandOutput extends GetProfileOutput, __MetadataBea
  * ```javascript
  * import { WellArchitectedClient, GetProfileCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetProfileCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
+ * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
  * const input = { // GetProfileInput
  *   ProfileArn: "STRING_VALUE", // required

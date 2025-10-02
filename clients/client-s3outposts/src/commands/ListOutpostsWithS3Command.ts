@@ -36,6 +36,8 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  * ```javascript
  * import { S3OutpostsClient, ListOutpostsWithS3Command } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, ListOutpostsWithS3Command } = require("@aws-sdk/client-s3outposts"); // CommonJS import
+ * // import type { S3OutpostsClientConfig } from "@aws-sdk/client-s3outposts";
+ * const config = {}; // type is S3OutpostsClientConfig
  * const client = new S3OutpostsClient(config);
  * const input = { // ListOutpostsWithS3Request
  *   NextToken: "STRING_VALUE",

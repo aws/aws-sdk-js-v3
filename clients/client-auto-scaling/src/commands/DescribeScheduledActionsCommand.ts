@@ -37,6 +37,8 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * ```javascript
  * import { AutoScalingClient, DescribeScheduledActionsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeScheduledActionsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // import type { AutoScalingClientConfig } from "@aws-sdk/client-auto-scaling";
+ * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // DescribeScheduledActionsType
  *   AutoScalingGroupName: "STRING_VALUE",

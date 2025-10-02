@@ -35,6 +35,8 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * ```javascript
  * import { GlueClient, SearchTablesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, SearchTablesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // import type { GlueClientConfig } from "@aws-sdk/client-glue";
+ * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // SearchTablesRequest
  *   CatalogId: "STRING_VALUE",

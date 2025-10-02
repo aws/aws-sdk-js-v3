@@ -41,6 +41,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * ```javascript
  * import { SecurityHubClient, ListInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
+ * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
  * const input = { // ListInvitationsRequest
  *   MaxResults: Number("int"),

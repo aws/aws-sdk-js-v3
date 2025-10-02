@@ -35,6 +35,8 @@ export interface UpdateDataAccessorCommandOutput extends UpdateDataAccessorRespo
  * ```javascript
  * import { QBusinessClient, UpdateDataAccessorCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, UpdateDataAccessorCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // import type { QBusinessClientConfig } from "@aws-sdk/client-qbusiness";
+ * const config = {}; // type is QBusinessClientConfig
  * const client = new QBusinessClient(config);
  * const input = { // UpdateDataAccessorRequest
  *   applicationId: "STRING_VALUE", // required

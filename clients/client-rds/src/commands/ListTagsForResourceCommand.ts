@@ -37,6 +37,8 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * ```javascript
  * import { RDSClient, ListTagsForResourceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ListTagsForResourceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ListTagsForResourceMessage
  *   ResourceName: "STRING_VALUE", // required
@@ -80,11 +82,17 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
+ * @throws {@link DBProxyEndpointNotFoundFault} (client fault)
+ *  <p>The DB proxy endpoint doesn't exist.</p>
+ *
  * @throws {@link DBProxyNotFoundFault} (client fault)
  *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  *
  * @throws {@link DBProxyTargetGroupNotFoundFault} (client fault)
  *  <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * @throws {@link DBShardGroupNotFoundFault} (client fault)
+ *  <p>The specified DB shard group name wasn't found.</p>
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
  *  <p>

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-cognito-identity",
-  "version": "3.883.0",
+  "version": "3.901.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline credential-provider-cognito-identity",
@@ -26,8 +26,8 @@
   "dependencies": {
     "@aws-sdk/client-cognito-identity": "*",
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^4.0.5",
-    "@smithy/types": "^4.3.2",
+    "@smithy/property-provider": "^4.2.0",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "engines": {

@@ -36,12 +36,14 @@ export interface CreateAgentRuntimeEndpointCommandInput extends CreateAgentRunti
 export interface CreateAgentRuntimeEndpointCommandOutput extends CreateAgentRuntimeEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Secure AgentEndpoint.</p>
+ * <p>Creates an AgentCore Runtime endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, CreateAgentRuntimeEndpointCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, CreateAgentRuntimeEndpointCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // CreateAgentRuntimeEndpointRequest
  *   agentRuntimeId: "STRING_VALUE", // required
@@ -49,6 +51,9 @@ export interface CreateAgentRuntimeEndpointCommandOutput extends CreateAgentRunt
  *   agentRuntimeVersion: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateAgentRuntimeEndpointCommand(input);
  * const response = await client.send(command);

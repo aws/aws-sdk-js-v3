@@ -44,6 +44,8 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * ```javascript
  * import { GrafanaClient, UpdateWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdateWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // import type { GrafanaClientConfig } from "@aws-sdk/client-grafana";
+ * const config = {}; // type is GrafanaClientConfig
  * const client = new GrafanaClient(config);
  * const input = { // UpdateWorkspaceRequest
  *   accountAccessType: "STRING_VALUE",

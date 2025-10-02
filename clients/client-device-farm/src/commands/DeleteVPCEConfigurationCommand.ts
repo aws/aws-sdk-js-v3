@@ -34,6 +34,8 @@ export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigur
  * ```javascript
  * import { DeviceFarmClient, DeleteVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // import type { DeviceFarmClientConfig } from "@aws-sdk/client-device-farm";
+ * const config = {}; // type is DeviceFarmClientConfig
  * const client = new DeviceFarmClient(config);
  * const input = { // DeleteVPCEConfigurationRequest
  *   arn: "STRING_VALUE", // required

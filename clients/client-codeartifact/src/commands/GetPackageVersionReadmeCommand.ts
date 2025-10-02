@@ -39,6 +39,8 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  * ```javascript
  * import { CodeartifactClient, GetPackageVersionReadmeCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetPackageVersionReadmeCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // import type { CodeartifactClientConfig } from "@aws-sdk/client-codeartifact";
+ * const config = {}; // type is CodeartifactClientConfig
  * const client = new CodeartifactClient(config);
  * const input = { // GetPackageVersionReadmeRequest
  *   domain: "STRING_VALUE", // required

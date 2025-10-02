@@ -36,6 +36,8 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * ```javascript
  * import { Route53ProfilesClient, ListProfilesCommand } from "@aws-sdk/client-route53profiles"; // ES Modules import
  * // const { Route53ProfilesClient, ListProfilesCommand } = require("@aws-sdk/client-route53profiles"); // CommonJS import
+ * // import type { Route53ProfilesClientConfig } from "@aws-sdk/client-route53profiles";
+ * const config = {}; // type is Route53ProfilesClientConfig
  * const client = new Route53ProfilesClient(config);
  * const input = { // ListProfilesRequest
  *   MaxResults: Number("int"),

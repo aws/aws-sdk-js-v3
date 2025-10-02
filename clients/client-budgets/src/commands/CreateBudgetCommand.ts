@@ -46,6 +46,8 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  * ```javascript
  * import { BudgetsClient, CreateBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // import type { BudgetsClientConfig } from "@aws-sdk/client-budgets";
+ * const config = {}; // type is BudgetsClientConfig
  * const client = new BudgetsClient(config);
  * const input = { // CreateBudgetRequest
  *   AccountId: "STRING_VALUE", // required
@@ -79,7 +81,7 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *       IncludeDiscount: true || false,
  *       UseAmortized: true || false,
  *     },
- *     TimeUnit: "DAILY" || "MONTHLY" || "QUARTERLY" || "ANNUALLY", // required
+ *     TimeUnit: "DAILY" || "MONTHLY" || "QUARTERLY" || "ANNUALLY" || "CUSTOM", // required
  *     TimePeriod: { // TimePeriod
  *       Start: new Date("TIMESTAMP"),
  *       End: new Date("TIMESTAMP"),
@@ -177,7 +179,7 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *     BillingViewArn: "STRING_VALUE",
  *     HealthStatus: { // HealthStatus
  *       Status: "HEALTHY" || "UNHEALTHY",
- *       StatusReason: "BILLING_VIEW_NO_ACCESS" || "BILLING_VIEW_UNHEALTHY" || "FILTER_INVALID",
+ *       StatusReason: "BILLING_VIEW_NO_ACCESS" || "BILLING_VIEW_UNHEALTHY" || "FILTER_INVALID" || "MULTI_YEAR_HISTORICAL_DATA_DISABLED",
  *       LastUpdatedTime: new Date("TIMESTAMP"),
  *     },
  *   },
@@ -219,6 +221,11 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You are not authorized to use this operation with the given parameters.</p>
+ *
+ * @throws {@link BillingViewHealthStatusException} (client fault)
+ *  <p>
+ *       The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY.
+ *     </p>
  *
  * @throws {@link CreationLimitExceededException} (client fault)
  *  <p>You've exceeded the notification or subscriber limit.</p>

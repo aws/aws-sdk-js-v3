@@ -42,6 +42,8 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
  * ```javascript
  * import { SSMClient, DescribeInstanceAssociationsStatusCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstanceAssociationsStatusCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DescribeInstanceAssociationsStatusRequest
  *   InstanceId: "STRING_VALUE", // required

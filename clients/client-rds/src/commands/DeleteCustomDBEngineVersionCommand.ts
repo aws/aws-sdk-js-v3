@@ -54,6 +54,8 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * ```javascript
  * import { RDSClient, DeleteCustomDBEngineVersionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteCustomDBEngineVersionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DeleteCustomDBEngineVersionMessage
  *   Engine: "STRING_VALUE", // required
@@ -63,9 +65,14 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * const response = await client.send(command);
  * // { // DBEngineVersion
  * //   Engine: "STRING_VALUE",
+ * //   MajorEngineVersion: "STRING_VALUE",
  * //   EngineVersion: "STRING_VALUE",
+ * //   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
+ * //   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
+ * //   CustomDBEngineVersionManifest: "STRING_VALUE",
  * //   DBParameterGroupFamily: "STRING_VALUE",
  * //   DBEngineDescription: "STRING_VALUE",
+ * //   DBEngineVersionArn: "STRING_VALUE",
  * //   DBEngineVersionDescription: "STRING_VALUE",
  * //   DefaultCharacterSet: { // CharacterSet
  * //     CharacterSetName: "STRING_VALUE",
@@ -76,6 +83,8 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     Status: "STRING_VALUE",
  * //   },
  * //   DBEngineMediaType: "STRING_VALUE",
+ * //   KMSKeyId: "STRING_VALUE",
+ * //   CreateTime: new Date("TIMESTAMP"),
  * //   SupportedCharacterSets: [ // SupportedCharacterSetsList
  * //     {
  * //       CharacterSetName: "STRING_VALUE",
@@ -125,12 +134,6 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //   Status: "STRING_VALUE",
  * //   SupportsParallelQuery: true || false,
  * //   SupportsGlobalDatabases: true || false,
- * //   MajorEngineVersion: "STRING_VALUE",
- * //   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
- * //   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
- * //   DBEngineVersionArn: "STRING_VALUE",
- * //   KMSKeyId: "STRING_VALUE",
- * //   CreateTime: new Date("TIMESTAMP"),
  * //   TagList: [ // TagList
  * //     { // Tag
  * //       Key: "STRING_VALUE",
@@ -138,7 +141,6 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     },
  * //   ],
  * //   SupportsBabelfish: true || false,
- * //   CustomDBEngineVersionManifest: "STRING_VALUE",
  * //   SupportsLimitlessDatabase: true || false,
  * //   SupportsCertificateRotationWithoutRestart: true || false,
  * //   SupportedCACertificateIdentifiers: [ // CACertificateIdentifiersList

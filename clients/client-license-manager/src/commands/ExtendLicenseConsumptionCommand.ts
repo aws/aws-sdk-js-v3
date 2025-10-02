@@ -34,6 +34,8 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  * ```javascript
  * import { LicenseManagerClient, ExtendLicenseConsumptionCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ExtendLicenseConsumptionCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
+ * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
  * const input = { // ExtendLicenseConsumptionRequest
  *   LicenseConsumptionToken: "STRING_VALUE", // required

@@ -42,6 +42,8 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  * ```javascript
  * import { WAFClient, GetPermissionPolicyCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetPermissionPolicyCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // import type { WAFClientConfig } from "@aws-sdk/client-waf";
+ * const config = {}; // type is WAFClientConfig
  * const client = new WAFClient(config);
  * const input = { // GetPermissionPolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

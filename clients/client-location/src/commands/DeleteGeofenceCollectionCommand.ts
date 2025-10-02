@@ -38,6 +38,8 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  * ```javascript
  * import { LocationClient, DeleteGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // import type { LocationClientConfig } from "@aws-sdk/client-location";
+ * const config = {}; // type is LocationClientConfig
  * const client = new LocationClient(config);
  * const input = { // DeleteGeofenceCollectionRequest
  *   CollectionName: "STRING_VALUE", // required

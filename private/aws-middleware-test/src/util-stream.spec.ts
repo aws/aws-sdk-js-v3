@@ -6,7 +6,7 @@ import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable } from "stream";
 import { describe, expect, test as it } from "vitest";
 
-import { requireRequestsFrom } from "../../aws-util-test/src";
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 
 describe("util-stream", () => {
   describe(Lambda.name, () => {

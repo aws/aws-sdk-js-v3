@@ -36,12 +36,14 @@ export interface UpdateAgentRuntimeEndpointCommandInput extends UpdateAgentRunti
 export interface UpdateAgentRuntimeEndpointCommandOutput extends UpdateAgentRuntimeEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing Amazon Secure AgentEndpoint.</p>
+ * <p>Updates an existing Amazon Bedrock AgentCore Runtime endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BedrockAgentCoreControlClient, UpdateAgentRuntimeEndpointCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, UpdateAgentRuntimeEndpointCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // UpdateAgentRuntimeEndpointRequest
  *   agentRuntimeId: "STRING_VALUE", // required

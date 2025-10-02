@@ -34,6 +34,8 @@ export interface DisassociateGovernedTermsCommandOutput extends DisassociateGove
  * ```javascript
  * import { DataZoneClient, DisassociateGovernedTermsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DisassociateGovernedTermsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
+ * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
  * const input = { // DisassociateGovernedTermsInput
  *   domainIdentifier: "STRING_VALUE", // required

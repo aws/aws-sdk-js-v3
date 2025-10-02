@@ -34,6 +34,8 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * ```javascript
  * import { IoTEventsClient, DescribeLoggingOptionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DescribeLoggingOptionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * // import type { IoTEventsClientConfig } from "@aws-sdk/client-iot-events";
+ * const config = {}; // type is IoTEventsClientConfig
  * const client = new IoTEventsClient(config);
  * const input = {};
  * const command = new DescribeLoggingOptionsCommand(input);

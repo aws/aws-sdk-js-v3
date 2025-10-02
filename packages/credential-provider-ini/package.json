@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-ini",
-  "version": "3.883.0",
+  "version": "3.901.0",
   "description": "AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -21,6 +21,7 @@
     "aws",
     "credentials"
   ],
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -35,10 +36,10 @@
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
-    "@smithy/credential-provider-imds": "^4.0.7",
-    "@smithy/property-provider": "^4.0.5",
-    "@smithy/shared-ini-file-loader": "^4.0.5",
-    "@smithy/types": "^4.3.2",
+    "@smithy/credential-provider-imds": "^4.2.0",
+    "@smithy/property-provider": "^4.2.0",
+    "@smithy/shared-ini-file-loader": "^4.3.0",
+    "@smithy/types": "^4.6.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

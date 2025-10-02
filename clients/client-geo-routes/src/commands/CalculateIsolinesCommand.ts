@@ -39,6 +39,8 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  * ```javascript
  * import { GeoRoutesClient, CalculateIsolinesCommand } from "@aws-sdk/client-geo-routes"; // ES Modules import
  * // const { GeoRoutesClient, CalculateIsolinesCommand } = require("@aws-sdk/client-geo-routes"); // CommonJS import
+ * // import type { GeoRoutesClientConfig } from "@aws-sdk/client-geo-routes";
+ * const config = {}; // type is GeoRoutesClientConfig
  * const client = new GeoRoutesClient(config);
  * const input = { // CalculateIsolinesRequest
  *   Allow: { // IsolineAllowOptions

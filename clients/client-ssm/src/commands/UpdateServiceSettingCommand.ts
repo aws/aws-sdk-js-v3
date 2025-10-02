@@ -47,6 +47,8 @@ export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingR
  * ```javascript
  * import { SSMClient, UpdateServiceSettingCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateServiceSettingCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // UpdateServiceSettingRequest
  *   SettingId: "STRING_VALUE", // required

@@ -78,6 +78,8 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * ```javascript
  * import { S3ControlClient, CreateJobCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateJobCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // import type { S3ControlClientConfig } from "@aws-sdk/client-s3-control";
+ * const config = {}; // type is S3ControlClientConfig
  * const client = new S3ControlClient(config);
  * const input = { // CreateJobRequest
  *   AccountId: "STRING_VALUE",
@@ -259,6 +261,20 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *         ObjectSizeLessThanBytes: Number("long"),
  *         MatchAnyStorageClass: [ // StorageClassList
  *           "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "GLACIER" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ *         ],
+ *         MatchAnyObjectEncryption: [ // ObjectEncryptionFilterList
+ *           { // ObjectEncryptionFilter Union: only one key present
+ *             SSES3: {},
+ *             SSEKMS: { // SSEKMSFilter
+ *               KmsKeyArn: "STRING_VALUE",
+ *               BucketKeyEnabled: true || false,
+ *             },
+ *             DSSEKMS: { // DSSEKMSFilter
+ *               KmsKeyArn: "STRING_VALUE",
+ *             },
+ *             SSEC: {},
+ *             NOTSSE: {},
+ *           },
  *         ],
  *       },
  *       EnableManifestOutput: true || false, // required

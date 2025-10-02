@@ -42,6 +42,8 @@ export interface GetCodeInterpreterCommandOutput extends GetCodeInterpreterRespo
  * ```javascript
  * import { BedrockAgentCoreControlClient, GetCodeInterpreterCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
  * // const { BedrockAgentCoreControlClient, GetCodeInterpreterCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetCodeInterpreterRequest
  *   codeInterpreterId: "STRING_VALUE", // required
@@ -55,9 +57,18 @@ export interface GetCodeInterpreterCommandOutput extends GetCodeInterpreterRespo
  * //   description: "STRING_VALUE",
  * //   executionRoleArn: "STRING_VALUE",
  * //   networkConfiguration: { // CodeInterpreterNetworkConfiguration
- * //     networkMode: "PUBLIC" || "SANDBOX", // required
+ * //     networkMode: "PUBLIC" || "SANDBOX" || "VPC", // required
+ * //     vpcConfig: { // VpcConfig
+ * //       securityGroups: [ // SecurityGroups // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnets: [ // Subnets // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * //   status: "CREATING" || "CREATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED" || "DELETED", // required
+ * //   failureReason: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * // };

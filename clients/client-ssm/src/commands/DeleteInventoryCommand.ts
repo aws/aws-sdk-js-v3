@@ -35,6 +35,8 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  * ```javascript
  * import { SSMClient, DeleteInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // import type { SSMClientConfig } from "@aws-sdk/client-ssm";
+ * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // DeleteInventoryRequest
  *   TypeName: "STRING_VALUE", // required

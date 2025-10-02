@@ -5,7 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyOptionGroupMessage, ModifyOptionGroupResult } from "../models/models_1";
+import {
+  ModifyOptionGroupMessage,
+  ModifyOptionGroupMessageFilterSensitiveLog,
+  ModifyOptionGroupResult,
+  ModifyOptionGroupResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_ModifyOptionGroupCommand, se_ModifyOptionGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -34,6 +39,8 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * ```javascript
  * import { RDSClient, ModifyOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // ModifyOptionGroupMessage
  *   OptionGroupName: "STRING_VALUE", // required
@@ -181,7 +188,7 @@ export class ModifyOptionGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyOptionGroup", {})
   .n("RDSClient", "ModifyOptionGroupCommand")
-  .f(void 0, void 0)
+  .f(ModifyOptionGroupMessageFilterSensitiveLog, ModifyOptionGroupResultFilterSensitiveLog)
   .ser(se_ModifyOptionGroupCommand)
   .de(de_ModifyOptionGroupCommand)
   .build() {

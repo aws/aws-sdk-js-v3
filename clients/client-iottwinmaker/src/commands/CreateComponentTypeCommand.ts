@@ -34,6 +34,8 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
  * ```javascript
  * import { IoTTwinMakerClient, CreateComponentTypeCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateComponentTypeCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // import type { IoTTwinMakerClientConfig } from "@aws-sdk/client-iottwinmaker";
+ * const config = {}; // type is IoTTwinMakerClientConfig
  * const client = new IoTTwinMakerClient(config);
  * const input = { // CreateComponentTypeRequest
  *   workspaceId: "STRING_VALUE", // required

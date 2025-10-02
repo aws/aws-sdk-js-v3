@@ -41,6 +41,8 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  * ```javascript
  * import { AppConfigClient, CreateEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // import type { AppConfigClientConfig } from "@aws-sdk/client-appconfig";
+ * const config = {}; // type is AppConfigClientConfig
  * const client = new AppConfigClient(config);
  * const input = { // CreateEnvironmentRequest
  *   ApplicationId: "STRING_VALUE", // required

@@ -39,6 +39,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * ```javascript
  * import { BedrockAgentClient, CreateDataSourceCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, CreateDataSourceCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // import type { BedrockAgentClientConfig } from "@aws-sdk/client-bedrock-agent";
+ * const config = {}; // type is BedrockAgentClientConfig
  * const client = new BedrockAgentClient(config);
  * const input = { // CreateDataSourceRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

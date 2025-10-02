@@ -34,6 +34,8 @@ export interface TestConversionCommandOutput extends TestConversionResponse, __M
  * ```javascript
  * import { B2biClient, TestConversionCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, TestConversionCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // TestConversionRequest
  *   source: { // ConversionSource

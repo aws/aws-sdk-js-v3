@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-websocket",
-  "version": "3.873.0",
+  "version": "3.901.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -17,6 +17,7 @@
     "test:watch": "yarn g:vitest watch",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
+  "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -25,13 +26,13 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/eventstream-codec": "^4.0.5",
-    "@smithy/eventstream-serde-browser": "^4.0.5",
-    "@smithy/fetch-http-handler": "^5.1.1",
-    "@smithy/protocol-http": "^5.1.3",
-    "@smithy/signature-v4": "^5.1.3",
-    "@smithy/types": "^4.3.2",
-    "@smithy/util-hex-encoding": "^4.0.0",
+    "@smithy/eventstream-codec": "^4.2.0",
+    "@smithy/eventstream-serde-browser": "^4.2.0",
+    "@smithy/fetch-http-handler": "^5.3.0",
+    "@smithy/protocol-http": "^5.3.0",
+    "@smithy/signature-v4": "^5.3.0",
+    "@smithy/types": "^4.6.0",
+    "@smithy/util-hex-encoding": "^4.2.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

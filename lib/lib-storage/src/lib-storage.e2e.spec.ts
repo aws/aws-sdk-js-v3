@@ -1,10 +1,10 @@
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import { randomBytes } from "crypto";
+import fs from "node:fs";
 import { Readable } from "stream";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
-
-import { getIntegTestResources } from "../../../tests/e2e/get-integ-test-resources";
 
 describe("@aws-sdk/lib-storage", () => {
   describe.each([undefined, "WHEN_REQUIRED", "WHEN_SUPPORTED"])(
@@ -23,12 +23,11 @@ describe("@aws-sdk/lib-storage", () => {
         let dataString: string;
         let Bucket: string;
         let region: string;
-        let resourcesAvailable = false;
 
         beforeAll(async () => {
           try {
-            const integTestResourcesEnv = await getIntegTestResources();
-            Object.assign(process.env, integTestResourcesEnv);
+            const e2eTestResourcesEnv = await getE2eTestResources();
+            Object.assign(process.env, e2eTestResourcesEnv);
 
             region = process?.env?.AWS_SMOKE_TEST_REGION as string;
             Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
@@ -43,7 +42,6 @@ describe("@aws-sdk/lib-storage", () => {
               requestChecksumCalculation,
             });
             Key = `multi-part-file-${requestChecksumCalculation}-${ChecksumAlgorithm}-${Date.now()}`;
-            resourcesAvailable = true;
           } catch (error) {
             console.warn("Failed to set up test resources:", error);
           }
@@ -142,7 +140,99 @@ describe("@aws-sdk/lib-storage", () => {
             "S3Client AbortMultipartUploadCommand 204",
           ]);
         });
+
+        it("should validate part size constraints", () => {
+          const upload = new Upload({
+            client,
+            params: {
+              Bucket,
+              Key: `validation-test-${Date.now()}`,
+              Body: Buffer.alloc(1024 * 1024 * 10),
+            },
+          });
+
+          const invalidPart = {
+            partNumber: 2,
+            data: Buffer.alloc(1024 * 1024 * 3), // 3MB - too small for non-final part
+            lastPart: false,
+          };
+
+          expect(() => {
+            (upload as any).__validateUploadPart(invalidPart);
+          }).toThrow(/The byte size for part number 2, size \d+ does not match expected size \d+/);
+        });
+
+        it("should validate part count constraints", async () => {
+          const upload = new Upload({
+            client,
+            params: {
+              Bucket,
+              Key: `validation-test-${Date.now()}`,
+              Body: Buffer.alloc(1024 * 1024 * 10),
+            },
+          });
+
+          (upload as any).uploadedParts = [{ PartNumber: 1, ETag: "etag1" }];
+          (upload as any).isMultiPart = true;
+
+          await expect(upload.done()).rejects.toThrow(/Expected \d+ part\(s\) but uploaded \d+ part\(s\)\./);
+        });
       });
     }
   );
+
+  describe("inferring the byte length of the input", () => {
+    beforeAll(async () => {
+      const e2eTestResourcesEnv = await getE2eTestResources();
+      Object.assign(process.env, e2eTestResourcesEnv);
+    });
+
+    it("should throw an informative error about the correct override if the SDK infers the byte count incorrectly", async () => {
+      const s3 = new S3({
+        region: process.env.AWS_SMOKE_TEST_REGION,
+      });
+
+      const pseudoFileReadStream = fs.createReadStream("/dev/urandom", { end: 6 * 1024 * 1024 });
+
+      const upload = new Upload({
+        client: s3,
+        params: {
+          Key: `/dev/urandom`,
+          Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+          Body: pseudoFileReadStream,
+        },
+      });
+
+      const error = await upload.done().catch((e) => e);
+
+      expect(error).toBeInstanceOf(Error);
+      expect(error.message).toEqual(`Expected 0 part(s) but uploaded 2 part(s).
+The expected part count is based on the byte-count of the input.params.Body,
+which was read from the size of the file given by Body.path on disk as reported by lstatSync and is 0.
+If this is not correct, provide an override value by setting a number
+to input.params.ContentLength in bytes.
+`);
+    });
+
+    it("should use the input ContentLength as the total byte count if supplied by the caller", async () => {
+      const s3 = new S3({
+        region: process.env.AWS_SMOKE_TEST_REGION,
+      });
+
+      const pseudoFileReadStream = fs.createReadStream("/dev/urandom", { end: 6 * 1024 * 1024 });
+
+      const upload = new Upload({
+        client: s3,
+        params: {
+          Key: `/dev/urandom`,
+          Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+          Body: pseudoFileReadStream,
+          ContentLength: 6 * 1024 * 1024,
+        },
+      });
+
+      await upload.done();
+      // no thrown error is sufficient.
+    });
+  });
 }, 60_000);

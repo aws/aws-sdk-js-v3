@@ -34,6 +34,8 @@ export interface DeleteVoiceConnectorProxyCommandOutput extends __MetadataBearer
  * ```javascript
  * import { ChimeSDKVoiceClient, DeleteVoiceConnectorProxyCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, DeleteVoiceConnectorProxyCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // import type { ChimeSDKVoiceClientConfig } from "@aws-sdk/client-chime-sdk-voice";
+ * const config = {}; // type is ChimeSDKVoiceClientConfig
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // DeleteVoiceConnectorProxyRequest
  *   VoiceConnectorId: "STRING_VALUE", // required

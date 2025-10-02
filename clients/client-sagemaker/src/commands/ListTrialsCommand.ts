@@ -34,6 +34,8 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  * ```javascript
  * import { SageMakerClient, ListTrialsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrialsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // ListTrialsRequest
  *   ExperimentName: "STRING_VALUE",

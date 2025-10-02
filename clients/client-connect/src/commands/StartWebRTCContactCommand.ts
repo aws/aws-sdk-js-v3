@@ -40,6 +40,8 @@ export interface StartWebRTCContactCommandOutput extends StartWebRTCContactRespo
  * ```javascript
  * import { ConnectClient, StartWebRTCContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartWebRTCContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // StartWebRTCContactRequest
  *   Attributes: { // Attributes

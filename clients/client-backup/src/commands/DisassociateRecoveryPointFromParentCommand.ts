@@ -38,6 +38,8 @@ export interface DisassociateRecoveryPointFromParentCommandOutput extends __Meta
  * ```javascript
  * import { BackupClient, DisassociateRecoveryPointFromParentCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DisassociateRecoveryPointFromParentCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // import type { BackupClientConfig } from "@aws-sdk/client-backup";
+ * const config = {}; // type is BackupClientConfig
  * const client = new BackupClient(config);
  * const input = { // DisassociateRecoveryPointFromParentInput
  *   BackupVaultName: "STRING_VALUE", // required

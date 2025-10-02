@@ -34,6 +34,8 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * ```javascript
  * import { DrsClient, DescribeJobLogItemsCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeJobLogItemsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // import type { DrsClientConfig } from "@aws-sdk/client-drs";
+ * const config = {}; // type is DrsClientConfig
  * const client = new DrsClient(config);
  * const input = { // DescribeJobLogItemsRequest
  *   jobID: "STRING_VALUE", // required

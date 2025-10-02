@@ -242,6 +242,8 @@ export interface PutTaxRegistrationCommandOutput extends PutTaxRegistrationRespo
  * ```javascript
  * import { TaxSettingsClient, PutTaxRegistrationCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, PutTaxRegistrationCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // import type { TaxSettingsClientConfig } from "@aws-sdk/client-taxsettings";
+ * const config = {}; // type is TaxSettingsClientConfig
  * const client = new TaxSettingsClient(config);
  * const input = { // PutTaxRegistrationRequest
  *   accountId: "STRING_VALUE",

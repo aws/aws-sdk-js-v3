@@ -34,6 +34,8 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  * ```javascript
  * import { CleanRoomsClient, UpdateCollaborationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdateCollaborationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
+ * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
  * const input = { // UpdateCollaborationInput
  *   collaborationIdentifier: "STRING_VALUE", // required

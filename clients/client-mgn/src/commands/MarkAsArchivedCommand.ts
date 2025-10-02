@@ -34,6 +34,8 @@ export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBea
  * ```javascript
  * import { MgnClient, MarkAsArchivedCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, MarkAsArchivedCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // import type { MgnClientConfig } from "@aws-sdk/client-mgn";
+ * const config = {}; // type is MgnClientConfig
  * const client = new MgnClient(config);
  * const input = { // MarkAsArchivedRequest
  *   sourceServerID: "STRING_VALUE", // required

@@ -38,6 +38,8 @@ export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __Metadat
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, DeleteRouteCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, DeleteRouteCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // import type { MigrationHubRefactorSpacesClientConfig } from "@aws-sdk/client-migration-hub-refactor-spaces";
+ * const config = {}; // type is MigrationHubRefactorSpacesClientConfig
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // DeleteRouteRequest
  *   EnvironmentIdentifier: "STRING_VALUE", // required

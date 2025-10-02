@@ -38,6 +38,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * ```javascript
  * import { ChimeClient, GetUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // import type { ChimeClientConfig } from "@aws-sdk/client-chime";
+ * const config = {}; // type is ChimeClientConfig
  * const client = new ChimeClient(config);
  * const input = { // GetUserRequest
  *   AccountId: "STRING_VALUE", // required

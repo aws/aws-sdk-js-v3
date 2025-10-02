@@ -34,6 +34,8 @@ export interface MalformedTimestampHeaderDateTimeCommandOutput extends __Metadat
  * ```javascript
  * import { RestJsonProtocolClient, MalformedTimestampHeaderDateTimeCommand } from "@aws-sdk/aws-protocoltests-restjson-schema"; // ES Modules import
  * // const { RestJsonProtocolClient, MalformedTimestampHeaderDateTimeCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson-schema";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // MalformedTimestampHeaderDateTimeInput
  *   timestamp: new Date("TIMESTAMP"), // required

@@ -1,9 +1,9 @@
+import { parseXML } from "@aws-sdk/xml-builder";
 import { FromStringShapeDeserializer } from "@smithy/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
 import { getValueFromTextNode } from "@smithy/smithy-client";
 import type { Schema, SerdeFunctions, ShapeDeserializer } from "@smithy/types";
 import { toUtf8 } from "@smithy/util-utf8";
-import { XMLParser } from "fast-xml-parser";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import type { XmlSettings } from "./XmlCodec";
@@ -58,6 +58,11 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
 
   public readSchema(_schema: Schema, value: any): any {
     const ns = NormalizedSchema.of(_schema);
+
+    if (ns.isUnitSchema()) {
+      return;
+    }
+
     const traits = ns.getMergedTraits();
 
     if (ns.isListSchema() && !Array.isArray(value)) {
@@ -146,21 +151,9 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
 
   protected parseXml(xml: string): any {
     if (xml.length) {
-      const parser = new XMLParser({
-        attributeNamePrefix: "",
-        htmlEntities: true,
-        ignoreAttributes: false,
-        ignoreDeclaration: true,
-        parseTagValue: false,
-        trimValues: false,
-        tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
-      });
-      parser.addEntity("#xD", "\r");
-      parser.addEntity("#10", "\n");
-
       let parsedObj;
       try {
-        parsedObj = parser.parse(xml, true);
+        parsedObj = parseXML(xml);
       } catch (e: any) {
         if (e && typeof e === "object") {
           Object.defineProperty(e, "$responseBodyText", {

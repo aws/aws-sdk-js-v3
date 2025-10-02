@@ -39,6 +39,8 @@ export interface ListPiiEntitiesDetectionJobsCommandOutput
  * ```javascript
  * import { ComprehendClient, ListPiiEntitiesDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListPiiEntitiesDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // import type { ComprehendClientConfig } from "@aws-sdk/client-comprehend";
+ * const config = {}; // type is ComprehendClientConfig
  * const client = new ComprehendClient(config);
  * const input = { // ListPiiEntitiesDetectionJobsRequest
  *   Filter: { // PiiEntitiesDetectionJobFilter

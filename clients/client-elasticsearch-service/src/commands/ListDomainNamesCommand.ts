@@ -38,6 +38,8 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * ```javascript
  * import { ElasticsearchServiceClient, ListDomainNamesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, ListDomainNamesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // import type { ElasticsearchServiceClientConfig } from "@aws-sdk/client-elasticsearch-service";
+ * const config = {}; // type is ElasticsearchServiceClientConfig
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // ListDomainNamesRequest
  *   EngineType: "OpenSearch" || "Elasticsearch",

@@ -35,6 +35,8 @@ export interface UpdateLFTagExpressionCommandOutput extends UpdateLFTagExpressio
  * ```javascript
  * import { LakeFormationClient, UpdateLFTagExpressionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, UpdateLFTagExpressionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // import type { LakeFormationClientConfig } from "@aws-sdk/client-lakeformation";
+ * const config = {}; // type is LakeFormationClientConfig
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateLFTagExpressionRequest
  *   Name: "STRING_VALUE", // required

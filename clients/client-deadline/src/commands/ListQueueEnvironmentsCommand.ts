@@ -34,6 +34,8 @@ export interface ListQueueEnvironmentsCommandOutput extends ListQueueEnvironment
  * ```javascript
  * import { DeadlineClient, ListQueueEnvironmentsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListQueueEnvironmentsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
+ * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
  * const input = { // ListQueueEnvironmentsRequest
  *   farmId: "STRING_VALUE", // required

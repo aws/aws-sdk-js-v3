@@ -34,6 +34,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * ```javascript
  * import { BillingClient, GetResourcePolicyCommand } from "@aws-sdk/client-billing"; // ES Modules import
  * // const { BillingClient, GetResourcePolicyCommand } = require("@aws-sdk/client-billing"); // CommonJS import
+ * // import type { BillingClientConfig } from "@aws-sdk/client-billing";
+ * const config = {}; // type is BillingClientConfig
  * const client = new BillingClient(config);
  * const input = { // GetResourcePolicyRequest
  *   resourceArn: "STRING_VALUE", // required

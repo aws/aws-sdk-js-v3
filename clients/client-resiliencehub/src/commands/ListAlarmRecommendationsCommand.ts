@@ -34,6 +34,8 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  * ```javascript
  * import { ResiliencehubClient, ListAlarmRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAlarmRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * // import type { ResiliencehubClientConfig } from "@aws-sdk/client-resiliencehub";
+ * const config = {}; // type is ResiliencehubClientConfig
  * const client = new ResiliencehubClient(config);
  * const input = { // ListAlarmRecommendationsRequest
  *   assessmentArn: "STRING_VALUE", // required

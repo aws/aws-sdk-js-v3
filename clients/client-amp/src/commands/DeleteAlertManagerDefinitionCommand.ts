@@ -37,6 +37,8 @@ export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBea
  * ```javascript
  * import { AmpClient, DeleteAlertManagerDefinitionCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DeleteAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // import type { AmpClientConfig } from "@aws-sdk/client-amp";
+ * const config = {}; // type is AmpClientConfig
  * const client = new AmpClient(config);
  * const input = { // DeleteAlertManagerDefinitionRequest
  *   workspaceId: "STRING_VALUE", // required

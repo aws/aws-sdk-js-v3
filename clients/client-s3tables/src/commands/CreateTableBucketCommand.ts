@@ -34,6 +34,8 @@ export interface CreateTableBucketCommandOutput extends CreateTableBucketRespons
  * ```javascript
  * import { S3TablesClient, CreateTableBucketCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
  * // const { S3TablesClient, CreateTableBucketCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // import type { S3TablesClientConfig } from "@aws-sdk/client-s3tables";
+ * const config = {}; // type is S3TablesClientConfig
  * const client = new S3TablesClient(config);
  * const input = { // CreateTableBucketRequest
  *   name: "STRING_VALUE", // required

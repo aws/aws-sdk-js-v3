@@ -34,6 +34,8 @@ export interface ListTransformersCommandOutput extends ListTransformersResponse,
  * ```javascript
  * import { B2biClient, ListTransformersCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, ListTransformersCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // import type { B2biClientConfig } from "@aws-sdk/client-b2bi";
+ * const config = {}; // type is B2biClientConfig
  * const client = new B2biClient(config);
  * const input = { // ListTransformersRequest
  *   nextToken: "STRING_VALUE",

@@ -35,6 +35,8 @@ export interface DeleteAdapterVersionCommandOutput extends DeleteAdapterVersionR
  * ```javascript
  * import { TextractClient, DeleteAdapterVersionCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, DeleteAdapterVersionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // import type { TextractClientConfig } from "@aws-sdk/client-textract";
+ * const config = {}; // type is TextractClientConfig
  * const client = new TextractClient(config);
  * const input = { // DeleteAdapterVersionRequest
  *   AdapterId: "STRING_VALUE", // required

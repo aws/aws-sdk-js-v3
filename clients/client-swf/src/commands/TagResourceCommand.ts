@@ -37,6 +37,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SWFClient, TagResourceCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, TagResourceCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // import type { SWFClientConfig } from "@aws-sdk/client-swf";
+ * const config = {}; // type is SWFClientConfig
  * const client = new SWFClient(config);
  * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required

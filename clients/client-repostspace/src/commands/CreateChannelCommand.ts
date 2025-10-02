@@ -34,6 +34,8 @@ export interface CreateChannelCommandOutput extends CreateChannelOutput, __Metad
  * ```javascript
  * import { RepostspaceClient, CreateChannelCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, CreateChannelCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // import type { RepostspaceClientConfig } from "@aws-sdk/client-repostspace";
+ * const config = {}; // type is RepostspaceClientConfig
  * const client = new RepostspaceClient(config);
  * const input = { // CreateChannelInput
  *   spaceId: "STRING_VALUE", // required

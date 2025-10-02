@@ -38,6 +38,8 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * ```javascript
  * import { RDSClient, DeleteDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // import type { RDSClientConfig } from "@aws-sdk/client-rds";
+ * const config = {}; // type is RDSClientConfig
  * const client = new RDSClient(config);
  * const input = { // DeleteDBSnapshotMessage
  *   DBSnapshotIdentifier: "STRING_VALUE", // required
@@ -61,6 +63,7 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * //     LicenseModel: "STRING_VALUE",
  * //     SnapshotType: "STRING_VALUE",
  * //     Iops: Number("int"),
+ * //     StorageThroughput: Number("int"),
  * //     OptionGroupName: "STRING_VALUE",
  * //     PercentProgress: Number("int"),
  * //     SourceRegion: "STRING_VALUE",
@@ -85,13 +88,12 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SnapshotTarget: "STRING_VALUE",
  * //     OriginalSnapshotCreateTime: new Date("TIMESTAMP"),
  * //     SnapshotDatabaseTime: new Date("TIMESTAMP"),
- * //     SnapshotTarget: "STRING_VALUE",
- * //     StorageThroughput: Number("int"),
  * //     DBSystemId: "STRING_VALUE",
- * //     DedicatedLogVolume: true || false,
  * //     MultiTenant: true || false,
+ * //     DedicatedLogVolume: true || false,
  * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //   },
  * // };

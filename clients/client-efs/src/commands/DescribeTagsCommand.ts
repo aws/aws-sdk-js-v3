@@ -45,6 +45,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * ```javascript
  * import { EFSClient, DescribeTagsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // import type { EFSClientConfig } from "@aws-sdk/client-efs";
+ * const config = {}; // type is EFSClientConfig
  * const client = new EFSClient(config);
  * const input = { // DescribeTagsRequest
  *   MaxItems: Number("int"),

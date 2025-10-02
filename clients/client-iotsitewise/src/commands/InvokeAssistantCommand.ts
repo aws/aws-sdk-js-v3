@@ -35,6 +35,8 @@ export interface InvokeAssistantCommandOutput extends InvokeAssistantResponse, _
  * ```javascript
  * import { IoTSiteWiseClient, InvokeAssistantCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, InvokeAssistantCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
+ * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // InvokeAssistantRequest
  *   conversationId: "STRING_VALUE",

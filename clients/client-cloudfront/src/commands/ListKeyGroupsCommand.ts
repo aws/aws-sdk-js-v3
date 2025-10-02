@@ -34,6 +34,8 @@ export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __Metad
  * ```javascript
  * import { CloudFrontClient, ListKeyGroupsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListKeyGroupsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
+ * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
  * const input = { // ListKeyGroupsRequest
  *   Marker: "STRING_VALUE",

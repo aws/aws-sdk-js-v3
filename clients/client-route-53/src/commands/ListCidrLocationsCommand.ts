@@ -35,6 +35,8 @@ export interface ListCidrLocationsCommandOutput extends ListCidrLocationsRespons
  * ```javascript
  * import { Route53Client, ListCidrLocationsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListCidrLocationsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // import type { Route53ClientConfig } from "@aws-sdk/client-route-53";
+ * const config = {}; // type is Route53ClientConfig
  * const client = new Route53Client(config);
  * const input = { // ListCidrLocationsRequest
  *   CollectionId: "STRING_VALUE", // required

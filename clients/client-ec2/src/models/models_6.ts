@@ -2,7 +2,6 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  AccessScopeAnalysisFinding,
   ActiveVpnTunnelStatus,
   AddressTransfer,
   AllowedImagesSettingsDisabledState,
@@ -87,7 +86,7 @@ import {
   VirtualizationType,
 } from "./models_4";
 
-import { AnalysisStatus, ArchitectureType, VpcAttributeName } from "./models_5";
+import { ArchitectureType, VpcAttributeName } from "./models_5";
 
 /**
  * @public
@@ -5076,34 +5075,117 @@ export interface GetAllowedImagesSettingsRequest {
 }
 
 /**
- * <p>The list of criteria that are evaluated to determine whch AMIs are discoverable and usable
- *       in the account in the specified Amazon Web Services Region. Currently, the only criteria that can be
- *       specified are AMI providers. </p>
- *          <p>Up to 10 <code>imageCriteria</code> objects can be specified, and up to a total of 200
- *       values for all <code>imageProviders</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration">JSON
- *         configuration for the Allowed AMIs criteria</a> in the
- *       <i>Amazon EC2 User Guide</i>.</p>
+ * <p>The maximum age for allowed images.</p>
+ * @public
+ */
+export interface CreationDateCondition {
+  /**
+   * <p>The maximum number of days that have elapsed since the image was created. For example, a
+   *       value of <code>300</code> allows images that were created within the last 300 days.</p>
+   * @public
+   */
+  MaximumDaysSinceCreated?: number | undefined;
+}
+
+/**
+ * <p>The maximum period since deprecation for allowed images.</p>
+ * @public
+ */
+export interface DeprecationTimeCondition {
+  /**
+   * <p>The maximum number of days that have elapsed since the image was deprecated. When set to
+   *       <code>0</code>, no deprecated images are allowed.</p>
+   * @public
+   */
+  MaximumDaysSinceDeprecated?: number | undefined;
+}
+
+/**
+ * <p>The criteria that are evaluated to determine which AMIs are discoverable and usable in
+ *       your account for the specified Amazon Web Services Region.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#how-allowed-amis-works">How Allowed AMIs
+ *         works</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ImageCriterion {
   /**
-   * <p>A list of AMI providers whose AMIs are discoverable and useable in the account. Up to a
-   *       total of 200 values can be specified.</p>
+   * <p>The image providers whose images are allowed.</p>
    *          <p>Possible values:</p>
-   *          <p>
-   *             <code>amazon</code>: Allow AMIs created by Amazon Web Services.</p>
-   *          <p>
-   *             <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
-   *       Marketplace.</p>
-   *          <p>
-   *             <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
-   *          <p>12-digit account ID: Allow AMIs created by this account. One or more account IDs can be
-   *       specified.</p>
-   *          <p>
-   *             <code>none</code>: Allow AMIs created by your own account only.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>amazon</code>: Allow AMIs created by Amazon or verified providers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
+   *           Marketplace.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
+   *             </li>
+   *             <li>
+   *                <p>12-digit account ID: Allow AMIs created by this account. One or more account IDs can be
+   *           specified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>: Allow AMIs created by your own account only.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Maximum: 200 values</p>
    * @public
    */
   ImageProviders?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Marketplace product codes for allowed images.</p>
+   *          <p>Length: 1-25 characters</p>
+   *          <p>Valid characters: Letters (<code>A–Z, a–z</code>) and numbers (<code>0–9</code>)</p>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  MarketplaceProductCodes?: string[] | undefined;
+
+  /**
+   * <p>The names of allowed images. Names can include wildcards (<code>?</code> and
+   *         <code>*</code>).</p>
+   *          <p>Length: 1–128 characters. With <code>?</code>, the minimum is 3 characters.</p>
+   *          <p>Valid characters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Letters: <code>A–Z, a–z</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Numbers: <code>0–9</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Special characters: <code>( ) [ ] . / - ' @ _ * ?</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Spaces</p>
+   *             </li>
+   *          </ul>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  ImageNames?: string[] | undefined;
+
+  /**
+   * <p>The maximum period since deprecation for allowed images.</p>
+   * @public
+   */
+  DeprecationTimeCondition?: DeprecationTimeCondition | undefined;
+
+  /**
+   * <p>The maximum age for allowed images.</p>
+   * @public
+   */
+  CreationDateCondition?: CreationDateCondition | undefined;
 }
 
 /**
@@ -6498,7 +6580,7 @@ export interface InstanceMetadataDefaultsResponse {
    * <p>Indicates whether access to instance tags from the instance metadata is enabled or
    *             disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
    *                 instance tags using the instance metadata</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   InstanceMetadataTags?: InstanceMetadataTagsState | undefined;
@@ -8125,54 +8207,6 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsRequest {
    * @public
    */
   NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetNetworkInsightsAccessScopeAnalysisFindingsResult {
-  /**
-   * <p>The ID of the Network Access Scope analysis.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeAnalysisId?: string | undefined;
-
-  /**
-   * <p>The status of Network Access Scope Analysis.</p>
-   * @public
-   */
-  AnalysisStatus?: AnalysisStatus | undefined;
-
-  /**
-   * <p>The findings associated with Network Access Scope Analysis.</p>
-   * @public
-   */
-  AnalysisFindings?: AccessScopeAnalysisFinding[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetNetworkInsightsAccessScopeContentRequest {
-  /**
-   * <p>The ID of the Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeId: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,

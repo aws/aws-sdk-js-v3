@@ -34,6 +34,8 @@ export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsR
  * ```javascript
  * import { DirectoryServiceClient, ListSchemaExtensionsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListSchemaExtensionsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // import type { DirectoryServiceClientConfig } from "@aws-sdk/client-directory-service";
+ * const config = {}; // type is DirectoryServiceClientConfig
  * const client = new DirectoryServiceClient(config);
  * const input = { // ListSchemaExtensionsRequest
  *   DirectoryId: "STRING_VALUE", // required

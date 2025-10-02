@@ -1,7 +1,6 @@
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { CodeCatalyst } from "@aws-sdk/client-codecatalyst";
 import { describe, test as it } from "vitest";
-
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-token", () => {
   describe(CodeCatalyst.name, () => {

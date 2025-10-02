@@ -29,15 +29,32 @@ export interface SearchPredefinedAttributesCommandInput extends SearchPredefined
 export interface SearchPredefinedAttributesCommandOutput extends SearchPredefinedAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches predefined attributes that meet certain criteria. <i>Predefined
- *     attributes</i> are attributes in an Amazon Connect instance that can be used to route
- *    contacts to an agent or pools of agents within a queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
- *     predefined attributes for routing contacts to agents</a>.</p>
+ * <p>Searches predefined attributes that meet certain criteria. A <i>predefined
+ *     attribute</i> is made up of a name and a value. You can use predefined attributes
+ *    for:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Routing proficiency (for example, agent certification) that has predefined values (for
+ *      example, a list of possible certifications). For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
+ *       predefined attributes for routing contacts to agents</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Contact information that varies between transfers or conferences, such as the name of the
+ *      business unit handling the contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use contact segment
+ *       attributes</a>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect quotas</a>.</p>
+ *          <p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
+ *    quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, SearchPredefinedAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchPredefinedAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
  * const input = { // SearchPredefinedAttributesRequest
  *   InstanceId: "STRING_VALUE", // required
@@ -79,6 +96,13 @@ export interface SearchPredefinedAttributesCommandOutput extends SearchPredefine
  * //         StringList: [ // PredefinedAttributeStringValuesList
  * //           "STRING_VALUE",
  * //         ],
+ * //       },
+ * //       Purposes: [ // PredefinedAttributePurposeNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AttributeConfiguration: { // PredefinedAttributeConfiguration
+ * //         EnableValueValidationOnAssociation: true || false,
+ * //         IsReadOnly: true || false,
  * //       },
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       LastModifiedRegion: "STRING_VALUE",

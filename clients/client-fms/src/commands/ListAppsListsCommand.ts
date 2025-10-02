@@ -34,6 +34,8 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
  * ```javascript
  * import { FMSClient, ListAppsListsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListAppsListsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // import type { FMSClientConfig } from "@aws-sdk/client-fms";
+ * const config = {}; // type is FMSClientConfig
  * const client = new FMSClient(config);
  * const input = { // ListAppsListsRequest
  *   DefaultLists: true || false,

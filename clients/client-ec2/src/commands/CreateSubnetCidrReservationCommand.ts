@@ -36,6 +36,8 @@ export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCi
  * ```javascript
  * import { EC2Client, CreateSubnetCidrReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateSubnetCidrReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateSubnetCidrReservationRequest
  *   SubnetId: "STRING_VALUE", // required

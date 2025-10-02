@@ -43,6 +43,8 @@ export interface CreateLocalGatewayRouteTableVpcAssociationCommandOutput
  * ```javascript
  * import { EC2Client, CreateLocalGatewayRouteTableVpcAssociationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateLocalGatewayRouteTableVpcAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // import type { EC2ClientConfig } from "@aws-sdk/client-ec2";
+ * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateLocalGatewayRouteTableVpcAssociationRequest
  *   LocalGatewayRouteTableId: "STRING_VALUE", // required

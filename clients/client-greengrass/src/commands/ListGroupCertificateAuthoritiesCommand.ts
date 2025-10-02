@@ -39,6 +39,8 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
  * ```javascript
  * import { GreengrassClient, ListGroupCertificateAuthoritiesCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListGroupCertificateAuthoritiesCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // import type { GreengrassClientConfig } from "@aws-sdk/client-greengrass";
+ * const config = {}; // type is GreengrassClientConfig
  * const client = new GreengrassClient(config);
  * const input = { // ListGroupCertificateAuthoritiesRequest
  *   GroupId: "STRING_VALUE", // required

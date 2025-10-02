@@ -38,6 +38,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * ```javascript
  * import { AppRunnerClient, CreateConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // import type { AppRunnerClientConfig } from "@aws-sdk/client-apprunner";
+ * const config = {}; // type is AppRunnerClientConfig
  * const client = new AppRunnerClient(config);
  * const input = { // CreateConnectionRequest
  *   ConnectionName: "STRING_VALUE", // required

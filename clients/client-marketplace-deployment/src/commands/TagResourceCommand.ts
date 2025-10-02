@@ -38,6 +38,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { MarketplaceDeploymentClient, TagResourceCommand } from "@aws-sdk/client-marketplace-deployment"; // ES Modules import
  * // const { MarketplaceDeploymentClient, TagResourceCommand } = require("@aws-sdk/client-marketplace-deployment"); // CommonJS import
+ * // import type { MarketplaceDeploymentClientConfig } from "@aws-sdk/client-marketplace-deployment";
+ * const config = {}; // type is MarketplaceDeploymentClientConfig
  * const client = new MarketplaceDeploymentClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

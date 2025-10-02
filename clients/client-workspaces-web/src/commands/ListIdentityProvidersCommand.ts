@@ -38,6 +38,8 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * ```javascript
  * import { WorkSpacesWebClient, ListIdentityProvidersCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListIdentityProvidersCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // import type { WorkSpacesWebClientConfig } from "@aws-sdk/client-workspaces-web";
+ * const config = {}; // type is WorkSpacesWebClientConfig
  * const client = new WorkSpacesWebClient(config);
  * const input = { // ListIdentityProvidersRequest
  *   nextToken: "STRING_VALUE",

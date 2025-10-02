@@ -37,6 +37,8 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CodeCommitClient, CreateBranchCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateBranchCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // CreateBranchInput
  *   repositoryName: "STRING_VALUE", // required

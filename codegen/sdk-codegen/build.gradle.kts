@@ -17,10 +17,16 @@ import software.amazon.smithy.model.Model
 import software.amazon.smithy.model.shapes.ServiceShape
 import software.amazon.smithy.model.shapes.ShapeId
 import software.amazon.smithy.model.node.Node
-import software.amazon.smithy.gradle.tasks.SmithyBuild
+import software.amazon.smithy.gradle.tasks.SmithyBuildTask
 import software.amazon.smithy.aws.traits.ServiceTrait
 import java.util.stream.Stream
 import kotlin.streams.toList
+import org.gradle.api.DefaultTask
+import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.*
+import java.io.File
 
 val smithyVersion: String by project
 
@@ -38,8 +44,10 @@ buildscript {
 }
 
 plugins {
-    val smithyPluginVersion: String by project
-    id("software.amazon.smithy").version(smithyPluginVersion)
+    `java-library`
+
+    val smithyGradleVersion: String by project
+    id("software.amazon.smithy.gradle.smithy-base").version(smithyGradleVersion)
 }
 
 dependencies {
@@ -54,31 +62,47 @@ tasks["jar"].enabled = false
 
 // Run the SmithyBuild task manually since this project needs the built JAR
 // from smithy-aws-typescript-codegen.
-tasks["smithyBuildJar"].enabled = false
+tasks["smithyBuild"].enabled = false
 
-tasks.create<SmithyBuild>("buildSdk") {
-    addRuntimeClasspath = true
-}
-
-configure<software.amazon.smithy.gradle.SmithyExtension> {
-    val clientNameProp: String? by project
+val buildSdk = tasks.register<SmithyBuildTask>("buildSdk") {
+    val clientNameProp: String? = project.findProperty("clientNameProp")?.toString()
     if (!(clientNameProp?.isEmpty() ?: true)) {
-        smithyBuildConfigs = files("smithy-build-" + clientNameProp + ".json")
-        outputDirectory = file("build-single/" + clientNameProp)
+        smithyBuildConfigs.set(files("smithy-build-" + clientNameProp + ".json"))
+        outputDir.set(file("build-single/" + clientNameProp))
+    } else {
+        smithyBuildConfigs.set(files("smithy-build.json"))
     }
 }
 
 // Generates a smithy-build.json file by creating a new projection for every
 // JSON file found in aws-models/. The generated smithy-build.json file is
 // not committed to git since it's rebuilt each time codegen is performed.
-tasks.register("generate-smithy-build") {
-    doLast {
+abstract class GenerateSmithyBuildTask : DefaultTask() {
+    @get:Input
+    @get:Optional
+    abstract val clientName: Property<String>
+    
+    @get:Input
+    abstract val modelsDir: Property<String>
+    
+    @get:InputDirectory
+    abstract val modelsDirPath: DirectoryProperty
+    
+    @get:InputFile
+    abstract val templateFile: RegularFileProperty
+    
+    @get:OutputFile
+    abstract val buildFile: RegularFileProperty
+    
+    @TaskAction
+    fun generate() {
         val projectionsBuilder = Node.objectNodeBuilder()
-        val modelsDirProp: String by project
-        val clientNameProp: String? by project
-        val models = project.file(modelsDirProp);
+        val templatePath = templateFile.asFile.get().absolutePath
+        val modelsDirFile = modelsDirPath.asFile.get()
 
-        fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
+        modelsDirFile.listFiles()?.filter { it.isFile }?.forEach eachFile@{ file ->
+
+
             val model = Model.assembler()
                     .addImport(file.absolutePath)
                     .assemble().result.get();
@@ -96,15 +120,14 @@ tasks.register("generate-smithy-build") {
 
             val sdkId = serviceTrait.sdkId
                     .replace(" ", "-")
-                    .toLowerCase();
-            val version = service.version.toLowerCase();
+                    .lowercase();
+            val version = service.version.lowercase();
 
             val clientName = sdkId.split("-").toTypedArray()
-                    .map { it.capitalize() }
+                    .map { it.replaceFirstChar { it.uppercase() } }
                     .joinToString(separator = " ")
             var manifestOverwrites = Node.parse(
-                    File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
-                            .readText()
+                    File(templatePath).readText()
             ).expectObjectNode()
             val useLegacyAuthServices = setOf<String>(
                 // e.g. "S3" - use this as exclusion list if needed.
@@ -113,10 +136,10 @@ tasks.register("generate-smithy-build") {
                 // "S3"
             )
             val projectionContents = Node.objectNodeBuilder()
-                    .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
+                    .withMember("imports", Node.fromStrings("${modelsDirFile.absolutePath}${File.separator}${file.name}"))
                     .withMember("plugins", Node.objectNode()
                             .withMember("typescript-codegen", Node.objectNodeBuilder()
-                                    .withMember("package", "@aws-sdk/client-" + sdkId.toLowerCase())
+                                    .withMember("package", "@aws-sdk/client-" + sdkId.lowercase())
                                     // Note that this version is replaced by Lerna when publishing.
                                     .withMember("packageVersion", "3.0.0")
                                     .withMember("packageJson", manifestOverwrites)
@@ -128,18 +151,32 @@ tasks.register("generate-smithy-build") {
                                         useSchemaSerde.contains(serviceTrait.sdkId))
                                     .build()))
                     .build()
-            projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
+            projectionsBuilder.withMember(sdkId + "." + version.lowercase(), projectionContents)
         }
 
-        val buildFile = if (!(clientNameProp?.isEmpty() ?: true))
-            "smithy-build-" + clientNameProp + ".json"
-            else "smithy-build.json"
-
-        file(buildFile).writeText(Node.prettyPrintJson(Node.objectNodeBuilder()
+        buildFile.asFile.get().writeText(Node.prettyPrintJson(Node.objectNodeBuilder()
                 .withMember("version", "1.0")
                 .withMember("projections", projectionsBuilder.build())
                 .build()))
     }
+}
+
+val generateSmithyBuild = tasks.register<GenerateSmithyBuildTask>("generate-smithy-build") {
+    val clientNameProp = providers.gradleProperty("clientNameProp")
+    val modelsDirProp = providers.gradleProperty("modelsDirProp").orElse("aws-models")
+    
+    clientName.set(clientNameProp)
+    modelsDir.set(modelsDirProp)
+    modelsDirPath.set(layout.projectDirectory.dir(modelsDirProp))
+    templateFile.set(layout.projectDirectory.file("../smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template"))
+    
+    val buildFileName = if (clientNameProp.isPresent && clientNameProp.get().isNotEmpty()) {
+        "smithy-build-${clientNameProp.get()}.json"
+    } else {
+        "smithy-build.json"
+    }
+    
+    buildFile.set(layout.projectDirectory.file(buildFileName))
 }
 
 tasks.register("generate-default-configs-provider", JavaExec::class) {
@@ -150,5 +187,5 @@ tasks.register("generate-default-configs-provider", JavaExec::class) {
 
 // Run the `buildSdk` automatically.
 tasks["build"]
-        .dependsOn(tasks["generate-smithy-build"])
-        .finalizedBy(tasks["buildSdk"])
+    .dependsOn(generateSmithyBuild)
+    .finalizedBy(buildSdk)

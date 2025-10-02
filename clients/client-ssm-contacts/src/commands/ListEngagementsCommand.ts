@@ -34,6 +34,8 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  * ```javascript
  * import { SSMContactsClient, ListEngagementsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListEngagementsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // import type { SSMContactsClientConfig } from "@aws-sdk/client-ssm-contacts";
+ * const config = {}; // type is SSMContactsClientConfig
  * const client = new SSMContactsClient(config);
  * const input = { // ListEngagementsRequest
  *   NextToken: "STRING_VALUE",

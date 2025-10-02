@@ -40,6 +40,8 @@ export interface DeleteSlackWorkspaceAuthorizationCommandOutput
  * ```javascript
  * import { ChatbotClient, DeleteSlackWorkspaceAuthorizationCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, DeleteSlackWorkspaceAuthorizationCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // import type { ChatbotClientConfig } from "@aws-sdk/client-chatbot";
+ * const config = {}; // type is ChatbotClientConfig
  * const client = new ChatbotClient(config);
  * const input = { // DeleteSlackWorkspaceAuthorizationRequest
  *   SlackTeamId: "STRING_VALUE", // required

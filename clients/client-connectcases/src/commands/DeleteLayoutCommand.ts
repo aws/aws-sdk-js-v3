@@ -34,6 +34,8 @@ export interface DeleteLayoutCommandOutput extends DeleteLayoutResponse, __Metad
  * ```javascript
  * import { ConnectCasesClient, DeleteLayoutCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, DeleteLayoutCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // import type { ConnectCasesClientConfig } from "@aws-sdk/client-connectcases";
+ * const config = {}; // type is ConnectCasesClientConfig
  * const client = new ConnectCasesClient(config);
  * const input = { // DeleteLayoutRequest
  *   domainId: "STRING_VALUE", // required

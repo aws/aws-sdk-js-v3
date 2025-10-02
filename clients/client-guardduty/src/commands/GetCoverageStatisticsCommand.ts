@@ -37,6 +37,8 @@ export interface GetCoverageStatisticsCommandOutput extends GetCoverageStatistic
  * ```javascript
  * import { GuardDutyClient, GetCoverageStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetCoverageStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // import type { GuardDutyClientConfig } from "@aws-sdk/client-guardduty";
+ * const config = {}; // type is GuardDutyClientConfig
  * const client = new GuardDutyClient(config);
  * const input = { // GetCoverageStatisticsRequest
  *   DetectorId: "STRING_VALUE", // required

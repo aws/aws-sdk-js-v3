@@ -34,6 +34,8 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * ```javascript
  * import { SageMakerClient, DescribePipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribePipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DescribePipelineExecutionRequest
  *   PipelineExecutionArn: "STRING_VALUE", // required

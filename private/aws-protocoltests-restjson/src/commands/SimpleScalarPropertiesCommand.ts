@@ -35,6 +35,8 @@ export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropert
  * ```javascript
  * import { RestJsonProtocolClient, SimpleScalarPropertiesCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, SimpleScalarPropertiesCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * // import type { RestJsonProtocolClientConfig } from "@aws-sdk/aws-protocoltests-restjson";
+ * const config = {}; // type is RestJsonProtocolClientConfig
  * const client = new RestJsonProtocolClient(config);
  * const input = { // SimpleScalarPropertiesInputOutput
  *   foo: "STRING_VALUE",

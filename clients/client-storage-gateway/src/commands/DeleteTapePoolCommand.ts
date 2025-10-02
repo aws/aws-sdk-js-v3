@@ -36,6 +36,8 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  * ```javascript
  * import { StorageGatewayClient, DeleteTapePoolCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteTapePoolCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // import type { StorageGatewayClientConfig } from "@aws-sdk/client-storage-gateway";
+ * const config = {}; // type is StorageGatewayClientConfig
  * const client = new StorageGatewayClient(config);
  * const input = { // DeleteTapePoolInput
  *   PoolARN: "STRING_VALUE", // required

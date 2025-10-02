@@ -34,6 +34,8 @@ export interface DeleteOptimizationJobCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SageMakerClient, DeleteOptimizationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteOptimizationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // import type { SageMakerClientConfig } from "@aws-sdk/client-sagemaker";
+ * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // DeleteOptimizationJobRequest
  *   OptimizationJobName: "STRING_VALUE", // required

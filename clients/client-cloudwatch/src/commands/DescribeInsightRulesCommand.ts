@@ -36,6 +36,8 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  * ```javascript
  * import { CloudWatchClient, DescribeInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // import type { CloudWatchClientConfig } from "@aws-sdk/client-cloudwatch";
+ * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // DescribeInsightRulesInput
  *   NextToken: "STRING_VALUE",

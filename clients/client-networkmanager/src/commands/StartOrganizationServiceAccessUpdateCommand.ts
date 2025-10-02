@@ -42,6 +42,8 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
  * ```javascript
  * import { NetworkManagerClient, StartOrganizationServiceAccessUpdateCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, StartOrganizationServiceAccessUpdateCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // import type { NetworkManagerClientConfig } from "@aws-sdk/client-networkmanager";
+ * const config = {}; // type is NetworkManagerClientConfig
  * const client = new NetworkManagerClient(config);
  * const input = { // StartOrganizationServiceAccessUpdateRequest
  *   Action: "STRING_VALUE", // required

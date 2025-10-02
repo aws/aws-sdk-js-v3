@@ -39,6 +39,8 @@ export interface PostCommentForComparedCommitCommandOutput
  * ```javascript
  * import { CodeCommitClient, PostCommentForComparedCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PostCommentForComparedCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // import type { CodeCommitClientConfig } from "@aws-sdk/client-codecommit";
+ * const config = {}; // type is CodeCommitClientConfig
  * const client = new CodeCommitClient(config);
  * const input = { // PostCommentForComparedCommitInput
  *   repositoryName: "STRING_VALUE", // required

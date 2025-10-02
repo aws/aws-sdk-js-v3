@@ -43,6 +43,8 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * ```javascript
  * import { SESClient, SendBounceCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendBounceCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // import type { SESClientConfig } from "@aws-sdk/client-ses";
+ * const config = {}; // type is SESClientConfig
  * const client = new SESClient(config);
  * const input = { // SendBounceRequest
  *   OriginalMessageId: "STRING_VALUE", // required

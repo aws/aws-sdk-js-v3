@@ -78,6 +78,8 @@ export interface CreateStateMachineAliasCommandOutput extends CreateStateMachine
  * ```javascript
  * import { SFNClient, CreateStateMachineAliasCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, CreateStateMachineAliasCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // import type { SFNClientConfig } from "@aws-sdk/client-sfn";
+ * const config = {}; // type is SFNClientConfig
  * const client = new SFNClient(config);
  * const input = { // CreateStateMachineAliasInput
  *   description: "STRING_VALUE",

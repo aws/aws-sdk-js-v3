@@ -34,6 +34,8 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * ```javascript
  * import { XRayClient, ListResourcePoliciesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, ListResourcePoliciesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // import type { XRayClientConfig } from "@aws-sdk/client-xray";
+ * const config = {}; // type is XRayClientConfig
  * const client = new XRayClient(config);
  * const input = { // ListResourcePoliciesRequest
  *   NextToken: "STRING_VALUE",

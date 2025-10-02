@@ -70,6 +70,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * ```javascript
  * import { RedshiftDataClient, ExecuteStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * // import type { RedshiftDataClientConfig } from "@aws-sdk/client-redshift-data";
+ * const config = {}; // type is RedshiftDataClientConfig
  * const client = new RedshiftDataClient(config);
  * const input = { // ExecuteStatementInput
  *   Sql: "STRING_VALUE", // required
