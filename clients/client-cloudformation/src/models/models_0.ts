@@ -273,7 +273,7 @@ export interface ActivateTypeInput {
   TypeName?: string | undefined;
 
   /**
-   * <p>An alias to assign to the public extension, in this account and Region. If you specify an
+   * <p>An alias to assign to the public extension in this account and Region. If you specify an
    *       alias for the extension, CloudFormation treats the alias as the extension type name within this
    *       account and Region. You must use the alias to refer to the extension in your templates, API
    *       calls, and CloudFormation console.</p>
@@ -341,7 +341,7 @@ export interface ActivateTypeInput {
  */
 export interface ActivateTypeOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the activated extension, in this account and
+   * <p>The Amazon Resource Name (ARN) of the activated extension in this account and
    *       Region.</p>
    * @public
    */
@@ -1830,8 +1830,7 @@ export interface RollbackConfiguration {
  */
 export interface Tag {
   /**
-   * <p>
-   *             <i>Required</i>. A string used to identify this tag. You can specify a maximum of
+   * <p>A string used to identify this tag. You can specify a maximum of
    *    128 characters for a tag key. Tags owned by Amazon Web Services have the reserved prefix:
    *    <code>aws:</code>.</p>
    * @public
@@ -1839,8 +1838,7 @@ export interface Tag {
   Key: string | undefined;
 
   /**
-   * <p>
-   *             <i>Required</i>. A string that contains the value for this tag. You can specify a
+   * <p>A string that contains the value for this tag. You can specify a
    *    maximum of 256 characters for a tag value.</p>
    * @public
    */
@@ -2361,7 +2359,7 @@ export interface TemplateConfiguration {
 export interface CreateGeneratedTemplateInput {
   /**
    * <p>An optional list of resources to be included in the generated template.</p>
-   *          <p> If no resources are specified,the template will be created without any resources.
+   *          <p>If no resources are specified,the template will be created without any resources.
    *       Resources can be added to the template using the <code>UpdateGeneratedTemplate</code> API
    *       action.</p>
    * @public
@@ -3613,7 +3611,7 @@ export interface DeactivateOrganizationsAccessOutput {}
  */
 export interface DeactivateTypeInput {
   /**
-   * <p>The type name of the extension, in this account and Region. If you specified a type name
+   * <p>The type name of the extension in this account and Region. If you specified a type name
    *       alias when enabling the extension, use the type name alias.</p>
    *          <p>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and
    *         <code>Type</code>.</p>
@@ -3630,7 +3628,7 @@ export interface DeactivateTypeInput {
   Type?: ThirdPartyType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the extension, in this account and Region.</p>
+   * <p>The Amazon Resource Name (ARN) for the extension in this account and Region.</p>
    *          <p>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and
    *         <code>Type</code>.</p>
    * @public
@@ -4429,6 +4427,7 @@ export interface WarningProperty {
  */
 export const WarningType = {
   EXCLUDED_PROPERTIES: "EXCLUDED_PROPERTIES",
+  EXCLUDED_RESOURCES: "EXCLUDED_RESOURCES",
   MUTUALLY_EXCLUSIVE_PROPERTIES: "MUTUALLY_EXCLUSIVE_PROPERTIES",
   MUTUALLY_EXCLUSIVE_TYPES: "MUTUALLY_EXCLUSIVE_TYPES",
   UNSUPPORTED_PROPERTIES: "UNSUPPORTED_PROPERTIES",
@@ -7699,8 +7698,9 @@ export interface DescribeTypeOutput {
 
   /**
    * <p>The schema that defines the extension.</p>
-   *          <p>For more information about extension schemas, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource type
-   *         schema</a> in the <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource type
+   *         schema</a> in the <i>CloudFormation Command Line Interface (CLI) User Guide</i> and the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html">CloudFormation
+   *         Hooks User Guide</a>.</p>
    * @public
    */
   Schema?: string | undefined;
@@ -7850,9 +7850,7 @@ export interface DescribeTypeOutput {
   /**
    * <p>A JSON string that represent the current configuration data for the extension in this
    *       account and Region.</p>
-   *          <p>To set the configuration data for an extension, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html">Edit configuration
-   *         data for extensions in your account</a> in the
-   *       <i>CloudFormation User Guide</i>.</p>
+   *          <p>To set the configuration data for an extension, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>.</p>
    * @public
    */
   ConfigurationSchema?: string | undefined;
@@ -8903,7 +8901,7 @@ export interface ListGeneratedTemplatesInput {
   NextToken?: string | undefined;
 
   /**
-   * <p> If the number of available results exceeds this maximum, the response includes a
+   * <p>If the number of available results exceeds this maximum, the response includes a
    *         <code>NextToken</code> value that you can use for the <code>NextToken</code> parameter to
    *       get the next set of results. By default the <code>ListGeneratedTemplates</code> API action
    *       will return at most 50 results in each response. The maximum value is 100.</p>
@@ -9350,7 +9348,7 @@ export interface ListResourceScanRelatedResourcesInput {
   NextToken?: string | undefined;
 
   /**
-   * <p> If the number of available results exceeds this maximum, the response includes a
+   * <p>If the number of available results exceeds this maximum, the response includes a
    *         <code>NextToken</code> value that you can use for the <code>NextToken</code> parameter to
    *       get the next set of results. By default the <code>ListResourceScanRelatedResources</code> API
    *       action will return up to 100 results in each response. The maximum value is 100.</p>
@@ -9480,7 +9478,7 @@ export interface ListResourceScanResourcesInput {
   NextToken?: string | undefined;
 
   /**
-   * <p> If the number of available results exceeds this maximum, the response includes a
+   * <p>If the number of available results exceeds this maximum, the response includes a
    *         <code>NextToken</code> value that you can use for the <code>NextToken</code> parameter to
    *       get the next set of results. By default the <code>ListResourceScanResources</code> API action
    *       will return at most 100 results in each response. The maximum value is 100.</p>
@@ -9535,7 +9533,7 @@ export interface ListResourceScansInput {
   NextToken?: string | undefined;
 
   /**
-   * <p> If the number of available results exceeds this maximum, the response includes a
+   * <p>If the number of available results exceeds this maximum, the response includes a
    *         <code>NextToken</code> value that you can use for the <code>NextToken</code> parameter to
    *       get the next set of results. The default value is 10. The maximum value is 100.</p>
    * @public

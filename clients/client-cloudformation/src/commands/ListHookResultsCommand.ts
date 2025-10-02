@@ -28,8 +28,8 @@ export interface ListHookResultsCommandInput extends ListHookResultsInput {}
 export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summaries of invoked Hooks. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-view-invocations.html">View CloudFormation Hooks
- *         invocations</a> in the <i>CloudFormation Hooks User Guide</i>.</p>
+ * <p>Returns summaries of invoked Hooks. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-view-invocations.html">View invocation
+ *         summaries for CloudFormation Hooks</a> in the <i>CloudFormation Hooks User Guide</i>.</p>
  *          <p>This operation supports the following parameter combinations:</p>
  *          <ul>
  *             <li>

@@ -31,7 +31,7 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  * <p>Deactivates a public third-party extension, such as a resource or module, or a CloudFormation
  *       Hook when you no longer use it.</p>
  *          <p>Deactivating an extension deletes the configuration details that are associated with it.
- *       To temporary disable a CloudFormation Hook instead, you can use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>.</p>
+ *       To temporarily disable a CloudFormation Hook instead, you can use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>.</p>
  *          <p>Once deactivated, an extension can't be used in any CloudFormation operation. This includes
  *       stack update operations where the stack template includes the extension, even if no updates
  *       are being made to the extension. In addition, deactivated extensions aren't automatically

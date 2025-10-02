@@ -358,8 +358,8 @@ export interface ListTypesInput {
    *             <li>
    *                <p>
    *                   <code>PUBLIC</code>: Extensions that are publicly visible and available to be
-   *           activated within any Amazon Web Services account. This includes extensions from Amazon Web Services, in addition to
-   *           third-party publishers.</p>
+   *           activated within any Amazon Web Services account. This includes extensions from Amazon Web Services and third-party
+   *           publishers.</p>
    *             </li>
    *          </ul>
    *          <p>The default is <code>PRIVATE</code>.</p>
@@ -1211,7 +1211,7 @@ export interface SetStackPolicyInput {
  */
 export interface SetTypeConfigurationInput {
   /**
-   * <p>The Amazon Resource Name (ARN) for the extension, in this account and Region.</p>
+   * <p>The Amazon Resource Name (ARN) for the extension in this account and Region.</p>
    *          <p>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a> API operation in this account and Region. For private extensions, this
    *       will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a> API
    *       operation in this account and Region.</p>
@@ -1222,11 +1222,9 @@ export interface SetTypeConfigurationInput {
   TypeArn?: string | undefined;
 
   /**
-   * <p>The configuration data for the extension, in this account and Region.</p>
-   *          <p>The configuration data must be formatted as JSON, and validate against the schema returned
-   *       in the <code>ConfigurationSchema</code> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>. For
-   *       more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining the account-level configuration of an extension</a> in the
-   *         <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
+   * <p>The configuration data for the extension in this account and Region.</p>
+   *          <p>The configuration data must be formatted as JSON and validate against the extension's
+   *       schema returned in the <code>Schema</code> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.</p>
    * @public
    */
   Configuration: string | undefined;
@@ -1261,7 +1259,7 @@ export interface SetTypeConfigurationInput {
  */
 export interface SetTypeConfigurationOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) for the configuration data, in this account and
+   * <p>The Amazon Resource Name (ARN) for the configuration data in this account and
    *       Region.</p>
    *          <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and
    *         <code>TypeName</code>.</p>
