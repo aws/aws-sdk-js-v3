@@ -109,7 +109,7 @@
     "ts-jest": "29.1.1",
     "ts-loader": "9.4.2",
     "tsx": "4.19.2",
-    "turbo": "2.5.3",
+    "turbo": "2.5.8",
     "typescript": "~5.8.3",
     "verdaccio": "5.25.0",
     "vite": "7.0.6",
