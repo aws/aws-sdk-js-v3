@@ -7,7 +7,7 @@ import { Readable } from "node:stream";
 import { describe, expect, test as it } from "vitest";
 
 describe("lib storage integration test", () => {
-  it("example of how to write an integration test that includes responses", async () => {
+  it("verifies CompleteMultipartUpload response is properly mapped to Upload response for large files", async () => {
     const client = new S3({
       region: "us-west-2",
       credentials: {
