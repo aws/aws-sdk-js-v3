@@ -1,62 +1,12 @@
-import { getE2eTestResources, requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
+import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
-import { getHttpDebugLogPlugin } from "@aws-sdk/middleware-http-debug-log/src";
 import { HttpResponse } from "@smithy/protocol-http";
 import { randomBytes } from "crypto";
 import { Readable } from "node:stream";
 import { describe, expect, test as it } from "vitest";
 
 describe("lib storage integration test", () => {
-  const example = async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    const region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-    const Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
-    const data = randomBytes(6 * 1024 * 1024);
-
-    const s3 = new S3({
-      region,
-    });
-    const Key = `MPU-${Date.now()}`;
-
-    const client = new S3({
-      region,
-    });
-    // This will print out all requests and responses so you can use
-    // them in an integration mock later.
-    client.middlewareStack.use(
-      getHttpDebugLogPlugin({
-        request: {
-          url: true,
-          command: true,
-          method: true,
-        },
-        response: {
-          statusCode: true,
-          headers: true,
-          body: true,
-          formatBody: true,
-        },
-      })
-    );
-
-    await new Upload({
-      client,
-      params: {
-        Bucket,
-        Key,
-        Body: data,
-      },
-    }).done();
-
-    await s3.deleteObject({
-      Bucket,
-      Key,
-    });
-  };
-
   it("example of how to write an integration test that includes responses", async () => {
     const client = new S3({
       region: "us-west-2",
@@ -276,5 +226,78 @@ describe("lib storage integration test", () => {
     });
 
     expect(uploadOutput).toMatchObject(commandOutputs.CompleteMultipartUploadCommand[0]);
+  });
+
+  it("verifies PutObject response is properly mapped to Upload response for small files", async () => {
+    const client = new S3({
+      region: "us-west-2",
+      credentials: {
+        accessKeyId: "INTEG",
+        secretAccessKey: "INTEG",
+      },
+    });
+
+    const commandOutputs: Record<string, any[]> = {};
+
+    client.middlewareStack.add((next, context) => async (args) => {
+      const r = await next(args);
+      commandOutputs[context.commandName!] = commandOutputs[context.commandName!] ?? [];
+      commandOutputs[context.commandName!].push(r.output);
+      return r;
+    });
+
+    requireRequestsFrom(client)
+      .toMatch({
+        hostname: /amazon/,
+      })
+      .respondWith(
+        new HttpResponse({
+          statusCode: 200,
+          headers: {
+            "x-amz-id-2":
+              "abc123def456ghi789jkl012mno345pqr678stu901vwx234yzA567BCD890EFG123HIJ456KLM789NOP012QRS345TUV",
+            "x-amz-request-id": "ABCD1234EFGH5678",
+            date: "Fri, 26 Sep 2025 17:30:00 GMT",
+            etag: '"d41d8cd98f00b204e9800998ecf8427e"',
+            "x-amz-checksum-crc32": "AAAAAA==",
+            "x-amz-checksum-type": "CRC32",
+            "x-amz-server-side-encryption": "AES256",
+            "x-amz-version-id": "null",
+            "content-length": "0",
+            server: "AmazonS3",
+          },
+        })
+      );
+
+    const uploadOutput = await new Upload({
+      client,
+      params: {
+        Bucket: "bucket",
+        Key: "small-file-key",
+        Body: randomBytes(1024), // 1KB - small enough to use PutObject
+      },
+    }).done();
+
+    expect(commandOutputs).toEqual({
+      PutObjectCommand: [
+        {
+          $metadata: {
+            httpStatusCode: 200,
+            requestId: "ABCD1234EFGH5678",
+            extendedRequestId:
+              "abc123def456ghi789jkl012mno345pqr678stu901vwx234yzA567BCD890EFG123HIJ456KLM789NOP012QRS345TUV",
+            attempts: 1,
+            totalRetryDelay: 0,
+          },
+          ETag: '"d41d8cd98f00b204e9800998ecf8427e"',
+          ChecksumCRC32: "AAAAAA==",
+          ChecksumType: "CRC32",
+          ServerSideEncryption: "AES256",
+          VersionId: "null",
+        },
+      ],
+    });
+
+    expect(uploadOutput).toMatchObject(commandOutputs.PutObjectCommand[0]);
   });
 }, 60_000);
