@@ -461,6 +461,14 @@ PutCaseEventConfiguration
 </details>
 <details>
 <summary>
+SearchAllRelatedItems
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/SearchAllRelatedItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/SearchAllRelatedItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/SearchAllRelatedItemsCommandOutput/)
+
+</details>
+<details>
+<summary>
 SearchCases
 </summary>
 

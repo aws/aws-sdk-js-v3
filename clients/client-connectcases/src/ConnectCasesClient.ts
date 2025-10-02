@@ -100,6 +100,10 @@ import {
   PutCaseEventConfigurationCommandInput,
   PutCaseEventConfigurationCommandOutput,
 } from "./commands/PutCaseEventConfigurationCommand";
+import {
+  SearchAllRelatedItemsCommandInput,
+  SearchAllRelatedItemsCommandOutput,
+} from "./commands/SearchAllRelatedItemsCommand";
 import { SearchCasesCommandInput, SearchCasesCommandOutput } from "./commands/SearchCasesCommand";
 import { SearchRelatedItemsCommandInput, SearchRelatedItemsCommandOutput } from "./commands/SearchRelatedItemsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -156,6 +160,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTemplatesCommandInput
   | PutCaseEventConfigurationCommandInput
+  | SearchAllRelatedItemsCommandInput
   | SearchCasesCommandInput
   | SearchRelatedItemsCommandInput
   | TagResourceCommandInput
@@ -202,6 +207,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTemplatesCommandOutput
   | PutCaseEventConfigurationCommandOutput
+  | SearchAllRelatedItemsCommandOutput
   | SearchCasesCommandOutput
   | SearchRelatedItemsCommandOutput
   | TagResourceCommandOutput

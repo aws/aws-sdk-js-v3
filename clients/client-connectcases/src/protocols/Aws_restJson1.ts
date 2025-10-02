@@ -79,6 +79,10 @@ import {
   PutCaseEventConfigurationCommandInput,
   PutCaseEventConfigurationCommandOutput,
 } from "../commands/PutCaseEventConfigurationCommand";
+import {
+  SearchAllRelatedItemsCommandInput,
+  SearchAllRelatedItemsCommandOutput,
+} from "../commands/SearchAllRelatedItemsCommand";
 import { SearchCasesCommandInput, SearchCasesCommandOutput } from "../commands/SearchCasesCommand";
 import { SearchRelatedItemsCommandInput, SearchRelatedItemsCommandOutput } from "../commands/SearchRelatedItemsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -141,6 +145,8 @@ import {
   RequiredCaseRule,
   RequiredField,
   ResourceNotFoundException,
+  SearchAllRelatedItemsResponseItem,
+  SearchAllRelatedItemsSort,
   SearchCasesResponseItem,
   SearchRelatedItemsResponseItem,
   Section,
@@ -821,6 +827,32 @@ export const se_PutCaseEventConfigurationCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchAllRelatedItemsCommand
+ */
+export const se_SearchAllRelatedItemsCommand = async (
+  input: SearchAllRelatedItemsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/domains/{domainId}/related-items-search");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => se_RelatedItemFilterList(_, context),
+      maxResults: [],
+      nextToken: [],
+      sorts: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1735,6 +1767,28 @@ export const de_PutCaseEventConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchAllRelatedItemsCommand
+ */
+export const de_SearchAllRelatedItemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchAllRelatedItemsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    relatedItems: (_) => de_SearchAllRelatedItemsResponseItemList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1SearchCasesCommand
  */
 export const de_SearchCasesCommand = async (
@@ -2361,6 +2415,10 @@ const se_RequiredCaseRule = (input: RequiredCaseRule, context: __SerdeContext): 
 
 // se_RequiredFieldList omitted.
 
+// se_SearchAllRelatedItemsSort omitted.
+
+// se_SearchAllRelatedItemsSortList omitted.
+
 // se_Section omitted.
 
 // se_SectionsList omitted.
@@ -2824,6 +2882,40 @@ const de_RequiredCaseRule = (output: any, context: __SerdeContext): RequiredCase
 // de_RequiredField omitted.
 
 // de_RequiredFieldList omitted.
+
+/**
+ * deserializeAws_restJson1SearchAllRelatedItemsResponseItem
+ */
+const de_SearchAllRelatedItemsResponseItem = (
+  output: any,
+  context: __SerdeContext
+): SearchAllRelatedItemsResponseItem => {
+  return take(output, {
+    associationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    caseId: __expectString,
+    content: (_: any) => de_RelatedItemContent(__expectUnion(_), context),
+    performedBy: (_: any) => _json(__expectUnion(_)),
+    relatedItemId: __expectString,
+    tags: (_: any) => de_Tags(_, context),
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SearchAllRelatedItemsResponseItemList
+ */
+const de_SearchAllRelatedItemsResponseItemList = (
+  output: any,
+  context: __SerdeContext
+): SearchAllRelatedItemsResponseItem[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      return null as any;
+    }
+    return de_SearchAllRelatedItemsResponseItem(entry, context);
+  });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1SearchCasesResponseItem

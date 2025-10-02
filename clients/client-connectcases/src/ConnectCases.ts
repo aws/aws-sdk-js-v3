@@ -118,6 +118,11 @@ import {
   PutCaseEventConfigurationCommandInput,
   PutCaseEventConfigurationCommandOutput,
 } from "./commands/PutCaseEventConfigurationCommand";
+import {
+  SearchAllRelatedItemsCommand,
+  SearchAllRelatedItemsCommandInput,
+  SearchAllRelatedItemsCommandOutput,
+} from "./commands/SearchAllRelatedItemsCommand";
 import { SearchCasesCommand, SearchCasesCommandInput, SearchCasesCommandOutput } from "./commands/SearchCasesCommand";
 import {
   SearchRelatedItemsCommand,
@@ -182,6 +187,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListTemplatesCommand,
   PutCaseEventConfigurationCommand,
+  SearchAllRelatedItemsCommand,
   SearchCasesCommand,
   SearchRelatedItemsCommand,
   TagResourceCommand,
@@ -617,6 +623,23 @@ export interface ConnectCases {
     args: PutCaseEventConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutCaseEventConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchAllRelatedItemsCommand}
+   */
+  searchAllRelatedItems(
+    args: SearchAllRelatedItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchAllRelatedItemsCommandOutput>;
+  searchAllRelatedItems(
+    args: SearchAllRelatedItemsCommandInput,
+    cb: (err: any, data?: SearchAllRelatedItemsCommandOutput) => void
+  ): void;
+  searchAllRelatedItems(
+    args: SearchAllRelatedItemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchAllRelatedItemsCommandOutput) => void
   ): void;
 
   /**

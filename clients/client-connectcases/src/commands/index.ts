@@ -31,6 +31,7 @@ export * from "./ListLayoutsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListTemplatesCommand";
 export * from "./PutCaseEventConfigurationCommand";
+export * from "./SearchAllRelatedItemsCommand";
 export * from "./SearchCasesCommand";
 export * from "./SearchRelatedItemsCommand";
 export * from "./TagResourceCommand";

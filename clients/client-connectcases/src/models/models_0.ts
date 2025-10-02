@@ -849,12 +849,12 @@ export interface CommentContent {
 }
 
 /**
- * Represents the input content of a Case related item
+ * <p>Represents the content of a <code>ConnectCase</code> related item.</p>
  * @public
  */
 export interface ConnectCaseInputContent {
   /**
-   * The unique identifier of the case to be related
+   * <p>A unique identifier of the case.</p>
    * @public
    */
   caseId: string | undefined;
@@ -873,12 +873,12 @@ export interface Contact {
 }
 
 /**
- * Represents the input content of a Custom related item
+ * <p>Represents the content of a <code>Custom</code> related item.</p>
  * @public
  */
 export interface CustomInputContent {
   /**
-   * List of field values for the custom related item
+   * <p>List of field values for the <code>Custom</code> related item.</p>
    * @public
    */
   fields: FieldValue[] | undefined;
@@ -1057,7 +1057,7 @@ export namespace RelatedItemInputContent {
   }
 
   /**
-   * Input content for a related Connect case
+   * <p>Represents the Amazon Connect case to be created as a related item.</p>
    * @public
    */
   export interface ConnectCaseMember {
@@ -1071,7 +1071,7 @@ export namespace RelatedItemInputContent {
   }
 
   /**
-   * Input content for a custom related item
+   * <p>Represents the content of a <code>Custom</code> type related item.</p>
    * @public
    */
   export interface CustomMember {
@@ -1225,12 +1225,12 @@ export interface DeleteRelatedItemResponse {}
 export interface CommentFilter {}
 
 /**
- * A filter for related items of type Case
+ * <p>A filter for related items of type <code>ConnectCase</code>.</p>
  * @public
  */
 export interface ConnectCaseFilter {
   /**
-   * The unique identifier of the case to filter by
+   * <p>A unique identifier of the case.</p>
    * @public
    */
   caseId?: string | undefined;
@@ -1436,12 +1436,12 @@ export interface SlaFilter {
 }
 
 /**
- * Represents the content of a Case related item
+ * <p>Represents the content of a <code>ConnectCase</code> type related item.</p>
  * @public
  */
 export interface ConnectCaseContent {
   /**
-   * The unique identifier of the related case
+   * <p>A unique identifier of the case.</p>
    * @public
    */
   caseId: string | undefined;
@@ -1472,12 +1472,12 @@ export interface ContactContent {
 }
 
 /**
- * Represents the content of a Custom related item
+ * <p>Represents the content of a <code>Custom</code> type related item.</p>
  * @public
  */
 export interface CustomContent {
   /**
-   * List of field values for the custom related item
+   * <p>List of field values for the <code>Custom</code> related item.</p>
    * @public
    */
   fields: FieldValue[] | undefined;
@@ -1617,7 +1617,7 @@ export namespace RelatedItemContent {
   }
 
   /**
-   * Content for a related Connect case
+   * <p>Represents the Amazon Connect case to be created as a related item.</p>
    * @public
    */
   export interface ConnectCaseMember {
@@ -1631,7 +1631,7 @@ export namespace RelatedItemContent {
   }
 
   /**
-   * Content for a custom related item
+   * <p>Represents the content of a <code>Custom</code> type related item.</p>
    * @public
    */
   export interface CustomMember {
@@ -2725,6 +2725,104 @@ export interface PutCaseEventConfigurationRequest {
  * @public
  */
 export interface PutCaseEventConfigurationResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchAllRelatedItemsSortProperty = {
+  ASSOCIATION_TIME: "AssociationTime",
+  CASE_ID: "CaseId",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchAllRelatedItemsSortProperty =
+  (typeof SearchAllRelatedItemsSortProperty)[keyof typeof SearchAllRelatedItemsSortProperty];
+
+/**
+ * <p>The order in which all returned related items should be sorted.</p>
+ * @public
+ */
+export interface SearchAllRelatedItemsSort {
+  /**
+   * <p>Whether related items should be sorted in ascending or descending order. </p>
+   * @public
+   */
+  sortProperty: SearchAllRelatedItemsSortProperty | undefined;
+
+  /**
+   * <p>Whether related items should be sorted by association time or case ID. </p>
+   * @public
+   */
+  sortOrder: Order | undefined;
+}
+
+/**
+ * <p>A list of items that represent RelatedItems. This data type is similar to <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_SearchRelatedItemsResponseItem.html">SearchRelatedItemsResponseItem</a> except Search<b>All</b>RelatedItemsResponseItem has a caseId field.</p>
+ * @public
+ */
+export interface SearchAllRelatedItemsResponseItem {
+  /**
+   * <p>Unique identifier of a related item.</p>
+   * @public
+   */
+  relatedItemId: string | undefined;
+
+  /**
+   * <p>A unique identifier of the case.</p>
+   * @public
+   */
+  caseId: string | undefined;
+
+  /**
+   * <p>Type of a related item.</p>
+   * @public
+   */
+  type: RelatedItemType | undefined;
+
+  /**
+   * <p>Time at which a related item was associated with a case.</p>
+   * @public
+   */
+  associationTime: Date | undefined;
+
+  /**
+   * <p>Represents the content of a particular type of related item.</p>
+   * @public
+   */
+  content: RelatedItemContent | undefined;
+
+  /**
+   * <p>Represents the entity that performed the action.</p>
+   * @public
+   */
+  performedBy?: UserUnion | undefined;
+
+  /**
+   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchAllRelatedItemsResponse {
+  /**
+   * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of items related to a case.</p>
+   * @public
+   */
+  relatedItems: SearchAllRelatedItemsResponseItem[] | undefined;
+}
 
 /**
  * @public
@@ -4079,7 +4177,7 @@ export namespace CaseFilter {
 }
 
 /**
- * A filter for fields in related items of type Custom
+ * <p>A filter for fields in <code>Custom</code> type related items. Only one value can be provided.</p>
  * @public
  */
 export type CustomFieldsFilter =
@@ -4106,7 +4204,7 @@ export namespace CustomFieldsFilter {
   }
 
   /**
-   * Excludes items matching the filter
+   * <p>Excludes items matching the filter.</p>
    * @public
    */
   export interface NotMember {
@@ -4118,7 +4216,7 @@ export namespace CustomFieldsFilter {
   }
 
   /**
-   * Matches items that satisfy all of the specified filter conditions
+   * <p>Provides "and all" filtering.</p>
    * @public
    */
   export interface AndAllMember {
@@ -4130,7 +4228,7 @@ export namespace CustomFieldsFilter {
   }
 
   /**
-   * Matches items that satisfy any of the specified filter conditions
+   * <p>Provides "or all" filtering.</p>
    * @public
    */
   export interface OrAllMember {
@@ -4170,12 +4268,12 @@ export namespace CustomFieldsFilter {
 }
 
 /**
- * A filter for related items of type Custom
+ * <p>A filter for related items of type <code>Custom</code>.</p>
  * @public
  */
 export interface CustomFilter {
   /**
-   * Filter conditions for custom fields
+   * <p>Filter conditions for custom fields.</p>
    * @public
    */
   fields?: CustomFieldsFilter | undefined;
@@ -4302,7 +4400,7 @@ export namespace RelatedItemTypeFilter {
   }
 
   /**
-   * Filter for related items of type Connect case
+   * <p>Represents the Amazon Connect case to be created as a related item.</p>
    * @public
    */
   export interface ConnectCaseMember {
@@ -4316,7 +4414,7 @@ export namespace RelatedItemTypeFilter {
   }
 
   /**
-   * Filter for related items of type Custom
+   * <p>Represents the content of a <code>Custom</code> type related item.</p>
    * @public
    */
   export interface CustomMember {
@@ -4361,6 +4459,41 @@ export namespace RelatedItemTypeFilter {
     if (value.custom !== undefined) return visitor.custom(value.custom);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * @public
+ */
+export interface SearchAllRelatedItemsRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of types of related items and their parameters to use for filtering. The filters work as an OR condition: caller gets back related items that match any of the specified filter types.</p>
+   * @public
+   */
+  filters?: RelatedItemTypeFilter[] | undefined;
+
+  /**
+   * <p>A structured set of sort terms to specify the order in which related items should be returned. Supports sorting by association time or case ID. The sorts work in the order specified: first sort term takes precedence over subsequent terms.</p>
+   * @public
+   */
+  sorts?: SearchAllRelatedItemsSort[] | undefined;
 }
 
 /**
@@ -4550,6 +4683,25 @@ export const UpdateCaseRequestFilterSensitiveLog = (obj: UpdateCaseRequest): any
 /**
  * @internal
  */
+export const SearchAllRelatedItemsResponseItemFilterSensitiveLog = (obj: SearchAllRelatedItemsResponseItem): any => ({
+  ...obj,
+  ...(obj.content && { content: RelatedItemContentFilterSensitiveLog(obj.content) }),
+  ...(obj.performedBy && { performedBy: UserUnionFilterSensitiveLog(obj.performedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchAllRelatedItemsResponseFilterSensitiveLog = (obj: SearchAllRelatedItemsResponse): any => ({
+  ...obj,
+  ...(obj.relatedItems && {
+    relatedItems: obj.relatedItems.map((item) => SearchAllRelatedItemsResponseItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const RelatedItemTypeFilterFilterSensitiveLog = (obj: RelatedItemTypeFilter): any => {
   if (obj.contact !== undefined) return { contact: obj.contact };
   if (obj.comment !== undefined) return { comment: obj.comment };
@@ -4559,6 +4711,14 @@ export const RelatedItemTypeFilterFilterSensitiveLog = (obj: RelatedItemTypeFilt
   if (obj.custom !== undefined) return { custom: obj.custom };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
+
+/**
+ * @internal
+ */
+export const SearchAllRelatedItemsRequestFilterSensitiveLog = (obj: SearchAllRelatedItemsRequest): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => RelatedItemTypeFilterFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal
