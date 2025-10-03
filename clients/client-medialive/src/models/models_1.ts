@@ -452,7 +452,7 @@ export interface ArchiveContainerSettings {
  */
 export interface ArchiveOutputSettings {
   /**
-   * Settings specific to the container type of the file.
+   * Container for this output. Can be auto-detected from extension field.
    * @public
    */
   ContainerSettings: ArchiveContainerSettings | undefined;
@@ -2632,6 +2632,60 @@ export interface MediaPackageV2GroupSettings {
    * @public
    */
   CaptionLanguageMappings?: CaptionLanguageMapping[] | undefined;
+
+  /**
+   * Set to ENABLED to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group, or you add an ID3 action to the channel schedule.
+   * @public
+   */
+  Id3Behavior?: CmafId3Behavior | undefined;
+
+  /**
+   * If set to passthrough, passes any KLV data from the input source to this output.
+   * @public
+   */
+  KlvBehavior?: CmafKLVBehavior | undefined;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3Behavior?: CmafNielsenId3Behavior | undefined;
+
+  /**
+   * Type of scte35 track to add. none or scte35WithoutSegmentation
+   * @public
+   */
+  Scte35Type?: Scte35Type | undefined;
+
+  /**
+   * The nominal duration of segments. The units are specified in SegmentLengthUnits. The segments will end on the next keyframe after the specified duration, so the actual segment length might be longer, and it might be a fraction of the units.
+   * @public
+   */
+  SegmentLength?: number | undefined;
+
+  /**
+   * Time unit for segment length parameter.
+   * @public
+   */
+  SegmentLengthUnits?: CmafIngestSegmentLengthUnits | undefined;
+
+  /**
+   * Set to none if you don't want to insert a timecode in the output. Otherwise choose the frame type for the timecode.
+   * @public
+   */
+  TimedMetadataId3Frame?: CmafTimedMetadataId3Frame | undefined;
+
+  /**
+   * If you set up to insert a timecode in the output, specify the frequency for the frame, in seconds.
+   * @public
+   */
+  TimedMetadataId3Period?: number | undefined;
+
+  /**
+   * Set to enabled to pass through ID3 metadata from the input sources.
+   * @public
+   */
+  TimedMetadataPassthrough?: CmafTimedMetadataPassthrough | undefined;
 }
 
 /**
@@ -5020,7 +5074,7 @@ export interface Av1Settings {
   BufSize?: number | undefined;
 
   /**
-   * Color Space settings
+   * Specify the type of color space to apply or choose to pass through. The default is to pass through the color space that is in the source.
    * @public
    */
   ColorSpaceSettings?: Av1ColorSpaceSettings | undefined;
@@ -5716,7 +5770,7 @@ export interface H264Settings {
   ColorMetadata?: H264ColorMetadata | undefined;
 
   /**
-   * Color Space settings
+   * Specify the type of color space to apply or choose to pass through. The default is to pass through the color space that is in the source.
    * @public
    */
   ColorSpaceSettings?: H264ColorSpaceSettings | undefined;
@@ -6389,7 +6443,7 @@ export interface H265Settings {
   ColorMetadata?: H265ColorMetadata | undefined;
 
   /**
-   * Color Space settings
+   * Specify the type of color space to apply or choose to pass through. The default is to pass through the color space that is in the source.
    * @public
    */
   ColorSpaceSettings?: H265ColorSpaceSettings | undefined;

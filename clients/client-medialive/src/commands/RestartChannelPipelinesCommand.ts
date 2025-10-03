@@ -502,6 +502,15 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //                   LanguageDescription: "STRING_VALUE", // required
  * //                 },
  * //               ],
+ * //               Id3Behavior: "DISABLED" || "ENABLED",
+ * //               KlvBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //               NielsenId3Behavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //               Scte35Type: "NONE" || "SCTE_35_WITHOUT_SEGMENTATION",
+ * //               SegmentLength: Number("int"),
+ * //               SegmentLengthUnits: "MILLISECONDS" || "SECONDS",
+ * //               TimedMetadataId3Frame: "NONE" || "PRIV" || "TDRL",
+ * //               TimedMetadataId3Period: Number("int"),
+ * //               TimedMetadataPassthrough: "DISABLED" || "ENABLED",
  * //             },
  * //           },
  * //           MsSmoothGroupSettings: { // MsSmoothGroupSettings

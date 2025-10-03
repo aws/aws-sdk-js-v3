@@ -8839,6 +8839,15 @@ const se_MediaPackageV2DestinationSettings = (
 const se_MediaPackageV2GroupSettings = (input: MediaPackageV2GroupSettings, context: __SerdeContext): any => {
   return take(input, {
     captionLanguageMappings: [, (_) => se___listOfCaptionLanguageMapping(_, context), `CaptionLanguageMappings`],
+    id3Behavior: [, , `Id3Behavior`],
+    klvBehavior: [, , `KlvBehavior`],
+    nielsenId3Behavior: [, , `NielsenId3Behavior`],
+    scte35Type: [, , `Scte35Type`],
+    segmentLength: [, , `SegmentLength`],
+    segmentLengthUnits: [, , `SegmentLengthUnits`],
+    timedMetadataId3Frame: [, , `TimedMetadataId3Frame`],
+    timedMetadataId3Period: [, , `TimedMetadataId3Period`],
+    timedMetadataPassthrough: [, , `TimedMetadataPassthrough`],
   });
 };
 
@@ -13182,6 +13191,15 @@ const de_MediaPackageV2DestinationSettings = (
 const de_MediaPackageV2GroupSettings = (output: any, context: __SerdeContext): MediaPackageV2GroupSettings => {
   return take(output, {
     CaptionLanguageMappings: [, (_: any) => de___listOfCaptionLanguageMapping(_, context), `captionLanguageMappings`],
+    Id3Behavior: [, __expectString, `id3Behavior`],
+    KlvBehavior: [, __expectString, `klvBehavior`],
+    NielsenId3Behavior: [, __expectString, `nielsenId3Behavior`],
+    Scte35Type: [, __expectString, `scte35Type`],
+    SegmentLength: [, __expectInt32, `segmentLength`],
+    SegmentLengthUnits: [, __expectString, `segmentLengthUnits`],
+    TimedMetadataId3Frame: [, __expectString, `timedMetadataId3Frame`],
+    TimedMetadataId3Period: [, __expectInt32, `timedMetadataId3Period`],
+    TimedMetadataPassthrough: [, __expectString, `timedMetadataPassthrough`],
   }) as any;
 };
 
