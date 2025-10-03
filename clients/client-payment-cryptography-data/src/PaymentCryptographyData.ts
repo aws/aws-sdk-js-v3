@@ -26,6 +26,11 @@ import {
   ReEncryptDataCommandOutput,
 } from "./commands/ReEncryptDataCommand";
 import {
+  TranslateKeyMaterialCommand,
+  TranslateKeyMaterialCommandInput,
+  TranslateKeyMaterialCommandOutput,
+} from "./commands/TranslateKeyMaterialCommand";
+import {
   TranslatePinDataCommand,
   TranslatePinDataCommandInput,
   TranslatePinDataCommandOutput,
@@ -56,6 +61,7 @@ const commands = {
   GenerateMacEmvPinChangeCommand,
   GeneratePinDataCommand,
   ReEncryptDataCommand,
+  TranslateKeyMaterialCommand,
   TranslatePinDataCommand,
   VerifyAuthRequestCryptogramCommand,
   VerifyCardValidationDataCommand,
@@ -154,6 +160,23 @@ export interface PaymentCryptographyData {
     args: ReEncryptDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ReEncryptDataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TranslateKeyMaterialCommand}
+   */
+  translateKeyMaterial(
+    args: TranslateKeyMaterialCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TranslateKeyMaterialCommandOutput>;
+  translateKeyMaterial(
+    args: TranslateKeyMaterialCommandInput,
+    cb: (err: any, data?: TranslateKeyMaterialCommandOutput) => void
+  ): void;
+  translateKeyMaterial(
+    args: TranslateKeyMaterialCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TranslateKeyMaterialCommandOutput) => void
   ): void;
 
   /**

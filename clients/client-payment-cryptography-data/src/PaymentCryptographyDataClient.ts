@@ -66,6 +66,10 @@ import {
 } from "./commands/GenerateMacEmvPinChangeCommand";
 import { GeneratePinDataCommandInput, GeneratePinDataCommandOutput } from "./commands/GeneratePinDataCommand";
 import { ReEncryptDataCommandInput, ReEncryptDataCommandOutput } from "./commands/ReEncryptDataCommand";
+import {
+  TranslateKeyMaterialCommandInput,
+  TranslateKeyMaterialCommandOutput,
+} from "./commands/TranslateKeyMaterialCommand";
 import { TranslatePinDataCommandInput, TranslatePinDataCommandOutput } from "./commands/TranslatePinDataCommand";
 import {
   VerifyAuthRequestCryptogramCommandInput,
@@ -99,6 +103,7 @@ export type ServiceInputTypes =
   | GenerateMacEmvPinChangeCommandInput
   | GeneratePinDataCommandInput
   | ReEncryptDataCommandInput
+  | TranslateKeyMaterialCommandInput
   | TranslatePinDataCommandInput
   | VerifyAuthRequestCryptogramCommandInput
   | VerifyCardValidationDataCommandInput
@@ -116,6 +121,7 @@ export type ServiceOutputTypes =
   | GenerateMacEmvPinChangeCommandOutput
   | GeneratePinDataCommandOutput
   | ReEncryptDataCommandOutput
+  | TranslateKeyMaterialCommandOutput
   | TranslatePinDataCommandOutput
   | VerifyAuthRequestCryptogramCommandOutput
   | VerifyCardValidationDataCommandOutput

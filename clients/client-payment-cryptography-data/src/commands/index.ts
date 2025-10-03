@@ -6,6 +6,7 @@ export * from "./GenerateMacCommand";
 export * from "./GenerateMacEmvPinChangeCommand";
 export * from "./GeneratePinDataCommand";
 export * from "./ReEncryptDataCommand";
+export * from "./TranslateKeyMaterialCommand";
 export * from "./TranslatePinDataCommand";
 export * from "./VerifyAuthRequestCryptogramCommand";
 export * from "./VerifyCardValidationDataCommand";

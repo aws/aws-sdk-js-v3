@@ -38,6 +38,10 @@ import {
 } from "../commands/GenerateMacEmvPinChangeCommand";
 import { GeneratePinDataCommandInput, GeneratePinDataCommandOutput } from "../commands/GeneratePinDataCommand";
 import { ReEncryptDataCommandInput, ReEncryptDataCommandOutput } from "../commands/ReEncryptDataCommand";
+import {
+  TranslateKeyMaterialCommandInput,
+  TranslateKeyMaterialCommandOutput,
+} from "../commands/TranslateKeyMaterialCommand";
 import { TranslatePinDataCommandInput, TranslatePinDataCommandOutput } from "../commands/TranslatePinDataCommand";
 import {
   VerifyAuthRequestCryptogramCommandInput,
@@ -65,6 +69,7 @@ import {
   CryptogramVerificationArpcMethod2,
   CurrentPinAttributes,
   DerivationMethodAttributes,
+  DiffieHellmanDerivationData,
   DiscoverDynamicCardVerificationCode,
   DukptAttributes,
   DukptDerivationAttributes,
@@ -81,11 +86,15 @@ import {
   Ibm3624PinOffset,
   Ibm3624PinVerification,
   Ibm3624RandomPin,
+  IncomingDiffieHellmanTr31KeyBlock,
+  IncomingKeyMaterial,
   InternalServerException,
   MacAlgorithmDukpt,
   MacAlgorithmEmv,
   MacAttributes,
   MasterCardAttributes,
+  OutgoingKeyMaterial,
+  OutgoingTr31KeyBlock,
   PinGenerationAttributes,
   PinVerificationAttributes,
   ReEncryptionAttributes,
@@ -291,6 +300,30 @@ export const se_ReEncryptDataCommand = async (
       OutgoingEncryptionAttributes: (_) => _json(_),
       OutgoingKeyIdentifier: [],
       OutgoingWrappedKey: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TranslateKeyMaterialCommand
+ */
+export const se_TranslateKeyMaterialCommand = async (
+  input: TranslateKeyMaterialCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/keymaterial/translate");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      IncomingKeyMaterial: (_) => _json(_),
+      KeyCheckValueAlgorithm: [],
+      OutgoingKeyMaterial: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -606,6 +639,27 @@ export const de_ReEncryptDataCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1TranslateKeyMaterialCommand
+ */
+export const de_TranslateKeyMaterialCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TranslateKeyMaterialCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    WrappedKey: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1TranslatePinDataCommand
  */
 export const de_TranslatePinDataCommand = async (
@@ -902,6 +956,8 @@ const de_VerificationFailedExceptionRes = async (
 
 // se_DerivationMethodAttributes omitted.
 
+// se_DiffieHellmanDerivationData omitted.
+
 // se_DiscoverDynamicCardVerificationCode omitted.
 
 // se_DukptAttributes omitted.
@@ -934,6 +990,10 @@ const de_VerificationFailedExceptionRes = async (
 
 // se_Ibm3624RandomPin omitted.
 
+// se_IncomingDiffieHellmanTr31KeyBlock omitted.
+
+// se_IncomingKeyMaterial omitted.
+
 // se_MacAlgorithmDukpt omitted.
 
 // se_MacAlgorithmEmv omitted.
@@ -941,6 +1001,10 @@ const de_VerificationFailedExceptionRes = async (
 // se_MacAttributes omitted.
 
 // se_MasterCardAttributes omitted.
+
+// se_OutgoingKeyMaterial omitted.
+
+// se_OutgoingTr31KeyBlock omitted.
 
 // se_PinGenerationAttributes omitted.
 
@@ -989,6 +1053,8 @@ const de_VerificationFailedExceptionRes = async (
 // de_ValidationExceptionFieldList omitted.
 
 // de_VisaAmexDerivationOutputs omitted.
+
+// de_WrappedWorkingKey omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

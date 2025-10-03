@@ -261,6 +261,14 @@ ReEncryptData
 </details>
 <details>
 <summary>
+TranslateKeyMaterial
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/TranslateKeyMaterialCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/TranslateKeyMaterialCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/TranslateKeyMaterialCommandOutput/)
+
+</details>
+<details>
+<summary>
 TranslatePinData
 </summary>
 

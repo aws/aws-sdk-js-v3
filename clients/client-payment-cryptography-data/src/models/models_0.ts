@@ -1665,6 +1665,46 @@ export namespace DerivationMethodAttributes {
 }
 
 /**
+ * <p>The shared information used when deriving a key using ECDH.</p>
+ * @public
+ */
+export type DiffieHellmanDerivationData =
+  | DiffieHellmanDerivationData.SharedInformationMember
+  | DiffieHellmanDerivationData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DiffieHellmanDerivationData {
+  /**
+   * <p>A string containing information that binds the ECDH derived key to the two parties involved or to the context of the key.</p> <p>It may include details like identities of the two parties deriving the key, context of the operation, session IDs, and optionally a nonce. It must not contain zero bytes. It is not recommended to reuse shared information for multiple ECDH key derivations, as it could result in derived key material being the same across different derivations.</p>
+   * @public
+   */
+  export interface SharedInformationMember {
+    SharedInformation: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    SharedInformation?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    SharedInformation: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DiffieHellmanDerivationData, visitor: Visitor<T>): T => {
+    if (value.SharedInformation !== undefined) return visitor.SharedInformation(value.SharedInformation);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Parameters that are used for Derived Unique Key Per Transaction (DUKPT) derivation algorithm.</p>
  * @public
  */
@@ -2559,6 +2599,7 @@ export namespace PinGenerationAttributes {
  */
 export const PinBlockFormatForPinData = {
   ISO_FORMAT_0: "ISO_FORMAT_0",
+  ISO_FORMAT_1: "ISO_FORMAT_1",
   ISO_FORMAT_3: "ISO_FORMAT_3",
   ISO_FORMAT_4: "ISO_FORMAT_4",
 } as const;
@@ -2600,10 +2641,10 @@ export interface GeneratePinDataInput {
    * <p>The Primary Account Number (PAN), a unique identifier for a payment credit or debit card that associates the card with a specific account holder.</p>
    * @public
    */
-  PrimaryAccountNumber: string | undefined;
+  PrimaryAccountNumber?: string | undefined;
 
   /**
-   * <p>The PIN encoding format for pin data generation as specified in ISO 9564. Amazon Web Services Payment Cryptography supports <code>ISO_Format_0</code> and <code>ISO_Format_3</code>.</p> <p>The <code>ISO_Format_0</code> PIN block format is equivalent to the ANSI X9.8, VISA-1, and ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a PIN from 4 to 12 digits in length.</p> <p>The <code>ISO_Format_3</code> PIN block format is the same as <code>ISO_Format_0</code> except that the fill digits are random values from 10 to 15.</p>
+   * <p>The PIN encoding format for pin data generation as specified in ISO 9564. Amazon Web Services Payment Cryptography supports <code>ISO_Format_0</code>, <code>ISO_Format_3</code> and <code>ISO_Format_4</code>.</p> <p>The <code>ISO_Format_0</code> PIN block format is equivalent to the ANSI X9.8, VISA-1, and ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a PIN from 4 to 12 digits in length.</p> <p>The <code>ISO_Format_3</code> PIN block format is the same as <code>ISO_Format_0</code> except that the fill digits are random values from 10 to 15.</p> <p>The <code>ISO_Format_4</code> PIN block format is the only one supporting AES encryption. It is similar to <code>ISO_Format_3</code> but doubles the pin block length by padding with fill digit A and random values from 10 to 15.</p>
    * @public
    */
   PinBlockFormat: PinBlockFormatForPinData | undefined;
@@ -2739,6 +2780,151 @@ export interface Ibm3624PinVerification {
 }
 
 /**
+ * <p>Parameter information of a TR31KeyBlock wrapped using an ECDH derived key.</p>
+ * @public
+ */
+export interface IncomingDiffieHellmanTr31KeyBlock {
+  /**
+   * <p>The <code>keyARN</code> of the asymmetric ECC key pair.</p>
+   * @public
+   */
+  PrivateKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The <code>keyArn</code> of the certificate that signed the client's <code>PublicKeyCertificate</code>.</p>
+   * @public
+   */
+  CertificateAuthorityPublicKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The client's public key certificate in PEM format (base64 encoded) to use for ECDH key derivation.</p>
+   * @public
+   */
+  PublicKeyCertificate: string | undefined;
+
+  /**
+   * <p>The key algorithm of the derived ECDH key.</p>
+   * @public
+   */
+  DeriveKeyAlgorithm: SymmetricKeyAlgorithm | undefined;
+
+  /**
+   * <p>The key derivation function to use for deriving a key using ECDH.</p>
+   * @public
+   */
+  KeyDerivationFunction: KeyDerivationFunction | undefined;
+
+  /**
+   * <p>The hash type to use for deriving a key using ECDH.</p>
+   * @public
+   */
+  KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithm | undefined;
+
+  /**
+   * <p>The shared information used when deriving a key using ECDH.</p>
+   * @public
+   */
+  DerivationData: DiffieHellmanDerivationData | undefined;
+
+  /**
+   * <p>The WrappedKeyBlock containing the transaction key wrapped using an ECDH dervied key. </p>
+   * @public
+   */
+  WrappedKeyBlock: string | undefined;
+}
+
+/**
+ * <p>Parameter information of the incoming WrappedKeyBlock containing the transaction key.</p>
+ * @public
+ */
+export type IncomingKeyMaterial =
+  | IncomingKeyMaterial.DiffieHellmanTr31KeyBlockMember
+  | IncomingKeyMaterial.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IncomingKeyMaterial {
+  /**
+   * <p>Parameter information of the TR31WrappedKeyBlock containing the transaction key wrapped using an ECDH dervied key.</p>
+   * @public
+   */
+  export interface DiffieHellmanTr31KeyBlockMember {
+    DiffieHellmanTr31KeyBlock: IncomingDiffieHellmanTr31KeyBlock;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    DiffieHellmanTr31KeyBlock?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    DiffieHellmanTr31KeyBlock: (value: IncomingDiffieHellmanTr31KeyBlock) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: IncomingKeyMaterial, visitor: Visitor<T>): T => {
+    if (value.DiffieHellmanTr31KeyBlock !== undefined)
+      return visitor.DiffieHellmanTr31KeyBlock(value.DiffieHellmanTr31KeyBlock);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Parameter information of the TR31WrappedKeyBlock containing the transaction key wrapped using a KEK.</p>
+ * @public
+ */
+export interface OutgoingTr31KeyBlock {
+  /**
+   * <p>The <code>keyARN</code> of the KEK used to wrap the transaction key.</p>
+   * @public
+   */
+  WrappingKeyIdentifier: string | undefined;
+}
+
+/**
+ * <p>Parameter information of the outgoing TR31WrappedKeyBlock containing the transaction key.</p>
+ * @public
+ */
+export type OutgoingKeyMaterial = OutgoingKeyMaterial.Tr31KeyBlockMember | OutgoingKeyMaterial.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OutgoingKeyMaterial {
+  /**
+   * <p>Parameter information of the TR31WrappedKeyBlock containing the transaction key wrapped using a KEK.</p>
+   * @public
+   */
+  export interface Tr31KeyBlockMember {
+    Tr31KeyBlock: OutgoingTr31KeyBlock;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Tr31KeyBlock?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Tr31KeyBlock: (value: OutgoingTr31KeyBlock) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OutgoingKeyMaterial, visitor: Visitor<T>): T => {
+    if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Parameters that are required to perform reencryption operation.</p>
  * @public
  */
@@ -2861,6 +3047,79 @@ export interface ReEncryptDataOutput {
    * @public
    */
   CipherText: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TranslateKeyMaterialInput {
+  /**
+   * <p>Parameter information of the TR31WrappedKeyBlock containing the transaction key.</p>
+   * @public
+   */
+  IncomingKeyMaterial: IncomingKeyMaterial | undefined;
+
+  /**
+   * <p>Parameter information of the wrapping key used to wrap the transaction key in the outgoing TR31WrappedKeyBlock.</p>
+   * @public
+   */
+  OutgoingKeyMaterial: OutgoingKeyMaterial | undefined;
+
+  /**
+   * <p>The key check value (KCV) algorithm used for calculating the KCV.</p>
+   * @public
+   */
+  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WrappedKeyMaterialFormat = {
+  KEY_CRYPTOGRAM: "KEY_CRYPTOGRAM",
+  TR31_KEY_BLOCK: "TR31_KEY_BLOCK",
+  TR34_KEY_BLOCK: "TR34_KEY_BLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type WrappedKeyMaterialFormat = (typeof WrappedKeyMaterialFormat)[keyof typeof WrappedKeyMaterialFormat];
+
+/**
+ * <p>The parameter information of the outgoing wrapped key block.</p>
+ * @public
+ */
+export interface WrappedWorkingKey {
+  /**
+   * <p>The wrapped key block of the outgoing transaction key.</p>
+   * @public
+   */
+  WrappedKeyMaterial: string | undefined;
+
+  /**
+   * <p>The key check value (KCV) of the key contained within the outgoing TR31WrappedKeyBlock.</p> <p> The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. For more information on KCV, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/terminology.html#terms.kcv">KCV</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.</p>
+   * @public
+   */
+  KeyCheckValue: string | undefined;
+
+  /**
+   * <p>The key block format of the wrapped key.</p>
+   * @public
+   */
+  WrappedKeyMaterialFormat: WrappedKeyMaterialFormat | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TranslateKeyMaterialOutput {
+  /**
+   * <p>The outgoing KEK wrapped TR31WrappedKeyBlock.</p>
+   * @public
+   */
+  WrappedKey: WrappedWorkingKey | undefined;
 }
 
 /**
@@ -3592,7 +3851,7 @@ export interface VerifyPinDataInput {
    * <p>The Primary Account Number (PAN), a unique identifier for a payment credit or debit card that associates the card with a specific account holder.</p>
    * @public
    */
-  PrimaryAccountNumber: string | undefined;
+  PrimaryAccountNumber?: string | undefined;
 
   /**
    * <p>The PIN encoding format for pin data generation as specified in ISO 9564. Amazon Web Services Payment Cryptography supports <code>ISO_Format_0</code> and <code>ISO_Format_3</code>.</p> <p>The <code>ISO_Format_0</code> PIN block format is equivalent to the ANSI X9.8, VISA-1, and ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a PIN from 4 to 12 digits in length.</p> <p>The <code>ISO_Format_3</code> PIN block format is the same as <code>ISO_Format_0</code> except that the fill digits are random values from 10 to 15.</p>
@@ -3850,18 +4109,9 @@ export const EncryptionDecryptionAttributesFilterSensitiveLog = (obj: Encryption
 /**
  * @internal
  */
-export const EcdhDerivationAttributesFilterSensitiveLog = (obj: EcdhDerivationAttributes): any => ({
-  ...obj,
-  ...(obj.PublicKeyCertificate && { PublicKeyCertificate: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
 export const WrappedKeyMaterialFilterSensitiveLog = (obj: WrappedKeyMaterial): any => {
   if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: SENSITIVE_STRING };
-  if (obj.DiffieHellmanSymmetricKey !== undefined)
-    return { DiffieHellmanSymmetricKey: EcdhDerivationAttributesFilterSensitiveLog(obj.DiffieHellmanSymmetricKey) };
+  if (obj.DiffieHellmanSymmetricKey !== undefined) return { DiffieHellmanSymmetricKey: obj.DiffieHellmanSymmetricKey };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -4159,6 +4409,26 @@ export const Ibm3624PinVerificationFilterSensitiveLog = (obj: Ibm3624PinVerifica
 /**
  * @internal
  */
+export const IncomingDiffieHellmanTr31KeyBlockFilterSensitiveLog = (obj: IncomingDiffieHellmanTr31KeyBlock): any => ({
+  ...obj,
+  ...(obj.DerivationData && { DerivationData: obj.DerivationData }),
+  ...(obj.WrappedKeyBlock && { WrappedKeyBlock: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IncomingKeyMaterialFilterSensitiveLog = (obj: IncomingKeyMaterial): any => {
+  if (obj.DiffieHellmanTr31KeyBlock !== undefined)
+    return {
+      DiffieHellmanTr31KeyBlock: IncomingDiffieHellmanTr31KeyBlockFilterSensitiveLog(obj.DiffieHellmanTr31KeyBlock),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const ReEncryptionAttributesFilterSensitiveLog = (obj: ReEncryptionAttributes): any => {
   if (obj.Symmetric !== undefined) return { Symmetric: SymmetricEncryptionAttributesFilterSensitiveLog(obj.Symmetric) };
   if (obj.Dukpt !== undefined) return { Dukpt: DukptEncryptionAttributesFilterSensitiveLog(obj.Dukpt) };
@@ -4187,6 +4457,33 @@ export const ReEncryptDataInputFilterSensitiveLog = (obj: ReEncryptDataInput): a
 export const ReEncryptDataOutputFilterSensitiveLog = (obj: ReEncryptDataOutput): any => ({
   ...obj,
   ...(obj.CipherText && { CipherText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TranslateKeyMaterialInputFilterSensitiveLog = (obj: TranslateKeyMaterialInput): any => ({
+  ...obj,
+  ...(obj.IncomingKeyMaterial && {
+    IncomingKeyMaterial: IncomingKeyMaterialFilterSensitiveLog(obj.IncomingKeyMaterial),
+  }),
+  ...(obj.OutgoingKeyMaterial && { OutgoingKeyMaterial: obj.OutgoingKeyMaterial }),
+});
+
+/**
+ * @internal
+ */
+export const WrappedWorkingKeyFilterSensitiveLog = (obj: WrappedWorkingKey): any => ({
+  ...obj,
+  ...(obj.WrappedKeyMaterial && { WrappedKeyMaterial: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TranslateKeyMaterialOutputFilterSensitiveLog = (obj: TranslateKeyMaterialOutput): any => ({
+  ...obj,
+  ...(obj.WrappedKey && { WrappedKey: WrappedWorkingKeyFilterSensitiveLog(obj.WrappedKey) }),
 });
 
 /**

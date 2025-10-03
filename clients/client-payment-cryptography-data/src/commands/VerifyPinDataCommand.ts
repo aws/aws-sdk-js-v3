@@ -57,8 +57,8 @@ export interface VerifyPinDataCommandOutput extends VerifyPinDataOutput, __Metad
  *     },
  *   },
  *   EncryptedPinBlock: "STRING_VALUE", // required
- *   PrimaryAccountNumber: "STRING_VALUE", // required
- *   PinBlockFormat: "ISO_FORMAT_0" || "ISO_FORMAT_3" || "ISO_FORMAT_4", // required
+ *   PrimaryAccountNumber: "STRING_VALUE",
+ *   PinBlockFormat: "ISO_FORMAT_0" || "ISO_FORMAT_1" || "ISO_FORMAT_3" || "ISO_FORMAT_4", // required
  *   PinDataLength: Number("int"),
  *   DukptAttributes: { // DukptAttributes
  *     KeySerialNumber: "STRING_VALUE", // required

@@ -81,8 +81,8 @@ export interface GeneratePinDataCommandOutput extends GeneratePinDataOutput, __M
  *     },
  *   },
  *   PinDataLength: Number("int"),
- *   PrimaryAccountNumber: "STRING_VALUE", // required
- *   PinBlockFormat: "ISO_FORMAT_0" || "ISO_FORMAT_3" || "ISO_FORMAT_4", // required
+ *   PrimaryAccountNumber: "STRING_VALUE",
+ *   PinBlockFormat: "ISO_FORMAT_0" || "ISO_FORMAT_1" || "ISO_FORMAT_3" || "ISO_FORMAT_4", // required
  *   EncryptionWrappedKey: { // WrappedKey
  *     WrappedKeyMaterial: { // WrappedKeyMaterial Union: only one key present
  *       Tr31KeyBlock: "STRING_VALUE",
