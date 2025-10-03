@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.903.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.902.0...v3.903.0) (2025-10-03)
+
+
+### Features
+
+* **client-payment-cryptography-data:** Added a new API - translateKeyMaterial; allows keys wrapped by ECDH derived keys to be rewrapped under a static AES keyblock without first importing the key into the service. ([efdc709](https://github.com/aws/aws-sdk-js-v3/commit/efdc709171feb21e3ea5de5420df668b094c911e))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography-data

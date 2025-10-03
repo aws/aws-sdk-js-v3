@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.903.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.902.0...v3.903.0) (2025-10-03)
+
+
+### Features
+
+* **client-cleanrooms:** Added support for reading data sources across regions, and results delivery to allowedlisted regions. ([7793507](https://github.com/aws/aws-sdk-js-v3/commit/779350706563633a58f2b188ae28d270ae77aa88))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 

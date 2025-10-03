@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.903.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.902.0...v3.903.0) (2025-10-03)
+
+
+### Features
+
+* **client-cleanrooms:** Added support for reading data sources across regions, and results delivery to allowedlisted regions. ([7793507](https://github.com/aws/aws-sdk-js-v3/commit/779350706563633a58f2b188ae28d270ae77aa88))
+* **client-medialive:** AWS Elemental MediaLive enables Mediapackage V2 users to configure ID3, KLV, Nielsen ID3, and Segment Length related parameters through the Mediapackage output group. ([5187cdb](https://github.com/aws/aws-sdk-js-v3/commit/5187cdb83466572ae903fb9dbad8f1e5267d73cb))
+* **client-payment-cryptography-data:** Added a new API - translateKeyMaterial; allows keys wrapped by ECDH derived keys to be rewrapped under a static AES keyblock without first importing the key into the service. ([efdc709](https://github.com/aws/aws-sdk-js-v3/commit/efdc709171feb21e3ea5de5420df668b094c911e))
+* **client-qconnect:** Updated Amazon Q in Connect APIs to support Email Contact Recommendations. ([e884036](https://github.com/aws/aws-sdk-js-v3/commit/e88403674bfa7078ba201b862f8f378c76e189b4))
+
+
+
+
+
 # [3.902.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.901.0...v3.902.0) (2025-10-02)
 
 

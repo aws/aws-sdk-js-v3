@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.903.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.902.0...v3.903.0) (2025-10-03)
+
+
+### Features
+
+* **client-qconnect:** Updated Amazon Q in Connect APIs to support Email Contact Recommendations. ([e884036](https://github.com/aws/aws-sdk-js-v3/commit/e88403674bfa7078ba201b862f8f378c76e189b4))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-qconnect
