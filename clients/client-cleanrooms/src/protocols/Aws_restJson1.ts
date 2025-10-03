@@ -391,7 +391,6 @@ import {
   MemberChangeSpecification,
   MembershipProtectedJobOutputConfiguration,
   MembershipProtectedJobResultConfiguration,
-  MembershipProtectedQueryOutputConfiguration,
   MemberSpecification,
   MemberSummary,
   MLMemberAbilities,
@@ -401,7 +400,6 @@ import {
   PaymentConfiguration,
   PrivacyBudget,
   ProtectedJobS3OutputConfigurationInput,
-  ProtectedQueryS3OutputConfiguration,
   QueryComputePaymentConfig,
   ResourceNotFoundException,
   S3Location,
@@ -414,6 +412,7 @@ import {
   SnowflakeTableReference,
   SnowflakeTableSchema,
   SnowflakeTableSchemaV1,
+  SupportedS3Region,
   TableReference,
   ThrottlingException,
   ValidationException,
@@ -433,6 +432,7 @@ import {
   MembershipModelInferencePaymentConfig,
   MembershipModelTrainingPaymentConfig,
   MembershipPaymentConfiguration,
+  MembershipProtectedQueryOutputConfiguration,
   MembershipProtectedQueryResultConfiguration,
   MembershipQueryComputePaymentConfig,
   MembershipSummary,
@@ -457,6 +457,7 @@ import {
   ProtectedQueryMemberOutputConfiguration,
   ProtectedQueryOutputConfiguration,
   ProtectedQueryResultConfiguration,
+  ProtectedQueryS3OutputConfiguration,
   ProtectedQuerySQLParameters,
   ProtectedQueryStatistics,
   ProtectedQuerySummary,
@@ -577,6 +578,7 @@ export const se_CreateCollaborationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      allowedResultRegions: (_) => _json(_),
       analyticsEngine: [],
       autoApprovedChangeRequestTypes: (_) => _json(_),
       creatorDisplayName: [],
@@ -4401,6 +4403,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AllowedResultReceivers omitted.
 
+// se_AllowedResultRegions omitted.
+
 // se_AnalysisParameter omitted.
 
 // se_AnalysisParameterList omitted.
@@ -4650,6 +4654,8 @@ const de_AccessBudgetDetailsList = (output: any, context: __SerdeContext): Acces
 
 // de_AllowedResultReceivers omitted.
 
+// de_AllowedResultRegions omitted.
+
 // de_AnalysisParameter omitted.
 
 // de_AnalysisParameterList omitted.
@@ -4816,6 +4822,7 @@ const de_BilledResourceUtilization = (output: any, context: __SerdeContext): Bil
  */
 const de_Collaboration = (output: any, context: __SerdeContext): Collaboration => {
   return take(output, {
+    allowedResultRegions: _json,
     analyticsEngine: __expectString,
     arn: __expectString,
     autoApprovedChangeTypes: _json,

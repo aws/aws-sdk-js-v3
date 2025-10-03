@@ -8,14 +8,83 @@ import {
   DifferentialPrivacyAggregationType,
   MemberAbility,
   MembershipProtectedJobResultConfiguration,
-  MembershipProtectedQueryOutputConfiguration,
   MLMemberAbilities,
   PrivacyBudget,
   PrivacyBudgetTemplateAutoRefresh,
   PrivacyBudgetTemplateParametersOutput,
   PrivacyBudgetType,
-  ProtectedQueryS3OutputConfiguration,
+  ResultFormat,
 } from "./models_0";
+
+/**
+ * <p>Contains the configuration to write the query results to S3.</p>
+ * @public
+ */
+export interface ProtectedQueryS3OutputConfiguration {
+  /**
+   * <p>Intended file format of the result.</p>
+   * @public
+   */
+  resultFormat: ResultFormat | undefined;
+
+  /**
+   * <p>The S3 bucket to unload the protected query results.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The S3 prefix to unload the protected query results.</p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+
+  /**
+   * <p>Indicates whether files should be output as a single file (<code>TRUE</code>) or output as multiple files (<code>FALSE</code>). This parameter is only supported for analyses with the Spark analytics engine.</p>
+   * @public
+   */
+  singleFileOutput?: boolean | undefined;
+}
+
+/**
+ * <p>Contains configurations for protected query results.</p>
+ * @public
+ */
+export type MembershipProtectedQueryOutputConfiguration =
+  | MembershipProtectedQueryOutputConfiguration.S3Member
+  | MembershipProtectedQueryOutputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MembershipProtectedQueryOutputConfiguration {
+  /**
+   * <p>Contains the configuration to write the query results to S3.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3OutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MembershipProtectedQueryOutputConfiguration, visitor: Visitor<T>): T => {
+    if (value.s3 !== undefined) return visitor.s3(value.s3);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
  * <p>Contains configurations for protected query results.</p>

@@ -305,6 +305,51 @@ export interface AggregationConstraint {
  * @public
  * @enum
  */
+export const SupportedS3Region = {
+  AF_SOUTH_1: "af-south-1",
+  AP_EAST_1: "ap-east-1",
+  AP_EAST_2: "ap-east-2",
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_NORTHEAST_2: "ap-northeast-2",
+  AP_NORTHEAST_3: "ap-northeast-3",
+  AP_SOUTHEAST_1: "ap-southeast-1",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AP_SOUTHEAST_3: "ap-southeast-3",
+  AP_SOUTHEAST_4: "ap-southeast-4",
+  AP_SOUTHEAST_5: "ap-southeast-5",
+  AP_SOUTHEAST_7: "ap-southeast-7",
+  AP_SOUTH_1: "ap-south-1",
+  AP_SOUTH_2: "ap-south-2",
+  CA_CENTRAL_1: "ca-central-1",
+  CA_WEST_1: "ca-west-1",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_CENTRAL_2: "eu-central-2",
+  EU_NORTH_1: "eu-north-1",
+  EU_SOUTH_1: "eu-south-1",
+  EU_SOUTH_2: "eu-south-2",
+  EU_WEST_1: "eu-west-1",
+  EU_WEST_2: "eu-west-2",
+  EU_WEST_3: "eu-west-3",
+  IL_CENTRAL_1: "il-central-1",
+  ME_CENTRAL_1: "me-central-1",
+  ME_SOUTH_1: "me-south-1",
+  MX_CENTRAL_1: "mx-central-1",
+  SA_EAST_1: "sa-east-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_1: "us-west-1",
+  US_WEST_2: "us-west-2",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportedS3Region = (typeof SupportedS3Region)[keyof typeof SupportedS3Region];
+
+/**
+ * @public
+ * @enum
+ */
 export const AnalysisFormat = {
   PYSPARK_1_0: "PYSPARK_1_0",
   SQL: "SQL",
@@ -2228,10 +2273,61 @@ export const AnalyticsEngine = {
 export type AnalyticsEngine = (typeof AnalyticsEngine)[keyof typeof AnalyticsEngine];
 
 /**
+ * @public
+ * @enum
+ */
+export const CommercialRegion = {
+  AF_SOUTH_1: "af-south-1",
+  AP_EAST_1: "ap-east-1",
+  AP_EAST_2: "ap-east-2",
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_NORTHEAST_2: "ap-northeast-2",
+  AP_NORTHEAST_3: "ap-northeast-3",
+  AP_SOUTHEAST_1: "ap-southeast-1",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AP_SOUTHEAST_3: "ap-southeast-3",
+  AP_SOUTHEAST_4: "ap-southeast-4",
+  AP_SOUTHEAST_5: "ap-southeast-5",
+  AP_SOUTHEAST_7: "ap-southeast-7",
+  AP_SOUTH_1: "ap-south-1",
+  AP_SOUTH_2: "ap-south-2",
+  CA_CENTRAL_1: "ca-central-1",
+  CA_WEST_1: "ca-west-1",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_CENTRAL_2: "eu-central-2",
+  EU_NORTH_1: "eu-north-1",
+  EU_SOUTH_1: "eu-south-1",
+  EU_SOUTH_2: "eu-south-2",
+  EU_WEST_1: "eu-west-1",
+  EU_WEST_2: "eu-west-2",
+  EU_WEST_3: "eu-west-3",
+  IL_CENTRAL_1: "il-central-1",
+  ME_CENTRAL_1: "me-central-1",
+  ME_SOUTH_1: "me-south-1",
+  MX_CENTRAL_1: "mx-central-1",
+  SA_EAST_1: "sa-east-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_1: "us-west-1",
+  US_WEST_2: "us-west-2",
+} as const;
+
+/**
+ * @public
+ */
+export type CommercialRegion = (typeof CommercialRegion)[keyof typeof CommercialRegion];
+
+/**
  * <p> A reference to a table within Athena.</p>
  * @public
  */
 export interface AthenaTableReference {
+  /**
+   * <p>The Amazon Web Services Region where the Athena table is located. This parameter is required to uniquely identify and access tables across different Regions.</p>
+   * @public
+   */
+  region?: CommercialRegion | undefined;
+
   /**
    * <p> The workgroup of the Athena table reference.</p>
    * @public
@@ -3211,6 +3307,12 @@ export interface CreateCollaborationInput {
    * @public
    */
   autoApprovedChangeRequestTypes?: AutoApprovedChangeType[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions where collaboration query results can be stored. When specified, results can only be written to these Regions. This parameter enables you to meet your compliance and data governance requirements, and implement regional data governance policies.</p>
+   * @public
+   */
+  allowedResultRegions?: SupportedS3Region[] | undefined;
 }
 
 /**
@@ -3329,6 +3431,12 @@ export interface Collaboration {
    * @public
    */
   autoApprovedChangeTypes?: AutoApprovedChangeType[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.</p>
+   * @public
+   */
+  allowedResultRegions?: SupportedS3Region[] | undefined;
 }
 
 /**
@@ -6188,6 +6296,12 @@ export interface UpdateConfiguredTableAssociationAnalysisRuleOutput {
  */
 export interface GlueTableReference {
   /**
+   * <p>The Amazon Web Services Region where the Glue table is located. This parameter is required to uniquely identify and access tables across different Regions.</p>
+   * @public
+   */
+  region?: CommercialRegion | undefined;
+
+  /**
    * <p>The name of the Glue table.</p>
    * @public
    */
@@ -7852,76 +7966,6 @@ export const ResultFormat = {
  * @public
  */
 export type ResultFormat = (typeof ResultFormat)[keyof typeof ResultFormat];
-
-/**
- * <p>Contains the configuration to write the query results to S3.</p>
- * @public
- */
-export interface ProtectedQueryS3OutputConfiguration {
-  /**
-   * <p>Intended file format of the result.</p>
-   * @public
-   */
-  resultFormat: ResultFormat | undefined;
-
-  /**
-   * <p>The S3 bucket to unload the protected query results.</p>
-   * @public
-   */
-  bucket: string | undefined;
-
-  /**
-   * <p>The S3 prefix to unload the protected query results.</p>
-   * @public
-   */
-  keyPrefix?: string | undefined;
-
-  /**
-   * <p>Indicates whether files should be output as a single file (<code>TRUE</code>) or output as multiple files (<code>FALSE</code>). This parameter is only supported for analyses with the Spark analytics engine.</p>
-   * @public
-   */
-  singleFileOutput?: boolean | undefined;
-}
-
-/**
- * <p>Contains configurations for protected query results.</p>
- * @public
- */
-export type MembershipProtectedQueryOutputConfiguration =
-  | MembershipProtectedQueryOutputConfiguration.S3Member
-  | MembershipProtectedQueryOutputConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MembershipProtectedQueryOutputConfiguration {
-  /**
-   * <p>Contains the configuration to write the query results to S3.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedQueryS3OutputConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: MembershipProtectedQueryOutputConfiguration, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
 
 /**
  * @internal
