@@ -70,6 +70,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *       aiAgentId: "STRING_VALUE", // required
  *     },
  *   },
+ *   contactArn: "STRING_VALUE",
  * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
@@ -127,6 +128,9 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+ *
+ * @throws {@link DependencyFailedException} (client fault)
+ *  <p>An error occurred while calling a dependency. For example, calling <code>connect:DecribeContact</code> as part of <code>CreateSession</code> with a contactArn.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

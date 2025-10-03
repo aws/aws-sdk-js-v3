@@ -6,10 +6,15 @@ import {
   Configuration,
   ContentDataDetails,
   ContentDataDetailsFilterSensitiveLog,
+  ContentDisposition,
   ContentSummary,
   DataReference,
   Document,
   DocumentFilterSensitiveLog,
+  EmailOverviewChunkDataDetails,
+  EmailOverviewChunkDataDetailsFilterSensitiveLog,
+  EmailResponseChunkDataDetails,
+  EmailResponseChunkDataDetailsFilterSensitiveLog,
   GroupingConfiguration,
   GroupingConfigurationFilterSensitiveLog,
   IntentDetectedDataDetails,
@@ -18,15 +23,11 @@ import {
   KnowledgeBaseDataFilterSensitiveLog,
   KnowledgeBaseStatus,
   KnowledgeBaseType,
-  MessageTemplateAttachment,
-  MessageTemplateAttachmentFilterSensitiveLog,
   MessageTemplateAttributes,
   MessageTemplateAttributesFilterSensitiveLog,
   MessageTemplateAttributeType,
   MessageTemplateContentProvider,
   MessageTemplateContentProviderFilterSensitiveLog,
-  MessageTemplateData,
-  MessageTemplateDataFilterSensitiveLog,
   QueryResultType,
   RankingData,
   RecommendationTrigger,
@@ -44,6 +45,242 @@ import {
 } from "./models_0";
 
 import { QConnectServiceException as __BaseException } from "./QConnectServiceException";
+
+/**
+ * <p>The data of a message template.</p>
+ * @public
+ */
+export interface MessageTemplateData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+
+  /**
+   * <p>The types of attributes that the message template contains.</p>
+   * @public
+   */
+  attributeTypes?: MessageTemplateAttributeType[] | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * @public
+   */
+  messageTemplateContentSha256: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: MessageTemplateData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateAttachmentRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The presentation information for the attachment file.</p>
+   * @public
+   */
+  contentDisposition: ContentDisposition | undefined;
+
+  /**
+   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The body of the attachment file being uploaded. It should be encoded using base64 encoding.</p>
+   * @public
+   */
+  body: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Information about the message template attachment.</p>
+ * @public
+ */
+export interface MessageTemplateAttachment {
+  /**
+   * <p>The presentation information for the attachment file.</p>
+   * @public
+   */
+  contentDisposition: ContentDisposition | undefined;
+
+  /**
+   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the attachment file was uploaded.</p>
+   * @public
+   */
+  uploadedTime: Date | undefined;
+
+  /**
+   * <p>A pre-signed Amazon S3 URL that can be used to download the attachment file.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The expiration time of the pre-signed Amazon S3 URL.</p>
+   * @public
+   */
+  urlExpiry: Date | undefined;
+
+  /**
+   * <p>The identifier of the attachment file.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateAttachmentResponse {
+  /**
+   * <p>The message template attachment.</p>
+   * @public
+   */
+  attachment?: MessageTemplateAttachment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateVersionRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the <code>$LATEST</code> qualifier by default.</p>
+   * @public
+   */
+  messageTemplateContentSha256?: string | undefined;
+}
 
 /**
  * <p>The extended data of a message template.</p>
@@ -2625,6 +2862,9 @@ export interface UntagResourceResponse {}
  */
 export type DataDetails =
   | DataDetails.ContentDataMember
+  | DataDetails.EmailGenerativeAnswerChunkDataMember
+  | DataDetails.EmailOverviewChunkDataMember
+  | DataDetails.EmailResponseChunkDataMember
   | DataDetails.GenerativeChunkDataMember
   | DataDetails.GenerativeDataMember
   | DataDetails.IntentDetectedDataMember
@@ -2645,6 +2885,9 @@ export namespace DataDetails {
     intentDetectedData?: never;
     sourceContentData?: never;
     generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
     $unknown?: never;
   }
 
@@ -2658,6 +2901,9 @@ export namespace DataDetails {
     intentDetectedData?: never;
     sourceContentData?: never;
     generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
     $unknown?: never;
   }
 
@@ -2671,6 +2917,9 @@ export namespace DataDetails {
     intentDetectedData: IntentDetectedDataDetails;
     sourceContentData?: never;
     generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
     $unknown?: never;
   }
 
@@ -2684,6 +2933,9 @@ export namespace DataDetails {
     intentDetectedData?: never;
     sourceContentData: SourceContentDataDetails;
     generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
     $unknown?: never;
   }
 
@@ -2697,6 +2949,57 @@ export namespace DataDetails {
     intentDetectedData?: never;
     sourceContentData?: never;
     generativeChunkData: GenerativeChunkDataDetails;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Streaming chunk data for email response generation containing partial response content.</p>
+   * @public
+   */
+  export interface EmailResponseChunkDataMember {
+    contentData?: never;
+    generativeData?: never;
+    intentDetectedData?: never;
+    sourceContentData?: never;
+    generativeChunkData?: never;
+    emailResponseChunkData: EmailResponseChunkDataDetails;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Streaming chunk data for email overview containing partial overview content.</p>
+   * @public
+   */
+  export interface EmailOverviewChunkDataMember {
+    contentData?: never;
+    generativeData?: never;
+    intentDetectedData?: never;
+    sourceContentData?: never;
+    generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData: EmailOverviewChunkDataDetails;
+    emailGenerativeAnswerChunkData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Streaming chunk data for email generative answers containing partial knowledge-based response content.</p>
+   * @public
+   */
+  export interface EmailGenerativeAnswerChunkDataMember {
+    contentData?: never;
+    generativeData?: never;
+    intentDetectedData?: never;
+    sourceContentData?: never;
+    generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData: EmailGenerativeAnswerChunkDataDetails;
     $unknown?: never;
   }
 
@@ -2709,6 +3012,9 @@ export namespace DataDetails {
     intentDetectedData?: never;
     sourceContentData?: never;
     generativeChunkData?: never;
+    emailResponseChunkData?: never;
+    emailOverviewChunkData?: never;
+    emailGenerativeAnswerChunkData?: never;
     $unknown: [string, any];
   }
 
@@ -2718,6 +3024,9 @@ export namespace DataDetails {
     intentDetectedData: (value: IntentDetectedDataDetails) => T;
     sourceContentData: (value: SourceContentDataDetails) => T;
     generativeChunkData: (value: GenerativeChunkDataDetails) => T;
+    emailResponseChunkData: (value: EmailResponseChunkDataDetails) => T;
+    emailOverviewChunkData: (value: EmailOverviewChunkDataDetails) => T;
+    emailGenerativeAnswerChunkData: (value: EmailGenerativeAnswerChunkDataDetails) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2727,6 +3036,10 @@ export namespace DataDetails {
     if (value.intentDetectedData !== undefined) return visitor.intentDetectedData(value.intentDetectedData);
     if (value.sourceContentData !== undefined) return visitor.sourceContentData(value.sourceContentData);
     if (value.generativeChunkData !== undefined) return visitor.generativeChunkData(value.generativeChunkData);
+    if (value.emailResponseChunkData !== undefined) return visitor.emailResponseChunkData(value.emailResponseChunkData);
+    if (value.emailOverviewChunkData !== undefined) return visitor.emailOverviewChunkData(value.emailOverviewChunkData);
+    if (value.emailGenerativeAnswerChunkData !== undefined)
+      return visitor.emailGenerativeAnswerChunkData(value.emailGenerativeAnswerChunkData);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2747,6 +3060,30 @@ export interface DataSummary {
    * @public
    */
   details: DataDetails | undefined;
+}
+
+/**
+ * <p>Details of streaming chunk data for email generative answers including completion text and references.</p>
+ * @public
+ */
+export interface EmailGenerativeAnswerChunkDataDetails {
+  /**
+   * <p>The partial or complete text content of the generative answer response.</p>
+   * @public
+   */
+  completion?: string | undefined;
+
+  /**
+   * <p>Source references and citations from knowledge base articles used to generate the answer.</p>
+   * @public
+   */
+  references?: DataSummary[] | undefined;
+
+  /**
+   * <p>Token for retrieving the next chunk of streaming response data, if available.</p>
+   * @public
+   */
+  nextChunkToken?: string | undefined;
 }
 
 /**
@@ -2908,6 +3245,58 @@ export interface QueryAssistantResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const MessageTemplateDataFilterSensitiveLog = (obj: MessageTemplateData): any => ({
+  ...obj,
+  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.groupingConfiguration && {
+    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+  }),
+  ...(obj.defaultAttributes && {
+    defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMessageTemplateResponseFilterSensitiveLog = (obj: CreateMessageTemplateResponse): any => ({
+  ...obj,
+  ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMessageTemplateAttachmentRequestFilterSensitiveLog = (
+  obj: CreateMessageTemplateAttachmentRequest
+): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.body && { body: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MessageTemplateAttachmentFilterSensitiveLog = (obj: MessageTemplateAttachment): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.url && { url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMessageTemplateAttachmentResponseFilterSensitiveLog = (
+  obj: CreateMessageTemplateAttachmentResponse
+): any => ({
+  ...obj,
+  ...(obj.attachment && { attachment: MessageTemplateAttachmentFilterSensitiveLog(obj.attachment) }),
+});
 
 /**
  * @internal
@@ -3241,6 +3630,16 @@ export const DataDetailsFilterSensitiveLog = (obj: DataDetails): any => {
     return { sourceContentData: SourceContentDataDetailsFilterSensitiveLog(obj.sourceContentData) };
   if (obj.generativeChunkData !== undefined)
     return { generativeChunkData: GenerativeChunkDataDetailsFilterSensitiveLog(obj.generativeChunkData) };
+  if (obj.emailResponseChunkData !== undefined)
+    return { emailResponseChunkData: EmailResponseChunkDataDetailsFilterSensitiveLog(obj.emailResponseChunkData) };
+  if (obj.emailOverviewChunkData !== undefined)
+    return { emailOverviewChunkData: EmailOverviewChunkDataDetailsFilterSensitiveLog(obj.emailOverviewChunkData) };
+  if (obj.emailGenerativeAnswerChunkData !== undefined)
+    return {
+      emailGenerativeAnswerChunkData: EmailGenerativeAnswerChunkDataDetailsFilterSensitiveLog(
+        obj.emailGenerativeAnswerChunkData
+      ),
+    };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -3251,6 +3650,17 @@ export const DataSummaryFilterSensitiveLog = (obj: DataSummary): any => ({
   ...obj,
   ...(obj.reference && { reference: obj.reference }),
   ...(obj.details && { details: DataDetailsFilterSensitiveLog(obj.details) }),
+});
+
+/**
+ * @internal
+ */
+export const EmailGenerativeAnswerChunkDataDetailsFilterSensitiveLog = (
+  obj: EmailGenerativeAnswerChunkDataDetails
+): any => ({
+  ...obj,
+  ...(obj.completion && { completion: SENSITIVE_STRING }),
+  ...(obj.references && { references: obj.references.map((item) => DataSummaryFilterSensitiveLog(item)) }),
 });
 
 /**

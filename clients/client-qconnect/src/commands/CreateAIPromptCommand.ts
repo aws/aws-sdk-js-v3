@@ -33,7 +33,7 @@ export interface CreateAIPromptCommandInput extends CreateAIPromptRequest {}
 export interface CreateAIPromptCommandOutput extends CreateAIPromptResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Q in Connect AI Prompt.</p> <note> <p>For more information on supported models, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported models for system and custom prompts</a>.</p> </note>
+ * <p>Creates an Amazon Q in Connect AI Prompt.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

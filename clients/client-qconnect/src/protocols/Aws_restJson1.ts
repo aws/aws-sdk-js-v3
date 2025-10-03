@@ -289,9 +289,13 @@ import {
   ContentFeedbackData,
   ConversationContext,
   CustomerProfileAttributes,
+  DependencyFailedException,
+  EmailGenerativeAnswerAIAgentConfiguration,
   EmailHeader,
   EmailMessageTemplateContent,
   EmailMessageTemplateContentBody,
+  EmailOverviewAIAgentConfiguration,
+  EmailResponseAIAgentConfiguration,
   Filter,
   FixedSizeChunkingConfiguration,
   GenerativeContentFeedbackData,
@@ -314,11 +318,9 @@ import {
   MessageData,
   MessageInput,
   MessageOutput,
-  MessageTemplateAttachment,
   MessageTemplateAttributes,
   MessageTemplateBodyContentProvider,
   MessageTemplateContentProvider,
-  MessageTemplateData,
   OrCondition,
   ParsingConfiguration,
   ParsingPrompt,
@@ -361,12 +363,15 @@ import {
 import {
   DataDetails,
   DataSummary,
+  EmailGenerativeAnswerChunkDataDetails,
   ExtendedMessageTemplateData,
   ExternalSourceConfiguration,
   GenerativeChunkDataDetails,
   GenerativeDataDetails,
   ImportJobData,
   ImportJobSummary,
+  MessageTemplateAttachment,
+  MessageTemplateData,
   MessageTemplateFilterField,
   MessageTemplateOrderField,
   MessageTemplateQueryField,
@@ -853,6 +858,7 @@ export const se_CreateSessionCommand = async (
     take(input, {
       aiAgentConfiguration: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      contactArn: [],
       description: [],
       name: [],
       tagFilter: (_) => _json(_),
@@ -4338,6 +4344,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnauthorizedException":
     case "com.amazonaws.qconnect#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "DependencyFailedException":
+    case "com.amazonaws.qconnect#DependencyFailedException":
+      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.qconnect#RequestTimeoutException":
       throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
@@ -4389,6 +4398,26 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
   });
   Object.assign(contents, doc);
   const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1DependencyFailedExceptionRes
+ */
+const de_DependencyFailedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DependencyFailedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new DependencyFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -4559,6 +4588,9 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeContext): any => {
   return AIAgentConfiguration.visit(input, {
     answerRecommendationAIAgentConfiguration: (value) => ({ answerRecommendationAIAgentConfiguration: _json(value) }),
+    emailGenerativeAnswerAIAgentConfiguration: (value) => ({ emailGenerativeAnswerAIAgentConfiguration: _json(value) }),
+    emailOverviewAIAgentConfiguration: (value) => ({ emailOverviewAIAgentConfiguration: _json(value) }),
+    emailResponseAIAgentConfiguration: (value) => ({ emailResponseAIAgentConfiguration: _json(value) }),
     manualSearchAIAgentConfiguration: (value) => ({ manualSearchAIAgentConfiguration: _json(value) }),
     selfServiceAIAgentConfiguration: (value) => ({ selfServiceAIAgentConfiguration: _json(value) }),
     _: (name, value) => ({ [name]: value } as any),
@@ -4631,6 +4663,8 @@ const se_AIGuardrailContextualGroundingPolicyConfig = (
 
 // se_CustomerProfileAttributes omitted.
 
+// se_EmailGenerativeAnswerAIAgentConfiguration omitted.
+
 // se_EmailHeader omitted.
 
 // se_EmailHeaders omitted.
@@ -4638,6 +4672,10 @@ const se_AIGuardrailContextualGroundingPolicyConfig = (
 // se_EmailMessageTemplateContent omitted.
 
 // se_EmailMessageTemplateContentBody omitted.
+
+// se_EmailOverviewAIAgentConfiguration omitted.
+
+// se_EmailResponseAIAgentConfiguration omitted.
 
 // se_ExternalSourceConfiguration omitted.
 
@@ -4851,6 +4889,21 @@ const de_AIAgentConfiguration = (output: any, context: __SerdeContext): AIAgentC
   if (output.answerRecommendationAIAgentConfiguration != null) {
     return {
       answerRecommendationAIAgentConfiguration: _json(output.answerRecommendationAIAgentConfiguration),
+    };
+  }
+  if (output.emailGenerativeAnswerAIAgentConfiguration != null) {
+    return {
+      emailGenerativeAnswerAIAgentConfiguration: _json(output.emailGenerativeAnswerAIAgentConfiguration),
+    };
+  }
+  if (output.emailOverviewAIAgentConfiguration != null) {
+    return {
+      emailOverviewAIAgentConfiguration: _json(output.emailOverviewAIAgentConfiguration),
+    };
+  }
+  if (output.emailResponseAIAgentConfiguration != null) {
+    return {
+      emailResponseAIAgentConfiguration: _json(output.emailResponseAIAgentConfiguration),
     };
   }
   if (output.manualSearchAIAgentConfiguration != null) {
@@ -5237,6 +5290,24 @@ const de_DataDetails = (output: any, context: __SerdeContext): DataDetails => {
       contentData: de_ContentDataDetails(output.contentData, context),
     };
   }
+  if (output.emailGenerativeAnswerChunkData != null) {
+    return {
+      emailGenerativeAnswerChunkData: de_EmailGenerativeAnswerChunkDataDetails(
+        output.emailGenerativeAnswerChunkData,
+        context
+      ),
+    };
+  }
+  if (output.emailOverviewChunkData != null) {
+    return {
+      emailOverviewChunkData: _json(output.emailOverviewChunkData),
+    };
+  }
+  if (output.emailResponseChunkData != null) {
+    return {
+      emailResponseChunkData: _json(output.emailResponseChunkData),
+    };
+  }
   if (output.generativeChunkData != null) {
     return {
       generativeChunkData: de_GenerativeChunkDataDetails(output.generativeChunkData, context),
@@ -5288,6 +5359,22 @@ const de_DataSummaryList = (output: any, context: __SerdeContext): DataSummary[]
 
 // de_DocumentText omitted.
 
+// de_EmailGenerativeAnswerAIAgentConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1EmailGenerativeAnswerChunkDataDetails
+ */
+const de_EmailGenerativeAnswerChunkDataDetails = (
+  output: any,
+  context: __SerdeContext
+): EmailGenerativeAnswerChunkDataDetails => {
+  return take(output, {
+    completion: __expectString,
+    nextChunkToken: __expectString,
+    references: (_: any) => de_DataSummaryList(_, context),
+  }) as any;
+};
+
 // de_EmailHeader omitted.
 
 // de_EmailHeaders omitted.
@@ -5295,6 +5382,14 @@ const de_DataSummaryList = (output: any, context: __SerdeContext): DataSummary[]
 // de_EmailMessageTemplateContent omitted.
 
 // de_EmailMessageTemplateContentBody omitted.
+
+// de_EmailOverviewAIAgentConfiguration omitted.
+
+// de_EmailOverviewChunkDataDetails omitted.
+
+// de_EmailResponseAIAgentConfiguration omitted.
+
+// de_EmailResponseChunkDataDetails omitted.
 
 /**
  * deserializeAws_restJson1ExtendedMessageTemplateData

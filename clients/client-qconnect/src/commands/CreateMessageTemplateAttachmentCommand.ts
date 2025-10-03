@@ -10,7 +10,7 @@ import {
   CreateMessageTemplateAttachmentRequestFilterSensitiveLog,
   CreateMessageTemplateAttachmentResponse,
   CreateMessageTemplateAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_CreateMessageTemplateAttachmentCommand,
   se_CreateMessageTemplateAttachmentCommand,

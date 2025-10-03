@@ -477,6 +477,84 @@ export interface AnswerRecommendationAIAgentConfiguration {
 }
 
 /**
+ * <p>Configuration settings for the EMAIL_GENERATIVE_ANSWER AI agent including prompts, locale, and knowledge base associations.</p>
+ * @public
+ */
+export interface EmailGenerativeAnswerAIAgentConfiguration {
+  /**
+   * <p>The ID of the System AI prompt used for generating comprehensive knowledge-based answers from email queries.</p>
+   * @public
+   */
+  emailGenerativeAnswerAIPromptId?: string | undefined;
+
+  /**
+   * <p>The ID of the System AI prompt used for reformulating email queries to optimize knowledge base search results.</p>
+   * @public
+   */
+  emailQueryReformulationAIPromptId?: string | undefined;
+
+  /**
+   * <p>The locale setting for language-specific email processing and response generation (for example, en_US, es_ES).</p>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
+   * <p>Configuration settings for knowledge base associations used by the email generative answer agent.</p>
+   * @public
+   */
+  associationConfigurations?: AssociationConfiguration[] | undefined;
+}
+
+/**
+ * <p>Configuration settings for the EMAIL_OVERVIEW AI agent including prompt ID and locale settings.</p>
+ * @public
+ */
+export interface EmailOverviewAIAgentConfiguration {
+  /**
+   * <p>The ID of the System AI prompt used for generating structured email conversation summaries.</p>
+   * @public
+   */
+  emailOverviewAIPromptId?: string | undefined;
+
+  /**
+   * <p>The locale setting for language-specific email overview processing (for example, en_US, es_ES).</p>
+   * @public
+   */
+  locale?: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for the EMAIL_RESPONSE AI agent including prompts, locale, and knowledge base associations.</p>
+ * @public
+ */
+export interface EmailResponseAIAgentConfiguration {
+  /**
+   * <p>The ID of the System AI prompt used for generating professional email responses based on knowledge base content.</p>
+   * @public
+   */
+  emailResponseAIPromptId?: string | undefined;
+
+  /**
+   * <p>The ID of the System AI prompt used for reformulating email queries to optimize knowledge base search for response generation.</p>
+   * @public
+   */
+  emailQueryReformulationAIPromptId?: string | undefined;
+
+  /**
+   * <p>The locale setting for language-specific email response generation (for example, en_US, es_ES).</p>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
+   * <p>Configuration settings for knowledge base associations used by the email response agent.</p>
+   * @public
+   */
+  associationConfigurations?: AssociationConfiguration[] | undefined;
+}
+
+/**
  * <p>The configuration for the <code>MANUAL_SEARCH</code> AI Agent type.</p>
  * @public
  */
@@ -542,6 +620,9 @@ export interface SelfServiceAIAgentConfiguration {
  */
 export type AIAgentConfiguration =
   | AIAgentConfiguration.AnswerRecommendationAIAgentConfigurationMember
+  | AIAgentConfiguration.EmailGenerativeAnswerAIAgentConfigurationMember
+  | AIAgentConfiguration.EmailOverviewAIAgentConfigurationMember
+  | AIAgentConfiguration.EmailResponseAIAgentConfigurationMember
   | AIAgentConfiguration.ManualSearchAIAgentConfigurationMember
   | AIAgentConfiguration.SelfServiceAIAgentConfigurationMember
   | AIAgentConfiguration.$UnknownMember;
@@ -558,6 +639,9 @@ export namespace AIAgentConfiguration {
     manualSearchAIAgentConfiguration: ManualSearchAIAgentConfiguration;
     answerRecommendationAIAgentConfiguration?: never;
     selfServiceAIAgentConfiguration?: never;
+    emailResponseAIAgentConfiguration?: never;
+    emailOverviewAIAgentConfiguration?: never;
+    emailGenerativeAnswerAIAgentConfiguration?: never;
     $unknown?: never;
   }
 
@@ -569,6 +653,9 @@ export namespace AIAgentConfiguration {
     manualSearchAIAgentConfiguration?: never;
     answerRecommendationAIAgentConfiguration: AnswerRecommendationAIAgentConfiguration;
     selfServiceAIAgentConfiguration?: never;
+    emailResponseAIAgentConfiguration?: never;
+    emailOverviewAIAgentConfiguration?: never;
+    emailGenerativeAnswerAIAgentConfiguration?: never;
     $unknown?: never;
   }
 
@@ -580,6 +667,51 @@ export namespace AIAgentConfiguration {
     manualSearchAIAgentConfiguration?: never;
     answerRecommendationAIAgentConfiguration?: never;
     selfServiceAIAgentConfiguration: SelfServiceAIAgentConfiguration;
+    emailResponseAIAgentConfiguration?: never;
+    emailOverviewAIAgentConfiguration?: never;
+    emailGenerativeAnswerAIAgentConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for the EMAIL_RESPONSE AI agent that generates professional email responses using knowledge base content.</p>
+   * @public
+   */
+  export interface EmailResponseAIAgentConfigurationMember {
+    manualSearchAIAgentConfiguration?: never;
+    answerRecommendationAIAgentConfiguration?: never;
+    selfServiceAIAgentConfiguration?: never;
+    emailResponseAIAgentConfiguration: EmailResponseAIAgentConfiguration;
+    emailOverviewAIAgentConfiguration?: never;
+    emailGenerativeAnswerAIAgentConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for the EMAIL_OVERVIEW AI agent that generates structured overview of email conversations.</p>
+   * @public
+   */
+  export interface EmailOverviewAIAgentConfigurationMember {
+    manualSearchAIAgentConfiguration?: never;
+    answerRecommendationAIAgentConfiguration?: never;
+    selfServiceAIAgentConfiguration?: never;
+    emailResponseAIAgentConfiguration?: never;
+    emailOverviewAIAgentConfiguration: EmailOverviewAIAgentConfiguration;
+    emailGenerativeAnswerAIAgentConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for the EMAIL_GENERATIVE_ANSWER AI agent that provides comprehensive knowledge-based answers for customer queries.</p>
+   * @public
+   */
+  export interface EmailGenerativeAnswerAIAgentConfigurationMember {
+    manualSearchAIAgentConfiguration?: never;
+    answerRecommendationAIAgentConfiguration?: never;
+    selfServiceAIAgentConfiguration?: never;
+    emailResponseAIAgentConfiguration?: never;
+    emailOverviewAIAgentConfiguration?: never;
+    emailGenerativeAnswerAIAgentConfiguration: EmailGenerativeAnswerAIAgentConfiguration;
     $unknown?: never;
   }
 
@@ -590,6 +722,9 @@ export namespace AIAgentConfiguration {
     manualSearchAIAgentConfiguration?: never;
     answerRecommendationAIAgentConfiguration?: never;
     selfServiceAIAgentConfiguration?: never;
+    emailResponseAIAgentConfiguration?: never;
+    emailOverviewAIAgentConfiguration?: never;
+    emailGenerativeAnswerAIAgentConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -597,6 +732,9 @@ export namespace AIAgentConfiguration {
     manualSearchAIAgentConfiguration: (value: ManualSearchAIAgentConfiguration) => T;
     answerRecommendationAIAgentConfiguration: (value: AnswerRecommendationAIAgentConfiguration) => T;
     selfServiceAIAgentConfiguration: (value: SelfServiceAIAgentConfiguration) => T;
+    emailResponseAIAgentConfiguration: (value: EmailResponseAIAgentConfiguration) => T;
+    emailOverviewAIAgentConfiguration: (value: EmailOverviewAIAgentConfiguration) => T;
+    emailGenerativeAnswerAIAgentConfiguration: (value: EmailGenerativeAnswerAIAgentConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -607,6 +745,12 @@ export namespace AIAgentConfiguration {
       return visitor.answerRecommendationAIAgentConfiguration(value.answerRecommendationAIAgentConfiguration);
     if (value.selfServiceAIAgentConfiguration !== undefined)
       return visitor.selfServiceAIAgentConfiguration(value.selfServiceAIAgentConfiguration);
+    if (value.emailResponseAIAgentConfiguration !== undefined)
+      return visitor.emailResponseAIAgentConfiguration(value.emailResponseAIAgentConfiguration);
+    if (value.emailOverviewAIAgentConfiguration !== undefined)
+      return visitor.emailOverviewAIAgentConfiguration(value.emailOverviewAIAgentConfiguration);
+    if (value.emailGenerativeAnswerAIAgentConfiguration !== undefined)
+      return visitor.emailGenerativeAnswerAIAgentConfiguration(value.emailGenerativeAnswerAIAgentConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -617,6 +761,9 @@ export namespace AIAgentConfiguration {
  */
 export const AIAgentType = {
   ANSWER_RECOMMENDATION: "ANSWER_RECOMMENDATION",
+  EMAIL_GENERATIVE_ANSWER: "EMAIL_GENERATIVE_ANSWER",
+  EMAIL_OVERVIEW: "EMAIL_OVERVIEW",
+  EMAIL_RESPONSE: "EMAIL_RESPONSE",
   MANUAL_SEARCH: "MANUAL_SEARCH",
   SELF_SERVICE: "SELF_SERVICE",
 } as const;
@@ -2281,6 +2428,10 @@ export type AIPromptTemplateType = (typeof AIPromptTemplateType)[keyof typeof AI
  */
 export const AIPromptType = {
   ANSWER_GENERATION: "ANSWER_GENERATION",
+  EMAIL_GENERATIVE_ANSWER: "EMAIL_GENERATIVE_ANSWER",
+  EMAIL_OVERVIEW: "EMAIL_OVERVIEW",
+  EMAIL_QUERY_REFORMULATION: "EMAIL_QUERY_REFORMULATION",
+  EMAIL_RESPONSE: "EMAIL_RESPONSE",
   INTENT_LABELING_GENERATION: "INTENT_LABELING_GENERATION",
   QUERY_REFORMULATION: "QUERY_REFORMULATION",
   SELF_SERVICE_ANSWER_GENERATION: "SELF_SERVICE_ANSWER_GENERATION",
@@ -2339,7 +2490,7 @@ export interface CreateAIPromptRequest {
   templateType: AIPromptTemplateType | undefined;
 
   /**
-   * <p>The identifier of the model used for this AI Prompt.</p>
+   * <p>The identifier of the model used for this AI Prompt.</p> <note> <p>For information about which models are supported in each Amazon Web Services Region, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported models for system/custom prompts</a>.</p> </note>
    * @public
    */
   modelId: string | undefined;
@@ -2859,7 +3010,7 @@ export interface UpdateAIPromptRequest {
   description?: string | undefined;
 
   /**
-   * <p>The identifier of the model used for this AI Prompt.</p> <note> <p>For more information on supported models, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported models for system and custom prompts</a>.</p> </note>
+   * <p>The identifier of the model used for this AI Prompt.</p> <note> <p>For information about which models are supported in each Amazon Web Services Region, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported models for system/custom prompts</a>.</p> </note>
    * @public
    */
   modelId?: string | undefined;
@@ -3634,6 +3785,42 @@ export interface ContentDataDetails {
 }
 
 /**
+ * <p>Details of streaming chunk data for email overview including completion text and pagination tokens.</p>
+ * @public
+ */
+export interface EmailOverviewChunkDataDetails {
+  /**
+   * <p>The partial or complete overview text content in structured HTML format with customer issues, resolutions, and next steps.</p>
+   * @public
+   */
+  completion?: string | undefined;
+
+  /**
+   * <p>Token for retrieving the next chunk of streaming overview data, if available.</p>
+   * @public
+   */
+  nextChunkToken?: string | undefined;
+}
+
+/**
+ * <p>Details of streaming chunk data for email responses including completion text and pagination tokens.</p>
+ * @public
+ */
+export interface EmailResponseChunkDataDetails {
+  /**
+   * <p>The partial or complete professional email response text with appropriate greetings and closings.</p>
+   * @public
+   */
+  completion?: string | undefined;
+
+  /**
+   * <p>Token for retrieving the next chunk of streaming response data, if available.</p>
+   * @public
+   */
+  nextChunkToken?: string | undefined;
+}
+
+/**
  * <p>Details about the detected intent.</p>
  * @public
  */
@@ -3879,6 +4066,9 @@ export const RecommendationType = {
   BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
   BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
   DETECTED_INTENT: "DETECTED_INTENT",
+  EMAIL_GENERATIVE_ANSWER_CHUNK: "EMAIL_GENERATIVE_ANSWER_CHUNK",
+  EMAIL_OVERVIEW_CHUNK: "EMAIL_OVERVIEW_CHUNK",
+  EMAIL_RESPONSE_CHUNK: "EMAIL_RESPONSE_CHUNK",
   GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
   GENERATIVE_ANSWER_CHUNK: "GENERATIVE_ANSWER_CHUNK",
   GENERATIVE_RESPONSE: "GENERATIVE_RESPONSE",
@@ -4545,6 +4735,9 @@ export interface QueryAssistantRequest {
 export const QueryResultType = {
   BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
   BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
+  EMAIL_GENERATIVE_ANSWER_CHUNK: "EMAIL_GENERATIVE_ANSWER_CHUNK",
+  EMAIL_OVERVIEW_CHUNK: "EMAIL_OVERVIEW_CHUNK",
+  EMAIL_RESPONSE_CHUNK: "EMAIL_RESPONSE_CHUNK",
   GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
   GENERATIVE_ANSWER_CHUNK: "GENERATIVE_ANSWER_CHUNK",
   INTENT_ANSWER: "INTENT_ANSWER",
@@ -4783,6 +4976,12 @@ export interface CreateSessionRequest {
    * @public
    */
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the email contact in Amazon Connect. Used to retrieve email content and establish session context for AI-powered email assistance.</p>
+   * @public
+   */
+  contactArn?: string | undefined;
 }
 
 /**
@@ -4866,6 +5065,26 @@ export interface CreateSessionResponse {
    * @public
    */
   session?: SessionData | undefined;
+}
+
+/**
+ * <p>An error occurred while calling a dependency. For example, calling <code>connect:DecribeContact</code> as part of <code>CreateSession</code> with a contactArn.</p>
+ * @public
+ */
+export class DependencyFailedException extends __BaseException {
+  readonly name: "DependencyFailedException" = "DependencyFailedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyFailedException, __BaseException>) {
+    super({
+      name: "DependencyFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyFailedException.prototype);
+  }
 }
 
 /**
@@ -7662,242 +7881,6 @@ export type MessageTemplateAttributeType =
   (typeof MessageTemplateAttributeType)[keyof typeof MessageTemplateAttributeType];
 
 /**
- * <p>The data of a message template.</p>
- * @public
- */
-export interface MessageTemplateData {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the message template.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The channel subtype this message template applies to.</p>
-   * @public
-   */
-  channelSubtype: ChannelSubtype | undefined;
-
-  /**
-   * <p>The timestamp when the message template was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the message template data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
-   * @public
-   */
-  lastModifiedBy: string | undefined;
-
-  /**
-   * <p>The content of the message template.</p>
-   * @public
-   */
-  content: MessageTemplateContentProvider | undefined;
-
-  /**
-   * <p>The description of the message template.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
-   * @public
-   */
-  defaultAttributes?: MessageTemplateAttributes | undefined;
-
-  /**
-   * <p>The types of attributes that the message template contains.</p>
-   * @public
-   */
-  attributeTypes?: MessageTemplateAttributeType[] | undefined;
-
-  /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
-   * @public
-   */
-  messageTemplateContentSha256: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateResponse {
-  /**
-   * <p>The message template.</p>
-   * @public
-   */
-  messageTemplate?: MessageTemplateData | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateAttachmentRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The presentation information for the attachment file.</p>
-   * @public
-   */
-  contentDisposition: ContentDisposition | undefined;
-
-  /**
-   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The body of the attachment file being uploaded. It should be encoded using base64 encoding.</p>
-   * @public
-   */
-  body: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * <p>Information about the message template attachment.</p>
- * @public
- */
-export interface MessageTemplateAttachment {
-  /**
-   * <p>The presentation information for the attachment file.</p>
-   * @public
-   */
-  contentDisposition: ContentDisposition | undefined;
-
-  /**
-   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The timestamp when the attachment file was uploaded.</p>
-   * @public
-   */
-  uploadedTime: Date | undefined;
-
-  /**
-   * <p>A pre-signed Amazon S3 URL that can be used to download the attachment file.</p>
-   * @public
-   */
-  url: string | undefined;
-
-  /**
-   * <p>The expiration time of the pre-signed Amazon S3 URL.</p>
-   * @public
-   */
-  urlExpiry: Date | undefined;
-
-  /**
-   * <p>The identifier of the attachment file.</p>
-   * @public
-   */
-  attachmentId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateAttachmentResponse {
-  /**
-   * <p>The message template attachment.</p>
-   * @public
-   */
-  attachment?: MessageTemplateAttachment | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateVersionRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the <code>$LATEST</code> qualifier by default.</p>
-   * @public
-   */
-  messageTemplateContentSha256?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AgentAttributesFilterSensitiveLog = (obj: AgentAttributes): any => ({
@@ -8299,6 +8282,22 @@ export const TextDataFilterSensitiveLog = (obj: TextData): any => ({
 export const ContentDataDetailsFilterSensitiveLog = (obj: ContentDataDetails): any => ({
   ...obj,
   ...(obj.textData && { textData: TextDataFilterSensitiveLog(obj.textData) }),
+});
+
+/**
+ * @internal
+ */
+export const EmailOverviewChunkDataDetailsFilterSensitiveLog = (obj: EmailOverviewChunkDataDetails): any => ({
+  ...obj,
+  ...(obj.completion && { completion: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EmailResponseChunkDataDetailsFilterSensitiveLog = (obj: EmailResponseChunkDataDetails): any => ({
+  ...obj,
+  ...(obj.completion && { completion: SENSITIVE_STRING }),
 });
 
 /**
@@ -8759,56 +8758,4 @@ export const CreateMessageTemplateRequestFilterSensitiveLog = (obj: CreateMessag
   ...(obj.groupingConfiguration && {
     groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const MessageTemplateDataFilterSensitiveLog = (obj: MessageTemplateData): any => ({
-  ...obj,
-  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
-  ...(obj.groupingConfiguration && {
-    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
-  }),
-  ...(obj.defaultAttributes && {
-    defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateMessageTemplateResponseFilterSensitiveLog = (obj: CreateMessageTemplateResponse): any => ({
-  ...obj,
-  ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
-});
-
-/**
- * @internal
- */
-export const CreateMessageTemplateAttachmentRequestFilterSensitiveLog = (
-  obj: CreateMessageTemplateAttachmentRequest
-): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.body && { body: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const MessageTemplateAttachmentFilterSensitiveLog = (obj: MessageTemplateAttachment): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.url && { url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateMessageTemplateAttachmentResponseFilterSensitiveLog = (
-  obj: CreateMessageTemplateAttachmentResponse
-): any => ({
-  ...obj,
-  ...(obj.attachment && { attachment: MessageTemplateAttachmentFilterSensitiveLog(obj.attachment) }),
 });

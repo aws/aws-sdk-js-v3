@@ -5,12 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateMessageTemplateRequest,
-  CreateMessageTemplateRequestFilterSensitiveLog,
-  CreateMessageTemplateResponse,
-  CreateMessageTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateMessageTemplateRequest, CreateMessageTemplateRequestFilterSensitiveLog } from "../models/models_0";
+import { CreateMessageTemplateResponse, CreateMessageTemplateResponseFilterSensitiveLog } from "../models/models_1";
 import { de_CreateMessageTemplateCommand, se_CreateMessageTemplateCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 

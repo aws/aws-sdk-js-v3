@@ -201,6 +201,21 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //                     ],
  * //                     nextChunkToken: "STRING_VALUE",
  * //                   },
+ * //                   emailResponseChunkData: { // EmailResponseChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     nextChunkToken: "STRING_VALUE",
+ * //                   },
+ * //                   emailOverviewChunkData: { // EmailOverviewChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     nextChunkToken: "STRING_VALUE",
+ * //                   },
+ * //                   emailGenerativeAnswerChunkData: { // EmailGenerativeAnswerChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     references: [
+ * //                       "<DataSummary>",
+ * //                     ],
+ * //                     nextChunkToken: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               },
  * //             ],
@@ -231,6 +246,19 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //             references: [
  * //               "<DataSummary>",
  * //             ],
+ * //             nextChunkToken: "STRING_VALUE",
+ * //           },
+ * //           emailResponseChunkData: {
+ * //             completion: "STRING_VALUE",
+ * //             nextChunkToken: "STRING_VALUE",
+ * //           },
+ * //           emailOverviewChunkData: {
+ * //             completion: "STRING_VALUE",
+ * //             nextChunkToken: "STRING_VALUE",
+ * //           },
+ * //           emailGenerativeAnswerChunkData: {
+ * //             completion: "STRING_VALUE",
+ * //             references: "<DataSummaryList>",
  * //             nextChunkToken: "STRING_VALUE",
  * //           },
  * //         },

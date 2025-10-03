@@ -153,6 +153,64 @@ export interface CreateAIAgentVersionCommandOutput extends CreateAIAgentVersionR
  * //           },
  * //         ],
  * //       },
+ * //       emailResponseAIAgentConfiguration: { // EmailResponseAIAgentConfiguration
+ * //         emailResponseAIPromptId: "STRING_VALUE",
+ * //         emailQueryReformulationAIPromptId: "STRING_VALUE",
+ * //         locale: "STRING_VALUE",
+ * //         associationConfigurations: [
+ * //           {
+ * //             associationId: "STRING_VALUE",
+ * //             associationType: "STRING_VALUE",
+ * //             associationConfigurationData: {//  Union: only one key present
+ * //               knowledgeBaseAssociationConfigurationData: {
+ * //                 contentTagFilter: {//  Union: only one key present
+ * //                   tagCondition: "<TagCondition>",
+ * //                   andConditions: "<AndConditions>",
+ * //                   orConditions: [
+ * //                     {//  Union: only one key present
+ * //                       andConditions: "<AndConditions>",
+ * //                       tagCondition: "<TagCondition>",
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 maxResults: Number("int"),
+ * //                 overrideKnowledgeBaseSearchType: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       emailOverviewAIAgentConfiguration: { // EmailOverviewAIAgentConfiguration
+ * //         emailOverviewAIPromptId: "STRING_VALUE",
+ * //         locale: "STRING_VALUE",
+ * //       },
+ * //       emailGenerativeAnswerAIAgentConfiguration: { // EmailGenerativeAnswerAIAgentConfiguration
+ * //         emailGenerativeAnswerAIPromptId: "STRING_VALUE",
+ * //         emailQueryReformulationAIPromptId: "STRING_VALUE",
+ * //         locale: "STRING_VALUE",
+ * //         associationConfigurations: [
+ * //           {
+ * //             associationId: "STRING_VALUE",
+ * //             associationType: "STRING_VALUE",
+ * //             associationConfigurationData: {//  Union: only one key present
+ * //               knowledgeBaseAssociationConfigurationData: {
+ * //                 contentTagFilter: {//  Union: only one key present
+ * //                   tagCondition: "<TagCondition>",
+ * //                   andConditions: "<AndConditions>",
+ * //                   orConditions: [
+ * //                     {//  Union: only one key present
+ * //                       andConditions: "<AndConditions>",
+ * //                       tagCondition: "<TagCondition>",
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 maxResults: Number("int"),
+ * //                 overrideKnowledgeBaseSearchType: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     modifiedTime: new Date("TIMESTAMP"),
  * //     description: "STRING_VALUE",
