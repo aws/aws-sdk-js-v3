@@ -36,6 +36,7 @@ import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.MediaTypeTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.model.traits.UniqueItemsTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings.ArtifactType;
@@ -123,7 +124,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             );
         }
 
-        if (shape.isSetShape() && artifactType.equals(ArtifactType.SSDK)) {
+        if (shape.isListShape() && shape.hasTrait(UniqueItemsTrait.ID) && artifactType.equals(ArtifactType.SSDK)) {
             writer.addDependency(TypeScriptDependency.SERVER_COMMON);
             writer.addImport("findDuplicates", "__findDuplicates", "@aws-smithy/server-common");
             writer.openBlock("if (__findDuplicates(retVal).length > 0) {", "}", () -> {
