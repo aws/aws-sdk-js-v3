@@ -293,7 +293,7 @@ final class AwsProtocolUtils {
         boolean awsQueryCompatible = service.hasTrait(AwsQueryCompatibleTrait.class);
         if (awsQueryCompatible) {
             for (OperationShape operation : operations) {
-                List<ShapeId> errors = operation.getErrors();
+                Set<ShapeId> errors = operation.getErrorsSet();
                 for (ShapeId error : errors) {
                     Shape errorShape = context.getModel().expectShape(error);
                     if (errorShape.hasTrait(AwsQueryErrorTrait.class)) {
