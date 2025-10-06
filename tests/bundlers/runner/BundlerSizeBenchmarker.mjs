@@ -20,7 +20,7 @@ export class BundlerSizeBenchmarker {
    * @returns {Promise<{app:string,size:string,bundler:string}>}
    */
   async webpack() {
-    const outfile = path.resolve(__dirname, "..", "dist", `webpack-dist-${this.application}.js`);
+    const outfile = path.resolve(__dirname, "..", "dist-webpack", `webpack-dist-${this.application}.js`);
 
     const config = {
       mode: "production",
@@ -72,14 +72,14 @@ export class BundlerSizeBenchmarker {
         },
         minify: true,
         emptyOutDir: false,
+        worker: {
+          format: "es",
+        },
         rollupOptions: {
-          input: {
-            input: inputFile,
-          },
           external: [],
           output: {
+            format: "esm",
             dir: path.dirname(outfile),
-            inlineDynamicImports: true,
           },
         },
       },
@@ -95,7 +95,7 @@ export class BundlerSizeBenchmarker {
    */
   async esbuild() {
     const entryPoint = path.resolve(__dirname, "..", "applications", this.application);
-    const outfile = path.resolve(__dirname, "..", "dist", `esbuild-dist-${this.application}.js`);
+    const outfile = path.resolve(__dirname, "..", "dist-esbuild", `esbuild-dist-${this.application}.js`);
 
     await esbuild.build({
       entryPoints: [entryPoint],

@@ -9,6 +9,8 @@ const root = path.join(__dirname, "..", "..");
 
 const models = path.join(root, "codegen", "sdk-codegen", "aws-models");
 
+const protocolCounts = {};
+
 for (const file of fs.readdirSync(models)) {
   if (file.endsWith(".json")) {
     const model = require(path.join(models, file));
@@ -17,7 +19,12 @@ for (const file of fs.readdirSync(models)) {
     const operations = Object.entries(shapes).filter(([id, s]) => {
       return s.type === "operation";
     });
-    const protocol = Object.entries(service[1].traits).find(([id, trait]) => id.startsWith("aws.protocol"))[0];
+    const protocol = Object.entries(service[1].traits).find(
+      ([id, trait]) => id.startsWith("aws.protocol") || id.startsWith("smithy.protocol")
+    )[0];
+
+    protocolCounts[protocol] = protocolCounts[protocol] ?? {};
+    protocolCounts[protocol][service[0]] = operations.length;
 
     if (protocol.includes("rest")) {
       const inputOutputShapes = Object.entries(shapes).filter(([id, s]) => {
@@ -129,3 +136,15 @@ for (const file of fs.readdirSync(models)) {
     }
   }
 }
+
+for (const [protocol, serviceToOperationCounts] of Object.entries(protocolCounts)) {
+  const entries = Object.entries(serviceToOperationCounts).sort(([s1, c1], [s2, c2]) => {
+    return c2 - c1;
+  });
+  for (const [s, c] of entries) {
+    delete serviceToOperationCounts[s];
+    serviceToOperationCounts[s] = c;
+  }
+}
+
+console.log(protocolCounts);

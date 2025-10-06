@@ -23,3 +23,6 @@ webpack:
 esbuild:
 	npx esbuild ./source.ts --bundle --outfile=./dist/esbuild-dist.js --format=esm --tree-shaking=true
 	npx esbuild ./source.ts --bundle --outfile=./dist-min/esbuild-dist.min.js --format=esm --tree-shaking=true --minify
+
+clean:
+	rm -rf dist dist-min dist-vite dist-esbuild dist-webpack
