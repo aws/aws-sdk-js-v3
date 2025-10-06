@@ -9297,9 +9297,6 @@ export interface ModifyDBInstanceMessage {
    *             <li>
    *                <p>Must be in the distinguished name format.</p>
    *             </li>
-   *             <li>
-   *                <p>Can't be longer than 64 characters.</p>
-   *             </li>
    *          </ul>
    *          <p>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code>
    *          </p>
