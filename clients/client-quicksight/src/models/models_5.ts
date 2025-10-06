@@ -899,7 +899,7 @@ export interface UpdateAccountCustomizationRequest {
   Namespace?: string | undefined;
 
   /**
-   * <p>The QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
+   * <p>The QuickSight customizations you're updating. </p>
    * @public
    */
   AccountCustomization: AccountCustomization | undefined;
@@ -929,7 +929,7 @@ export interface UpdateAccountCustomizationResponse {
   Namespace?: string | undefined;
 
   /**
-   * <p>The QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
+   * <p>The QuickSight customizations you're updating. </p>
    * @public
    */
   AccountCustomization?: AccountCustomization | undefined;

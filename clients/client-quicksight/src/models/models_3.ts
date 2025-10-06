@@ -903,7 +903,7 @@ export interface CreateAccountCustomizationRequest {
   Namespace?: string | undefined;
 
   /**
-   * <p>The QuickSight customizations you're adding in the current Amazon Web Services Region. You can add
+   * <p>The QuickSight customizations you're adding. You can add
    *             these to an Amazon Web Services account and a QuickSight namespace. </p>
    *          <p>For example, you can add a default theme by setting <code>AccountCustomization</code>
    *             to the midnight theme: <code>"AccountCustomization": \{ "DefaultTheme":
@@ -945,7 +945,7 @@ export interface CreateAccountCustomizationResponse {
   Namespace?: string | undefined;
 
   /**
-   * <p>The QuickSight customizations you're adding in the current Amazon Web Services Region. </p>
+   * <p>The QuickSight customizations you're adding. </p>
    * @public
    */
   AccountCustomization?: AccountCustomization | undefined;
@@ -8054,8 +8054,7 @@ export interface DataSourceSummary {
  */
 export interface DeleteAccountCustomizationRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that you want to delete QuickSight customizations from in
-   *             this Amazon Web Services Region.</p>
+   * <p>The ID for the Amazon Web Services account that you want to delete QuickSight customizations from.</p>
    * @public
    */
   AwsAccountId: string | undefined;

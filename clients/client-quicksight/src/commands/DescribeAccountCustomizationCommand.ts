@@ -34,7 +34,7 @@ export interface DescribeAccountCustomizationCommandOutput
 
 /**
  * <p>Describes the customizations associated with the provided Amazon Web Services account and Amazon
- *             QuickSight namespace in an Amazon Web Services Region. The QuickSight console evaluates which
+ *             QuickSight namespace. The QuickSight console evaluates which
  *             customizations to apply by running this API operation with the <code>Resolved</code> flag
  *             included. </p>
  *          <p>To determine what customizations display when you run this command, it can help to
@@ -50,9 +50,8 @@ export interface DescribeAccountCustomizationCommandOutput
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Amazon Web Services Region</code> - In each Amazon Web Services Region where you sign in to QuickSight
- *                     at least once, QuickSight acts as a separate instance of the same service. If
- *                     you have a user directory, it resides in us-east-1, which is the US East (N.
+ *                   <code>Amazon Web Services Region</code> - You can sign in to QuickSight in any Amazon Web Services Region. If
+ *                     you have a user directory, it resides in us-east-1, which is US East (N.
  *                     Virginia). Generally speaking, these users have access to QuickSight in any
  *                     Amazon Web Services Region, unless they are constrained to a namespace. </p>
  *                <p>To run the command in a different Amazon Web Services Region, you change your Region settings.
@@ -82,12 +81,9 @@ export interface DescribeAccountCustomizationCommandOutput
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Applied customizations</code> -  Within an Amazon Web Services Region, a set of
- *                     QuickSight customizations can apply to an Amazon Web Services account or to a namespace.
+ *                   <code>Applied customizations</code> - QuickSight customizations can apply to an Amazon Web Services account or to a namespace.
  *                     Settings that you apply to a namespace override settings that you apply to an
- *                     Amazon Web Services account. All settings are isolated to a single Amazon Web Services Region. To apply them in
- *                     other Amazon Web Services Regions, run the <code>CreateAccountCustomization</code> command in
- *                     each Amazon Web Services Region where you want to apply the same customizations. </p>
+ *                     Amazon Web Services account.</p>
  *             </li>
  *          </ul>
  * @example

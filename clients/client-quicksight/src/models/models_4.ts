@@ -685,7 +685,7 @@ export interface DescribeAccountCustomizationResponse {
   Namespace?: string | undefined;
 
   /**
-   * <p>The QuickSight customizations that exist in the current Amazon Web Services Region. </p>
+   * <p>The QuickSight customizations that exist. </p>
    * @public
    */
   AccountCustomization?: AccountCustomization | undefined;
