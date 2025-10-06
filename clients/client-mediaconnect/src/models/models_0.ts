@@ -386,6 +386,12 @@ export interface AddMediaStreamRequest {
    * @public
    */
   VideoFormat?: string | undefined;
+
+  /**
+   * <p> The key-value pairs that can be used to tag and organize the media stream. </p>
+   * @public
+   */
+  MediaStreamTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -669,7 +675,7 @@ export interface AddOutputRequest {
    * <p> The protocol to use for the output.</p> <note> <p>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.</p> </note>
    * @public
    */
-  Protocol: Protocol | undefined;
+  Protocol?: Protocol | undefined;
 
   /**
    * <p> The remote ID for the Zixi-pull output stream.</p>
@@ -718,6 +724,12 @@ export interface AddOutputRequest {
    * @public
    */
   NdiProgramName?: string | undefined;
+
+  /**
+   * <p> The key-value pairs that can be used to tag and organize the output. </p>
+   * @public
+   */
+  OutputTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1100,6 +1112,12 @@ export interface GrantEntitlementRequest {
    * @public
    */
   Subscribers: string[] | undefined;
+
+  /**
+   * <p> The key-value pairs that can be used to tag and organize the entitlement. </p>
+   * @public
+   */
+  EntitlementTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2263,6 +2281,12 @@ export interface SetSourceRequest {
    * @public
    */
   GatewayBridgeSource?: SetGatewayBridgeSourceRequest | undefined;
+
+  /**
+   * <p> The key-value pairs that can be used to tag and organize the source. </p>
+   * @public
+   */
+  SourceTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2637,6 +2661,12 @@ export interface VpcInterfaceRequest {
    * @public
    */
   SubnetId: string | undefined;
+
+  /**
+   * <p> The key-value pairs that can be used to tag and organize the VPC network interface. </p>
+   * @public
+   */
+  VpcInterfaceTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4034,6 +4064,12 @@ export interface CreateFlowRequest {
    * @public
    */
   NdiConfig?: NdiConfig | undefined;
+
+  /**
+   * <p> The key-value pairs that can be used to tag and organize the flow. </p>
+   * @public
+   */
+  FlowTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5008,6 +5044,12 @@ export interface UpdateFlowRequest {
    * @public
    */
   NdiConfig?: NdiConfig | undefined;
+
+  /**
+   * <p> Determines the processing capacity and feature set of the flow. </p>
+   * @public
+   */
+  FlowSize?: FlowSize | undefined;
 }
 
 /**

@@ -59,6 +59,9 @@ export interface AddFlowMediaStreamsCommandOutput extends AddFlowMediaStreamsRes
  *       MediaStreamName: "STRING_VALUE", // required
  *       MediaStreamType: "video" || "audio" || "ancillary-data", // required
  *       VideoFormat: "STRING_VALUE",
+ *       MediaStreamTags: { // __mapOfString
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   ],
  * };

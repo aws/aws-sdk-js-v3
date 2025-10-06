@@ -88,6 +88,9 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  *           VpcInterfaceName: "STRING_VALUE",
  *         },
  *       },
+ *       SourceTags: { // __mapOfString
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   ],
  * };

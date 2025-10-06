@@ -59,6 +59,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       Subscribers: [ // __listOfString // required
  *         "STRING_VALUE",
  *       ],
+ *       EntitlementTags: { // __mapOfString
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   ],
  *   MediaStreams: [ // __listOfAddMediaStreamRequest
@@ -81,6 +84,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       MediaStreamName: "STRING_VALUE", // required
  *       MediaStreamType: "video" || "audio" || "ancillary-data", // required
  *       VideoFormat: "STRING_VALUE",
+ *       MediaStreamTags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   ],
  *   Name: "STRING_VALUE", // required
@@ -125,7 +131,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       MinLatency: Number("int"),
  *       Name: "STRING_VALUE",
  *       Port: Number("int"),
- *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
+ *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq",
  *       RemoteId: "STRING_VALUE",
  *       SenderControlPort: Number("int"),
  *       SmoothingLatency: Number("int"),
@@ -136,6 +142,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       OutputStatus: "ENABLED" || "DISABLED",
  *       NdiSpeedHqQuality: Number("int"),
  *       NdiProgramName: "STRING_VALUE",
+ *       OutputTags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   ],
  *   Source: { // SetSourceRequest
@@ -185,6 +194,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       VpcInterfaceAttachment: {
  *         VpcInterfaceName: "STRING_VALUE",
  *       },
+ *     },
+ *     SourceTags: {
+ *       "<keys>": "STRING_VALUE",
  *     },
  *   },
  *   SourceFailoverConfig: { // FailoverConfig
@@ -244,6 +256,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *           VpcInterfaceName: "STRING_VALUE",
  *         },
  *       },
+ *       SourceTags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   ],
  *   VpcInterfaces: [ // __listOfVpcInterfaceRequest
@@ -255,6 +270,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *         "STRING_VALUE",
  *       ],
  *       SubnetId: "STRING_VALUE", // required
+ *       VpcInterfaceTags: "<__mapOfString>",
  *     },
  *   ],
  *   Maintenance: { // AddMaintenance
@@ -297,6 +313,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       },
  *     ],
  *   },
+ *   FlowTags: "<__mapOfString>",
  * };
  * const command = new CreateFlowCommand(input);
  * const response = await client.send(command);

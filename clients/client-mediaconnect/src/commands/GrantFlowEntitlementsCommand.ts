@@ -58,6 +58,9 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  *       Subscribers: [ // __listOfString // required
  *         "STRING_VALUE",
  *       ],
+ *       EntitlementTags: { // __mapOfString
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   ],
  *   FlowArn: "STRING_VALUE", // required

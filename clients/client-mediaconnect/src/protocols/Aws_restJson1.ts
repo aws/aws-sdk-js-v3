@@ -413,6 +413,7 @@ export const se_CreateFlowCommand = async (
       availabilityZone: [, , `AvailabilityZone`],
       entitlements: [, (_) => se___listOfGrantEntitlementRequest(_, context), `Entitlements`],
       flowSize: [, , `FlowSize`],
+      flowTags: [, (_) => _json(_), `FlowTags`],
       maintenance: [, (_) => se_AddMaintenance(_, context), `Maintenance`],
       mediaStreams: [, (_) => se___listOfAddMediaStreamRequest(_, context), `MediaStreams`],
       name: [, , `Name`],
@@ -1152,6 +1153,7 @@ export const se_UpdateFlowCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      flowSize: [, , `FlowSize`],
       maintenance: [, (_) => se_UpdateMaintenance(_, context), `Maintenance`],
       ndiConfig: [, (_) => se_NdiConfig(_, context), `NdiConfig`],
       sourceFailoverConfig: [, (_) => se_UpdateFailoverConfig(_, context), `SourceFailoverConfig`],
@@ -3012,6 +3014,7 @@ const se_AddMediaStreamRequest = (input: AddMediaStreamRequest, context: __Serde
     description: [, , `Description`],
     mediaStreamId: [, , `MediaStreamId`],
     mediaStreamName: [, , `MediaStreamName`],
+    mediaStreamTags: [, _json, `MediaStreamTags`],
     mediaStreamType: [, , `MediaStreamType`],
     videoFormat: [, , `VideoFormat`],
   });
@@ -3037,6 +3040,7 @@ const se_AddOutputRequest = (input: AddOutputRequest, context: __SerdeContext): 
     ndiProgramName: [, , `NdiProgramName`],
     ndiSpeedHqQuality: [, , `NdiSpeedHqQuality`],
     outputStatus: [, , `OutputStatus`],
+    outputTags: [, _json, `OutputTags`],
     port: [, , `Port`],
     protocol: [, , `Protocol`],
     remoteId: [, , `RemoteId`],
@@ -3160,6 +3164,7 @@ const se_GrantEntitlementRequest = (input: GrantEntitlementRequest, context: __S
     description: [, , `Description`],
     encryption: [, (_) => se_Encryption(_, context), `Encryption`],
     entitlementStatus: [, , `EntitlementStatus`],
+    entitlementTags: [, _json, `EntitlementTags`],
     name: [, , `Name`],
     subscribers: [, _json, `Subscribers`],
   });
@@ -3305,6 +3310,7 @@ const se_SetSourceRequest = (input: SetSourceRequest, context: __SerdeContext): 
     senderIpAddress: [, , `SenderIpAddress`],
     sourceListenerAddress: [, , `SourceListenerAddress`],
     sourceListenerPort: [, , `SourceListenerPort`],
+    sourceTags: [, _json, `SourceTags`],
     streamId: [, , `StreamId`],
     vpcInterfaceName: [, , `VpcInterfaceName`],
     whitelistCidr: [, , `WhitelistCidr`],
@@ -3467,6 +3473,7 @@ const se_VpcInterfaceRequest = (input: VpcInterfaceRequest, context: __SerdeCont
     roleArn: [, , `RoleArn`],
     securityGroupIds: [, _json, `SecurityGroupIds`],
     subnetId: [, , `SubnetId`],
+    vpcInterfaceTags: [, _json, `VpcInterfaceTags`],
   });
 };
 

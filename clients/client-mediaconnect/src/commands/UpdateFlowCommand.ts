@@ -87,6 +87,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *       },
  *     ],
  *   },
+ *   FlowSize: "MEDIUM" || "LARGE",
  * };
  * const command = new UpdateFlowCommand(input);
  * const response = await client.send(command);

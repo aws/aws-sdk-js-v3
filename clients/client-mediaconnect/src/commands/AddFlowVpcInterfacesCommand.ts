@@ -48,6 +48,9 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  *         "STRING_VALUE",
  *       ],
  *       SubnetId: "STRING_VALUE", // required
+ *       VpcInterfaceTags: { // __mapOfString
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   ],
  * };
