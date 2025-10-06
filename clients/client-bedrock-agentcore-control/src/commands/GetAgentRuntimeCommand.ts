@@ -53,21 +53,12 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * const response = await client.send(command);
  * // { // GetAgentRuntimeResponse
  * //   agentRuntimeArn: "STRING_VALUE", // required
- * //   workloadIdentityDetails: { // WorkloadIdentityDetails
- * //     workloadIdentityArn: "STRING_VALUE", // required
- * //   },
  * //   agentRuntimeName: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
  * //   agentRuntimeId: "STRING_VALUE", // required
  * //   agentRuntimeVersion: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * //   roleArn: "STRING_VALUE", // required
- * //   agentRuntimeArtifact: { // AgentRuntimeArtifact Union: only one key present
- * //     containerConfiguration: { // ContainerConfiguration
- * //       containerUri: "STRING_VALUE", // required
- * //     },
- * //   },
  * //   networkConfiguration: { // NetworkConfiguration
  * //     networkMode: "PUBLIC" || "VPC", // required
  * //     networkModeConfig: { // VpcConfig
@@ -79,8 +70,22 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //       ],
  * //     },
  * //   },
+ * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
+ * //   lifecycleConfiguration: { // LifecycleConfiguration
+ * //     idleRuntimeSessionTimeout: Number("int"),
+ * //     maxLifetime: Number("int"),
+ * //   },
+ * //   description: "STRING_VALUE",
+ * //   workloadIdentityDetails: { // WorkloadIdentityDetails
+ * //     workloadIdentityArn: "STRING_VALUE", // required
+ * //   },
+ * //   agentRuntimeArtifact: { // AgentRuntimeArtifact Union: only one key present
+ * //     containerConfiguration: { // ContainerConfiguration
+ * //       containerUri: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * //   protocolConfiguration: { // ProtocolConfiguration
- * //     serverProtocol: "MCP" || "HTTP", // required
+ * //     serverProtocol: "MCP" || "HTTP" || "A2A", // required
  * //   },
  * //   environmentVariables: { // EnvironmentVariablesMap
  * //     "<keys>": "STRING_VALUE",
@@ -101,7 +106,6 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //       "STRING_VALUE",
  * //     ],
  * //   },
- * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
  * // };
  *
  * ```

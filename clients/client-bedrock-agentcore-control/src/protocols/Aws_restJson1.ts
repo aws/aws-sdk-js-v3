@@ -203,6 +203,7 @@ import {
   GoogleOauth2ProviderConfigInput,
   InternalServerException,
   KmsConfiguration,
+  LifecycleConfiguration,
   MCPGatewayConfiguration,
   McpLambdaTargetConfiguration,
   McpTargetConfiguration,
@@ -277,6 +278,7 @@ export const se_CreateAgentRuntimeCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       environmentVariables: (_) => _json(_),
+      lifecycleConfiguration: (_) => _json(_),
       networkConfiguration: (_) => _json(_),
       protocolConfiguration: (_) => _json(_),
       requestHeaderConfiguration: (_) => _json(_),
@@ -474,6 +476,7 @@ export const se_CreateMemoryCommand = async (
       memoryExecutionRoleArn: [],
       memoryStrategies: (_) => _json(_),
       name: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1256,6 +1259,7 @@ export const se_UpdateAgentRuntimeCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       environmentVariables: (_) => _json(_),
+      lifecycleConfiguration: (_) => _json(_),
       networkConfiguration: (_) => _json(_),
       protocolConfiguration: (_) => _json(_),
       requestHeaderConfiguration: (_) => _json(_),
@@ -1936,6 +1940,7 @@ export const de_GetAgentRuntimeCommand = async (
     description: __expectString,
     environmentVariables: _json,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    lifecycleConfiguration: _json,
     networkConfiguration: _json,
     protocolConfiguration: _json,
     requestHeaderConfiguration: (_) => _json(__expectUnion(_)),
@@ -3140,6 +3145,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_KmsConfiguration omitted.
 
+// se_LifecycleConfiguration omitted.
+
 // se_MCPGatewayConfiguration omitted.
 
 /**
@@ -3530,6 +3537,8 @@ const de_GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary
 // de_GoogleOauth2ProviderConfigOutput omitted.
 
 // de_KmsConfiguration omitted.
+
+// de_LifecycleConfiguration omitted.
 
 // de_MCPGatewayConfiguration omitted.
 

@@ -47,7 +47,6 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // UpdateAgentRuntimeRequest
  *   agentRuntimeId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
  *   agentRuntimeArtifact: { // AgentRuntimeArtifact Union: only one key present
  *     containerConfiguration: { // ContainerConfiguration
  *       containerUri: "STRING_VALUE", // required
@@ -65,13 +64,7 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *       ],
  *     },
  *   },
- *   protocolConfiguration: { // ProtocolConfiguration
- *     serverProtocol: "MCP" || "HTTP", // required
- *   },
- *   clientToken: "STRING_VALUE",
- *   environmentVariables: { // EnvironmentVariablesMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ *   description: "STRING_VALUE",
  *   authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
  *     customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
  *       discoveryUrl: "STRING_VALUE", // required
@@ -88,6 +81,17 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   protocolConfiguration: { // ProtocolConfiguration
+ *     serverProtocol: "MCP" || "HTTP" || "A2A", // required
+ *   },
+ *   lifecycleConfiguration: { // LifecycleConfiguration
+ *     idleRuntimeSessionTimeout: Number("int"),
+ *     maxLifetime: Number("int"),
+ *   },
+ *   environmentVariables: { // EnvironmentVariablesMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateAgentRuntimeCommand(input);
  * const response = await client.send(command);

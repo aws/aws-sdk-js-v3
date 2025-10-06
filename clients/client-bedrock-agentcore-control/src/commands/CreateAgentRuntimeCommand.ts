@@ -47,7 +47,6 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // CreateAgentRuntimeRequest
  *   agentRuntimeName: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
  *   agentRuntimeArtifact: { // AgentRuntimeArtifact Union: only one key present
  *     containerConfiguration: { // ContainerConfiguration
  *       containerUri: "STRING_VALUE", // required
@@ -65,13 +64,8 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *       ],
  *     },
  *   },
- *   protocolConfiguration: { // ProtocolConfiguration
- *     serverProtocol: "MCP" || "HTTP", // required
- *   },
  *   clientToken: "STRING_VALUE",
- *   environmentVariables: { // EnvironmentVariablesMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ *   description: "STRING_VALUE",
  *   authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
  *     customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
  *       discoveryUrl: "STRING_VALUE", // required
@@ -87,6 +81,16 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *     requestHeaderAllowlist: [ // RequestHeaderAllowlist
  *       "STRING_VALUE",
  *     ],
+ *   },
+ *   protocolConfiguration: { // ProtocolConfiguration
+ *     serverProtocol: "MCP" || "HTTP" || "A2A", // required
+ *   },
+ *   lifecycleConfiguration: { // LifecycleConfiguration
+ *     idleRuntimeSessionTimeout: Number("int"),
+ *     maxLifetime: Number("int"),
+ *   },
+ *   environmentVariables: { // EnvironmentVariablesMap
+ *     "<keys>": "STRING_VALUE",
  *   },
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",

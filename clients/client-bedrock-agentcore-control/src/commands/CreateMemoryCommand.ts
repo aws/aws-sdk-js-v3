@@ -113,6 +113,9 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *       },
  *     },
  *   ],
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateMemoryCommand(input);
  * const response = await client.send(command);

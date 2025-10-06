@@ -703,6 +703,24 @@ export namespace AuthorizerConfiguration {
 }
 
 /**
+ * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
+ * @public
+ */
+export interface LifecycleConfiguration {
+  /**
+   * <p>Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Default: 900 seconds (15 minutes).</p>
+   * @public
+   */
+  idleRuntimeSessionTimeout?: number | undefined;
+
+  /**
+   * <p>Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated and replaced. Default: 28800 seconds (8 hours).</p>
+   * @public
+   */
+  maxLifetime?: number | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -757,6 +775,7 @@ export interface NetworkConfiguration {
  * @enum
  */
 export const ServerProtocol = {
+  A2A: "A2A",
   HTTP: "HTTP",
   MCP: "MCP",
 } as const;
@@ -829,12 +848,6 @@ export interface CreateAgentRuntimeRequest {
   agentRuntimeName: string | undefined;
 
   /**
-   * <p>The description of the AgentCore Runtime.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The artifact of the AgentCore Runtime.</p>
    * @public
    */
@@ -853,22 +866,16 @@ export interface CreateAgentRuntimeRequest {
   networkConfiguration: NetworkConfiguration | undefined;
 
   /**
-   * <p>The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.</p>
-   * @public
-   */
-  protocolConfiguration?: ProtocolConfiguration | undefined;
-
-  /**
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Environment variables to set in the AgentCore Runtime environment.</p>
+   * <p>The description of the AgentCore Runtime.</p>
    * @public
    */
-  environmentVariables?: Record<string, string> | undefined;
+  description?: string | undefined;
 
   /**
    * <p>The authorizer configuration for the AgentCore Runtime.</p>
@@ -881,6 +888,24 @@ export interface CreateAgentRuntimeRequest {
    * @public
    */
   requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
+
+  /**
+   * <p>The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.</p>
+   * @public
+   */
+  protocolConfiguration?: ProtocolConfiguration | undefined;
+
+  /**
+   * <p>The life cycle configuration for the AgentCore Runtime.</p>
+   * @public
+   */
+  lifecycleConfiguration?: LifecycleConfiguration | undefined;
+
+  /**
+   * <p>Environment variables to set in the AgentCore Runtime environment.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
 
   /**
    * <p>A map of tag keys and values to assign to the agent runtime. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
@@ -1010,22 +1035,10 @@ export interface GetAgentRuntimeResponse {
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The workload identity details for the AgentCore Runtime.</p>
-   * @public
-   */
-  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
-
-  /**
    * <p>The name of the AgentCore Runtime.</p>
    * @public
    */
   agentRuntimeName: string | undefined;
-
-  /**
-   * <p>The description of the AgentCore Runtime.</p>
-   * @public
-   */
-  description?: string | undefined;
 
   /**
    * <p>The unique identifier of the AgentCore Runtime.</p>
@@ -1058,16 +1071,40 @@ export interface GetAgentRuntimeResponse {
   roleArn: string | undefined;
 
   /**
-   * <p>The artifact of the AgentCore Runtime.</p>
-   * @public
-   */
-  agentRuntimeArtifact?: AgentRuntimeArtifact | undefined;
-
-  /**
    * <p>The network configuration for the AgentCore Runtime.</p>
    * @public
    */
   networkConfiguration: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The current status of the AgentCore Runtime.</p>
+   * @public
+   */
+  status: AgentRuntimeStatus | undefined;
+
+  /**
+   * <p>The life cycle configuration for the AgentCore Runtime.</p>
+   * @public
+   */
+  lifecycleConfiguration: LifecycleConfiguration | undefined;
+
+  /**
+   * <p>The description of the AgentCore Runtime.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The workload identity details for the AgentCore Runtime.</p>
+   * @public
+   */
+  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
+
+  /**
+   * <p>The artifact of the AgentCore Runtime.</p>
+   * @public
+   */
+  agentRuntimeArtifact?: AgentRuntimeArtifact | undefined;
 
   /**
    * <p>The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.</p>
@@ -1092,12 +1129,6 @@ export interface GetAgentRuntimeResponse {
    * @public
    */
   requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
-
-  /**
-   * <p>The current status of the AgentCore Runtime.</p>
-   * @public
-   */
-  status: AgentRuntimeStatus | undefined;
 }
 
 /**
@@ -1233,12 +1264,6 @@ export interface UpdateAgentRuntimeRequest {
   agentRuntimeId: string | undefined;
 
   /**
-   * <p>The updated description of the AgentCore Runtime.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The updated artifact of the AgentCore Runtime.</p>
    * @public
    */
@@ -1257,22 +1282,10 @@ export interface UpdateAgentRuntimeRequest {
   networkConfiguration: NetworkConfiguration | undefined;
 
   /**
-   * <p>The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.</p>
+   * <p>The updated description of the AgentCore Runtime.</p>
    * @public
    */
-  protocolConfiguration?: ProtocolConfiguration | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>Updated environment variables to set in the AgentCore Runtime environment.</p>
-   * @public
-   */
-  environmentVariables?: Record<string, string> | undefined;
+  description?: string | undefined;
 
   /**
    * <p>The updated authorizer configuration for the AgentCore Runtime.</p>
@@ -1285,6 +1298,30 @@ export interface UpdateAgentRuntimeRequest {
    * @public
    */
   requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
+
+  /**
+   * <p>The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.</p>
+   * @public
+   */
+  protocolConfiguration?: ProtocolConfiguration | undefined;
+
+  /**
+   * <p>The updated life cycle configuration for the AgentCore Runtime.</p>
+   * @public
+   */
+  lifecycleConfiguration?: LifecycleConfiguration | undefined;
+
+  /**
+   * <p>Updated environment variables to set in the AgentCore Runtime environment.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 }
 
 /**
@@ -4028,6 +4065,12 @@ export interface CreateMemoryInput {
    * @public
    */
   memoryStrategies?: MemoryStrategyInput[] | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to an AgentCore Memory. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -6817,11 +6860,11 @@ export const UpdateAgentRuntimeEndpointRequestFilterSensitiveLog = (obj: UpdateA
  */
 export const CreateAgentRuntimeRequestFilterSensitiveLog = (obj: CreateAgentRuntimeRequest): any => ({
   ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.agentRuntimeArtifact && { agentRuntimeArtifact: obj.agentRuntimeArtifact }),
-  ...(obj.environmentVariables && { environmentVariables: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.authorizerConfiguration && { authorizerConfiguration: obj.authorizerConfiguration }),
   ...(obj.requestHeaderConfiguration && { requestHeaderConfiguration: obj.requestHeaderConfiguration }),
+  ...(obj.environmentVariables && { environmentVariables: SENSITIVE_STRING }),
 });
 
 /**
@@ -6865,11 +6908,11 @@ export const ListAgentRuntimeVersionsResponseFilterSensitiveLog = (obj: ListAgen
  */
 export const UpdateAgentRuntimeRequestFilterSensitiveLog = (obj: UpdateAgentRuntimeRequest): any => ({
   ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.agentRuntimeArtifact && { agentRuntimeArtifact: obj.agentRuntimeArtifact }),
-  ...(obj.environmentVariables && { environmentVariables: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.authorizerConfiguration && { authorizerConfiguration: obj.authorizerConfiguration }),
   ...(obj.requestHeaderConfiguration && { requestHeaderConfiguration: obj.requestHeaderConfiguration }),
+  ...(obj.environmentVariables && { environmentVariables: SENSITIVE_STRING }),
 });
 
 /**
