@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListManagedViewsInput, ListManagedViewsOutput } from "../models/models_0";
-import { de_ListManagedViewsCommand, se_ListManagedViewsCommand } from "../protocols/Aws_restJson1";
+import { ListServiceViewsInput, ListServiceViewsOutput } from "../models/models_0";
+import { de_ListServiceViewsCommand, se_ListServiceViewsCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -21,46 +21,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListManagedViewsCommand}.
+ * The input for {@link ListServiceViewsCommand}.
  */
-export interface ListManagedViewsCommandInput extends ListManagedViewsInput {}
+export interface ListServiceViewsCommandInput extends ListServiceViewsInput {}
 /**
  * @public
  *
- * The output of {@link ListManagedViewsCommand}.
+ * The output of {@link ListServiceViewsCommand}.
  */
-export interface ListManagedViewsCommandOutput extends ListManagedViewsOutput, __MetadataBearer {}
+export interface ListServiceViewsCommandOutput extends ListServiceViewsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon resource names (ARNs) of the <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html">Amazon Web Services-managed views</a> available in the Amazon Web Services Region in which you call this operation. </p>
+ * <p>Lists all Resource Explorer service views available in the current Amazon Web Services account. This operation returns the ARNs of available service views.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, ListManagedViewsCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, ListManagedViewsCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, ListServiceViewsCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
+ * // const { ResourceExplorer2Client, ListServiceViewsCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * // import type { ResourceExplorer2ClientConfig } from "@aws-sdk/client-resource-explorer-2";
  * const config = {}; // type is ResourceExplorer2ClientConfig
  * const client = new ResourceExplorer2Client(config);
- * const input = { // ListManagedViewsInput
+ * const input = { // ListServiceViewsInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   ServicePrincipal: "STRING_VALUE",
  * };
- * const command = new ListManagedViewsCommand(input);
+ * const command = new ListServiceViewsCommand(input);
  * const response = await client.send(command);
- * // { // ListManagedViewsOutput
+ * // { // ListServiceViewsOutput
  * //   NextToken: "STRING_VALUE",
- * //   ManagedViews: [ // ManagedViewArnList
+ * //   ServiceViews: [ // ServiceViewArnList
  * //     "STRING_VALUE",
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListManagedViewsCommandInput - {@link ListManagedViewsCommandInput}
- * @returns {@link ListManagedViewsCommandOutput}
- * @see {@link ListManagedViewsCommandInput} for command's `input` shape.
- * @see {@link ListManagedViewsCommandOutput} for command's `response` shape.
+ * @param ListServiceViewsCommandInput - {@link ListServiceViewsCommandInput}
+ * @returns {@link ListServiceViewsCommandOutput}
+ * @see {@link ListServiceViewsCommandInput} for command's `input` shape.
+ * @see {@link ListServiceViewsCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -72,9 +71,6 @@ export interface ListManagedViewsCommandOutput extends ListManagedViewsOutput, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>The principal making the request isn't permitted to perform the operation.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
  *
@@ -84,10 +80,10 @@ export interface ListManagedViewsCommandOutput extends ListManagedViewsOutput, _
  *
  * @public
  */
-export class ListManagedViewsCommand extends $Command
+export class ListServiceViewsCommand extends $Command
   .classBuilder<
-    ListManagedViewsCommandInput,
-    ListManagedViewsCommandOutput,
+    ListServiceViewsCommandInput,
+    ListServiceViewsCommandOutput,
     ResourceExplorer2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -99,21 +95,21 @@ export class ListManagedViewsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ResourceExplorer", "ListManagedViews", {})
-  .n("ResourceExplorer2Client", "ListManagedViewsCommand")
+  .s("ResourceExplorer", "ListServiceViews", {})
+  .n("ResourceExplorer2Client", "ListServiceViewsCommand")
   .f(void 0, void 0)
-  .ser(se_ListManagedViewsCommand)
-  .de(de_ListManagedViewsCommand)
+  .ser(se_ListServiceViewsCommand)
+  .de(de_ListServiceViewsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListManagedViewsInput;
-      output: ListManagedViewsOutput;
+      input: ListServiceViewsInput;
+      output: ListServiceViewsOutput;
     };
     sdk: {
-      input: ListManagedViewsCommandInput;
-      output: ListManagedViewsCommandOutput;
+      input: ListServiceViewsCommandInput;
+      output: ListServiceViewsCommandOutput;
     };
   };
 }

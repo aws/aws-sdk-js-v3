@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListManagedViewsInput, ListManagedViewsOutput } from "../models/models_0";
-import { de_ListManagedViewsCommand, se_ListManagedViewsCommand } from "../protocols/Aws_restJson1";
+import { ListServiceIndexesInput, ListServiceIndexesOutput } from "../models/models_0";
+import { de_ListServiceIndexesCommand, se_ListServiceIndexesCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -21,46 +21,52 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListManagedViewsCommand}.
+ * The input for {@link ListServiceIndexesCommand}.
  */
-export interface ListManagedViewsCommandInput extends ListManagedViewsInput {}
+export interface ListServiceIndexesCommandInput extends ListServiceIndexesInput {}
 /**
  * @public
  *
- * The output of {@link ListManagedViewsCommand}.
+ * The output of {@link ListServiceIndexesCommand}.
  */
-export interface ListManagedViewsCommandOutput extends ListManagedViewsOutput, __MetadataBearer {}
+export interface ListServiceIndexesCommandOutput extends ListServiceIndexesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon resource names (ARNs) of the <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html">Amazon Web Services-managed views</a> available in the Amazon Web Services Region in which you call this operation. </p>
+ * <p>Lists all Resource Explorer indexes across the specified Amazon Web Services Regions. This operation returns information about indexes including their ARNs, types, and Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, ListManagedViewsCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, ListManagedViewsCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, ListServiceIndexesCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
+ * // const { ResourceExplorer2Client, ListServiceIndexesCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * // import type { ResourceExplorer2ClientConfig } from "@aws-sdk/client-resource-explorer-2";
  * const config = {}; // type is ResourceExplorer2ClientConfig
  * const client = new ResourceExplorer2Client(config);
- * const input = { // ListManagedViewsInput
+ * const input = { // ListServiceIndexesInput
+ *   Regions: [ // RegionList
+ *     "STRING_VALUE",
+ *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   ServicePrincipal: "STRING_VALUE",
  * };
- * const command = new ListManagedViewsCommand(input);
+ * const command = new ListServiceIndexesCommand(input);
  * const response = await client.send(command);
- * // { // ListManagedViewsOutput
- * //   NextToken: "STRING_VALUE",
- * //   ManagedViews: [ // ManagedViewArnList
- * //     "STRING_VALUE",
+ * // { // ListServiceIndexesOutput
+ * //   Indexes: [ // IndexList
+ * //     { // Index
+ * //       Region: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //     },
  * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListManagedViewsCommandInput - {@link ListManagedViewsCommandInput}
- * @returns {@link ListManagedViewsCommandOutput}
- * @see {@link ListManagedViewsCommandInput} for command's `input` shape.
- * @see {@link ListManagedViewsCommandOutput} for command's `response` shape.
+ * @param ListServiceIndexesCommandInput - {@link ListServiceIndexesCommandInput}
+ * @returns {@link ListServiceIndexesCommandOutput}
+ * @see {@link ListServiceIndexesCommandInput} for command's `input` shape.
+ * @see {@link ListServiceIndexesCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -72,9 +78,6 @@ export interface ListManagedViewsCommandOutput extends ListManagedViewsOutput, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>The principal making the request isn't permitted to perform the operation.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
  *
@@ -84,10 +87,10 @@ export interface ListManagedViewsCommandOutput extends ListManagedViewsOutput, _
  *
  * @public
  */
-export class ListManagedViewsCommand extends $Command
+export class ListServiceIndexesCommand extends $Command
   .classBuilder<
-    ListManagedViewsCommandInput,
-    ListManagedViewsCommandOutput,
+    ListServiceIndexesCommandInput,
+    ListServiceIndexesCommandOutput,
     ResourceExplorer2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -99,21 +102,21 @@ export class ListManagedViewsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ResourceExplorer", "ListManagedViews", {})
-  .n("ResourceExplorer2Client", "ListManagedViewsCommand")
+  .s("ResourceExplorer", "ListServiceIndexes", {})
+  .n("ResourceExplorer2Client", "ListServiceIndexesCommand")
   .f(void 0, void 0)
-  .ser(se_ListManagedViewsCommand)
-  .de(de_ListManagedViewsCommand)
+  .ser(se_ListServiceIndexesCommand)
+  .de(de_ListServiceIndexesCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListManagedViewsInput;
-      output: ListManagedViewsOutput;
+      input: ListServiceIndexesInput;
+      output: ListServiceIndexesOutput;
     };
     sdk: {
-      input: ListManagedViewsCommandInput;
-      output: ListManagedViewsCommandOutput;
+      input: ListServiceIndexesCommandInput;
+      output: ListServiceIndexesCommandOutput;
     };
   };
 }

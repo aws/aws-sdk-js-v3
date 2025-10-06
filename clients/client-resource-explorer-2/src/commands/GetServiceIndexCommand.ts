@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetManagedViewInput, GetManagedViewOutput, GetManagedViewOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetManagedViewCommand, se_GetManagedViewCommand } from "../protocols/Aws_restJson1";
+import { GetServiceIndexOutput } from "../models/models_0";
+import { de_GetServiceIndexCommand, se_GetServiceIndexCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -21,58 +21,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetManagedViewCommand}.
+ * The input for {@link GetServiceIndexCommand}.
  */
-export interface GetManagedViewCommandInput extends GetManagedViewInput {}
+export interface GetServiceIndexCommandInput {}
 /**
  * @public
  *
- * The output of {@link GetManagedViewCommand}.
+ * The output of {@link GetServiceIndexCommand}.
  */
-export interface GetManagedViewCommandOutput extends GetManagedViewOutput, __MetadataBearer {}
+export interface GetServiceIndexCommandOutput extends GetServiceIndexOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves details of the specified <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html">Amazon Web Services-managed view</a>. </p>
+ * <p>Retrieves information about the Resource Explorer index in the current Amazon Web Services Region. This operation returns the ARN and type of the index if one exists.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, GetManagedViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, GetManagedViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, GetServiceIndexCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
+ * // const { ResourceExplorer2Client, GetServiceIndexCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * // import type { ResourceExplorer2ClientConfig } from "@aws-sdk/client-resource-explorer-2";
  * const config = {}; // type is ResourceExplorer2ClientConfig
  * const client = new ResourceExplorer2Client(config);
- * const input = { // GetManagedViewInput
- *   ManagedViewArn: "STRING_VALUE", // required
- * };
- * const command = new GetManagedViewCommand(input);
+ * const input = {};
+ * const command = new GetServiceIndexCommand(input);
  * const response = await client.send(command);
- * // { // GetManagedViewOutput
- * //   ManagedView: { // ManagedView
- * //     ManagedViewArn: "STRING_VALUE",
- * //     ManagedViewName: "STRING_VALUE",
- * //     TrustedService: "STRING_VALUE",
- * //     LastUpdatedAt: new Date("TIMESTAMP"),
- * //     Owner: "STRING_VALUE",
- * //     Scope: "STRING_VALUE",
- * //     IncludedProperties: [ // IncludedPropertyList
- * //       { // IncludedProperty
- * //         Name: "STRING_VALUE", // required
- * //       },
- * //     ],
- * //     Filters: { // SearchFilter
- * //       FilterString: "STRING_VALUE", // required
- * //     },
- * //     ResourcePolicy: "STRING_VALUE",
- * //     Version: "STRING_VALUE",
- * //   },
+ * // { // GetServiceIndexOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Type: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetManagedViewCommandInput - {@link GetManagedViewCommandInput}
- * @returns {@link GetManagedViewCommandOutput}
- * @see {@link GetManagedViewCommandInput} for command's `input` shape.
- * @see {@link GetManagedViewCommandOutput} for command's `response` shape.
+ * @param GetServiceIndexCommandInput - {@link GetServiceIndexCommandInput}
+ * @returns {@link GetServiceIndexCommandOutput}
+ * @see {@link GetServiceIndexCommandInput} for command's `input` shape.
+ * @see {@link GetServiceIndexCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -87,9 +69,6 @@ export interface GetManagedViewCommandOutput extends GetManagedViewOutput, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>The principal making the request isn't permitted to perform the operation.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
  *
@@ -99,10 +78,10 @@ export interface GetManagedViewCommandOutput extends GetManagedViewOutput, __Met
  *
  * @public
  */
-export class GetManagedViewCommand extends $Command
+export class GetServiceIndexCommand extends $Command
   .classBuilder<
-    GetManagedViewCommandInput,
-    GetManagedViewCommandOutput,
+    GetServiceIndexCommandInput,
+    GetServiceIndexCommandOutput,
     ResourceExplorer2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -114,21 +93,21 @@ export class GetManagedViewCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ResourceExplorer", "GetManagedView", {})
-  .n("ResourceExplorer2Client", "GetManagedViewCommand")
-  .f(void 0, GetManagedViewOutputFilterSensitiveLog)
-  .ser(se_GetManagedViewCommand)
-  .de(de_GetManagedViewCommand)
+  .s("ResourceExplorer", "GetServiceIndex", {})
+  .n("ResourceExplorer2Client", "GetServiceIndexCommand")
+  .f(void 0, void 0)
+  .ser(se_GetServiceIndexCommand)
+  .de(de_GetServiceIndexCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetManagedViewInput;
-      output: GetManagedViewOutput;
+      input: {};
+      output: GetServiceIndexOutput;
     };
     sdk: {
-      input: GetManagedViewCommandInput;
-      output: GetManagedViewCommandOutput;
+      input: GetServiceIndexCommandInput;
+      output: GetServiceIndexCommandOutput;
     };
   };
 }

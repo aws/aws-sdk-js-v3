@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceInput, TagResourceInputFilterSensitiveLog, TagResourceOutput } from "../models/models_0";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
+import { DeleteResourceExplorerSetupInput, DeleteResourceExplorerSetupOutput } from "../models/models_0";
+import {
+  de_DeleteResourceExplorerSetupCommand,
+  se_DeleteResourceExplorerSetupCommand,
+} from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -21,42 +24,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link DeleteResourceExplorerSetupCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceInput {}
+export interface DeleteResourceExplorerSetupCommandInput extends DeleteResourceExplorerSetupInput {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link DeleteResourceExplorerSetupCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
+export interface DeleteResourceExplorerSetupCommandOutput extends DeleteResourceExplorerSetupOutput, __MetadataBearer {}
 
 /**
- * <p>Adds one or more tag key and value pairs to an Amazon Web Services Resource Explorer view or index.</p>
+ * <p>Deletes a Resource Explorer setup configuration. This operation removes indexes and views from the specified Regions or all Regions where Resource Explorer is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, TagResourceCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, TagResourceCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, DeleteResourceExplorerSetupCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
+ * // const { ResourceExplorer2Client, DeleteResourceExplorerSetupCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * // import type { ResourceExplorer2ClientConfig } from "@aws-sdk/client-resource-explorer-2";
  * const config = {}; // type is ResourceExplorer2ClientConfig
  * const client = new ResourceExplorer2Client(config);
- * const input = { // TagResourceInput
- *   resourceArn: "STRING_VALUE", // required
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // DeleteResourceExplorerSetupInput
+ *   RegionList: [ // RegionList
+ *     "STRING_VALUE",
+ *   ],
+ *   DeleteInAllRegions: true || false,
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new DeleteResourceExplorerSetupCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteResourceExplorerSetupOutput
+ * //   TaskId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param DeleteResourceExplorerSetupCommandInput - {@link DeleteResourceExplorerSetupCommandInput}
+ * @returns {@link DeleteResourceExplorerSetupCommandOutput}
+ * @see {@link DeleteResourceExplorerSetupCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourceExplorerSetupCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -71,9 +76,6 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>The principal making the request isn't permitted to perform the operation.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
  *
@@ -83,10 +85,10 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *
  * @public
  */
-export class TagResourceCommand extends $Command
+export class DeleteResourceExplorerSetupCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    DeleteResourceExplorerSetupCommandInput,
+    DeleteResourceExplorerSetupCommandOutput,
     ResourceExplorer2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,21 +100,21 @@ export class TagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ResourceExplorer", "TagResource", {})
-  .n("ResourceExplorer2Client", "TagResourceCommand")
-  .f(TagResourceInputFilterSensitiveLog, void 0)
-  .ser(se_TagResourceCommand)
-  .de(de_TagResourceCommand)
+  .s("ResourceExplorer", "DeleteResourceExplorerSetup", {})
+  .n("ResourceExplorer2Client", "DeleteResourceExplorerSetupCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteResourceExplorerSetupCommand)
+  .de(de_DeleteResourceExplorerSetupCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: TagResourceInput;
-      output: {};
+      input: DeleteResourceExplorerSetupInput;
+      output: DeleteResourceExplorerSetupOutput;
     };
     sdk: {
-      input: TagResourceCommandInput;
-      output: TagResourceCommandOutput;
+      input: DeleteResourceExplorerSetupCommandInput;
+      output: DeleteResourceExplorerSetupCommandOutput;
     };
   };
 }

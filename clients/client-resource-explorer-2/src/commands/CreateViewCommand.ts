@@ -37,14 +37,7 @@ export interface CreateViewCommandInput extends CreateViewInput {}
 export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a view that users can query by using the <a>Search</a> operation.
- *             Results from queries that you make using this view include only resources that match the
- *             view's <code>Filters</code>. For more information about Amazon Web Services Resource Explorer views, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html">Managing views</a>
- *             in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
- *          <p>Only the principals with an IAM identity-based policy that grants <code>Allow</code>
- *             to the <code>Search</code> action on a <code>Resource</code> with the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of
- *             this view can <a>Search</a> using views you create with this
- *             operation.</p>
+ * <p>Creates a view that users can query by using the <a>Search</a> operation. Results from queries that you make using this view include only resources that match the view's <code>Filters</code>. For more information about Amazon Web Services Resource Explorer views, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html">Managing views</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p> <p>Only the principals with an IAM identity-based policy that grants <code>Allow</code> to the <code>Search</code> action on a <code>Resource</code> with the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of this view can <a>Search</a> using views you create with this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,36 +90,25 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The credentials that you used to call this operation don't have the minimum required
- *             permissions.</p>
+ *  <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>If you attempted to create a view, then the request failed because either you specified parameters that didn’t match the
- *             original request, or you attempted to create a view with a name that already exists in
- *             this Amazon Web Services Region.</p>
- *          <p>If you attempted to create an index, then the request failed because either you specified parameters that didn't match
- *             the original request, or an index already exists in the current Amazon Web Services Region.</p>
- *          <p>If you attempted to update an index type to <code>AGGREGATOR</code>, then the request failed because you already
- *             have an <code>AGGREGATOR</code> index in a different Amazon Web Services Region.</p>
+ *  <p>If you attempted to create a view, then the request failed because either you specified parameters that didn’t match the original request, or you attempted to create a view with a name that already exists in this Amazon Web Services Region.</p> <p>If you attempted to create an index, then the request failed because either you specified parameters that didn't match the original request, or an index already exists in the current Amazon Web Services Region.</p> <p>If you attempted to update an index type to <code>AGGREGATOR</code>, then the request failed because you already have an <code>AGGREGATOR</code> index in a different Amazon Web Services Region.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed because of internal service error. Try your request again
- *             later.</p>
+ *  <p>The request failed because of internal service error. Try your request again later.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request failed because it exceeds a service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
- *             Resource Explorer</a>.</p>
+ *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The principal making the request isn't permitted to perform the operation.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
- *             for the operation, and try again.</p>
+ *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
  *
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>

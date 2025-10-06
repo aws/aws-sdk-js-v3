@@ -32,16 +32,7 @@ export interface ListViewsCommandInput extends ListViewsInput {}
 export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you
- *             call this operation.</p>
- *          <note>
- *             <p>Always check the <code>NextToken</code> response parameter
- * for a <code>null</code> value when calling a paginated operation. These operations can
- * occasionally return an empty set of results even when there are more results available. The
- * <code>NextToken</code> response parameter value is <code>null</code>
- *                <i>only</i>
- * when there are no more results to display.</p>
- *          </note>
+ * <p>Lists the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you call this operation.</p> <note> <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more results available. The <code>NextToken</code> response parameter value is <code>null</code> <i>only</i> when there are no more results to display.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,21 +63,16 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The credentials that you used to call this operation don't have the minimum required
- *             permissions.</p>
+ *  <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed because of internal service error. Try your request again
- *             later.</p>
+ *  <p>The request failed because of internal service error. Try your request again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
- *             Resource Explorer</a>.</p>
+ *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
- *             for the operation, and try again.</p>
+ *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
  *
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>

@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetManagedViewInput, GetManagedViewOutput, GetManagedViewOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetManagedViewCommand, se_GetManagedViewCommand } from "../protocols/Aws_restJson1";
+import { GetServiceViewInput, GetServiceViewOutput, GetServiceViewOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetServiceViewCommand, se_GetServiceViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -21,58 +21,53 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetManagedViewCommand}.
+ * The input for {@link GetServiceViewCommand}.
  */
-export interface GetManagedViewCommandInput extends GetManagedViewInput {}
+export interface GetServiceViewCommandInput extends GetServiceViewInput {}
 /**
  * @public
  *
- * The output of {@link GetManagedViewCommand}.
+ * The output of {@link GetServiceViewCommand}.
  */
-export interface GetManagedViewCommandOutput extends GetManagedViewOutput, __MetadataBearer {}
+export interface GetServiceViewCommandOutput extends GetServiceViewOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves details of the specified <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html">Amazon Web Services-managed view</a>. </p>
+ * <p>Retrieves details about a specific Resource Explorer service view. This operation returns the configuration and properties of the specified view.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, GetManagedViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, GetManagedViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, GetServiceViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
+ * // const { ResourceExplorer2Client, GetServiceViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * // import type { ResourceExplorer2ClientConfig } from "@aws-sdk/client-resource-explorer-2";
  * const config = {}; // type is ResourceExplorer2ClientConfig
  * const client = new ResourceExplorer2Client(config);
- * const input = { // GetManagedViewInput
- *   ManagedViewArn: "STRING_VALUE", // required
+ * const input = { // GetServiceViewInput
+ *   ServiceViewArn: "STRING_VALUE", // required
  * };
- * const command = new GetManagedViewCommand(input);
+ * const command = new GetServiceViewCommand(input);
  * const response = await client.send(command);
- * // { // GetManagedViewOutput
- * //   ManagedView: { // ManagedView
- * //     ManagedViewArn: "STRING_VALUE",
- * //     ManagedViewName: "STRING_VALUE",
- * //     TrustedService: "STRING_VALUE",
- * //     LastUpdatedAt: new Date("TIMESTAMP"),
- * //     Owner: "STRING_VALUE",
- * //     Scope: "STRING_VALUE",
+ * // { // GetServiceViewOutput
+ * //   View: { // ServiceView
+ * //     ServiceViewArn: "STRING_VALUE", // required
+ * //     Filters: { // SearchFilter
+ * //       FilterString: "STRING_VALUE", // required
+ * //     },
  * //     IncludedProperties: [ // IncludedPropertyList
  * //       { // IncludedProperty
  * //         Name: "STRING_VALUE", // required
  * //       },
  * //     ],
- * //     Filters: { // SearchFilter
- * //       FilterString: "STRING_VALUE", // required
- * //     },
- * //     ResourcePolicy: "STRING_VALUE",
- * //     Version: "STRING_VALUE",
+ * //     StreamingAccessForService: "STRING_VALUE",
+ * //     ScopeType: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param GetManagedViewCommandInput - {@link GetManagedViewCommandInput}
- * @returns {@link GetManagedViewCommandOutput}
- * @see {@link GetManagedViewCommandInput} for command's `input` shape.
- * @see {@link GetManagedViewCommandOutput} for command's `response` shape.
+ * @param GetServiceViewCommandInput - {@link GetServiceViewCommandInput}
+ * @returns {@link GetServiceViewCommandOutput}
+ * @see {@link GetServiceViewCommandInput} for command's `input` shape.
+ * @see {@link GetServiceViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -87,9 +82,6 @@ export interface GetManagedViewCommandOutput extends GetManagedViewOutput, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>The principal making the request isn't permitted to perform the operation.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
  *
@@ -99,10 +91,10 @@ export interface GetManagedViewCommandOutput extends GetManagedViewOutput, __Met
  *
  * @public
  */
-export class GetManagedViewCommand extends $Command
+export class GetServiceViewCommand extends $Command
   .classBuilder<
-    GetManagedViewCommandInput,
-    GetManagedViewCommandOutput,
+    GetServiceViewCommandInput,
+    GetServiceViewCommandOutput,
     ResourceExplorer2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -114,21 +106,21 @@ export class GetManagedViewCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ResourceExplorer", "GetManagedView", {})
-  .n("ResourceExplorer2Client", "GetManagedViewCommand")
-  .f(void 0, GetManagedViewOutputFilterSensitiveLog)
-  .ser(se_GetManagedViewCommand)
-  .de(de_GetManagedViewCommand)
+  .s("ResourceExplorer", "GetServiceView", {})
+  .n("ResourceExplorer2Client", "GetServiceViewCommand")
+  .f(void 0, GetServiceViewOutputFilterSensitiveLog)
+  .ser(se_GetServiceViewCommand)
+  .de(de_GetServiceViewCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetManagedViewInput;
-      output: GetManagedViewOutput;
+      input: GetServiceViewInput;
+      output: GetServiceViewOutput;
     };
     sdk: {
-      input: GetManagedViewCommandInput;
-      output: GetManagedViewCommandOutput;
+      input: GetServiceViewCommandInput;
+      output: GetServiceViewCommandOutput;
     };
   };
 }

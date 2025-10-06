@@ -32,9 +32,7 @@ export interface ListResourcesCommandInput extends ListResourcesInput {}
 export interface ListResourcesCommandOutput extends ListResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of resources and their details that match the specified criteria. This query must
- *             use a view. If you don’t explicitly specify a view, then Resource Explorer uses the default view for the Amazon Web Services Region
- *             in which you call this operation. </p>
+ * <p>Returns a list of resources and their details that match the specified criteria. This query must use a view. If you don’t explicitly specify a view, then Resource Explorer uses the default view for the Amazon Web Services Region in which you call this operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,28 +82,22 @@ export interface ListResourcesCommandOutput extends ListResourcesOutput, __Metad
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The credentials that you used to call this operation don't have the minimum required
- *             permissions.</p>
+ *  <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed because of internal service error. Try your request again
- *             later.</p>
+ *  <p>The request failed because of internal service error. Try your request again later.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to
- *             identity the resource, and try again.</p>
+ *  <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to identity the resource, and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
- *             Resource Explorer</a>.</p>
+ *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The principal making the request isn't permitted to perform the operation.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
- *             for the operation, and try again.</p>
+ *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
  *
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>

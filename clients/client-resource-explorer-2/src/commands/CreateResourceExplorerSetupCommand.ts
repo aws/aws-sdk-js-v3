@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceInput, TagResourceInputFilterSensitiveLog, TagResourceOutput } from "../models/models_0";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
+import { CreateResourceExplorerSetupInput, CreateResourceExplorerSetupOutput } from "../models/models_0";
+import {
+  de_CreateResourceExplorerSetupCommand,
+  se_CreateResourceExplorerSetupCommand,
+} from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -21,42 +24,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link CreateResourceExplorerSetupCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceInput {}
+export interface CreateResourceExplorerSetupCommandInput extends CreateResourceExplorerSetupInput {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link CreateResourceExplorerSetupCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
+export interface CreateResourceExplorerSetupCommandOutput extends CreateResourceExplorerSetupOutput, __MetadataBearer {}
 
 /**
- * <p>Adds one or more tag key and value pairs to an Amazon Web Services Resource Explorer view or index.</p>
+ * <p>Creates a Resource Explorer setup configuration across multiple Amazon Web Services Regions. This operation sets up indexes and views in the specified Regions. This operation can also be used to set an aggregator Region for cross-Region resource search.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceExplorer2Client, TagResourceCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
- * // const { ResourceExplorer2Client, TagResourceCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
+ * import { ResourceExplorer2Client, CreateResourceExplorerSetupCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
+ * // const { ResourceExplorer2Client, CreateResourceExplorerSetupCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * // import type { ResourceExplorer2ClientConfig } from "@aws-sdk/client-resource-explorer-2";
  * const config = {}; // type is ResourceExplorer2ClientConfig
  * const client = new ResourceExplorer2Client(config);
- * const input = { // TagResourceInput
- *   resourceArn: "STRING_VALUE", // required
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // CreateResourceExplorerSetupInput
+ *   RegionList: [ // RegionList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AggregatorRegions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ViewName: "STRING_VALUE", // required
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new CreateResourceExplorerSetupCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateResourceExplorerSetupOutput
+ * //   TaskId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param CreateResourceExplorerSetupCommandInput - {@link CreateResourceExplorerSetupCommandInput}
+ * @returns {@link CreateResourceExplorerSetupCommandOutput}
+ * @see {@link CreateResourceExplorerSetupCommandInput} for command's `input` shape.
+ * @see {@link CreateResourceExplorerSetupCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -71,9 +79,6 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>The principal making the request isn't permitted to perform the operation.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
  *
@@ -83,10 +88,10 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *
  * @public
  */
-export class TagResourceCommand extends $Command
+export class CreateResourceExplorerSetupCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    CreateResourceExplorerSetupCommandInput,
+    CreateResourceExplorerSetupCommandOutput,
     ResourceExplorer2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,21 +103,21 @@ export class TagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ResourceExplorer", "TagResource", {})
-  .n("ResourceExplorer2Client", "TagResourceCommand")
-  .f(TagResourceInputFilterSensitiveLog, void 0)
-  .ser(se_TagResourceCommand)
-  .de(de_TagResourceCommand)
+  .s("ResourceExplorer", "CreateResourceExplorerSetup", {})
+  .n("ResourceExplorer2Client", "CreateResourceExplorerSetupCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateResourceExplorerSetupCommand)
+  .de(de_CreateResourceExplorerSetupCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: TagResourceInput;
-      output: {};
+      input: CreateResourceExplorerSetupInput;
+      output: CreateResourceExplorerSetupOutput;
     };
     sdk: {
-      input: TagResourceCommandInput;
-      output: TagResourceCommandOutput;
+      input: CreateResourceExplorerSetupCommandInput;
+      output: CreateResourceExplorerSetupCommandOutput;
     };
   };
 }

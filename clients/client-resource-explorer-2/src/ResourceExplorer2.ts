@@ -13,8 +13,18 @@ import {
   BatchGetViewCommandOutput,
 } from "./commands/BatchGetViewCommand";
 import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import {
+  CreateResourceExplorerSetupCommand,
+  CreateResourceExplorerSetupCommandInput,
+  CreateResourceExplorerSetupCommandOutput,
+} from "./commands/CreateResourceExplorerSetupCommand";
 import { CreateViewCommand, CreateViewCommandInput, CreateViewCommandOutput } from "./commands/CreateViewCommand";
 import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import {
+  DeleteResourceExplorerSetupCommand,
+  DeleteResourceExplorerSetupCommandInput,
+  DeleteResourceExplorerSetupCommandOutput,
+} from "./commands/DeleteResourceExplorerSetupCommand";
 import { DeleteViewCommand, DeleteViewCommandInput, DeleteViewCommandOutput } from "./commands/DeleteViewCommand";
 import {
   DisassociateDefaultViewCommand,
@@ -37,6 +47,21 @@ import {
   GetManagedViewCommandInput,
   GetManagedViewCommandOutput,
 } from "./commands/GetManagedViewCommand";
+import {
+  GetResourceExplorerSetupCommand,
+  GetResourceExplorerSetupCommandInput,
+  GetResourceExplorerSetupCommandOutput,
+} from "./commands/GetResourceExplorerSetupCommand";
+import {
+  GetServiceIndexCommand,
+  GetServiceIndexCommandInput,
+  GetServiceIndexCommandOutput,
+} from "./commands/GetServiceIndexCommand";
+import {
+  GetServiceViewCommand,
+  GetServiceViewCommandInput,
+  GetServiceViewCommandOutput,
+} from "./commands/GetServiceViewCommand";
 import { GetViewCommand, GetViewCommandInput, GetViewCommandOutput } from "./commands/GetViewCommand";
 import { ListIndexesCommand, ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
 import {
@@ -54,6 +79,21 @@ import {
   ListResourcesCommandInput,
   ListResourcesCommandOutput,
 } from "./commands/ListResourcesCommand";
+import {
+  ListServiceIndexesCommand,
+  ListServiceIndexesCommandInput,
+  ListServiceIndexesCommandOutput,
+} from "./commands/ListServiceIndexesCommand";
+import {
+  ListServiceViewsCommand,
+  ListServiceViewsCommandInput,
+  ListServiceViewsCommandOutput,
+} from "./commands/ListServiceViewsCommand";
+import {
+  ListStreamingAccessForServicesCommand,
+  ListStreamingAccessForServicesCommandInput,
+  ListStreamingAccessForServicesCommandOutput,
+} from "./commands/ListStreamingAccessForServicesCommand";
 import {
   ListSupportedResourceTypesCommand,
   ListSupportedResourceTypesCommandInput,
@@ -84,19 +124,27 @@ const commands = {
   AssociateDefaultViewCommand,
   BatchGetViewCommand,
   CreateIndexCommand,
+  CreateResourceExplorerSetupCommand,
   CreateViewCommand,
   DeleteIndexCommand,
+  DeleteResourceExplorerSetupCommand,
   DeleteViewCommand,
   DisassociateDefaultViewCommand,
   GetAccountLevelServiceConfigurationCommand,
   GetDefaultViewCommand,
   GetIndexCommand,
   GetManagedViewCommand,
+  GetResourceExplorerSetupCommand,
+  GetServiceIndexCommand,
+  GetServiceViewCommand,
   GetViewCommand,
   ListIndexesCommand,
   ListIndexesForMembersCommand,
   ListManagedViewsCommand,
   ListResourcesCommand,
+  ListServiceIndexesCommand,
+  ListServiceViewsCommand,
+  ListStreamingAccessForServicesCommand,
   ListSupportedResourceTypesCommand,
   ListTagsForResourceCommand,
   ListViewsCommand,
@@ -150,6 +198,23 @@ export interface ResourceExplorer2 {
   ): void;
 
   /**
+   * @see {@link CreateResourceExplorerSetupCommand}
+   */
+  createResourceExplorerSetup(
+    args: CreateResourceExplorerSetupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResourceExplorerSetupCommandOutput>;
+  createResourceExplorerSetup(
+    args: CreateResourceExplorerSetupCommandInput,
+    cb: (err: any, data?: CreateResourceExplorerSetupCommandOutput) => void
+  ): void;
+  createResourceExplorerSetup(
+    args: CreateResourceExplorerSetupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResourceExplorerSetupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateViewCommand}
    */
   createView(args: CreateViewCommandInput, options?: __HttpHandlerOptions): Promise<CreateViewCommandOutput>;
@@ -169,6 +234,24 @@ export interface ResourceExplorer2 {
     args: DeleteIndexCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIndexCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourceExplorerSetupCommand}
+   */
+  deleteResourceExplorerSetup(): Promise<DeleteResourceExplorerSetupCommandOutput>;
+  deleteResourceExplorerSetup(
+    args: DeleteResourceExplorerSetupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourceExplorerSetupCommandOutput>;
+  deleteResourceExplorerSetup(
+    args: DeleteResourceExplorerSetupCommandInput,
+    cb: (err: any, data?: DeleteResourceExplorerSetupCommandOutput) => void
+  ): void;
+  deleteResourceExplorerSetup(
+    args: DeleteResourceExplorerSetupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourceExplorerSetupCommandOutput) => void
   ): void;
 
   /**
@@ -260,6 +343,52 @@ export interface ResourceExplorer2 {
   ): void;
 
   /**
+   * @see {@link GetResourceExplorerSetupCommand}
+   */
+  getResourceExplorerSetup(
+    args: GetResourceExplorerSetupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceExplorerSetupCommandOutput>;
+  getResourceExplorerSetup(
+    args: GetResourceExplorerSetupCommandInput,
+    cb: (err: any, data?: GetResourceExplorerSetupCommandOutput) => void
+  ): void;
+  getResourceExplorerSetup(
+    args: GetResourceExplorerSetupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceExplorerSetupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetServiceIndexCommand}
+   */
+  getServiceIndex(): Promise<GetServiceIndexCommandOutput>;
+  getServiceIndex(
+    args: GetServiceIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceIndexCommandOutput>;
+  getServiceIndex(args: GetServiceIndexCommandInput, cb: (err: any, data?: GetServiceIndexCommandOutput) => void): void;
+  getServiceIndex(
+    args: GetServiceIndexCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceIndexCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetServiceViewCommand}
+   */
+  getServiceView(
+    args: GetServiceViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceViewCommandOutput>;
+  getServiceView(args: GetServiceViewCommandInput, cb: (err: any, data?: GetServiceViewCommandOutput) => void): void;
+  getServiceView(
+    args: GetServiceViewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceViewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetViewCommand}
    */
   getView(args: GetViewCommandInput, options?: __HttpHandlerOptions): Promise<GetViewCommandOutput>;
@@ -327,6 +456,60 @@ export interface ResourceExplorer2 {
     args: ListResourcesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceIndexesCommand}
+   */
+  listServiceIndexes(): Promise<ListServiceIndexesCommandOutput>;
+  listServiceIndexes(
+    args: ListServiceIndexesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceIndexesCommandOutput>;
+  listServiceIndexes(
+    args: ListServiceIndexesCommandInput,
+    cb: (err: any, data?: ListServiceIndexesCommandOutput) => void
+  ): void;
+  listServiceIndexes(
+    args: ListServiceIndexesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceIndexesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceViewsCommand}
+   */
+  listServiceViews(): Promise<ListServiceViewsCommandOutput>;
+  listServiceViews(
+    args: ListServiceViewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceViewsCommandOutput>;
+  listServiceViews(
+    args: ListServiceViewsCommandInput,
+    cb: (err: any, data?: ListServiceViewsCommandOutput) => void
+  ): void;
+  listServiceViews(
+    args: ListServiceViewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceViewsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStreamingAccessForServicesCommand}
+   */
+  listStreamingAccessForServices(): Promise<ListStreamingAccessForServicesCommandOutput>;
+  listStreamingAccessForServices(
+    args: ListStreamingAccessForServicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamingAccessForServicesCommandOutput>;
+  listStreamingAccessForServices(
+    args: ListStreamingAccessForServicesCommandInput,
+    cb: (err: any, data?: ListStreamingAccessForServicesCommandOutput) => void
+  ): void;
+  listStreamingAccessForServices(
+    args: ListStreamingAccessForServicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStreamingAccessForServicesCommandOutput) => void
   ): void;
 
   /**
@@ -436,27 +619,7 @@ export interface ResourceExplorer2 {
 }
 
 /**
- * <p>Amazon Web Services Resource Explorer is a resource search and discovery service. By using Resource Explorer, you can
- *             explore your resources using an internet search engine-like experience. Examples of
- *             resources include Amazon Relational Database Service (Amazon RDS) instances, Amazon Simple Storage Service (Amazon S3) buckets, or Amazon DynamoDB
- *             tables. You can search for your resources using resource metadata like names, tags, and
- *             IDs. Resource Explorer can search across all of the Amazon Web Services Regions in your account in which you turn
- *             the service on, to simplify your cross-Region workloads.</p>
- *          <p>Resource Explorer scans the resources in each of the Amazon Web Services Regions in your Amazon Web Services account in which
- *             you turn on Resource Explorer. Resource Explorer <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/getting-started-terms-and-concepts.html#term-index">creates
- *                 and maintains an index</a> in each Region, with the details of that Region's
- *             resources.</p>
- *          <p>You can <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">search across all of the
- *                 indexed Regions in your account</a> by designating one of your Amazon Web Services Regions to
- *             contain the aggregator index for the account. When you <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region-turn-on.html">promote a local index
- *                 in a Region to become the aggregator index for the account</a>, Resource Explorer automatically
- *             replicates the index information from all local indexes in the other Regions to the
- *             aggregator index. Therefore, the Region with the aggregator index has a copy of all resource
- *             information for all Regions in the account where you turned on Resource Explorer. As a result,
- *             views in the aggregator index Region include resources from all of the indexed Regions in your
- *             account.</p>
- *          <p>For more information about Amazon Web Services Resource Explorer, including how to enable and configure the
- *             service, see the <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/">Amazon Web Services Resource Explorer User Guide</a>.</p>
+ * <p>Amazon Web Services Resource Explorer is a resource search and discovery service. By using Resource Explorer, you can explore your resources using an internet search engine-like experience. Examples of resources include Amazon Relational Database Service (Amazon RDS) instances, Amazon Simple Storage Service (Amazon S3) buckets, or Amazon DynamoDB tables. You can search for your resources using resource metadata like names, tags, and IDs. Resource Explorer can search across all of the Amazon Web Services Regions in your account in which you turn the service on, to simplify your cross-Region workloads.</p> <p>Resource Explorer scans the resources in each of the Amazon Web Services Regions in your Amazon Web Services account in which you turn on Resource Explorer. Resource Explorer <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/getting-started-terms-and-concepts.html#term-index">creates and maintains an index</a> in each Region, with the details of that Region's resources.</p> <p>You can <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">search across all of the indexed Regions in your account</a> by designating one of your Amazon Web Services Regions to contain the aggregator index for the account. When you <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region-turn-on.html">promote a local index in a Region to become the aggregator index for the account</a>, Resource Explorer automatically replicates the index information from all local indexes in the other Regions to the aggregator index. Therefore, the Region with the aggregator index has a copy of all resource information for all Regions in the account where you turned on Resource Explorer. As a result, views in the aggregator index Region include resources from all of the indexed Regions in your account.</p> <p>For more information about Amazon Web Services Resource Explorer, including how to enable and configure the service, see the <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/">Amazon Web Services Resource Explorer User Guide</a>.</p>
  * @public
  */
 export class ResourceExplorer2 extends ResourceExplorer2Client implements ResourceExplorer2 {}
