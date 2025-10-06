@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetEventInput, GetEventOutput, GetEventOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetEventCommand, se_GetEventCommand } from "../protocols/Aws_restJson1";
+import {
+  BatchUpdateMemoryRecordsInput,
+  BatchUpdateMemoryRecordsInputFilterSensitiveLog,
+  BatchUpdateMemoryRecordsOutput,
+} from "../models/models_0";
+import { de_BatchUpdateMemoryRecordsCommand, se_BatchUpdateMemoryRecordsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,77 +21,75 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetEventCommand}.
+ * The input for {@link BatchUpdateMemoryRecordsCommand}.
  */
-export interface GetEventCommandInput extends GetEventInput {}
+export interface BatchUpdateMemoryRecordsCommandInput extends BatchUpdateMemoryRecordsInput {}
 /**
  * @public
  *
- * The output of {@link GetEventCommand}.
+ * The output of {@link BatchUpdateMemoryRecordsCommand}.
  */
-export interface GetEventCommandOutput extends GetEventOutput, __MetadataBearer {}
+export interface BatchUpdateMemoryRecordsCommandOutput extends BatchUpdateMemoryRecordsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a specific event in an AgentCore Memory resource.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:GetEvent</code> permission.</p>
+ * <p>Updates multiple memory records with custom content in a single batch operation within the specified memory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreClient, GetEventCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
- * // const { BedrockAgentCoreClient, GetEventCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * import { BedrockAgentCoreClient, BatchUpdateMemoryRecordsCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
+ * // const { BedrockAgentCoreClient, BatchUpdateMemoryRecordsCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
  * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
  * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
- * const input = { // GetEventInput
+ * const input = { // BatchUpdateMemoryRecordsInput
  *   memoryId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
- *   actorId: "STRING_VALUE", // required
- *   eventId: "STRING_VALUE", // required
+ *   records: [ // MemoryRecordsUpdateInputList // required
+ *     { // MemoryRecordUpdateInput
+ *       memoryRecordId: "STRING_VALUE", // required
+ *       timestamp: new Date("TIMESTAMP"), // required
+ *       content: { // MemoryContent Union: only one key present
+ *         text: "STRING_VALUE",
+ *       },
+ *       namespaces: [ // NamespacesList
+ *         "STRING_VALUE",
+ *       ],
+ *       memoryStrategyId: "STRING_VALUE",
+ *     },
+ *   ],
  * };
- * const command = new GetEventCommand(input);
+ * const command = new BatchUpdateMemoryRecordsCommand(input);
  * const response = await client.send(command);
- * // { // GetEventOutput
- * //   event: { // Event
- * //     memoryId: "STRING_VALUE", // required
- * //     actorId: "STRING_VALUE", // required
- * //     sessionId: "STRING_VALUE", // required
- * //     eventId: "STRING_VALUE", // required
- * //     eventTimestamp: new Date("TIMESTAMP"), // required
- * //     payload: [ // PayloadTypeList // required
- * //       { // PayloadType Union: only one key present
- * //         conversational: { // Conversational
- * //           content: { // Content Union: only one key present
- * //             text: "STRING_VALUE",
- * //           },
- * //           role: "ASSISTANT" || "USER" || "TOOL" || "OTHER", // required
- * //         },
- * //         blob: "DOCUMENT_VALUE",
- * //       },
- * //     ],
- * //     branch: { // Branch
- * //       rootEventId: "STRING_VALUE",
- * //       name: "STRING_VALUE", // required
+ * // { // BatchUpdateMemoryRecordsOutput
+ * //   successfulRecords: [ // MemoryRecordsOutputList // required
+ * //     { // MemoryRecordOutput
+ * //       memoryRecordId: "STRING_VALUE", // required
+ * //       status: "SUCCEEDED" || "FAILED", // required
+ * //       requestIdentifier: "STRING_VALUE",
+ * //       errorCode: Number("int"),
+ * //       errorMessage: "STRING_VALUE",
  * //     },
- * //     metadata: { // MetadataMap
- * //       "<keys>": { // MetadataValue Union: only one key present
- * //         stringValue: "STRING_VALUE",
- * //       },
+ * //   ],
+ * //   failedRecords: [ // required
+ * //     {
+ * //       memoryRecordId: "STRING_VALUE", // required
+ * //       status: "SUCCEEDED" || "FAILED", // required
+ * //       requestIdentifier: "STRING_VALUE",
+ * //       errorCode: Number("int"),
+ * //       errorMessage: "STRING_VALUE",
  * //     },
- * //   },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param GetEventCommandInput - {@link GetEventCommandInput}
- * @returns {@link GetEventCommandOutput}
- * @see {@link GetEventCommandInput} for command's `input` shape.
- * @see {@link GetEventCommandOutput} for command's `response` shape.
+ * @param BatchUpdateMemoryRecordsCommandInput - {@link BatchUpdateMemoryRecordsCommandInput}
+ * @returns {@link BatchUpdateMemoryRecordsCommandOutput}
+ * @see {@link BatchUpdateMemoryRecordsCommandInput} for command's `input` shape.
+ * @see {@link BatchUpdateMemoryRecordsCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreClientResolvedConfig | config} for BedrockAgentCoreClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
- *
- * @throws {@link InvalidInputException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
@@ -110,10 +112,10 @@ export interface GetEventCommandOutput extends GetEventOutput, __MetadataBearer 
  *
  * @public
  */
-export class GetEventCommand extends $Command
+export class BatchUpdateMemoryRecordsCommand extends $Command
   .classBuilder<
-    GetEventCommandInput,
-    GetEventCommandOutput,
+    BatchUpdateMemoryRecordsCommandInput,
+    BatchUpdateMemoryRecordsCommandOutput,
     BedrockAgentCoreClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -125,21 +127,21 @@ export class GetEventCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockAgentCore", "GetEvent", {})
-  .n("BedrockAgentCoreClient", "GetEventCommand")
-  .f(void 0, GetEventOutputFilterSensitiveLog)
-  .ser(se_GetEventCommand)
-  .de(de_GetEventCommand)
+  .s("AmazonBedrockAgentCore", "BatchUpdateMemoryRecords", {})
+  .n("BedrockAgentCoreClient", "BatchUpdateMemoryRecordsCommand")
+  .f(BatchUpdateMemoryRecordsInputFilterSensitiveLog, void 0)
+  .ser(se_BatchUpdateMemoryRecordsCommand)
+  .de(de_BatchUpdateMemoryRecordsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetEventInput;
-      output: GetEventOutput;
+      input: BatchUpdateMemoryRecordsInput;
+      output: BatchUpdateMemoryRecordsOutput;
     };
     sdk: {
-      input: GetEventCommandInput;
-      output: GetEventCommandOutput;
+      input: BatchUpdateMemoryRecordsCommandInput;
+      output: BatchUpdateMemoryRecordsCommandOutput;
     };
   };
 }

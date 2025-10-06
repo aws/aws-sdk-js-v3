@@ -63,6 +63,11 @@ export interface CreateEventCommandOutput extends CreateEventOutput, __MetadataB
  *     name: "STRING_VALUE", // required
  *   },
  *   clientToken: "STRING_VALUE",
+ *   metadata: { // MetadataMap
+ *     "<keys>": { // MetadataValue Union: only one key present
+ *       stringValue: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new CreateEventCommand(input);
  * const response = await client.send(command);
@@ -87,6 +92,11 @@ export interface CreateEventCommandOutput extends CreateEventOutput, __MetadataB
  * //     branch: { // Branch
  * //       rootEventId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
+ * //     },
+ * //     metadata: { // MetadataMap
+ * //       "<keys>": { // MetadataValue Union: only one key present
+ * //         stringValue: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * // };

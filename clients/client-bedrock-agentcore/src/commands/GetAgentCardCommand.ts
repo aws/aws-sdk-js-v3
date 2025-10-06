@@ -6,15 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetWorkloadAccessTokenForUserIdRequest,
-  GetWorkloadAccessTokenForUserIdResponse,
-  GetWorkloadAccessTokenForUserIdResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetWorkloadAccessTokenForUserIdCommand,
-  se_GetWorkloadAccessTokenForUserIdCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAgentCardRequest, GetAgentCardResponse } from "../models/models_0";
+import { de_GetAgentCardCommand, se_GetAgentCardCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,44 +17,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetWorkloadAccessTokenForUserIdCommand}.
+ * The input for {@link GetAgentCardCommand}.
  */
-export interface GetWorkloadAccessTokenForUserIdCommandInput extends GetWorkloadAccessTokenForUserIdRequest {}
+export interface GetAgentCardCommandInput extends GetAgentCardRequest {}
 /**
  * @public
  *
- * The output of {@link GetWorkloadAccessTokenForUserIdCommand}.
+ * The output of {@link GetAgentCardCommand}.
  */
-export interface GetWorkloadAccessTokenForUserIdCommandOutput
-  extends GetWorkloadAccessTokenForUserIdResponse,
-    __MetadataBearer {}
+export interface GetAgentCardCommandOutput extends GetAgentCardResponse, __MetadataBearer {}
 
 /**
- * <p>Obtains a workload access token for agentic workloads acting on behalf of a user, using the user's ID.</p>
+ * <p>Retrieves the A2A agent card associated with an AgentCore Runtime agent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreClient, GetWorkloadAccessTokenForUserIdCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
- * // const { BedrockAgentCoreClient, GetWorkloadAccessTokenForUserIdCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * import { BedrockAgentCoreClient, GetAgentCardCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
+ * // const { BedrockAgentCoreClient, GetAgentCardCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
  * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
  * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
- * const input = { // GetWorkloadAccessTokenForUserIdRequest
- *   workloadName: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
+ * const input = { // GetAgentCardRequest
+ *   runtimeSessionId: "STRING_VALUE",
+ *   agentRuntimeArn: "STRING_VALUE", // required
+ *   qualifier: "STRING_VALUE",
  * };
- * const command = new GetWorkloadAccessTokenForUserIdCommand(input);
+ * const command = new GetAgentCardCommand(input);
  * const response = await client.send(command);
- * // { // GetWorkloadAccessTokenForUserIdResponse
- * //   workloadAccessToken: "STRING_VALUE", // required
+ * // { // GetAgentCardResponse
+ * //   runtimeSessionId: "STRING_VALUE",
+ * //   agentCard: "DOCUMENT_VALUE", // required
+ * //   statusCode: Number("int"),
  * // };
  *
  * ```
  *
- * @param GetWorkloadAccessTokenForUserIdCommandInput - {@link GetWorkloadAccessTokenForUserIdCommandInput}
- * @returns {@link GetWorkloadAccessTokenForUserIdCommandOutput}
- * @see {@link GetWorkloadAccessTokenForUserIdCommandInput} for command's `input` shape.
- * @see {@link GetWorkloadAccessTokenForUserIdCommandOutput} for command's `response` shape.
+ * @param GetAgentCardCommandInput - {@link GetAgentCardCommandInput}
+ * @returns {@link GetAgentCardCommandOutput}
+ * @see {@link GetAgentCardCommandInput} for command's `input` shape.
+ * @see {@link GetAgentCardCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreClientResolvedConfig | config} for BedrockAgentCoreClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -73,11 +67,14 @@ export interface GetWorkloadAccessTokenForUserIdCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
  *
+ * @throws {@link RuntimeClientError} (client fault)
+ *  <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
- *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
@@ -88,10 +85,10 @@ export interface GetWorkloadAccessTokenForUserIdCommandOutput
  *
  * @public
  */
-export class GetWorkloadAccessTokenForUserIdCommand extends $Command
+export class GetAgentCardCommand extends $Command
   .classBuilder<
-    GetWorkloadAccessTokenForUserIdCommandInput,
-    GetWorkloadAccessTokenForUserIdCommandOutput,
+    GetAgentCardCommandInput,
+    GetAgentCardCommandOutput,
     BedrockAgentCoreClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,21 +100,21 @@ export class GetWorkloadAccessTokenForUserIdCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockAgentCore", "GetWorkloadAccessTokenForUserId", {})
-  .n("BedrockAgentCoreClient", "GetWorkloadAccessTokenForUserIdCommand")
-  .f(void 0, GetWorkloadAccessTokenForUserIdResponseFilterSensitiveLog)
-  .ser(se_GetWorkloadAccessTokenForUserIdCommand)
-  .de(de_GetWorkloadAccessTokenForUserIdCommand)
+  .s("AmazonBedrockAgentCore", "GetAgentCard", {})
+  .n("BedrockAgentCoreClient", "GetAgentCardCommand")
+  .f(void 0, void 0)
+  .ser(se_GetAgentCardCommand)
+  .de(de_GetAgentCardCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetWorkloadAccessTokenForUserIdRequest;
-      output: GetWorkloadAccessTokenForUserIdResponse;
+      input: GetAgentCardRequest;
+      output: GetAgentCardResponse;
     };
     sdk: {
-      input: GetWorkloadAccessTokenForUserIdCommandInput;
-      output: GetWorkloadAccessTokenForUserIdCommandOutput;
+      input: GetAgentCardCommandInput;
+      output: GetAgentCardCommandOutput;
     };
   };
 }

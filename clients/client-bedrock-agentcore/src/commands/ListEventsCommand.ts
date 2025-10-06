@@ -47,6 +47,19 @@ export interface ListEventsCommandOutput extends ListEventsOutput, __MetadataBea
  *       name: "STRING_VALUE", // required
  *       includeParentBranches: true || false,
  *     },
+ *     eventMetadata: [ // EventMetadataFilterList
+ *       { // EventMetadataFilterExpression
+ *         left: { // LeftExpression Union: only one key present
+ *           metadataKey: "STRING_VALUE",
+ *         },
+ *         operator: "EQUALS_TO" || "EXISTS" || "NOT_EXISTS", // required
+ *         right: { // RightExpression Union: only one key present
+ *           metadataValue: { // MetadataValue Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
  *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -75,6 +88,11 @@ export interface ListEventsCommandOutput extends ListEventsOutput, __MetadataBea
  * //       branch: { // Branch
  * //         rootEventId: "STRING_VALUE",
  * //         name: "STRING_VALUE", // required
+ * //       },
+ * //       metadata: { // MetadataMap
+ * //         "<keys>": { // MetadataValue Union: only one key present
+ * //           stringValue: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //   ],

@@ -60,9 +60,22 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  BatchCreateMemoryRecordsCommandInput,
+  BatchCreateMemoryRecordsCommandOutput,
+} from "./commands/BatchCreateMemoryRecordsCommand";
+import {
+  BatchDeleteMemoryRecordsCommandInput,
+  BatchDeleteMemoryRecordsCommandOutput,
+} from "./commands/BatchDeleteMemoryRecordsCommand";
+import {
+  BatchUpdateMemoryRecordsCommandInput,
+  BatchUpdateMemoryRecordsCommandOutput,
+} from "./commands/BatchUpdateMemoryRecordsCommand";
 import { CreateEventCommandInput, CreateEventCommandOutput } from "./commands/CreateEventCommand";
 import { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import { DeleteMemoryRecordCommandInput, DeleteMemoryRecordCommandOutput } from "./commands/DeleteMemoryRecordCommand";
+import { GetAgentCardCommandInput, GetAgentCardCommandOutput } from "./commands/GetAgentCardCommand";
 import { GetBrowserSessionCommandInput, GetBrowserSessionCommandOutput } from "./commands/GetBrowserSessionCommand";
 import {
   GetCodeInterpreterSessionCommandInput,
@@ -121,6 +134,7 @@ import {
   StopCodeInterpreterSessionCommandInput,
   StopCodeInterpreterSessionCommandOutput,
 } from "./commands/StopCodeInterpreterSessionCommand";
+import { StopRuntimeSessionCommandInput, StopRuntimeSessionCommandOutput } from "./commands/StopRuntimeSessionCommand";
 import {
   UpdateBrowserStreamCommandInput,
   UpdateBrowserStreamCommandOutput,
@@ -140,9 +154,13 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchCreateMemoryRecordsCommandInput
+  | BatchDeleteMemoryRecordsCommandInput
+  | BatchUpdateMemoryRecordsCommandInput
   | CreateEventCommandInput
   | DeleteEventCommandInput
   | DeleteMemoryRecordCommandInput
+  | GetAgentCardCommandInput
   | GetBrowserSessionCommandInput
   | GetCodeInterpreterSessionCommandInput
   | GetEventCommandInput
@@ -165,15 +183,20 @@ export type ServiceInputTypes =
   | StartCodeInterpreterSessionCommandInput
   | StopBrowserSessionCommandInput
   | StopCodeInterpreterSessionCommandInput
+  | StopRuntimeSessionCommandInput
   | UpdateBrowserStreamCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchCreateMemoryRecordsCommandOutput
+  | BatchDeleteMemoryRecordsCommandOutput
+  | BatchUpdateMemoryRecordsCommandOutput
   | CreateEventCommandOutput
   | DeleteEventCommandOutput
   | DeleteMemoryRecordCommandOutput
+  | GetAgentCardCommandOutput
   | GetBrowserSessionCommandOutput
   | GetCodeInterpreterSessionCommandOutput
   | GetEventCommandOutput
@@ -196,6 +219,7 @@ export type ServiceOutputTypes =
   | StartCodeInterpreterSessionCommandOutput
   | StopBrowserSessionCommandOutput
   | StopCodeInterpreterSessionCommandOutput
+  | StopRuntimeSessionCommandOutput
   | UpdateBrowserStreamCommandOutput;
 
 /**

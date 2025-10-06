@@ -38,6 +38,52 @@ export interface ActorSummary {
 }
 
 /**
+ * @public
+ */
+export interface GetAgentCardRequest {
+  /**
+   * <p>The session ID that the AgentCore Runtime agent is using. </p>
+   * @public
+   */
+  runtimeSessionId?: string | undefined;
+
+  /**
+   * <p>The ARN of the AgentCore Runtime agent for which you want to get the A2A agent card.</p>
+   * @public
+   */
+  agentRuntimeArn: string | undefined;
+
+  /**
+   * <p>Optional qualifier to specify an agent alias, such as <code>prod</code>code&gt; or <code>dev</code>. If you don't provide a value, the DEFAULT alias is used. </p>
+   * @public
+   */
+  qualifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentCardResponse {
+  /**
+   * <p>The ID of the session associated with the AgentCore Runtime agent.</p>
+   * @public
+   */
+  runtimeSessionId?: string | undefined;
+
+  /**
+   * <p>An agent card document that contains metadata and capabilities for an AgentCore Runtime agent.</p>
+   * @public
+   */
+  agentCard: __DocumentType | undefined;
+
+  /**
+   * <p>The status code of the request.</p>
+   * @public
+   */
+  statusCode?: number | undefined;
+}
+
+/**
  * <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
  * @public
  */
@@ -54,6 +100,145 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
+ * @public
+ */
+export class RuntimeClientError extends __BaseException {
+  readonly name: "RuntimeClientError" = "RuntimeClientError";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RuntimeClientError, __BaseException>) {
+    super({
+      name: "RuntimeClientError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RuntimeClientError.prototype);
+  }
+}
+
+/**
+ * <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A message describing why this field failed validation.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CannotParse",
+  FIELD_VALIDATION_FAILED: "FieldValidationFailed",
+  IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION: "IdempotentParameterMismatchException",
+  RESOURCE_CONFLICT: "ResourceConflict",
+  ROOT_EVENT_IN_OTHER_SESSION: "EventInOtherSession",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  reason: ValidationExceptionReason | undefined;
+  fieldList?: ValidationExceptionField[] | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
   }
 }
 
@@ -206,141 +391,88 @@ export interface InvokeAgentRuntimeResponse {
 }
 
 /**
- * <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+ * <p>The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.</p>
  * @public
  */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
     super({
-      name: "ResourceNotFoundException",
+      name: "ConflictException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    Object.setPrototypeOf(this, ConflictException.prototype);
   }
 }
 
 /**
- * <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
  * @public
  */
-export class RuntimeClientError extends __BaseException {
-  readonly name: "RuntimeClientError" = "RuntimeClientError";
-  readonly $fault: "client" = "client";
+export interface StopRuntimeSessionRequest {
   /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RuntimeClientError, __BaseException>) {
-    super({
-      name: "RuntimeClientError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RuntimeClientError.prototype);
-  }
-}
-
-/**
- * <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the field.</p>
+   * <p>The ID of the session that you want to stop.</p>
    * @public
    */
-  name: string | undefined;
+  runtimeSessionId: string | undefined;
 
   /**
-   * <p>A message describing why this field failed validation.</p>
+   * <p>The ARN of the agent that contains the session that you want to stop.</p>
    * @public
    */
-  message: string | undefined;
+  agentRuntimeArn: string | undefined;
+
+  /**
+   * <p>Optional qualifier to specify an agent alias, such as <code>prod</code>code&gt; or <code>dev</code>. If you don't provide a value, the DEFAULT alias is used. </p>
+   * @public
+   */
+  qualifier?: string | undefined;
+
+  /**
+   * <p>Idempotent token used to identify the request. If you use the same token with multiple requests, the same response is returned. Use ClientToken to prevent the same request from being processed more than once.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 }
 
 /**
  * @public
- * @enum
  */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CannotParse",
-  FIELD_VALIDATION_FAILED: "FieldValidationFailed",
-  IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION: "IdempotentParameterMismatchException",
-  RESOURCE_CONFLICT: "ResourceConflict",
-  ROOT_EVENT_IN_OTHER_SESSION: "EventInOtherSession",
-} as const;
+export interface StopRuntimeSessionResponse {
+  /**
+   * <p>The ID of the session that you requested to stop.</p>
+   * @public
+   */
+  runtimeSessionId?: string | undefined;
+
+  /**
+   * <p>The status code of the request to stop the session.</p>
+   * @public
+   */
+  statusCode?: number | undefined;
+}
 
 /**
+ * <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
  * @public
  */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
   readonly $fault: "client" = "client";
-  reason: ValidationExceptionReason | undefined;
-  fieldList?: ValidationExceptionField[] | undefined;
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
     super({
-      name: "ValidationException",
+      name: "UnauthorizedException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
   }
 }
 
@@ -606,26 +738,6 @@ export interface ListBrowserSessionsResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
 }
 
 /**
@@ -1024,7 +1136,7 @@ export interface StartCodeInterpreterSessionRequest {
   name?: string | undefined;
 
   /**
-   * <p>The time in seconds after which the session automatically terminates if there is no activity. The default value is 3600 seconds (1 hour). The minimum allowed value is 60 seconds, and the maximum allowed value is 28800 seconds (8 hours).</p>
+   * <p>The time in seconds after which the session automatically terminates if there is no activity. The default value is 900 seconds (15 minutes). The minimum allowed value is 60 seconds, and the maximum allowed value is 28800 seconds (8 hours).</p>
    * @public
    */
   sessionTimeoutSeconds?: number | undefined;
@@ -1110,13 +1222,13 @@ export interface StopCodeInterpreterSessionResponse {
  */
 export interface GetResourceApiKeyRequest {
   /**
-   * <p>The identity token of the workload you want to get the API Key of.</p>
+   * <p>The identity token of the workload from which you want to retrieve the API key.</p>
    * @public
    */
   workloadIdentityToken: string | undefined;
 
   /**
-   * <p>The credential provider name of the resource you are retrieving the API Key of.</p>
+   * <p>The credential provider name for the resource from which you are retrieving the API key.</p>
    * @public
    */
   resourceCredentialProviderName: string | undefined;
@@ -1127,30 +1239,10 @@ export interface GetResourceApiKeyRequest {
  */
 export interface GetResourceApiKeyResponse {
   /**
-   * <p>The API Key associated with the resource requested.</p>
+   * <p>The API key associated with the resource requested.</p>
    * @public
    */
   apiKey: string | undefined;
-}
-
-/**
- * <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
 }
 
 /**
@@ -1172,43 +1264,43 @@ export type Oauth2FlowType = (typeof Oauth2FlowType)[keyof typeof Oauth2FlowType
  */
 export interface GetResourceOauth2TokenRequest {
   /**
-   * <p>The identity token of the workload you want to retrive the Oauth2 Token of.</p>
+   * <p>The identity token of the workload from which you want to retrieve the OAuth2 token.</p>
    * @public
    */
   workloadIdentityToken: string | undefined;
 
   /**
-   * <p>Reference to the credential provider</p>
+   * <p>The name of the resource's credential provider.</p>
    * @public
    */
   resourceCredentialProviderName: string | undefined;
 
   /**
-   * <p>The OAuth scopes requested</p>
+   * <p>The OAuth scopes being requested.</p>
    * @public
    */
   scopes: string[] | undefined;
 
   /**
-   * <p>The type of flow to be performed</p>
+   * <p>The type of flow to be performed.</p>
    * @public
    */
   oauth2Flow: Oauth2FlowType | undefined;
 
   /**
-   * <p>Callback url to redirect after token retrieval completes. Should be one of the provideded urls during WorkloadIdentity creation</p>
+   * <p>The callback URL to redirect to after the OAuth 2.0 token retrieval is complete. This URL must be one of the provided URLs configured for the workload identity.</p>
    * @public
    */
   resourceOauth2ReturnUrl?: string | undefined;
 
   /**
-   * <p>If true, always initiate a new 3LO flow</p>
+   * <p>Indicates whether to always initiate a new three-legged OAuth (3LO) flow, regardless of any existing session.</p>
    * @public
    */
   forceAuthentication?: boolean | undefined;
 
   /**
-   * <p>Gives the ability to send extra/custom parameters to the resource credentials provider during the authorization process. Standard OAuth2 flow parameters will not be overriden.</p>
+   * <p>A map of custom parameters to include in the authorization request to the resource credential provider. These parameters are in addition to the standard OAuth 2.0 flow parameters, and will not override them.</p>
    * @public
    */
   customParameters?: Record<string, string> | undefined;
@@ -1219,13 +1311,13 @@ export interface GetResourceOauth2TokenRequest {
  */
 export interface GetResourceOauth2TokenResponse {
   /**
-   * <p>The URL for the authorization process, provided if the Access token requires user Authorization.</p>
+   * <p>The URL to initiate the authorization process, provided when the access token requires user authorization.</p>
    * @public
    */
   authorizationUrl?: string | undefined;
 
   /**
-   * <p>OAuth2 token ready for use</p>
+   * <p>The OAuth 2.0 access token to use.</p>
    * @public
    */
   accessToken?: string | undefined;
@@ -1236,7 +1328,7 @@ export interface GetResourceOauth2TokenResponse {
  */
 export interface GetWorkloadAccessTokenRequest {
   /**
-   * <p>Unique identifier for the registered agent</p>
+   * <p>The unique identifier for the registered workload.</p>
    * @public
    */
   workloadName: string | undefined;
@@ -1247,7 +1339,7 @@ export interface GetWorkloadAccessTokenRequest {
  */
 export interface GetWorkloadAccessTokenResponse {
   /**
-   * <p>Opaque token representing both agent and user identity</p>
+   * <p>An opaque token representing the identity of both the workload and the user.</p>
    * @public
    */
   workloadAccessToken: string | undefined;
@@ -1258,13 +1350,13 @@ export interface GetWorkloadAccessTokenResponse {
  */
 export interface GetWorkloadAccessTokenForJWTRequest {
   /**
-   * <p>Unique identifier for the registered agent</p>
+   * <p>The unique identifier for the registered workload.</p>
    * @public
    */
   workloadName: string | undefined;
 
   /**
-   * <p>OAuth2 token issued by the user's identity provider</p>
+   * <p>The OAuth 2.0 token issued by the user's identity provider.</p>
    * @public
    */
   userToken: string | undefined;
@@ -1275,7 +1367,7 @@ export interface GetWorkloadAccessTokenForJWTRequest {
  */
 export interface GetWorkloadAccessTokenForJWTResponse {
   /**
-   * <p>Opaque token representing both agent and user identity</p>
+   * <p>An opaque token representing the identity of both the workload and the user.</p>
    * @public
    */
   workloadAccessToken: string | undefined;
@@ -1286,13 +1378,13 @@ export interface GetWorkloadAccessTokenForJWTResponse {
  */
 export interface GetWorkloadAccessTokenForUserIdRequest {
   /**
-   * <p>The name of the worklaod you want to get the access token of.</p>
+   * <p>The name of the workload from which you want to retrieve the access token.</p>
    * @public
    */
   workloadName: string | undefined;
 
   /**
-   * <p>The user id of the user you are retrieving the access token for.</p>
+   * <p>The ID of the user for whom you are retrieving the access token.</p>
    * @public
    */
   userId: string | undefined;
@@ -1303,7 +1395,7 @@ export interface GetWorkloadAccessTokenForUserIdRequest {
  */
 export interface GetWorkloadAccessTokenForUserIdResponse {
   /**
-   * <p>The workload access token of the named workload.</p>
+   * <p>The access token for the specified workload.</p>
    * @public
    */
   workloadAccessToken: string | undefined;
@@ -1875,6 +1967,326 @@ export interface InvokeCodeInterpreterResponse {
 }
 
 /**
+ * <p>Contains the content of a memory record.</p>
+ * @public
+ */
+export type MemoryContent = MemoryContent.TextMember | MemoryContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MemoryContent {
+  /**
+   * <p>The text content of the memory record.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MemoryContent, visitor: Visitor<T>): T => {
+    if (value.text !== undefined) return visitor.text(value.text);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Input structure to create a new memory record.</p>
+ * @public
+ */
+export interface MemoryRecordCreateInput {
+  /**
+   * <p>A client-provided identifier for tracking this specific record creation request.</p>
+   * @public
+   */
+  requestIdentifier: string | undefined;
+
+  /**
+   * <p>A list of namespace identifiers that categorize or group the memory record.</p>
+   * @public
+   */
+  namespaces: string[] | undefined;
+
+  /**
+   * <p>The content to be stored within the memory record.</p>
+   * @public
+   */
+  content: MemoryContent | undefined;
+
+  /**
+   * <p>Time at which the memory record was created.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The ID of the memory strategy that defines how this memory record is grouped.</p>
+   * @public
+   */
+  memoryStrategyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateMemoryRecordsInput {
+  /**
+   * <p>The unique ID of the memory resource where records will be created.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>A list of memory record creation inputs to be processed in the batch operation.</p>
+   * @public
+   */
+  records: MemoryRecordCreateInput[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotent processing of the batch request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MemoryRecordStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type MemoryRecordStatus = (typeof MemoryRecordStatus)[keyof typeof MemoryRecordStatus];
+
+/**
+ * <p>Output information returned after processing a memory record operation.</p>
+ * @public
+ */
+export interface MemoryRecordOutput {
+  /**
+   * <p>The unique ID associated to the memory record.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+
+  /**
+   * <p>The status of the memory record operation (e.g., SUCCEEDED, FAILED).</p>
+   * @public
+   */
+  status: MemoryRecordStatus | undefined;
+
+  /**
+   * <p>The client-provided identifier that was used to track this record operation.</p>
+   * @public
+   */
+  requestIdentifier?: string | undefined;
+
+  /**
+   * <p>The error code returned when the memory record operation fails.</p>
+   * @public
+   */
+  errorCode?: number | undefined;
+
+  /**
+   * <p>A human-readable error message describing why the memory record operation failed.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateMemoryRecordsOutput {
+  /**
+   * <p>A list of memory records that were successfully created during the batch operation.</p>
+   * @public
+   */
+  successfulRecords: MemoryRecordOutput[] | undefined;
+
+  /**
+   * <p>A list of memory records that failed to be created, including error details for each failure.</p>
+   * @public
+   */
+  failedRecords: MemoryRecordOutput[] | undefined;
+}
+
+/**
+ * <p>The service encountered an internal error. Try your request again later.</p>
+ * @public
+ */
+export class ServiceException extends __BaseException {
+  readonly name: "ServiceException" = "ServiceException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
+    super({
+      name: "ServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceException.prototype);
+  }
+}
+
+/**
+ * <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+ * @public
+ */
+export class ThrottledException extends __BaseException {
+  readonly name: "ThrottledException" = "ThrottledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottledException, __BaseException>) {
+    super({
+      name: "ThrottledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottledException.prototype);
+  }
+}
+
+/**
+ * <p>Input structure to delete an existing memory record.</p>
+ * @public
+ */
+export interface MemoryRecordDeleteInput {
+  /**
+   * <p>The unique ID of the memory record to be deleted.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteMemoryRecordsInput {
+  /**
+   * <p>The unique ID of the memory resource where records will be deleted.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>A list of memory record deletion inputs to be processed in the batch operation.</p>
+   * @public
+   */
+  records: MemoryRecordDeleteInput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteMemoryRecordsOutput {
+  /**
+   * <p>A list of memory records that were successfully deleted during the batch operation.</p>
+   * @public
+   */
+  successfulRecords: MemoryRecordOutput[] | undefined;
+
+  /**
+   * <p>A list of memory records that failed to be deleted, including error details for each failure.</p>
+   * @public
+   */
+  failedRecords: MemoryRecordOutput[] | undefined;
+}
+
+/**
+ * <p>Input structure to update an existing memory record.</p>
+ * @public
+ */
+export interface MemoryRecordUpdateInput {
+  /**
+   * <p>The unique ID of the memory record to be updated.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+
+  /**
+   * <p>Time at which the memory record was updated</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The content to be stored within the memory record.</p>
+   * @public
+   */
+  content?: MemoryContent | undefined;
+
+  /**
+   * <p>The updated list of namespace identifiers for categorizing the memory record.</p>
+   * @public
+   */
+  namespaces?: string[] | undefined;
+
+  /**
+   * <p>The updated ID of the memory strategy that defines how this memory record is grouped.</p>
+   * @public
+   */
+  memoryStrategyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateMemoryRecordsInput {
+  /**
+   * <p>The unique ID of the memory resource where records will be updated.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>A list of memory record update inputs to be processed in the batch operation.</p>
+   * @public
+   */
+  records: MemoryRecordUpdateInput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateMemoryRecordsOutput {
+  /**
+   * <p>A list of memory records that were successfully updated during the batch operation.</p>
+   * @public
+   */
+  successfulRecords: MemoryRecordOutput[] | undefined;
+
+  /**
+   * <p>A list of memory records that failed to be updated, including error details for each failure.</p>
+   * @public
+   */
+  failedRecords: MemoryRecordOutput[] | undefined;
+}
+
+/**
  * <p>Contains information about a branch in an AgentCore Memory resource. Branches allow for organizing events into different conversation threads or paths.</p>
  * @public
  */
@@ -1890,6 +2302,44 @@ export interface Branch {
    * @public
    */
   name: string | undefined;
+}
+
+/**
+ * <p>Value associated with the <code>eventMetadata</code> key.</p>
+ * @public
+ */
+export type MetadataValue = MetadataValue.StringValueMember | MetadataValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MetadataValue {
+  /**
+   * <p>Value associated with the <code>eventMetadata</code> key.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MetadataValue, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
@@ -2061,6 +2511,12 @@ export interface CreateEventInput {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>The key-value metadata to attach to the event.</p>
+   * @public
+   */
+  metadata?: Record<string, MetadataValue> | undefined;
 }
 
 /**
@@ -2109,6 +2565,12 @@ export interface Event {
    * @public
    */
   branch?: Branch | undefined;
+
+  /**
+   * <p>Metadata associated with an event.</p>
+   * @public
+   */
+  metadata?: Record<string, MetadataValue> | undefined;
 }
 
 /**
@@ -2139,46 +2601,6 @@ export class InvalidInputException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidInputException.prototype);
-  }
-}
-
-/**
- * <p>The service encountered an internal error. Try your request again later.</p>
- * @public
- */
-export class ServiceException extends __BaseException {
-  readonly name: "ServiceException" = "ServiceException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
-    super({
-      name: "ServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
- * @public
- */
-export class ThrottledException extends __BaseException {
-  readonly name: "ThrottledException" = "ThrottledException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottledException, __BaseException>) {
-    super({
-      name: "ThrottledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottledException.prototype);
   }
 }
 
@@ -2308,44 +2730,6 @@ export interface GetMemoryRecordInput {
 }
 
 /**
- * <p>Contains the content of a memory record.</p>
- * @public
- */
-export type MemoryContent = MemoryContent.TextMember | MemoryContent.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MemoryContent {
-  /**
-   * <p>The text content of the memory record.</p>
-   * @public
-   */
-  export interface TextMember {
-    text: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    text?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    text: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: MemoryContent, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
  * <p>Contains information about a memory record in an AgentCore Memory resource.</p>
  * @public
  */
@@ -2451,6 +2835,121 @@ export interface BranchFilter {
 }
 
 /**
+ * <p>Left expression of the event metadata filter.</p>
+ * @public
+ */
+export type LeftExpression = LeftExpression.MetadataKeyMember | LeftExpression.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace LeftExpression {
+  /**
+   * <p>Key associated with the metadata in an event.</p>
+   * @public
+   */
+  export interface MetadataKeyMember {
+    metadataKey: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataKey?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    metadataKey: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: LeftExpression, visitor: Visitor<T>): T => {
+    if (value.metadataKey !== undefined) return visitor.metadataKey(value.metadataKey);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OperatorType = {
+  EQUALS_TO: "EQUALS_TO",
+  EXISTS: "EXISTS",
+  NOT_EXISTS: "NOT_EXISTS",
+} as const;
+
+/**
+ * @public
+ */
+export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
+
+/**
+ * <p>Right expression of the <code>eventMetadata</code>filter.</p>
+ * @public
+ */
+export type RightExpression = RightExpression.MetadataValueMember | RightExpression.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RightExpression {
+  /**
+   * <p>Value associated with the key in <code>eventMetadata</code>.</p>
+   * @public
+   */
+  export interface MetadataValueMember {
+    metadataValue: MetadataValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    metadataValue: (value: MetadataValue) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RightExpression, visitor: Visitor<T>): T => {
+    if (value.metadataValue !== undefined) return visitor.metadataValue(value.metadataValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Filter expression for retrieving events based on metadata associated with an event.</p>
+ * @public
+ */
+export interface EventMetadataFilterExpression {
+  /**
+   * <p>Left operand of the event metadata filter expression.</p>
+   * @public
+   */
+  left: LeftExpression | undefined;
+
+  /**
+   * <p>Operator applied to the event metadata filter expression.</p>
+   * @public
+   */
+  operator: OperatorType | undefined;
+
+  /**
+   * <p>Right operand of the event metadata filter expression.</p>
+   * @public
+   */
+  right?: RightExpression | undefined;
+}
+
+/**
  * <p>Contains filter criteria for listing events.</p>
  * @public
  */
@@ -2460,6 +2959,12 @@ export interface FilterInput {
    * @public
    */
   branch?: BranchFilter | undefined;
+
+  /**
+   * <p>Event metadata filter criteria to apply when retrieving events.</p>
+   * @public
+   */
+  eventMetadata?: EventMetadataFilterExpression[] | undefined;
 }
 
 /**
@@ -2904,6 +3409,46 @@ export const InvokeCodeInterpreterResponseFilterSensitiveLog = (obj: InvokeCodeI
 /**
  * @internal
  */
+export const MemoryContentFilterSensitiveLog = (obj: MemoryContent): any => {
+  if (obj.text !== undefined) return { text: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MemoryRecordCreateInputFilterSensitiveLog = (obj: MemoryRecordCreateInput): any => ({
+  ...obj,
+  ...(obj.content && { content: MemoryContentFilterSensitiveLog(obj.content) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateMemoryRecordsInputFilterSensitiveLog = (obj: BatchCreateMemoryRecordsInput): any => ({
+  ...obj,
+  ...(obj.records && { records: obj.records.map((item) => MemoryRecordCreateInputFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const MemoryRecordUpdateInputFilterSensitiveLog = (obj: MemoryRecordUpdateInput): any => ({
+  ...obj,
+  ...(obj.content && { content: MemoryContentFilterSensitiveLog(obj.content) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateMemoryRecordsInputFilterSensitiveLog = (obj: BatchUpdateMemoryRecordsInput): any => ({
+  ...obj,
+  ...(obj.records && { records: obj.records.map((item) => MemoryRecordUpdateInputFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const ContentFilterSensitiveLog = (obj: Content): any => {
   if (obj.text !== undefined) return { text: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
@@ -2932,6 +3477,12 @@ export const PayloadTypeFilterSensitiveLog = (obj: PayloadType): any => {
 export const CreateEventInputFilterSensitiveLog = (obj: CreateEventInput): any => ({
   ...obj,
   ...(obj.payload && { payload: obj.payload.map((item) => PayloadTypeFilterSensitiveLog(item)) }),
+  ...(obj.metadata && {
+    metadata: Object.entries(obj.metadata).reduce(
+      (acc: any, [key, value]: [string, MetadataValue]) => ((acc[key] = value), acc),
+      {}
+    ),
+  }),
 });
 
 /**
@@ -2940,6 +3491,12 @@ export const CreateEventInputFilterSensitiveLog = (obj: CreateEventInput): any =
 export const EventFilterSensitiveLog = (obj: Event): any => ({
   ...obj,
   ...(obj.payload && { payload: obj.payload.map((item) => PayloadTypeFilterSensitiveLog(item)) }),
+  ...(obj.metadata && {
+    metadata: Object.entries(obj.metadata).reduce(
+      (acc: any, [key, value]: [string, MetadataValue]) => ((acc[key] = value), acc),
+      {}
+    ),
+  }),
 });
 
 /**
@@ -2957,14 +3514,6 @@ export const GetEventOutputFilterSensitiveLog = (obj: GetEventOutput): any => ({
   ...obj,
   ...(obj.event && { event: EventFilterSensitiveLog(obj.event) }),
 });
-
-/**
- * @internal
- */
-export const MemoryContentFilterSensitiveLog = (obj: MemoryContent): any => {
-  if (obj.text !== undefined) return { text: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
 /**
  * @internal

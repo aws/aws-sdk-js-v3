@@ -38,7 +38,7 @@ export interface GetWorkloadAccessTokenForJWTCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Obtains an Workload access token for agentic workloads acting on behalf of user with JWT token</p>
+ * <p>Obtains a workload access token for agentic workloads acting on behalf of a user, using a JWT token.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

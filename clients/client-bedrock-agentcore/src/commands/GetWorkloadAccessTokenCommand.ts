@@ -32,7 +32,7 @@ export interface GetWorkloadAccessTokenCommandInput extends GetWorkloadAccessTok
 export interface GetWorkloadAccessTokenCommandOutput extends GetWorkloadAccessTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Obtains an Workload access token for agentic workloads not acting on behalf of user.</p>
+ * <p>Obtains a workload access token for agentic workloads not acting on behalf of a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

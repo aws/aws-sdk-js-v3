@@ -1,7 +1,11 @@
 // smithy-typescript generated code
+export * from "./BatchCreateMemoryRecordsCommand";
+export * from "./BatchDeleteMemoryRecordsCommand";
+export * from "./BatchUpdateMemoryRecordsCommand";
 export * from "./CreateEventCommand";
 export * from "./DeleteEventCommand";
 export * from "./DeleteMemoryRecordCommand";
+export * from "./GetAgentCardCommand";
 export * from "./GetBrowserSessionCommand";
 export * from "./GetCodeInterpreterSessionCommand";
 export * from "./GetEventCommand";
@@ -24,4 +28,5 @@ export * from "./StartBrowserSessionCommand";
 export * from "./StartCodeInterpreterSessionCommand";
 export * from "./StopBrowserSessionCommand";
 export * from "./StopCodeInterpreterSessionCommand";
+export * from "./StopRuntimeSessionCommand";
 export * from "./UpdateBrowserStreamCommand";

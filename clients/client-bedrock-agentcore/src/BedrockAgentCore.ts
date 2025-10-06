@@ -3,6 +3,21 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { BedrockAgentCoreClient, BedrockAgentCoreClientConfig } from "./BedrockAgentCoreClient";
+import {
+  BatchCreateMemoryRecordsCommand,
+  BatchCreateMemoryRecordsCommandInput,
+  BatchCreateMemoryRecordsCommandOutput,
+} from "./commands/BatchCreateMemoryRecordsCommand";
+import {
+  BatchDeleteMemoryRecordsCommand,
+  BatchDeleteMemoryRecordsCommandInput,
+  BatchDeleteMemoryRecordsCommandOutput,
+} from "./commands/BatchDeleteMemoryRecordsCommand";
+import {
+  BatchUpdateMemoryRecordsCommand,
+  BatchUpdateMemoryRecordsCommandInput,
+  BatchUpdateMemoryRecordsCommandOutput,
+} from "./commands/BatchUpdateMemoryRecordsCommand";
 import { CreateEventCommand, CreateEventCommandInput, CreateEventCommandOutput } from "./commands/CreateEventCommand";
 import { DeleteEventCommand, DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import {
@@ -10,6 +25,11 @@ import {
   DeleteMemoryRecordCommandInput,
   DeleteMemoryRecordCommandOutput,
 } from "./commands/DeleteMemoryRecordCommand";
+import {
+  GetAgentCardCommand,
+  GetAgentCardCommandInput,
+  GetAgentCardCommandOutput,
+} from "./commands/GetAgentCardCommand";
 import {
   GetBrowserSessionCommand,
   GetBrowserSessionCommandInput,
@@ -109,15 +129,24 @@ import {
   StopCodeInterpreterSessionCommandOutput,
 } from "./commands/StopCodeInterpreterSessionCommand";
 import {
+  StopRuntimeSessionCommand,
+  StopRuntimeSessionCommandInput,
+  StopRuntimeSessionCommandOutput,
+} from "./commands/StopRuntimeSessionCommand";
+import {
   UpdateBrowserStreamCommand,
   UpdateBrowserStreamCommandInput,
   UpdateBrowserStreamCommandOutput,
 } from "./commands/UpdateBrowserStreamCommand";
 
 const commands = {
+  BatchCreateMemoryRecordsCommand,
+  BatchDeleteMemoryRecordsCommand,
+  BatchUpdateMemoryRecordsCommand,
   CreateEventCommand,
   DeleteEventCommand,
   DeleteMemoryRecordCommand,
+  GetAgentCardCommand,
   GetBrowserSessionCommand,
   GetCodeInterpreterSessionCommand,
   GetEventCommand,
@@ -140,10 +169,62 @@ const commands = {
   StartCodeInterpreterSessionCommand,
   StopBrowserSessionCommand,
   StopCodeInterpreterSessionCommand,
+  StopRuntimeSessionCommand,
   UpdateBrowserStreamCommand,
 };
 
 export interface BedrockAgentCore {
+  /**
+   * @see {@link BatchCreateMemoryRecordsCommand}
+   */
+  batchCreateMemoryRecords(
+    args: BatchCreateMemoryRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateMemoryRecordsCommandOutput>;
+  batchCreateMemoryRecords(
+    args: BatchCreateMemoryRecordsCommandInput,
+    cb: (err: any, data?: BatchCreateMemoryRecordsCommandOutput) => void
+  ): void;
+  batchCreateMemoryRecords(
+    args: BatchCreateMemoryRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateMemoryRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteMemoryRecordsCommand}
+   */
+  batchDeleteMemoryRecords(
+    args: BatchDeleteMemoryRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteMemoryRecordsCommandOutput>;
+  batchDeleteMemoryRecords(
+    args: BatchDeleteMemoryRecordsCommandInput,
+    cb: (err: any, data?: BatchDeleteMemoryRecordsCommandOutput) => void
+  ): void;
+  batchDeleteMemoryRecords(
+    args: BatchDeleteMemoryRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteMemoryRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateMemoryRecordsCommand}
+   */
+  batchUpdateMemoryRecords(
+    args: BatchUpdateMemoryRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateMemoryRecordsCommandOutput>;
+  batchUpdateMemoryRecords(
+    args: BatchUpdateMemoryRecordsCommandInput,
+    cb: (err: any, data?: BatchUpdateMemoryRecordsCommandOutput) => void
+  ): void;
+  batchUpdateMemoryRecords(
+    args: BatchUpdateMemoryRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateMemoryRecordsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateEventCommand}
    */
@@ -181,6 +262,17 @@ export interface BedrockAgentCore {
     args: DeleteMemoryRecordCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteMemoryRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentCardCommand}
+   */
+  getAgentCard(args: GetAgentCardCommandInput, options?: __HttpHandlerOptions): Promise<GetAgentCardCommandOutput>;
+  getAgentCard(args: GetAgentCardCommandInput, cb: (err: any, data?: GetAgentCardCommandOutput) => void): void;
+  getAgentCard(
+    args: GetAgentCardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgentCardCommandOutput) => void
   ): void;
 
   /**
@@ -528,6 +620,23 @@ export interface BedrockAgentCore {
     args: StopCodeInterpreterSessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopCodeInterpreterSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopRuntimeSessionCommand}
+   */
+  stopRuntimeSession(
+    args: StopRuntimeSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopRuntimeSessionCommandOutput>;
+  stopRuntimeSession(
+    args: StopRuntimeSessionCommandInput,
+    cb: (err: any, data?: StopRuntimeSessionCommandOutput) => void
+  ): void;
+  stopRuntimeSession(
+    args: StopRuntimeSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopRuntimeSessionCommandOutput) => void
   ): void;
 
   /**

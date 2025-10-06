@@ -33,7 +33,7 @@ export interface GetResourceApiKeyCommandInput extends GetResourceApiKeyRequest 
 export interface GetResourceApiKeyCommandOutput extends GetResourceApiKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an API Key associated with an API Key Credential Provider</p>
+ * <p>Retrieves the API key associated with an API key credential provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

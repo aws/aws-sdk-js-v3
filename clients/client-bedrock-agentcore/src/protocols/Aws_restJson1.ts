@@ -38,9 +38,22 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
+import {
+  BatchCreateMemoryRecordsCommandInput,
+  BatchCreateMemoryRecordsCommandOutput,
+} from "../commands/BatchCreateMemoryRecordsCommand";
+import {
+  BatchDeleteMemoryRecordsCommandInput,
+  BatchDeleteMemoryRecordsCommandOutput,
+} from "../commands/BatchDeleteMemoryRecordsCommand";
+import {
+  BatchUpdateMemoryRecordsCommandInput,
+  BatchUpdateMemoryRecordsCommandOutput,
+} from "../commands/BatchUpdateMemoryRecordsCommand";
 import { CreateEventCommandInput, CreateEventCommandOutput } from "../commands/CreateEventCommand";
 import { DeleteEventCommandInput, DeleteEventCommandOutput } from "../commands/DeleteEventCommand";
 import { DeleteMemoryRecordCommandInput, DeleteMemoryRecordCommandOutput } from "../commands/DeleteMemoryRecordCommand";
+import { GetAgentCardCommandInput, GetAgentCardCommandOutput } from "../commands/GetAgentCardCommand";
 import { GetBrowserSessionCommandInput, GetBrowserSessionCommandOutput } from "../commands/GetBrowserSessionCommand";
 import {
   GetCodeInterpreterSessionCommandInput,
@@ -99,6 +112,7 @@ import {
   StopCodeInterpreterSessionCommandInput,
   StopCodeInterpreterSessionCommandOutput,
 } from "../commands/StopCodeInterpreterSessionCommand";
+import { StopRuntimeSessionCommandInput, StopRuntimeSessionCommandOutput } from "../commands/StopRuntimeSessionCommand";
 import {
   UpdateBrowserStreamCommandInput,
   UpdateBrowserStreamCommandOutput,
@@ -118,15 +132,23 @@ import {
   ContentBlock,
   Conversational,
   Event,
+  EventMetadataFilterExpression,
   FilterInput,
   InputContentBlock,
   InternalServerException,
   InvalidInputException,
+  LeftExpression,
+  MemoryContent,
   MemoryRecord,
+  MemoryRecordCreateInput,
+  MemoryRecordDeleteInput,
   MemoryRecordSummary,
+  MemoryRecordUpdateInput,
+  MetadataValue,
   PayloadType,
   ResourceContent,
   ResourceNotFoundException,
+  RightExpression,
   RuntimeClientError,
   SearchCriteria,
   ServiceException,
@@ -141,6 +163,76 @@ import {
   ValidationException,
   ViewPort,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1BatchCreateMemoryRecordsCommand
+ */
+export const se_BatchCreateMemoryRecordsCommand = async (
+  input: BatchCreateMemoryRecordsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memories/{memoryId}/memoryRecords/batchCreate");
+  b.p("memoryId", () => input.memoryId!, "{memoryId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      records: (_) => se_MemoryRecordsCreateInputList(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchDeleteMemoryRecordsCommand
+ */
+export const se_BatchDeleteMemoryRecordsCommand = async (
+  input: BatchDeleteMemoryRecordsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memories/{memoryId}/memoryRecords/batchDelete");
+  b.p("memoryId", () => input.memoryId!, "{memoryId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      records: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchUpdateMemoryRecordsCommand
+ */
+export const se_BatchUpdateMemoryRecordsCommand = async (
+  input: BatchUpdateMemoryRecordsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memories/{memoryId}/memoryRecords/batchUpdate");
+  b.p("memoryId", () => input.memoryId!, "{memoryId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      records: (_) => se_MemoryRecordsUpdateInputList(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateEventCommand
@@ -162,6 +254,7 @@ export const se_CreateEventCommand = async (
       branch: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       eventTimestamp: (_) => _.getTime() / 1_000,
+      metadata: (_) => _json(_),
       payload: (_) => se_PayloadTypeList(_, context),
       sessionId: [],
     })
@@ -203,6 +296,27 @@ export const se_DeleteMemoryRecordCommand = async (
   b.p("memoryRecordId", () => input.memoryRecordId!, "{memoryRecordId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAgentCardCommand
+ */
+export const se_GetAgentCardCommand = async (
+  input: GetAgentCardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xabarsi]: input[_rSI] ?? generateIdempotencyToken(),
+  });
+  b.bp("/runtimes/{agentRuntimeArn}/invocations/.well-known/agent-card.json");
+  b.p("agentRuntimeArn", () => input.agentRuntimeArn!, "{agentRuntimeArn}", false);
+  const query: any = map({
+    [_q]: [, input[_q]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -740,6 +854,33 @@ export const se_StopCodeInterpreterSessionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StopRuntimeSessionCommand
+ */
+export const se_StopRuntimeSessionCommand = async (
+  input: StopRuntimeSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xabarsi]: input[_rSI]!,
+  });
+  b.bp("/runtimes/{agentRuntimeArn}/stopruntimesession");
+  b.p("agentRuntimeArn", () => input.agentRuntimeArn!, "{agentRuntimeArn}", false);
+  const query: any = map({
+    [_q]: [, input[_q]!],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateBrowserStreamCommand
  */
 export const se_UpdateBrowserStreamCommand = async (
@@ -764,6 +905,72 @@ export const se_UpdateBrowserStreamCommand = async (
   );
   b.m("PUT").h(headers).q(query).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1BatchCreateMemoryRecordsCommand
+ */
+export const de_BatchCreateMemoryRecordsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchCreateMemoryRecordsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedRecords: _json,
+    successfulRecords: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchDeleteMemoryRecordsCommand
+ */
+export const de_BatchDeleteMemoryRecordsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteMemoryRecordsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedRecords: _json,
+    successfulRecords: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchUpdateMemoryRecordsCommand
+ */
+export const de_BatchUpdateMemoryRecordsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateMemoryRecordsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedRecords: _json,
+    successfulRecords: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -826,6 +1033,29 @@ export const de_DeleteMemoryRecordCommand = async (
     memoryRecordId: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAgentCardCommand
+ */
+export const de_GetAgentCardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAgentCardCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_rSI]: [, output.headers[_xabarsi]],
+  });
+  const data: any = await collectBodyString(output.body, context);
+  contents.agentCard = data;
+  contents.agentCard = JSON.parse(data);
+  map(contents, {
+    statusCode: [, output.statusCode],
+  });
   return contents;
 };
 
@@ -1330,6 +1560,27 @@ export const de_StopCodeInterpreterSessionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StopRuntimeSessionCommand
+ */
+export const de_StopRuntimeSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRuntimeSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_rSI]: [, output.headers[_xabarsi]],
+  });
+  map(contents, {
+    statusCode: [, output.statusCode],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateBrowserStreamCommand
  */
 export const de_UpdateBrowserStreamCommand = async (
@@ -1366,9 +1617,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.bedrockagentcore#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.bedrockagentcore#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.bedrockagentcore#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -1384,18 +1632,21 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.bedrockagentcore#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.bedrockagentcore#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.bedrockagentcore#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "RuntimeClientError":
+    case "com.amazonaws.bedrockagentcore#RuntimeClientError":
+      throw await de_RuntimeClientErrorRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.bedrockagentcore#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.bedrockagentcore#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "RuntimeClientError":
-    case "com.amazonaws.bedrockagentcore#RuntimeClientError":
-      throw await de_RuntimeClientErrorRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.bedrockagentcore#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -1774,6 +2025,10 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
   return input;
 };
 
+// se_EventMetadataFilterExpression omitted.
+
+// se_EventMetadataFilterList omitted.
+
 // se_FilterInput omitted.
 
 /**
@@ -1798,6 +2053,68 @@ const se_InputContentBlockList = (input: InputContentBlock[], context: __SerdeCo
     });
 };
 
+// se_LeftExpression omitted.
+
+// se_MemoryContent omitted.
+
+/**
+ * serializeAws_restJson1MemoryRecordCreateInput
+ */
+const se_MemoryRecordCreateInput = (input: MemoryRecordCreateInput, context: __SerdeContext): any => {
+  return take(input, {
+    content: _json,
+    memoryStrategyId: [],
+    namespaces: _json,
+    requestIdentifier: [],
+    timestamp: (_) => _.getTime() / 1_000,
+  });
+};
+
+// se_MemoryRecordDeleteInput omitted.
+
+/**
+ * serializeAws_restJson1MemoryRecordsCreateInputList
+ */
+const se_MemoryRecordsCreateInputList = (input: MemoryRecordCreateInput[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_MemoryRecordCreateInput(entry, context);
+    });
+};
+
+// se_MemoryRecordsDeleteInputList omitted.
+
+/**
+ * serializeAws_restJson1MemoryRecordsUpdateInputList
+ */
+const se_MemoryRecordsUpdateInputList = (input: MemoryRecordUpdateInput[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_MemoryRecordUpdateInput(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1MemoryRecordUpdateInput
+ */
+const se_MemoryRecordUpdateInput = (input: MemoryRecordUpdateInput, context: __SerdeContext): any => {
+  return take(input, {
+    content: _json,
+    memoryRecordId: [],
+    memoryStrategyId: [],
+    namespaces: _json,
+    timestamp: (_) => _.getTime() / 1_000,
+  });
+};
+
+// se_MetadataMap omitted.
+
+// se_MetadataValue omitted.
+
+// se_NamespacesList omitted.
+
 /**
  * serializeAws_restJson1PayloadType
  */
@@ -1819,6 +2136,8 @@ const se_PayloadTypeList = (input: PayloadType[], context: __SerdeContext): any 
       return se_PayloadType(entry, context);
     });
 };
+
+// se_RightExpression omitted.
 
 // se_ScopesListType omitted.
 
@@ -1850,6 +2169,13 @@ const se_ToolArguments = (input: ToolArguments, context: __SerdeContext): any =>
 // de_ActorSummary omitted.
 
 // de_ActorSummaryList omitted.
+
+/**
+ * deserializeAws_restJson1AgentCard
+ */
+const de_AgentCard = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 // de_AutomationStream omitted.
 
@@ -1970,6 +2296,7 @@ const de_Event = (output: any, context: __SerdeContext): Event => {
     eventId: __expectString,
     eventTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     memoryId: __expectString,
+    metadata: _json,
     payload: (_: any) => de_PayloadTypeList(_, context),
     sessionId: __expectString,
   }) as any;
@@ -2004,6 +2331,10 @@ const de_MemoryRecord = (output: any, context: __SerdeContext): MemoryRecord => 
   }) as any;
 };
 
+// de_MemoryRecordOutput omitted.
+
+// de_MemoryRecordsOutputList omitted.
+
 /**
  * deserializeAws_restJson1MemoryRecordSummary
  */
@@ -2029,6 +2360,10 @@ const de_MemoryRecordSummaryList = (output: any, context: __SerdeContext): Memor
     });
   return retVal;
 };
+
+// de_MetadataMap omitted.
+
+// de_MetadataValue omitted.
 
 // de_NamespacesList omitted.
 

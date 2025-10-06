@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetEventInput, GetEventOutput, GetEventOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetEventCommand, se_GetEventCommand } from "../protocols/Aws_restJson1";
+import { BatchDeleteMemoryRecordsInput, BatchDeleteMemoryRecordsOutput } from "../models/models_0";
+import { de_BatchDeleteMemoryRecordsCommand, se_BatchDeleteMemoryRecordsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,77 +17,67 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetEventCommand}.
+ * The input for {@link BatchDeleteMemoryRecordsCommand}.
  */
-export interface GetEventCommandInput extends GetEventInput {}
+export interface BatchDeleteMemoryRecordsCommandInput extends BatchDeleteMemoryRecordsInput {}
 /**
  * @public
  *
- * The output of {@link GetEventCommand}.
+ * The output of {@link BatchDeleteMemoryRecordsCommand}.
  */
-export interface GetEventCommandOutput extends GetEventOutput, __MetadataBearer {}
+export interface BatchDeleteMemoryRecordsCommandOutput extends BatchDeleteMemoryRecordsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a specific event in an AgentCore Memory resource.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:GetEvent</code> permission.</p>
+ * <p>Deletes multiple memory records in a single batch operation from the specified memory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreClient, GetEventCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
- * // const { BedrockAgentCoreClient, GetEventCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * import { BedrockAgentCoreClient, BatchDeleteMemoryRecordsCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
+ * // const { BedrockAgentCoreClient, BatchDeleteMemoryRecordsCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
  * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
  * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
- * const input = { // GetEventInput
+ * const input = { // BatchDeleteMemoryRecordsInput
  *   memoryId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
- *   actorId: "STRING_VALUE", // required
- *   eventId: "STRING_VALUE", // required
+ *   records: [ // MemoryRecordsDeleteInputList // required
+ *     { // MemoryRecordDeleteInput
+ *       memoryRecordId: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
- * const command = new GetEventCommand(input);
+ * const command = new BatchDeleteMemoryRecordsCommand(input);
  * const response = await client.send(command);
- * // { // GetEventOutput
- * //   event: { // Event
- * //     memoryId: "STRING_VALUE", // required
- * //     actorId: "STRING_VALUE", // required
- * //     sessionId: "STRING_VALUE", // required
- * //     eventId: "STRING_VALUE", // required
- * //     eventTimestamp: new Date("TIMESTAMP"), // required
- * //     payload: [ // PayloadTypeList // required
- * //       { // PayloadType Union: only one key present
- * //         conversational: { // Conversational
- * //           content: { // Content Union: only one key present
- * //             text: "STRING_VALUE",
- * //           },
- * //           role: "ASSISTANT" || "USER" || "TOOL" || "OTHER", // required
- * //         },
- * //         blob: "DOCUMENT_VALUE",
- * //       },
- * //     ],
- * //     branch: { // Branch
- * //       rootEventId: "STRING_VALUE",
- * //       name: "STRING_VALUE", // required
+ * // { // BatchDeleteMemoryRecordsOutput
+ * //   successfulRecords: [ // MemoryRecordsOutputList // required
+ * //     { // MemoryRecordOutput
+ * //       memoryRecordId: "STRING_VALUE", // required
+ * //       status: "SUCCEEDED" || "FAILED", // required
+ * //       requestIdentifier: "STRING_VALUE",
+ * //       errorCode: Number("int"),
+ * //       errorMessage: "STRING_VALUE",
  * //     },
- * //     metadata: { // MetadataMap
- * //       "<keys>": { // MetadataValue Union: only one key present
- * //         stringValue: "STRING_VALUE",
- * //       },
+ * //   ],
+ * //   failedRecords: [ // required
+ * //     {
+ * //       memoryRecordId: "STRING_VALUE", // required
+ * //       status: "SUCCEEDED" || "FAILED", // required
+ * //       requestIdentifier: "STRING_VALUE",
+ * //       errorCode: Number("int"),
+ * //       errorMessage: "STRING_VALUE",
  * //     },
- * //   },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param GetEventCommandInput - {@link GetEventCommandInput}
- * @returns {@link GetEventCommandOutput}
- * @see {@link GetEventCommandInput} for command's `input` shape.
- * @see {@link GetEventCommandOutput} for command's `response` shape.
+ * @param BatchDeleteMemoryRecordsCommandInput - {@link BatchDeleteMemoryRecordsCommandInput}
+ * @returns {@link BatchDeleteMemoryRecordsCommandOutput}
+ * @see {@link BatchDeleteMemoryRecordsCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteMemoryRecordsCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreClientResolvedConfig | config} for BedrockAgentCoreClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
- *
- * @throws {@link InvalidInputException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
@@ -110,10 +100,10 @@ export interface GetEventCommandOutput extends GetEventOutput, __MetadataBearer 
  *
  * @public
  */
-export class GetEventCommand extends $Command
+export class BatchDeleteMemoryRecordsCommand extends $Command
   .classBuilder<
-    GetEventCommandInput,
-    GetEventCommandOutput,
+    BatchDeleteMemoryRecordsCommandInput,
+    BatchDeleteMemoryRecordsCommandOutput,
     BedrockAgentCoreClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -125,21 +115,21 @@ export class GetEventCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockAgentCore", "GetEvent", {})
-  .n("BedrockAgentCoreClient", "GetEventCommand")
-  .f(void 0, GetEventOutputFilterSensitiveLog)
-  .ser(se_GetEventCommand)
-  .de(de_GetEventCommand)
+  .s("AmazonBedrockAgentCore", "BatchDeleteMemoryRecords", {})
+  .n("BedrockAgentCoreClient", "BatchDeleteMemoryRecordsCommand")
+  .f(void 0, void 0)
+  .ser(se_BatchDeleteMemoryRecordsCommand)
+  .de(de_BatchDeleteMemoryRecordsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetEventInput;
-      output: GetEventOutput;
+      input: BatchDeleteMemoryRecordsInput;
+      output: BatchDeleteMemoryRecordsOutput;
     };
     sdk: {
-      input: GetEventCommandInput;
-      output: GetEventCommandOutput;
+      input: BatchDeleteMemoryRecordsCommandInput;
+      output: BatchDeleteMemoryRecordsCommandOutput;
     };
   };
 }
