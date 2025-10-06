@@ -91,6 +91,9 @@ subprojects {
             metaInf.with(licenseSpec)
             from(sourceSets.main.get().allSource)
             archiveClassifier.set("sources")
+            // Add explicit dependency on the task that generates resources
+            dependsOn("set-aws-sdk-versions")
+            duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         }
 
         tasks.register<Jar>("javadocJar") {
