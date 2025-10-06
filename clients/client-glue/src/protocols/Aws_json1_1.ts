@@ -14607,6 +14607,7 @@ const de_DataQualityRuleResult = (output: any, context: __SerdeContext): DataQua
     EvaluatedMetrics: (_: any) => de_EvaluatedMetricsMap(_, context),
     EvaluatedRule: __expectString,
     EvaluationMessage: __expectString,
+    Labels: _json,
     Name: __expectString,
     Result: __expectString,
     RuleMetrics: (_: any) => de_RuleMetricsMap(_, context),
@@ -16300,6 +16301,8 @@ const de_KinesisStreamingSourceOptions = (output: any, context: __SerdeContext):
 // de_KMSKeyNotAccessibleFault omitted.
 
 // de_LabelingSetGenerationTaskRunProperties omitted.
+
+// de_Labels omitted.
 
 // de_LakeFormationConfiguration omitted.
 

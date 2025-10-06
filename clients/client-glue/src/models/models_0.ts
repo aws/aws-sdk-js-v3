@@ -3149,6 +3149,12 @@ export interface DataQualityRuleResult {
    * @public
    */
   RuleMetrics?: Record<string, number> | undefined;
+
+  /**
+   * <p>A map containing labels assigned to the data quality rule. </p>
+   * @public
+   */
+  Labels?: Record<string, string> | undefined;
 }
 
 /**

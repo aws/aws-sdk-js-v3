@@ -95,6 +95,9 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * //           RuleMetrics: { // RuleMetricsMap
  * //             "<keys>": Number("double"),
  * //           },
+ * //           Labels: { // Labels
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       AnalyzerResults: [ // DataQualityAnalyzerResults

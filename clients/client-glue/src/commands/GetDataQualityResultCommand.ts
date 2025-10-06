@@ -91,6 +91,9 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * //       RuleMetrics: { // RuleMetricsMap
  * //         "<keys>": Number("double"),
  * //       },
+ * //       Labels: { // Labels
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   AnalyzerResults: [ // DataQualityAnalyzerResults
