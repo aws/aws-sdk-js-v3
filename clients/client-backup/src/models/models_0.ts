@@ -4149,7 +4149,8 @@ export interface DescribeGlobalSettingsInput {}
  */
 export interface DescribeGlobalSettingsOutput {
   /**
-   * <p>The status of the flag <code>isCrossAccountBackupEnabled</code>.</p>
+   * <p>The status of the flags <code>isCrossAccountBackupEnabled</code> and
+   *           <code>isMpaEnabled</code> ('Mpa' refers to multi-party approval).</p>
    * @public
    */
   GlobalSettings?: Record<string, string> | undefined;
@@ -5144,6 +5145,51 @@ export interface GetBackupPlanInput {
    * @public
    */
   VersionId?: string | undefined;
+
+  /**
+   * <p>Number of future scheduled backup runs to preview. When set to 0 (default), no scheduled runs preview is included in the response. Valid range is 0-10.</p>
+   * @public
+   */
+  MaxScheduledRunsPreview?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleExecutionType = {
+  CONTINUOUS: "CONTINUOUS",
+  CONTINUOUS_AND_SNAPSHOTS: "CONTINUOUS_AND_SNAPSHOTS",
+  SNAPSHOTS: "SNAPSHOTS",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleExecutionType = (typeof RuleExecutionType)[keyof typeof RuleExecutionType];
+
+/**
+ * <p>Contains information about a scheduled backup plan execution, including the execution time, rule type, and associated rule identifier.</p>
+ * @public
+ */
+export interface ScheduledPlanExecutionMember {
+  /**
+   * <p>The timestamp when the backup is scheduled to run, in Unix format and Coordinated Universal Time (UTC). The value is accurate to milliseconds.</p>
+   * @public
+   */
+  ExecutionTime?: Date | undefined;
+
+  /**
+   * <p>The unique identifier of the backup rule that will execute at the scheduled time.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
+  /**
+   * <p>The type of backup rule execution. Valid values are <code>CONTINUOUS</code> (point-in-time recovery), <code>SNAPSHOTS</code> (snapshot backups), or <code>CONTINUOUS_AND_SNAPSHOTS</code> (both types combined).</p>
+   * @public
+   */
+  RuleExecutionType?: RuleExecutionType | undefined;
 }
 
 /**
@@ -5217,6 +5263,12 @@ export interface GetBackupPlanOutput {
    * @public
    */
   AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
+
+  /**
+   * <p>List of upcoming scheduled backup runs. Only included when <code>MaxScheduledRunsPreview</code> parameter is greater than 0. Contains up to 10 future backup executions with their scheduled times, execution types, and associated rule IDs.</p>
+   * @public
+   */
+  ScheduledRunsPreview?: ScheduledPlanExecutionMember[] | undefined;
 }
 
 /**
@@ -9991,8 +10043,13 @@ export interface UpdateFrameworkOutput {
  */
 export interface UpdateGlobalSettingsInput {
   /**
-   * <p>A value for <code>isCrossAccountBackupEnabled</code> and a Region. Example:
+   * <p>Inputs can include:</p>
+   *          <p>A value for <code>isCrossAccountBackupEnabled</code> and a Region. Example:
    *             <code>update-global-settings --global-settings isCrossAccountBackupEnabled=false
+   *             --region us-west-2</code>.</p>
+   *          <p>A value for Multi-party approval, styled as "Mpa": <code>isMpaEnabled</code>. Values can
+   *          be true or false. Example:
+   *          <code>update-global-settings --global-settings isMpaEnabled=false
    *             --region us-west-2</code>.</p>
    * @public
    */

@@ -369,6 +369,7 @@ import {
   RestoreTestingSelectionForGet,
   RestoreTestingSelectionForList,
   RestoreTestingSelectionForUpdate,
+  ScheduledPlanExecutionMember,
   ServiceUnavailableException,
 } from "../models/models_0";
 
@@ -1117,6 +1118,7 @@ export const se_GetBackupPlanCommand = async (
   b.p("BackupPlanId", () => input.BackupPlanId!, "{BackupPlanId}", false);
   const query: any = map({
     [_vI]: [, input[_VI]!],
+    [_MSRP]: [() => input.MaxScheduledRunsPreview !== void 0, () => input[_MSRP]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3322,6 +3324,7 @@ export const de_GetBackupPlanCommand = async (
     CreatorRequestId: __expectString,
     DeletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastExecutionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ScheduledRunsPreview: (_) => de_ScheduledRunsPreview(_, context),
     VersionId: __expectString,
   });
   Object.assign(contents, doc);
@@ -5862,6 +5865,29 @@ const de_RestoreTestingSelections = (output: any, context: __SerdeContext): Rest
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1ScheduledPlanExecutionMember
+ */
+const de_ScheduledPlanExecutionMember = (output: any, context: __SerdeContext): ScheduledPlanExecutionMember => {
+  return take(output, {
+    ExecutionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RuleExecutionType: __expectString,
+    RuleId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ScheduledRunsPreview
+ */
+const de_ScheduledRunsPreview = (output: any, context: __SerdeContext): ScheduledPlanExecutionMember[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ScheduledPlanExecutionMember(entry, context);
+    });
+  return retVal;
+};
+
 // de_SensitiveStringMap omitted.
 
 // de_stringList omitted.
@@ -5921,6 +5947,7 @@ const _IS = "IndexStatus";
 const _MBAWSBO = "ManagedByAWSBackupOnly";
 const _MC = "MessageCategory";
 const _MR = "MaxResults";
+const _MSRP = "MaxScheduledRunsPreview";
 const _NT = "NextToken";
 const _RC = "RequesterComment";
 const _RPA = "RecoveryPointArn";

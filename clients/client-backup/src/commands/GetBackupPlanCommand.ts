@@ -41,6 +41,7 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * const input = { // GetBackupPlanInput
  *   BackupPlanId: "STRING_VALUE", // required
  *   VersionId: "STRING_VALUE",
+ *   MaxScheduledRunsPreview: Number("int"),
  * };
  * const command = new GetBackupPlanCommand(input);
  * const response = await client.send(command);
@@ -106,6 +107,13 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * //       BackupOptions: {
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //     },
+ * //   ],
+ * //   ScheduledRunsPreview: [ // ScheduledRunsPreview
+ * //     { // ScheduledPlanExecutionMember
+ * //       ExecutionTime: new Date("TIMESTAMP"),
+ * //       RuleId: "STRING_VALUE",
+ * //       RuleExecutionType: "CONTINUOUS" || "SNAPSHOTS" || "CONTINUOUS_AND_SNAPSHOTS",
  * //     },
  * //   ],
  * // };

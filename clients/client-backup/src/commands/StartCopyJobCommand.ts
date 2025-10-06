@@ -30,6 +30,9 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
 /**
  * <p>Starts a job to create a one-time copy of the specified resource.</p>
  *          <p>Does not support continuous backups.</p>
+ *          <p>See <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/recov-point-create-a-copy.html#backup-copy-retry">Copy
+ *       job retry</a> for information on how Backup retries copy job
+ *       operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
