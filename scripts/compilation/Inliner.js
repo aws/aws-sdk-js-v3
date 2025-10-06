@@ -549,6 +549,8 @@ module.exports = class Inliner {
               "getSigV4AuthPlugin", // legacy auth, getAwsAuthPlugin
               "NumberValueImpl", // name of NumberValue
 
+              "WorkSpacesThin", // alias of WorkSpacesThinClient
+
               "HostResolver", // alias of NodeDnsLookupHostResolver
               "expectInt", // aliased to expectLong
               "handleFloat", // aliased to limitedParseDouble
