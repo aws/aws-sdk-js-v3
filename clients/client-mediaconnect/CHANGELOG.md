@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.904.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.903.0...v3.904.0) (2025-10-06)
+
+
+### Features
+
+* **client-mediaconnect:** Enabling Tag-on-Create for AWS Elemental MediaConnect flow-based resource types ([8dca8a0](https://github.com/aws/aws-sdk-js-v3/commit/8dca8a005736f62b2e3c0bcba130da8da6c9a9c2))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconnect

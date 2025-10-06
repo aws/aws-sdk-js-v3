@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.904.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.903.0...v3.904.0) (2025-10-06)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Add support for batch memory management, agent card retrieval and session termination ([8dff96a](https://github.com/aws/aws-sdk-js-v3/commit/8dff96afc6552f72707fca14d17cd9f90083a380))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

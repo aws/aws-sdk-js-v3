@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.904.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.903.0...v3.904.0) (2025-10-06)
+
+
+### Features
+
+* **client-memorydb:** Support for DescribeMultiRegionParameterGroups and DescribeMultiRegionParameters API. ([3d7efda](https://github.com/aws/aws-sdk-js-v3/commit/3d7efda661259442478a23eb6f738aae90beb997))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-memorydb

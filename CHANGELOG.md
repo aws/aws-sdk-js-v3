@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.904.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.903.0...v3.904.0) (2025-10-06)
+
+
+### Features
+
+* **client-backup:** Adds optional MaxScheduledRunsPreview input to GetBackupPlan API to provide a preview of up to 10 next scheduled backup plan runs in the GetBackupPlan response. ([3ada76f](https://github.com/aws/aws-sdk-js-v3/commit/3ada76fa46cd1263d93857968560749f304d936c))
+* **client-bedrock-agentcore-control:** Add support for VM lifecycle configuration parameters and A2A protocol ([806f651](https://github.com/aws/aws-sdk-js-v3/commit/806f65141cef1111579f648ecde1a5ebc700e525))
+* **client-bedrock-agentcore:** Add support for batch memory management, agent card retrieval and session termination ([8dff96a](https://github.com/aws/aws-sdk-js-v3/commit/8dff96afc6552f72707fca14d17cd9f90083a380))
+* **client-glue:** Adds labeling for DataQualityRuleResult for GetDataQualityResult and PublishDataQualityResult APIs ([befe787](https://github.com/aws/aws-sdk-js-v3/commit/befe78747fdc10cd16582f4b641ac6331867a533))
+* **client-mediaconnect:** Enabling Tag-on-Create for AWS Elemental MediaConnect flow-based resource types ([8dca8a0](https://github.com/aws/aws-sdk-js-v3/commit/8dca8a005736f62b2e3c0bcba130da8da6c9a9c2))
+* **client-memorydb:** Support for DescribeMultiRegionParameterGroups and DescribeMultiRegionParameters API. ([3d7efda](https://github.com/aws/aws-sdk-js-v3/commit/3d7efda661259442478a23eb6f738aae90beb997))
+* **client-resource-explorer-2:** Add new AWS Resource Explorer APIs ([6f0cbe4](https://github.com/aws/aws-sdk-js-v3/commit/6f0cbe461701c2b8a5fbdd060d118c43921b1442))
+
+
+
+
+
 # [3.903.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.902.0...v3.903.0) (2025-10-03)
 
 

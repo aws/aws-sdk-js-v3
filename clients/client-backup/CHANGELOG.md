@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.904.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.903.0...v3.904.0) (2025-10-06)
+
+
+### Features
+
+* **client-backup:** Adds optional MaxScheduledRunsPreview input to GetBackupPlan API to provide a preview of up to 10 next scheduled backup plan runs in the GetBackupPlan response. ([3ada76f](https://github.com/aws/aws-sdk-js-v3/commit/3ada76fa46cd1263d93857968560749f304d936c))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-backup

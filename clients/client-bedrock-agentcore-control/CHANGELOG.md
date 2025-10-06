@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.904.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.903.0...v3.904.0) (2025-10-06)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Add support for VM lifecycle configuration parameters and A2A protocol ([806f651](https://github.com/aws/aws-sdk-js-v3/commit/806f65141cef1111579f648ecde1a5ebc700e525))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control
