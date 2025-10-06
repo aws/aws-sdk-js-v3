@@ -1,5 +1,13 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.36.1 (2025-10-06)
+
+### Features
+- Upgraded to smithy-typescript 0.36.1 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0361-2025-10-06))
+
+### Chores
+- Removed usage of deprecated APIs ([#7395](https://github.com/aws/aws-sdk-js-v3/pull/7395))
+
 ## 0.36.0 (2025-09-30)
 
 ### Features
