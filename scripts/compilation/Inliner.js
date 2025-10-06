@@ -212,7 +212,7 @@ module.exports = class Inliner {
     });
 
     const outputOptions = {
-      file: this.outfile,
+      dir: path.dirname(this.outfile),
       format: "cjs",
       exports: "named",
       preserveModules: false,
@@ -541,6 +541,18 @@ module.exports = class Inliner {
               "resolveAWSSDKSigV4Config", // deprecated alias for resolveAwsSdkSigV4Config
               "__Client", // base Client in SDK clients
               "$Command", // base Command in SDK clients
+              "getDefaultClientConfiguration", // renamed to getDefaultExtensionConfiguration
+              "generateIdempotencyToken", // sometimes called v4
+              "defaultUserAgent", // renamed to createDefaultUserAgentProvider
+              "getSigV4AuthPlugin", // legacy auth, getAwsAuthPlugin
+              "NumberValueImpl", // name of NumberValue
+
+              "HostResolver", // alias of NodeDnsLookupHostResolver
+              "expectInt", // aliased to expectLong
+              "handleFloat", // aliased to limitedParseDouble
+              "limitedParseFloat", // aliased to limitedParseDouble
+              "strictParseFloat", // aliased to strictParseDouble
+              "strictParseInt", // aliased to strictParseLong
             ].includes(sym)
           ) {
             return `import { ${sym} } from "${this.pkgJson.name}";`;
