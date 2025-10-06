@@ -165,7 +165,7 @@ module.exports = class Inliner {
     const entryPoint = path.join(root, this.subfolder, this.package, "src", "index.ts");
 
     const inputOptions = (externals) => ({
-      input: entryPoint,
+      input: [entryPoint],
       plugins: [
         nodeResolve(),
         json(),
@@ -277,7 +277,9 @@ module.exports = class Inliner {
 
         await submoduleBundle.write({
           ...outputOptions,
-          file: path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule, "index.js"),
+          dir: path.dirname(
+            path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule, "index.js")
+          ),
         });
 
         await submoduleBundle.close();
