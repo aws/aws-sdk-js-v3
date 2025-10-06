@@ -92,6 +92,16 @@ import {
   DescribeMultiRegionClustersCommandOutput,
 } from "./commands/DescribeMultiRegionClustersCommand";
 import {
+  DescribeMultiRegionParameterGroupsCommand,
+  DescribeMultiRegionParameterGroupsCommandInput,
+  DescribeMultiRegionParameterGroupsCommandOutput,
+} from "./commands/DescribeMultiRegionParameterGroupsCommand";
+import {
+  DescribeMultiRegionParametersCommand,
+  DescribeMultiRegionParametersCommandInput,
+  DescribeMultiRegionParametersCommandOutput,
+} from "./commands/DescribeMultiRegionParametersCommand";
+import {
   DescribeParameterGroupsCommand,
   DescribeParameterGroupsCommandInput,
   DescribeParameterGroupsCommandOutput,
@@ -209,6 +219,8 @@ const commands = {
   DescribeEngineVersionsCommand,
   DescribeEventsCommand,
   DescribeMultiRegionClustersCommand,
+  DescribeMultiRegionParameterGroupsCommand,
+  DescribeMultiRegionParametersCommand,
   DescribeParameterGroupsCommand,
   DescribeParametersCommand,
   DescribeReservedNodesCommand,
@@ -537,6 +549,41 @@ export interface MemoryDB {
     args: DescribeMultiRegionClustersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeMultiRegionClustersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMultiRegionParameterGroupsCommand}
+   */
+  describeMultiRegionParameterGroups(): Promise<DescribeMultiRegionParameterGroupsCommandOutput>;
+  describeMultiRegionParameterGroups(
+    args: DescribeMultiRegionParameterGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMultiRegionParameterGroupsCommandOutput>;
+  describeMultiRegionParameterGroups(
+    args: DescribeMultiRegionParameterGroupsCommandInput,
+    cb: (err: any, data?: DescribeMultiRegionParameterGroupsCommandOutput) => void
+  ): void;
+  describeMultiRegionParameterGroups(
+    args: DescribeMultiRegionParameterGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMultiRegionParameterGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMultiRegionParametersCommand}
+   */
+  describeMultiRegionParameters(
+    args: DescribeMultiRegionParametersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMultiRegionParametersCommandOutput>;
+  describeMultiRegionParameters(
+    args: DescribeMultiRegionParametersCommandInput,
+    cb: (err: any, data?: DescribeMultiRegionParametersCommandOutput) => void
+  ): void;
+  describeMultiRegionParameters(
+    args: DescribeMultiRegionParametersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMultiRegionParametersCommandOutput) => void
   ): void;
 
   /**

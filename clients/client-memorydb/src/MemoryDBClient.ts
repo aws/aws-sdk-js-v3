@@ -93,6 +93,14 @@ import {
   DescribeMultiRegionClustersCommandOutput,
 } from "./commands/DescribeMultiRegionClustersCommand";
 import {
+  DescribeMultiRegionParameterGroupsCommandInput,
+  DescribeMultiRegionParameterGroupsCommandOutput,
+} from "./commands/DescribeMultiRegionParameterGroupsCommand";
+import {
+  DescribeMultiRegionParametersCommandInput,
+  DescribeMultiRegionParametersCommandOutput,
+} from "./commands/DescribeMultiRegionParametersCommand";
+import {
   DescribeParameterGroupsCommandInput,
   DescribeParameterGroupsCommandOutput,
 } from "./commands/DescribeParameterGroupsCommand";
@@ -183,6 +191,8 @@ export type ServiceInputTypes =
   | DescribeEngineVersionsCommandInput
   | DescribeEventsCommandInput
   | DescribeMultiRegionClustersCommandInput
+  | DescribeMultiRegionParameterGroupsCommandInput
+  | DescribeMultiRegionParametersCommandInput
   | DescribeParameterGroupsCommandInput
   | DescribeParametersCommandInput
   | DescribeReservedNodesCommandInput
@@ -231,6 +241,8 @@ export type ServiceOutputTypes =
   | DescribeEngineVersionsCommandOutput
   | DescribeEventsCommandOutput
   | DescribeMultiRegionClustersCommandOutput
+  | DescribeMultiRegionParameterGroupsCommandOutput
+  | DescribeMultiRegionParametersCommandOutput
   | DescribeParameterGroupsCommandOutput
   | DescribeParametersCommandOutput
   | DescribeReservedNodesCommandOutput

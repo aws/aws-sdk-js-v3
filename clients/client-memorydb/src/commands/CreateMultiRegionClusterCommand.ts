@@ -87,13 +87,13 @@ export interface CreateMultiRegionClusterCommandOutput extends CreateMultiRegion
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link MultiRegionClusterAlreadyExistsFault} (client fault)
  *  <p>A multi-Region cluster with the specified name already exists.</p>
@@ -102,7 +102,7 @@ export interface CreateMultiRegionClusterCommandOutput extends CreateMultiRegion
  *  <p>The specified multi-Region parameter group does not exist.</p>
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

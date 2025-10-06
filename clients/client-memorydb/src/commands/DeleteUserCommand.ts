@@ -68,13 +68,13 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link InvalidUserStateFault} (client fault)
- *  <p></p>
+ *  <p>The user is not in a valid state for the requested operation.</p>
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified user does not exist.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

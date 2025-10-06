@@ -79,10 +79,10 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified ACL does not exist.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

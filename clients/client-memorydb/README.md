@@ -375,6 +375,22 @@ DescribeMultiRegionClusters
 </details>
 <details>
 <summary>
+DescribeMultiRegionParameterGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/memorydb/command/DescribeMultiRegionParameterGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-memorydb/Interface/DescribeMultiRegionParameterGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-memorydb/Interface/DescribeMultiRegionParameterGroupsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeMultiRegionParameters
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/memorydb/command/DescribeMultiRegionParametersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-memorydb/Interface/DescribeMultiRegionParametersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-memorydb/Interface/DescribeMultiRegionParametersCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeParameterGroups
 </summary>
 

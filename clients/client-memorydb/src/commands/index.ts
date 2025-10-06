@@ -20,6 +20,8 @@ export * from "./DescribeClustersCommand";
 export * from "./DescribeEngineVersionsCommand";
 export * from "./DescribeEventsCommand";
 export * from "./DescribeMultiRegionClustersCommand";
+export * from "./DescribeMultiRegionParameterGroupsCommand";
+export * from "./DescribeMultiRegionParametersCommand";
 export * from "./DescribeParameterGroupsCommand";
 export * from "./DescribeParametersCommand";
 export * from "./DescribeReservedNodesCommand";

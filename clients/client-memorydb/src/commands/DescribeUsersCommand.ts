@@ -81,10 +81,10 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified user does not exist.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

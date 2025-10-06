@@ -79,22 +79,22 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p></p>
+ *  <p>The specified subnet is not valid.</p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The required service-linked role was not found.</p>
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified subnet group does not exist.</p>
  *
  * @throws {@link SubnetInUse} (client fault)
- *  <p></p>
+ *  <p>The subnet is currently in use and cannot be deleted.</p>
  *
  * @throws {@link SubnetNotAllowedFault} (client fault)
- *  <p></p>
+ *  <p>The specified subnet is not allowed for this operation.</p>
  *
  * @throws {@link SubnetQuotaExceededFault} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of subnets allowed.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

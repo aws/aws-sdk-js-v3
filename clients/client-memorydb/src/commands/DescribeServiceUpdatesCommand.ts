@@ -76,10 +76,10 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

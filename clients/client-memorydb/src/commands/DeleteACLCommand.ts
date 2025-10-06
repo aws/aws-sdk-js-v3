@@ -74,13 +74,13 @@ export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBea
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified ACL does not exist.</p>
  *
  * @throws {@link InvalidACLStateFault} (client fault)
- *  <p></p>
+ *  <p>The ACL is not in a valid state for the requested operation.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

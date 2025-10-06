@@ -135,22 +135,22 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified cluster does not exist.</p>
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p></p>
+ *  <p>The cluster is not in a valid state for the requested operation.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The required service-linked role was not found.</p>
  *
  * @throws {@link SnapshotAlreadyExistsFault} (client fault)
- *  <p></p>
+ *  <p>A snapshot with the specified name already exists.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

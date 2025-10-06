@@ -130,28 +130,28 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link APICallRateForCustomerExceededFault} (client fault)
- *  <p></p>
+ *  <p>The customer has exceeded the maximum number of API requests allowed per time period.</p>
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified cluster does not exist.</p>
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p></p>
+ *  <p>The cluster is not in a valid state for the requested operation.</p>
  *
  * @throws {@link InvalidKMSKeyFault} (client fault)
- *  <p></p>
+ *  <p>The specified KMS key is not valid or accessible.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link ShardNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified shard does not exist.</p>
  *
  * @throws {@link TestFailoverNotAvailableFault} (client fault)
- *  <p></p>
+ *  <p>Test failover is not available for this cluster configuration.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

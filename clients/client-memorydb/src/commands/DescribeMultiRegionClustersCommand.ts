@@ -82,13 +82,13 @@ export interface DescribeMultiRegionClustersCommandOutput
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified cluster does not exist.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
  *  <p>The specified multi-Region cluster does not exist.</p>

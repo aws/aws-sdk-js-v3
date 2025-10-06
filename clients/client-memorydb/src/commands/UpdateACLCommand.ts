@@ -80,25 +80,25 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified ACL does not exist.</p>
  *
  * @throws {@link DefaultUserRequired} (client fault)
- *  <p></p>
+ *  <p>A default user is required and must be specified.</p>
  *
  * @throws {@link DuplicateUserNameFault} (client fault)
- *  <p></p>
+ *  <p>A user with the specified name already exists.</p>
  *
  * @throws {@link InvalidACLStateFault} (client fault)
- *  <p></p>
+ *  <p>The ACL is not in a valid state for the requested operation.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified user does not exist.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

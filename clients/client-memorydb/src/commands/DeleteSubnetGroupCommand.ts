@@ -74,13 +74,13 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The required service-linked role was not found.</p>
  *
  * @throws {@link SubnetGroupInUseFault} (client fault)
- *  <p></p>
+ *  <p>The subnet group is currently in use and cannot be deleted.</p>
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified subnet group does not exist.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

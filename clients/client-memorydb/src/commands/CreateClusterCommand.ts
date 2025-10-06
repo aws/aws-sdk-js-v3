@@ -162,58 +162,58 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified ACL does not exist.</p>
  *
  * @throws {@link ClusterAlreadyExistsFault} (client fault)
- *  <p></p>
+ *  <p>A cluster with the specified name already exists.</p>
  *
  * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.</p>
  *
  * @throws {@link InsufficientClusterCapacityFault} (client fault)
- *  <p></p>
+ *  <p>The cluster does not have sufficient capacity to perform the requested operation.</p>
  *
  * @throws {@link InvalidACLStateFault} (client fault)
- *  <p></p>
+ *  <p>The ACL is not in a valid state for the requested operation.</p>
  *
  * @throws {@link InvalidCredentialsException} (client fault)
- *  <p></p>
+ *  <p>The provided credentials are not valid.</p>
  *
  * @throws {@link InvalidMultiRegionClusterStateFault} (client fault)
  *  <p>The requested operation cannot be performed on the multi-Region cluster in its current state.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p></p>
+ *  <p>The VPC network is not in a valid state for the requested operation.</p>
  *
  * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
  *  <p>The specified multi-Region cluster does not exist.</p>
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this cluster.</p>
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this customer.</p>
  *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified parameter group does not exist.</p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The required service-linked role was not found.</p>
  *
  * @throws {@link ShardsPerClusterQuotaExceededFault} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of shards allowed per cluster.</p>
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified subnet group does not exist.</p>
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

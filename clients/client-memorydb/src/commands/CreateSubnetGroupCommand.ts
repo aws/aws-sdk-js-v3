@@ -87,25 +87,25 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p></p>
+ *  <p>The specified subnet is not valid.</p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The required service-linked role was not found.</p>
  *
  * @throws {@link SubnetGroupAlreadyExistsFault} (client fault)
- *  <p></p>
+ *  <p>A subnet group with the specified name already exists.</p>
  *
  * @throws {@link SubnetGroupQuotaExceededFault} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of subnet groups allowed.</p>
  *
  * @throws {@link SubnetNotAllowedFault} (client fault)
- *  <p></p>
+ *  <p>The specified subnet is not allowed for this operation.</p>
  *
  * @throws {@link SubnetQuotaExceededFault} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of subnets allowed.</p>
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

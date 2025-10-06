@@ -80,10 +80,10 @@ export interface DescribeReservedNodesOfferingsCommandOutput
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link ReservedNodesOfferingNotFoundFault} (client fault)
  *  <p>The requested node offering does not exist.
@@ -91,7 +91,7 @@ export interface DescribeReservedNodesOfferingsCommandOutput
  *       </p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The required service-linked role was not found.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

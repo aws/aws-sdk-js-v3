@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { DescribeParametersRequest, DescribeParametersResponse } from "../models/models_0";
-import { de_DescribeParametersCommand, se_DescribeParametersCommand } from "../protocols/Aws_json1_1";
+import { DescribeMultiRegionParametersRequest, DescribeMultiRegionParametersResponse } from "../models/models_0";
+import {
+  de_DescribeMultiRegionParametersCommand,
+  se_DescribeMultiRegionParametersCommand,
+} from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -17,40 +20,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DescribeParametersCommand}.
+ * The input for {@link DescribeMultiRegionParametersCommand}.
  */
-export interface DescribeParametersCommandInput extends DescribeParametersRequest {}
+export interface DescribeMultiRegionParametersCommandInput extends DescribeMultiRegionParametersRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeParametersCommand}.
+ * The output of {@link DescribeMultiRegionParametersCommand}.
  */
-export interface DescribeParametersCommandOutput extends DescribeParametersResponse, __MetadataBearer {}
+export interface DescribeMultiRegionParametersCommandOutput
+  extends DescribeMultiRegionParametersResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Returns the detailed parameter list for a particular parameter group.</p>
+ * <p>Returns the detailed parameter list for a particular multi-region parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MemoryDBClient, DescribeParametersCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
- * // const { MemoryDBClient, DescribeParametersCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * import { MemoryDBClient, DescribeMultiRegionParametersCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
+ * // const { MemoryDBClient, DescribeMultiRegionParametersCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * // import type { MemoryDBClientConfig } from "@aws-sdk/client-memorydb";
  * const config = {}; // type is MemoryDBClientConfig
  * const client = new MemoryDBClient(config);
- * const input = { // DescribeParametersRequest
- *   ParameterGroupName: "STRING_VALUE", // required
+ * const input = { // DescribeMultiRegionParametersRequest
+ *   MultiRegionParameterGroupName: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
- * const command = new DescribeParametersCommand(input);
+ * const command = new DescribeMultiRegionParametersCommand(input);
  * const response = await client.send(command);
- * // { // DescribeParametersResponse
+ * // { // DescribeMultiRegionParametersResponse
  * //   NextToken: "STRING_VALUE",
- * //   Parameters: [ // ParametersList
- * //     { // Parameter
+ * //   MultiRegionParameters: [ // MultiRegionParametersList
+ * //     { // MultiRegionParameter
  * //       Name: "STRING_VALUE",
  * //       Value: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
  * //       DataType: "STRING_VALUE",
  * //       AllowedValues: "STRING_VALUE",
  * //       MinimumEngineVersion: "STRING_VALUE",
@@ -60,10 +67,10 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  *
  * ```
  *
- * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
- * @returns {@link DescribeParametersCommandOutput}
- * @see {@link DescribeParametersCommandInput} for command's `input` shape.
- * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
+ * @param DescribeMultiRegionParametersCommandInput - {@link DescribeMultiRegionParametersCommandInput}
+ * @returns {@link DescribeMultiRegionParametersCommandOutput}
+ * @see {@link DescribeMultiRegionParametersCommandInput} for command's `input` shape.
+ * @see {@link DescribeMultiRegionParametersCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
@@ -72,8 +79,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The specified parameter value is not valid.</p>
  *
- * @throws {@link ParameterGroupNotFoundFault} (client fault)
- *  <p>The specified parameter group does not exist.</p>
+ * @throws {@link MultiRegionParameterGroupNotFoundFault} (client fault)
+ *  <p>The specified multi-Region parameter group does not exist.</p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The required service-linked role was not found.</p>
@@ -84,10 +91,10 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  *
  * @public
  */
-export class DescribeParametersCommand extends $Command
+export class DescribeMultiRegionParametersCommand extends $Command
   .classBuilder<
-    DescribeParametersCommandInput,
-    DescribeParametersCommandOutput,
+    DescribeMultiRegionParametersCommandInput,
+    DescribeMultiRegionParametersCommandOutput,
     MemoryDBClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -99,21 +106,21 @@ export class DescribeParametersCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonMemoryDB", "DescribeParameters", {})
-  .n("MemoryDBClient", "DescribeParametersCommand")
+  .s("AmazonMemoryDB", "DescribeMultiRegionParameters", {})
+  .n("MemoryDBClient", "DescribeMultiRegionParametersCommand")
   .f(void 0, void 0)
-  .ser(se_DescribeParametersCommand)
-  .de(de_DescribeParametersCommand)
+  .ser(se_DescribeMultiRegionParametersCommand)
+  .de(de_DescribeMultiRegionParametersCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeParametersRequest;
-      output: DescribeParametersResponse;
+      input: DescribeMultiRegionParametersRequest;
+      output: DescribeMultiRegionParametersResponse;
     };
     sdk: {
-      input: DescribeParametersCommandInput;
-      output: DescribeParametersCommandOutput;
+      input: DescribeMultiRegionParametersCommandInput;
+      output: DescribeMultiRegionParametersCommandOutput;
     };
   };
 }

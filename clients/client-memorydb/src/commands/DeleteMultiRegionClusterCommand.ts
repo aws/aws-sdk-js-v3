@@ -77,7 +77,7 @@ export interface DeleteMultiRegionClusterCommandOutput extends DeleteMultiRegion
  *  <p>The requested operation cannot be performed on the multi-Region cluster in its current state.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
  *  <p>The specified multi-Region cluster does not exist.</p>

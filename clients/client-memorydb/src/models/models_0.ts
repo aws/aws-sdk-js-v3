@@ -72,7 +72,7 @@ export interface ACL {
 }
 
 /**
- * <p></p>
+ * <p>An ACL with the specified name already exists.</p>
  * @public
  */
 export class ACLAlreadyExistsFault extends __BaseException {
@@ -92,7 +92,7 @@ export class ACLAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The specified ACL does not exist.</p>
  * @public
  */
 export class ACLNotFoundFault extends __BaseException {
@@ -112,7 +112,7 @@ export class ACLNotFoundFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of ACLs allowed.</p>
  * @public
  */
 export class ACLQuotaExceededFault extends __BaseException {
@@ -652,7 +652,7 @@ export interface BatchUpdateClusterResponse {
 }
 
 /**
- * <p></p>
+ * <p>The specified parameter value is not valid.</p>
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -672,7 +672,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The specified service update does not exist.</p>
  * @public
  */
 export class ServiceUpdateNotFoundFault extends __BaseException {
@@ -970,7 +970,7 @@ export interface CopySnapshotResponse {
 }
 
 /**
- * <p></p>
+ * <p>The specified parameter combination is not valid.</p>
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -990,7 +990,7 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The snapshot is not in a valid state for the requested operation.</p>
  * @public
  */
 export class InvalidSnapshotStateFault extends __BaseException {
@@ -1010,7 +1010,7 @@ export class InvalidSnapshotStateFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The required service-linked role was not found.</p>
  * @public
  */
 export class ServiceLinkedRoleNotFoundFault extends __BaseException {
@@ -1030,7 +1030,7 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>A snapshot with the specified name already exists.</p>
  * @public
  */
 export class SnapshotAlreadyExistsFault extends __BaseException {
@@ -1050,7 +1050,7 @@ export class SnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The specified snapshot does not exist.</p>
  * @public
  */
 export class SnapshotNotFoundFault extends __BaseException {
@@ -1070,7 +1070,7 @@ export class SnapshotNotFoundFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of snapshots allowed.</p>
  * @public
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
@@ -1090,7 +1090,7 @@ export class SnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
  * @public
  */
 export class TagQuotaPerResourceExceeded extends __BaseException {
@@ -1144,7 +1144,7 @@ export interface CreateACLResponse {
 }
 
 /**
- * <p></p>
+ * <p>A default user is required and must be specified.</p>
  * @public
  */
 export class DefaultUserRequired extends __BaseException {
@@ -1164,7 +1164,7 @@ export class DefaultUserRequired extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>A user with the specified name already exists.</p>
  * @public
  */
 export class DuplicateUserNameFault extends __BaseException {
@@ -1184,7 +1184,7 @@ export class DuplicateUserNameFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The specified user does not exist.</p>
  * @public
  */
 export class UserNotFoundFault extends __BaseException {
@@ -1204,7 +1204,7 @@ export class UserNotFoundFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>A cluster with the specified name already exists.</p>
  * @public
  */
 export class ClusterAlreadyExistsFault extends __BaseException {
@@ -1224,7 +1224,7 @@ export class ClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.</p>
  * @public
  */
 export class ClusterQuotaForCustomerExceededFault extends __BaseException {
@@ -1462,7 +1462,7 @@ export interface CreateClusterResponse {
 }
 
 /**
- * <p></p>
+ * <p>The cluster does not have sufficient capacity to perform the requested operation.</p>
  * @public
  */
 export class InsufficientClusterCapacityFault extends __BaseException {
@@ -1482,7 +1482,7 @@ export class InsufficientClusterCapacityFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The ACL is not in a valid state for the requested operation.</p>
  * @public
  */
 export class InvalidACLStateFault extends __BaseException {
@@ -1502,7 +1502,7 @@ export class InvalidACLStateFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The provided credentials are not valid.</p>
  * @public
  */
 export class InvalidCredentialsException extends __BaseException {
@@ -1542,7 +1542,7 @@ export class InvalidMultiRegionClusterStateFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The VPC network is not in a valid state for the requested operation.</p>
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -1582,7 +1582,7 @@ export class MultiRegionClusterNotFoundFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this cluster.</p>
  * @public
  */
 export class NodeQuotaForClusterExceededFault extends __BaseException {
@@ -1602,7 +1602,7 @@ export class NodeQuotaForClusterExceededFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this customer.</p>
  * @public
  */
 export class NodeQuotaForCustomerExceededFault extends __BaseException {
@@ -1622,7 +1622,7 @@ export class NodeQuotaForCustomerExceededFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The specified parameter group does not exist.</p>
  * @public
  */
 export class ParameterGroupNotFoundFault extends __BaseException {
@@ -1642,7 +1642,7 @@ export class ParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of shards allowed per cluster.</p>
  * @public
  */
 export class ShardsPerClusterQuotaExceededFault extends __BaseException {
@@ -1662,7 +1662,7 @@ export class ShardsPerClusterQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The specified subnet group does not exist.</p>
  * @public
  */
 export class SubnetGroupNotFoundFault extends __BaseException {
@@ -1964,7 +1964,7 @@ export interface CreateParameterGroupResponse {
 }
 
 /**
- * <p></p>
+ * <p>The parameter group is not in a valid state for the requested operation.</p>
  * @public
  */
 export class InvalidParameterGroupStateFault extends __BaseException {
@@ -1984,7 +1984,7 @@ export class InvalidParameterGroupStateFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>A parameter group with the specified name already exists.</p>
  * @public
  */
 export class ParameterGroupAlreadyExistsFault extends __BaseException {
@@ -2004,7 +2004,7 @@ export class ParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of parameter groups allowed.</p>
  * @public
  */
 export class ParameterGroupQuotaExceededFault extends __BaseException {
@@ -2024,7 +2024,7 @@ export class ParameterGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The specified cluster does not exist.</p>
  * @public
  */
 export class ClusterNotFoundFault extends __BaseException {
@@ -2084,7 +2084,7 @@ export interface CreateSnapshotResponse {
 }
 
 /**
- * <p></p>
+ * <p>The cluster is not in a valid state for the requested operation.</p>
  * @public
  */
 export class InvalidClusterStateFault extends __BaseException {
@@ -2231,7 +2231,7 @@ export interface CreateSubnetGroupResponse {
 }
 
 /**
- * <p></p>
+ * <p>The specified subnet is not valid.</p>
  * @public
  */
 export class InvalidSubnet extends __BaseException {
@@ -2251,7 +2251,7 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>A subnet group with the specified name already exists.</p>
  * @public
  */
 export class SubnetGroupAlreadyExistsFault extends __BaseException {
@@ -2271,7 +2271,7 @@ export class SubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of subnet groups allowed.</p>
  * @public
  */
 export class SubnetGroupQuotaExceededFault extends __BaseException {
@@ -2291,7 +2291,7 @@ export class SubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The specified subnet is not allowed for this operation.</p>
  * @public
  */
 export class SubnetNotAllowedFault extends __BaseException {
@@ -2311,7 +2311,7 @@ export class SubnetNotAllowedFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of subnets allowed.</p>
  * @public
  */
 export class SubnetQuotaExceededFault extends __BaseException {
@@ -2486,7 +2486,7 @@ export interface CreateUserResponse {
 }
 
 /**
- * <p></p>
+ * <p>A user with the specified name already exists.</p>
  * @public
  */
 export class UserAlreadyExistsFault extends __BaseException {
@@ -2506,7 +2506,7 @@ export class UserAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The request cannot be processed because it would exceed the maximum number of users allowed.</p>
  * @public
  */
 export class UserQuotaExceededFault extends __BaseException {
@@ -2670,7 +2670,7 @@ export interface DeleteSubnetGroupResponse {
 }
 
 /**
- * <p></p>
+ * <p>The subnet group is currently in use and cannot be deleted.</p>
  * @public
  */
 export class SubnetGroupInUseFault extends __BaseException {
@@ -2712,7 +2712,7 @@ export interface DeleteUserResponse {
 }
 
 /**
- * <p></p>
+ * <p>The user is not in a valid state for the requested operation.</p>
  * @public
  */
 export class InvalidUserStateFault extends __BaseException {
@@ -3066,6 +3066,170 @@ export interface DescribeMultiRegionClustersResponse {
    * @public
    */
   MultiRegionClusters?: MultiRegionCluster[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMultiRegionParameterGroupsRequest {
+  /**
+   * <p>The request for information on a specific multi-region parameter group.</p>
+   * @public
+   */
+  MultiRegionParameterGroupName?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents the output of a CreateMultiRegionParameterGroup operation. A multi-region parameter group represents a collection of parameters that can be applied to clusters across multiple regions.</p>
+ * @public
+ */
+export interface MultiRegionParameterGroup {
+  /**
+   * <p>The name of the multi-region parameter group.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The name of the parameter group family that this multi-region parameter group is compatible with.</p>
+   * @public
+   */
+  Family?: string | undefined;
+
+  /**
+   * <p>A description of the multi-region parameter group.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the multi-region parameter group.</p>
+   * @public
+   */
+  ARN?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMultiRegionParameterGroupsResponse {
+  /**
+   * <p>An optional token to include in the response. If this token is provided, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of multi-region parameter groups. Each element in the list contains detailed information about one parameter group.</p>
+   * @public
+   */
+  MultiRegionParameterGroups?: MultiRegionParameterGroup[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMultiRegionParametersRequest {
+  /**
+   * <p>The name of the multi-region parameter group to return details for.</p>
+   * @public
+   */
+  MultiRegionParameterGroupName: string | undefined;
+
+  /**
+   * <p>The parameter types to return. Valid values: user | system | engine-default</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes an individual setting that controls some aspect of MemoryDB behavior across multiple regions.</p>
+ * @public
+ */
+export interface MultiRegionParameter {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The value of the parameter.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>A description of the parameter.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates the source of the parameter value. Valid values: user | system | engine-default</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The valid data type for the parameter.</p>
+   * @public
+   */
+  DataType?: string | undefined;
+
+  /**
+   * <p>The valid range of values for the parameter.</p>
+   * @public
+   */
+  AllowedValues?: string | undefined;
+
+  /**
+   * <p>The earliest engine version to which the parameter can apply.</p>
+   * @public
+   */
+  MinimumEngineVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMultiRegionParametersResponse {
+  /**
+   * <p>An optional token to include in the response. If this token is provided, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of parameters specific to a particular multi-region parameter group. Each element in the list contains detailed information about one parameter.</p>
+   * @public
+   */
+  MultiRegionParameters?: MultiRegionParameter[] | undefined;
 }
 
 /**
@@ -3776,7 +3940,7 @@ export interface DescribeUsersResponse {
 }
 
 /**
- * <p></p>
+ * <p>The customer has exceeded the maximum number of API requests allowed per time period.</p>
  * @public
  */
 export class APICallRateForCustomerExceededFault extends __BaseException {
@@ -3824,7 +3988,7 @@ export interface FailoverShardResponse {
 }
 
 /**
- * <p></p>
+ * <p>The specified KMS key is not valid or accessible.</p>
  * @public
  */
 export class InvalidKMSKeyFault extends __BaseException {
@@ -3844,7 +4008,7 @@ export class InvalidKMSKeyFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The specified shard does not exist.</p>
  * @public
  */
 export class ShardNotFoundFault extends __BaseException {
@@ -3864,7 +4028,7 @@ export class ShardNotFoundFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>Test failover is not available for this cluster configuration.</p>
  * @public
  */
 export class TestFailoverNotAvailableFault extends __BaseException {
@@ -3941,7 +4105,7 @@ export interface ListAllowedNodeTypeUpdatesResponse {
 }
 
 /**
- * <p></p>
+ * <p>The specified Amazon Resource Name (ARN) is not valid.</p>
  * @public
  */
 export class InvalidARNFault extends __BaseException {
@@ -4125,7 +4289,7 @@ export interface TagResourceResponse {
 }
 
 /**
- * <p></p>
+ * <p>The specified tag does not exist.</p>
  * @public
  */
 export class TagNotFoundFault extends __BaseException {
@@ -4207,7 +4371,7 @@ export interface UpdateACLResponse {
 }
 
 /**
- * <p></p>
+ * <p>The node is not in a valid state for the requested operation.</p>
  * @public
  */
 export class InvalidNodeStateFault extends __BaseException {
@@ -4227,7 +4391,7 @@ export class InvalidNodeStateFault extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The requested operation would result in no changes.</p>
  * @public
  */
 export class NoOperationFault extends __BaseException {
@@ -4544,7 +4708,7 @@ export interface UpdateParameterGroupResponse {
 }
 
 /**
- * <p></p>
+ * <p>The subnet is currently in use and cannot be deleted.</p>
  * @public
  */
 export class SubnetInUse extends __BaseException {

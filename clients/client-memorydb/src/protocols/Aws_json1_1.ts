@@ -62,6 +62,14 @@ import {
   DescribeMultiRegionClustersCommandOutput,
 } from "../commands/DescribeMultiRegionClustersCommand";
 import {
+  DescribeMultiRegionParameterGroupsCommandInput,
+  DescribeMultiRegionParameterGroupsCommandOutput,
+} from "../commands/DescribeMultiRegionParameterGroupsCommand";
+import {
+  DescribeMultiRegionParametersCommandInput,
+  DescribeMultiRegionParametersCommandOutput,
+} from "../commands/DescribeMultiRegionParametersCommand";
+import {
   DescribeParameterGroupsCommandInput,
   DescribeParameterGroupsCommandOutput,
 } from "../commands/DescribeParameterGroupsCommand";
@@ -159,6 +167,8 @@ import {
   DescribeEventsRequest,
   DescribeEventsResponse,
   DescribeMultiRegionClustersRequest,
+  DescribeMultiRegionParameterGroupsRequest,
+  DescribeMultiRegionParametersRequest,
   DescribeParameterGroupsRequest,
   DescribeParametersRequest,
   DescribeReservedNodesOfferingsRequest,
@@ -525,6 +535,32 @@ export const se_DescribeMultiRegionClustersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeMultiRegionClusters");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeMultiRegionParameterGroupsCommand
+ */
+export const se_DescribeMultiRegionParameterGroupsCommand = async (
+  input: DescribeMultiRegionParameterGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMultiRegionParameterGroups");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeMultiRegionParametersCommand
+ */
+export const se_DescribeMultiRegionParametersCommand = async (
+  input: DescribeMultiRegionParametersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMultiRegionParameters");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1230,6 +1266,46 @@ export const de_DescribeMultiRegionClustersCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DescribeMultiRegionClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMultiRegionParameterGroupsCommand
+ */
+export const de_DescribeMultiRegionParameterGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMultiRegionParameterGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMultiRegionParameterGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMultiRegionParametersCommand
+ */
+export const de_DescribeMultiRegionParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMultiRegionParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMultiRegionParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2808,6 +2884,10 @@ const se_DescribeEventsRequest = (input: DescribeEventsRequest, context: __Serde
 
 // se_DescribeMultiRegionClustersRequest omitted.
 
+// se_DescribeMultiRegionParameterGroupsRequest omitted.
+
+// se_DescribeMultiRegionParametersRequest omitted.
+
 // se_DescribeParameterGroupsRequest omitted.
 
 // se_DescribeParametersRequest omitted.
@@ -3107,6 +3187,10 @@ const de_DescribeEventsResponse = (output: any, context: __SerdeContext): Descri
 
 // de_DescribeMultiRegionClustersResponse omitted.
 
+// de_DescribeMultiRegionParameterGroupsResponse omitted.
+
+// de_DescribeMultiRegionParametersResponse omitted.
+
 // de_DescribeParameterGroupsResponse omitted.
 
 // de_DescribeParametersResponse omitted.
@@ -3243,7 +3327,15 @@ const de_FailoverShardResponse = (output: any, context: __SerdeContext): Failove
 
 // de_MultiRegionClusterNotFoundFault omitted.
 
+// de_MultiRegionParameter omitted.
+
+// de_MultiRegionParameterGroup omitted.
+
+// de_MultiRegionParameterGroupList omitted.
+
 // de_MultiRegionParameterGroupNotFoundFault omitted.
+
+// de_MultiRegionParametersList omitted.
 
 // de_NetworkTypeList omitted.
 

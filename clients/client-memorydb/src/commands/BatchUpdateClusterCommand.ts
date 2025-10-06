@@ -142,10 +142,10 @@ export interface BatchUpdateClusterCommandOutput extends BatchUpdateClusterRespo
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link ServiceUpdateNotFoundFault} (client fault)
- *  <p></p>
+ *  <p>The specified service update does not exist.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>

@@ -81,22 +81,22 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link DuplicateUserNameFault} (client fault)
- *  <p></p>
+ *  <p>A user with the specified name already exists.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter combination is not valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p></p>
+ *  <p>The specified parameter value is not valid.</p>
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
  *
  * @throws {@link UserAlreadyExistsFault} (client fault)
- *  <p></p>
+ *  <p>A user with the specified name already exists.</p>
  *
  * @throws {@link UserQuotaExceededFault} (client fault)
- *  <p></p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of users allowed.</p>
  *
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
