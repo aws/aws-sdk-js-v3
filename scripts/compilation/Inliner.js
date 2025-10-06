@@ -335,7 +335,9 @@ module.exports = class Inliner {
               .join("/")) + "/index.js";
 
       if (!this.reExportStubs) {
-        fs.rmSync(file);
+        if (fs.readFileSync(file, "utf-8").includes(`Object.defineProperty(exports, "__esModule", { value: true });`)) {
+          fs.rmSync(file);
+        }
         const files = fs.readdirSync(path.dirname(file));
         if (files.length === 0) {
           fs.rmdirSync(path.dirname(file));
