@@ -1,4 +1,4 @@
-import { lstatSync } from "fs";
+import { lstatSync, ReadStream } from "fs";
 
 import { runtimeConfigShared as shared } from "./runtimeConfig.shared";
 
@@ -9,4 +9,7 @@ export const runtimeConfig = {
   ...shared,
   runtime: "node",
   lstatSync,
+  isFileReadStream(f: unknown): f is ReadStream {
+    return f instanceof ReadStream;
+  },
 };

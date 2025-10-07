@@ -42,7 +42,7 @@ export const byteLengthSource = (input: any, override?: number): BYTE_LENGTH_SOU
     return BYTE_LENGTH_SOURCE.SIZE;
   } else if (typeof input.start === "number" && typeof input.end === "number") {
     return BYTE_LENGTH_SOURCE.START_END_DIFF;
-  } else if (typeof input.path === "string") {
+  } else if (runtimeConfig.isFileReadStream(input)) {
     try {
       runtimeConfig.lstatSync(input.path).size;
       return BYTE_LENGTH_SOURCE.LSTAT;
