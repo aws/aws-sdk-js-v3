@@ -29,6 +29,8 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
 
 /**
  * <p>List deployments. You can filter the result list by environment, service, or a single service instance.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

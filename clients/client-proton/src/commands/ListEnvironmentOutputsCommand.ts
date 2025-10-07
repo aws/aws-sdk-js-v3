@@ -33,6 +33,8 @@ export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutp
 
 /**
  * <p>List the infrastructure as code outputs for your environment.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

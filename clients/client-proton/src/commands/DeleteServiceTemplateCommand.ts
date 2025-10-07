@@ -34,6 +34,8 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
 /**
  * <p>If no other major or minor versions of the service template exist, delete the service
  *       template.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

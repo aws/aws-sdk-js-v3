@@ -33,6 +33,8 @@ export interface ListServicePipelineOutputsCommandOutput extends ListServicePipe
 
 /**
  * <p>Get a list of service pipeline Infrastructure as Code (IaC) outputs.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

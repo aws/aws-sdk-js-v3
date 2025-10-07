@@ -34,6 +34,8 @@ export interface GetServiceSyncBlockerSummaryCommandOutput
 
 /**
  * <p>Get detailed data for the service sync blocker summary.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

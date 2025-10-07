@@ -33,6 +33,8 @@ export interface GetServiceTemplateCommandOutput extends GetServiceTemplateOutpu
 
 /**
  * <p>Get detailed data for a service template.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

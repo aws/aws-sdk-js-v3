@@ -48,6 +48,8 @@ export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmen
  *             and publish an environment template</a> in the <i>Proton User Guide</i>.</p>
  *             </li>
  *          </ul>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

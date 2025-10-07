@@ -29,6 +29,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
 
 /**
  * <p>Update Proton settings that are used for multiple services in the Amazon Web Services account.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

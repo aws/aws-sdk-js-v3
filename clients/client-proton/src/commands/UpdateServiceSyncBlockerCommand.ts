@@ -29,6 +29,8 @@ export interface UpdateServiceSyncBlockerCommandOutput extends UpdateServiceSync
 
 /**
  * <p>Update the service sync blocker by resolving it.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

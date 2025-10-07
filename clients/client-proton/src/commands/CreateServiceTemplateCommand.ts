@@ -39,6 +39,8 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  *       service pipeline definition, they provide a link to their source code repository. Proton
  *       then deploys and manages the infrastructure defined by the selected service template. For more
  *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Proton templates</a> in the <i>Proton User Guide</i>.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

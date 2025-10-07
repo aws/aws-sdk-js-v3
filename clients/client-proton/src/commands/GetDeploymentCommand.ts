@@ -29,6 +29,8 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
 
 /**
  * <p>Get detailed data for a deployment.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

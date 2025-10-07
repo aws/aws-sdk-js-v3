@@ -29,6 +29,8 @@ export interface UpdateServiceSyncConfigCommandOutput extends UpdateServiceSyncC
 
 /**
  * <p>Update the Proton Ops config file.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

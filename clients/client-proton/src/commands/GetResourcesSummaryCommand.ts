@@ -38,6 +38,8 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
  *          <p>For context, the action also returns the total number of each type of Proton template in the Amazon Web Services account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html">Proton dashboard</a> in the
  *     <i>Proton User Guide</i>.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -37,6 +37,8 @@ export interface CreateServiceCommandOutput extends CreateServiceOutput, __Metad
  *       template and often includes several service instances and pipeline. For more information, see
  *         <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html">Services</a>
  *       in the <i>Proton User Guide</i>.</p>
+ *
+ * @deprecated AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
