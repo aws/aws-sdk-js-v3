@@ -54,6 +54,7 @@ workspace
 
 .turbo
 turbo.dev.json
+.rollup.cache
 coverage
 dist-*
 
