@@ -93,7 +93,7 @@ subprojects {
             archiveClassifier.set("sources")
             // Add explicit dependency on the task that generates resources
             dependsOn("set-aws-sdk-versions")
-            duplicatesStrategy = DuplicatesStrategy.INCLUDE
+            duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         }
 
         tasks.register<Jar>("javadocJar") {
