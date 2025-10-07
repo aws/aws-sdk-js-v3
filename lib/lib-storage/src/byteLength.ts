@@ -29,8 +29,7 @@ export const byteLength = (input: any): number | undefined => {
   } else if (typeof input.start === "number" && typeof input.end === "number") {
     // file read stream with range.
     return input.end + 1 - input.start;
-  } else if (typeof input.path === "string") {
-    // file read stream with path.
+  } else if (runtimeConfig.isFileReadStream(input)) {
     try {
       return runtimeConfig.lstatSync(input.path).size;
     } catch (error) {

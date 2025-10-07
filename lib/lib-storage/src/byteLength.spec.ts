@@ -1,70 +1,78 @@
-import { describe, expect, it, vi } from "vitest";
+import fs from "node:fs";
+import { describe, expect, it } from "vitest";
 
-import { BYTE_LENGTH_SOURCE, byteLengthSource } from "./byteLengthSource";
-import { runtimeConfig } from "./runtimeConfig";
+import { byteLength } from "./byteLength";
 
-vi.mock("./runtimeConfig", () => ({
-  runtimeConfig: {
-    lstatSync: vi.fn(),
-  },
-}));
-
-describe("byteLengthSource", () => {
-  it("should return CONTENT_LENGTH when override is provided", () => {
-    expect(byteLengthSource({}, 100)).toBe(BYTE_LENGTH_SOURCE.CONTENT_LENGTH);
+describe("byteLength", () => {
+  it("should handle null and undefined input", () => {
+    expect(byteLength(null)).toBe(0);
+    expect(byteLength(undefined)).toBe(0);
   });
 
-  it("should return EMPTY_INPUT for null input", () => {
-    expect(byteLengthSource(null)).toBe(BYTE_LENGTH_SOURCE.EMPTY_INPUT);
-  });
-
-  it("should return EMPTY_INPUT for undefined input", () => {
-    expect(byteLengthSource(undefined)).toBe(BYTE_LENGTH_SOURCE.EMPTY_INPUT);
-  });
-
-  it("should return STRING_LENGTH for string input", () => {
-    expect(byteLengthSource("test")).toBe(BYTE_LENGTH_SOURCE.STRING_LENGTH);
-  });
-
-  it("should return TYPED_ARRAY for input with byteLength", () => {
-    const input = new Uint8Array(10);
-    expect(byteLengthSource(input)).toBe(BYTE_LENGTH_SOURCE.TYPED_ARRAY);
-  });
-
-  it("should return LENGTH for input with length property", () => {
-    const input = { length: 10 };
-    expect(byteLengthSource(input)).toBe(BYTE_LENGTH_SOURCE.LENGTH);
-  });
-
-  it("should return SIZE for input with size property", () => {
-    const input = { size: 10 };
-    expect(byteLengthSource(input)).toBe(BYTE_LENGTH_SOURCE.SIZE);
-  });
-
-  it("should return START_END_DIFF for input with start and end properties", () => {
-    const input = { start: 0, end: 10 };
-    expect(byteLengthSource(input)).toBe(BYTE_LENGTH_SOURCE.START_END_DIFF);
-  });
-
-  it("should return LSTAT for input with path that exists", () => {
-    const input = { path: "/test/path" };
-    vi.mocked(runtimeConfig.lstatSync).mockReturnValue({ size: 100 } as any);
-
-    expect(byteLengthSource(input)).toBe(BYTE_LENGTH_SOURCE.LSTAT);
-    expect(runtimeConfig.lstatSync).toHaveBeenCalledWith("/test/path");
-  });
-
-  it("should return undefined for input with path that throws error", () => {
-    const input = { path: "/test/path" };
-    vi.mocked(runtimeConfig.lstatSync).mockImplementation(() => {
-      throw new Error("File not found");
+  describe("strings", () => {
+    it("empty", () => {
+      expect(byteLength("")).toBe(0);
     });
 
-    expect(byteLengthSource(input)).toBeUndefined();
+    it("should return correct length for ASCII characters", () => {
+      expect(byteLength("hello")).toBe(5);
+      expect(byteLength("12345")).toBe(5);
+      expect(byteLength("!@#$%")).toBe(5);
+    });
+
+    it("should return correct length for unicode characters", () => {
+      expect(byteLength("😀")).toBe(4);
+    });
+
+    it("should handle mixed ASCII and unicode characters", () => {
+      expect(byteLength("hello 世界")).toBe(12);
+      expect(byteLength("hi 😀")).toBe(7);
+    });
   });
 
-  it("should return undefined for input with no matching properties", () => {
-    const input = { foo: "bar" };
-    expect(byteLengthSource(input)).toBeUndefined();
+  describe("byte arrays", () => {
+    it("should handle Uint8Array", () => {
+      expect(byteLength(new Uint8Array([1, 2, 3]))).toBe(3);
+      expect(byteLength(new Uint8Array([]))).toBe(0);
+    });
+
+    it("should handle Buffer", () => {
+      expect(byteLength(Buffer.from([1, 2, 3]))).toBe(3);
+      expect(byteLength(Buffer.from([]))).toBe(0);
+    });
+  });
+
+  describe("things with length or size properties", () => {
+    it("should handle arrays", () => {
+      expect(byteLength([1, 2, 3])).toBe(3);
+      expect(byteLength([])).toBe(0);
+    });
+
+    it("should handle objects with length property", () => {
+      expect(byteLength({ length: 5 })).toBe(5);
+      expect(byteLength({ length: 0 })).toBe(0);
+    });
+
+    it("should handle objects with size property", () => {
+      expect(byteLength({ size: 10 })).toBe(10);
+      expect(byteLength({ size: 0 })).toBe(0);
+    });
+  });
+
+  describe("start end differentials", () => {
+    it("should handle readable streams", () => {
+      const stream = fs.createReadStream(__filename, {
+        start: 1000,
+        end: 1499,
+      });
+      expect(byteLength(stream)).toBe(500);
+    });
+  });
+
+  describe("filestreams", () => {
+    it("should handle readable streams", () => {
+      const stream = fs.createReadStream(__filename);
+      expect(byteLength(stream)).toBe(fs.lstatSync(__filename).size);
+    });
   });
 });
