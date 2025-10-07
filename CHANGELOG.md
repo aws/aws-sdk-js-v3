@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.905.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.904.0...v3.905.0) (2025-10-07)
+
+
+### Bug Fixes
+
+* **lib-storage:** restrict lstat calls to fs.ReadStream objects ([#7411](https://github.com/aws/aws-sdk-js-v3/issues/7411)) ([120f408](https://github.com/aws/aws-sdk-js-v3/commit/120f408f18c2ef3c4b995a9291bb328fd81267b0))
+
+
+### Features
+
+* **client-proton:** Deprecating APIs in AWS Proton namespace. ([2b4937b](https://github.com/aws/aws-sdk-js-v3/commit/2b4937b9a70085fb03583e96ba07a533c10b2bb9))
+* **clients:** update client endpoints as of 2025-10-07 ([eaf7139](https://github.com/aws/aws-sdk-js-v3/commit/eaf71394eea13ee7583246cac57c2e3946b4d2b8))
+
+
+
+
+
 # [3.904.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.903.0...v3.904.0) (2025-10-06)
 
 
