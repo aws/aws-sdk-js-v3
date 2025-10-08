@@ -29,6 +29,7 @@ export default defineConfig({
       "packages/types/**/*.ts",
       "packages/util-user-agent-browser/src/index.spec.ts",
       "packages/util-user-agent-browser/src/index.native.spec.ts",
+      "packages/util-user-agent-browser/src/createUserAgentStringParsingProvider.spec.ts",
       "packages/credential-provider-cognito-identity/src/localStorage-inmemoryStorage.spec.ts",
       "packages/body-checksum-browser/src/index.spec.ts",
       "packages/middleware-websocket/src/get-event-signing-stream.spec.ts",
