@@ -1051,6 +1051,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_IpV4List omitted.
 
+// se_IpV6List omitted.
+
 // se_LicenseServerSettings omitted.
 
 // se_RdsSalSettings omitted.
@@ -1090,6 +1092,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_InstanceUserSummaryList omitted.
 
 // de_IpV4List omitted.
+
+// de_IpV6List omitted.
 
 // de_LicenseServer omitted.
 

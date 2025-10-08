@@ -71,6 +71,7 @@ export interface ListLicenseServerEndpointsCommandOutput extends ListLicenseServ
  * //           ProvisioningStatus: "STRING_VALUE",
  * //           HealthStatus: "STRING_VALUE",
  * //           Ipv4Address: "STRING_VALUE",
+ * //           Ipv6Address: "STRING_VALUE",
  * //         },
  * //       ],
  * //       CreationTime: new Date("TIMESTAMP"),

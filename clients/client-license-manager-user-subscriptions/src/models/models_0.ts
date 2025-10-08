@@ -106,6 +106,12 @@ export interface ActiveDirectorySettings {
   DomainIpv4List?: string[] | undefined;
 
   /**
+   * <p>A list of domain IPv6 addresses that are used for the Active Directory.</p>
+   * @public
+   */
+  DomainIpv6List?: string[] | undefined;
+
+  /**
    * <p>Points to the <code>CredentialsProvider</code> resource that contains information about the credential provider for user administration.</p>
    * @public
    */
@@ -657,6 +663,12 @@ export interface LicenseServer {
    * @public
    */
   Ipv4Address?: string | undefined;
+
+  /**
+   * <p>A list of domain IPv6 addresses that are used for the RDS license server.</p>
+   * @public
+   */
+  Ipv6Address?: string | undefined;
 }
 
 /**

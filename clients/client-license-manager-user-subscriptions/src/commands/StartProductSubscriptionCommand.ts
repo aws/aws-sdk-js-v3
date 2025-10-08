@@ -55,6 +55,9 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  *         DomainIpv4List: [ // IpV4List
  *           "STRING_VALUE",
  *         ],
+ *         DomainIpv6List: [ // IpV6List
+ *           "STRING_VALUE",
+ *         ],
  *         DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
  *           SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
  *             SecretId: "STRING_VALUE",
@@ -88,6 +91,9 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * //         ActiveDirectorySettings: { // ActiveDirectorySettings
  * //           DomainName: "STRING_VALUE",
  * //           DomainIpv4List: [ // IpV4List
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DomainIpv6List: [ // IpV6List
  * //             "STRING_VALUE",
  * //           ],
  * //           DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
