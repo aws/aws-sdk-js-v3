@@ -3,7 +3,7 @@ import {
   HttpInterceptingShapeDeserializer,
   HttpInterceptingShapeSerializer,
 } from "@smithy/core/protocols";
-import { NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
+import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -14,6 +14,7 @@ import type {
   SerdeFunctions,
   ShapeDeserializer,
   ShapeSerializer,
+  TimestampEpochSecondsSchema,
 } from "@smithy/types";
 
 import { ProtocolLib } from "../ProtocolLib";
@@ -36,7 +37,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
     const settings: JsonSettings = {
       timestampFormat: {
         useTrait: true,
-        default: SCHEMA.TIMESTAMP_EPOCH_SECONDS,
+        default: 7 as const satisfies TimestampEpochSecondsSchema,
       },
       httpBindings: true,
       jsonName: true,

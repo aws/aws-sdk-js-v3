@@ -1,5 +1,5 @@
-import { SCHEMA } from "@smithy/core/schema";
 import { NumericValue } from "@smithy/core/serde";
+import type { TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { widget } from "../test-schema.spec";
@@ -9,7 +9,7 @@ describe(JsonShapeSerializer.name, () => {
   it("serializes data to JSON", async () => {
     const serializer = new JsonShapeSerializer({
       jsonName: true,
-      timestampFormat: { default: SCHEMA.TIMESTAMP_EPOCH_SECONDS, useTrait: true },
+      timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
     });
     serializer.setSerdeContext({
       base64Encoder: (input: Uint8Array) => {

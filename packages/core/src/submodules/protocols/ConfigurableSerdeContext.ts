@@ -1,4 +1,4 @@
-import { ConfigurableSerdeContext, SerdeFunctions } from "@smithy/types";
+import type { ConfigurableSerdeContext, SerdeFunctions } from "@smithy/types";
 
 /**
  * @internal

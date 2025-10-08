@@ -1,5 +1,5 @@
-import { SCHEMA } from "@smithy/core/schema";
 import { NumericValue } from "@smithy/core/serde";
+import type { TimestampDateTimeSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { widget } from "../test-schema.spec";
@@ -11,7 +11,7 @@ describe(XmlShapeSerializer.name, () => {
     const serializer = new XmlShapeSerializer({
       xmlNamespace: "namespace",
       serviceNamespace: "namespace",
-      timestampFormat: { default: SCHEMA.TIMESTAMP_DATE_TIME, useTrait: true },
+      timestampFormat: { default: 5 satisfies TimestampDateTimeSchema, useTrait: true },
     });
     serializer.setSerdeContext({
       base64Encoder: (input: Uint8Array) => {

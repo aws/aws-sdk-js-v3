@@ -1,5 +1,5 @@
-import { SCHEMA } from "@smithy/core/schema";
 import { NumericValue } from "@smithy/core/serde";
+import type { TimestampDateTimeSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { widget } from "../test-schema.spec";
@@ -16,7 +16,7 @@ describe("", () => {
     const deserializer = new XmlShapeDeserializer({
       httpBindings: true,
       serviceNamespace: "namespace",
-      timestampFormat: { default: SCHEMA.TIMESTAMP_DATE_TIME, useTrait: true },
+      timestampFormat: { default: 5 satisfies TimestampDateTimeSchema, useTrait: true },
       xmlNamespace: "namespace",
     });
 

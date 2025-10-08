@@ -1,9 +1,15 @@
 import { XmlNode, XmlText } from "@aws-sdk/xml-builder";
 import { determineTimestampFormat } from "@smithy/core/protocols";
-import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
+import { NormalizedSchema } from "@smithy/core/schema";
 import { generateIdempotencyToken, NumericValue } from "@smithy/core/serde";
 import { dateToUtcString } from "@smithy/smithy-client";
-import type { Schema as ISchema, ShapeSerializer } from "@smithy/types";
+import type {
+  Schema as ISchema,
+  ShapeSerializer,
+  TimestampDateTimeSchema,
+  TimestampEpochSecondsSchema,
+  TimestampHttpDateSchema,
+} from "@smithy/types";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
@@ -262,13 +268,13 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
       } else if (ns.isTimestampSchema() && value instanceof Date) {
         const format = determineTimestampFormat(ns, this.settings);
         switch (format) {
-          case SCHEMA.TIMESTAMP_DATE_TIME:
+          case 5 satisfies TimestampDateTimeSchema:
             nodeContents = value.toISOString().replace(".000Z", "Z");
             break;
-          case SCHEMA.TIMESTAMP_HTTP_DATE:
+          case 6 satisfies TimestampHttpDateSchema:
             nodeContents = dateToUtcString(value);
             break;
-          case SCHEMA.TIMESTAMP_EPOCH_SECONDS:
+          case 7 satisfies TimestampEpochSecondsSchema:
             nodeContents = String(value.getTime() / 1000);
             break;
           default:

@@ -1,5 +1,5 @@
 import { determineTimestampFormat } from "@smithy/core/protocols";
-import { NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
+import { NormalizedSchema } from "@smithy/core/schema";
 import {
   LazyJsonString,
   NumericValue,
@@ -7,7 +7,14 @@ import {
   parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime,
 } from "@smithy/core/serde";
-import { DocumentType, Schema, ShapeDeserializer } from "@smithy/types";
+import type {
+  DocumentType,
+  Schema,
+  ShapeDeserializer,
+  TimestampDateTimeSchema,
+  TimestampEpochSecondsSchema,
+  TimestampHttpDateSchema,
+} from "@smithy/types";
 import { fromBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
@@ -88,11 +95,11 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
     if (ns.isTimestampSchema() && value != null) {
       const format = determineTimestampFormat(ns, this.settings);
       switch (format) {
-        case SCHEMA.TIMESTAMP_DATE_TIME:
+        case 5 satisfies TimestampDateTimeSchema:
           return parseRfc3339DateTimeWithOffset(value);
-        case SCHEMA.TIMESTAMP_HTTP_DATE:
+        case 6 satisfies TimestampHttpDateSchema:
           return parseRfc7231DateTime(value);
-        case SCHEMA.TIMESTAMP_EPOCH_SECONDS:
+        case 7 satisfies TimestampEpochSecondsSchema:
           return parseEpochTimestamp(value);
         default:
           console.warn("Missing timestamp format, parsing value with Date constructor:", value);

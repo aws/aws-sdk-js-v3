@@ -1,5 +1,16 @@
-import { op, SCHEMA, sim, struct } from "@smithy/core/schema";
+import { op, sim, struct } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
+import type {
+  BlobSchema,
+  BooleanSchema,
+  MapSchemaModifier,
+  NumericSchema,
+  StringSchema,
+  TimestampDateTimeSchema,
+  TimestampDefaultSchema,
+  TimestampEpochSecondsSchema,
+  TimestampHttpDateSchema,
+} from "@smithy/types";
 import { toBase64 } from "@smithy/util-base64";
 import { toUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
@@ -20,7 +31,13 @@ describe(AwsRestJsonProtocol.name, () => {
     "MyStruct",
     0,
     [...Object.keys(json)],
-    [SCHEMA.STRING, SCHEMA.NUMERIC, SCHEMA.BOOLEAN, SCHEMA.BLOB, SCHEMA.TIMESTAMP_DEFAULT]
+    [
+      0 satisfies StringSchema,
+      1 satisfies NumericSchema,
+      2 satisfies BooleanSchema,
+      21 satisfies BlobSchema,
+      4 satisfies TimestampDefaultSchema,
+    ]
   );
   const serdeContext = {
     base64Encoder: toBase64,
@@ -87,10 +104,10 @@ describe(AwsRestJsonProtocol.name, () => {
         {},
         ["header", "query", "headerMap", "payload"],
         [
-          [SCHEMA.STRING, { httpHeader: "header" }],
-          [SCHEMA.STRING, { httpQuery: "query" }],
+          [0 satisfies StringSchema, { httpHeader: "header" }],
+          [0 satisfies StringSchema, { httpQuery: "query" }],
           [
-            SCHEMA.MAP_MODIFIER | SCHEMA.NUMERIC,
+            (128 satisfies MapSchemaModifier) | (1 satisfies NumericSchema),
             {
               httpPrefixHeaders: "",
             },
@@ -102,8 +119,8 @@ describe(AwsRestJsonProtocol.name, () => {
               0,
               ["a", "b"],
               [
-                [SCHEMA.STRING, 0],
-                [SCHEMA.STRING, { jsonName: "JSON_NAME" }],
+                [0 satisfies StringSchema, 0],
+                [0 satisfies StringSchema, { jsonName: "JSON_NAME" }],
               ]
             ),
             { httpPayload: 1 },
@@ -116,10 +133,10 @@ describe(AwsRestJsonProtocol.name, () => {
         {},
         ["header", "code", "headerMap", "payload"],
         [
-          [SCHEMA.STRING, { httpHeader: "header" }],
-          [SCHEMA.NUMERIC, { httpResponseCode: 1 }],
+          [0 satisfies StringSchema, { httpHeader: "header" }],
+          [1 satisfies NumericSchema, { httpResponseCode: 1 }],
           [
-            SCHEMA.MAP_MODIFIER | SCHEMA.NUMERIC,
+            (128 satisfies MapSchemaModifier) | (1 satisfies NumericSchema),
             {
               httpPrefixHeaders: "x-",
             },
@@ -131,8 +148,8 @@ describe(AwsRestJsonProtocol.name, () => {
               { httpPayload: 1 },
               ["a", "b"],
               [
-                [SCHEMA.STRING, 0],
-                [SCHEMA.STRING, { jsonName: "JSON_NAME" }],
+                [0 satisfies StringSchema, 0],
+                [0 satisfies StringSchema, { jsonName: "JSON_NAME" }],
               ]
             ),
             { httpPayload: 1 },
@@ -230,18 +247,21 @@ describe(AwsRestJsonProtocol.name, () => {
               "payloadDefaultDate",
             ],
             [
-              [SCHEMA.TIMESTAMP_DEFAULT, { httpHeader: "header-default-date" }],
-              [SCHEMA.TIMESTAMP_DATE_TIME, { httpHeader: "header-member-trait-date" }],
-              [SCHEMA.TIMESTAMP_HTTP_DATE, { httpHeader: "header-http-date" }],
-              [SCHEMA.TIMESTAMP_EPOCH_SECONDS, { httpHeader: "header-epoch-seconds" }],
+              [4 satisfies TimestampDefaultSchema, { httpHeader: "header-default-date" }],
+              [5 satisfies TimestampDateTimeSchema, { httpHeader: "header-member-trait-date" }],
+              [6 satisfies TimestampHttpDateSchema, { httpHeader: "header-http-date" }],
+              [7 satisfies TimestampEpochSecondsSchema, { httpHeader: "header-epoch-seconds" }],
               [
-                sim("ns", "", SCHEMA.TIMESTAMP_EPOCH_SECONDS, 0),
+                sim("ns", "", 7 satisfies TimestampEpochSecondsSchema, 0),
                 {
                   httpHeader: "header-target-trait-date",
                 },
               ],
-              [SCHEMA.TIMESTAMP_DEFAULT, { httpQuery: "query-default-date" }],
-              [struct("ns", "date", 0, ["payloadDefaultDate"], [SCHEMA.TIMESTAMP_DEFAULT]), { httpPayload: 1 }],
+              [4 satisfies TimestampDefaultSchema, { httpQuery: "query-default-date" }],
+              [
+                struct("ns", "date", 0, ["payloadDefaultDate"], [4 satisfies TimestampDefaultSchema]),
+                { httpPayload: 1 },
+              ],
             ]
           ),
           "unit"

@@ -1,4 +1,12 @@
-import { map, op, SCHEMA, sim, struct } from "@smithy/core/schema";
+import { map, op, sim, struct } from "@smithy/core/schema";
+import type {
+  BlobSchema,
+  BooleanSchema,
+  DocumentSchema,
+  NumericSchema,
+  StringSchema,
+  TimestampDefaultSchema,
+} from "@smithy/types";
 import { toBase64 } from "@smithy/util-base64";
 import { toUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
@@ -19,7 +27,13 @@ describe(AwsJson1_0Protocol.name, () => {
     "MyStruct",
     0,
     [...Object.keys(json)],
-    [SCHEMA.STRING, SCHEMA.NUMERIC, SCHEMA.BOOLEAN, SCHEMA.BLOB, SCHEMA.TIMESTAMP_DEFAULT]
+    [
+      0 satisfies StringSchema,
+      1 satisfies NumericSchema,
+      2 satisfies BooleanSchema,
+      21 satisfies BlobSchema,
+      4 satisfies TimestampDefaultSchema,
+    ]
   );
   const serdeContext = {
     base64Encoder: toBase64,
@@ -85,18 +99,18 @@ describe(AwsJson1_0Protocol.name, () => {
         {},
         ["header", "query", "headerMap", "payload"],
         [
-          sim("ns", "MyHeader", SCHEMA.STRING, { httpHeader: "header", jsonName: "MyHeader" }),
-          sim("ns", "MyQuery", SCHEMA.STRING, { httpQuery: "query" }),
+          sim("ns", "MyHeader", 0 satisfies StringSchema, { httpHeader: "header", jsonName: "MyHeader" }),
+          sim("ns", "MyQuery", 0 satisfies StringSchema, { httpQuery: "query" }),
           map(
             "ns",
             "HeaderMap",
             {
               httpPrefixHeaders: "",
             },
-            SCHEMA.STRING,
-            SCHEMA.NUMERIC
+            0 satisfies StringSchema,
+            1 satisfies NumericSchema
           ),
-          sim("ns", "MyPayload", SCHEMA.DOCUMENT, { httpPayload: 1 }),
+          sim("ns", "MyPayload", 15 satisfies DocumentSchema, { httpPayload: 1 }),
         ]
       );
       const operationSchema = op("ns", "MyOperation", {}, schema, "unit");

@@ -1,4 +1,4 @@
-import { AwsCredentialIdentityProvider, IdentityProvider } from "@smithy/types";
+import type { AwsCredentialIdentityProvider } from "@smithy/types";
 import { describe, expect, test as it, vi } from "vitest";
 
 import { resolveAwsSdkSigV4Config } from "./resolveAwsSdkSigV4Config";

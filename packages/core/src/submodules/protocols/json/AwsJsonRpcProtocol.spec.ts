@@ -1,5 +1,6 @@
-import { error as registerError, op, SCHEMA } from "@smithy/core/schema";
+import { error as registerError, op } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
+import type { NumericSchema, StringSchema, TimestampEpochSecondsSchema } from "@smithy/types";
 import { fromUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
 
@@ -25,7 +26,7 @@ describe(AwsJsonRpcProtocol.name, () => {
     expect(codec.settings).toEqual({
       jsonName: false,
       timestampFormat: {
-        default: SCHEMA.TIMESTAMP_EPOCH_SECONDS,
+        default: 7 satisfies TimestampEpochSecondsSchema,
         useTrait: true,
       },
     });
@@ -39,7 +40,7 @@ describe(AwsJsonRpcProtocol.name, () => {
       "MyQueryError",
       { error: "client" },
       ["Message", "Prop2"],
-      [SCHEMA.STRING, SCHEMA.NUMERIC],
+      [0 satisfies StringSchema, 1 satisfies NumericSchema],
       MyQueryError
     );
 

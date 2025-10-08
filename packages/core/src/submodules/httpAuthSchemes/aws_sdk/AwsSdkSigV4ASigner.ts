@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { AwsCredentialIdentity, HttpRequest as IHttpRequest } from "@smithy/types";
+import type { AwsCredentialIdentity, HttpRequest as IHttpRequest } from "@smithy/types";
 
 import { getSkewCorrectedDate } from "../utils";
 import { AwsSdkSigV4Signer, validateSigningProperties } from "./AwsSdkSigV4Signer";
