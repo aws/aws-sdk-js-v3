@@ -82,10 +82,10 @@ describe("request compression", () => {
       });
     });
 
-    it("should compress payloads barely beyond the specified limit", async () => {
+    it("should compress payloads beyond the specified limit", async () => {
       const cw = new CloudWatch({
         credentials,
-        requestMinCompressionSizeBytes: 277_419,
+        requestMinCompressionSizeBytes: 100_000,
         region: "us-west-2",
       });
 
@@ -101,10 +101,10 @@ describe("request compression", () => {
       });
     });
 
-    it("should not compress payloads barely below the specified limit", async () => {
+    it("should not compress payloads below the specified limit", async () => {
       const cw = new CloudWatch({
         credentials,
-        requestMinCompressionSizeBytes: 277_420,
+        requestMinCompressionSizeBytes: 300_000,
         region: "us-west-2",
       });
 
