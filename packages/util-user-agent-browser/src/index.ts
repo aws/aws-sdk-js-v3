@@ -84,7 +84,7 @@ export const fallback = {
     if (/EdgiOS|EdgA|Edg\//.test(ua)) return "Microsoft Edge";
     if (/Firefox\//.test(ua)) return "Firefox";
     if (/Chrome\//.test(ua)) return "Chrome";
-    if (/Safari\//.test(ua) && !/Chrome\//.test(ua)) return "Safari";
+    if (/Safari\//.test(ua)) return "Safari";
     return undefined;
   },
 };
