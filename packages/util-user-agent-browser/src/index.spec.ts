@@ -1,4 +1,4 @@
-import { describe, expect, test as it } from "vitest";
+import { describe, expect, test as it, vi } from "vitest";
 
 import { createDefaultUserAgentProvider, fallback } from "./index";
 
@@ -34,9 +34,28 @@ describe("browser and os brand detection", () => {
     );
   });
 
+  it("falls back to basic user agent parsing", async () => {
+    const navigator = window.navigator as typeof window.navigator & NavigatorTestAugment;
+    delete navigator.userAgentData;
+
+    vi.spyOn(navigator, "userAgent", "get").mockReturnValue("Linux Firefox/");
+
+    const uaProvider = createDefaultUserAgentProvider({
+      serviceId: "AWS",
+      clientVersion: "3.0.0",
+    });
+
+    const sdkUa = await uaProvider();
+    expect(sdkUa.flatMap((_) => _.filter(Boolean).join("#")).join(" ")).toEqual(
+      "aws-sdk-js#3.0.0 ua#2.1 os/Linux lang/js md/browser#Firefox_unknown api/AWS#3.0.0"
+    );
+  });
+
   it("uses defaults when unable to detect any specific OS or browser brand", async () => {
     const navigator = window.navigator as typeof window.navigator & NavigatorTestAugment;
     delete navigator.userAgentData;
+
+    vi.spyOn(navigator, "userAgent", "get").mockReturnValue("");
 
     const uaProvider = createDefaultUserAgentProvider({
       serviceId: "AWS",
