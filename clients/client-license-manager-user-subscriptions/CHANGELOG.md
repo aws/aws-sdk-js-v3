@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.906.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.905.0...v3.906.0) (2025-10-08)
+
+
+### Features
+
+* **client-license-manager-user-subscriptions:** Released support for IPv6 and dual-stack active directories ([288c63a](https://github.com/aws/aws-sdk-js-v3/commit/288c63a89ef22d1bb218337588bfaec9843bb2b5))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-license-manager-user-subscriptions

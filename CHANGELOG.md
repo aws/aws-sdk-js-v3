@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.906.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.905.0...v3.906.0) (2025-10-08)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adding support for authorizer type AWS_IAM to AgentCore Control Gateway. ([c3b83d4](https://github.com/aws/aws-sdk-js-v3/commit/c3b83d46952483083c5c646ebff11685e1c9410b))
+* **client-license-manager-user-subscriptions:** Released support for IPv6 and dual-stack active directories ([288c63a](https://github.com/aws/aws-sdk-js-v3/commit/288c63a89ef22d1bb218337588bfaec9843bb2b5))
+* **client-outposts:** This release adds the new StartOutpostDecommission API, which starts the decommission process to return Outposts racks or servers. ([2bfac29](https://github.com/aws/aws-sdk-js-v3/commit/2bfac290e4310bf9c8f70bdafa432f58a3679722))
+* **client-service-quotas:** introduces Service Quotas Automatic Management. Users can opt-in to monitoring and managing service quotas, receive notifications when quota usage reaches thresholds, configure notification channels, subscribe to EventBridge events for automation, and view notifications in the AWS Health dashboard. ([136894b](https://github.com/aws/aws-sdk-js-v3/commit/136894bf2600852c12f12cd3d805f9bac7ba61b1))
+* **clients:** update client endpoints as of 2025-10-08 ([9f44c29](https://github.com/aws/aws-sdk-js-v3/commit/9f44c29c0d7ea0705af178f63936e2fd4eddf869))
+
+
+
+
+
 # [3.905.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.904.0...v3.905.0) (2025-10-07)
 
 

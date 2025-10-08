@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.906.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.905.0...v3.906.0) (2025-10-08)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adding support for authorizer type AWS_IAM to AgentCore Control Gateway. ([c3b83d4](https://github.com/aws/aws-sdk-js-v3/commit/c3b83d46952483083c5c646ebff11685e1c9410b))
+
+
+
+
+
 # [3.904.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.903.0...v3.904.0) (2025-10-06)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.906.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.905.0...v3.906.0) (2025-10-08)
+
+
+### Features
+
+* **client-outposts:** This release adds the new StartOutpostDecommission API, which starts the decommission process to return Outposts racks or servers. ([2bfac29](https://github.com/aws/aws-sdk-js-v3/commit/2bfac290e4310bf9c8f70bdafa432f58a3679722))
+
+
+
+
+
 # [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts
