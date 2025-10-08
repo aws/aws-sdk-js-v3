@@ -4,21 +4,29 @@ import { env, versions } from "process";
 
 import { isCrtAvailable } from "./is-crt-available";
 
+/**
+ * @internal
+ */
 export { crtAvailability } from "./crt-availability";
 
+/**
+ * @internal
+ */
 export interface DefaultUserAgentOptions {
   serviceId?: string;
   clientVersion: string;
 }
 
+/**
+ * @internal
+ */
 export interface PreviouslyResolved {
   userAgentAppId: Provider<string | undefined>;
 }
 
 /**
- * @internal
- *
  * Collect metrics from runtime to put into user agent.
+ * @internal
  */
 export const createDefaultUserAgentProvider = ({ serviceId, clientVersion }: DefaultUserAgentOptions) => {
   return async (config?: PreviouslyResolved) => {
@@ -59,10 +67,7 @@ export const createDefaultUserAgentProvider = ({ serviceId, clientVersion }: Def
 };
 
 /**
- *
  * @internal
- *
  * @deprecated use createDefaultUserAgentProvider
- *
  */
 export const defaultUserAgent = createDefaultUserAgentProvider;

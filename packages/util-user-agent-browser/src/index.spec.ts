@@ -1,56 +1,95 @@
-import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { describe, expect, test as it } from "vitest";
 
-import { createDefaultUserAgentProvider, PreviouslyResolved } from ".";
+import { createDefaultUserAgentProvider, fallback } from "./index";
 
-const ua =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36";
-
-const mockConfig: PreviouslyResolved = {
-  userAgentAppId: vi.fn().mockResolvedValue(undefined),
+type NavigatorTestAugment = {
+  userAgentData?: {
+    brands?: {
+      brand?: string;
+      version?: string;
+    }[];
+    platform?: string;
+  };
 };
 
-describe("createDefaultUserAgentProvider", () => {
-  beforeEach(() => {
-    vi.spyOn(window.navigator, "userAgent", "get").mockReturnValue(ua);
-  });
-
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
-
-  it("should populate metrics", async () => {
-    const userAgent = await createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" })(mockConfig);
-    expect(userAgent[0]).toEqual(["aws-sdk-js", "0.1.0"]);
-    expect(userAgent[1]).toEqual(["ua", "2.1"]);
-    expect(userAgent[2]).toEqual(["os/macOS", "10.15.7"]);
-    expect(userAgent[3]).toEqual(["lang/js"]);
-    expect(userAgent[4]).toEqual(["md/browser", "Chrome_86.0.4240.111"]);
-    expect(userAgent[5]).toEqual(["api/s3", "0.1.0"]);
-    expect(userAgent.length).toBe(6);
-  });
-
-  it("should populate metrics when service id not available", async () => {
-    const userAgent = await createDefaultUserAgentProvider({ serviceId: undefined, clientVersion: "0.1.0" })(
-      mockConfig
-    );
-    expect(userAgent).not.toContainEqual(["api/s3", "0.1.0"]);
-    expect(userAgent.length).toBe(5);
-  });
-
-  it("should include appId when provided", async () => {
-    const configWithAppId: PreviouslyResolved = {
-      userAgentAppId: vi.fn().mockResolvedValue("test-app-id"),
+describe("browser and os brand detection", () => {
+  it("should use navigator.userAgentData when available", async () => {
+    const navigator = window.navigator as typeof window.navigator & NavigatorTestAugment;
+    navigator.userAgentData = {
+      platform: "linux",
+      brands: [
+        { brand: "test", version: "1" },
+        { brand: "BROWSER_BRAND", version: "10000" },
+      ],
     };
-    const userAgent = await createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" })(
-      configWithAppId
+
+    const uaProvider = createDefaultUserAgentProvider({
+      serviceId: "AWS",
+      clientVersion: "3.0.0",
+    });
+
+    const sdkUa = await uaProvider();
+    expect(sdkUa.flatMap((_) => _.filter(Boolean).join("#")).join(" ")).toEqual(
+      "aws-sdk-js#3.0.0 ua#2.1 os/linux lang/js md/browser#BROWSER_BRAND_10000 api/AWS#3.0.0"
     );
-    expect(userAgent[6]).toEqual(["app/test-app-id"]);
-    expect(userAgent.length).toBe(7);
   });
 
-  it("should not include appId when not provided", async () => {
-    const userAgent = await createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" })(mockConfig);
-    expect(userAgent).not.toContainEqual(expect.arrayContaining(["app/"]));
-    expect(userAgent.length).toBe(6);
+  it("uses defaults when unable to detect any specific OS or browser brand", async () => {
+    const navigator = window.navigator as typeof window.navigator & NavigatorTestAugment;
+    delete navigator.userAgentData;
+
+    const uaProvider = createDefaultUserAgentProvider({
+      serviceId: "AWS",
+      clientVersion: "3.0.0",
+    });
+
+    const sdkUa = await uaProvider();
+    expect(sdkUa.flatMap((_) => _.filter(Boolean).join("#")).join(" ")).toEqual(
+      "aws-sdk-js#3.0.0 ua#2.1 os/other lang/js md/browser#unknown_unknown api/AWS#3.0.0"
+    );
+  });
+});
+
+describe("ua fallback parsing", () => {
+  const samples = [
+    `Mozilla/5.0 (Macintosh; Intel Mac OS X 15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15`,
+    `Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6.2 Mobile/15E148 Safari/604.1`,
+    `Mozilla/5.0 (iPad; CPU OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6.2 Mobile/15E148 Safari/604.1`,
+    `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36`,
+    `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36`,
+    `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36`,
+    `Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.44 Mobile Safari/537.36`,
+    `Mozilla/5.0 (Linux; Android 16; LM-Q710(FGN)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.44 Mobile Safari/537.36`,
+    `Mozilla/5.0 (Android 16; Mobile; LG-M255; rv:143.0) Gecko/143.0 Firefox/143.0`,
+    `Mozilla/5.0 (Android 16; Mobile; rv:68.0) Gecko/68.0 Firefox/143.0`,
+    `Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 EdgiOS/140.3485.94 Mobile/15E148 Safari/605.1.15`,
+    `Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.44 Mobile Safari/537.36 EdgA/140.0.3485.98`,
+    `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.3537.57`,
+    `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.3537.57`,
+    `Mozilla/5.0 (X11; Linux i686; rv:143.0) Gecko/20100101 Firefox/143.0`,
+  ];
+
+  const expectedBrands = [
+    ["macOS", "Safari"],
+    ["iOS", "Safari"],
+    ["iOS", "Safari"],
+    ["macOS", "Chrome"],
+    ["Windows", "Chrome"],
+    ["Linux", "Chrome"],
+    ["Android", "Chrome"],
+    ["Android", "Chrome"],
+    ["Android", "Firefox"],
+    ["Android", "Firefox"],
+    ["iOS", "Microsoft Edge"],
+    ["Android", "Microsoft Edge"],
+    ["macOS", "Microsoft Edge"],
+    ["Windows", "Microsoft Edge"],
+    ["Linux", "Firefox"],
+  ];
+
+  it("should detect os and browser", () => {
+    for (let i = 0; i < expectedBrands.length; ++i) {
+      expect([fallback.os(samples[i]), fallback.browser(samples[i])]).toEqual(expectedBrands[i]);
+    }
   });
 });
