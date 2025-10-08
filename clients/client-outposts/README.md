@@ -433,6 +433,14 @@ StartConnection
 </details>
 <details>
 <summary>
+StartOutpostDecommission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/StartOutpostDecommissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/StartOutpostDecommissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/StartOutpostDecommissionCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

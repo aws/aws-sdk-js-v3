@@ -70,6 +70,10 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { StartCapacityTaskCommandInput, StartCapacityTaskCommandOutput } from "../commands/StartCapacityTaskCommand";
 import { StartConnectionCommandInput, StartConnectionCommandOutput } from "../commands/StartConnectionCommand";
+import {
+  StartOutpostDecommissionCommandInput,
+  StartOutpostDecommissionCommandOutput,
+} from "../commands/StartOutpostDecommissionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateOutpostCommandInput, UpdateOutpostCommandOutput } from "../commands/UpdateOutpostCommand";
@@ -663,6 +667,29 @@ export const se_StartConnectionCommand = async (
       ClientPublicKey: [],
       DeviceSerialNumber: [],
       NetworkInterfaceDeviceIndex: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartOutpostDecommissionCommand
+ */
+export const se_StartOutpostDecommissionCommand = async (
+  input: StartOutpostDecommissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/outposts/{OutpostIdentifier}/decommission");
+  b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ValidateOnly: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1431,6 +1458,28 @@ export const de_StartConnectionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartOutpostDecommissionCommand
+ */
+export const de_StartOutpostDecommissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartOutpostDecommissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BlockingResourceTypes: _json,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1774,6 +1823,8 @@ const de_AssetLocation = (output: any, context: __SerdeContext): AssetLocation =
 // de_BlockingInstance omitted.
 
 // de_BlockingInstancesList omitted.
+
+// de_BlockingResourceTypeList omitted.
 
 // de_CapacityTaskFailure omitted.
 

@@ -39,7 +39,7 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  * const client = new OutpostsClient(config);
  * const input = { // CreateOrderInput
  *   OutpostIdentifier: "STRING_VALUE", // required
- *   LineItems: [ // LineItemRequestListDefinition // required
+ *   LineItems: [ // LineItemRequestListDefinition
  *     { // LineItemRequest
  *       CatalogItemId: "STRING_VALUE",
  *       Quantity: Number("int"),

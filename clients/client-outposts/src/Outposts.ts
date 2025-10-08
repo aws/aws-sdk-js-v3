@@ -102,6 +102,11 @@ import {
   StartConnectionCommandInput,
   StartConnectionCommandOutput,
 } from "./commands/StartConnectionCommand";
+import {
+  StartOutpostDecommissionCommand,
+  StartOutpostDecommissionCommandInput,
+  StartOutpostDecommissionCommandOutput,
+} from "./commands/StartOutpostDecommissionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -155,6 +160,7 @@ const commands = {
   ListTagsForResourceCommand,
   StartCapacityTaskCommand,
   StartConnectionCommand,
+  StartOutpostDecommissionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateOutpostCommand,
@@ -547,6 +553,23 @@ export interface Outposts {
     args: StartConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartOutpostDecommissionCommand}
+   */
+  startOutpostDecommission(
+    args: StartOutpostDecommissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartOutpostDecommissionCommandOutput>;
+  startOutpostDecommission(
+    args: StartOutpostDecommissionCommandInput,
+    cb: (err: any, data?: StartOutpostDecommissionCommandOutput) => void
+  ): void;
+  startOutpostDecommission(
+    args: StartOutpostDecommissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartOutpostDecommissionCommandOutput) => void
   ): void;
 
   /**

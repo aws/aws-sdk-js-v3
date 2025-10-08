@@ -96,6 +96,10 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { StartCapacityTaskCommandInput, StartCapacityTaskCommandOutput } from "./commands/StartCapacityTaskCommand";
 import { StartConnectionCommandInput, StartConnectionCommandOutput } from "./commands/StartConnectionCommand";
+import {
+  StartOutpostDecommissionCommandInput,
+  StartOutpostDecommissionCommandOutput,
+} from "./commands/StartOutpostDecommissionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateOutpostCommandInput, UpdateOutpostCommandOutput } from "./commands/UpdateOutpostCommand";
@@ -148,6 +152,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | StartCapacityTaskCommandInput
   | StartConnectionCommandInput
+  | StartOutpostDecommissionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateOutpostCommandInput
@@ -187,6 +192,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | StartCapacityTaskCommandOutput
   | StartConnectionCommandOutput
+  | StartOutpostDecommissionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateOutpostCommandOutput

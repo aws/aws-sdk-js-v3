@@ -356,6 +356,25 @@ export interface BlockingInstance {
 
 /**
  * @public
+ * @enum
+ */
+export const BlockingResourceType = {
+  EC2_INSTANCE: "EC2_INSTANCE",
+  LGW_ROUTE_TABLE: "LGW_ROUTE_TABLE",
+  LGW_ROUTING_DOMAIN: "LGW_ROUTING_DOMAIN",
+  LGW_VIRTUAL_INTERFACE_GROUP: "LGW_VIRTUAL_INTERFACE_GROUP",
+  OUTPOST_ORDER_CANCELLABLE: "OUTPOST_ORDER_CANCELLABLE",
+  OUTPOST_ORDER_INTERVENTION_REQUIRED: "OUTPOST_ORDER_INTERVENTION_REQUIRED",
+  OUTPOST_RAM_SHARE: "OUTPOST_RAM_SHARE",
+} as const;
+
+/**
+ * @public
+ */
+export type BlockingResourceType = (typeof BlockingResourceType)[keyof typeof BlockingResourceType];
+
+/**
+ * @public
  */
 export interface CancelCapacityTaskInput {
   /**
@@ -834,7 +853,7 @@ export interface CreateOrderInput {
    * <p>The line items that make up the order.</p>
    * @public
    */
-  LineItems: LineItemRequest[] | undefined;
+  LineItems?: LineItemRequest[] | undefined;
 
   /**
    * <p>The payment option.</p>
@@ -1652,6 +1671,21 @@ export interface CreateSiteOutput {
    */
   Site?: Site | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const DecommissionRequestStatus = {
+  BLOCKED: "BLOCKED",
+  REQUESTED: "REQUESTED",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type DecommissionRequestStatus = (typeof DecommissionRequestStatus)[keyof typeof DecommissionRequestStatus];
 
 /**
  * @public
@@ -3048,6 +3082,40 @@ export interface StartConnectionResponse {
    * @public
    */
   UnderlayIpAddress?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartOutpostDecommissionInput {
+  /**
+   * <p>The ID or ARN of the Outpost that you want to decommission.</p>
+   * @public
+   */
+  OutpostIdentifier: string | undefined;
+
+  /**
+   * <p>Validates the request without starting the decommission process.</p>
+   * @public
+   */
+  ValidateOnly?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartOutpostDecommissionOutput {
+  /**
+   * <p>The status of the decommission request.</p>
+   * @public
+   */
+  Status?: DecommissionRequestStatus | undefined;
+
+  /**
+   * <p>The resources still associated with the Outpost that you are decommissioning.</p>
+   * @public
+   */
+  BlockingResourceTypes?: BlockingResourceType[] | undefined;
 }
 
 /**

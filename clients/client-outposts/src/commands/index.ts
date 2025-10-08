@@ -27,6 +27,7 @@ export * from "./ListSitesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./StartCapacityTaskCommand";
 export * from "./StartConnectionCommand";
+export * from "./StartOutpostDecommissionCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateOutpostCommand";
