@@ -40,6 +40,10 @@ import {
   GetAssociationForServiceQuotaTemplateCommandOutput,
 } from "../commands/GetAssociationForServiceQuotaTemplateCommand";
 import {
+  GetAutoManagementConfigurationCommandInput,
+  GetAutoManagementConfigurationCommandOutput,
+} from "../commands/GetAutoManagementConfigurationCommand";
+import {
   GetAWSDefaultServiceQuotaCommandInput,
   GetAWSDefaultServiceQuotaCommandOutput,
 } from "../commands/GetAWSDefaultServiceQuotaCommand";
@@ -82,8 +86,17 @@ import {
   RequestServiceQuotaIncreaseCommandInput,
   RequestServiceQuotaIncreaseCommandOutput,
 } from "../commands/RequestServiceQuotaIncreaseCommand";
+import {
+  StartAutoManagementCommandInput,
+  StartAutoManagementCommandOutput,
+} from "../commands/StartAutoManagementCommand";
+import { StopAutoManagementCommandInput, StopAutoManagementCommandOutput } from "../commands/StopAutoManagementCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateAutoManagementCommandInput,
+  UpdateAutoManagementCommandOutput,
+} from "../commands/UpdateAutoManagementCommand";
 import {
   AccessDeniedException,
   AssociateServiceQuotaTemplateRequest,
@@ -93,6 +106,7 @@ import {
   DependencyAccessDeniedException,
   DisassociateServiceQuotaTemplateRequest,
   GetAssociationForServiceQuotaTemplateRequest,
+  GetAutoManagementConfigurationRequest,
   GetAWSDefaultServiceQuotaRequest,
   GetAWSDefaultServiceQuotaResponse,
   GetRequestedServiceQuotaChangeRequest,
@@ -130,6 +144,8 @@ import {
   ServiceQuota,
   ServiceQuotaIncreaseRequestInTemplate,
   ServiceQuotaTemplateNotInUseException,
+  StartAutoManagementRequest,
+  StopAutoManagementRequest,
   Tag,
   TagPolicyViolationException,
   TagResourceRequest,
@@ -137,6 +153,7 @@ import {
   TooManyRequestsException,
   TooManyTagsException,
   UntagResourceRequest,
+  UpdateAutoManagementRequest,
 } from "../models/models_0";
 import { ServiceQuotasServiceException as __BaseException } from "../models/ServiceQuotasServiceException";
 
@@ -200,6 +217,19 @@ export const se_GetAssociationForServiceQuotaTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAssociationForServiceQuotaTemplate");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetAutoManagementConfigurationCommand
+ */
+export const se_GetAutoManagementConfigurationCommand = async (
+  input: GetAutoManagementConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAutoManagementConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -375,6 +405,32 @@ export const se_RequestServiceQuotaIncreaseCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartAutoManagementCommand
+ */
+export const se_StartAutoManagementCommand = async (
+  input: StartAutoManagementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartAutoManagement");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopAutoManagementCommand
+ */
+export const se_StopAutoManagementCommand = async (
+  input: StopAutoManagementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopAutoManagement");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -395,6 +451,19 @@ export const se_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateAutoManagementCommand
+ */
+export const se_UpdateAutoManagementCommand = async (
+  input: UpdateAutoManagementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateAutoManagement");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -494,6 +563,26 @@ export const de_GetAssociationForServiceQuotaTemplateCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: GetAssociationForServiceQuotaTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetAutoManagementConfigurationCommand
+ */
+export const de_GetAutoManagementConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutoManagementConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetAutoManagementConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -761,6 +850,46 @@ export const de_RequestServiceQuotaIncreaseCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartAutoManagementCommand
+ */
+export const de_StartAutoManagementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAutoManagementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartAutoManagementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopAutoManagementCommand
+ */
+export const de_StopAutoManagementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopAutoManagementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopAutoManagementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -794,6 +923,26 @@ export const de_UntagResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateAutoManagementCommand
+ */
+export const de_UpdateAutoManagementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutoManagementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateAutoManagementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1148,7 +1297,13 @@ const de_TooManyTagsExceptionRes = async (
 
 // se_DisassociateServiceQuotaTemplateRequest omitted.
 
+// se_ExcludedQuotaList omitted.
+
+// se_ExclusionList omitted.
+
 // se_GetAssociationForServiceQuotaTemplateRequest omitted.
+
+// se_GetAutoManagementConfigurationRequest omitted.
 
 // se_GetAWSDefaultServiceQuotaRequest omitted.
 
@@ -1207,11 +1362,17 @@ const se_RequestServiceQuotaIncreaseRequest = (
   });
 };
 
+// se_StartAutoManagementRequest omitted.
+
+// se_StopAutoManagementRequest omitted.
+
 // se_Tag omitted.
 
 // se_TagResourceRequest omitted.
 
 // se_UntagResourceRequest omitted.
+
+// se_UpdateAutoManagementRequest omitted.
 
 // de_AccessDeniedException omitted.
 
@@ -1229,7 +1390,11 @@ const se_RequestServiceQuotaIncreaseRequest = (
 
 // de_ErrorReason omitted.
 
+// de_ExclusionQuotaList omitted.
+
 // de_GetAssociationForServiceQuotaTemplateResponse omitted.
+
+// de_GetAutoManagementConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1GetAWSDefaultServiceQuotaResponse
@@ -1376,6 +1541,10 @@ const de_PutServiceQuotaIncreaseRequestIntoTemplateResponse = (
 
 // de_QuotaExceededException omitted.
 
+// de_QuotaInfo omitted.
+
+// de_QuotaInfoList omitted.
+
 // de_QuotaPeriod omitted.
 
 /**
@@ -1508,6 +1677,10 @@ const de_ServiceQuotaListDefinition = (output: any, context: __SerdeContext): Se
 
 // de_ServiceQuotaTemplateNotInUseException omitted.
 
+// de_StartAutoManagementResponse omitted.
+
+// de_StopAutoManagementResponse omitted.
+
 // de_Tag omitted.
 
 // de_TagPolicyViolationException omitted.
@@ -1521,6 +1694,8 @@ const de_ServiceQuotaListDefinition = (output: any, context: __SerdeContext): Se
 // de_TooManyTagsException omitted.
 
 // de_UntagResourceResponse omitted.
+
+// de_UpdateAutoManagementResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

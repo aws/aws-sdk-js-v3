@@ -71,6 +71,10 @@ import {
   GetAssociationForServiceQuotaTemplateCommandOutput,
 } from "./commands/GetAssociationForServiceQuotaTemplateCommand";
 import {
+  GetAutoManagementConfigurationCommandInput,
+  GetAutoManagementConfigurationCommandOutput,
+} from "./commands/GetAutoManagementConfigurationCommand";
+import {
   GetAWSDefaultServiceQuotaCommandInput,
   GetAWSDefaultServiceQuotaCommandOutput,
 } from "./commands/GetAWSDefaultServiceQuotaCommand";
@@ -113,8 +117,17 @@ import {
   RequestServiceQuotaIncreaseCommandInput,
   RequestServiceQuotaIncreaseCommandOutput,
 } from "./commands/RequestServiceQuotaIncreaseCommand";
+import {
+  StartAutoManagementCommandInput,
+  StartAutoManagementCommandOutput,
+} from "./commands/StartAutoManagementCommand";
+import { StopAutoManagementCommandInput, StopAutoManagementCommandOutput } from "./commands/StopAutoManagementCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAutoManagementCommandInput,
+  UpdateAutoManagementCommandOutput,
+} from "./commands/UpdateAutoManagementCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -136,6 +149,7 @@ export type ServiceInputTypes =
   | DisassociateServiceQuotaTemplateCommandInput
   | GetAWSDefaultServiceQuotaCommandInput
   | GetAssociationForServiceQuotaTemplateCommandInput
+  | GetAutoManagementConfigurationCommandInput
   | GetRequestedServiceQuotaChangeCommandInput
   | GetServiceQuotaCommandInput
   | GetServiceQuotaIncreaseRequestFromTemplateCommandInput
@@ -148,8 +162,11 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PutServiceQuotaIncreaseRequestIntoTemplateCommandInput
   | RequestServiceQuotaIncreaseCommandInput
+  | StartAutoManagementCommandInput
+  | StopAutoManagementCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateAutoManagementCommandInput;
 
 /**
  * @public
@@ -161,6 +178,7 @@ export type ServiceOutputTypes =
   | DisassociateServiceQuotaTemplateCommandOutput
   | GetAWSDefaultServiceQuotaCommandOutput
   | GetAssociationForServiceQuotaTemplateCommandOutput
+  | GetAutoManagementConfigurationCommandOutput
   | GetRequestedServiceQuotaChangeCommandOutput
   | GetServiceQuotaCommandOutput
   | GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
@@ -173,8 +191,11 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
   | RequestServiceQuotaIncreaseCommandOutput
+  | StartAutoManagementCommandOutput
+  | StopAutoManagementCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateAutoManagementCommandOutput;
 
 /**
  * @public

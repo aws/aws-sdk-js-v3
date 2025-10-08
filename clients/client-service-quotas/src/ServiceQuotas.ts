@@ -28,6 +28,11 @@ import {
   GetAssociationForServiceQuotaTemplateCommandOutput,
 } from "./commands/GetAssociationForServiceQuotaTemplateCommand";
 import {
+  GetAutoManagementConfigurationCommand,
+  GetAutoManagementConfigurationCommandInput,
+  GetAutoManagementConfigurationCommandOutput,
+} from "./commands/GetAutoManagementConfigurationCommand";
+import {
   GetAWSDefaultServiceQuotaCommand,
   GetAWSDefaultServiceQuotaCommandInput,
   GetAWSDefaultServiceQuotaCommandOutput,
@@ -92,12 +97,27 @@ import {
   RequestServiceQuotaIncreaseCommandInput,
   RequestServiceQuotaIncreaseCommandOutput,
 } from "./commands/RequestServiceQuotaIncreaseCommand";
+import {
+  StartAutoManagementCommand,
+  StartAutoManagementCommandInput,
+  StartAutoManagementCommandOutput,
+} from "./commands/StartAutoManagementCommand";
+import {
+  StopAutoManagementCommand,
+  StopAutoManagementCommandInput,
+  StopAutoManagementCommandOutput,
+} from "./commands/StopAutoManagementCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAutoManagementCommand,
+  UpdateAutoManagementCommandInput,
+  UpdateAutoManagementCommandOutput,
+} from "./commands/UpdateAutoManagementCommand";
 import { ServiceQuotasClient, ServiceQuotasClientConfig } from "./ServiceQuotasClient";
 
 const commands = {
@@ -106,6 +126,7 @@ const commands = {
   DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
   DisassociateServiceQuotaTemplateCommand,
   GetAssociationForServiceQuotaTemplateCommand,
+  GetAutoManagementConfigurationCommand,
   GetAWSDefaultServiceQuotaCommand,
   GetRequestedServiceQuotaChangeCommand,
   GetServiceQuotaCommand,
@@ -119,8 +140,11 @@ const commands = {
   ListTagsForResourceCommand,
   PutServiceQuotaIncreaseRequestIntoTemplateCommand,
   RequestServiceQuotaIncreaseCommand,
+  StartAutoManagementCommand,
+  StopAutoManagementCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAutoManagementCommand,
 };
 
 export interface ServiceQuotas {
@@ -210,6 +234,24 @@ export interface ServiceQuotas {
     args: GetAssociationForServiceQuotaTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAssociationForServiceQuotaTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutoManagementConfigurationCommand}
+   */
+  getAutoManagementConfiguration(): Promise<GetAutoManagementConfigurationCommandOutput>;
+  getAutoManagementConfiguration(
+    args: GetAutoManagementConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutoManagementConfigurationCommandOutput>;
+  getAutoManagementConfiguration(
+    args: GetAutoManagementConfigurationCommandInput,
+    cb: (err: any, data?: GetAutoManagementConfigurationCommandOutput) => void
+  ): void;
+  getAutoManagementConfiguration(
+    args: GetAutoManagementConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutoManagementConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -428,6 +470,41 @@ export interface ServiceQuotas {
   ): void;
 
   /**
+   * @see {@link StartAutoManagementCommand}
+   */
+  startAutoManagement(
+    args: StartAutoManagementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAutoManagementCommandOutput>;
+  startAutoManagement(
+    args: StartAutoManagementCommandInput,
+    cb: (err: any, data?: StartAutoManagementCommandOutput) => void
+  ): void;
+  startAutoManagement(
+    args: StartAutoManagementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAutoManagementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopAutoManagementCommand}
+   */
+  stopAutoManagement(): Promise<StopAutoManagementCommandOutput>;
+  stopAutoManagement(
+    args: StopAutoManagementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopAutoManagementCommandOutput>;
+  stopAutoManagement(
+    args: StopAutoManagementCommandInput,
+    cb: (err: any, data?: StopAutoManagementCommandOutput) => void
+  ): void;
+  stopAutoManagement(
+    args: StopAutoManagementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopAutoManagementCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -447,6 +524,24 @@ export interface ServiceQuotas {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAutoManagementCommand}
+   */
+  updateAutoManagement(): Promise<UpdateAutoManagementCommandOutput>;
+  updateAutoManagement(
+    args: UpdateAutoManagementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAutoManagementCommandOutput>;
+  updateAutoManagement(
+    args: UpdateAutoManagementCommandInput,
+    cb: (err: any, data?: UpdateAutoManagementCommandOutput) => void
+  ): void;
+  updateAutoManagement(
+    args: UpdateAutoManagementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAutoManagementCommandOutput) => void
   ): void;
 }
 

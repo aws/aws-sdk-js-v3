@@ -432,6 +432,25 @@ export interface ErrorReason {
 }
 
 /**
+ * <p>Information on your Service Quotas for <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html">Service Quotas Automatic Management</a>. Automatic Management monitors your Service Quotas utilization and notifies you before you
+ *             run out of your allocated quotas.</p>
+ * @public
+ */
+export interface QuotaInfo {
+  /**
+   * <p>The Service Quotas code for the Amazon Web Services service monitored with Automatic Management.</p>
+   * @public
+   */
+  QuotaCode?: string | undefined;
+
+  /**
+   * <p>The Service Quotas name for the Amazon Web Services service monitored with Automatic Management.</p>
+   * @public
+   */
+  QuotaName?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetAssociationForServiceQuotaTemplateRequest {}
@@ -462,6 +481,91 @@ export interface GetAssociationForServiceQuotaTemplateResponse {
    * @public
    */
   ServiceQuotaTemplateAssociationStatus?: ServiceQuotaTemplateAssociationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutoManagementConfigurationRequest {}
+
+/**
+ * @public
+ * @enum
+ */
+export const OptInLevel = {
+  ACCOUNT: "ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type OptInLevel = (typeof OptInLevel)[keyof typeof OptInLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const OptInStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type OptInStatus = (typeof OptInStatus)[keyof typeof OptInStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const OptInType = {
+  NotifyAndAdjust: "NotifyAndAdjust",
+  NotifyOnly: "NotifyOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type OptInType = (typeof OptInType)[keyof typeof OptInType];
+
+/**
+ * @public
+ */
+export interface GetAutoManagementConfigurationResponse {
+  /**
+   * <p>Information on the opt-in level for Automatic Management. Only Amazon Web Services account level is supported.</p>
+   * @public
+   */
+  OptInLevel?: OptInLevel | undefined;
+
+  /**
+   * <p>Information on the opt-in type for Automatic Management. There are two modes: Notify only and Notify and Auto-Adjust. Currently, only
+   *                                 NotifyOnly is available.</p>
+   * @public
+   */
+  OptInType?: OptInType | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html#rlp-table">User Notifications</a> Amazon Resource Name (ARN) for Automatic Management notifications.</p>
+   * @public
+   */
+  NotificationArn?: string | undefined;
+
+  /**
+   * <p>Status on whether Automatic Management is started or stopped.</p>
+   * @public
+   */
+  OptInStatus?: OptInStatus | undefined;
+
+  /**
+   * <p>List of Amazon Web Services services excluded from Automatic Management.
+   *             You won't be notified of Service Quotas utilization for Amazon Web Services services added to the
+   *                 Automatic Management exclusion list.
+   *          </p>
+   * @public
+   */
+  ExclusionList?: Record<string, QuotaInfo[]> | undefined;
 }
 
 /**
@@ -1615,6 +1719,54 @@ export interface RequestServiceQuotaIncreaseResponse {
 }
 
 /**
+ * @public
+ */
+export interface StartAutoManagementRequest {
+  /**
+   * <p>Sets the opt-in level for Automatic Management. Only Amazon Web Services account level is supported.</p>
+   * @public
+   */
+  OptInLevel: OptInLevel | undefined;
+
+  /**
+   * <p>Sets the opt-in type for Automatic Management. There are two modes: Notify only and Notify and Auto-Adjust. Currently, only
+   *                                 NotifyOnly is available.</p>
+   * @public
+   */
+  OptInType: OptInType | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html#rlp-table">User Notifications</a> Amazon Resource Name (ARN) for Automatic Management notifications.</p>
+   * @public
+   */
+  NotificationArn?: string | undefined;
+
+  /**
+   * <p>List of Amazon Web Services services excluded from Automatic Management.
+   *             You won't be notified of Service Quotas utilization for Amazon Web Services services added to the
+   *                 Automatic Management exclusion list.
+   *          </p>
+   * @public
+   */
+  ExclusionList?: Record<string, string[]> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAutoManagementResponse {}
+
+/**
+ * @public
+ */
+export interface StopAutoManagementRequest {}
+
+/**
+ * @public
+ */
+export interface StopAutoManagementResponse {}
+
+/**
  * <p>The specified tag is a reserved word and cannot be used.</p>
  * @public
  */
@@ -1690,7 +1842,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the applied quota that you want to untag. You can
    *             get this information by using the Service Quotas console, or by listing the quotas using the
-   *             <a href="https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html">list-service-quotas</a> CLI command or the <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html">ListServiceQuotas</a> Amazon Web Services API operation.</p>
+   *                 <a href="https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html">list-service-quotas</a> CLI command or the <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html">ListServiceQuotas</a> Amazon Web Services API operation.</p>
    * @public
    */
   ResourceARN: string | undefined;
@@ -1706,3 +1858,37 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateAutoManagementRequest {
+  /**
+   * <p>Information on the opt-in type for your Automatic Management configuration.
+   *             There are two modes: Notify only and Notify and Auto-Adjust. Currently, only
+   *                                 NotifyOnly is available.</p>
+   * @public
+   */
+  OptInType?: OptInType | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html#rlp-table">User Notifications</a> Amazon Resource Name (ARN) for Automatic Management notifications you want
+   *             to update.</p>
+   * @public
+   */
+  NotificationArn?: string | undefined;
+
+  /**
+   * <p>List of Amazon Web Services services you want to exclude from Automatic Management.
+   *             You won't be notified of Service Quotas utilization for Amazon Web Services services added to the
+   *                 Automatic Management exclusion list.
+   *          </p>
+   * @public
+   */
+  ExclusionList?: Record<string, string[]> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutoManagementResponse {}

@@ -30,7 +30,8 @@ export interface RequestServiceQuotaIncreaseCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Submits a quota increase request for the specified quota at the account or resource level.</p>
+ * <p>Submits a quota increase request for the specified quota at the account or resource
+ *             level.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

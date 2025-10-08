@@ -249,6 +249,14 @@ GetAssociationForServiceQuotaTemplate
 </details>
 <details>
 <summary>
+GetAutoManagementConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/GetAutoManagementConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetAutoManagementConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/GetAutoManagementConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAWSDefaultServiceQuota
 </summary>
 
@@ -353,6 +361,22 @@ RequestServiceQuotaIncrease
 </details>
 <details>
 <summary>
+StartAutoManagement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/StartAutoManagementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StartAutoManagementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StartAutoManagementCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopAutoManagement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/StopAutoManagementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StopAutoManagementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/StopAutoManagementCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
@@ -365,5 +389,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateAutoManagement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/UpdateAutoManagementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/UpdateAutoManagementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/UpdateAutoManagementCommandOutput/)
 
 </details>
