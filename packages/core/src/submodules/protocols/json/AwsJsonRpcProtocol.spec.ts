@@ -1,5 +1,6 @@
 import { error as registerError, op } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
+import type { NumericSchema, StringSchema, TimestampEpochSecondsSchema } from "@smithy/types";
 import { fromUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
 

@@ -1,4 +1,5 @@
 import { NumericValue } from "@smithy/core/serde";
+import type { TimestampDateTimeSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { widget } from "../test-schema.spec";
