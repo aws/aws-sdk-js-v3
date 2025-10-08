@@ -69,7 +69,7 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * //       searchType: "SEMANTIC",
  * //     },
  * //   },
- * //   authorizerType: "CUSTOM_JWT", // required
+ * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM", // required
  * //   authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
  * //     customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
  * //       discoveryUrl: "STRING_VALUE", // required

@@ -1279,6 +1279,12 @@
           "traits": {
             "smithy.api#enumValue": "CUSTOM_JWT"
           }
+        },
+        "AWS_IAM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_IAM"
+          }
         }
       }
     },
@@ -2470,8 +2476,7 @@
         "authorizerConfiguration": {
           "target": "com.amazonaws.bedrockagentcorecontrol#AuthorizerConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The authorizer configuration for the gateway.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The authorizer configuration for the gateway.</p>"
           }
         },
         "kmsKeyArn": {
@@ -10144,8 +10149,7 @@
         "authorizerConfiguration": {
           "target": "com.amazonaws.bedrockagentcorecontrol#AuthorizerConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The updated authorizer configuration for the gateway.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The updated authorizer configuration for the gateway.</p>"
           }
         },
         "kmsKeyArn": {

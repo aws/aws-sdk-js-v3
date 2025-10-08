@@ -2397,6 +2397,7 @@ export interface ListCodeInterpretersResponse {
  * @enum
  */
 export const AuthorizerType = {
+  AWS_IAM: "AWS_IAM",
   CUSTOM_JWT: "CUSTOM_JWT",
 } as const;
 
@@ -2558,7 +2559,7 @@ export interface CreateGatewayRequest {
    * <p>The authorizer configuration for the gateway.</p>
    * @public
    */
-  authorizerConfiguration: AuthorizerConfiguration | undefined;
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt data associated with the gateway.</p>
@@ -2994,7 +2995,7 @@ export interface UpdateGatewayRequest {
    * <p>The updated authorizer configuration for the gateway.</p>
    * @public
    */
-  authorizerConfiguration: AuthorizerConfiguration | undefined;
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
    * <p>The updated ARN of the KMS key used to encrypt the gateway.</p>
