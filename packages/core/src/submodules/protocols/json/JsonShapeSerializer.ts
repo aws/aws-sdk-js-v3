@@ -1,11 +1,17 @@
 import { determineTimestampFormat } from "@smithy/core/protocols";
-import { NormalizedSchema, SCHEMA } from "@smithy/core/schema";
+import { NormalizedSchema } from "@smithy/core/schema";
 import { dateToUtcString, generateIdempotencyToken, LazyJsonString, NumericValue } from "@smithy/core/serde";
-import { Schema, ShapeSerializer } from "@smithy/types";
+import type {
+  Schema,
+  ShapeSerializer,
+  TimestampDateTimeSchema,
+  TimestampEpochSecondsSchema,
+  TimestampHttpDateSchema,
+} from "@smithy/types";
 import { toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
-import { JsonSettings } from "./JsonCodec";
+import type { JsonSettings } from "./JsonCodec";
 import { JsonReplacer } from "./jsonReplacer";
 
 /**
@@ -105,11 +111,11 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
     if ((ns.isTimestampSchema() || ns.isDocumentSchema()) && value instanceof Date) {
       const format = determineTimestampFormat(ns, this.settings);
       switch (format) {
-        case SCHEMA.TIMESTAMP_DATE_TIME:
+        case 5 satisfies TimestampDateTimeSchema:
           return value.toISOString().replace(".000Z", "Z");
-        case SCHEMA.TIMESTAMP_HTTP_DATE:
+        case 6 satisfies TimestampHttpDateSchema:
           return dateToUtcString(value);
-        case SCHEMA.TIMESTAMP_EPOCH_SECONDS:
+        case 7 satisfies TimestampEpochSecondsSchema:
           return value.getTime() / 1000;
         default:
           console.warn("Missing timestamp format, using epoch seconds", value);

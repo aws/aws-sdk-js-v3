@@ -3,7 +3,7 @@ import {
   HttpInterceptingShapeDeserializer,
   HttpInterceptingShapeSerializer,
 } from "@smithy/core/protocols";
-import { NormalizedSchema, OperationSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
+import { NormalizedSchema, OperationSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -14,6 +14,7 @@ import type {
   SerdeFunctions,
   ShapeDeserializer,
   ShapeSerializer,
+  TimestampDateTimeSchema,
 } from "@smithy/types";
 
 import { ProtocolLib } from "../ProtocolLib";
@@ -34,7 +35,7 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
     const settings: XmlSettings = {
       timestampFormat: {
         useTrait: true,
-        default: SCHEMA.TIMESTAMP_DATE_TIME,
+        default: 5 as const satisfies TimestampDateTimeSchema,
       },
       httpBindings: true,
       xmlNamespace: options.xmlNamespace,

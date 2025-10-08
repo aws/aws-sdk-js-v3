@@ -1,5 +1,18 @@
-import { list, map, NormalizedSchema, SCHEMA, sim, struct, TypeRegistry } from "@smithy/core/schema";
-import { DocumentType, Schema } from "@smithy/types";
+import { list, map, NormalizedSchema, sim, struct, TypeRegistry } from "@smithy/core/schema";
+import type {
+  BigDecimalSchema,
+  BigIntegerSchema,
+  BlobSchema,
+  BooleanSchema,
+  DocumentSchema,
+  DocumentType,
+  NumericSchema,
+  StringSchema,
+  TimestampDateTimeSchema,
+  TimestampDefaultSchema,
+  TimestampEpochSecondsSchema,
+  TimestampHttpDateSchema,
+} from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { JsonCodec, JsonSettings } from "../json/JsonCodec";
@@ -35,27 +48,27 @@ export var OmniWidget = struct(
     "structure",
   ],
   [
-    SCHEMA.BLOB,
-    SCHEMA.BOOLEAN,
+    21 satisfies BlobSchema,
+    2 satisfies BooleanSchema,
     sim("smithy.api", "String", 0, {
       jsonName: "String",
       xmlName: "String",
     }),
-    sim("smithy.api", "Byte", SCHEMA.NUMERIC, 0),
-    sim("smithy.api", "Short", SCHEMA.NUMERIC, 0),
-    sim("smithy.api", "Integer", SCHEMA.NUMERIC, 0),
-    sim("smithy.api", "Long", SCHEMA.NUMERIC, 0),
-    sim("smithy.api", "Float", SCHEMA.NUMERIC, 0),
-    SCHEMA.NUMERIC, // double
-    SCHEMA.BIG_INTEGER,
-    SCHEMA.BIG_DECIMAL,
-    SCHEMA.TIMESTAMP_DEFAULT,
-    SCHEMA.TIMESTAMP_DATE_TIME,
-    SCHEMA.TIMESTAMP_HTTP_DATE,
-    SCHEMA.TIMESTAMP_EPOCH_SECONDS,
-    SCHEMA.DOCUMENT,
-    sim("smithy.api", "Enum", SCHEMA.STRING, 0),
-    sim("smithy.api", "IntEnum", SCHEMA.NUMERIC, 0),
+    sim("smithy.api", "Byte", 1 satisfies NumericSchema, 0),
+    sim("smithy.api", "Short", 1 satisfies NumericSchema, 0),
+    sim("smithy.api", "Integer", 1 satisfies NumericSchema, 0),
+    sim("smithy.api", "Long", 1 satisfies NumericSchema, 0),
+    sim("smithy.api", "Float", 1 satisfies NumericSchema, 0),
+    1 satisfies NumericSchema, // double
+    17 satisfies BigIntegerSchema,
+    19 satisfies BigDecimalSchema,
+    4 satisfies TimestampDefaultSchema,
+    5 satisfies TimestampDateTimeSchema,
+    6 satisfies TimestampHttpDateSchema,
+    7 satisfies TimestampEpochSecondsSchema,
+    15 satisfies DocumentSchema,
+    sim("smithy.api", "Enum", 0 satisfies StringSchema, 0),
+    sim("smithy.api", "IntEnum", 1 satisfies NumericSchema, 0),
     list("smithy.example", "OmniWidgetList", 0, () => OmniWidget),
     map("smithy.example", "OmniWidgetMap", 0, 0, () => OmniWidget),
     () => OmniWidget,
@@ -66,10 +79,11 @@ function getJsonCodec(test: { settings: JsonSettings }): JsonCodec {
   const { settings } = test;
   const format =
     {
-      "date-time": SCHEMA.TIMESTAMP_DATE_TIME,
-      "http-date": SCHEMA.TIMESTAMP_HTTP_DATE,
-      "epoch-seconds": SCHEMA.TIMESTAMP_EPOCH_SECONDS,
-    }[(settings.timestampFormat?.default as unknown as string) ?? "epoch-seconds"] ?? SCHEMA.TIMESTAMP_EPOCH_SECONDS;
+      "date-time": 5 as const satisfies TimestampDateTimeSchema,
+      "http-date": 6 as const satisfies TimestampHttpDateSchema,
+      "epoch-seconds": 7 as const satisfies TimestampEpochSecondsSchema,
+    }[(settings.timestampFormat?.default as unknown as string) ?? "epoch-seconds"] ??
+    (7 as const satisfies TimestampEpochSecondsSchema);
   return new JsonCodec({
     jsonName: settings.jsonName ?? false,
     timestampFormat: {
@@ -93,7 +107,7 @@ function readDocument(deserializer: JsonShapeDeserializer, data: DocumentType): 
     const ns = NormalizedSchema.of(schema);
     return deserializer.readObject(ns, object);
   }
-  return deserializer.readObject(SCHEMA.DOCUMENT, data);
+  return deserializer.readObject(15 satisfies DocumentSchema, data);
 }
 
 describe("schema conversion tests for serializations, data objects, and documents", () => {
@@ -105,13 +119,13 @@ describe("schema conversion tests for serializations, data objects, and document
       const serializer = codec.createSerializer();
       const deserializer = codec.createDeserializer();
 
-      serializer.write(SCHEMA.DOCUMENT, test.serialized);
+      serializer.write(15 satisfies DocumentSchema, test.serialized);
       const serialization = serializer.flush();
-      const documentFromSerialization = await deserializer.read(SCHEMA.DOCUMENT, serialization);
+      const documentFromSerialization = await deserializer.read(15 satisfies DocumentSchema, serialization);
       const canonicalDataObject = await deserializer.read(subjectSchema, serialization);
 
       serializer.writeDiscriminatedDocument(subjectSchema, canonicalDataObject);
-      const documentFromDataObject = await deserializer.read(SCHEMA.DOCUMENT, serializer.flush());
+      const documentFromDataObject = await deserializer.read(15 satisfies DocumentSchema, serializer.flush());
 
       // 1. data object from serialization
       expect(typeof documentFromSerialization).toBe("object");
@@ -130,13 +144,13 @@ describe("schema conversion tests for serializations, data objects, and document
       expect(serializationFromDataObject).toEqual(serialization);
 
       // 5. serialization from serialization document
-      serializer.write(SCHEMA.DOCUMENT, documentFromSerialization);
+      serializer.write(15 satisfies DocumentSchema, documentFromSerialization);
       const serializationFromSerializedDocument = serializer.flush();
       expect(serializationFromSerializedDocument).toEqual(serialization);
 
       // 6. serialization from data object document
       delete documentFromDataObject.__type;
-      serializer.write(SCHEMA.DOCUMENT, documentFromDataObject);
+      serializer.write(15 satisfies DocumentSchema, documentFromDataObject);
       const serializationFromDocumentFromDataObject = serializer.flush();
       expect(serializationFromDocumentFromDataObject).toEqual(serialization);
     });

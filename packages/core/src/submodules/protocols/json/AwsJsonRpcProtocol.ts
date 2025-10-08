@@ -1,5 +1,5 @@
 import { RpcProtocol } from "@smithy/core/protocols";
-import { deref, NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
+import { deref, NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -10,6 +10,7 @@ import type {
   SerdeFunctions,
   ShapeDeserializer,
   ShapeSerializer,
+  TimestampEpochSecondsSchema,
 } from "@smithy/types";
 
 import { ProtocolLib } from "../ProtocolLib";
@@ -43,7 +44,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     this.codec = new JsonCodec({
       timestampFormat: {
         useTrait: true,
-        default: SCHEMA.TIMESTAMP_EPOCH_SECONDS,
+        default: 7 as const satisfies TimestampEpochSecondsSchema,
       },
       jsonName: false,
     });

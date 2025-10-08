@@ -7,7 +7,7 @@ import {
   normalizeProvider,
 } from "@smithy/core";
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
-import {
+import type {
   AuthScheme,
   AwsCredentialIdentity,
   AwsCredentialIdentityProvider,

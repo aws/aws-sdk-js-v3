@@ -1,7 +1,8 @@
 import { cbor } from "@smithy/core/cbor";
-import { op, SCHEMA } from "@smithy/core/schema";
+import { op } from "@smithy/core/schema";
 import { error as registerError } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
+import type { NumericSchema, StringSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { AwsSmithyRpcV2CborProtocol } from "./AwsSmithyRpcV2CborProtocol";
@@ -20,7 +21,7 @@ describe(AwsSmithyRpcV2CborProtocol.name, () => {
       "MyQueryError",
       { error: "client" },
       ["Message", "Prop2"],
-      [SCHEMA.STRING, SCHEMA.NUMERIC],
+      [0 satisfies StringSchema, 1 satisfies NumericSchema],
       MyQueryError
     );
 

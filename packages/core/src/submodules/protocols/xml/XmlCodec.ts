@@ -1,4 +1,4 @@
-import { Codec, CodecSettings, ShapeDeserializer, ShapeSerializer } from "@smithy/types";
+import type { Codec, CodecSettings } from "@smithy/types";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import { XmlShapeDeserializer } from "./XmlShapeDeserializer";

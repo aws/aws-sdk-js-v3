@@ -1,7 +1,8 @@
 import { collectBody, RpcProtocol } from "@smithy/core/protocols";
-import { deref, ErrorSchema, NormalizedSchema, SCHEMA, TypeRegistry } from "@smithy/core/schema";
+import { deref, ErrorSchema, NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   Codec,
+  DocumentSchema,
   EndpointBearer,
   HandlerExecutionContext,
   HttpRequest,
@@ -10,6 +11,7 @@ import type {
   OperationSchema,
   ResponseMetadata,
   SerdeFunctions,
+  TimestampDateTimeSchema,
 } from "@smithy/types";
 
 import { ProtocolLib } from "../ProtocolLib";
@@ -37,7 +39,7 @@ export class AwsQueryProtocol extends RpcProtocol {
     const settings = {
       timestampFormat: {
         useTrait: true,
-        default: SCHEMA.TIMESTAMP_DATE_TIME,
+        default: 5 as const satisfies TimestampDateTimeSchema,
       },
       httpBindings: false,
       xmlNamespace: options.xmlNamespace,
@@ -100,7 +102,7 @@ export class AwsQueryProtocol extends RpcProtocol {
     if (response.statusCode >= 300) {
       const bytes: Uint8Array = await collectBody(response.body, context as SerdeFunctions);
       if (bytes.byteLength > 0) {
-        Object.assign(dataObject, await deserializer.read(SCHEMA.DOCUMENT, bytes));
+        Object.assign(dataObject, await deserializer.read(15 satisfies DocumentSchema, bytes));
       }
       await this.handleError(operationSchema, context, response, dataObject, this.deserializeMetadata(response));
     }

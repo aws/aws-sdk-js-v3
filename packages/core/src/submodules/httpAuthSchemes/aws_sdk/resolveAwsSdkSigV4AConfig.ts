@@ -1,7 +1,7 @@
 import { normalizeProvider } from "@smithy/core";
 import { LoadedConfigSelectors } from "@smithy/node-config-provider";
 import { ProviderError } from "@smithy/property-provider";
-import { Profile, Provider } from "@smithy/types";
+import type { Profile, Provider } from "@smithy/types";
 
 /**
  * @public

@@ -1,4 +1,3 @@
-import { SCHEMA } from "@smithy/core/schema";
 import { NumericValue } from "@smithy/core/serde";
 import { describe, expect, test as it } from "vitest";
 
@@ -15,7 +14,7 @@ describe(JsonShapeDeserializer.name, () => {
 
   const deserializer = new JsonShapeDeserializer({
     jsonName: true,
-    timestampFormat: { default: SCHEMA.TIMESTAMP_EPOCH_SECONDS, useTrait: true },
+    timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
   });
 
   it("understands list sparseness", async () => {

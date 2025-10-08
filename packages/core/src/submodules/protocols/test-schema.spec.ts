@@ -1,4 +1,11 @@
-import { list, map, op, SCHEMA, sim, struct } from "@smithy/core/schema";
+import { list, map, op, sim, struct } from "@smithy/core/schema";
+import type {
+  BigDecimalSchema,
+  BigIntegerSchema,
+  BlobSchema,
+  NumericSchema,
+  TimestampEpochSecondsSchema,
+} from "@smithy/types";
 import { describe, test as it } from "vitest";
 
 describe("testing schema export", () => {
@@ -15,12 +22,12 @@ export const widget = struct(
     [list("", "List", 0, 0), { sparse: 1 }],
     map("", "Map", 0, 0, 0),
     [map("", "Map", 0, 0, 0), { sparse: 1 }],
-    SCHEMA.BLOB,
+    21 satisfies BlobSchema,
     sim("", "Media", 0, { mediaType: "application/json" }),
-    SCHEMA.TIMESTAMP_EPOCH_SECONDS,
-    SCHEMA.BIG_INTEGER,
-    SCHEMA.BIG_DECIMAL,
-    SCHEMA.NUMERIC,
+    7 satisfies TimestampEpochSecondsSchema,
+    17 satisfies BigIntegerSchema,
+    19 satisfies BigDecimalSchema,
+    1 satisfies NumericSchema,
   ]
 );
 

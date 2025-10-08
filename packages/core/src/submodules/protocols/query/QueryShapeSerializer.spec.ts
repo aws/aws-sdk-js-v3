@@ -1,4 +1,3 @@
-import { SCHEMA } from "@smithy/core/schema";
 import { NumericValue } from "@smithy/core/serde";
 import { describe, expect, test as it } from "vitest";
 
@@ -8,7 +7,7 @@ import { QueryShapeSerializer } from "./QueryShapeSerializer";
 describe(QueryShapeSerializer.name, () => {
   it("serializes data to Query", async () => {
     const serializer = new QueryShapeSerializer({
-      timestampFormat: { default: SCHEMA.TIMESTAMP_DATE_TIME, useTrait: true },
+      timestampFormat: { default: 5 satisfies TimestampDateTimeSchema, useTrait: true },
     });
     serializer.setSerdeContext({
       base64Encoder: (input: Uint8Array) => {
