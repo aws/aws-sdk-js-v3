@@ -2,7 +2,10 @@ const fs = require("fs");
 const path = require("path");
 const { spawnProcess } = require("./../utils/spawn-process");
 const walk = require("./../utils/walk");
-const esbuild = require("esbuild");
+const rollup = require("rollup");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
+const typescript = require("@rollup/plugin-typescript");
+const json = require("@rollup/plugin-json");
 
 const root = path.join(__dirname, "..", "..");
 
@@ -143,6 +146,8 @@ module.exports = class Inliner {
       }
     }
 
+    this.variantExternals = [...new Set(this.variantExternals)];
+
     return this;
   }
 
@@ -155,30 +160,67 @@ module.exports = class Inliner {
       return this;
     }
 
-    this.variantExternalsForEsBuild = this.variantExternals.map(
-      (variant) => "*/" + path.basename(variant).replace(/.js$/, "")
-    );
+    const variantExternalsForRollup = this.variantExternals.map((variant) => variant.replace(/.js$/, ""));
 
-    const buildOptions = {
-      platform: this.platform,
-      target: ["node18"],
-      bundle: true,
-      format: "cjs",
-      mainFields: ["main"],
-      allowOverwrite: true,
-      entryPoints: [path.join(root, this.subfolder, this.package, "src", "index.ts")],
-      supported: {
-        "dynamic-import": false,
+    const entryPoint = path.join(root, this.subfolder, this.package, "src", "index.ts");
+
+    const inputOptions = (externals) => ({
+      input: [entryPoint],
+      plugins: [
+        nodeResolve(),
+        json(),
+        typescript({
+          compilerOptions: {
+            importHelpers: true,
+            noEmitHelpers: false,
+            module: "esnext",
+            target: "es2022",
+            noCheck: true,
+            removeComments: true,
+          },
+        }),
+      ],
+      external: (id) => {
+        const relative = !!id.match(/^\.?\.?\//);
+        if (!relative) {
+          this.verbose && console.log("EXTERN (pkg)", id);
+          return true;
+        }
+
+        const local = id.includes(`/packages/`) && id.includes(`/dist-es/`);
+        if (local) {
+          this.verbose && console.log("EXTERN (local)", id);
+          return true;
+        }
+
+        if (id === entryPoint) {
+          this.verbose && console.log("INTERN (entry point)", id);
+          return false;
+        }
+
+        for (const file of externals) {
+          const idWithoutExtension = id.replace(/\.ts$/, "");
+          if (idWithoutExtension.endsWith(path.basename(file))) {
+            this.verbose && console.log("EXTERN (variant)", id);
+            return true;
+          }
+        }
+
+        this.verbose && console.log("INTERN (invariant)", id);
+        return false;
       },
-      outfile: this.outfile,
-      keepNames: true,
-      packages: "external",
-      external: ["@smithy/*", "@aws-sdk/*", "node_modules/*", ...this.variantExternalsForEsBuild],
+    });
+
+    const outputOptions = {
+      dir: path.dirname(this.outfile),
+      format: "cjs",
+      exports: "named",
+      preserveModules: false,
     };
 
-    if (!this.hasSubmodules) {
-      await esbuild.build(buildOptions);
-    }
+    const bundle = await rollup.rollup(inputOptions(variantExternalsForRollup));
+    await bundle.write(outputOptions);
+    await bundle.close();
 
     if (this.hasSubmodules) {
       const submodules = fs.readdirSync(path.join(root, this.subfolder, this.package, "src", "submodules"));
@@ -206,19 +248,41 @@ module.exports = class Inliner {
           }
         }
 
-        await esbuild.build({
-          ...buildOptions,
-          entryPoints: [path.join(root, this.subfolder, this.package, "src", "submodules", submodule, "index.ts")],
-          outfile: path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule, "index.js"),
-          external: [
-            "@smithy/*",
-            "@aws-sdk/*",
-            "node_modules/*",
-            ...this.variantExternals
-              .filter((variant) => variant.includes(`submodules/${submodule}`))
-              .map((variant) => "*/" + path.basename(variant).replace(/.js$/, "")),
-          ],
+        // remove remaining empty directories.
+        const submoduleFolder = path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule);
+        function rmdirEmpty(dir) {
+          for (const entry of fs.readdirSync(dir)) {
+            const fullPath = path.join(dir, entry);
+            if (fs.lstatSync(fullPath).isDirectory()) {
+              if (fs.readdirSync(fullPath).length) {
+                rmdirEmpty(fullPath);
+              } else {
+                fs.rmdirSync(fullPath);
+              }
+            }
+          }
+        }
+        rmdirEmpty(submoduleFolder);
+
+        const submoduleVariants = variantExternalsForRollup.filter((external) =>
+          external.includes(`submodules/${submodule}`)
+        );
+
+        const submoduleOptions = inputOptions(submoduleVariants);
+
+        const submoduleBundle = await rollup.rollup({
+          ...submoduleOptions,
+          input: path.join(root, this.subfolder, this.package, "src", "submodules", submodule, "index.ts"),
         });
+
+        await submoduleBundle.write({
+          ...outputOptions,
+          dir: path.dirname(
+            path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule, "index.js")
+          ),
+        });
+
+        await submoduleBundle.close();
       }
     }
 
@@ -271,7 +335,9 @@ module.exports = class Inliner {
               .join("/")) + "/index.js";
 
       if (!this.reExportStubs) {
-        fs.rmSync(file);
+        if (fs.readFileSync(file, "utf-8").includes(`Object.defineProperty(exports, "__esModule", { value: true });`)) {
+          fs.rmSync(file);
+        }
         const files = fs.readdirSync(path.dirname(file));
         if (files.length === 0) {
           fs.rmdirSync(path.dirname(file));
@@ -463,33 +529,51 @@ module.exports = class Inliner {
     }
 
     // check ESM compat.
-    const tmpFileContents = this.canonicalExports
-      .filter((sym) => !sym.includes(":"))
-      .map((sym) => `import { ${sym} } from "${this.pkgJson.name}";`)
-      .join("\n");
+    const tmpFileContents =
+      `import assert from "node:assert";
+      
+      const namingExceptions = [
+        "paginateOperation" // name for all paginators.
+      ];
+      ` +
+      this.canonicalExports
+        .filter((sym) => !sym.includes(":"))
+        .map((sym) => {
+          if (
+            [
+              "AWSSDKSigV4Signer", // deprecated alias for AwsSdkSigV4Signer
+              "resolveAWSSDKSigV4Config", // deprecated alias for resolveAwsSdkSigV4Config
+              "__Client", // base Client in SDK clients
+              "$Command", // base Command in SDK clients
+              "getDefaultClientConfiguration", // renamed to getDefaultExtensionConfiguration
+              "generateIdempotencyToken", // sometimes called v4
+              "defaultUserAgent", // renamed to createDefaultUserAgentProvider
+              "getSigV4AuthPlugin", // legacy auth, getAwsAuthPlugin
+              "NumberValueImpl", // name of NumberValue
+
+              "WorkSpacesThin", // alias of WorkSpacesThinClient
+
+              "HostResolver", // alias of NodeDnsLookupHostResolver
+              "expectInt", // aliased to expectLong
+              "handleFloat", // aliased to limitedParseDouble
+              "limitedParseFloat", // aliased to limitedParseDouble
+              "strictParseFloat", // aliased to strictParseDouble
+              "strictParseInt", // aliased to strictParseLong
+            ].includes(sym)
+          ) {
+            return `import { ${sym} } from "${this.pkgJson.name}";`;
+          }
+          return `import { ${sym} } from "${this.pkgJson.name}";
+if (typeof ${sym} === "function") {
+  if (${sym}.name !== "${sym}" && !namingExceptions.includes(${sym}.name)) {
+    throw new Error(${sym}.name + " does not equal expected ${sym}.")
+  }
+} 
+        `;
+        })
+        .join("\n");
     fs.writeFileSync(path.join(__dirname, "tmp", this.package + ".mjs"), tmpFileContents, "utf-8");
     await spawnProcess("node", [path.join(__dirname, "tmp", this.package + ".mjs")]);
-
-    if (this.hasSubmodules) {
-      const submodules = fs.readdirSync(path.join(root, this.subfolder, this.package, "src", "submodules"));
-      for (const submodule of submodules) {
-        const canonicalExports = Object.keys(
-          require(path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule, "index.js"))
-        );
-        const tmpFileContents = canonicalExports
-          .filter((sym) => !sym.includes(":"))
-          .map((sym) => `import { ${sym} } from "${this.pkgJson.name}/${submodule}";`)
-          .join("\n");
-        const tmpFilePath = path.join(__dirname, "tmp", this.package + "_" + submodule + ".mjs");
-        fs.writeFileSync(tmpFilePath, tmpFileContents, "utf-8");
-        await spawnProcess("node", [tmpFilePath]);
-        fs.rmSync(tmpFilePath);
-        if (this.verbose) {
-          console.log("ESM compatibility verified for submodule", submodule);
-        }
-      }
-    }
-
     if (this.verbose) {
       console.log("ESM compatibility verified.");
     }
