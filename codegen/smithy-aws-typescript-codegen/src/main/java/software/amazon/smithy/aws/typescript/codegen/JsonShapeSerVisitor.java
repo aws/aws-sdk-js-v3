@@ -18,10 +18,10 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
-import software.amazon.smithy.codegen.core.ReservedWords;
-import software.amazon.smithy.codegen.core.ReservedWordsBuilder;
 import java.util.function.BiFunction;
 import software.amazon.smithy.aws.typescript.codegen.validation.UnaryFunctionCall;
+import software.amazon.smithy.codegen.core.ReservedWords;
+import software.amazon.smithy.codegen.core.ReservedWordsBuilder;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -216,7 +216,8 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
         ServiceShape serviceShape = context.getService();
 
         // Visit over the union type, then get the right serialization for the member.
-        writer.openBlock("return $L.visit(input, {", "});", reservedWords.escape(shape.getId().getName(serviceShape)), () -> {
+        writer.openBlock("return $L.visit(input, {", "});",
+            reservedWords.escape(shape.getId().getName(serviceShape)), () -> {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
             members.forEach((memberName, memberShape) -> {
