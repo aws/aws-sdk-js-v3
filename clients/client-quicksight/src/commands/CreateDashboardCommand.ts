@@ -32,15 +32,15 @@ export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
 export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a dashboard from either a template or directly with a <code>DashboardDefinition</code>. To first create a template, see the
- *         <code>
+ * <p>Creates a dashboard from either a template or directly with a
+ *                 <code>DashboardDefinition</code>. To first create a template, see the <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
- *             </code>
- *             API operation.</p>
- *          <p>A dashboard is an entity in QuickSight that identifies QuickSight reports, created
- *             from analyses. You can share QuickSight dashboards. With the right permissions, you can
- *             create scheduled email reports from them. If you have the correct permissions, you can
- *             create a dashboard from a template that exists in a different Amazon Web Services account.</p>
+ *             </code> API operation.</p>
+ *          <p>A dashboard is an entity in Amazon Quick Sight that identifies Amazon Quick Sight
+ *             reports, created from analyses. You can share Amazon Quick Sight dashboards. With the
+ *             right permissions, you can create scheduled email reports from them. If you have the
+ *             correct permissions, you can create a dashboard from a template that exists in a
+ *             different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -150,6 +150,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
  *     DataQAEnabledOption: { // DataQAEnabledOption
+ *       AvailabilityStatus: "ENABLED" || "DISABLED",
+ *     },
+ *     QuickSuiteActionsOption: { // QuickSuiteActionsOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
  *     ExecutiveSummaryOption: { // ExecutiveSummaryOption
@@ -5629,9 +5632,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

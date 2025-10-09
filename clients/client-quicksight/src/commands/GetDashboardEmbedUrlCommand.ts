@@ -32,8 +32,12 @@ export interface GetDashboardEmbedUrlCommandInput extends GetDashboardEmbedUrlRe
 export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a temporary session URL and authorization code(bearer token) that you can use to embed an QuickSight read-only dashboard in your website or application. Before you use this command, make sure that you have configured the dashboards and permissions. </p>
- *          <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from the user's browser. The following rules apply to the generated URL:</p>
+ * <p>Generates a temporary session URL and authorization code(bearer token) that you can
+ *             use to embed an Amazon Quick Sight read-only dashboard in your website or application.
+ *             Before you use this command, make sure that you have configured the dashboards and
+ *             permissions. </p>
+ *          <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not
+ *             from the user's browser. The following rules apply to the generated URL:</p>
  *          <ul>
  *             <li>
  *                <p>They must be used together.</p>
@@ -48,12 +52,17 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  *                <p>You are charged only when the URL is used or there is interaction with QuickSight.</p>
  *             </li>
  *             <li>
- *                <p>The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum). You can use the optional <code>SessionLifetimeInMinutes</code> parameter to customize session duration.</p>
+ *                <p>The resulting user session is valid for 15 minutes (default) up to 10 hours
+ *                     (maximum). You can use the optional <code>SessionLifetimeInMinutes</code>
+ *                     parameter to customize session duration.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding Analytics Using GetDashboardEmbedUrl</a> in the <i>Amazon QuickSight User
- *             Guide</i>.</p>
- *          <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding Analytics
+ *                 Using GetDashboardEmbedUrl</a> in the <i>Amazon QuickSight User
+ *                 Guide</i>.</p>
+ *          <p>For more information about the high-level steps for embedding and for an interactive
+ *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight
+ *                 Developer Portal</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,12 +104,12 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link DomainNotWhitelistedException} (client fault)
  *  <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
- * 			added to the approved list by an Amazon QuickSight admin.</p>
+ * 			added to the approved list by an Amazon Quick Suite admin.</p>
  *
  * @throws {@link IdentityTypeNotSupportedException} (client fault)
  *  <p>The identity type specified isn't supported. Supported identity types include
@@ -131,10 +140,10 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedPricingPlanException} (client fault)
- *  <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
+ *  <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight
  * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to QuickSight. You
- * 		    can do this on the <b>Manage QuickSight</b> page. </p>
+ * 			for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You
+ * 		    can do this on the <b>Manage Quick Suite</b> page. </p>
  *          <p>After capacity pricing is added, you can use the
  *             <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
@@ -142,9 +151,9 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  *             <code>--identity-type ANONYMOUS</code> option.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

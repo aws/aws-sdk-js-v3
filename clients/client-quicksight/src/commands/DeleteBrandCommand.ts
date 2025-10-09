@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteBrandRequest, DeleteBrandResponse } from "../models/models_3";
+import { DeleteBrandRequest, DeleteBrandResponse } from "../models/models_4";
 import { de_DeleteBrandCommand, se_DeleteBrandCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -29,7 +29,7 @@ export interface DeleteBrandCommandOutput extends DeleteBrandResponse, __Metadat
 
 /**
  * <important>
- *             <p>This API permanently deletes the specified QuickSight brand. When you delete a brand:</p>
+ *             <p>This API permanently deletes the specified Quick Sight brand. When you delete a brand:</p>
  *             <ul>
  *                <li>
  *                   <p>The brand and all its associated branding elements are permanently removed</p>
@@ -44,7 +44,7 @@ export interface DeleteBrandCommandOutput extends DeleteBrandResponse, __Metadat
  *             <p>
  *                <b>Before proceeding:</b> Verify that the brand is no longer needed and consider the impact on any applications currently using this brand.</p>
  *          </important>
- *          <p>Deletes an QuickSight brand.</p>
+ *          <p>Deletes an Quick Sight brand.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,7 +74,7 @@ export interface DeleteBrandCommandOutput extends DeleteBrandResponse, __Metadat
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link ConflictException} (client fault)

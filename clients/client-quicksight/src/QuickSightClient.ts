@@ -70,6 +70,10 @@ import {
   CreateAccountSubscriptionCommandInput,
   CreateAccountSubscriptionCommandOutput,
 } from "./commands/CreateAccountSubscriptionCommand";
+import {
+  CreateActionConnectorCommandInput,
+  CreateActionConnectorCommandOutput,
+} from "./commands/CreateActionConnectorCommand";
 import { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "./commands/CreateAnalysisCommand";
 import { CreateBrandCommandInput, CreateBrandCommandOutput } from "./commands/CreateBrandCommand";
 import {
@@ -131,6 +135,10 @@ import {
   DeleteAccountSubscriptionCommandInput,
   DeleteAccountSubscriptionCommandOutput,
 } from "./commands/DeleteAccountSubscriptionCommand";
+import {
+  DeleteActionConnectorCommandInput,
+  DeleteActionConnectorCommandOutput,
+} from "./commands/DeleteActionConnectorCommand";
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./commands/DeleteAnalysisCommand";
 import {
   DeleteBrandAssignmentCommandInput,
@@ -224,6 +232,14 @@ import {
   DescribeAccountSubscriptionCommandInput,
   DescribeAccountSubscriptionCommandOutput,
 } from "./commands/DescribeAccountSubscriptionCommand";
+import {
+  DescribeActionConnectorCommandInput,
+  DescribeActionConnectorCommandOutput,
+} from "./commands/DescribeActionConnectorCommand";
+import {
+  DescribeActionConnectorPermissionsCommandInput,
+  DescribeActionConnectorPermissionsCommandOutput,
+} from "./commands/DescribeActionConnectorPermissionsCommand";
 import { DescribeAnalysisCommandInput, DescribeAnalysisCommandOutput } from "./commands/DescribeAnalysisCommand";
 import {
   DescribeAnalysisDefinitionCommandInput,
@@ -390,7 +406,13 @@ import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput,
 } from "./commands/GetDashboardEmbedUrlCommand";
+import { GetFlowMetadataCommandInput, GetFlowMetadataCommandOutput } from "./commands/GetFlowMetadataCommand";
+import { GetFlowPermissionsCommandInput, GetFlowPermissionsCommandOutput } from "./commands/GetFlowPermissionsCommand";
 import { GetSessionEmbedUrlCommandInput, GetSessionEmbedUrlCommandOutput } from "./commands/GetSessionEmbedUrlCommand";
+import {
+  ListActionConnectorsCommandInput,
+  ListActionConnectorsCommandOutput,
+} from "./commands/ListActionConnectorsCommand";
 import { ListAnalysesCommandInput, ListAnalysesCommandOutput } from "./commands/ListAnalysesCommand";
 import {
   ListAssetBundleExportJobsCommandInput,
@@ -412,6 +434,7 @@ import {
 } from "./commands/ListDashboardVersionsCommand";
 import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "./commands/ListDataSetsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
 import { ListFolderMembersCommandInput, ListFolderMembersCommandOutput } from "./commands/ListFolderMembersCommand";
 import { ListFoldersCommandInput, ListFoldersCommandOutput } from "./commands/ListFoldersCommand";
 import {
@@ -480,10 +503,15 @@ import {
 } from "./commands/PutDataSetRefreshPropertiesCommand";
 import { RegisterUserCommandInput, RegisterUserCommandOutput } from "./commands/RegisterUserCommand";
 import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "./commands/RestoreAnalysisCommand";
+import {
+  SearchActionConnectorsCommandInput,
+  SearchActionConnectorsCommandOutput,
+} from "./commands/SearchActionConnectorsCommand";
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "./commands/SearchAnalysesCommand";
 import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "./commands/SearchDashboardsCommand";
 import { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "./commands/SearchDataSetsCommand";
 import { SearchDataSourcesCommandInput, SearchDataSourcesCommandOutput } from "./commands/SearchDataSourcesCommand";
+import { SearchFlowsCommandInput, SearchFlowsCommandOutput } from "./commands/SearchFlowsCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "./commands/SearchFoldersCommand";
 import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "./commands/SearchGroupsCommand";
 import { SearchTopicsCommandInput, SearchTopicsCommandOutput } from "./commands/SearchTopicsCommand";
@@ -517,6 +545,14 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
+import {
+  UpdateActionConnectorCommandInput,
+  UpdateActionConnectorCommandOutput,
+} from "./commands/UpdateActionConnectorCommand";
+import {
+  UpdateActionConnectorPermissionsCommandInput,
+  UpdateActionConnectorPermissionsCommandOutput,
+} from "./commands/UpdateActionConnectorPermissionsCommand";
 import { UpdateAnalysisCommandInput, UpdateAnalysisCommandOutput } from "./commands/UpdateAnalysisCommand";
 import {
   UpdateAnalysisPermissionsCommandInput,
@@ -570,6 +606,10 @@ import {
   UpdateDefaultQBusinessApplicationCommandInput,
   UpdateDefaultQBusinessApplicationCommandOutput,
 } from "./commands/UpdateDefaultQBusinessApplicationCommand";
+import {
+  UpdateFlowPermissionsCommandInput,
+  UpdateFlowPermissionsCommandOutput,
+} from "./commands/UpdateFlowPermissionsCommand";
 import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "./commands/UpdateFolderCommand";
 import {
   UpdateFolderPermissionsCommandInput,
@@ -669,6 +709,7 @@ export type ServiceInputTypes =
   | CancelIngestionCommandInput
   | CreateAccountCustomizationCommandInput
   | CreateAccountSubscriptionCommandInput
+  | CreateActionConnectorCommandInput
   | CreateAnalysisCommandInput
   | CreateBrandCommandInput
   | CreateCustomPermissionsCommandInput
@@ -694,6 +735,7 @@ export type ServiceInputTypes =
   | DeleteAccountCustomPermissionCommandInput
   | DeleteAccountCustomizationCommandInput
   | DeleteAccountSubscriptionCommandInput
+  | DeleteActionConnectorCommandInput
   | DeleteAnalysisCommandInput
   | DeleteBrandAssignmentCommandInput
   | DeleteBrandCommandInput
@@ -727,6 +769,8 @@ export type ServiceInputTypes =
   | DescribeAccountCustomizationCommandInput
   | DescribeAccountSettingsCommandInput
   | DescribeAccountSubscriptionCommandInput
+  | DescribeActionConnectorCommandInput
+  | DescribeActionConnectorPermissionsCommandInput
   | DescribeAnalysisCommandInput
   | DescribeAnalysisDefinitionCommandInput
   | DescribeAnalysisPermissionsCommandInput
@@ -779,7 +823,10 @@ export type ServiceInputTypes =
   | GenerateEmbedUrlForRegisteredUserCommandInput
   | GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput
   | GetDashboardEmbedUrlCommandInput
+  | GetFlowMetadataCommandInput
+  | GetFlowPermissionsCommandInput
   | GetSessionEmbedUrlCommandInput
+  | ListActionConnectorsCommandInput
   | ListAnalysesCommandInput
   | ListAssetBundleExportJobsCommandInput
   | ListAssetBundleImportJobsCommandInput
@@ -789,6 +836,7 @@ export type ServiceInputTypes =
   | ListDashboardsCommandInput
   | ListDataSetsCommandInput
   | ListDataSourcesCommandInput
+  | ListFlowsCommandInput
   | ListFolderMembersCommandInput
   | ListFoldersCommandInput
   | ListFoldersForResourceCommandInput
@@ -818,10 +866,12 @@ export type ServiceInputTypes =
   | PutDataSetRefreshPropertiesCommandInput
   | RegisterUserCommandInput
   | RestoreAnalysisCommandInput
+  | SearchActionConnectorsCommandInput
   | SearchAnalysesCommandInput
   | SearchDashboardsCommandInput
   | SearchDataSetsCommandInput
   | SearchDataSourcesCommandInput
+  | SearchFlowsCommandInput
   | SearchFoldersCommandInput
   | SearchGroupsCommandInput
   | SearchTopicsCommandInput
@@ -834,6 +884,8 @@ export type ServiceInputTypes =
   | UpdateAccountCustomPermissionCommandInput
   | UpdateAccountCustomizationCommandInput
   | UpdateAccountSettingsCommandInput
+  | UpdateActionConnectorCommandInput
+  | UpdateActionConnectorPermissionsCommandInput
   | UpdateAnalysisCommandInput
   | UpdateAnalysisPermissionsCommandInput
   | UpdateApplicationWithTokenExchangeGrantCommandInput
@@ -851,6 +903,7 @@ export type ServiceInputTypes =
   | UpdateDataSourceCommandInput
   | UpdateDataSourcePermissionsCommandInput
   | UpdateDefaultQBusinessApplicationCommandInput
+  | UpdateFlowPermissionsCommandInput
   | UpdateFolderCommandInput
   | UpdateFolderPermissionsCommandInput
   | UpdateGroupCommandInput
@@ -886,6 +939,7 @@ export type ServiceOutputTypes =
   | CancelIngestionCommandOutput
   | CreateAccountCustomizationCommandOutput
   | CreateAccountSubscriptionCommandOutput
+  | CreateActionConnectorCommandOutput
   | CreateAnalysisCommandOutput
   | CreateBrandCommandOutput
   | CreateCustomPermissionsCommandOutput
@@ -911,6 +965,7 @@ export type ServiceOutputTypes =
   | DeleteAccountCustomPermissionCommandOutput
   | DeleteAccountCustomizationCommandOutput
   | DeleteAccountSubscriptionCommandOutput
+  | DeleteActionConnectorCommandOutput
   | DeleteAnalysisCommandOutput
   | DeleteBrandAssignmentCommandOutput
   | DeleteBrandCommandOutput
@@ -944,6 +999,8 @@ export type ServiceOutputTypes =
   | DescribeAccountCustomizationCommandOutput
   | DescribeAccountSettingsCommandOutput
   | DescribeAccountSubscriptionCommandOutput
+  | DescribeActionConnectorCommandOutput
+  | DescribeActionConnectorPermissionsCommandOutput
   | DescribeAnalysisCommandOutput
   | DescribeAnalysisDefinitionCommandOutput
   | DescribeAnalysisPermissionsCommandOutput
@@ -996,7 +1053,10 @@ export type ServiceOutputTypes =
   | GenerateEmbedUrlForRegisteredUserCommandOutput
   | GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput
   | GetDashboardEmbedUrlCommandOutput
+  | GetFlowMetadataCommandOutput
+  | GetFlowPermissionsCommandOutput
   | GetSessionEmbedUrlCommandOutput
+  | ListActionConnectorsCommandOutput
   | ListAnalysesCommandOutput
   | ListAssetBundleExportJobsCommandOutput
   | ListAssetBundleImportJobsCommandOutput
@@ -1006,6 +1066,7 @@ export type ServiceOutputTypes =
   | ListDashboardsCommandOutput
   | ListDataSetsCommandOutput
   | ListDataSourcesCommandOutput
+  | ListFlowsCommandOutput
   | ListFolderMembersCommandOutput
   | ListFoldersCommandOutput
   | ListFoldersForResourceCommandOutput
@@ -1035,10 +1096,12 @@ export type ServiceOutputTypes =
   | PutDataSetRefreshPropertiesCommandOutput
   | RegisterUserCommandOutput
   | RestoreAnalysisCommandOutput
+  | SearchActionConnectorsCommandOutput
   | SearchAnalysesCommandOutput
   | SearchDashboardsCommandOutput
   | SearchDataSetsCommandOutput
   | SearchDataSourcesCommandOutput
+  | SearchFlowsCommandOutput
   | SearchFoldersCommandOutput
   | SearchGroupsCommandOutput
   | SearchTopicsCommandOutput
@@ -1051,6 +1114,8 @@ export type ServiceOutputTypes =
   | UpdateAccountCustomPermissionCommandOutput
   | UpdateAccountCustomizationCommandOutput
   | UpdateAccountSettingsCommandOutput
+  | UpdateActionConnectorCommandOutput
+  | UpdateActionConnectorPermissionsCommandOutput
   | UpdateAnalysisCommandOutput
   | UpdateAnalysisPermissionsCommandOutput
   | UpdateApplicationWithTokenExchangeGrantCommandOutput
@@ -1068,6 +1133,7 @@ export type ServiceOutputTypes =
   | UpdateDataSourceCommandOutput
   | UpdateDataSourcePermissionsCommandOutput
   | UpdateDefaultQBusinessApplicationCommandOutput
+  | UpdateFlowPermissionsCommandOutput
   | UpdateFolderCommandOutput
   | UpdateFolderPermissionsCommandOutput
   | UpdateGroupCommandOutput
@@ -1286,10 +1352,10 @@ export interface QuickSightClientResolvedConfig extends QuickSightClientResolved
 
 /**
  * <fullname>Amazon QuickSight API Reference</fullname>
- *          <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the
+ *          <p>Amazon Quick Sight is a fully managed, serverless business intelligence service for the
  *             Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your
  *             organization. This API reference contains documentation for a programming interface that
- *             you can use to manage Amazon QuickSight. </p>
+ *             you can use to manage Amazon Quick Sight. </p>
  * @public
  */
 export class QuickSightClient extends __Client<

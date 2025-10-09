@@ -38,7 +38,8 @@ export interface DescribeAssetBundleImportJobCommandOutput
 
 /**
  * <p>Describes an existing import job.</p>
- *          <p>Poll job descriptions after starting a job to know when it has succeeded or failed. Job descriptions are available for 14 days after job starts.</p>
+ *          <p>Poll job descriptions after starting a job to know when it has succeeded or failed. Job
+ *          descriptions are available for 14 days after job starts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -189,6 +190,11 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //             },
  * //             RoleArn: "STRING_VALUE",
  * //           },
+ * //           S3KnowledgeBaseParameters: { // S3KnowledgeBaseParameters
+ * //             RoleArn: "STRING_VALUE",
+ * //             BucketUrl: "STRING_VALUE", // required
+ * //             MetadataFilesLocation: "STRING_VALUE",
+ * //           },
  * //           ServiceNowParameters: { // ServiceNowParameters
  * //             SiteBaseUrl: "STRING_VALUE", // required
  * //           },
@@ -270,6 +276,22 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //           },
  * //           CustomConnectionParameters: { // CustomConnectionParameters
  * //             ConnectionType: "STRING_VALUE",
+ * //           },
+ * //           WebCrawlerParameters: { // WebCrawlerParameters
+ * //             WebCrawlerAuthType: "NO_AUTH" || "BASIC_AUTH" || "FORM" || "SAML", // required
+ * //             UsernameFieldXpath: "STRING_VALUE",
+ * //             PasswordFieldXpath: "STRING_VALUE",
+ * //             UsernameButtonXpath: "STRING_VALUE",
+ * //             PasswordButtonXpath: "STRING_VALUE",
+ * //             LoginPageUrl: "STRING_VALUE",
+ * //             WebProxyHostName: "STRING_VALUE",
+ * //             WebProxyPortNumber: Number("int"),
+ * //           },
+ * //           ConfluenceParameters: { // ConfluenceParameters
+ * //             ConfluenceUrl: "STRING_VALUE", // required
+ * //           },
+ * //           QBusinessParameters: { // QBusinessParameters
+ * //             ApplicationArn: "STRING_VALUE", // required
  * //           },
  * //         },
  * //         VpcConnectionProperties: {
@@ -519,9 +541,9 @@ export interface DescribeAssetBundleImportJobCommandOutput
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

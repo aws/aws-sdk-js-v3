@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListIAMPolicyAssignmentsRequest, ListIAMPolicyAssignmentsResponse } from "../models/models_4";
+import { ListIAMPolicyAssignmentsRequest, ListIAMPolicyAssignmentsResponse } from "../models/models_5";
 import { de_ListIAMPolicyAssignmentsCommand, se_ListIAMPolicyAssignmentsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -29,7 +29,7 @@ export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssi
 
 /**
  * <p>Lists the
- * 			IAM policy assignments in the current Amazon QuickSight
+ * 			IAM policy assignments in the current Amazon Quick Sight
  * 			account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,7 +71,7 @@ export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssi
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

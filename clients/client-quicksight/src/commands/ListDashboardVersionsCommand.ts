@@ -28,7 +28,7 @@ export interface ListDashboardVersionsCommandInput extends ListDashboardVersions
 export interface ListDashboardVersionsCommandOutput extends ListDashboardVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the versions of the dashboards in the QuickSight subscription.</p>
+ * <p>Lists all the versions of the dashboards in the Amazon Quick Sight subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,9 +85,9 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

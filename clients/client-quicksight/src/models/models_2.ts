@@ -1,31 +1,28 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  AggFunction,
   AggregationPartitionBy,
   AggType,
   AmazonElasticsearchParameters,
   AmazonOpenSearchParameters,
   AnalysisDefaults,
   AssetOptions,
+  AuthorizationCodeGrantCredentialsSource,
   AxisDisplayOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
   ChartAxisLabelOptions,
+  ClientCredentialsSource,
   ColumnConfiguration,
   ColumnConfigurationFilterSensitiveLog,
-  DataLabelOptions,
-  DataLabelOptionsFilterSensitiveLog,
+  ConnectionAuthType,
   DataSetIdentifierDeclaration,
-  DimensionField,
   FilterControl,
   FilterGroup,
+  FilterOperator,
   FontConfiguration,
   Layout,
-  MeasureField,
-  MeasureFieldFilterSensitiveLog,
-  NumberScale,
   ParameterControl,
   ParameterDeclaration,
   ParameterDeclarationFilterSensitiveLog,
@@ -36,12 +33,11 @@ import {
   SheetImage,
   SheetTextBox,
   TimeGranularity,
-  TopicTimeGranularity,
   URLTargetConfiguration,
   Visibility,
   VisualCustomAction,
   VisualCustomActionDefaults,
-  VisualInteractionOptions,
+  WidgetStatus,
 } from "./models_0";
 
 import {
@@ -55,6 +51,9 @@ import {
   ConditionalFormattingIcon,
   ConditionalFormattingIconFilterSensitiveLog,
   CustomContentVisual,
+  DataLabelOptions,
+  DataLabelOptionsFilterSensitiveLog,
+  DimensionField,
   EmptyVisual,
   FieldSortOptions,
   FilledMapVisual,
@@ -65,6 +64,7 @@ import {
   HeatMapVisual,
   HistogramVisual,
   HistogramVisualFilterSensitiveLog,
+  HorizontalTextAlignment,
   InsightVisual,
   InsightVisualFilterSensitiveLog,
   ItemsLimitConfiguration,
@@ -74,30 +74,609 @@ import {
   LayerMapVisualFilterSensitiveLog,
   LegendOptions,
   LineChartVisual,
+  MeasureField,
+  MeasureFieldFilterSensitiveLog,
   PaginationConfiguration,
   PieChartVisual,
   PivotTableFieldOptions,
   PivotTableFieldWells,
-  PivotTableOptions,
   PivotTablePaginatedReportOptions,
   PivotTableSortConfiguration,
-  PivotTotalOptions,
-  RowAlternateColorOptions,
-  SubtotalOptions,
-  TableCellStyle,
-  TableTotalsPlacement,
-  TableTotalsScrollStatus,
   TooltipOptions,
-  TotalAggregationOption,
   UnaggregatedField,
   UnaggregatedFieldFilterSensitiveLog,
+  VisualInteractionOptions,
   VisualPalette,
   VisualPaletteFilterSensitiveLog,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
 } from "./models_1";
 
-import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+/**
+ * @public
+ * @enum
+ */
+export const TableBorderStyle = {
+  NONE: "NONE",
+  SOLID: "SOLID",
+} as const;
+
+/**
+ * @public
+ */
+export type TableBorderStyle = (typeof TableBorderStyle)[keyof typeof TableBorderStyle];
+
+/**
+ * <p>The border options for a table border.</p>
+ * @public
+ */
+export interface TableBorderOptions {
+  /**
+   * <p>The color of a table border.</p>
+   * @public
+   */
+  Color?: string | undefined;
+
+  /**
+   * <p>The thickness of a table border.</p>
+   * @public
+   */
+  Thickness?: number | undefined;
+
+  /**
+   * <p>The style (none, solid) of a table border.</p>
+   * @public
+   */
+  Style?: TableBorderStyle | undefined;
+}
+
+/**
+ * <p>The side border options for a table.</p>
+ * @public
+ */
+export interface TableSideBorderOptions {
+  /**
+   * <p>The table border options of the inner vertical border.</p>
+   * @public
+   */
+  InnerVertical?: TableBorderOptions | undefined;
+
+  /**
+   * <p>The table border options of the inner horizontal border.</p>
+   * @public
+   */
+  InnerHorizontal?: TableBorderOptions | undefined;
+
+  /**
+   * <p>The table border options of the left border.</p>
+   * @public
+   */
+  Left?: TableBorderOptions | undefined;
+
+  /**
+   * <p>The table border options of the right border.</p>
+   * @public
+   */
+  Right?: TableBorderOptions | undefined;
+
+  /**
+   * <p>The table border options of the top border.</p>
+   * @public
+   */
+  Top?: TableBorderOptions | undefined;
+
+  /**
+   * <p>The table border options of the bottom border.</p>
+   * @public
+   */
+  Bottom?: TableBorderOptions | undefined;
+}
+
+/**
+ * <p>Determines the border options for a table visual.</p>
+ * @public
+ */
+export interface GlobalTableBorderOptions {
+  /**
+   * <p>Determines the options for uniform border.</p>
+   * @public
+   */
+  UniformBorder?: TableBorderOptions | undefined;
+
+  /**
+   * <p>Determines the options for side specific border.</p>
+   * @public
+   */
+  SideSpecificBorder?: TableSideBorderOptions | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TextWrap = {
+  NONE: "NONE",
+  WRAP: "WRAP",
+} as const;
+
+/**
+ * @public
+ */
+export type TextWrap = (typeof TextWrap)[keyof typeof TextWrap];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerticalTextAlignment = {
+  AUTO: "AUTO",
+  BOTTOM: "BOTTOM",
+  MIDDLE: "MIDDLE",
+  TOP: "TOP",
+} as const;
+
+/**
+ * @public
+ */
+export type VerticalTextAlignment = (typeof VerticalTextAlignment)[keyof typeof VerticalTextAlignment];
+
+/**
+ * <p>The table cell style for a cell in pivot table or table visual.</p>
+ * @public
+ */
+export interface TableCellStyle {
+  /**
+   * <p>The visibility of the table cells.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The font configuration of the table cells.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>The text wrap (none, wrap) for the table cells.</p>
+   * @public
+   */
+  TextWrap?: TextWrap | undefined;
+
+  /**
+   * <p>The horizontal text alignment (left, center, right, auto) for the table cells.</p>
+   * @public
+   */
+  HorizontalTextAlignment?: HorizontalTextAlignment | undefined;
+
+  /**
+   * <p>The vertical text alignment (top, middle, bottom) for the table cells.</p>
+   * @public
+   */
+  VerticalTextAlignment?: VerticalTextAlignment | undefined;
+
+  /**
+   * <p>The background color for the table cells.</p>
+   * @public
+   */
+  BackgroundColor?: string | undefined;
+
+  /**
+   * <p>The height color for the table cells.</p>
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * <p>The borders for the table cells.</p>
+   * @public
+   */
+  Border?: GlobalTableBorderOptions | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PivotTableMetricPlacement = {
+  COLUMN: "COLUMN",
+  ROW: "ROW",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableMetricPlacement = (typeof PivotTableMetricPlacement)[keyof typeof PivotTableMetricPlacement];
+
+/**
+ * <p>Determines the row alternate color options.</p>
+ * @public
+ */
+export interface RowAlternateColorOptions {
+  /**
+   * <p>Determines the widget status.</p>
+   * @public
+   */
+  Status?: WidgetStatus | undefined;
+
+  /**
+   * <p>Determines the list of row alternate colors.</p>
+   * @public
+   */
+  RowAlternateColors?: string[] | undefined;
+
+  /**
+   * <p>The primary background color options for alternate rows.</p>
+   * @public
+   */
+  UsePrimaryBackgroundColor?: WidgetStatus | undefined;
+}
+
+/**
+ * <p>The options for the label thta is located above the row headers. This option is only applicable when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
+ * @public
+ */
+export interface PivotTableRowsLabelOptions {
+  /**
+   * <p>The visibility of the rows label.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The custom label string for the rows label.</p>
+   * @public
+   */
+  CustomLabel?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PivotTableRowsLayout = {
+  HIERARCHY: "HIERARCHY",
+  TABULAR: "TABULAR",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableRowsLayout = (typeof PivotTableRowsLayout)[keyof typeof PivotTableRowsLayout];
+
+/**
+ * <p>The table options for a pivot table visual.</p>
+ * @public
+ */
+export interface PivotTableOptions {
+  /**
+   * <p>The metric placement (row, column) options.</p>
+   * @public
+   */
+  MetricPlacement?: PivotTableMetricPlacement | undefined;
+
+  /**
+   * <p>The visibility of the single metric options.</p>
+   * @public
+   */
+  SingleMetricVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The visibility of the column names.</p>
+   * @public
+   */
+  ColumnNamesVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Determines the visibility of the pivot table.</p>
+   * @public
+   */
+  ToggleButtonsVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The table cell style of the column header.</p>
+   * @public
+   */
+  ColumnHeaderStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The table cell style of the row headers.</p>
+   * @public
+   */
+  RowHeaderStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The table cell style of cells.</p>
+   * @public
+   */
+  CellStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The table cell style of row field names.</p>
+   * @public
+   */
+  RowFieldNamesStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The row alternate color options (widget status, row alternate colors).</p>
+   * @public
+   */
+  RowAlternateColorOptions?: RowAlternateColorOptions | undefined;
+
+  /**
+   * <p>The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is <code>HIDDEN</code>, all collapsed columns in a pivot table are automatically hidden. The default value is <code>VISIBLE</code>.</p>
+   * @public
+   */
+  CollapsedRowDimensionsVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The layout for the row dimension headers of a pivot table. Choose one of the following options.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TABULAR</code>: (Default) Each row field is displayed in a separate column.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIERARCHY</code>: All row fields are displayed in a single column. Indentation is used to differentiate row headers of different fields.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RowsLayout?: PivotTableRowsLayout | undefined;
+
+  /**
+   * <p>The options for the label that is located above the row headers. This option is only applicable when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
+   * @public
+   */
+  RowsLabelOptions?: PivotTableRowsLabelOptions | undefined;
+
+  /**
+   * <p>The default cell width of the pivot table.</p>
+   * @public
+   */
+  DefaultCellWidth?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PivotTableSubtotalLevel = {
+  ALL: "ALL",
+  CUSTOM: "CUSTOM",
+  LAST: "LAST",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableSubtotalLevel = (typeof PivotTableSubtotalLevel)[keyof typeof PivotTableSubtotalLevel];
+
+/**
+ * <p>The optional configuration of subtotals cells.</p>
+ * @public
+ */
+export interface PivotTableFieldSubtotalOptions {
+  /**
+   * <p>The field ID of the subtotal options.</p>
+   * @public
+   */
+  FieldId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StyledCellType = {
+  METRIC_HEADER: "METRIC_HEADER",
+  TOTAL: "TOTAL",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type StyledCellType = (typeof StyledCellType)[keyof typeof StyledCellType];
+
+/**
+ * <p>The table style target.</p>
+ * @public
+ */
+export interface TableStyleTarget {
+  /**
+   * <p>The cell type of the table style target.</p>
+   * @public
+   */
+  CellType: StyledCellType | undefined;
+}
+
+/**
+ * <p>The subtotal options.</p>
+ * @public
+ */
+export interface SubtotalOptions {
+  /**
+   * <p>The visibility configuration for the subtotal cells.</p>
+   * @public
+   */
+  TotalsVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The custom label string for the subtotal cells.</p>
+   * @public
+   */
+  CustomLabel?: string | undefined;
+
+  /**
+   * <p>The field level (all, custom, last) for the subtotal cells.</p>
+   * @public
+   */
+  FieldLevel?: PivotTableSubtotalLevel | undefined;
+
+  /**
+   * <p>The optional configuration of subtotal cells.</p>
+   * @public
+   */
+  FieldLevelOptions?: PivotTableFieldSubtotalOptions[] | undefined;
+
+  /**
+   * <p>The cell styling options for the subtotal cells.</p>
+   * @public
+   */
+  TotalCellStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The cell styling options for the subtotals of value cells.</p>
+   * @public
+   */
+  ValueCellStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The cell styling options for the subtotals of header cells.</p>
+   * @public
+   */
+  MetricHeaderCellStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The style targets options for subtotals.</p>
+   * @public
+   */
+  StyleTargets?: TableStyleTarget[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TableTotalsPlacement = {
+  AUTO: "AUTO",
+  END: "END",
+  START: "START",
+} as const;
+
+/**
+ * @public
+ */
+export type TableTotalsPlacement = (typeof TableTotalsPlacement)[keyof typeof TableTotalsPlacement];
+
+/**
+ * @public
+ * @enum
+ */
+export const TableTotalsScrollStatus = {
+  PINNED: "PINNED",
+  SCROLLED: "SCROLLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TableTotalsScrollStatus = (typeof TableTotalsScrollStatus)[keyof typeof TableTotalsScrollStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SimpleTotalAggregationFunction = {
+  AVERAGE: "AVERAGE",
+  DEFAULT: "DEFAULT",
+  MAX: "MAX",
+  MIN: "MIN",
+  NONE: "NONE",
+  SUM: "SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type SimpleTotalAggregationFunction =
+  (typeof SimpleTotalAggregationFunction)[keyof typeof SimpleTotalAggregationFunction];
+
+/**
+ * <p>An aggregation function that aggregates the total values of a measure.</p>
+ * @public
+ */
+export interface TotalAggregationFunction {
+  /**
+   * <p>A built in aggregation function for total values.</p>
+   * @public
+   */
+  SimpleTotalAggregationFunction?: SimpleTotalAggregationFunction | undefined;
+}
+
+/**
+ * <p>The total aggregation settings map of a field id.</p>
+ * @public
+ */
+export interface TotalAggregationOption {
+  /**
+   * <p>The field id that's associated with the total aggregation option.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The total aggregation function that you want to set for a specified field id.</p>
+   * @public
+   */
+  TotalAggregationFunction: TotalAggregationFunction | undefined;
+}
+
+/**
+ * <p>The optional configuration of totals cells in a <code>PivotTableVisual</code>.</p>
+ * @public
+ */
+export interface PivotTotalOptions {
+  /**
+   * <p>The visibility configuration for the total cells.</p>
+   * @public
+   */
+  TotalsVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The placement (start, end) for the total cells.</p>
+   * @public
+   */
+  Placement?: TableTotalsPlacement | undefined;
+
+  /**
+   * <p>The scroll status (pinned, scrolled) for the total cells.</p>
+   * @public
+   */
+  ScrollStatus?: TableTotalsScrollStatus | undefined;
+
+  /**
+   * <p>The custom label string for the total cells.</p>
+   * @public
+   */
+  CustomLabel?: string | undefined;
+
+  /**
+   * <p>The cell styling options for the total cells.</p>
+   * @public
+   */
+  TotalCellStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The cell styling options for the totals of value cells.</p>
+   * @public
+   */
+  ValueCellStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The cell styling options for the total of header cells.</p>
+   * @public
+   */
+  MetricHeaderCellStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The total aggregation options for each value field.</p>
+   * @public
+   */
+  TotalAggregationOptions?: TotalAggregationOption[] | undefined;
+}
 
 /**
  * <p>The total options for a pivot table visual.</p>
@@ -285,7 +864,7 @@ export interface PivotTableConditionalFormatting {
 
 /**
  * <p>A pivot table.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  * @public
  */
 export interface PivotTableVisual {
@@ -474,7 +1053,7 @@ export interface PluginVisualConfiguration {
 
 /**
  * <p>A flexible visualization type that allows engineers
- *       to create new custom charts in QuickSight.</p>
+ *       to create new custom charts in Quick Sight.</p>
  * @public
  */
 export interface PluginVisual {
@@ -884,7 +1463,7 @@ export interface SankeyDiagramChartConfiguration {
 
 /**
  * <p>A sankey diagram.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  * @public
  */
 export interface SankeyDiagramVisual {
@@ -1107,7 +1686,7 @@ export interface ScatterPlotConfiguration {
 
 /**
  * <p>A scatter plot.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  * @public
  */
 export interface ScatterPlotVisual {
@@ -1746,7 +2325,7 @@ export interface TableConditionalFormatting {
 
 /**
  * <p>A table visual.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  * @public
  */
 export interface TableVisual {
@@ -1916,7 +2495,7 @@ export interface TreeMapConfiguration {
 
 /**
  * <p>A tree map.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  * @public
  */
 export interface TreeMapVisual {
@@ -2145,7 +2724,7 @@ export interface WaterfallChartConfiguration {
 
 /**
  * <p>A waterfall chart.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  * @public
  */
 export interface WaterfallVisual {
@@ -2393,7 +2972,7 @@ export interface WordCloudChartConfiguration {
 
 /**
  * <p>A word cloud.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  * @public
  */
 export interface WordCloudVisual {
@@ -2448,77 +3027,77 @@ export interface WordCloudVisual {
 export interface Visual {
   /**
    * <p>A table visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   TableVisual?: TableVisual | undefined;
 
   /**
    * <p>A pivot table.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   PivotTableVisual?: PivotTableVisual | undefined;
 
   /**
    * <p>A bar chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html">Using bar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html">Using bar charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   BarChartVisual?: BarChartVisual | undefined;
 
   /**
    * <p>A key performance indicator (KPI).</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/kpi.html">Using KPIs</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/kpi.html">Using KPIs</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   KPIVisual?: KPIVisual | undefined;
 
   /**
    * <p>A pie or donut chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html">Using pie charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html">Using pie charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   PieChartVisual?: PieChartVisual | undefined;
 
   /**
    * <p>A gauge chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html">Using gauge charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html">Using gauge charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   GaugeChartVisual?: GaugeChartVisual | undefined;
 
   /**
    * <p>A line chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html">Using line charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html">Using line charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   LineChartVisual?: LineChartVisual | undefined;
 
   /**
    * <p>A heat map.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html">Using heat maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html">Using heat maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   HeatMapVisual?: HeatMapVisual | undefined;
 
   /**
    * <p>A tree map.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   TreeMapVisual?: TreeMapVisual | undefined;
 
   /**
    * <p>A geospatial map or a points on map visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html">Creating point maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html">Creating point maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   GeospatialMapVisual?: GeospatialMapVisual | undefined;
 
   /**
    * <p>A filled map.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html">Creating filled maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html">Creating filled maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   FilledMapVisual?: FilledMapVisual | undefined;
@@ -2531,70 +3110,70 @@ export interface Visual {
 
   /**
    * <p>A funnel chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html">Using funnel charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html">Using funnel charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   FunnelChartVisual?: FunnelChartVisual | undefined;
 
   /**
    * <p>A scatter plot.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   ScatterPlotVisual?: ScatterPlotVisual | undefined;
 
   /**
    * <p>A combo chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html">Using combo charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html">Using combo charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   ComboChartVisual?: ComboChartVisual | undefined;
 
   /**
    * <p>A box plot.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html">Using box plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html">Using box plots</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   BoxPlotVisual?: BoxPlotVisual | undefined;
 
   /**
    * <p>A waterfall chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   WaterfallVisual?: WaterfallVisual | undefined;
 
   /**
    * <p>A histogram.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html">Using histograms</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html">Using histograms</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   HistogramVisual?: HistogramVisual | undefined;
 
   /**
    * <p>A word cloud.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   WordCloudVisual?: WordCloudVisual | undefined;
 
   /**
    * <p>An insight visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html">Working with insights</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html">Working with insights</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   InsightVisual?: InsightVisual | undefined;
 
   /**
    * <p>A sankey diagram.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   SankeyDiagramVisual?: SankeyDiagramVisual | undefined;
 
   /**
    * <p>A visual that contains custom content.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html">Using custom visual content</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html">Using custom visual content</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   CustomContentVisual?: CustomContentVisual | undefined;
@@ -2607,7 +3186,7 @@ export interface Visual {
 
   /**
    * <p>A radar chart visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html">Using radar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html">Using radar charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   RadarChartVisual?: RadarChartVisual | undefined;
@@ -2652,14 +3231,14 @@ export interface SheetDefinition {
 
   /**
    * <p>The list of parameter controls that are on a sheet.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html">Using a Control with a Parameter in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html">Using a Control with a Parameter in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   ParameterControls?: ParameterControl[] | undefined;
 
   /**
    * <p>The list of filter controls that are on a sheet.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html">Adding filter controls to analysis sheets</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html">Adding filter controls to analysis sheets</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   FilterControls?: FilterControl[] | undefined;
@@ -2684,7 +3263,7 @@ export interface SheetDefinition {
 
   /**
    * <p>Layouts define how the components of a sheet are arranged.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   Layouts?: Layout[] | undefined;
@@ -2854,14 +3433,14 @@ export interface AnalysisDefinition {
   /**
    * <p>An array of parameter declarations for an analysis.</p>
    *          <p>Parameters are named variables that can transfer a value for use by an action or an object.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   ParameterDeclarations?: ParameterDeclaration[] | undefined;
 
   /**
    * <p>Filter definitions for an analysis.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   FilterGroups?: FilterGroup[] | undefined;
@@ -2918,20 +3497,6 @@ export const AnalysisFilterAttribute = {
  * @public
  */
 export type AnalysisFilterAttribute = (typeof AnalysisFilterAttribute)[keyof typeof AnalysisFilterAttribute];
-
-/**
- * @public
- * @enum
- */
-export const FilterOperator = {
-  StringEquals: "StringEquals",
-  StringLike: "StringLike",
-} as const;
-
-/**
- * @public
- */
-export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
  * <p>A filter that you apply when searching for one or more analyses.</p>
@@ -3055,7 +3620,7 @@ export interface AnalysisSummary {
   AnalysisId?: string | undefined;
 
   /**
-   * <p>The name of the analysis. This name is displayed in the QuickSight console.
+   * <p>The name of the analysis. This name is displayed in the Quick Sight console.
    *             </p>
    * @public
    */
@@ -3175,8 +3740,12 @@ export interface AnonymousUserDashboardFeatureConfigurations {
  */
 export interface AnonymousUserDashboardEmbeddingConfiguration {
   /**
-   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is included in the output URL. When the URL in response is accessed, QuickSight renders this dashboard.</p>
-   *          <p>The Amazon Resource Name (ARN) of this dashboard must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is
+   *             included in the output URL. When the URL in response is accessed, Amazon Quick Sight
+   *             renders this dashboard.</p>
+   *          <p>The Amazon Resource Name (ARN) of this dashboard must be included in the
+   *                 <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with
+   *                 <code>InvalidParameterValueException</code>.</p>
    * @public
    */
   InitialDashboardId: string | undefined;
@@ -3204,46 +3773,63 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
  * <p>A structure that contains the following elements:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>DashboardId</code> of the dashboard that has the visual that you want to embed.</p>
+ *                <p>The <code>DashboardId</code> of the dashboard that has the visual that you
+ *                     want to embed.</p>
  *             </li>
  *             <li>
- *                <p>The <code>SheetId</code> of the sheet that has the visual that you want to embed.</p>
+ *                <p>The <code>SheetId</code> of the sheet that has the visual that you want to
+ *                     embed.</p>
  *             </li>
  *             <li>
  *                <p>The <code>VisualId</code> of the visual that you want to embed.</p>
  *             </li>
  *          </ul>
- *          <p>The <code>DashboardId</code>, <code>SheetId</code>, and <code>VisualId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
+ *          <p>The <code>DashboardId</code>, <code>SheetId</code>, and <code>VisualId</code> can be
+ *             found in the <code>IDs for developers</code> section of the <code>Embed visual</code>
+ *             pane of the visual's on-visual menu of the Amazon Quick Sight console. You can also get
+ *             the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
  * @public
  */
 export interface DashboardVisualId {
   /**
-   * <p>The ID of the dashboard that has the visual that you want to embed. The <code>DashboardId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
+   * <p>The ID of the dashboard that has the visual that you want to embed. The
+   *                 <code>DashboardId</code> can be found in the <code>IDs for developers</code> section
+   *             of the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console. You can also get the <code>DashboardId</code> with a
+   *                 <code>ListDashboards</code> API operation.</p>
    * @public
    */
   DashboardId: string | undefined;
 
   /**
-   * <p>The ID of the sheet that the has visual that you want to embed. The <code>SheetId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console.</p>
+   * <p>The ID of the sheet that the has visual that you want to embed. The
+   *                 <code>SheetId</code> can be found in the <code>IDs for developers</code> section of
+   *             the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console.</p>
    * @public
    */
   SheetId: string | undefined;
 
   /**
-   * <p>The ID of the visual that you want to embed. The <code>VisualID</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console.</p>
+   * <p>The ID of the visual that you want to embed. The <code>VisualID</code> can be found in
+   *             the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the
+   *             visual's on-visual menu of the Amazon Quick Sight console.</p>
    * @public
    */
   VisualId: string | undefined;
 }
 
 /**
- * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
+ * <p>The experience that you are embedding. You can use this object to generate a url that
+ *             embeds a visual into your application.</p>
  * @public
  */
 export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
   /**
-   * <p>The visual ID for the visual that you want the user to see. This ID is included in the output URL. When the URL in response is accessed, QuickSight renders this visual.</p>
-   *          <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   * <p>The visual ID for the visual that you want the user to see. This ID is included in the
+   *             output URL. When the URL in response is accessed, Amazon Quick Sight renders this
+   *             visual.</p>
+   *          <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be
+   *             included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request
+   *             will fail with <code>InvalidParameterValueException</code>.</p>
    * @public
    */
   InitialDashboardVisualId: DashboardVisualId | undefined;
@@ -3255,7 +3841,7 @@ export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
  */
 export interface AnonymousUserGenerativeQnAEmbeddingConfiguration {
   /**
-   * <p>The QuickSight Q topic ID of the new reader experience topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, QuickSight renders the Generative Q&A experience with this new reader experience topic pre selected.</p>
+   * <p>The Quick Sight Q topic ID of the new reader experience topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Quick Sight renders the Generative Q&A experience with this new reader experience topic pre selected.</p>
    *          <p>The Amazon Resource Name (ARN) of this Q new reader experience topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request fails with an <code>InvalidParameterValueException</code> error.</p>
    * @public
    */
@@ -3268,7 +3854,7 @@ export interface AnonymousUserGenerativeQnAEmbeddingConfiguration {
  */
 export interface AnonymousUserQSearchBarEmbeddingConfiguration {
   /**
-   * <p>The QuickSight Q topic ID of the legacy topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, QuickSight renders the Q search bar with this legacy topic pre-selected.</p>
+   * <p>The Quick Sight Q topic ID of the legacy topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Quick Sight renders the Q search bar with this legacy topic pre-selected.</p>
    *          <p>The Amazon Resource Name (ARN) of this Q legacy topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request fails with an <code>InvalidParameterValueException</code> error.</p>
    * @public
    */
@@ -3281,13 +3867,13 @@ export interface AnonymousUserQSearchBarEmbeddingConfiguration {
  */
 export interface AnonymousUserEmbeddingExperienceConfiguration {
   /**
-   * <p>The type of embedding experience. In this case, QuickSight dashboards.</p>
+   * <p>The type of embedding experience. In this case, Amazon Quick Sight dashboards.</p>
    * @public
    */
   Dashboard?: AnonymousUserDashboardEmbeddingConfiguration | undefined;
 
   /**
-   * <p>The type of embedding experience. In this case, QuickSight visuals.</p>
+   * <p>The type of embedding experience. In this case, Amazon Quick Sight visuals.</p>
    * @public
    */
   DashboardVisual?: AnonymousUserDashboardVisualEmbeddingConfiguration | undefined;
@@ -3408,7 +3994,7 @@ export interface SnapshotJobResultErrorInfo {
 }
 
 /**
- * <p>An optional structure that contains the Amazon S3 bucket configuration that the generated snapshots are stored in. If you don't provide this information, generated snapshots are stored in the default QuickSight bucket.</p>
+ * <p>An optional structure that contains the Amazon S3 bucket configuration that the generated snapshots are stored in. If you don't provide this information, generated snapshots are stored in the default Amazon Quick Sight bucket.</p>
  * @public
  */
 export interface S3BucketConfiguration {
@@ -3497,6 +4083,30 @@ export interface AnonymousUserSnapshotJobResult {
    * @public
    */
   FileGroups?: SnapshotJobResultFileGroup[] | undefined;
+}
+
+/**
+ * <p>Configuration for API key-based authentication to external services.</p>
+ * @public
+ */
+export interface APIKeyConnectionMetadata {
+  /**
+   * <p>The base URL endpoint for the external service.</p>
+   * @public
+   */
+  BaseEndpoint: string | undefined;
+
+  /**
+   * <p>The API key used for authentication.</p>
+   * @public
+   */
+  ApiKey: string | undefined;
+
+  /**
+   * <p>The email address associated with the API key, if required.</p>
+   * @public
+   */
+  Email?: string | undefined;
 }
 
 /**
@@ -3608,6 +4218,36 @@ export interface BrandElementStyle {
 }
 
 /**
+ * <p>The contextual accent palette.</p>
+ * @public
+ */
+export interface ContextualAccentPalette {
+  /**
+   * <p>The color palette.</p>
+   * @public
+   */
+  Connection?: Palette | undefined;
+
+  /**
+   * <p>The color palette.</p>
+   * @public
+   */
+  Visualization?: Palette | undefined;
+
+  /**
+   * <p>The color palette.</p>
+   * @public
+   */
+  Insight?: Palette | undefined;
+
+  /**
+   * <p>The color palette.</p>
+   * @public
+   */
+  Automation?: Palette | undefined;
+}
+
+/**
  * <p>The application theme.</p>
  * @public
  */
@@ -3617,6 +4257,12 @@ export interface ApplicationTheme {
    * @public
    */
   BrandColorPalette?: BrandColorPalette | undefined;
+
+  /**
+   * <p>The contextual accent palette.</p>
+   * @public
+   */
+  ContextualAccentPalette?: ContextualAccentPalette | undefined;
 
   /**
    * <p>The element style.</p>
@@ -3640,18 +4286,21 @@ export type AssetBundleExportJobAnalysisPropertyToOverride =
   (typeof AssetBundleExportJobAnalysisPropertyToOverride)[keyof typeof AssetBundleExportJobAnalysisPropertyToOverride];
 
 /**
- * <p>Controls how a specific <code>Analysis</code> resource is parameterized in the returned CloudFormation template.</p>
+ * <p>Controls how a specific <code>Analysis</code> resource is parameterized in the returned
+ *             CloudFormation template.</p>
  * @public
  */
 export interface AssetBundleExportJobAnalysisOverrideProperties {
   /**
-   * <p>The ARN of the specific <code>Analysis</code> resource whose override properties are configured in this structure.</p>
+   * <p>The ARN of the specific <code>Analysis</code> resource whose override properties are
+   *          configured in this structure.</p>
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>A list of <code>Analysis</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   * <p>A list of <code>Analysis</code> resource properties to generate variables for in the
+   *          returned CloudFormation template.</p>
    * @public
    */
   Properties: AssetBundleExportJobAnalysisPropertyToOverride[] | undefined;
@@ -3672,18 +4321,21 @@ export type AssetBundleExportJobDashboardPropertyToOverride =
   (typeof AssetBundleExportJobDashboardPropertyToOverride)[keyof typeof AssetBundleExportJobDashboardPropertyToOverride];
 
 /**
- * <p>Controls how a specific <code>Dashboard</code> resource is parameterized in the returned CloudFormation template.</p>
+ * <p>Controls how a specific <code>Dashboard</code> resource is parameterized in the returned
+ *             CloudFormation template.</p>
  * @public
  */
 export interface AssetBundleExportJobDashboardOverrideProperties {
   /**
-   * <p>The ARN of the specific <code>Dashboard</code> resource whose override properties are configured in this structure.</p>
+   * <p>The ARN of the specific <code>Dashboard</code> resource whose override properties are
+   *          configured in this structure.</p>
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>A list of <code>Dashboard</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   * <p>A list of <code>Dashboard</code> resource properties to generate variables for in the
+   *          returned CloudFormation template.</p>
    * @public
    */
   Properties: AssetBundleExportJobDashboardPropertyToOverride[] | undefined;
@@ -3705,18 +4357,21 @@ export type AssetBundleExportJobDataSetPropertyToOverride =
   (typeof AssetBundleExportJobDataSetPropertyToOverride)[keyof typeof AssetBundleExportJobDataSetPropertyToOverride];
 
 /**
- * <p>Controls how a specific <code>DataSet</code> resource is parameterized in the returned CloudFormation template.</p>
+ * <p>Controls how a specific <code>DataSet</code> resource is parameterized in the returned
+ *             CloudFormation template.</p>
  * @public
  */
 export interface AssetBundleExportJobDataSetOverrideProperties {
   /**
-   * <p>The ARN of the specific <code>DataSet</code> resource whose override properties are configured in this structure.</p>
+   * <p>The ARN of the specific <code>DataSet</code> resource whose override properties are
+   *          configured in this structure.</p>
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>A list of <code>DataSet</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   * <p>A list of <code>DataSet</code> resource properties to generate variables for in the
+   *          returned CloudFormation template.</p>
    * @public
    */
   Properties: AssetBundleExportJobDataSetPropertyToOverride[] | undefined;
@@ -3754,18 +4409,21 @@ export type AssetBundleExportJobDataSourcePropertyToOverride =
   (typeof AssetBundleExportJobDataSourcePropertyToOverride)[keyof typeof AssetBundleExportJobDataSourcePropertyToOverride];
 
 /**
- * <p>Controls how a specific <code>DataSource</code> resource is parameterized in the returned CloudFormation template.</p>
+ * <p>Controls how a specific <code>DataSource</code> resource is parameterized in the
+ *          returned CloudFormation template.</p>
  * @public
  */
 export interface AssetBundleExportJobDataSourceOverrideProperties {
   /**
-   * <p>The ARN of the specific <code>DataSource</code> resource whose override properties are configured in this structure.</p>
+   * <p>The ARN of the specific <code>DataSource</code> resource whose override properties are
+   *          configured in this structure.</p>
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>A list of <code>DataSource</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   * <p>A list of <code>DataSource</code> resource properties to generate variables for in the
+   *          returned CloudFormation template.</p>
    * @public
    */
   Properties: AssetBundleExportJobDataSourcePropertyToOverride[] | undefined;
@@ -3787,18 +4445,21 @@ export type AssetBundleExportJobFolderPropertyToOverride =
   (typeof AssetBundleExportJobFolderPropertyToOverride)[keyof typeof AssetBundleExportJobFolderPropertyToOverride];
 
 /**
- * <p>Controls how a specific <code>Folder</code> resource is parameterized in the returned CloudFormation template.</p>
+ * <p>Controls how a specific <code>Folder</code> resource is parameterized in the returned
+ *             CloudFormation template.</p>
  * @public
  */
 export interface AssetBundleExportJobFolderOverrideProperties {
   /**
-   * <p>The ARN of the specific <code>Folder</code> resource whose override properties are configured in this structure.</p>
+   * <p>The ARN of the specific <code>Folder</code> resource whose override properties are
+   *          configured in this structure.</p>
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>A list of <code>Folder</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   * <p>A list of <code>Folder</code> resource properties to generate variables for in the
+   *          returned CloudFormation template.</p>
    * @public
    */
   Properties: AssetBundleExportJobFolderPropertyToOverride[] | undefined;
@@ -3819,18 +4480,21 @@ export type AssetBundleExportJobRefreshSchedulePropertyToOverride =
   (typeof AssetBundleExportJobRefreshSchedulePropertyToOverride)[keyof typeof AssetBundleExportJobRefreshSchedulePropertyToOverride];
 
 /**
- * <p>Controls how a specific <code>RefreshSchedule</code> resource is parameterized in the returned CloudFormation template.</p>
+ * <p>Controls how a specific <code>RefreshSchedule</code> resource is parameterized in the
+ *          returned CloudFormation template.</p>
  * @public
  */
 export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
   /**
-   * <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties are configured in this structure.</p>
+   * <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties
+   *          are configured in this structure.</p>
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   * <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in
+   *          the returned CloudFormation template.</p>
    * @public
    */
   Properties: AssetBundleExportJobRefreshSchedulePropertyToOverride[] | undefined;
@@ -3842,7 +4506,9 @@ export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
  */
 export interface AssetBundleExportJobResourceIdOverrideConfiguration {
   /**
-   * <p>An option to request a CloudFormation variable for a prefix to be prepended to each resource's ID before import. The prefix is only added to the asset IDs and does not change the name of the asset.</p>
+   * <p>An option to request a CloudFormation variable for a prefix to be prepended to each
+   *          resource's ID before import. The prefix is only added to the asset IDs and does not
+   *          change the name of the asset.</p>
    * @public
    */
   PrefixForAllResources?: boolean | undefined;
@@ -3863,18 +4529,21 @@ export type AssetBundleExportJobThemePropertyToOverride =
   (typeof AssetBundleExportJobThemePropertyToOverride)[keyof typeof AssetBundleExportJobThemePropertyToOverride];
 
 /**
- * <p>Controls how a specific <code>Theme</code> resource is parameterized in the returned CloudFormation template.</p>
+ * <p>Controls how a specific <code>Theme</code> resource is parameterized in the returned
+ *             CloudFormation template.</p>
  * @public
  */
 export interface AssetBundleExportJobThemeOverrideProperties {
   /**
-   * <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
+   * <p>The ARN of the specific <code>Theme</code> resource whose override properties are
+   *          configured in this structure.</p>
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   * <p>A list of <code>Theme</code> resource properties to generate variables for in the
+   *          returned CloudFormation template.</p>
    * @public
    */
   Properties: AssetBundleExportJobThemePropertyToOverride[] | undefined;
@@ -3897,78 +4566,91 @@ export type AssetBundleExportJobVPCConnectionPropertyToOverride =
   (typeof AssetBundleExportJobVPCConnectionPropertyToOverride)[keyof typeof AssetBundleExportJobVPCConnectionPropertyToOverride];
 
 /**
- * <p>Controls how a specific <code>VPCConnection</code> resource is parameterized in the outputted CloudFormation template.</p>
+ * <p>Controls how a specific <code>VPCConnection</code> resource is parameterized in the
+ *          outputted CloudFormation template.</p>
  * @public
  */
 export interface AssetBundleExportJobVPCConnectionOverrideProperties {
   /**
-   * <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
+   * <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties
+   *          are configured in this structure.</p>
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   * <p>A list of <code>VPCConnection</code> resource properties to generate variables for in
+   *          the returned CloudFormation template.</p>
    * @public
    */
   Properties: AssetBundleExportJobVPCConnectionPropertyToOverride[] | undefined;
 }
 
 /**
- * <p>An optional collection of CloudFormation property configurations that control how the export job is generated.</p>
+ * <p>An optional collection of CloudFormation property configurations that control how
+ *          the export job is generated.</p>
  * @public
  */
 export interface AssetBundleCloudFormationOverridePropertyConfiguration {
   /**
-   * <p>An optional list of structures that control how resource IDs are parameterized in the returned CloudFormation template.</p>
+   * <p>An optional list of structures that control how resource IDs are parameterized in the
+   *          returned CloudFormation template.</p>
    * @public
    */
   ResourceIdOverrideConfiguration?: AssetBundleExportJobResourceIdOverrideConfiguration | undefined;
 
   /**
-   * <p>An optional list of structures that control how <code>VPCConnection</code> resources are parameterized in the returned CloudFormation template.</p>
+   * <p>An optional list of structures that control how <code>VPCConnection</code> resources are
+   *          parameterized in the returned CloudFormation template.</p>
    * @public
    */
   VPCConnections?: AssetBundleExportJobVPCConnectionOverrideProperties[] | undefined;
 
   /**
-   * <p>An optional list of structures that control how <code>RefreshSchedule</code> resources are parameterized in the returned CloudFormation template.</p>
+   * <p>An optional list of structures that control how <code>RefreshSchedule</code> resources
+   *          are parameterized in the returned CloudFormation template.</p>
    * @public
    */
   RefreshSchedules?: AssetBundleExportJobRefreshScheduleOverrideProperties[] | undefined;
 
   /**
-   * <p>An optional list of structures that control how <code>DataSource</code> resources are parameterized in the returned CloudFormation template.</p>
+   * <p>An optional list of structures that control how <code>DataSource</code> resources are
+   *          parameterized in the returned CloudFormation template.</p>
    * @public
    */
   DataSources?: AssetBundleExportJobDataSourceOverrideProperties[] | undefined;
 
   /**
-   * <p>An optional list of structures that control how <code>DataSet</code> resources are parameterized in the returned CloudFormation template.</p>
+   * <p>An optional list of structures that control how <code>DataSet</code> resources are
+   *          parameterized in the returned CloudFormation template.</p>
    * @public
    */
   DataSets?: AssetBundleExportJobDataSetOverrideProperties[] | undefined;
 
   /**
-   * <p>An optional list of structures that control how <code>Theme</code> resources are parameterized in the returned CloudFormation template.</p>
+   * <p>An optional list of structures that control how <code>Theme</code> resources are
+   *          parameterized in the returned CloudFormation template.</p>
    * @public
    */
   Themes?: AssetBundleExportJobThemeOverrideProperties[] | undefined;
 
   /**
-   * <p>An optional list of structures that control how <code>Analysis</code> resources are parameterized in the returned CloudFormation template.</p>
+   * <p>An optional list of structures that control how <code>Analysis</code> resources are
+   *          parameterized in the returned CloudFormation template.</p>
    * @public
    */
   Analyses?: AssetBundleExportJobAnalysisOverrideProperties[] | undefined;
 
   /**
-   * <p>An optional list of structures that control how <code>Dashboard</code> resources are parameterized in the returned CloudFormation template.</p>
+   * <p>An optional list of structures that control how <code>Dashboard</code> resources are
+   *          parameterized in the returned CloudFormation template.</p>
    * @public
    */
   Dashboards?: AssetBundleExportJobDashboardOverrideProperties[] | undefined;
 
   /**
-   * <p>An optional list of structures that controls how <code>Folder</code> resources are parameterized in the returned CloudFormation template.</p>
+   * <p>An optional list of structures that controls how <code>Folder</code> resources are
+   *          parameterized in the returned CloudFormation template.</p>
    * @public
    */
   Folders?: AssetBundleExportJobFolderOverrideProperties[] | undefined;
@@ -4029,7 +4711,8 @@ export const AssetBundleExportJobStatus = {
 export type AssetBundleExportJobStatus = (typeof AssetBundleExportJobStatus)[keyof typeof AssetBundleExportJobStatus];
 
 /**
- * <p>A summary of the export job that includes details of the job's configuration and its current status.</p>
+ * <p>A summary of the export job that includes details of the job's configuration and
+ *          its current status.</p>
  * @public
  */
 export interface AssetBundleExportJobSummary {
@@ -4058,7 +4741,8 @@ export interface AssetBundleExportJobSummary {
   AssetBundleExportJobId?: string | undefined;
 
   /**
-   * <p>The flag that determines the inclusion of resource dependencies in the returned asset bundle.</p>
+   * <p>The flag that determines the inclusion of resource dependencies in the returned asset
+   *          bundle.</p>
    * @public
    */
   IncludeAllDependencies?: boolean | undefined;
@@ -4070,7 +4754,8 @@ export interface AssetBundleExportJobSummary {
   ExportFormat?: AssetBundleExportFormat | undefined;
 
   /**
-   * <p>The flag that determines the inclusion of permissions associated with each resource ARN.</p>
+   * <p>The flag that determines the inclusion of permissions associated with each resource
+   *          ARN.</p>
    * @public
    */
   IncludePermissions?: boolean | undefined;
@@ -4083,12 +4768,15 @@ export interface AssetBundleExportJobSummary {
 }
 
 /**
- * <p>The option to relax the validation that is required to export each asset. When <code>StrictModeForAllResource</code> is set to <code>false</code>, validation is skipped for specific UI errors.</p>
+ * <p>The option to relax the validation that is required to export each asset. When
+ *             <code>StrictModeForAllResource</code> is set to <code>false</code>, validation is
+ *          skipped for specific UI errors.</p>
  * @public
  */
 export interface AssetBundleExportJobValidationStrategy {
   /**
-   * <p>A Boolean value that indicates whether to export resources under strict or lenient mode.</p>
+   * <p>A Boolean value that indicates whether to export resources under strict or lenient
+   *          mode.</p>
    * @public
    */
   StrictModeForAllResources?: boolean | undefined;
@@ -4146,7 +4834,8 @@ export interface AssetBundleImportJobAnalysisOverrideParameters {
 }
 
 /**
- * <p>A structure that contains the permissions for the resource that you want to override in an asset bundle import job.</p>
+ * <p>A structure that contains the permissions for the resource that you want to override in
+ *          an asset bundle import job.</p>
  * @public
  */
 export interface AssetBundleResourcePermissions {
@@ -4164,12 +4853,14 @@ export interface AssetBundleResourcePermissions {
 }
 
 /**
- * <p>An object that contains a list of permissions to be applied to a list of analysis IDs.</p>
+ * <p>An object that contains a list of permissions to be applied to a list of analysis
+ *          IDs.</p>
  * @public
  */
 export interface AssetBundleImportJobAnalysisOverridePermissions {
   /**
-   * <p>A list of analysis IDs that you want to apply overrides to. You can use <code>*</code> to override all analyses in this asset bundle.</p>
+   * <p>A list of analysis IDs that you want to apply overrides to. You can use <code>*</code>
+   *          to override all analyses in this asset bundle.</p>
    * @public
    */
   AnalysisIds: string[] | undefined;
@@ -4206,7 +4897,8 @@ export interface Tag {
  */
 export interface AssetBundleImportJobAnalysisOverrideTags {
   /**
-   * <p>A list of analysis IDs that you want to apply overrides to. You can use <code>*</code> to override all analyses in this asset bundle.</p>
+   * <p>A list of analysis IDs that you want to apply overrides to. You can use <code>*</code>
+   *          to override all analyses in this asset bundle.</p>
    * @public
    */
   AnalysisIds: string[] | undefined;
@@ -4237,24 +4929,28 @@ export interface AssetBundleImportJobDashboardOverrideParameters {
 }
 
 /**
- * <p>A structure that contains the configuration of a shared link to an QuickSight dashboard.</p>
+ * <p>A structure that contains the configuration of a shared link to an Amazon Quick Sight
+ *          dashboard.</p>
  * @public
  */
 export interface AssetBundleResourceLinkSharingConfiguration {
   /**
-   * <p>A list of link sharing permissions for the dashboards that you want to apply overrides to.</p>
+   * <p>A list of link sharing permissions for the dashboards that you want to apply overrides
+   *          to.</p>
    * @public
    */
   Permissions?: AssetBundleResourcePermissions | undefined;
 }
 
 /**
- * <p>An object that contains a list of permissions to be applied to a list of dashboard IDs.</p>
+ * <p>An object that contains a list of permissions to be applied to a list of dashboard
+ *          IDs.</p>
  * @public
  */
 export interface AssetBundleImportJobDashboardOverridePermissions {
   /**
-   * <p>A list of dashboard IDs that you want to apply overrides to. You can use <code>*</code> to override all dashboards in this asset bundle.</p>
+   * <p>A list of dashboard IDs that you want to apply overrides to. You can use <code>*</code>
+   *          to override all dashboards in this asset bundle.</p>
    * @public
    */
   DashboardIds: string[] | undefined;
@@ -4266,7 +4962,8 @@ export interface AssetBundleImportJobDashboardOverridePermissions {
   Permissions?: AssetBundleResourcePermissions | undefined;
 
   /**
-   * <p>A structure that contains the link sharing configurations that you want to apply overrides to.</p>
+   * <p>A structure that contains the link sharing configurations that you want to apply
+   *          overrides to.</p>
    * @public
    */
   LinkSharingConfiguration?: AssetBundleResourceLinkSharingConfiguration | undefined;
@@ -4278,7 +4975,8 @@ export interface AssetBundleImportJobDashboardOverridePermissions {
  */
 export interface AssetBundleImportJobDashboardOverrideTags {
   /**
-   * <p>A list of dashboard IDs that you want to apply overrides to. You can use <code>*</code> to override all dashboards in this asset bundle.</p>
+   * <p>A list of dashboard IDs that you want to apply overrides to. You can use <code>*</code>
+   *          to override all dashboards in this asset bundle.</p>
    * @public
    */
   DashboardIds: string[] | undefined;
@@ -4434,12 +5132,14 @@ export interface AssetBundleImportJobDataSetOverrideParameters {
 }
 
 /**
- * <p>An object that contains a list of permissions to be applied to a list of dataset IDs.</p>
+ * <p>An object that contains a list of permissions to be applied to a list of dataset
+ *          IDs.</p>
  * @public
  */
 export interface AssetBundleImportJobDataSetOverridePermissions {
   /**
-   * <p>A list of dataset IDs that you want to apply overrides to. You can use <code>*</code> to override all datasets in this asset bundle.</p>
+   * <p>A list of dataset IDs that you want to apply overrides to. You can use <code>*</code> to
+   *          override all datasets in this asset bundle.</p>
    * @public
    */
   DataSetIds: string[] | undefined;
@@ -4457,7 +5157,8 @@ export interface AssetBundleImportJobDataSetOverridePermissions {
  */
 export interface AssetBundleImportJobDataSetOverrideTags {
   /**
-   * <p>A list of dataset IDs that you want to apply overrides to. You can use <code>*</code> to override all datasets in this asset bundle.</p>
+   * <p>A list of dataset IDs that you want to apply overrides to. You can use <code>*</code> to
+   *          override all datasets in this asset bundle.</p>
    * @public
    */
   DataSetIds: string[] | undefined;
@@ -4493,13 +5194,16 @@ export interface AssetBundleImportJobDataSourceCredentialPair {
  */
 export interface AssetBundleImportJobDataSourceCredentials {
   /**
-   * <p>A username and password credential pair to be used to create the imported data source. Keep this field blank if you are using a Secrets Manager secret to provide credentials.</p>
+   * <p>A username and password credential pair to be used to create the imported data source.
+   *          Keep this field blank if you are using a Secrets Manager secret to provide
+   *          credentials.</p>
    * @public
    */
   CredentialPair?: AssetBundleImportJobDataSourceCredentialPair | undefined;
 
   /**
-   * <p>The ARN of the Secrets Manager secret that's used to create the imported data source. Keep this field blank, unless you are using a secret in place of a credential pair.</p>
+   * <p>The ARN of the Secrets Manager secret that's used to create the imported data source.
+   *          Keep this field blank, unless you are using a secret in place of a credential pair.</p>
    * @public
    */
   SecretArn?: string | undefined;
@@ -4535,8 +5239,8 @@ export interface AthenaParameters {
   RoleArn?: string | undefined;
 
   /**
-   * <p>An optional parameter that configures IAM Identity Center authentication to grant QuickSight access to your workgroup.</p>
-   *          <p>This parameter can only be specified if your QuickSight account is configured with IAM Identity Center.</p>
+   * <p>An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.</p>
+   *          <p>This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.</p>
    * @public
    */
   IdentityCenterConfiguration?: IdentityCenterConfiguration | undefined;
@@ -4618,6 +5322,18 @@ export interface BigQueryParameters {
    * @public
    */
   DataSetRegion?: string | undefined;
+}
+
+/**
+ * <p>The parameters that are required to connect to a Confluence data source</p>
+ * @public
+ */
+export interface ConfluenceParameters {
+  /**
+   * <p>The URL of the Confluence site to connect to.</p>
+   * @public
+   */
+  ConfluenceUrl: string | undefined;
 }
 
 /**
@@ -4843,6 +5559,18 @@ export interface PrestoParameters {
 }
 
 /**
+ * <p>The parameters that are required to connect to an Amazon Q Business data source.</p>
+ * @public
+ */
+export interface QBusinessParameters {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application.</p>
+   * @public
+   */
+  ApplicationArn: string | undefined;
+}
+
+/**
  * <p>The parameters for Amazon RDS.</p>
  * @public
  */
@@ -4861,32 +5589,32 @@ export interface RdsParameters {
 }
 
 /**
- * <p>A structure that grants QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+ * <p>A structure that grants Quick Sight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
  *                <code>GetClusterCredentials</code>
  *             </a>.</p>
  * @public
  */
 export interface RedshiftIAMParameters {
   /**
-   * <p>Use the <code>RoleArn</code> structure to allow QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to QuickSight. The role's trust policy must allow the QuickSight service principal to assume the role.</p>
+   * <p>Use the <code>RoleArn</code> structure to allow Quick Sight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Quick Sight. The role's trust policy must allow the Quick Sight service principal to assume the role.</p>
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The user whose permissions and group memberships will be used by QuickSight to access the cluster. If this user already exists in your database, QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+   * <p>The user whose permissions and group memberships will be used by Quick Sight to access the cluster. If this user already exists in your database, Amazon Quick Sight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
    * @public
    */
   DatabaseUser?: string | undefined;
 
   /**
-   * <p>A list of groups whose permissions will be granted to QuickSight to access the cluster. These permissions are combined with the permissions granted to QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+   * <p>A list of groups whose permissions will be granted to Quick Sight to access the cluster. These permissions are combined with the permissions granted to Quick Sight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
    * @public
    */
   DatabaseGroups?: string[] | undefined;
 
   /**
-   * <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+   * <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Quick Sight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
    * @public
    */
   AutoCreateDatabaseUser?: boolean | undefined;
@@ -4924,17 +5652,41 @@ export interface RedshiftParameters {
   ClusterId?: string | undefined;
 
   /**
-   * <p>An optional parameter that uses IAM authentication to grant QuickSight access to your cluster. This parameter can be used instead of <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html">DataSourceCredentials</a>.</p>
+   * <p>An optional parameter that uses IAM authentication to grant Quick Sight access to your cluster. This parameter can be used instead of <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html">DataSourceCredentials</a>.</p>
    * @public
    */
   IAMParameters?: RedshiftIAMParameters | undefined;
 
   /**
-   * <p>An optional parameter that configures IAM Identity Center authentication to grant QuickSight access to your cluster.</p>
-   *          <p>This parameter can only be specified if your QuickSight account is configured with IAM Identity Center.</p>
+   * <p>An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your cluster.</p>
+   *          <p>This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.</p>
    * @public
    */
   IdentityCenterConfiguration?: IdentityCenterConfiguration | undefined;
+}
+
+/**
+ * <p>The parameters that are required to connect to a S3 Knowledge Base data source.</p>
+ * @public
+ */
+export interface S3KnowledgeBaseParameters {
+  /**
+   * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 Knowledge Base data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 Knowledge Base data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The URL of the S3 bucket that contains the knowledge base data.</p>
+   * @public
+   */
+  BucketUrl: string | undefined;
+
+  /**
+   * <p>The location of metadata files within the S3 bucket that describe the structure and content of the knowledge base.</p>
+   * @public
+   */
+  MetadataFilesLocation?: string | undefined;
 }
 
 /**
@@ -4962,7 +5714,7 @@ export interface ManifestFileLocation {
 export interface S3Parameters {
   /**
    * <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was
-   *             uploaded into QuickSight.</p>
+   *             uploaded into Quick Sight.</p>
    * @public
    */
   ManifestFileLocation: ManifestFileLocation | undefined;
@@ -5079,7 +5831,7 @@ export interface SnowflakeParameters {
   DatabaseAccessControlRole?: string | undefined;
 
   /**
-   * <p>An object that contains information needed to create a data source connection between an QuickSight account and Snowflake.</p>
+   * <p>An object that contains information needed to create a data source connection between an Quick Sight account and Snowflake.</p>
    * @public
    */
   OAuthParameters?: OAuthParameters | undefined;
@@ -5183,7 +5935,7 @@ export interface StarburstParameters {
   AuthenticationType?: AuthenticationType | undefined;
 
   /**
-   * <p>An object that contains information needed to create a data source connection between an QuickSight account and Starburst.</p>
+   * <p>An object that contains information needed to create a data source connection between an Quick Sight account and Starburst.</p>
    * @public
    */
   OAuthParameters?: OAuthParameters | undefined;
@@ -5256,7 +6008,95 @@ export interface TwitterParameters {
 }
 
 /**
- * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+ * @public
+ * @enum
+ */
+export const WebCrawlerAuthType = {
+  BASIC_AUTH: "BASIC_AUTH",
+  FORM: "FORM",
+  NO_AUTH: "NO_AUTH",
+  SAML: "SAML",
+} as const;
+
+/**
+ * @public
+ */
+export type WebCrawlerAuthType = (typeof WebCrawlerAuthType)[keyof typeof WebCrawlerAuthType];
+
+/**
+ * <p>The parameters for a web crawler data source.</p>
+ * @public
+ */
+export interface WebCrawlerParameters {
+  /**
+   * <p>The authentication type for the web crawler. The type can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NO_AUTH</code>: No authentication required.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BASIC_AUTH</code>: Basic authentication using username and password.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAML</code>: SAML-based authentication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FORM</code>: Form-based authentication.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  WebCrawlerAuthType: WebCrawlerAuthType | undefined;
+
+  /**
+   * <p>The XPath expression for locating the username field on the login page.</p>
+   * @public
+   */
+  UsernameFieldXpath?: string | undefined;
+
+  /**
+   * <p>The XPath expression for locating the password field on the login page.</p>
+   * @public
+   */
+  PasswordFieldXpath?: string | undefined;
+
+  /**
+   * <p>The XPath expression for locating the username submit button on the login page.</p>
+   * @public
+   */
+  UsernameButtonXpath?: string | undefined;
+
+  /**
+   * <p>The XPath expression for locating the password submit button on the login page.</p>
+   * @public
+   */
+  PasswordButtonXpath?: string | undefined;
+
+  /**
+   * <p>The URL of the login page for the web crawler to authenticate.</p>
+   * @public
+   */
+  LoginPageUrl?: string | undefined;
+
+  /**
+   * <p>The hostname of the web proxy server for the web crawler.</p>
+   * @public
+   */
+  WebProxyHostName?: string | undefined;
+
+  /**
+   * <p>The port number of the web proxy server for the web crawler.</p>
+   * @public
+   */
+  WebProxyPortNumber?: number | undefined;
+}
+
+/**
+ * <p>The parameters that Quick Sight uses to connect to your underlying data source.
  *             This is a variant type structure. For this structure to be valid, only one of the
  *             attributes can be non-null.</p>
  * @public
@@ -5269,6 +6109,7 @@ export type DataSourceParameters =
   | DataSourceParameters.AuroraPostgreSqlParametersMember
   | DataSourceParameters.AwsIotAnalyticsParametersMember
   | DataSourceParameters.BigQueryParametersMember
+  | DataSourceParameters.ConfluenceParametersMember
   | DataSourceParameters.CustomConnectionParametersMember
   | DataSourceParameters.DatabricksParametersMember
   | DataSourceParameters.ExasolParametersMember
@@ -5279,8 +6120,10 @@ export type DataSourceParameters =
   | DataSourceParameters.OracleParametersMember
   | DataSourceParameters.PostgreSqlParametersMember
   | DataSourceParameters.PrestoParametersMember
+  | DataSourceParameters.QBusinessParametersMember
   | DataSourceParameters.RdsParametersMember
   | DataSourceParameters.RedshiftParametersMember
+  | DataSourceParameters.S3KnowledgeBaseParametersMember
   | DataSourceParameters.S3ParametersMember
   | DataSourceParameters.ServiceNowParametersMember
   | DataSourceParameters.SnowflakeParametersMember
@@ -5290,6 +6133,7 @@ export type DataSourceParameters =
   | DataSourceParameters.TeradataParametersMember
   | DataSourceParameters.TrinoParametersMember
   | DataSourceParameters.TwitterParametersMember
+  | DataSourceParameters.WebCrawlerParametersMember
   | DataSourceParameters.$UnknownMember;
 
 /**
@@ -5315,6 +6159,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5329,6 +6174,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5351,6 +6199,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5365,6 +6214,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5387,6 +6239,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5401,6 +6254,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5423,6 +6279,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5437,6 +6294,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5459,6 +6319,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5473,6 +6334,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5495,6 +6359,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5509,6 +6374,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5531,6 +6399,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5545,6 +6414,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5567,6 +6439,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5581,6 +6454,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5603,6 +6479,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5617,6 +6494,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5639,6 +6519,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5653,6 +6534,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5675,6 +6559,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5689,6 +6574,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5711,6 +6599,7 @@ export namespace DataSourceParameters {
     RdsParameters: RdsParameters;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5725,6 +6614,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5747,6 +6639,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters: RedshiftParameters;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5761,6 +6654,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5783,6 +6679,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters: S3Parameters;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5797,6 +6694,49 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for S3 Knowledge Base.</p>
+   * @public
+   */
+  export interface S3KnowledgeBaseParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    S3KnowledgeBaseParameters: S3KnowledgeBaseParameters;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5819,6 +6759,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters: ServiceNowParameters;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5833,6 +6774,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5855,6 +6799,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters: SnowflakeParameters;
     SparkParameters?: never;
@@ -5869,6 +6814,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5891,6 +6839,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters: SparkParameters;
@@ -5905,6 +6854,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5927,6 +6879,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5941,6 +6894,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5963,6 +6919,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -5977,6 +6934,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -5999,6 +6959,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -6013,6 +6974,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -6035,6 +6999,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -6049,6 +7014,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -6071,6 +7039,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -6085,6 +7054,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -6107,6 +7079,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -6121,6 +7094,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -6143,6 +7119,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -6157,6 +7134,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -6179,6 +7159,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -6193,6 +7174,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -6215,6 +7199,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -6229,6 +7214,9 @@ export namespace DataSourceParameters {
     BigQueryParameters: BigQueryParameters;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -6251,6 +7239,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -6265,6 +7254,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters: ImpalaParameters;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown?: never;
   }
 
@@ -6287,6 +7279,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -6301,6 +7294,129 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters: CustomConnectionParameters;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Web Crawler.</p>
+   * @public
+   */
+  export interface WebCrawlerParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
+    WebCrawlerParameters: WebCrawlerParameters;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Confluence.</p>
+   * @public
+   */
+  export interface ConfluenceParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters: ConfluenceParameters;
+    QBusinessParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for Amazon Q Business.</p>
+   * @public
+   */
+  export interface QBusinessParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters: QBusinessParameters;
     $unknown?: never;
   }
 
@@ -6322,6 +7438,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
     SparkParameters?: never;
@@ -6336,6 +7453,9 @@ export namespace DataSourceParameters {
     BigQueryParameters?: never;
     ImpalaParameters?: never;
     CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
     $unknown: [string, any];
   }
 
@@ -6354,6 +7474,7 @@ export namespace DataSourceParameters {
     RdsParameters: (value: RdsParameters) => T;
     RedshiftParameters: (value: RedshiftParameters) => T;
     S3Parameters: (value: S3Parameters) => T;
+    S3KnowledgeBaseParameters: (value: S3KnowledgeBaseParameters) => T;
     ServiceNowParameters: (value: ServiceNowParameters) => T;
     SnowflakeParameters: (value: SnowflakeParameters) => T;
     SparkParameters: (value: SparkParameters) => T;
@@ -6368,6 +7489,9 @@ export namespace DataSourceParameters {
     BigQueryParameters: (value: BigQueryParameters) => T;
     ImpalaParameters: (value: ImpalaParameters) => T;
     CustomConnectionParameters: (value: CustomConnectionParameters) => T;
+    WebCrawlerParameters: (value: WebCrawlerParameters) => T;
+    ConfluenceParameters: (value: ConfluenceParameters) => T;
+    QBusinessParameters: (value: QBusinessParameters) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -6389,6 +7513,8 @@ export namespace DataSourceParameters {
     if (value.RdsParameters !== undefined) return visitor.RdsParameters(value.RdsParameters);
     if (value.RedshiftParameters !== undefined) return visitor.RedshiftParameters(value.RedshiftParameters);
     if (value.S3Parameters !== undefined) return visitor.S3Parameters(value.S3Parameters);
+    if (value.S3KnowledgeBaseParameters !== undefined)
+      return visitor.S3KnowledgeBaseParameters(value.S3KnowledgeBaseParameters);
     if (value.ServiceNowParameters !== undefined) return visitor.ServiceNowParameters(value.ServiceNowParameters);
     if (value.SnowflakeParameters !== undefined) return visitor.SnowflakeParameters(value.SnowflakeParameters);
     if (value.SparkParameters !== undefined) return visitor.SparkParameters(value.SparkParameters);
@@ -6405,12 +7531,15 @@ export namespace DataSourceParameters {
     if (value.ImpalaParameters !== undefined) return visitor.ImpalaParameters(value.ImpalaParameters);
     if (value.CustomConnectionParameters !== undefined)
       return visitor.CustomConnectionParameters(value.CustomConnectionParameters);
+    if (value.WebCrawlerParameters !== undefined) return visitor.WebCrawlerParameters(value.WebCrawlerParameters);
+    if (value.ConfluenceParameters !== undefined) return visitor.ConfluenceParameters(value.ConfluenceParameters);
+    if (value.QBusinessParameters !== undefined) return visitor.QBusinessParameters(value.QBusinessParameters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
 
 /**
- * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+ * <p>Secure Socket Layer (SSL) properties that apply when Quick Sight connects to your
  *             underlying data source.</p>
  * @public
  */
@@ -6440,7 +7569,7 @@ export interface AssetBundleImportJobDataSourceOverrideParameters {
   Name?: string | undefined;
 
   /**
-   * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+   * <p>The parameters that Quick Sight uses to connect to your underlying data source.
    *             This is a variant type structure. For this structure to be valid, only one of the
    *             attributes can be non-null.</p>
    * @public
@@ -6454,26 +7583,29 @@ export interface AssetBundleImportJobDataSourceOverrideParameters {
   VpcConnectionProperties?: VpcConnectionProperties | undefined;
 
   /**
-   * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+   * <p>Secure Socket Layer (SSL) properties that apply when Quick Sight connects to your
    *             underlying data source.</p>
    * @public
    */
   SslProperties?: SslProperties | undefined;
 
   /**
-   * <p>An optional structure that provides the credentials to be used to create the imported data source.</p>
+   * <p>An optional structure that provides the credentials to be used to create the imported
+   *          data source.</p>
    * @public
    */
   Credentials?: AssetBundleImportJobDataSourceCredentials | undefined;
 }
 
 /**
- * <p>An object that contains a list of permissions to be applied to a list of data source IDs.</p>
+ * <p>An object that contains a list of permissions to be applied to a list of data source
+ *          IDs.</p>
  * @public
  */
 export interface AssetBundleImportJobDataSourceOverridePermissions {
   /**
-   * <p>A list of data source IDs that you want to apply overrides to. You can use <code>*</code> to override all data sources in this asset bundle.</p>
+   * <p>A list of data source IDs that you want to apply overrides to. You can use
+   *             <code>*</code> to override all data sources in this asset bundle.</p>
    * @public
    */
   DataSourceIds: string[] | undefined;
@@ -6486,12 +7618,14 @@ export interface AssetBundleImportJobDataSourceOverridePermissions {
 }
 
 /**
- * <p>An object that contains a list of tags to be assigned to a list of data source IDs.</p>
+ * <p>An object that contains a list of tags to be assigned to a list of data source
+ *          IDs.</p>
  * @public
  */
 export interface AssetBundleImportJobDataSourceOverrideTags {
   /**
-   * <p>A list of data source IDs that you want to apply overrides to. You can use <code>*</code> to override all data sources in this asset bundle.</p>
+   * <p>A list of data source IDs that you want to apply overrides to. You can use
+   *             <code>*</code> to override all data sources in this asset bundle.</p>
    * @public
    */
   DataSourceIds: string[] | undefined;
@@ -6545,25 +7679,29 @@ export interface AssetBundleImportJobFolderOverrideParameters {
   Name?: string | undefined;
 
   /**
-   * <p>A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.</p>
+   * <p>A new parent folder arn. This change can only be applied if the import creates a brand
+   *          new folder. Existing folders cannot be moved.</p>
    * @public
    */
   ParentFolderArn?: string | undefined;
 }
 
 /**
- * <p>An object that contains a list of permissions to be applied to a list of folder IDs.</p>
+ * <p>An object that contains a list of permissions to be applied to a list of folder
+ *          IDs.</p>
  * @public
  */
 export interface AssetBundleImportJobFolderOverridePermissions {
   /**
-   * <p>A list of folder IDs that you want to apply overrides to. You can use <code>*</code> to override all folders in this asset bundle.</p>
+   * <p>A list of folder IDs that you want to apply overrides to. You can use <code>*</code> to
+   *          override all folders in this asset bundle.</p>
    * @public
    */
   FolderIds: string[] | undefined;
 
   /**
-   * <p>A structure that contains the permissions for the resource that you want to override in an asset bundle import job.</p>
+   * <p>A structure that contains the permissions for the resource that you want to override in
+   *          an asset bundle import job.</p>
    * @public
    */
   Permissions?: AssetBundleResourcePermissions | undefined;
@@ -6575,7 +7713,8 @@ export interface AssetBundleImportJobFolderOverridePermissions {
  */
 export interface AssetBundleImportJobFolderOverrideTags {
   /**
-   * <p>A list of folder IDs that you want to apply overrides to. You can use <code>*</code> to override all folders in this asset bundle.</p>
+   * <p>A list of folder IDs that you want to apply overrides to. You can use <code>*</code> to
+   *          override all folders in this asset bundle.</p>
    * @public
    */
   FolderIds: string[] | undefined;
@@ -6588,26 +7727,31 @@ export interface AssetBundleImportJobFolderOverrideTags {
 }
 
 /**
- * <p>A list of overrides for a specific <code>RefreshsSchedule</code> resource that is present in the asset bundle that is imported.</p>
+ * <p>A list of overrides for a specific <code>RefreshsSchedule</code> resource that is
+ *          present in the asset bundle that is imported.</p>
  * @public
  */
 export interface AssetBundleImportJobRefreshScheduleOverrideParameters {
   /**
-   * <p>A partial identifier for the specific <code>RefreshSchedule</code> resource that is being overridden. This structure is used together with the <code>ScheduleID</code> structure.</p>
+   * <p>A partial identifier for the specific <code>RefreshSchedule</code> resource that is
+   *          being overridden. This structure is used together with the <code>ScheduleID</code>
+   *          structure.</p>
    * @public
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>A partial identifier for the specific <code>RefreshSchedule</code> resource being overridden. This structure is used together with the <code>DataSetId</code> structure.</p>
+   * <p>A partial identifier for the specific <code>RefreshSchedule</code> resource being
+   *          overridden. This structure is used together with the <code>DataSetId</code>
+   *          structure.</p>
    * @public
    */
   ScheduleId: string | undefined;
 
   /**
-   * <p>An override for the <code>StartAfterDateTime</code> of a <code>RefreshSchedule</code>. Make
-   *          sure that the <code>StartAfterDateTime</code> is set to a time that takes
-   *          place in the future.</p>
+   * <p>An override for the <code>StartAfterDateTime</code> of a <code>RefreshSchedule</code>.
+   *          Make sure that the <code>StartAfterDateTime</code> is set to a time that takes place in the
+   *          future.</p>
    * @public
    */
   StartAfterDateTime?: Date | undefined;
@@ -6619,7 +7763,9 @@ export interface AssetBundleImportJobRefreshScheduleOverrideParameters {
  */
 export interface AssetBundleImportJobResourceIdOverrideConfiguration {
   /**
-   * <p>An option to request a CloudFormation variable for a prefix to be prepended to each resource's ID before import. The prefix is only added to the asset IDs and does not change the name of the asset.</p>
+   * <p>An option to request a CloudFormation variable for a prefix to be prepended to each
+   *          resource's ID before import. The prefix is only added to the asset IDs and does not
+   *          change the name of the asset.</p>
    * @public
    */
   PrefixForAllResources?: string | undefined;
@@ -6662,14 +7808,16 @@ export interface AssetBundleImportJobVPCConnectionOverrideParameters {
 
   /**
    * <p>A list of new subnet IDs for the VPC connection you are importing. This field is
-   *          required if you are importing the VPC connection from another Amazon Web Services account or Region.</p>
+   *          required if you are importing the VPC connection from another Amazon Web Services account or
+   *          Region.</p>
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
    * <p>A new security group ID for the VPC connection you are importing. This field is required
-   *          if you are importing the VPC connection from another Amazon Web Services account or Region.</p>
+   *          if you are importing the VPC connection from another Amazon Web Services account or
+   *          Region.</p>
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
@@ -6688,72 +7836,84 @@ export interface AssetBundleImportJobVPCConnectionOverrideParameters {
 }
 
 /**
- * <p>A list of overrides that modify the asset bundle resource configuration before the resource is imported.</p>
+ * <p>A list of overrides that modify the asset bundle resource configuration before the
+ *          resource is imported.</p>
  * @public
  */
 export interface AssetBundleImportJobOverrideParameters {
   /**
-   * <p>An optional structure that configures resource ID overrides to be applied within the import job.</p>
+   * <p>An optional structure that configures resource ID overrides to be applied within the
+   *          import job.</p>
    * @public
    */
   ResourceIdOverrideConfiguration?: AssetBundleImportJobResourceIdOverrideConfiguration | undefined;
 
   /**
-   * <p>A list of overrides for any <code>VPCConnection</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of overrides for any <code>VPCConnection</code> resources that are present in the
+   *          asset bundle that is imported.</p>
    * @public
    */
   VPCConnections?: AssetBundleImportJobVPCConnectionOverrideParameters[] | undefined;
 
   /**
-   * <p>A list of overrides for any <code>RefreshSchedule</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of overrides for any <code>RefreshSchedule</code> resources that are present in
+   *          the asset bundle that is imported.</p>
    * @public
    */
   RefreshSchedules?: AssetBundleImportJobRefreshScheduleOverrideParameters[] | undefined;
 
   /**
-   * <p> A list of overrides for any <code>DataSource</code> resources that are present in the asset bundle that is imported.</p>
+   * <p> A list of overrides for any <code>DataSource</code> resources that are present in the
+   *          asset bundle that is imported.</p>
    * @public
    */
   DataSources?: AssetBundleImportJobDataSourceOverrideParameters[] | undefined;
 
   /**
-   * <p>A list of overrides for any <code>DataSet</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of overrides for any <code>DataSet</code> resources that are present in the asset
+   *          bundle that is imported.</p>
    * @public
    */
   DataSets?: AssetBundleImportJobDataSetOverrideParameters[] | undefined;
 
   /**
-   * <p>A list of overrides for any <code>Theme</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of overrides for any <code>Theme</code> resources that are present in the asset
+   *          bundle that is imported.</p>
    * @public
    */
   Themes?: AssetBundleImportJobThemeOverrideParameters[] | undefined;
 
   /**
-   * <p>A list of overrides for any <code>Analysis</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of overrides for any <code>Analysis</code> resources that are present in the
+   *          asset bundle that is imported.</p>
    * @public
    */
   Analyses?: AssetBundleImportJobAnalysisOverrideParameters[] | undefined;
 
   /**
-   * <p>A list of overrides for any <code>Dashboard</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of overrides for any <code>Dashboard</code> resources that are present in the
+   *          asset bundle that is imported.</p>
    * @public
    */
   Dashboards?: AssetBundleImportJobDashboardOverrideParameters[] | undefined;
 
   /**
-   * <p>A list of overrides for any <code>Folder</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of overrides for any <code>Folder</code> resources that are present in the asset
+   *          bundle that is imported.</p>
    * @public
    */
   Folders?: AssetBundleImportJobFolderOverrideParameters[] | undefined;
 }
 
 /**
- * <p>An object that contains a list of permissions to be applied to a list of theme IDs.</p>
+ * <p>An object that contains a list of permissions to be applied to a list of theme
+ *          IDs.</p>
  * @public
  */
 export interface AssetBundleImportJobThemeOverridePermissions {
   /**
-   * <p>A list of theme IDs that you want to apply overrides to. You can use <code>*</code> to override all themes in this asset bundle.</p>
+   * <p>A list of theme IDs that you want to apply overrides to. You can use <code>*</code> to
+   *          override all themes in this asset bundle.</p>
    * @public
    */
   ThemeIds: string[] | undefined;
@@ -6766,36 +7926,42 @@ export interface AssetBundleImportJobThemeOverridePermissions {
 }
 
 /**
- * <p>A structure that contains the override permission configurations that modify the permissions for specified resources before the resource is imported.</p>
+ * <p>A structure that contains the override permission configurations that modify the
+ *          permissions for specified resources before the resource is imported.</p>
  * @public
  */
 export interface AssetBundleImportJobOverridePermissions {
   /**
-   * <p>A list of permissions overrides for any <code>DataSource</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of permissions overrides for any <code>DataSource</code> resources that are
+   *          present in the asset bundle that is imported.</p>
    * @public
    */
   DataSources?: AssetBundleImportJobDataSourceOverridePermissions[] | undefined;
 
   /**
-   * <p>A list of permissions overrides for any <code>DataSet</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of permissions overrides for any <code>DataSet</code> resources that are present
+   *          in the asset bundle that is imported.</p>
    * @public
    */
   DataSets?: AssetBundleImportJobDataSetOverridePermissions[] | undefined;
 
   /**
-   * <p>A list of permissions overrides for any <code>Theme</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of permissions overrides for any <code>Theme</code> resources that are present in
+   *          the asset bundle that is imported.</p>
    * @public
    */
   Themes?: AssetBundleImportJobThemeOverridePermissions[] | undefined;
 
   /**
-   * <p>A list of permissions overrides for any <code>Analysis</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of permissions overrides for any <code>Analysis</code> resources that are present
+   *          in the asset bundle that is imported.</p>
    * @public
    */
   Analyses?: AssetBundleImportJobAnalysisOverridePermissions[] | undefined;
 
   /**
-   * <p>A list of permissions overrides for any <code>Dashboard</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of permissions overrides for any <code>Dashboard</code> resources that are
+   *          present in the asset bundle that is imported.</p>
    * @public
    */
   Dashboards?: AssetBundleImportJobDashboardOverridePermissions[] | undefined;
@@ -6813,7 +7979,8 @@ export interface AssetBundleImportJobOverridePermissions {
  */
 export interface AssetBundleImportJobThemeOverrideTags {
   /**
-   * <p>A list of theme IDs that you want to apply overrides to. You can use <code>*</code> to override all themes in this asset bundle.</p>
+   * <p>A list of theme IDs that you want to apply overrides to. You can use <code>*</code> to
+   *          override all themes in this asset bundle.</p>
    * @public
    */
   ThemeIds: string[] | undefined;
@@ -6826,12 +7993,14 @@ export interface AssetBundleImportJobThemeOverrideTags {
 }
 
 /**
- * <p>An object that contains a list of tags to be assigned to a list of VPC connection IDs.</p>
+ * <p>An object that contains a list of tags to be assigned to a list of VPC connection
+ *          IDs.</p>
  * @public
  */
 export interface AssetBundleImportJobVPCConnectionOverrideTags {
   /**
-   * <p>A list of VPC connection IDs that you want to apply overrides to. You can use <code>*</code> to override all VPC connections in this asset bundle.</p>
+   * <p>A list of VPC connection IDs that you want to apply overrides to. You can use
+   *             <code>*</code> to override all VPC connections in this asset bundle.</p>
    * @public
    */
   VPCConnectionIds: string[] | undefined;
@@ -6844,60 +8013,70 @@ export interface AssetBundleImportJobVPCConnectionOverrideTags {
 }
 
 /**
- * <p>A structure that contains the override tag configuration that modify the tags that are assigned to specified resources before the resource is imported.</p>
+ * <p>A structure that contains the override tag configuration that modify the tags that are
+ *          assigned to specified resources before the resource is imported.</p>
  * @public
  */
 export interface AssetBundleImportJobOverrideTags {
   /**
-   * <p>A list of tag overrides for any <code>VPCConnection</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of tag overrides for any <code>VPCConnection</code> resources that are present in
+   *          the asset bundle that is imported.</p>
    * @public
    */
   VPCConnections?: AssetBundleImportJobVPCConnectionOverrideTags[] | undefined;
 
   /**
-   * <p>A list of tag overrides for any <code>DataSource</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of tag overrides for any <code>DataSource</code> resources that are present in
+   *          the asset bundle that is imported.</p>
    * @public
    */
   DataSources?: AssetBundleImportJobDataSourceOverrideTags[] | undefined;
 
   /**
-   * <p>A list of tag overrides for any <code>DataSet</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of tag overrides for any <code>DataSet</code> resources that are present in the
+   *          asset bundle that is imported.</p>
    * @public
    */
   DataSets?: AssetBundleImportJobDataSetOverrideTags[] | undefined;
 
   /**
-   * <p>A list of tag overrides for any <code>Theme</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of tag overrides for any <code>Theme</code> resources that are present in the
+   *          asset bundle that is imported.</p>
    * @public
    */
   Themes?: AssetBundleImportJobThemeOverrideTags[] | undefined;
 
   /**
-   * <p>A list of tag overrides for any <code>Analysis</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of tag overrides for any <code>Analysis</code> resources that are present in the
+   *          asset bundle that is imported.</p>
    * @public
    */
   Analyses?: AssetBundleImportJobAnalysisOverrideTags[] | undefined;
 
   /**
-   * <p>A list of tag overrides for any <code>Dashboard</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of tag overrides for any <code>Dashboard</code> resources that are present in the
+   *          asset bundle that is imported.</p>
    * @public
    */
   Dashboards?: AssetBundleImportJobDashboardOverrideTags[] | undefined;
 
   /**
-   * <p>A list of tag overrides for any <code>Folder</code> resources that are present in the asset bundle that is imported.</p>
+   * <p>A list of tag overrides for any <code>Folder</code> resources that are present in the
+   *          asset bundle that is imported.</p>
    * @public
    */
   Folders?: AssetBundleImportJobFolderOverrideTags[] | undefined;
 }
 
 /**
- * <p>An optional parameter that overrides the validation strategy for all analyses and dashboards before the resource is imported.</p>
+ * <p>An optional parameter that overrides the validation strategy for all analyses and
+ *          dashboards before the resource is imported.</p>
  * @public
  */
 export interface AssetBundleImportJobOverrideValidationStrategy {
   /**
-   * <p>A Boolean value that indicates whether to import all analyses and dashboards under strict or lenient mode.</p>
+   * <p>A Boolean value that indicates whether to import all analyses and dashboards under
+   *          strict or lenient mode.</p>
    * @public
    */
   StrictModeForAllResources?: boolean | undefined;
@@ -6923,7 +8102,8 @@ export const AssetBundleImportJobStatus = {
 export type AssetBundleImportJobStatus = (typeof AssetBundleImportJobStatus)[keyof typeof AssetBundleImportJobStatus];
 
 /**
- * <p>A summary of the import job that includes details of the requested job's configuration and its current status.</p>
+ * <p>A summary of the import job that includes details of the requested job's
+ *          configuration and its current status.</p>
  * @public
  */
 export interface AssetBundleImportJobSummary {
@@ -6946,7 +8126,8 @@ export interface AssetBundleImportJobSummary {
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
+   * <p>The ID of the job. This ID is unique while the job is running. After the job is
+   *          completed, you can reuse this ID for another job.</p>
    * @public
    */
   AssetBundleImportJobId?: string | undefined;
@@ -6977,31 +8158,44 @@ export interface AssetBundleImportJobWarning {
 }
 
 /**
- * <p>The source of the asset bundle zip file that contains the data that you want to import. The file must be in <code>QUICKSIGHT_JSON</code> format.</p>
+ * <p>The source of the asset bundle zip file that contains the data that you want to import.
+ *          The file must be in <code>QUICKSIGHT_JSON</code> format.</p>
  * @public
  */
 export interface AssetBundleImportSource {
   /**
-   * <p>The bytes of the base64 encoded asset bundle import zip file. This file can't exceed 20 MB. If the size of the file that you want to upload is more than 20 MB, add the file to your Amazon S3 bucket and use <code>S3Uri</code> of the file for this operation.</p>
-   *          <p>If you are calling the API operations from the Amazon Web Services SDK for Java, JavaScript, Python, or PHP, the SDK encodes base64 automatically to allow the direct setting of the zip file's bytes. If you are using an SDK for a different language or receiving related errors, try to base64 encode your data.</p>
+   * <p>The bytes of the base64 encoded asset bundle import zip file. This file can't
+   *          exceed 20 MB. If the size of the file that you want to upload is more than 20 MB, add the
+   *          file to your Amazon S3 bucket and use <code>S3Uri</code> of the file for this
+   *          operation.</p>
+   *          <p>If you are calling the API operations from the Amazon Web Services SDK for Java,
+   *          JavaScript, Python, or PHP, the SDK encodes base64 automatically to allow the direct
+   *          setting of the zip file's bytes. If you are using an SDK for a different language or
+   *          receiving related errors, try to base64 encode your data.</p>
    * @public
    */
   Body?: Uint8Array | undefined;
 
   /**
-   * <p>The Amazon S3 URI for an asset bundle import file that exists in an Amazon S3 bucket that the caller has read access to. The file must be a zip format file and can't exceed 1 GB.</p>
+   * <p>The Amazon S3 URI for an asset bundle import file that exists in an Amazon S3 bucket that the caller has read access to. The file must be a zip format file
+   *          and can't exceed 1 GB.</p>
    * @public
    */
   S3Uri?: string | undefined;
 }
 
 /**
- * <p>A description of the import source that you provide at the start of an import job. This value is set to either <code>Body</code> or <code>S3Uri</code>, depending on how the <code>StartAssetBundleImportJobRequest</code> is configured.</p>
+ * <p>A description of the import source that you provide at the start of an import job. This
+ *          value is set to either <code>Body</code> or <code>S3Uri</code>, depending on how the
+ *             <code>StartAssetBundleImportJobRequest</code> is configured.</p>
  * @public
  */
 export interface AssetBundleImportSourceDescription {
   /**
-   * <p>An HTTPS download URL for the provided asset bundle that you optionally provided at the start of the import job. This URL is valid for five minutes after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if needed. The downloaded asset bundle is a <code>.qs</code> zip file.</p>
+   * <p>An HTTPS download URL for the provided asset bundle that you optionally provided at the
+   *          start of the import job. This URL is valid for five minutes after issuance. Call
+   *             <code>DescribeAssetBundleExportJob</code> again for a fresh URL if needed. The
+   *          downloaded asset bundle is a <code>.qs</code> zip file.</p>
    * @public
    */
   Body?: string | undefined;
@@ -7027,6 +8221,401 @@ export const AssignmentStatus = {
  * @public
  */
 export type AssignmentStatus = (typeof AssignmentStatus)[keyof typeof AssignmentStatus];
+
+/**
+ * <p>Configuration details for OAuth 2.0 authorization code grant flow.</p>
+ * @public
+ */
+export interface AuthorizationCodeGrantDetails {
+  /**
+   * <p>The client ID for the OAuth application.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The client secret for the OAuth application.</p>
+   * @public
+   */
+  ClientSecret: string | undefined;
+
+  /**
+   * <p>The token endpoint URL for obtaining access tokens.</p>
+   * @public
+   */
+  TokenEndpoint: string | undefined;
+
+  /**
+   * <p>The authorization endpoint URL for the OAuth flow.</p>
+   * @public
+   */
+  AuthorizationEndpoint: string | undefined;
+}
+
+/**
+ * <p>Details for OAuth 2.0 authorization code grant credentials.</p>
+ * @public
+ */
+export type AuthorizationCodeGrantCredentialsDetails =
+  | AuthorizationCodeGrantCredentialsDetails.AuthorizationCodeGrantDetailsMember
+  | AuthorizationCodeGrantCredentialsDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AuthorizationCodeGrantCredentialsDetails {
+  /**
+   * <p>The authorization code grant configuration details.</p>
+   * @public
+   */
+  export interface AuthorizationCodeGrantDetailsMember {
+    AuthorizationCodeGrantDetails: AuthorizationCodeGrantDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AuthorizationCodeGrantDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AuthorizationCodeGrantDetails: (value: AuthorizationCodeGrantDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AuthorizationCodeGrantCredentialsDetails, visitor: Visitor<T>): T => {
+    if (value.AuthorizationCodeGrantDetails !== undefined)
+      return visitor.AuthorizationCodeGrantDetails(value.AuthorizationCodeGrantDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Metadata for OAuth 2.0 authorization code grant authentication.</p>
+ * @public
+ */
+export interface AuthorizationCodeGrantMetadata {
+  /**
+   * <p>The base URL endpoint for the external service.</p>
+   * @public
+   */
+  BaseEndpoint: string | undefined;
+
+  /**
+   * <p>The redirect URL for the OAuth authorization flow.</p>
+   * @public
+   */
+  RedirectUrl: string | undefined;
+
+  /**
+   * <p>The source of the authorization code grant credentials.</p>
+   * @public
+   */
+  AuthorizationCodeGrantCredentialsSource?: AuthorizationCodeGrantCredentialsSource | undefined;
+
+  /**
+   * <p>The detailed credentials configuration for authorization code grant.</p>
+   * @public
+   */
+  AuthorizationCodeGrantCredentialsDetails?: AuthorizationCodeGrantCredentialsDetails | undefined;
+}
+
+/**
+ * <p>Metadata for basic authentication using username and password.</p>
+ * @public
+ */
+export interface BasicAuthConnectionMetadata {
+  /**
+   * <p>The base URL endpoint for the external service.</p>
+   * @public
+   */
+  BaseEndpoint: string | undefined;
+
+  /**
+   * <p>The username for basic authentication.</p>
+   * @public
+   */
+  Username: string | undefined;
+
+  /**
+   * <p>The password for basic authentication.</p>
+   * @public
+   */
+  Password: string | undefined;
+}
+
+/**
+ * <p>Configuration details for OAuth2 client credentials grant flow, including client ID, client secret, token endpoint, and optional scopes.</p>
+ * @public
+ */
+export interface ClientCredentialsGrantDetails {
+  /**
+   * <p>The client identifier issued to the client during the registration process with the authorization server.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The client secret issued to the client during the registration process with the authorization server.</p>
+   * @public
+   */
+  ClientSecret: string | undefined;
+
+  /**
+   * <p>The authorization server endpoint used to obtain access tokens via the client credentials grant flow.</p>
+   * @public
+   */
+  TokenEndpoint: string | undefined;
+}
+
+/**
+ * <p>Details for OAuth 2.0 client credentials grant authentication.</p>
+ * @public
+ */
+export type ClientCredentialsDetails =
+  | ClientCredentialsDetails.ClientCredentialsGrantDetailsMember
+  | ClientCredentialsDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ClientCredentialsDetails {
+  /**
+   * <p>The OAuth2 client credentials grant configuration details for authentication.</p>
+   * @public
+   */
+  export interface ClientCredentialsGrantDetailsMember {
+    ClientCredentialsGrantDetails: ClientCredentialsGrantDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ClientCredentialsGrantDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ClientCredentialsGrantDetails: (value: ClientCredentialsGrantDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ClientCredentialsDetails, visitor: Visitor<T>): T => {
+    if (value.ClientCredentialsGrantDetails !== undefined)
+      return visitor.ClientCredentialsGrantDetails(value.ClientCredentialsGrantDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Configuration for OAuth 2.0 client credentials grant authentication, including client ID, client secret, token endpoint, and optional scopes.</p>
+ * @public
+ */
+export interface ClientCredentialsGrantMetadata {
+  /**
+   * <p>The base endpoint URL for the external service.</p>
+   * @public
+   */
+  BaseEndpoint: string | undefined;
+
+  /**
+   * <p>The source of the client credentials configuration.</p>
+   * @public
+   */
+  ClientCredentialsSource?: ClientCredentialsSource | undefined;
+
+  /**
+   * <p>The detailed client credentials configuration including client ID, client secret, and token endpoint.</p>
+   * @public
+   */
+  ClientCredentialsDetails?: ClientCredentialsDetails | undefined;
+}
+
+/**
+ * <p>Authentication metadata for IAM-based connections, used for first-party Amazon Web Services service integrations.</p>
+ * @public
+ */
+export interface IAMConnectionMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assume for authentication with Amazon Web Services services. This IAM role should be in the same account as Quick Sight.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
+ * <p>Authentication metadata for connections that do not require authentication credentials.</p>
+ * @public
+ */
+export interface NoneConnectionMetadata {
+  /**
+   * <p>The base endpoint URL for connections that do not require authentication.</p>
+   * @public
+   */
+  BaseEndpoint: string | undefined;
+}
+
+/**
+ * <p>Union type containing authentication metadata for different authentication methods.</p>
+ * @public
+ */
+export type AuthenticationMetadata =
+  | AuthenticationMetadata.ApiKeyConnectionMetadataMember
+  | AuthenticationMetadata.AuthorizationCodeGrantMetadataMember
+  | AuthenticationMetadata.BasicAuthConnectionMetadataMember
+  | AuthenticationMetadata.ClientCredentialsGrantMetadataMember
+  | AuthenticationMetadata.IamConnectionMetadataMember
+  | AuthenticationMetadata.NoneConnectionMetadataMember
+  | AuthenticationMetadata.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AuthenticationMetadata {
+  /**
+   * <p>OAuth 2.0 authorization code grant authentication metadata.</p>
+   * @public
+   */
+  export interface AuthorizationCodeGrantMetadataMember {
+    AuthorizationCodeGrantMetadata: AuthorizationCodeGrantMetadata;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>OAuth 2.0 client credentials grant authentication metadata.</p>
+   * @public
+   */
+  export interface ClientCredentialsGrantMetadataMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata: ClientCredentialsGrantMetadata;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Basic authentication metadata using username and password.</p>
+   * @public
+   */
+  export interface BasicAuthConnectionMetadataMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata: BasicAuthConnectionMetadata;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>API key authentication metadata.</p>
+   * @public
+   */
+  export interface ApiKeyConnectionMetadataMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata: APIKeyConnectionMetadata;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>No authentication metadata for services that don't require authentication.</p>
+   * @public
+   */
+  export interface NoneConnectionMetadataMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata: NoneConnectionMetadata;
+    IamConnectionMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>IAM role-based authentication metadata for Amazon Web Services services.</p>
+   * @public
+   */
+  export interface IamConnectionMetadataMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata: IAMConnectionMetadata;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AuthorizationCodeGrantMetadata: (value: AuthorizationCodeGrantMetadata) => T;
+    ClientCredentialsGrantMetadata: (value: ClientCredentialsGrantMetadata) => T;
+    BasicAuthConnectionMetadata: (value: BasicAuthConnectionMetadata) => T;
+    ApiKeyConnectionMetadata: (value: APIKeyConnectionMetadata) => T;
+    NoneConnectionMetadata: (value: NoneConnectionMetadata) => T;
+    IamConnectionMetadata: (value: IAMConnectionMetadata) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AuthenticationMetadata, visitor: Visitor<T>): T => {
+    if (value.AuthorizationCodeGrantMetadata !== undefined)
+      return visitor.AuthorizationCodeGrantMetadata(value.AuthorizationCodeGrantMetadata);
+    if (value.ClientCredentialsGrantMetadata !== undefined)
+      return visitor.ClientCredentialsGrantMetadata(value.ClientCredentialsGrantMetadata);
+    if (value.BasicAuthConnectionMetadata !== undefined)
+      return visitor.BasicAuthConnectionMetadata(value.BasicAuthConnectionMetadata);
+    if (value.ApiKeyConnectionMetadata !== undefined)
+      return visitor.ApiKeyConnectionMetadata(value.ApiKeyConnectionMetadata);
+    if (value.NoneConnectionMetadata !== undefined) return visitor.NoneConnectionMetadata(value.NoneConnectionMetadata);
+    if (value.IamConnectionMetadata !== undefined) return visitor.IamConnectionMetadata(value.IamConnectionMetadata);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Authentication configuration for connecting to external services.</p>
+ * @public
+ */
+export interface AuthConfig {
+  /**
+   * <p>The type of authentication method.</p>
+   * @public
+   */
+  AuthenticationType: ConnectionAuthType | undefined;
+
+  /**
+   * <p>The authentication metadata containing the specific configuration for the chosen authentication type.</p>
+   * @public
+   */
+  AuthenticationMetadata: AuthenticationMetadata | undefined;
+}
 
 /**
  * @public
@@ -7471,1020 +9060,6 @@ export interface ContributionAnalysisTimeRanges {
 }
 
 /**
- * <p>The definition for a <code>TopicIRContributionAnalysis</code>.</p>
- * @public
- */
-export interface TopicIRContributionAnalysis {
-  /**
-   * <p>The factors for a <code>TopicIRContributionAnalysis</code>.</p>
-   * @public
-   */
-  Factors?: ContributionAnalysisFactor[] | undefined;
-
-  /**
-   * <p>The time ranges for the <code>TopicIRContributionAnalysis</code>.</p>
-   * @public
-   */
-  TimeRanges?: ContributionAnalysisTimeRanges | undefined;
-
-  /**
-   * <p>The direction for the <code>TopicIRContributionAnalysis</code>.</p>
-   * @public
-   */
-  Direction?: ContributionAnalysisDirection | undefined;
-
-  /**
-   * <p>The sort type for the <code>TopicIRContributionAnalysis</code>.</p>
-   * @public
-   */
-  SortType?: ContributionAnalysisSortType | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DisplayFormat = {
-  AUTO: "AUTO",
-  CURRENCY: "CURRENCY",
-  DATE: "DATE",
-  NUMBER: "NUMBER",
-  PERCENT: "PERCENT",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type DisplayFormat = (typeof DisplayFormat)[keyof typeof DisplayFormat];
-
-/**
- * @public
- * @enum
- */
-export const TopicNumericSeparatorSymbol = {
-  COMMA: "COMMA",
-  DOT: "DOT",
-} as const;
-
-/**
- * @public
- */
-export type TopicNumericSeparatorSymbol =
-  (typeof TopicNumericSeparatorSymbol)[keyof typeof TopicNumericSeparatorSymbol];
-
-/**
- * <p>A structure that represents a negative format.</p>
- * @public
- */
-export interface NegativeFormat {
-  /**
-   * <p>The prefix for a negative format.</p>
-   * @public
-   */
-  Prefix?: string | undefined;
-
-  /**
-   * <p>The suffix for a negative format.</p>
-   * @public
-   */
-  Suffix?: string | undefined;
-}
-
-/**
- * <p>A structure that represents additional options for display formatting.</p>
- * @public
- */
-export interface DisplayFormatOptions {
-  /**
-   * <p>A Boolean value that indicates whether to use blank cell format.</p>
-   * @public
-   */
-  UseBlankCellFormat?: boolean | undefined;
-
-  /**
-   * <p>Determines the blank cell format.</p>
-   * @public
-   */
-  BlankCellFormat?: string | undefined;
-
-  /**
-   * <p>Determines the <code>DateTime</code> format.</p>
-   * @public
-   */
-  DateFormat?: string | undefined;
-
-  /**
-   * <p>Determines the decimal separator.</p>
-   * @public
-   */
-  DecimalSeparator?: TopicNumericSeparatorSymbol | undefined;
-
-  /**
-   * <p>Determines the grouping separator.</p>
-   * @public
-   */
-  GroupingSeparator?: string | undefined;
-
-  /**
-   * <p>A Boolean value that indicates whether to use grouping.</p>
-   * @public
-   */
-  UseGrouping?: boolean | undefined;
-
-  /**
-   * <p>Determines the number of fraction digits.</p>
-   * @public
-   */
-  FractionDigits?: number | undefined;
-
-  /**
-   * <p>The prefix value for a display format.</p>
-   * @public
-   */
-  Prefix?: string | undefined;
-
-  /**
-   * <p>The suffix value for a display format.</p>
-   * @public
-   */
-  Suffix?: string | undefined;
-
-  /**
-   * <p>The unit scaler. Valid values for this structure are: <code>NONE</code>,
-   *             <code>AUTO</code>, <code>THOUSANDS</code>, <code>MILLIONS</code>,
-   *          <code>BILLIONS</code>,
-   *          and <code>TRILLIONS</code>.</p>
-   * @public
-   */
-  UnitScaler?: NumberScale | undefined;
-
-  /**
-   * <p>The negative format.</p>
-   * @public
-   */
-  NegativeFormat?: NegativeFormat | undefined;
-
-  /**
-   * <p>The currency symbol, such as <code>USD</code>.</p>
-   * @public
-   */
-  CurrencySymbol?: string | undefined;
-}
-
-/**
- * <p>The definition for a <code>NamedEntityRef</code>.</p>
- * @public
- */
-export interface NamedEntityRef {
-  /**
-   * <p>The <code>NamedEntityName</code> for the <code>NamedEntityRef</code>.</p>
-   * @public
-   */
-  NamedEntityName?: string | undefined;
-}
-
-/**
- * <p>The definition for a <code>TopicSortClause</code>.</p>
- * @public
- */
-export interface TopicSortClause {
-  /**
-   * <p>The operand for a <code>TopicSortClause</code>.</p>
-   * @public
-   */
-  Operand?: Identifier | undefined;
-
-  /**
-   * <p>The sort direction for the <code>TopicSortClause</code>.</p>
-   * @public
-   */
-  SortDirection?: TopicSortDirection | undefined;
-}
-
-/**
- * <p>The definition for a <code>TopicIRGroupBy</code>.</p>
- * @public
- */
-export interface TopicIRGroupBy {
-  /**
-   * <p>The field name for the <code>TopicIRGroupBy</code>.</p>
-   * @public
-   */
-  FieldName?: Identifier | undefined;
-
-  /**
-   * <p>The time granularity for the <code>TopicIRGroupBy</code>.</p>
-   * @public
-   */
-  TimeGranularity?: TopicTimeGranularity | undefined;
-
-  /**
-   * <p>The sort for the <code>TopicIRGroupBy</code>.</p>
-   * @public
-   */
-  Sort?: TopicSortClause | undefined;
-
-  /**
-   * <p>The display format for the <code>TopicIRGroupBy</code>.</p>
-   * @public
-   */
-  DisplayFormat?: DisplayFormat | undefined;
-
-  /**
-   * <p>A structure that represents additional options for display formatting.</p>
-   * @public
-   */
-  DisplayFormatOptions?: DisplayFormatOptions | undefined;
-
-  /**
-   * <p>The named entity for the <code>TopicIRGroupBy</code>.</p>
-   * @public
-   */
-  NamedEntity?: NamedEntityRef | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ComparisonMethodType = {
-  DIFF: "DIFF",
-  DIFF_AS_PERC: "DIFF_AS_PERC",
-  MOVING_AVERAGE: "MOVING_AVERAGE",
-  PERCENT_OF_TOTAL: "PERCENT_OF_TOTAL",
-  PERC_DIFF: "PERC_DIFF",
-  POP_CURRENT_DIFF: "POP_CURRENT_DIFF",
-  POP_CURRENT_DIFF_AS_PERC: "POP_CURRENT_DIFF_AS_PERC",
-  POP_OVERTIME_DIFF: "POP_OVERTIME_DIFF",
-  POP_OVERTIME_DIFF_AS_PERC: "POP_OVERTIME_DIFF_AS_PERC",
-  RUNNING_SUM: "RUNNING_SUM",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonMethodType = (typeof ComparisonMethodType)[keyof typeof ComparisonMethodType];
-
-/**
- * <p>The definition of a <code>TopicIRComparisonMethod</code>.</p>
- * @public
- */
-export interface TopicIRComparisonMethod {
-  /**
-   * <p>The type for the <code>TopicIRComparisonMethod</code>.</p>
-   * @public
-   */
-  Type?: ComparisonMethodType | undefined;
-
-  /**
-   * <p>The period for the <code>TopicIRComparisonMethod</code>.</p>
-   * @public
-   */
-  Period?: TopicTimeGranularity | undefined;
-
-  /**
-   * <p>The window size for the <code>TopicIRComparisonMethod</code>.</p>
-   * @public
-   */
-  WindowSize?: number | undefined;
-}
-
-/**
- * <p>The definition for a <code>TopicIRMetric</code>.</p>
- * @public
- */
-export interface TopicIRMetric {
-  /**
-   * <p>The metric ID for the <code>TopicIRMetric</code>.</p>
-   * @public
-   */
-  MetricId?: Identifier | undefined;
-
-  /**
-   * <p>The function for the <code>TopicIRMetric</code>.</p>
-   * @public
-   */
-  Function?: AggFunction | undefined;
-
-  /**
-   * <p>The operands for the <code>TopicIRMetric</code>.</p>
-   * @public
-   */
-  Operands?: Identifier[] | undefined;
-
-  /**
-   * <p>The comparison method for the <code>TopicIRMetric</code>.</p>
-   * @public
-   */
-  ComparisonMethod?: TopicIRComparisonMethod | undefined;
-
-  /**
-   * <p>The expression for the <code>TopicIRMetric</code>.</p>
-   * @public
-   */
-  Expression?: string | undefined;
-
-  /**
-   * <p>The calculated field references for the <code>TopicIRMetric</code>.</p>
-   * @public
-   */
-  CalculatedFieldReferences?: Identifier[] | undefined;
-
-  /**
-   * <p>The display format for the <code>TopicIRMetric</code>.</p>
-   * @public
-   */
-  DisplayFormat?: DisplayFormat | undefined;
-
-  /**
-   * <p>A structure that represents additional options for display formatting.</p>
-   * @public
-   */
-  DisplayFormatOptions?: DisplayFormatOptions | undefined;
-
-  /**
-   * <p>The named entity for the <code>TopicIRMetric</code>.</p>
-   * @public
-   */
-  NamedEntity?: NamedEntityRef | undefined;
-}
-
-/**
- * <p>The definition for a <code>VisualOptions</code>.</p>
- * @public
- */
-export interface VisualOptions {
-  /**
-   * <p>The type for a <code>VisualOptions</code>.</p>
-   * @public
-   */
-  type?: string | undefined;
-}
-
-/**
- * <p>The definition for a <code>TopicIR</code>.</p>
- * @public
- */
-export interface TopicIR {
-  /**
-   * <p>The metrics for the <code>TopicIR</code>.</p>
-   * @public
-   */
-  Metrics?: TopicIRMetric[] | undefined;
-
-  /**
-   * <p>The GroupBy list for the <code>TopicIR</code>.</p>
-   * @public
-   */
-  GroupByList?: TopicIRGroupBy[] | undefined;
-
-  /**
-   * <p>The filters for the <code>TopicIR</code>.</p>
-   * @public
-   */
-  Filters?: TopicIRFilterOption[][] | undefined;
-
-  /**
-   * <p>The sort for the <code>TopicIR</code>.</p>
-   * @public
-   */
-  Sort?: TopicSortClause | undefined;
-
-  /**
-   * <p>The contribution analysis for the <code>TopicIR</code>.</p>
-   * @public
-   */
-  ContributionAnalysis?: TopicIRContributionAnalysis | undefined;
-
-  /**
-   * <p>The visual for the <code>TopicIR</code>.</p>
-   * @public
-   */
-  Visual?: VisualOptions | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VisualRole = {
-  COMPLIMENTARY: "COMPLIMENTARY",
-  FALLBACK: "FALLBACK",
-  FRAGMENT: "FRAGMENT",
-  MULTI_INTENT: "MULTI_INTENT",
-  PRIMARY: "PRIMARY",
-} as const;
-
-/**
- * @public
- */
-export type VisualRole = (typeof VisualRole)[keyof typeof VisualRole];
-
-/**
- * <p>The definition for the slot.</p>
- * @public
- */
-export interface Slot {
-  /**
-   * <p>The slot ID of the slot.</p>
-   * @public
-   */
-  SlotId?: string | undefined;
-
-  /**
-   * <p>The visual ID for the slot.</p>
-   * @public
-   */
-  VisualId?: string | undefined;
-}
-
-/**
- * <p>The definition for a <code>TopicTemplate</code>.</p>
- * @public
- */
-export interface TopicTemplate {
-  /**
-   * <p>The template type for the <code>TopicTemplate</code>.</p>
-   * @public
-   */
-  TemplateType?: string | undefined;
-
-  /**
-   * <p>The slots for the <code>TopicTemplate</code>.</p>
-   * @public
-   */
-  Slots?: Slot[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ReviewedAnswerErrorCode = {
-  DATASET_DOES_NOT_EXIST: "DATASET_DOES_NOT_EXIST",
-  DUPLICATED_ANSWER: "DUPLICATED_ANSWER",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  INVALID_DATA: "INVALID_DATA",
-  INVALID_DATASET_ARN: "INVALID_DATASET_ARN",
-  MISSING_ANSWER: "MISSING_ANSWER",
-  MISSING_REQUIRED_FIELDS: "MISSING_REQUIRED_FIELDS",
-} as const;
-
-/**
- * @public
- */
-export type ReviewedAnswerErrorCode = (typeof ReviewedAnswerErrorCode)[keyof typeof ReviewedAnswerErrorCode];
-
-/**
- * <p>The definition for a <code>InvalidTopicReviewedAnswer</code>.</p>
- * @public
- */
-export interface InvalidTopicReviewedAnswer {
-  /**
-   * <p>The answer ID for the <code>InvalidTopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  AnswerId?: string | undefined;
-
-  /**
-   * <p>The error that is returned for the <code>InvalidTopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  Error?: ReviewedAnswerErrorCode | undefined;
-}
-
-/**
- * <p>The definition for a <code>SucceededTopicReviewedAnswer</code>.</p>
- * @public
- */
-export interface SucceededTopicReviewedAnswer {
-  /**
-   * <p>The answer ID for the <code>SucceededTopicReviewedAnswer</code>.</p>
-   * @public
-   */
-  AnswerId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchCreateTopicReviewedAnswerResponse {
-  /**
-   * <p>The ID for the topic reviewed answer that you want to create. This ID is unique per Amazon Web Services Region
-   *          for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string | undefined;
-
-  /**
-   * <p>The definition of Answers that are successfully created.</p>
-   * @public
-   */
-  SucceededAnswers?: SucceededTopicReviewedAnswer[] | undefined;
-
-  /**
-   * <p>The definition of Answers that are invalid and not created.</p>
-   * @public
-   */
-  InvalidAnswers?: InvalidTopicReviewedAnswer[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * <p>An internal failure occurred.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>One or more parameters has a value that isn't valid.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ExceptionResourceType = {
-  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
-  DATA_SET: "DATA_SET",
-  DATA_SOURCE: "DATA_SOURCE",
-  GROUP: "GROUP",
-  IAMPOLICY_ASSIGNMENT: "IAMPOLICY_ASSIGNMENT",
-  INGESTION: "INGESTION",
-  NAMESPACE: "NAMESPACE",
-  USER: "USER",
-  VPC_CONNECTION: "VPC_CONNECTION",
-} as const;
-
-/**
- * @public
- */
-export type ExceptionResourceType = (typeof ExceptionResourceType)[keyof typeof ExceptionResourceType];
-
-/**
- * <p>One or more resources can't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The resource type for this request.</p>
-   * @public
-   */
-  ResourceType?: ExceptionResourceType | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>Access is throttled.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- */
-export interface BatchDeleteTopicReviewedAnswerRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that you want to delete a reviewed answers in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the topic reviewed answer that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The Answer IDs of the Answers to be deleted.</p>
-   * @public
-   */
-  AnswerIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchDeleteTopicReviewedAnswerResponse {
-  /**
-   * <p>The ID of the topic reviewed answer that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string | undefined;
-
-  /**
-   * <p>The definition of Answers that are successfully deleted.</p>
-   * @public
-   */
-  SucceededAnswers?: SucceededTopicReviewedAnswer[] | undefined;
-
-  /**
-   * <p>The definition of Answers that are invalid and not deleted.</p>
-   * @public
-   */
-  InvalidAnswers?: InvalidTopicReviewedAnswer[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The bookmarks configuration of an embedded dashboard.</p>
- * @public
- */
-export interface BookmarksConfigurations {
-  /**
-   * <p>A Boolean value that determines whether a user
-   *             can bookmark an embedded dashboard.</p>
-   * @public
-   */
-  Enabled: boolean | undefined;
-}
-
-/**
- * <p>The display options for tile borders for visuals.</p>
- * @public
- */
-export interface BorderStyle {
-  /**
-   * <p>The option to enable display of borders for visuals.</p>
-   * @public
-   */
-  Show?: boolean | undefined;
-}
-
-/**
- * <p>The source of the image.</p>
- * @public
- */
-export type ImageSource = ImageSource.PublicUrlMember | ImageSource.S3UriMember | ImageSource.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ImageSource {
-  /**
-   * <p>The public URL that points to the source image.</p>
-   * @public
-   */
-  export interface PublicUrlMember {
-    PublicUrl: string;
-    S3Uri?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The Amazon S3 URI that points to the source image.</p>
-   * @public
-   */
-  export interface S3UriMember {
-    PublicUrl?: never;
-    S3Uri: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    PublicUrl?: never;
-    S3Uri?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    PublicUrl: (value: string) => T;
-    S3Uri: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ImageSource, visitor: Visitor<T>): T => {
-    if (value.PublicUrl !== undefined) return visitor.PublicUrl(value.PublicUrl);
-    if (value.S3Uri !== undefined) return visitor.S3Uri(value.S3Uri);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>The logo image configuration.</p>
- * @public
- */
-export interface ImageConfiguration {
-  /**
-   * <p>The source of the image.</p>
-   * @public
-   */
-  Source?: ImageSource | undefined;
-}
-
-/**
- * <p>The image set configuration.</p>
- * @public
- */
-export interface ImageSetConfiguration {
-  /**
-   * <p>The original image.</p>
-   * @public
-   */
-  Original: ImageConfiguration | undefined;
-}
-
-/**
- * <p>The logo set configuration.</p>
- * @public
- */
-export interface LogoSetConfiguration {
-  /**
-   * <p>The primary logo.</p>
-   * @public
-   */
-  Primary: ImageSetConfiguration | undefined;
-
-  /**
-   * <p>The favicon logo.</p>
-   * @public
-   */
-  Favicon?: ImageSetConfiguration | undefined;
-}
-
-/**
- * <p>The logo configuration.</p>
- * @public
- */
-export interface LogoConfiguration {
-  /**
-   * <p>The alt text for the logo.</p>
-   * @public
-   */
-  AltText: string | undefined;
-
-  /**
-   * <p>A set of configured logos.</p>
-   * @public
-   */
-  LogoSet: LogoSetConfiguration | undefined;
-}
-
-/**
- * <p>The definition of the brand.</p>
- * @public
- */
-export interface BrandDefinition {
-  /**
-   * <p>The name of the brand.</p>
-   * @public
-   */
-  BrandName: string | undefined;
-
-  /**
-   * <p>The description of the brand.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The application theme of the brand.</p>
-   * @public
-   */
-  ApplicationTheme?: ApplicationTheme | undefined;
-
-  /**
-   * <p>The logo configuration of the brand.</p>
-   * @public
-   */
-  LogoConfiguration?: LogoConfiguration | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const BrandStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  CREATE_SUCCEEDED: "CREATE_SUCCEEDED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type BrandStatus = (typeof BrandStatus)[keyof typeof BrandStatus];
-
-/**
- * <p>The logo image.</p>
- * @public
- */
-export interface Image {
-  /**
-   * <p>The source of the logo image.</p>
-   * @public
-   */
-  Source?: ImageSource | undefined;
-
-  /**
-   * <p>The URL that points to the generated logo image.</p>
-   * @public
-   */
-  GeneratedImageUrl?: string | undefined;
-}
-
-/**
- * <p>The image set.</p>
- * @public
- */
-export interface ImageSet {
-  /**
-   * <p>The original image.</p>
-   * @public
-   */
-  Original: Image | undefined;
-
-  /**
-   * <p>The image with the height set to 64 pixels.</p>
-   * @public
-   */
-  Height64?: Image | undefined;
-
-  /**
-   * <p>The image with the height set to 32 pixels.</p>
-   * @public
-   */
-  Height32?: Image | undefined;
-}
-
-/**
- * <p>A set of logos.</p>
- * @public
- */
-export interface LogoSet {
-  /**
-   * <p>The primary logo.</p>
-   * @public
-   */
-  Primary: ImageSet | undefined;
-
-  /**
-   * <p>The favicon logo.</p>
-   * @public
-   */
-  Favicon?: ImageSet | undefined;
-}
-
-/**
  * @internal
  */
 export const PivotTableConfigurationFilterSensitiveLog = (obj: PivotTableConfiguration): any => ({
@@ -8912,6 +9487,15 @@ export const AnonymousUserSnapshotJobResultFilterSensitiveLog = (obj: AnonymousU
 /**
  * @internal
  */
+export const APIKeyConnectionMetadataFilterSensitiveLog = (obj: APIKeyConnectionMetadata): any => ({
+  ...obj,
+  ...(obj.ApiKey && { ApiKey: SENSITIVE_STRING }),
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const AssetBundleImportJobDataSourceCredentialPairFilterSensitiveLog = (
   obj: AssetBundleImportJobDataSourceCredentialPair
 ): any => ({
@@ -8972,15 +9556,107 @@ export const AssetBundleImportSourceDescriptionFilterSensitiveLog = (obj: AssetB
 /**
  * @internal
  */
-export const TopicIRMetricFilterSensitiveLog = (obj: TopicIRMetric): any => ({
+export const AuthorizationCodeGrantDetailsFilterSensitiveLog = (obj: AuthorizationCodeGrantDetails): any => ({
   ...obj,
-  ...(obj.Expression && { Expression: SENSITIVE_STRING }),
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const TopicIRFilterSensitiveLog = (obj: TopicIR): any => ({
+export const AuthorizationCodeGrantCredentialsDetailsFilterSensitiveLog = (
+  obj: AuthorizationCodeGrantCredentialsDetails
+): any => {
+  if (obj.AuthorizationCodeGrantDetails !== undefined)
+    return {
+      AuthorizationCodeGrantDetails: AuthorizationCodeGrantDetailsFilterSensitiveLog(obj.AuthorizationCodeGrantDetails),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AuthorizationCodeGrantMetadataFilterSensitiveLog = (obj: AuthorizationCodeGrantMetadata): any => ({
   ...obj,
-  ...(obj.Metrics && { Metrics: obj.Metrics.map((item) => TopicIRMetricFilterSensitiveLog(item)) }),
+  ...(obj.AuthorizationCodeGrantCredentialsDetails && {
+    AuthorizationCodeGrantCredentialsDetails: AuthorizationCodeGrantCredentialsDetailsFilterSensitiveLog(
+      obj.AuthorizationCodeGrantCredentialsDetails
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BasicAuthConnectionMetadataFilterSensitiveLog = (obj: BasicAuthConnectionMetadata): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ClientCredentialsGrantDetailsFilterSensitiveLog = (obj: ClientCredentialsGrantDetails): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ClientCredentialsDetailsFilterSensitiveLog = (obj: ClientCredentialsDetails): any => {
+  if (obj.ClientCredentialsGrantDetails !== undefined)
+    return {
+      ClientCredentialsGrantDetails: ClientCredentialsGrantDetailsFilterSensitiveLog(obj.ClientCredentialsGrantDetails),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ClientCredentialsGrantMetadataFilterSensitiveLog = (obj: ClientCredentialsGrantMetadata): any => ({
+  ...obj,
+  ...(obj.ClientCredentialsDetails && {
+    ClientCredentialsDetails: ClientCredentialsDetailsFilterSensitiveLog(obj.ClientCredentialsDetails),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationMetadataFilterSensitiveLog = (obj: AuthenticationMetadata): any => {
+  if (obj.AuthorizationCodeGrantMetadata !== undefined)
+    return {
+      AuthorizationCodeGrantMetadata: AuthorizationCodeGrantMetadataFilterSensitiveLog(
+        obj.AuthorizationCodeGrantMetadata
+      ),
+    };
+  if (obj.ClientCredentialsGrantMetadata !== undefined)
+    return {
+      ClientCredentialsGrantMetadata: ClientCredentialsGrantMetadataFilterSensitiveLog(
+        obj.ClientCredentialsGrantMetadata
+      ),
+    };
+  if (obj.BasicAuthConnectionMetadata !== undefined)
+    return {
+      BasicAuthConnectionMetadata: BasicAuthConnectionMetadataFilterSensitiveLog(obj.BasicAuthConnectionMetadata),
+    };
+  if (obj.ApiKeyConnectionMetadata !== undefined)
+    return { ApiKeyConnectionMetadata: APIKeyConnectionMetadataFilterSensitiveLog(obj.ApiKeyConnectionMetadata) };
+  if (obj.NoneConnectionMetadata !== undefined) return { NoneConnectionMetadata: obj.NoneConnectionMetadata };
+  if (obj.IamConnectionMetadata !== undefined) return { IamConnectionMetadata: obj.IamConnectionMetadata };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AuthConfigFilterSensitiveLog = (obj: AuthConfig): any => ({
+  ...obj,
+  ...(obj.AuthenticationMetadata && {
+    AuthenticationMetadata: AuthenticationMetadataFilterSensitiveLog(obj.AuthenticationMetadata),
+  }),
 });

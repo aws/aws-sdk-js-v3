@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListIngestionsRequest, ListIngestionsResponse } from "../models/models_4";
+import { ListIngestionsRequest, ListIngestionsResponse } from "../models/models_5";
 import { de_ListIngestionsCommand, se_ListIngestionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -87,7 +87,7 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

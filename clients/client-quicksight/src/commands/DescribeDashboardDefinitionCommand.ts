@@ -39,12 +39,11 @@ export interface DescribeDashboardDefinitionCommandOutput
 /**
  * <p>Provides a detailed description of the definition of a dashboard.</p>
  *          <note>
- *             <p>If you do not need to know details about the content of a dashboard, for instance if you
- *                 are trying to check the status of a recently created or updated dashboard, use the
- *                 <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboard.html">
+ *             <p>If you do not need to know details about the content of a dashboard, for instance
+ *                 if you are trying to check the status of a recently created or updated dashboard,
+ *                 use the <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboard.html">
  *                   <code>DescribeDashboard</code>
- *                </a> instead.
- *             </p>
+ *                </a> instead. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -5527,6 +5526,9 @@ export interface DescribeDashboardDefinitionCommandOutput
  * //     DataQAEnabledOption: { // DataQAEnabledOption
  * //       AvailabilityStatus: "ENABLED" || "DISABLED",
  * //     },
+ * //     QuickSuiteActionsOption: { // QuickSuiteActionsOption
+ * //       AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //     },
  * //     ExecutiveSummaryOption: { // ExecutiveSummaryOption
  * //       AvailabilityStatus: "ENABLED" || "DISABLED",
  * //     },
@@ -5547,7 +5549,7 @@ export interface DescribeDashboardDefinitionCommandOutput
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link ConflictException} (client fault)
@@ -5569,9 +5571,9 @@ export interface DescribeDashboardDefinitionCommandOutput
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

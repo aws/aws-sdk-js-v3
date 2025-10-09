@@ -48,7 +48,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //     Arn: "STRING_VALUE",
  * //     DataSourceId: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
- * //     Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY" || "GOOGLESHEETS",
+ * //     Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY" || "GOOGLESHEETS" || "GOOGLE_DRIVE" || "CONFLUENCE" || "SHAREPOINT" || "ONE_DRIVE" || "WEB_CRAWLER" || "S3_KNOWLEDGE_BASE" || "QBUSINESS",
  * //     Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
  * //     CreatedTime: new Date("TIMESTAMP"),
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
@@ -133,6 +133,11 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         },
  * //         RoleArn: "STRING_VALUE",
  * //       },
+ * //       S3KnowledgeBaseParameters: { // S3KnowledgeBaseParameters
+ * //         RoleArn: "STRING_VALUE",
+ * //         BucketUrl: "STRING_VALUE", // required
+ * //         MetadataFilesLocation: "STRING_VALUE",
+ * //       },
  * //       ServiceNowParameters: { // ServiceNowParameters
  * //         SiteBaseUrl: "STRING_VALUE", // required
  * //       },
@@ -214,6 +219,22 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //       },
  * //       CustomConnectionParameters: { // CustomConnectionParameters
  * //         ConnectionType: "STRING_VALUE",
+ * //       },
+ * //       WebCrawlerParameters: { // WebCrawlerParameters
+ * //         WebCrawlerAuthType: "NO_AUTH" || "BASIC_AUTH" || "FORM" || "SAML", // required
+ * //         UsernameFieldXpath: "STRING_VALUE",
+ * //         PasswordFieldXpath: "STRING_VALUE",
+ * //         UsernameButtonXpath: "STRING_VALUE",
+ * //         PasswordButtonXpath: "STRING_VALUE",
+ * //         LoginPageUrl: "STRING_VALUE",
+ * //         WebProxyHostName: "STRING_VALUE",
+ * //         WebProxyPortNumber: Number("int"),
+ * //       },
+ * //       ConfluenceParameters: { // ConfluenceParameters
+ * //         ConfluenceUrl: "STRING_VALUE", // required
+ * //       },
+ * //       QBusinessParameters: { // QBusinessParameters
+ * //         ApplicationArn: "STRING_VALUE", // required
  * //       },
  * //     },
  * //     AlternateDataSourceParameters: [ // DataSourceParametersList
@@ -298,6 +319,11 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           },
  * //           RoleArn: "STRING_VALUE",
  * //         },
+ * //         S3KnowledgeBaseParameters: {
+ * //           RoleArn: "STRING_VALUE",
+ * //           BucketUrl: "STRING_VALUE", // required
+ * //           MetadataFilesLocation: "STRING_VALUE",
+ * //         },
  * //         ServiceNowParameters: {
  * //           SiteBaseUrl: "STRING_VALUE", // required
  * //         },
@@ -380,6 +406,22 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         CustomConnectionParameters: {
  * //           ConnectionType: "STRING_VALUE",
  * //         },
+ * //         WebCrawlerParameters: {
+ * //           WebCrawlerAuthType: "NO_AUTH" || "BASIC_AUTH" || "FORM" || "SAML", // required
+ * //           UsernameFieldXpath: "STRING_VALUE",
+ * //           PasswordFieldXpath: "STRING_VALUE",
+ * //           UsernameButtonXpath: "STRING_VALUE",
+ * //           PasswordButtonXpath: "STRING_VALUE",
+ * //           LoginPageUrl: "STRING_VALUE",
+ * //           WebProxyHostName: "STRING_VALUE",
+ * //           WebProxyPortNumber: Number("int"),
+ * //         },
+ * //         ConfluenceParameters: {
+ * //           ConfluenceUrl: "STRING_VALUE", // required
+ * //         },
+ * //         QBusinessParameters: {
+ * //           ApplicationArn: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     ],
  * //     VpcConnectionProperties: "<VpcConnectionProperties>",
@@ -407,7 +449,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

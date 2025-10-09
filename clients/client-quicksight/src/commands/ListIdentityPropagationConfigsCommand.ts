@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListIdentityPropagationConfigsRequest, ListIdentityPropagationConfigsResponse } from "../models/models_4";
+import { ListIdentityPropagationConfigsRequest, ListIdentityPropagationConfigsResponse } from "../models/models_5";
 import {
   de_ListIdentityPropagationConfigsCommand,
   se_ListIdentityPropagationConfigsCommand,
@@ -33,8 +33,8 @@ export interface ListIdentityPropagationConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all services and authorized targets that the QuickSight IAM Identity Center application can access.</p>
- *          <p>This operation is only supported for QuickSight accounts that use IAM Identity Center.</p>
+ * <p>Lists all services and authorized targets that the Quick Sight IAM Identity Center application can access.</p>
+ *          <p>This operation is only supported for Quick Sight accounts that use IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +75,7 @@ export interface ListIdentityPropagationConfigsCommandOutput
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

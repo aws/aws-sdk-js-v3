@@ -28,7 +28,7 @@ export interface SearchGroupsCommandInput extends SearchGroupsRequest {}
 export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Use the <code>SearchGroups</code> operation to search groups in a specified QuickSight namespace using the supplied filters.</p>
+ * <p>Use the <code>SearchGroups</code> operation to search groups in a specified Quick Sight namespace using the supplied filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,7 +77,7 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

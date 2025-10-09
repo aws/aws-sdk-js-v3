@@ -6,7 +6,7 @@ import { QuickSightServiceException as __BaseException } from "./QuickSightServi
 /**
  * <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  * @public
  */
@@ -35,12 +35,12 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The Amazon QuickSight customizations associated with your Amazon Web Services account or a QuickSight namespace in a specific Amazon Web Services Region.</p>
+ * <p>The Quick Sight customizations associated with your Amazon Web Services account or a Quick Sight namespace in a specific Amazon Web Services Region.</p>
  * @public
  */
 export interface AccountCustomization {
   /**
-   * <p>The default theme for this QuickSight subscription.</p>
+   * <p>The default theme for this Quick Sight subscription.</p>
    * @public
    */
   DefaultTheme?: string | undefined;
@@ -72,27 +72,27 @@ export type Edition = (typeof Edition)[keyof typeof Edition];
  *             elements:</p>
  *          <ul>
  *             <li>
- *                <p>Your QuickSight account name.</p>
+ *                <p>Your Quick Sight account name.</p>
  *             </li>
  *             <li>
- *                <p>The edition of QuickSight that your account is using.</p>
+ *                <p>The edition of Quick Sight that your account is using.</p>
  *             </li>
  *             <li>
- *                <p>The notification email address that is associated with the QuickSight account.
+ *                <p>The notification email address that is associated with the Quick Sight account.
  *             </p>
  *             </li>
  *             <li>
- *                <p>The authentication type of the QuickSight account.</p>
+ *                <p>The authentication type of the Quick Sight account.</p>
  *             </li>
  *             <li>
- *                <p>The status of the QuickSight account's subscription.</p>
+ *                <p>The status of the Quick Sight account's subscription.</p>
  *             </li>
  *          </ul>
  * @public
  */
 export interface AccountInfo {
   /**
-   * <p>The account name that you provided for the QuickSight subscription in your
+   * <p>The account name that you provided for the Amazon Quick Sight subscription in your
    *                 Amazon Web Services account. You create this name when you sign up for QuickSight. It's unique over all of Amazon Web Services, and it appears only when
    *             users sign in.</p>
    * @public
@@ -100,19 +100,19 @@ export interface AccountInfo {
   AccountName?: string | undefined;
 
   /**
-   * <p>The edition of your QuickSight account.</p>
+   * <p>The edition of your Quick Sight account.</p>
    * @public
    */
   Edition?: Edition | undefined;
 
   /**
-   * <p>The email address that will be used for QuickSight to send notifications regarding your Amazon Web Services account or QuickSight subscription.</p>
+   * <p>The email address that will be used for Quick Sight to send notifications regarding your Amazon Web Services account or Quick Sight subscription.</p>
    * @public
    */
   NotificationEmail?: string | undefined;
 
   /**
-   * <p>The way that your QuickSight account is authenticated.</p>
+   * <p>The way that your Amazon Quick Sight account is authenticated.</p>
    * @public
    */
   AuthenticationType?: string | undefined;
@@ -131,33 +131,33 @@ export interface AccountInfo {
 }
 
 /**
- * <p>The QuickSight settings associated with your Amazon Web Services account.</p>
+ * <p>The Quick Sight settings associated with your Amazon Web Services account.</p>
  * @public
  */
 export interface AccountSettings {
   /**
-   * <p>The "account name" you provided for the QuickSight subscription in your Amazon Web Services account.
-   *             You create this name when you sign up for QuickSight. It is unique in all of Amazon Web Services and
+   * <p>The "account name" you provided for the Quick Sight subscription in your Amazon Web Services account.
+   *             You create this name when you sign up for Quick Sight. It is unique in all of Amazon Web Services and
    *             it appears only when users sign in.</p>
    * @public
    */
   AccountName?: string | undefined;
 
   /**
-   * <p>The edition of QuickSight that you're currently subscribed to:
+   * <p>The edition of Quick Sight that you're currently subscribed to:
    *         Enterprise edition or Standard edition.</p>
    * @public
    */
   Edition?: Edition | undefined;
 
   /**
-   * <p>The default QuickSight namespace for your Amazon Web Services account. </p>
+   * <p>The default Quick Sight namespace for your Amazon Web Services account. </p>
    * @public
    */
   DefaultNamespace?: string | undefined;
 
   /**
-   * <p>The main notification email for your QuickSight subscription.</p>
+   * <p>The main notification email for your Quick Sight subscription.</p>
    * @public
    */
   NotificationEmail?: string | undefined;
@@ -169,10 +169,735 @@ export interface AccountSettings {
   PublicSharingEnabled?: boolean | undefined;
 
   /**
-   * <p>A boolean value that determines whether or not an QuickSight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubsctiption</code> request. A <code>False</code> value will allow the ccount to be deleted. </p>
+   * <p>A boolean value that determines whether or not an Quick Sight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubsctiption</code> request. A <code>False</code> value will allow the ccount to be deleted. </p>
    * @public
    */
   TerminationProtectionEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Read-only authentication metadata for API key-based connections, containing non-sensitive configuration details.</p>
+ * @public
+ */
+export interface ReadAPIKeyConnectionMetadata {
+  /**
+   * <p>The base endpoint URL for API key authentication.</p>
+   * @public
+   */
+  BaseEndpoint: string | undefined;
+
+  /**
+   * <p>The email address associated with the API key authentication.</p>
+   * @public
+   */
+  Email?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthorizationCodeGrantCredentialsSource = {
+  PLAIN_CREDENTIALS: "PLAIN_CREDENTIALS",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorizationCodeGrantCredentialsSource =
+  (typeof AuthorizationCodeGrantCredentialsSource)[keyof typeof AuthorizationCodeGrantCredentialsSource];
+
+/**
+ * <p>Read-only configuration details for OAuth2 authorization code grant flow, including endpoints and client information.</p>
+ * @public
+ */
+export interface ReadAuthorizationCodeGrantDetails {
+  /**
+   * <p>The client identifier for the OAuth2 authorization code grant flow.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The authorization server endpoint used to obtain access tokens via the authorization code grant flow.</p>
+   * @public
+   */
+  TokenEndpoint: string | undefined;
+
+  /**
+   * <p>The authorization server endpoint used to obtain authorization codes from the resource owner.</p>
+   * @public
+   */
+  AuthorizationEndpoint: string | undefined;
+}
+
+/**
+ * <p>Read-only credentials details for OAuth2 authorization code grant flow, containing non-sensitive configuration information.</p>
+ * @public
+ */
+export type ReadAuthorizationCodeGrantCredentialsDetails =
+  | ReadAuthorizationCodeGrantCredentialsDetails.ReadAuthorizationCodeGrantDetailsMember
+  | ReadAuthorizationCodeGrantCredentialsDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ReadAuthorizationCodeGrantCredentialsDetails {
+  /**
+   * <p>The read-only authorization code grant configuration details.</p>
+   * @public
+   */
+  export interface ReadAuthorizationCodeGrantDetailsMember {
+    ReadAuthorizationCodeGrantDetails: ReadAuthorizationCodeGrantDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ReadAuthorizationCodeGrantDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ReadAuthorizationCodeGrantDetails: (value: ReadAuthorizationCodeGrantDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ReadAuthorizationCodeGrantCredentialsDetails, visitor: Visitor<T>): T => {
+    if (value.ReadAuthorizationCodeGrantDetails !== undefined)
+      return visitor.ReadAuthorizationCodeGrantDetails(value.ReadAuthorizationCodeGrantDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Read-only metadata for OAuth2 authorization code grant authentication configuration.</p>
+ * @public
+ */
+export interface ReadAuthorizationCodeGrantMetadata {
+  /**
+   * <p>The base endpoint URL for the OAuth2 authorization code grant flow.</p>
+   * @public
+   */
+  BaseEndpoint: string | undefined;
+
+  /**
+   * <p>The redirect URL where the authorization server will send the user after authorization.</p>
+   * @public
+   */
+  RedirectUrl: string | undefined;
+
+  /**
+   * <p>The read-only credentials details for the authorization code grant flow.</p>
+   * @public
+   */
+  ReadAuthorizationCodeGrantCredentialsDetails?: ReadAuthorizationCodeGrantCredentialsDetails | undefined;
+
+  /**
+   * <p>The source of credentials for the authorization code grant flow.</p>
+   * @public
+   */
+  AuthorizationCodeGrantCredentialsSource?: AuthorizationCodeGrantCredentialsSource | undefined;
+}
+
+/**
+ * <p>Read-only metadata for basic authentication connections, containing non-sensitive configuration details.</p>
+ * @public
+ */
+export interface ReadBasicAuthConnectionMetadata {
+  /**
+   * <p>The base endpoint URL for basic authentication.</p>
+   * @public
+   */
+  BaseEndpoint: string | undefined;
+
+  /**
+   * <p>The username used for basic authentication.</p>
+   * @public
+   */
+  Username: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientCredentialsSource = {
+  PLAIN_CREDENTIALS: "PLAIN_CREDENTIALS",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientCredentialsSource = (typeof ClientCredentialsSource)[keyof typeof ClientCredentialsSource];
+
+/**
+ * <p>Read-only configuration details for OAuth2 client credentials grant flow, including client ID and token endpoint.</p>
+ * @public
+ */
+export interface ReadClientCredentialsGrantDetails {
+  /**
+   * <p>The client identifier for the OAuth2 client credentials grant flow.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The authorization server endpoint used to obtain access tokens via the client credentials grant flow.</p>
+   * @public
+   */
+  TokenEndpoint: string | undefined;
+}
+
+/**
+ * <p>Read-only details for OAuth2 client credentials, containing non-sensitive configuration information.</p>
+ * @public
+ */
+export type ReadClientCredentialsDetails =
+  | ReadClientCredentialsDetails.ReadClientCredentialsGrantDetailsMember
+  | ReadClientCredentialsDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ReadClientCredentialsDetails {
+  /**
+   * <p>The read-only client credentials grant configuration details.</p>
+   * @public
+   */
+  export interface ReadClientCredentialsGrantDetailsMember {
+    ReadClientCredentialsGrantDetails: ReadClientCredentialsGrantDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ReadClientCredentialsGrantDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ReadClientCredentialsGrantDetails: (value: ReadClientCredentialsGrantDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ReadClientCredentialsDetails, visitor: Visitor<T>): T => {
+    if (value.ReadClientCredentialsGrantDetails !== undefined)
+      return visitor.ReadClientCredentialsGrantDetails(value.ReadClientCredentialsGrantDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Read-only metadata for OAuth2 client credentials grant authentication configuration.</p>
+ * @public
+ */
+export interface ReadClientCredentialsGrantMetadata {
+  /**
+   * <p>The base endpoint URL for the OAuth2 client credentials grant flow.</p>
+   * @public
+   */
+  BaseEndpoint: string | undefined;
+
+  /**
+   * <p>The read-only client credentials configuration details.</p>
+   * @public
+   */
+  ReadClientCredentialsDetails?: ReadClientCredentialsDetails | undefined;
+
+  /**
+   * <p>The source of client credentials for the OAuth2 client credentials grant flow.</p>
+   * @public
+   */
+  ClientCredentialsSource?: ClientCredentialsSource | undefined;
+}
+
+/**
+ * <p>Read-only metadata for IAM-based connections, containing role and source ARN information.</p>
+ * @public
+ */
+export interface ReadIamConnectionMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assume for authentication.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source resource for IAM authentication.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+}
+
+/**
+ * <p>Read-only metadata for connections that do not require authentication credentials.</p>
+ * @public
+ */
+export interface ReadNoneConnectionMetadata {
+  /**
+   * <p>The base endpoint URL for connections that do not require authentication.</p>
+   * @public
+   */
+  BaseEndpoint: string | undefined;
+}
+
+/**
+ * <p>Read-only authentication metadata union containing non-sensitive configuration details for different authentication types.</p>
+ * @public
+ */
+export type ReadAuthenticationMetadata =
+  | ReadAuthenticationMetadata.ApiKeyConnectionMetadataMember
+  | ReadAuthenticationMetadata.AuthorizationCodeGrantMetadataMember
+  | ReadAuthenticationMetadata.BasicAuthConnectionMetadataMember
+  | ReadAuthenticationMetadata.ClientCredentialsGrantMetadataMember
+  | ReadAuthenticationMetadata.IamConnectionMetadataMember
+  | ReadAuthenticationMetadata.NoneConnectionMetadataMember
+  | ReadAuthenticationMetadata.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ReadAuthenticationMetadata {
+  /**
+   * <p>Read-only metadata for OAuth2 authorization code grant flow configuration.</p>
+   * @public
+   */
+  export interface AuthorizationCodeGrantMetadataMember {
+    AuthorizationCodeGrantMetadata: ReadAuthorizationCodeGrantMetadata;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Read-only metadata for OAuth2 client credentials grant flow configuration.</p>
+   * @public
+   */
+  export interface ClientCredentialsGrantMetadataMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata: ReadClientCredentialsGrantMetadata;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Read-only metadata for basic authentication configuration.</p>
+   * @public
+   */
+  export interface BasicAuthConnectionMetadataMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata: ReadBasicAuthConnectionMetadata;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Read-only metadata for API key authentication configuration.</p>
+   * @public
+   */
+  export interface ApiKeyConnectionMetadataMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata: ReadAPIKeyConnectionMetadata;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Read-only metadata for connections that do not require authentication.</p>
+   * @public
+   */
+  export interface NoneConnectionMetadataMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata: ReadNoneConnectionMetadata;
+    IamConnectionMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Read-only metadata for IAM-based authentication configuration.</p>
+   * @public
+   */
+  export interface IamConnectionMetadataMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata: ReadIamConnectionMetadata;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AuthorizationCodeGrantMetadata?: never;
+    ClientCredentialsGrantMetadata?: never;
+    BasicAuthConnectionMetadata?: never;
+    ApiKeyConnectionMetadata?: never;
+    NoneConnectionMetadata?: never;
+    IamConnectionMetadata?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AuthorizationCodeGrantMetadata: (value: ReadAuthorizationCodeGrantMetadata) => T;
+    ClientCredentialsGrantMetadata: (value: ReadClientCredentialsGrantMetadata) => T;
+    BasicAuthConnectionMetadata: (value: ReadBasicAuthConnectionMetadata) => T;
+    ApiKeyConnectionMetadata: (value: ReadAPIKeyConnectionMetadata) => T;
+    NoneConnectionMetadata: (value: ReadNoneConnectionMetadata) => T;
+    IamConnectionMetadata: (value: ReadIamConnectionMetadata) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ReadAuthenticationMetadata, visitor: Visitor<T>): T => {
+    if (value.AuthorizationCodeGrantMetadata !== undefined)
+      return visitor.AuthorizationCodeGrantMetadata(value.AuthorizationCodeGrantMetadata);
+    if (value.ClientCredentialsGrantMetadata !== undefined)
+      return visitor.ClientCredentialsGrantMetadata(value.ClientCredentialsGrantMetadata);
+    if (value.BasicAuthConnectionMetadata !== undefined)
+      return visitor.BasicAuthConnectionMetadata(value.BasicAuthConnectionMetadata);
+    if (value.ApiKeyConnectionMetadata !== undefined)
+      return visitor.ApiKeyConnectionMetadata(value.ApiKeyConnectionMetadata);
+    if (value.NoneConnectionMetadata !== undefined) return visitor.NoneConnectionMetadata(value.NoneConnectionMetadata);
+    if (value.IamConnectionMetadata !== undefined) return visitor.IamConnectionMetadata(value.IamConnectionMetadata);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionAuthType = {
+  API_KEY: "API_KEY",
+  BASIC: "BASIC",
+  IAM: "IAM",
+  NONE: "NONE",
+  OAUTH2_AUTHORIZATION_CODE: "OAUTH2_AUTHORIZATION_CODE",
+  OAUTH2_CLIENT_CREDENTIALS: "OAUTH2_CLIENT_CREDENTIALS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionAuthType = (typeof ConnectionAuthType)[keyof typeof ConnectionAuthType];
+
+/**
+ * <p>Read-only authentication configuration containing non-sensitive authentication details for action connectors.</p>
+ * @public
+ */
+export interface ReadAuthConfig {
+  /**
+   * <p>The type of authentication being used (BASIC, API_KEY, OAUTH2_CLIENT_CREDENTIALS, or OAUTH2_AUTHORIZATION_CODE).</p>
+   * @public
+   */
+  AuthenticationType: ConnectionAuthType | undefined;
+
+  /**
+   * <p>The authentication metadata containing configuration details specific to the authentication type.</p>
+   * @public
+   */
+  AuthenticationMetadata: ReadAuthenticationMetadata | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionConnectorErrorType = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionConnectorErrorType = (typeof ActionConnectorErrorType)[keyof typeof ActionConnectorErrorType];
+
+/**
+ * <p>Contains error information for an action connector that is in an error state.</p>
+ * @public
+ */
+export interface ActionConnectorError {
+  /**
+   * <p>The error message describing what went wrong with the action connector.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The type or category of the error.</p>
+   * @public
+   */
+  Type?: ActionConnectorErrorType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStatus = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  CREATION_SUCCESSFUL: "CREATION_SUCCESSFUL",
+  DELETED: "DELETED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionConnectorType = {
+  AMAZON_BEDROCK_AGENT_RUNTIME: "AMAZON_BEDROCK_AGENT_RUNTIME",
+  AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME: "AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME",
+  AMAZON_BEDROCK_RUNTIME: "AMAZON_BEDROCK_RUNTIME",
+  AMAZON_COMPREHEND: "AMAZON_COMPREHEND",
+  AMAZON_COMPREHEND_MEDICAL: "AMAZON_COMPREHEND_MEDICAL",
+  AMAZON_S3: "AMAZON_S3",
+  AMAZON_TEXTRACT: "AMAZON_TEXTRACT",
+  ASANA: "ASANA",
+  ATLASSIAN_CONFLUENCE: "ATLASSIAN_CONFLUENCE",
+  BAMBOO_HR: "BAMBOO_HR",
+  GENERIC_HTTP: "GENERIC_HTTP",
+  JIRA_CLOUD: "JIRA_CLOUD",
+  MICROSOFT_ONEDRIVE: "MICROSOFT_ONEDRIVE",
+  MICROSOFT_OUTLOOK: "MICROSOFT_OUTLOOK",
+  MICROSOFT_SHAREPOINT: "MICROSOFT_SHAREPOINT",
+  MICROSOFT_TEAMS: "MICROSOFT_TEAMS",
+  PAGERDUTY_ADVANCE: "PAGERDUTY_ADVANCE",
+  SALESFORCE_CRM: "SALESFORCE_CRM",
+  SAP_BILLOFMATERIALS: "SAP_BILLOFMATERIALS",
+  SAP_BUSINESSPARTNER: "SAP_BUSINESSPARTNER",
+  SAP_MATERIALSTOCK: "SAP_MATERIALSTOCK",
+  SAP_PHYSICALINVENTORY: "SAP_PHYSICALINVENTORY",
+  SAP_PRODUCTMASTERDATA: "SAP_PRODUCTMASTERDATA",
+  SERVICENOW_NOW_PLATFORM: "SERVICENOW_NOW_PLATFORM",
+  SLACK: "SLACK",
+  SMARTSHEET: "SMARTSHEET",
+  ZENDESK_SUITE: "ZENDESK_SUITE",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionConnectorType = (typeof ActionConnectorType)[keyof typeof ActionConnectorType];
+
+/**
+ * <p>Contains detailed information about an action connector, including its configuration, status, and enabled actions.</p>
+ * @public
+ */
+export interface ActionConnector {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the action connector.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action connector.</p>
+   * @public
+   */
+  ActionConnectorId: string | undefined;
+
+  /**
+   * <p>The type of action connector.</p>
+   * @public
+   */
+  Type: ActionConnectorType | undefined;
+
+  /**
+   * <p>The name of the action connector.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The timestamp when the action connector was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the action connector was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The current status of the action connector.</p>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Error information if the action connector is in an error state.</p>
+   * @public
+   */
+  Error?: ActionConnectorError | undefined;
+
+  /**
+   * <p>The description of the action connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The authentication configuration used to connect to the external service.</p>
+   * @public
+   */
+  AuthenticationConfig?: ReadAuthConfig | undefined;
+
+  /**
+   * <p>The list of actions that are enabled for this connector.</p>
+   * @public
+   */
+  EnabledActions?: string[] | undefined;
+
+  /**
+   * <p>The ARN of the VPC connection used for secure connectivity to the external service.</p>
+   * @public
+   */
+  VpcConnectionArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionConnectorSearchFilterNameEnum = {
+  ACTION_CONNECTOR_NAME: "ACTION_CONNECTOR_NAME",
+  ACTION_CONNECTOR_TYPE: "ACTION_CONNECTOR_TYPE",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionConnectorSearchFilterNameEnum =
+  (typeof ActionConnectorSearchFilterNameEnum)[keyof typeof ActionConnectorSearchFilterNameEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperator = {
+  StringEquals: "StringEquals",
+  StringLike: "StringLike",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
+
+/**
+ * <p>A filter used to search for action connectors based on specific criteria.</p>
+ * @public
+ */
+export interface ActionConnectorSearchFilter {
+  /**
+   * <p>The name of the filter attribute (e.g., ACTION_CONNECTOR_NAME, ACTION_CONNECTOR_TYPE, QUICKSIGHT_VIEWER_OR_OWNER).</p>
+   * @public
+   */
+  Name: ActionConnectorSearchFilterNameEnum | undefined;
+
+  /**
+   * <p>The comparison operator to use for the filter (e.g., StringEquals, StringLike).</p>
+   * @public
+   */
+  Operator: FilterOperator | undefined;
+
+  /**
+   * <p>The value to compare against using the specified operator.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about an action connector, used in list and search operations.</p>
+ * @public
+ */
+export interface ActionConnectorSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the action connector.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action connector.</p>
+   * @public
+   */
+  ActionConnectorId: string | undefined;
+
+  /**
+   * <p>The type of action connector (e.g., SALESFORCE, JIRA, CUSTOM, BEDROCK).</p>
+   * @public
+   */
+  Type: ActionConnectorType | undefined;
+
+  /**
+   * <p>The name of the action connector.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The date and time when the action connector was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the action connector was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The current status of the action connector.</p>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Error information if the action connector is in an error state.</p>
+   * @public
+   */
+  Error?: ActionConnectorError | undefined;
 }
 
 /**
@@ -666,90 +1391,92 @@ export interface AmazonOpenSearchParameters {
 }
 
 /**
- * <p>The generative Q&A settings of an embedded QuickSight console.</p>
+ * <p>The generative Q&A settings of an embedded Quick Sight console.</p>
  * @public
  */
 export interface DataQnAConfigurations {
   /**
-   * <p>The generative Q&A settings of an embedded QuickSight console.</p>
+   * <p>The generative Q&A settings of an embedded Quick Sight console.</p>
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The data story settings of an embedded QuickSight console.</p>
+ * <p>The data story settings of an embedded Quick Sight console.</p>
  * @public
  */
 export interface DataStoriesConfigurations {
   /**
-   * <p>The data story settings of an embedded QuickSight console.</p>
+   * <p>The data story settings of an embedded Quick Sight console.</p>
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The executive summary settings of an embedded QuickSight console or dashboard.</p>
+ * <p>The executive summary settings of an embedded Quick Sight console or dashboard.</p>
  * @public
  */
 export interface ExecutiveSummaryConfigurations {
   /**
-   * <p>The executive summary settings of an embedded QuickSight console or dashboard.</p>
+   * <p>The executive summary settings of an embedded Quick Sight console or dashboard.</p>
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The generative BI authoring settings of an embedded QuickSight console.</p>
+ * <p>The generative BI authoring settings of an embedded Quick Sight console.</p>
  * @public
  */
 export interface GenerativeAuthoringConfigurations {
   /**
-   * <p>The generative BI authoring settings of an embedded QuickSight console.</p>
+   * <p>The generative BI authoring settings of an embedded Quick Sight console.</p>
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>A collection of Amazon Q feature configurations in an embedded QuickSight console.</p>
+ * <p>A collection of Amazon Q feature configurations in an embedded Quick Sight
+ *             console.</p>
  * @public
  */
 export interface AmazonQInQuickSightConsoleConfigurations {
   /**
-   * <p>Adds generative Q&A capabilitiees to an embedded QuickSight console.</p>
+   * <p>Adds generative Q&A capabilitiees to an embedded Quick Sight console.</p>
    * @public
    */
   DataQnA?: DataQnAConfigurations | undefined;
 
   /**
-   * <p>Adds the generative BI authoring experience to an embedded QuickSight console.</p>
+   * <p>Adds the generative BI authoring experience to an embedded Quick Sight console.</p>
    * @public
    */
   GenerativeAuthoring?: GenerativeAuthoringConfigurations | undefined;
 
   /**
-   * <p>Adds the executive summaries feature to an embedded QuickSight console.</p>
+   * <p>Adds the executive summaries feature to an embedded Quick Sight console.</p>
    * @public
    */
   ExecutiveSummary?: ExecutiveSummaryConfigurations | undefined;
 
   /**
-   * <p>Adds the data stories feature to an embedded QuickSight console.</p>
+   * <p>Adds the data stories feature to an embedded Quick Sight console.</p>
    * @public
    */
   DataStories?: DataStoriesConfigurations | undefined;
 }
 
 /**
- * <p>A collection of Amazon Q feature configurations in an embedded QuickSight dashboard.</p>
+ * <p>A collection of Amazon Q feature configurations in an embedded Quick Sight
+ *             dashboard.</p>
  * @public
  */
 export interface AmazonQInQuickSightDashboardConfigurations {
   /**
-   * <p>A generated executive summary of an embedded QuickSight dashboard.</p>
+   * <p>A generated executive summary of an embedded Quick Sight dashboard.</p>
    * @public
    */
   ExecutiveSummary?: ExecutiveSummaryConfigurations | undefined;
@@ -1308,7 +2035,7 @@ export interface SheetImage {
 
 /**
  * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
- *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+ *             are viewed together on one page in Quick Sight. Every analysis and dashboard
  *             contains at least one sheet. Each sheet contains at least one visualization widget, for
  *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
  *             components, such as controls, filters, and so on.</p>
@@ -1322,7 +2049,7 @@ export interface Sheet {
   SheetId?: string | undefined;
 
   /**
-   * <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+   * <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick Sight
    *             console.</p>
    * @public
    */
@@ -1336,26 +2063,7 @@ export interface Sheet {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceStatus = {
-  CREATION_FAILED: "CREATION_FAILED",
-  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL: "CREATION_SUCCESSFUL",
-  DELETED: "DELETED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
-
-/**
- * <p>Metadata structure for an analysis in Amazon QuickSight</p>
+ * <p>Metadata structure for an analysis in Quick Sight</p>
  * @public
  */
 export interface Analysis {
@@ -1481,12 +2189,12 @@ export interface GridLayoutScreenCanvasSizeOptions {
    *             <li>
    *                <p>
    *                   <code>FIXED</code>: A fixed width will be used when optimizing the layout. In
-   *                     the QuickSight console, this option is called <code>Classic</code>.</p>
+   *                     the Quick Sight console, this option is called <code>Classic</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>RESPONSIVE</code>: The width of the canvas will be responsive and
-   *                     optimized to the view port. In the QuickSight console, this option is called <code>Tiled</code>.</p>
+   *                     optimized to the view port. In the Quick Sight console, this option is called <code>Tiled</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2484,13 +3192,13 @@ export interface FilterListConfiguration {
  */
 export interface CategoryFilterConfiguration {
   /**
-   * <p>A list of filter configurations. In the QuickSight console, this filter type is called a filter list.</p>
+   * <p>A list of filter configurations. In the Quick Sight console, this filter type is called a filter list.</p>
    * @public
    */
   FilterListConfiguration?: FilterListConfiguration | undefined;
 
   /**
-   * <p>A list of custom filter values. In the QuickSight console, this filter type is called a custom filter list.</p>
+   * <p>A list of custom filter values. In the Quick Sight console, this filter type is called a custom filter list.</p>
    * @public
    */
   CustomFilterListConfiguration?: CustomFilterListConfiguration | undefined;
@@ -3231,7 +3939,7 @@ export interface DefaultFilterControlConfiguration {
 
 /**
  * <p>A <code>CategoryFilter</code> filters text values.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html">Adding text filters</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html">Adding text filters</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  * @public
  */
 export interface CategoryFilter {
@@ -3976,7 +4684,7 @@ export interface TopBottomFilter {
 export interface Filter {
   /**
    * <p>A <code>CategoryFilter</code> filters text values.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html">Adding text filters</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html">Adding text filters</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   CategoryFilter?: CategoryFilter | undefined;
@@ -4109,7 +4817,7 @@ export interface FilterScopeConfiguration {
 
 /**
  * <p>A grouping of individual filters. Filter groups are applied to the same group of visuals.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html">Adding filter conditions (group filters) with AND and OR operators</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html">Adding filter conditions (group filters) with AND and OR operators</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  * @public
  */
 export interface FilterGroup {
@@ -4672,7 +5380,7 @@ export interface StringParameterDeclaration {
 
 /**
  * <p>The declaration definition of a parameter.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  * @public
  */
@@ -5779,7 +6487,7 @@ export interface LayoutConfiguration {
 
 /**
  * <p>A <code>Layout</code> defines the placement of elements within a sheet.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  * @public
  */
@@ -6764,600 +7472,67 @@ export interface DataPathLabelType {
 }
 
 /**
- * <p>The field label type.</p>
- * @public
+ * @internal
  */
-export interface FieldLabelType {
-  /**
-   * <p>Indicates the field that is targeted by the field
-   *             label.</p>
-   * @public
-   */
-  FieldId?: string | undefined;
-
-  /**
-   * <p>The visibility of the field label.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-}
+export const ReadAPIKeyConnectionMetadataFilterSensitiveLog = (obj: ReadAPIKeyConnectionMetadata): any => ({
+  ...obj,
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+});
 
 /**
- * <p>The maximum label of a data path label.</p>
- * @public
+ * @internal
  */
-export interface MaximumLabelType {
-  /**
-   * <p>The visibility of the maximum label.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-}
+export const ReadBasicAuthConnectionMetadataFilterSensitiveLog = (obj: ReadBasicAuthConnectionMetadata): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
 
 /**
- * <p>The minimum label of a data path label.</p>
- * @public
+ * @internal
  */
-export interface MinimumLabelType {
-  /**
-   * <p>The visibility of the minimum label.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-}
+export const ReadAuthenticationMetadataFilterSensitiveLog = (obj: ReadAuthenticationMetadata): any => {
+  if (obj.AuthorizationCodeGrantMetadata !== undefined)
+    return { AuthorizationCodeGrantMetadata: obj.AuthorizationCodeGrantMetadata };
+  if (obj.ClientCredentialsGrantMetadata !== undefined)
+    return { ClientCredentialsGrantMetadata: obj.ClientCredentialsGrantMetadata };
+  if (obj.BasicAuthConnectionMetadata !== undefined)
+    return {
+      BasicAuthConnectionMetadata: ReadBasicAuthConnectionMetadataFilterSensitiveLog(obj.BasicAuthConnectionMetadata),
+    };
+  if (obj.ApiKeyConnectionMetadata !== undefined)
+    return { ApiKeyConnectionMetadata: ReadAPIKeyConnectionMetadataFilterSensitiveLog(obj.ApiKeyConnectionMetadata) };
+  if (obj.NoneConnectionMetadata !== undefined) return { NoneConnectionMetadata: obj.NoneConnectionMetadata };
+  if (obj.IamConnectionMetadata !== undefined) return { IamConnectionMetadata: obj.IamConnectionMetadata };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 /**
- * <p>The range ends label type of a data path label.</p>
- * @public
+ * @internal
  */
-export interface RangeEndsLabelType {
-  /**
-   * <p>The visibility of the range ends label.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-}
+export const ReadAuthConfigFilterSensitiveLog = (obj: ReadAuthConfig): any => ({
+  ...obj,
+  ...(obj.AuthenticationMetadata && {
+    AuthenticationMetadata: ReadAuthenticationMetadataFilterSensitiveLog(obj.AuthenticationMetadata),
+  }),
+});
 
 /**
- * <p>The option that determines the data label type.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
+ * @internal
  */
-export interface DataLabelType {
-  /**
-   * <p>Determines the label configuration for the entire field.</p>
-   * @public
-   */
-  FieldLabelType?: FieldLabelType | undefined;
-
-  /**
-   * <p>The option that specifies individual data values for labels.</p>
-   * @public
-   */
-  DataPathLabelType?: DataPathLabelType | undefined;
-
-  /**
-   * <p>Determines the label configuration for range end value in a visual.</p>
-   * @public
-   */
-  RangeEndsLabelType?: RangeEndsLabelType | undefined;
-
-  /**
-   * <p>Determines the label configuration for the minimum value in a visual.</p>
-   * @public
-   */
-  MinimumLabelType?: MinimumLabelType | undefined;
-
-  /**
-   * <p>Determines the label configuration for the maximum value in a visual.</p>
-   * @public
-   */
-  MaximumLabelType?: MaximumLabelType | undefined;
-}
+export const ActionConnectorFilterSensitiveLog = (obj: ActionConnector): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.AuthenticationConfig && { AuthenticationConfig: ReadAuthConfigFilterSensitiveLog(obj.AuthenticationConfig) }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const DataLabelContent = {
-  PERCENT: "PERCENT",
-  VALUE: "VALUE",
-  VALUE_AND_PERCENT: "VALUE_AND_PERCENT",
-} as const;
-
-/**
- * @public
- */
-export type DataLabelContent = (typeof DataLabelContent)[keyof typeof DataLabelContent];
-
-/**
- * @public
- * @enum
- */
-export const DataLabelOverlap = {
-  DISABLE_OVERLAP: "DISABLE_OVERLAP",
-  ENABLE_OVERLAP: "ENABLE_OVERLAP",
-} as const;
-
-/**
- * @public
- */
-export type DataLabelOverlap = (typeof DataLabelOverlap)[keyof typeof DataLabelOverlap];
-
-/**
- * @public
- * @enum
- */
-export const DataLabelPosition = {
-  BOTTOM: "BOTTOM",
-  INSIDE: "INSIDE",
-  LEFT: "LEFT",
-  OUTSIDE: "OUTSIDE",
-  RIGHT: "RIGHT",
-  TOP: "TOP",
-} as const;
-
-/**
- * @public
- */
-export type DataLabelPosition = (typeof DataLabelPosition)[keyof typeof DataLabelPosition];
-
-/**
- * <p>The options that determine the presentation of the data labels.</p>
- * @public
- */
-export interface DataLabelOptions {
-  /**
-   * <p>Determines the visibility of the data labels.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-
-  /**
-   * <p>Determines the visibility of the category field labels.</p>
-   * @public
-   */
-  CategoryLabelVisibility?: Visibility | undefined;
-
-  /**
-   * <p>Determines the visibility of the measure field labels.</p>
-   * @public
-   */
-  MeasureLabelVisibility?: Visibility | undefined;
-
-  /**
-   * <p>The option that determines the data label type.</p>
-   * @public
-   */
-  DataLabelTypes?: DataLabelType[] | undefined;
-
-  /**
-   * <p>Determines the position of the data labels.</p>
-   * @public
-   */
-  Position?: DataLabelPosition | undefined;
-
-  /**
-   * <p>Determines the content of the data labels.</p>
-   * @public
-   */
-  LabelContent?: DataLabelContent | undefined;
-
-  /**
-   * <p>Determines the font configuration of the data labels.</p>
-   * @public
-   */
-  LabelFontConfiguration?: FontConfiguration | undefined;
-
-  /**
-   * <p>Determines the color of the data labels.</p>
-   * @public
-   */
-  LabelColor?: string | undefined;
-
-  /**
-   * <p>Determines whether overlap is enabled or disabled for the data labels.</p>
-   * @public
-   */
-  Overlap?: DataLabelOverlap | undefined;
-
-  /**
-   * <p>Determines the visibility of the total.</p>
-   * @public
-   */
-  TotalsVisibility?: Visibility | undefined;
-}
-
-/**
- * <p>The dimension type field with categorical type columns..</p>
- * @public
- */
-export interface CategoricalDimensionField {
-  /**
-   * <p>The custom field ID.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The column that is used in the <code>CategoricalDimensionField</code>.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The custom hierarchy ID.</p>
-   * @public
-   */
-  HierarchyId?: string | undefined;
-
-  /**
-   * <p>The format configuration of the field.</p>
-   * @public
-   */
-  FormatConfiguration?: StringFormatConfiguration | undefined;
-}
-
-/**
- * <p>The dimension type field with date type columns.</p>
- * @public
- */
-export interface DateDimensionField {
-  /**
-   * <p>The custom field ID.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The column that is used in the <code>DateDimensionField</code>.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The date granularity of the <code>DateDimensionField</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YEAR</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUARTER</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MONTH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>WEEK</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DAY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HOUR</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MINUTE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SECOND</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MILLISECOND</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DateGranularity?: TimeGranularity | undefined;
-
-  /**
-   * <p>The custom hierarchy ID.</p>
-   * @public
-   */
-  HierarchyId?: string | undefined;
-
-  /**
-   * <p>The format configuration of the field.</p>
-   * @public
-   */
-  FormatConfiguration?: DateTimeFormatConfiguration | undefined;
-}
-
-/**
- * <p>The dimension type field with numerical type columns.</p>
- * @public
- */
-export interface NumericalDimensionField {
-  /**
-   * <p>The custom field ID.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The column that is used in the <code>NumericalDimensionField</code>.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The custom hierarchy ID.</p>
-   * @public
-   */
-  HierarchyId?: string | undefined;
-
-  /**
-   * <p>The format configuration of the field.</p>
-   * @public
-   */
-  FormatConfiguration?: NumberFormatConfiguration | undefined;
-}
-
-/**
- * <p>The dimension type field.</p>
- * @public
- */
-export interface DimensionField {
-  /**
-   * <p>The dimension type field with numerical type columns.</p>
-   * @public
-   */
-  NumericalDimensionField?: NumericalDimensionField | undefined;
-
-  /**
-   * <p>The dimension type field with categorical type columns.</p>
-   * @public
-   */
-  CategoricalDimensionField?: CategoricalDimensionField | undefined;
-
-  /**
-   * <p>The dimension type field with date type columns.</p>
-   * @public
-   */
-  DateDimensionField?: DateDimensionField | undefined;
-}
-
-/**
- * <p>The table calculation measure field for pivot tables.</p>
- * @public
- */
-export interface CalculatedMeasureField {
-  /**
-   * <p>The custom field ID.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The expression in the table calculation.</p>
-   * @public
-   */
-  Expression: string | undefined;
-}
-
-/**
- * <p>The measure type field with categorical type columns.</p>
- * @public
- */
-export interface CategoricalMeasureField {
-  /**
-   * <p>The custom field ID.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The column that is used in the <code>CategoricalMeasureField</code>.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The aggregation function of the measure field.</p>
-   * @public
-   */
-  AggregationFunction?: CategoricalAggregationFunction | undefined;
-
-  /**
-   * <p>The format configuration of the field.</p>
-   * @public
-   */
-  FormatConfiguration?: StringFormatConfiguration | undefined;
-}
-
-/**
- * <p>The measure type field with date type columns.</p>
- * @public
- */
-export interface DateMeasureField {
-  /**
-   * <p>The custom field ID.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The column that is used in the <code>DateMeasureField</code>.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The aggregation function of the measure field.</p>
-   * @public
-   */
-  AggregationFunction?: DateAggregationFunction | undefined;
-
-  /**
-   * <p>The format configuration of the field.</p>
-   * @public
-   */
-  FormatConfiguration?: DateTimeFormatConfiguration | undefined;
-}
-
-/**
- * <p>The measure type field with numerical type columns.</p>
- * @public
- */
-export interface NumericalMeasureField {
-  /**
-   * <p>The custom field ID.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The column that is used in the <code>NumericalMeasureField</code>.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The aggregation function of the measure field.</p>
-   * @public
-   */
-  AggregationFunction?: NumericalAggregationFunction | undefined;
-
-  /**
-   * <p>The format configuration of the field.</p>
-   * @public
-   */
-  FormatConfiguration?: NumberFormatConfiguration | undefined;
-}
-
-/**
- * <p>The measure (metric) type field.</p>
- * @public
- */
-export interface MeasureField {
-  /**
-   * <p>The measure type field with numerical type columns.</p>
-   * @public
-   */
-  NumericalMeasureField?: NumericalMeasureField | undefined;
-
-  /**
-   * <p>The measure type field with categorical type columns.</p>
-   * @public
-   */
-  CategoricalMeasureField?: CategoricalMeasureField | undefined;
-
-  /**
-   * <p>The measure type field with date type columns.</p>
-   * @public
-   */
-  DateMeasureField?: DateMeasureField | undefined;
-
-  /**
-   * <p>The calculated measure field only used in pivot tables.</p>
-   * @public
-   */
-  CalculatedMeasureField?: CalculatedMeasureField | undefined;
-}
-
-/**
- * <p>The aggregated field wells of a bar chart.</p>
- * @public
- */
-export interface BarChartAggregatedFieldWells {
-  /**
-   * <p>The category (y-axis) field well of a bar chart.</p>
-   * @public
-   */
-  Category?: DimensionField[] | undefined;
-
-  /**
-   * <p>The value field wells of a bar chart. Values are aggregated by
-   *             category.</p>
-   * @public
-   */
-  Values?: MeasureField[] | undefined;
-
-  /**
-   * <p>The color (group/color) field well of a bar chart.</p>
-   * @public
-   */
-  Colors?: DimensionField[] | undefined;
-
-  /**
-   * <p>The small multiples field well of a bar chart.</p>
-   * @public
-   */
-  SmallMultiples?: DimensionField[] | undefined;
-}
-
-/**
- * <p>The field wells of a <code>BarChartVisual</code>.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface BarChartFieldWells {
-  /**
-   * <p>The aggregated field wells of a bar chart.</p>
-   * @public
-   */
-  BarChartAggregatedFieldWells?: BarChartAggregatedFieldWells | undefined;
-}
-
-/**
- * <p>The context menu options for a visual's interactions.</p>
- * @public
- */
-export interface ContextMenuOption {
-  /**
-   * <p>The availability status of the context menu options. If the value of this property is set to <code>ENABLED</code>, dashboard readers can interact with the context menu.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>The menu options for a visual.</p>
- * @public
- */
-export interface VisualMenuOption {
-  /**
-   * <p>The availaiblity status of a visual's menu options.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>The general visual interactions setup for visual publish options</p>
- * @public
- */
-export interface VisualInteractionOptions {
-  /**
-   * <p>The on-visual menu options for a visual.</p>
-   * @public
-   */
-  VisualMenuOption?: VisualMenuOption | undefined;
-
-  /**
-   * <p>The context menu options for a visual.</p>
-   * @public
-   */
-  ContextMenuOption?: ContextMenuOption | undefined;
-}
+export const ActionConnectorSummaryFilterSensitiveLog = (obj: ActionConnectorSummary): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -7889,124 +8064,4 @@ export const VisualCustomActionFilterSensitiveLog = (obj: VisualCustomAction): a
 export const DataPathLabelTypeFilterSensitiveLog = (obj: DataPathLabelType): any => ({
   ...obj,
   ...(obj.FieldValue && { FieldValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DataLabelTypeFilterSensitiveLog = (obj: DataLabelType): any => ({
-  ...obj,
-  ...(obj.DataPathLabelType && { DataPathLabelType: DataPathLabelTypeFilterSensitiveLog(obj.DataPathLabelType) }),
-});
-
-/**
- * @internal
- */
-export const DataLabelOptionsFilterSensitiveLog = (obj: DataLabelOptions): any => ({
-  ...obj,
-  ...(obj.DataLabelTypes && {
-    DataLabelTypes: obj.DataLabelTypes.map((item) => DataLabelTypeFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const CategoricalDimensionFieldFilterSensitiveLog = (obj: CategoricalDimensionField): any => ({
-  ...obj,
-  ...(obj.FormatConfiguration && {
-    FormatConfiguration: StringFormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const DateDimensionFieldFilterSensitiveLog = (obj: DateDimensionField): any => ({
-  ...obj,
-  ...(obj.FormatConfiguration && {
-    FormatConfiguration: DateTimeFormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const NumericalDimensionFieldFilterSensitiveLog = (obj: NumericalDimensionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionFieldFilterSensitiveLog = (obj: DimensionField): any => ({
-  ...obj,
-  ...(obj.CategoricalDimensionField && {
-    CategoricalDimensionField: CategoricalDimensionFieldFilterSensitiveLog(obj.CategoricalDimensionField),
-  }),
-  ...(obj.DateDimensionField && { DateDimensionField: DateDimensionFieldFilterSensitiveLog(obj.DateDimensionField) }),
-});
-
-/**
- * @internal
- */
-export const CalculatedMeasureFieldFilterSensitiveLog = (obj: CalculatedMeasureField): any => ({
-  ...obj,
-  ...(obj.Expression && { Expression: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CategoricalMeasureFieldFilterSensitiveLog = (obj: CategoricalMeasureField): any => ({
-  ...obj,
-  ...(obj.FormatConfiguration && {
-    FormatConfiguration: StringFormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const DateMeasureFieldFilterSensitiveLog = (obj: DateMeasureField): any => ({
-  ...obj,
-  ...(obj.FormatConfiguration && {
-    FormatConfiguration: DateTimeFormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const NumericalMeasureFieldFilterSensitiveLog = (obj: NumericalMeasureField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeasureFieldFilterSensitiveLog = (obj: MeasureField): any => ({
-  ...obj,
-  ...(obj.CategoricalMeasureField && {
-    CategoricalMeasureField: CategoricalMeasureFieldFilterSensitiveLog(obj.CategoricalMeasureField),
-  }),
-  ...(obj.DateMeasureField && { DateMeasureField: DateMeasureFieldFilterSensitiveLog(obj.DateMeasureField) }),
-  ...(obj.CalculatedMeasureField && {
-    CalculatedMeasureField: CalculatedMeasureFieldFilterSensitiveLog(obj.CalculatedMeasureField),
-  }),
-});
-
-/**
- * @internal
- */
-export const BarChartAggregatedFieldWellsFilterSensitiveLog = (obj: BarChartAggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const BarChartFieldWellsFilterSensitiveLog = (obj: BarChartFieldWells): any => ({
-  ...obj,
 });

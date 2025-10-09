@@ -34,8 +34,8 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
 /**
  * <p>Updates a dashboard in an Amazon Web Services account.</p>
  *          <note>
- *             <p>Updating a Dashboard creates a new dashboard version but does not immediately publish
- *                 the new version.  You can update the published version of a dashboard by
+ *             <p>Updating a Dashboard creates a new dashboard version but does not immediately
+ *                 publish the new version. You can update the published version of a dashboard by
  *                 using the <code>
  *                   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPublishedVersion.html">UpdateDashboardPublishedVersion</a>
  *                </code> API operation.</p>
@@ -135,6 +135,9 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
  *     DataQAEnabledOption: { // DataQAEnabledOption
+ *       AvailabilityStatus: "ENABLED" || "DISABLED",
+ *     },
+ *     QuickSuiteActionsOption: { // QuickSuiteActionsOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
  *     ExecutiveSummaryOption: { // ExecutiveSummaryOption
@@ -5595,9 +5598,9 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

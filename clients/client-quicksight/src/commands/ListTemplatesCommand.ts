@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTemplatesRequest, ListTemplatesResponse } from "../models/models_4";
+import { ListTemplatesRequest, ListTemplatesResponse } from "../models/models_5";
 import { de_ListTemplatesCommand, se_ListTemplatesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -28,7 +28,7 @@ export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
 export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the templates in the current Amazon QuickSight account.</p>
+ * <p>Lists all the templates in the current Amazon Quick Sight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,9 +84,9 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

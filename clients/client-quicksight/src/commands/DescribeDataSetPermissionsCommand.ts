@@ -29,7 +29,8 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
 
 /**
  * <p>Describes the permissions on a dataset.</p>
- *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
+ *          <p>The permissions resource is
+ * 				<code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +71,7 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

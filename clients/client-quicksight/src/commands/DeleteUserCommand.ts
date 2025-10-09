@@ -28,7 +28,7 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the Amazon QuickSight user that is associated with the identity of the
+ * <p>Deletes the Amazon Quick Sight user that is associated with the identity of the
  * 			IAM user or role that's making the call. The IAM user
  * 			isn't deleted as a result of this call. </p>
  * @example
@@ -62,7 +62,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

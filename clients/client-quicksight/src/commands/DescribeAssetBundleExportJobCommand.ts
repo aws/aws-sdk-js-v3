@@ -38,7 +38,10 @@ export interface DescribeAssetBundleExportJobCommandOutput
 
 /**
  * <p>Describes an existing export job.</p>
- *          <p>Poll job descriptions after a job starts to know the status of the job. When a job succeeds, a URL is provided to download the exported assets' data from. Download URLs are valid for five minutes after they are generated. You can call the <code>DescribeAssetBundleExportJob</code> API for a new download URL as needed.</p>
+ *          <p>Poll job descriptions after a job starts to know the status of the job. When a job
+ *          succeeds, a URL is provided to download the exported assets' data from. Download URLs
+ *          are valid for five minutes after they are generated. You can call the
+ *             <code>DescribeAssetBundleExportJob</code> API for a new download URL as needed.</p>
  *          <p>Job descriptions are available for 14 days after the job starts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -174,9 +177,9 @@ export interface DescribeAssetBundleExportJobCommandOutput
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

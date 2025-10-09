@@ -28,6 +28,11 @@ import {
   CreateAccountSubscriptionCommandOutput,
 } from "./commands/CreateAccountSubscriptionCommand";
 import {
+  CreateActionConnectorCommand,
+  CreateActionConnectorCommandInput,
+  CreateActionConnectorCommandOutput,
+} from "./commands/CreateActionConnectorCommand";
+import {
   CreateAnalysisCommand,
   CreateAnalysisCommandInput,
   CreateAnalysisCommandOutput,
@@ -136,6 +141,11 @@ import {
   DeleteAccountSubscriptionCommandInput,
   DeleteAccountSubscriptionCommandOutput,
 } from "./commands/DeleteAccountSubscriptionCommand";
+import {
+  DeleteActionConnectorCommand,
+  DeleteActionConnectorCommandInput,
+  DeleteActionConnectorCommandOutput,
+} from "./commands/DeleteActionConnectorCommand";
 import {
   DeleteAnalysisCommand,
   DeleteAnalysisCommandInput,
@@ -281,6 +291,16 @@ import {
   DescribeAccountSubscriptionCommandInput,
   DescribeAccountSubscriptionCommandOutput,
 } from "./commands/DescribeAccountSubscriptionCommand";
+import {
+  DescribeActionConnectorCommand,
+  DescribeActionConnectorCommandInput,
+  DescribeActionConnectorCommandOutput,
+} from "./commands/DescribeActionConnectorCommand";
+import {
+  DescribeActionConnectorPermissionsCommand,
+  DescribeActionConnectorPermissionsCommandInput,
+  DescribeActionConnectorPermissionsCommandOutput,
+} from "./commands/DescribeActionConnectorPermissionsCommand";
 import {
   DescribeAnalysisCommand,
   DescribeAnalysisCommandInput,
@@ -542,10 +562,25 @@ import {
   GetDashboardEmbedUrlCommandOutput,
 } from "./commands/GetDashboardEmbedUrlCommand";
 import {
+  GetFlowMetadataCommand,
+  GetFlowMetadataCommandInput,
+  GetFlowMetadataCommandOutput,
+} from "./commands/GetFlowMetadataCommand";
+import {
+  GetFlowPermissionsCommand,
+  GetFlowPermissionsCommandInput,
+  GetFlowPermissionsCommandOutput,
+} from "./commands/GetFlowPermissionsCommand";
+import {
   GetSessionEmbedUrlCommand,
   GetSessionEmbedUrlCommandInput,
   GetSessionEmbedUrlCommandOutput,
 } from "./commands/GetSessionEmbedUrlCommand";
+import {
+  ListActionConnectorsCommand,
+  ListActionConnectorsCommandInput,
+  ListActionConnectorsCommandOutput,
+} from "./commands/ListActionConnectorsCommand";
 import {
   ListAnalysesCommand,
   ListAnalysesCommandInput,
@@ -587,6 +622,7 @@ import {
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
+import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
 import {
   ListFolderMembersCommand,
   ListFolderMembersCommandInput,
@@ -713,6 +749,11 @@ import {
   RestoreAnalysisCommandOutput,
 } from "./commands/RestoreAnalysisCommand";
 import {
+  SearchActionConnectorsCommand,
+  SearchActionConnectorsCommandInput,
+  SearchActionConnectorsCommandOutput,
+} from "./commands/SearchActionConnectorsCommand";
+import {
   SearchAnalysesCommand,
   SearchAnalysesCommandInput,
   SearchAnalysesCommandOutput,
@@ -732,6 +773,7 @@ import {
   SearchDataSourcesCommandInput,
   SearchDataSourcesCommandOutput,
 } from "./commands/SearchDataSourcesCommand";
+import { SearchFlowsCommand, SearchFlowsCommandInput, SearchFlowsCommandOutput } from "./commands/SearchFlowsCommand";
 import {
   SearchFoldersCommand,
   SearchFoldersCommandInput,
@@ -788,6 +830,16 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
+import {
+  UpdateActionConnectorCommand,
+  UpdateActionConnectorCommandInput,
+  UpdateActionConnectorCommandOutput,
+} from "./commands/UpdateActionConnectorCommand";
+import {
+  UpdateActionConnectorPermissionsCommand,
+  UpdateActionConnectorPermissionsCommandInput,
+  UpdateActionConnectorPermissionsCommandOutput,
+} from "./commands/UpdateActionConnectorPermissionsCommand";
 import {
   UpdateAnalysisCommand,
   UpdateAnalysisCommandInput,
@@ -869,6 +921,11 @@ import {
   UpdateDefaultQBusinessApplicationCommandInput,
   UpdateDefaultQBusinessApplicationCommandOutput,
 } from "./commands/UpdateDefaultQBusinessApplicationCommand";
+import {
+  UpdateFlowPermissionsCommand,
+  UpdateFlowPermissionsCommandInput,
+  UpdateFlowPermissionsCommandOutput,
+} from "./commands/UpdateFlowPermissionsCommand";
 import {
   UpdateFolderCommand,
   UpdateFolderCommandInput,
@@ -986,6 +1043,7 @@ const commands = {
   CancelIngestionCommand,
   CreateAccountCustomizationCommand,
   CreateAccountSubscriptionCommand,
+  CreateActionConnectorCommand,
   CreateAnalysisCommand,
   CreateBrandCommand,
   CreateCustomPermissionsCommand,
@@ -1011,6 +1069,7 @@ const commands = {
   DeleteAccountCustomizationCommand,
   DeleteAccountCustomPermissionCommand,
   DeleteAccountSubscriptionCommand,
+  DeleteActionConnectorCommand,
   DeleteAnalysisCommand,
   DeleteBrandCommand,
   DeleteBrandAssignmentCommand,
@@ -1044,6 +1103,8 @@ const commands = {
   DescribeAccountCustomPermissionCommand,
   DescribeAccountSettingsCommand,
   DescribeAccountSubscriptionCommand,
+  DescribeActionConnectorCommand,
+  DescribeActionConnectorPermissionsCommand,
   DescribeAnalysisCommand,
   DescribeAnalysisDefinitionCommand,
   DescribeAnalysisPermissionsCommand,
@@ -1096,7 +1157,10 @@ const commands = {
   GenerateEmbedUrlForRegisteredUserCommand,
   GenerateEmbedUrlForRegisteredUserWithIdentityCommand,
   GetDashboardEmbedUrlCommand,
+  GetFlowMetadataCommand,
+  GetFlowPermissionsCommand,
   GetSessionEmbedUrlCommand,
+  ListActionConnectorsCommand,
   ListAnalysesCommand,
   ListAssetBundleExportJobsCommand,
   ListAssetBundleImportJobsCommand,
@@ -1106,6 +1170,7 @@ const commands = {
   ListDashboardVersionsCommand,
   ListDataSetsCommand,
   ListDataSourcesCommand,
+  ListFlowsCommand,
   ListFolderMembersCommand,
   ListFoldersCommand,
   ListFoldersForResourceCommand,
@@ -1135,10 +1200,12 @@ const commands = {
   PutDataSetRefreshPropertiesCommand,
   RegisterUserCommand,
   RestoreAnalysisCommand,
+  SearchActionConnectorsCommand,
   SearchAnalysesCommand,
   SearchDashboardsCommand,
   SearchDataSetsCommand,
   SearchDataSourcesCommand,
+  SearchFlowsCommand,
   SearchFoldersCommand,
   SearchGroupsCommand,
   SearchTopicsCommand,
@@ -1151,6 +1218,8 @@ const commands = {
   UpdateAccountCustomizationCommand,
   UpdateAccountCustomPermissionCommand,
   UpdateAccountSettingsCommand,
+  UpdateActionConnectorCommand,
+  UpdateActionConnectorPermissionsCommand,
   UpdateAnalysisCommand,
   UpdateAnalysisPermissionsCommand,
   UpdateApplicationWithTokenExchangeGrantCommand,
@@ -1168,6 +1237,7 @@ const commands = {
   UpdateDataSourceCommand,
   UpdateDataSourcePermissionsCommand,
   UpdateDefaultQBusinessApplicationCommand,
+  UpdateFlowPermissionsCommand,
   UpdateFolderCommand,
   UpdateFolderPermissionsCommand,
   UpdateGroupCommand,
@@ -1276,6 +1346,23 @@ export interface QuickSight {
     args: CreateAccountSubscriptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAccountSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateActionConnectorCommand}
+   */
+  createActionConnector(
+    args: CreateActionConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateActionConnectorCommandOutput>;
+  createActionConnector(
+    args: CreateActionConnectorCommandInput,
+    cb: (err: any, data?: CreateActionConnectorCommandOutput) => void
+  ): void;
+  createActionConnector(
+    args: CreateActionConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateActionConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -1650,6 +1737,23 @@ export interface QuickSight {
     args: DeleteAccountSubscriptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAccountSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteActionConnectorCommand}
+   */
+  deleteActionConnector(
+    args: DeleteActionConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteActionConnectorCommandOutput>;
+  deleteActionConnector(
+    args: DeleteActionConnectorCommandInput,
+    cb: (err: any, data?: DeleteActionConnectorCommandOutput) => void
+  ): void;
+  deleteActionConnector(
+    args: DeleteActionConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteActionConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -2157,6 +2261,40 @@ export interface QuickSight {
     args: DescribeAccountSubscriptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeActionConnectorCommand}
+   */
+  describeActionConnector(
+    args: DescribeActionConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeActionConnectorCommandOutput>;
+  describeActionConnector(
+    args: DescribeActionConnectorCommandInput,
+    cb: (err: any, data?: DescribeActionConnectorCommandOutput) => void
+  ): void;
+  describeActionConnector(
+    args: DescribeActionConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeActionConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeActionConnectorPermissionsCommand}
+   */
+  describeActionConnectorPermissions(
+    args: DescribeActionConnectorPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeActionConnectorPermissionsCommandOutput>;
+  describeActionConnectorPermissions(
+    args: DescribeActionConnectorPermissionsCommandInput,
+    cb: (err: any, data?: DescribeActionConnectorPermissionsCommandOutput) => void
+  ): void;
+  describeActionConnectorPermissions(
+    args: DescribeActionConnectorPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeActionConnectorPermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -3008,6 +3146,37 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link GetFlowMetadataCommand}
+   */
+  getFlowMetadata(
+    args: GetFlowMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFlowMetadataCommandOutput>;
+  getFlowMetadata(args: GetFlowMetadataCommandInput, cb: (err: any, data?: GetFlowMetadataCommandOutput) => void): void;
+  getFlowMetadata(
+    args: GetFlowMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFlowMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFlowPermissionsCommand}
+   */
+  getFlowPermissions(
+    args: GetFlowPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFlowPermissionsCommandOutput>;
+  getFlowPermissions(
+    args: GetFlowPermissionsCommandInput,
+    cb: (err: any, data?: GetFlowPermissionsCommandOutput) => void
+  ): void;
+  getFlowPermissions(
+    args: GetFlowPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFlowPermissionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSessionEmbedUrlCommand}
    */
   getSessionEmbedUrl(
@@ -3022,6 +3191,23 @@ export interface QuickSight {
     args: GetSessionEmbedUrlCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSessionEmbedUrlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListActionConnectorsCommand}
+   */
+  listActionConnectors(
+    args: ListActionConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListActionConnectorsCommandOutput>;
+  listActionConnectors(
+    args: ListActionConnectorsCommandInput,
+    cb: (err: any, data?: ListActionConnectorsCommandOutput) => void
+  ): void;
+  listActionConnectors(
+    args: ListActionConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListActionConnectorsCommandOutput) => void
   ): void;
 
   /**
@@ -3151,6 +3337,17 @@ export interface QuickSight {
     args: ListDataSourcesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFlowsCommand}
+   */
+  listFlows(args: ListFlowsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlowsCommandOutput>;
+  listFlows(args: ListFlowsCommandInput, cb: (err: any, data?: ListFlowsCommandOutput) => void): void;
+  listFlows(
+    args: ListFlowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlowsCommandOutput) => void
   ): void;
 
   /**
@@ -3593,6 +3790,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link SearchActionConnectorsCommand}
+   */
+  searchActionConnectors(
+    args: SearchActionConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchActionConnectorsCommandOutput>;
+  searchActionConnectors(
+    args: SearchActionConnectorsCommandInput,
+    cb: (err: any, data?: SearchActionConnectorsCommandOutput) => void
+  ): void;
+  searchActionConnectors(
+    args: SearchActionConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchActionConnectorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchAnalysesCommand}
    */
   searchAnalyses(
@@ -3652,6 +3866,17 @@ export interface QuickSight {
     args: SearchDataSourcesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchDataSourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchFlowsCommand}
+   */
+  searchFlows(args: SearchFlowsCommandInput, options?: __HttpHandlerOptions): Promise<SearchFlowsCommandOutput>;
+  searchFlows(args: SearchFlowsCommandInput, cb: (err: any, data?: SearchFlowsCommandOutput) => void): void;
+  searchFlows(
+    args: SearchFlowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchFlowsCommandOutput) => void
   ): void;
 
   /**
@@ -3826,6 +4051,40 @@ export interface QuickSight {
     args: UpdateAccountSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateActionConnectorCommand}
+   */
+  updateActionConnector(
+    args: UpdateActionConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateActionConnectorCommandOutput>;
+  updateActionConnector(
+    args: UpdateActionConnectorCommandInput,
+    cb: (err: any, data?: UpdateActionConnectorCommandOutput) => void
+  ): void;
+  updateActionConnector(
+    args: UpdateActionConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateActionConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateActionConnectorPermissionsCommand}
+   */
+  updateActionConnectorPermissions(
+    args: UpdateActionConnectorPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateActionConnectorPermissionsCommandOutput>;
+  updateActionConnectorPermissions(
+    args: UpdateActionConnectorPermissionsCommandInput,
+    cb: (err: any, data?: UpdateActionConnectorPermissionsCommandOutput) => void
+  ): void;
+  updateActionConnectorPermissions(
+    args: UpdateActionConnectorPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateActionConnectorPermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -4097,6 +4356,23 @@ export interface QuickSight {
     args: UpdateDefaultQBusinessApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDefaultQBusinessApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFlowPermissionsCommand}
+   */
+  updateFlowPermissions(
+    args: UpdateFlowPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFlowPermissionsCommandOutput>;
+  updateFlowPermissions(
+    args: UpdateFlowPermissionsCommandInput,
+    cb: (err: any, data?: UpdateFlowPermissionsCommandOutput) => void
+  ): void;
+  updateFlowPermissions(
+    args: UpdateFlowPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFlowPermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -4494,10 +4770,10 @@ export interface QuickSight {
 
 /**
  * <fullname>Amazon QuickSight API Reference</fullname>
- *          <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the
+ *          <p>Amazon Quick Sight is a fully managed, serverless business intelligence service for the
  *             Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your
  *             organization. This API reference contains documentation for a programming interface that
- *             you can use to manage Amazon QuickSight. </p>
+ *             you can use to manage Amazon Quick Sight. </p>
  * @public
  */
 export class QuickSight extends QuickSightClient implements QuickSight {}

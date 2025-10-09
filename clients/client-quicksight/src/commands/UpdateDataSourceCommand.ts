@@ -126,6 +126,11 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       },
  *       RoleArn: "STRING_VALUE",
  *     },
+ *     S3KnowledgeBaseParameters: { // S3KnowledgeBaseParameters
+ *       RoleArn: "STRING_VALUE",
+ *       BucketUrl: "STRING_VALUE", // required
+ *       MetadataFilesLocation: "STRING_VALUE",
+ *     },
  *     ServiceNowParameters: { // ServiceNowParameters
  *       SiteBaseUrl: "STRING_VALUE", // required
  *     },
@@ -207,6 +212,22 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *     },
  *     CustomConnectionParameters: { // CustomConnectionParameters
  *       ConnectionType: "STRING_VALUE",
+ *     },
+ *     WebCrawlerParameters: { // WebCrawlerParameters
+ *       WebCrawlerAuthType: "NO_AUTH" || "BASIC_AUTH" || "FORM" || "SAML", // required
+ *       UsernameFieldXpath: "STRING_VALUE",
+ *       PasswordFieldXpath: "STRING_VALUE",
+ *       UsernameButtonXpath: "STRING_VALUE",
+ *       PasswordButtonXpath: "STRING_VALUE",
+ *       LoginPageUrl: "STRING_VALUE",
+ *       WebProxyHostName: "STRING_VALUE",
+ *       WebProxyPortNumber: Number("int"),
+ *     },
+ *     ConfluenceParameters: { // ConfluenceParameters
+ *       ConfluenceUrl: "STRING_VALUE", // required
+ *     },
+ *     QBusinessParameters: { // QBusinessParameters
+ *       ApplicationArn: "STRING_VALUE", // required
  *     },
  *   },
  *   Credentials: { // DataSourceCredentials
@@ -295,6 +316,11 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *             },
  *             RoleArn: "STRING_VALUE",
  *           },
+ *           S3KnowledgeBaseParameters: {
+ *             RoleArn: "STRING_VALUE",
+ *             BucketUrl: "STRING_VALUE", // required
+ *             MetadataFilesLocation: "STRING_VALUE",
+ *           },
  *           ServiceNowParameters: {
  *             SiteBaseUrl: "STRING_VALUE", // required
  *           },
@@ -377,11 +403,31 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *           CustomConnectionParameters: {
  *             ConnectionType: "STRING_VALUE",
  *           },
+ *           WebCrawlerParameters: {
+ *             WebCrawlerAuthType: "NO_AUTH" || "BASIC_AUTH" || "FORM" || "SAML", // required
+ *             UsernameFieldXpath: "STRING_VALUE",
+ *             PasswordFieldXpath: "STRING_VALUE",
+ *             UsernameButtonXpath: "STRING_VALUE",
+ *             PasswordButtonXpath: "STRING_VALUE",
+ *             LoginPageUrl: "STRING_VALUE",
+ *             WebProxyHostName: "STRING_VALUE",
+ *             WebProxyPortNumber: Number("int"),
+ *           },
+ *           ConfluenceParameters: {
+ *             ConfluenceUrl: "STRING_VALUE", // required
+ *           },
+ *           QBusinessParameters: {
+ *             ApplicationArn: "STRING_VALUE", // required
+ *           },
  *         },
  *       ],
  *     },
  *     CopySourceArn: "STRING_VALUE",
  *     SecretArn: "STRING_VALUE",
+ *     WebProxyCredentials: { // WebProxyCredentials
+ *       WebProxyUsername: "STRING_VALUE", // required
+ *       WebProxyPassword: "STRING_VALUE", // required
+ *     },
  *   },
  *   VpcConnectionProperties: "<VpcConnectionProperties>",
  *   SslProperties: { // SslProperties
@@ -409,14 +455,14 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link CustomerManagedKeyUnavailableException} (client fault)
- *  <p>The customer managed key that is registered to your QuickSight account is unavailable.</p>
+ *  <p>The customer managed key that is registered to your Amazon Quick Sight account is unavailable.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>

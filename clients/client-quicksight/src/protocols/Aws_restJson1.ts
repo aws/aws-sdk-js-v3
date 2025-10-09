@@ -50,6 +50,10 @@ import {
   CreateAccountSubscriptionCommandInput,
   CreateAccountSubscriptionCommandOutput,
 } from "../commands/CreateAccountSubscriptionCommand";
+import {
+  CreateActionConnectorCommandInput,
+  CreateActionConnectorCommandOutput,
+} from "../commands/CreateActionConnectorCommand";
 import { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "../commands/CreateAnalysisCommand";
 import { CreateBrandCommandInput, CreateBrandCommandOutput } from "../commands/CreateBrandCommand";
 import {
@@ -111,6 +115,10 @@ import {
   DeleteAccountSubscriptionCommandInput,
   DeleteAccountSubscriptionCommandOutput,
 } from "../commands/DeleteAccountSubscriptionCommand";
+import {
+  DeleteActionConnectorCommandInput,
+  DeleteActionConnectorCommandOutput,
+} from "../commands/DeleteActionConnectorCommand";
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "../commands/DeleteAnalysisCommand";
 import {
   DeleteBrandAssignmentCommandInput,
@@ -204,6 +212,14 @@ import {
   DescribeAccountSubscriptionCommandInput,
   DescribeAccountSubscriptionCommandOutput,
 } from "../commands/DescribeAccountSubscriptionCommand";
+import {
+  DescribeActionConnectorCommandInput,
+  DescribeActionConnectorCommandOutput,
+} from "../commands/DescribeActionConnectorCommand";
+import {
+  DescribeActionConnectorPermissionsCommandInput,
+  DescribeActionConnectorPermissionsCommandOutput,
+} from "../commands/DescribeActionConnectorPermissionsCommand";
 import { DescribeAnalysisCommandInput, DescribeAnalysisCommandOutput } from "../commands/DescribeAnalysisCommand";
 import {
   DescribeAnalysisDefinitionCommandInput,
@@ -370,7 +386,13 @@ import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput,
 } from "../commands/GetDashboardEmbedUrlCommand";
+import { GetFlowMetadataCommandInput, GetFlowMetadataCommandOutput } from "../commands/GetFlowMetadataCommand";
+import { GetFlowPermissionsCommandInput, GetFlowPermissionsCommandOutput } from "../commands/GetFlowPermissionsCommand";
 import { GetSessionEmbedUrlCommandInput, GetSessionEmbedUrlCommandOutput } from "../commands/GetSessionEmbedUrlCommand";
+import {
+  ListActionConnectorsCommandInput,
+  ListActionConnectorsCommandOutput,
+} from "../commands/ListActionConnectorsCommand";
 import { ListAnalysesCommandInput, ListAnalysesCommandOutput } from "../commands/ListAnalysesCommand";
 import {
   ListAssetBundleExportJobsCommandInput,
@@ -392,6 +414,7 @@ import {
 } from "../commands/ListDashboardVersionsCommand";
 import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "../commands/ListDataSetsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
+import { ListFlowsCommandInput, ListFlowsCommandOutput } from "../commands/ListFlowsCommand";
 import { ListFolderMembersCommandInput, ListFolderMembersCommandOutput } from "../commands/ListFolderMembersCommand";
 import { ListFoldersCommandInput, ListFoldersCommandOutput } from "../commands/ListFoldersCommand";
 import {
@@ -460,10 +483,15 @@ import {
 } from "../commands/PutDataSetRefreshPropertiesCommand";
 import { RegisterUserCommandInput, RegisterUserCommandOutput } from "../commands/RegisterUserCommand";
 import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "../commands/RestoreAnalysisCommand";
+import {
+  SearchActionConnectorsCommandInput,
+  SearchActionConnectorsCommandOutput,
+} from "../commands/SearchActionConnectorsCommand";
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "../commands/SearchAnalysesCommand";
 import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "../commands/SearchDashboardsCommand";
 import { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "../commands/SearchDataSetsCommand";
 import { SearchDataSourcesCommandInput, SearchDataSourcesCommandOutput } from "../commands/SearchDataSourcesCommand";
+import { SearchFlowsCommandInput, SearchFlowsCommandOutput } from "../commands/SearchFlowsCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "../commands/SearchFoldersCommand";
 import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "../commands/SearchGroupsCommand";
 import { SearchTopicsCommandInput, SearchTopicsCommandOutput } from "../commands/SearchTopicsCommand";
@@ -497,6 +525,14 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "../commands/UpdateAccountSettingsCommand";
+import {
+  UpdateActionConnectorCommandInput,
+  UpdateActionConnectorCommandOutput,
+} from "../commands/UpdateActionConnectorCommand";
+import {
+  UpdateActionConnectorPermissionsCommandInput,
+  UpdateActionConnectorPermissionsCommandOutput,
+} from "../commands/UpdateActionConnectorPermissionsCommand";
 import { UpdateAnalysisCommandInput, UpdateAnalysisCommandOutput } from "../commands/UpdateAnalysisCommand";
 import {
   UpdateAnalysisPermissionsCommandInput,
@@ -550,6 +586,10 @@ import {
   UpdateDefaultQBusinessApplicationCommandInput,
   UpdateDefaultQBusinessApplicationCommandOutput,
 } from "../commands/UpdateDefaultQBusinessApplicationCommand";
+import {
+  UpdateFlowPermissionsCommandInput,
+  UpdateFlowPermissionsCommandOutput,
+} from "../commands/UpdateFlowPermissionsCommand";
 import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "../commands/UpdateFolderCommand";
 import {
   UpdateFolderPermissionsCommandInput,
@@ -632,6 +672,9 @@ import {
 import {
   AccessDeniedException,
   AccountCustomization,
+  ActionConnector,
+  ActionConnectorSearchFilter,
+  ActionConnectorSummary,
   AdHocFilteringOption,
   AggFunction,
   AggregationFunction,
@@ -658,8 +701,6 @@ import {
   AxisLogarithmicScale,
   AxisScale,
   AxisTickLabelOptions,
-  BarChartAggregatedFieldWells,
-  BarChartFieldWells,
   BodySectionConfiguration,
   BodySectionContent,
   BodySectionDynamicCategoryDimensionConfiguration,
@@ -668,11 +709,8 @@ import {
   BodySectionRepeatDimensionConfiguration,
   BodySectionRepeatPageBreakConfiguration,
   CalculatedField,
-  CalculatedMeasureField,
   CascadingControlConfiguration,
   CascadingControlSource,
-  CategoricalDimensionField,
-  CategoricalMeasureField,
   CategoryFilter,
   CategoryFilterConfiguration,
   CategoryInnerFilter,
@@ -681,7 +719,6 @@ import {
   ColumnConfiguration,
   ColumnIdentifier,
   ColumnSort,
-  ContextMenuOption,
   ContributionAnalysisDefault,
   CurrencyDisplayFormatConfiguration,
   CustomActionFilterOperation,
@@ -693,15 +730,11 @@ import {
   CustomFilterListConfiguration,
   CustomParameterValues,
   CustomValuesConfiguration,
-  DataLabelOptions,
-  DataLabelType,
   DataPathLabelType,
   DataQnAConfigurations,
   DataSetIdentifierDeclaration,
   DataStoriesConfigurations,
   DateAxisOptions,
-  DateDimensionField,
-  DateMeasureField,
   DateTimeDefaultValues,
   DateTimeFormatConfiguration,
   DateTimeParameterDeclaration,
@@ -727,12 +760,10 @@ import {
   DefaultTextAreaControlOptions,
   DefaultTextFieldControlOptions,
   DestinationParameterValueConfiguration,
-  DimensionField,
   DropDownControlDisplayOptions,
   DynamicDefaultValue,
   ExcludePeriodConfiguration,
   ExecutiveSummaryConfigurations,
-  FieldLabelType,
   Filter,
   FilterControl,
   FilterCrossSheetControl,
@@ -783,17 +814,12 @@ import {
   LoadingAnimation,
   LocalNavigationConfiguration,
   MappedDataSetParameter,
-  MaximumLabelType,
-  MeasureField,
-  MinimumLabelType,
   NegativeValueConfiguration,
   NestedFilter,
   NullValueFormatConfiguration,
   NumberDisplayFormatConfiguration,
   NumberFormatConfiguration,
   NumericalAggregationFunction,
-  NumericalDimensionField,
-  NumericalMeasureField,
   NumericAxisOptions,
   NumericEqualityFilter,
   NumericFormatConfiguration,
@@ -813,7 +839,6 @@ import {
   PercentileAggregation,
   PercentVisibleRange,
   QueryExecutionOptions,
-  RangeEndsLabelType,
   RelativeDatesFilter,
   RelativeDateTimeControlDisplayOptions,
   RollingDateConfiguration,
@@ -863,15 +888,15 @@ import {
   VisualCustomActionDefaults,
   VisualCustomActionOperation,
   VisualHighlightOperation,
-  VisualInteractionOptions,
-  VisualMenuOption,
 } from "../models/models_0";
 import {
   ArcAxisConfiguration,
   ArcAxisDisplayRange,
   ArcConfiguration,
   ArcOptions,
+  BarChartAggregatedFieldWells,
   BarChartConfiguration,
+  BarChartFieldWells,
   BarChartSortConfiguration,
   BarChartVisual,
   BinCountOptions,
@@ -883,6 +908,9 @@ import {
   BoxPlotSortConfiguration,
   BoxPlotStyleOptions,
   BoxPlotVisual,
+  CalculatedMeasureField,
+  CategoricalDimensionField,
+  CategoricalMeasureField,
   CategoryDrillDownFilter,
   ClusterMarker,
   ClusterMarkerConfiguration,
@@ -905,22 +933,29 @@ import {
   ConditionalFormattingIconDisplayConfiguration,
   ConditionalFormattingIconSet,
   ConditionalFormattingSolidColor,
+  ContextMenuOption,
   CustomContentConfiguration,
   CustomContentVisual,
   CustomNarrativeOptions,
   DataColor,
   DataFieldSeriesItem,
+  DataLabelOptions,
+  DataLabelType,
   DataPathColor,
   DataPathSort,
   DataPathType,
   DataPathValue,
+  DateDimensionField,
+  DateMeasureField,
   DateTimeHierarchy,
+  DimensionField,
   DonutCenterOptions,
   DonutOptions,
   DrillDownFilter,
   EmptyVisual,
   ExplicitHierarchy,
   FieldBasedTooltip,
+  FieldLabelType,
   FieldSeriesItem,
   FieldSort,
   FieldSortOptions,
@@ -990,7 +1025,6 @@ import {
   GeospatialSolidColor,
   GeospatialStaticFileSource,
   GeospatialWindowOptions,
-  GlobalTableBorderOptions,
   GradientColor,
   GradientStop,
   GrowthRateComputation,
@@ -1036,9 +1070,14 @@ import {
   LineChartVisual,
   LineSeriesAxisDisplayOptions,
   LongFormatText,
+  MaximumLabelType,
   MaximumMinimumComputation,
+  MeasureField,
   MetricComparisonComputation,
+  MinimumLabelType,
   MissingDataConfiguration,
+  NumericalDimensionField,
+  NumericalMeasureField,
   NumericEqualityDrillDownFilter,
   PaginationConfiguration,
   PanelConfiguration,
@@ -1057,16 +1096,13 @@ import {
   PivotTableFieldCollapseStateTarget,
   PivotTableFieldOption,
   PivotTableFieldOptions,
-  PivotTableFieldSubtotalOptions,
   PivotTableFieldWells,
-  PivotTableOptions,
   PivotTablePaginatedReportOptions,
-  PivotTableRowsLabelOptions,
   PivotTableSortBy,
   PivotTableSortConfiguration,
-  PivotTotalOptions,
   PredefinedHierarchy,
   ProgressBarOptions,
+  RangeEndsLabelType,
   ReferenceLine,
   ReferenceLineCustomLabelConfiguration,
   ReferenceLineDataConfiguration,
@@ -1075,7 +1111,6 @@ import {
   ReferenceLineStaticDataConfiguration,
   ReferenceLineStyleConfiguration,
   ReferenceLineValueLabelConfiguration,
-  RowAlternateColorOptions,
   SecondaryValueOptions,
   SeriesItem,
   ShapeConditionalFormat,
@@ -1084,11 +1119,6 @@ import {
   SingleAxisOptions,
   SmallMultiplesAxisProperties,
   SmallMultiplesOptions,
-  SubtotalOptions,
-  TableBorderOptions,
-  TableCellStyle,
-  TableSideBorderOptions,
-  TableStyleTarget,
   TimeBasedForecastProperties,
   TimeRangeDrillDownFilter,
   TooltipItem,
@@ -1096,11 +1126,11 @@ import {
   TopBottomMoversComputation,
   TopBottomRankedComputation,
   TotalAggregationComputation,
-  TotalAggregationFunction,
-  TotalAggregationOption,
   TrendArrowOptions,
   UnaggregatedField,
   UniqueValuesComputation,
+  VisualInteractionOptions,
+  VisualMenuOption,
   VisualPalette,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
@@ -1123,6 +1153,7 @@ import {
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserGenerativeQnAEmbeddingConfiguration,
   AnonymousUserQSearchBarEmbeddingConfiguration,
+  APIKeyConnectionMetadata,
   ApplicationTheme,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobAnalysisOverrideProperties,
@@ -1179,16 +1210,23 @@ import {
   AthenaParameters,
   AuroraParameters,
   AuroraPostgreSqlParameters,
+  AuthConfig,
+  AuthenticationMetadata,
+  AuthorizationCodeGrantCredentialsDetails,
+  AuthorizationCodeGrantDetails,
+  AuthorizationCodeGrantMetadata,
   AuthorSpecifiedAggregation,
   AwsIotAnalyticsParameters,
+  BasicAuthConnectionMetadata,
   BigQueryParameters,
-  BookmarksConfigurations,
-  BorderStyle,
   BrandColorPalette,
-  BrandDefinition,
   BrandElementStyle,
+  ClientCredentialsDetails,
+  ClientCredentialsGrantDetails,
+  ClientCredentialsGrantMetadata,
   CollectiveConstantEntry,
-  ConflictException,
+  ConfluenceParameters,
+  ContextualAccentPalette,
   ContributionAnalysisFactor,
   ContributionAnalysisTimeRanges,
   CustomConnectionParameters,
@@ -1198,29 +1236,22 @@ import {
   DataSetReference,
   DataSetRefreshProperties,
   DataSourceParameters,
-  DisplayFormatOptions,
   ExasolParameters,
   FilterAggMetrics,
+  GlobalTableBorderOptions,
+  IAMConnectionMetadata,
   Identifier,
   IdentityCenterConfiguration,
-  ImageConfiguration,
-  ImageSetConfiguration,
-  ImageSource,
   ImageStaticFile,
   ImpalaParameters,
   IncrementalRefresh,
-  InternalFailureException,
-  InvalidParameterValueException,
   JiraParameters,
-  LogoConfiguration,
-  LogoSetConfiguration,
   LookbackWindow,
   ManifestFileLocation,
   MariaDbParameters,
   MySqlParameters,
-  NamedEntityRef,
   NavbarStyle,
-  NegativeFormat,
+  NoneConnectionMetadata,
   OAuthParameters,
   OracleParameters,
   Palette,
@@ -1229,8 +1260,12 @@ import {
   PivotTableConditionalFormattingOption,
   PivotTableConditionalFormattingScope,
   PivotTableConfiguration,
+  PivotTableFieldSubtotalOptions,
+  PivotTableOptions,
+  PivotTableRowsLabelOptions,
   PivotTableTotalOptions,
   PivotTableVisual,
+  PivotTotalOptions,
   PluginVisual,
   PluginVisualConfiguration,
   PluginVisualFieldWell,
@@ -1241,6 +1276,7 @@ import {
   PluginVisualTableQuerySort,
   PostgreSqlParameters,
   PrestoParameters,
+  QBusinessParameters,
   RadarChartAggregatedFieldWells,
   RadarChartAreaStyleSettings,
   RadarChartConfiguration,
@@ -1254,8 +1290,9 @@ import {
   RefreshConfiguration,
   RefreshFailureConfiguration,
   RefreshFailureEmailAlert,
-  ResourceNotFoundException,
+  RowAlternateColorOptions,
   S3BucketConfiguration,
+  S3KnowledgeBaseParameters,
   S3Parameters,
   SankeyDiagramAggregatedFieldWells,
   SankeyDiagramChartConfiguration,
@@ -1271,7 +1308,6 @@ import {
   ServiceNowParameters,
   SharedViewConfigurations,
   SheetDefinition,
-  Slot,
   SnapshotFile,
   SnapshotFileSheetSelection,
   SnapshotS3DestinationConfiguration,
@@ -1285,9 +1321,12 @@ import {
   StaticFileS3SourceOptions,
   StaticFileSource,
   StaticFileUrlSourceOptions,
+  SubtotalOptions,
   TableAggregatedFieldWells,
+  TableBorderOptions,
   TableCellConditionalFormatting,
   TableCellImageSizingConfiguration,
+  TableCellStyle,
   TableConditionalFormatting,
   TableConditionalFormattingOption,
   TableConfiguration,
@@ -1305,22 +1344,18 @@ import {
   TablePaginatedReportOptions,
   TablePinnedFieldOptions,
   TableRowConditionalFormatting,
+  TableSideBorderOptions,
   TableSortConfiguration,
+  TableStyleTarget,
   TableUnaggregatedFieldWells,
   TableVisual,
   Tag,
   TeradataParameters,
   TextConditionalFormat,
-  ThrottlingException,
   TopicConstantValue,
-  TopicIR,
-  TopicIRComparisonMethod,
-  TopicIRContributionAnalysis,
   TopicIRFilterOption,
-  TopicIRGroupBy,
-  TopicIRMetric,
-  TopicSortClause,
-  TopicTemplate,
+  TotalAggregationFunction,
+  TotalAggregationOption,
   TotalOptions,
   TransposedTableOption,
   TreeMapAggregatedFieldWells,
@@ -1331,7 +1366,6 @@ import {
   TrinoParameters,
   TwitterParameters,
   Visual,
-  VisualOptions,
   VpcConnectionProperties,
   WaterfallChartAggregatedFieldWells,
   WaterfallChartColorConfiguration,
@@ -1341,6 +1375,7 @@ import {
   WaterfallChartOptions,
   WaterfallChartSortConfiguration,
   WaterfallVisual,
+  WebCrawlerParameters,
   WordCloudAggregatedFieldWells,
   WordCloudChartConfiguration,
   WordCloudFieldWells,
@@ -1350,6 +1385,9 @@ import {
 } from "../models/models_2";
 import {
   _Parameters,
+  BookmarksConfigurations,
+  BorderStyle,
+  BrandDefinition,
   BrandDetail,
   BrandSummary,
   CalculatedColumn,
@@ -1367,6 +1405,7 @@ import {
   ColumnTagName,
   ComparativeOrder,
   ConcurrentUpdatingException,
+  ConflictException,
   CreateColumnsOperation,
   CredentialPair,
   CustomerManagedKeyUnavailableException,
@@ -1399,7 +1438,6 @@ import {
   DataSource,
   DataSourceCredentials,
   DataSourceSearchFilter,
-  DataSourceSummary,
   DataStoriesSharingOption,
   DateTimeDatasetParameter,
   DateTimeDatasetParameterDefaultValues,
@@ -1408,6 +1446,7 @@ import {
   DecimalDatasetParameterDefaultValues,
   DecimalParameter,
   DefaultFormatting,
+  DisplayFormatOptions,
   ExecutiveSummaryOption,
   ExportHiddenFieldsOption,
   ExportToCSVOption,
@@ -1417,11 +1456,16 @@ import {
   Font,
   GeoSpatialColumnGroup,
   GutterStyle,
+  ImageConfiguration,
+  ImageSetConfiguration,
+  ImageSource,
   InputColumn,
   IntegerDatasetParameter,
   IntegerDatasetParameterDefaultValues,
   IntegerParameter,
+  InternalFailureException,
   InternalServerException,
+  InvalidParameterValueException,
   InvalidRequestException,
   JoinInstruction,
   JoinKeyProperties,
@@ -1429,21 +1473,27 @@ import {
   LinkSharingConfiguration,
   LogicalTable,
   LogicalTableSource,
+  LogoConfiguration,
+  LogoSetConfiguration,
   MarginStyle,
   NamedEntityDefinition,
   NamedEntityDefinitionMetric,
+  NamedEntityRef,
+  NegativeFormat,
   NewDefaultValues,
   OverrideDatasetParameterOperation,
   PerformanceConfiguration,
   PhysicalTable,
   PreconditionNotMetException,
   ProjectOperation,
+  QuickSuiteActionsOption,
   RangeConstant,
   RefreshFrequency,
   RefreshSchedule,
   RelationalTable,
   RenameColumnOperation,
   ResourceExistsException,
+  ResourceNotFoundException,
   ResourcePermission,
   ResourceUnavailableException,
   RowLevelPermissionDataSet,
@@ -1456,6 +1506,7 @@ import {
   SheetControlsOption,
   SheetLayoutElementMaximizationOption,
   SheetStyle,
+  Slot,
   StringDatasetParameter,
   StringDatasetParameterDefaultValues,
   StringParameter,
@@ -1465,6 +1516,7 @@ import {
   TemplateSourceTemplate,
   TemplateVersionDefinition,
   ThemeConfiguration,
+  ThrottlingException,
   TileLayoutStyle,
   TileStyle,
   TopicCalculatedField,
@@ -1475,6 +1527,11 @@ import {
   TopicDateRangeFilter,
   TopicDetails,
   TopicFilter,
+  TopicIR,
+  TopicIRComparisonMethod,
+  TopicIRContributionAnalysis,
+  TopicIRGroupBy,
+  TopicIRMetric,
   TopicNamedEntity,
   TopicNullFilter,
   TopicNumericEqualityFilter,
@@ -1483,6 +1540,8 @@ import {
   TopicRefreshSchedule,
   TopicRelativeDateFilter,
   TopicSingularFilterConstant,
+  TopicSortClause,
+  TopicTemplate,
   TransformOperation,
   Typography,
   UIColorPalette,
@@ -1492,9 +1551,13 @@ import {
   UploadSettings,
   ValidationStrategy,
   VisualAxisSortOption,
+  VisualOptions,
+  WebProxyCredentials,
 } from "../models/models_3";
 import {
+  DataSourceSummary,
   DomainNotWhitelistedException,
+  FlowSummary,
   Folder,
   FolderSearchFilter,
   FolderSummary,
@@ -1502,6 +1565,7 @@ import {
   IdentityTypeNotSupportedException,
   Ingestion,
   InvalidNextTokenException,
+  Permission,
   QuickSightUserNotFoundException,
   RecentSnapshotsConfigurations,
   RegisteredCustomerManagedKey,
@@ -1521,26 +1585,27 @@ import {
   SnapshotFileGroup,
   StatePersistenceConfigurations,
   Template,
-  TemplateSummary,
   TemplateVersion,
-  TemplateVersionSummary,
   Theme,
-  ThemeSummary,
   ThemeVersion,
-  ThemeVersionSummary,
   ThresholdAlertsConfigurations,
-  TopicRefreshScheduleSummary,
   UnsupportedPricingPlanException,
   VPCConnection,
-  VPCConnectionSummary,
 } from "../models/models_4";
 import {
   CreateTopicReviewedAnswer,
+  SearchFlowsFilter,
   SnapshotAnonymousUser,
   SnapshotUserConfiguration,
+  TemplateSummary,
+  TemplateVersionSummary,
+  ThemeSummary,
+  ThemeVersionSummary,
+  TopicRefreshScheduleSummary,
   TopicReviewedAnswer,
   TopicSearchFilter,
   TopicVisual,
+  VPCConnectionSummary,
 } from "../models/models_5";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
 
@@ -1671,6 +1736,36 @@ export const se_CreateAccountSubscriptionCommand = async (
       ReaderGroup: (_) => _json(_),
       ReaderProGroup: (_) => _json(_),
       Realm: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateActionConnectorCommand
+ */
+export const se_CreateActionConnectorCommand = async (
+  input: CreateActionConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/action-connectors");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ActionConnectorId: [],
+      AuthenticationConfig: (_) => _json(_),
+      Description: [],
+      Name: [],
+      Permissions: (_) => _json(_),
+      Tags: (_) => _json(_),
+      Type: [],
+      VpcConnectionArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2321,6 +2416,23 @@ export const se_DeleteAccountSubscriptionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteActionConnectorCommand
+ */
+export const se_DeleteActionConnectorCommand = async (
+  input: DeleteActionConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ActionConnectorId", () => input.ActionConnectorId!, "{ActionConnectorId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteAnalysisCommand
  */
 export const se_DeleteAnalysisCommand = async (
@@ -2906,6 +3018,40 @@ export const se_DescribeAccountSubscriptionCommand = async (
   const headers: any = {};
   b.bp("/account/{AwsAccountId}");
   b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeActionConnectorCommand
+ */
+export const se_DescribeActionConnectorCommand = async (
+  input: DescribeActionConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ActionConnectorId", () => input.ActionConnectorId!, "{ActionConnectorId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeActionConnectorPermissionsCommand
+ */
+export const se_DescribeActionConnectorPermissionsCommand = async (
+  input: DescribeActionConnectorPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ActionConnectorId", () => input.ActionConnectorId!, "{ActionConnectorId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -3880,6 +4026,40 @@ export const se_GetDashboardEmbedUrlCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetFlowMetadataCommand
+ */
+export const se_GetFlowMetadataCommand = async (
+  input: GetFlowMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/flows/{FlowId}/metadata");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FlowId", () => input.FlowId!, "{FlowId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetFlowPermissionsCommand
+ */
+export const se_GetFlowPermissionsCommand = async (
+  input: GetFlowPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/flows/{FlowId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FlowId", () => input.FlowId!, "{FlowId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetSessionEmbedUrlCommand
  */
 export const se_GetSessionEmbedUrlCommand = async (
@@ -3894,6 +4074,26 @@ export const se_GetSessionEmbedUrlCommand = async (
     [_ep]: [, input[_EP]!],
     [_sl]: [() => input.SessionLifetimeInMinutes !== void 0, () => input[_SLIM]!.toString()],
     [_ua]: [, input[_UA]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListActionConnectorsCommand
+ */
+export const se_ListActionConnectorsCommand = async (
+  input: ListActionConnectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/action-connectors");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4071,6 +4271,26 @@ export const se_ListDataSourcesCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/accounts/{AwsAccountId}/data-sources");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListFlowsCommand
+ */
+export const se_ListFlowsCommand = async (
+  input: ListFlowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/flows");
   b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
     [_nt]: [, input[_NT]!],
@@ -4693,6 +4913,33 @@ export const se_RestoreAnalysisCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SearchActionConnectorsCommand
+ */
+export const se_SearchActionConnectorsCommand = async (
+  input: SearchActionConnectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/search/action-connectors");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1SearchAnalysesCommand
  */
 export const se_SearchAnalysesCommand = async (
@@ -4779,6 +5026,31 @@ export const se_SearchDataSourcesCommand = async (
     "content-type": "application/json",
   };
   b.bp("/accounts/{AwsAccountId}/search/data-sources");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchFlowsCommand
+ */
+export const se_SearchFlowsCommand = async (
+  input: SearchFlowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/flows/searchFlows");
   b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
@@ -5088,6 +5360,58 @@ export const se_UpdateAccountSettingsCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateActionConnectorCommand
+ */
+export const se_UpdateActionConnectorCommand = async (
+  input: UpdateActionConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ActionConnectorId", () => input.ActionConnectorId!, "{ActionConnectorId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AuthenticationConfig: (_) => _json(_),
+      Description: [],
+      Name: [],
+      VpcConnectionArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateActionConnectorPermissionsCommand
+ */
+export const se_UpdateActionConnectorPermissionsCommand = async (
+  input: UpdateActionConnectorPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ActionConnectorId", () => input.ActionConnectorId!, "{ActionConnectorId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GrantPermissions: (_) => _json(_),
+      RevokePermissions: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -5518,6 +5842,31 @@ export const se_UpdateDefaultQBusinessApplicationCommand = async (
     })
   );
   b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateFlowPermissionsCommand
+ */
+export const se_UpdateFlowPermissionsCommand = async (
+  input: UpdateFlowPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/flows/{FlowId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FlowId", () => input.FlowId!, "{FlowId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GrantPermissions: (_) => _json(_),
+      RevokePermissions: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -6286,6 +6635,33 @@ export const de_CreateAccountSubscriptionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateActionConnectorCommand
+ */
+export const de_CreateActionConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateActionConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ActionConnectorId: __expectString,
+    Arn: __expectString,
+    CreationStatus: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateAnalysisCommand
  */
 export const de_CreateAnalysisCommand = async (
@@ -6924,6 +7300,32 @@ export const de_DeleteAccountSubscriptionCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteActionConnectorCommand
+ */
+export const de_DeleteActionConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteActionConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ActionConnectorId: __expectString,
+    Arn: __expectString,
     RequestId: __expectString,
   });
   Object.assign(contents, doc);
@@ -7743,6 +8145,58 @@ export const de_DescribeAccountSubscriptionCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     AccountInfo: _json,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeActionConnectorCommand
+ */
+export const de_DescribeActionConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeActionConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ActionConnector: (_) => de_ActionConnector(_, context),
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeActionConnectorPermissionsCommand
+ */
+export const de_DescribeActionConnectorPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeActionConnectorPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ActionConnectorId: __expectString,
+    Arn: __expectString,
+    Permissions: _json,
     RequestId: __expectString,
   });
   Object.assign(contents, doc);
@@ -9129,6 +9583,66 @@ export const de_GetDashboardEmbedUrlCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetFlowMetadataCommand
+ */
+export const de_GetFlowMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFlowMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    FlowId: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    PublishState: __expectString,
+    RequestId: __expectString,
+    RunCount: __expectInt32,
+    UserCount: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetFlowPermissionsCommand
+ */
+export const de_GetFlowPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFlowPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    FlowId: __expectString,
+    Permissions: _json,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetSessionEmbedUrlCommand
  */
 export const de_GetSessionEmbedUrlCommand = async (
@@ -9144,6 +9658,32 @@ export const de_GetSessionEmbedUrlCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     EmbedUrl: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListActionConnectorsCommand
+ */
+export const de_ListActionConnectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListActionConnectorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ActionConnectorSummaries: (_) => de_ActionConnectorSummaryList(_, context),
+    NextToken: __expectString,
     RequestId: __expectString,
   });
   Object.assign(contents, doc);
@@ -9373,6 +9913,32 @@ export const de_ListDataSourcesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     DataSources: (_) => de_DataSourceList(_, context),
+    NextToken: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListFlowsCommand
+ */
+export const de_ListFlowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FlowSummaryList: (_) => de_FlowSummaryList(_, context),
     NextToken: __expectString,
     RequestId: __expectString,
   });
@@ -10137,6 +10703,32 @@ export const de_RestoreAnalysisCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchActionConnectorsCommand
+ */
+export const de_SearchActionConnectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchActionConnectorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ActionConnectorSummaries: (_) => de_ActionConnectorSummaryList(_, context),
+    NextToken: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1SearchAnalysesCommand
  */
 export const de_SearchAnalysesCommand = async (
@@ -10230,6 +10822,32 @@ export const de_SearchDataSourcesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     DataSourceSummaries: (_) => de_DataSourceSummaryList(_, context),
+    NextToken: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchFlowsCommand
+ */
+export const de_SearchFlowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchFlowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FlowSummaryList: (_) => de_FlowSummaryList(_, context),
     NextToken: __expectString,
     RequestId: __expectString,
   });
@@ -10533,6 +11151,60 @@ export const de_UpdateAccountSettingsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateActionConnectorCommand
+ */
+export const de_UpdateActionConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateActionConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ActionConnectorId: __expectString,
+    Arn: __expectString,
+    RequestId: __expectString,
+    UpdateStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateActionConnectorPermissionsCommand
+ */
+export const de_UpdateActionConnectorPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateActionConnectorPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ActionConnectorId: __expectString,
+    Arn: __expectString,
+    Permissions: _json,
     RequestId: __expectString,
   });
   Object.assign(contents, doc);
@@ -10963,6 +11635,33 @@ export const de_UpdateDefaultQBusinessApplicationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateFlowPermissionsCommand
+ */
+export const de_UpdateFlowPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFlowPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    FlowId: __expectString,
+    Permissions: _json,
     RequestId: __expectString,
   });
   Object.assign(contents, doc);
@@ -12137,7 +12836,13 @@ const de_UnsupportedUserEditionExceptionRes = async (
 
 // se_AccountCustomization omitted.
 
+// se_ActionConnectorSearchFilter omitted.
+
+// se_ActionConnectorSearchFilterList omitted.
+
 // se_ActionList omitted.
+
+// se_ActionsList omitted.
 
 // se_AdHocFilteringOption omitted.
 
@@ -12244,6 +12949,8 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
 // se_AnonymousUserQSearchBarEmbeddingConfiguration omitted.
 
 // se_AnswerIds omitted.
+
+// se_APIKeyConnectionMetadata omitted.
 
 // se_ApplicationTheme omitted.
 
@@ -12505,6 +13212,16 @@ const se_AssetBundleImportSource = (input: AssetBundleImportSource, context: __S
 
 // se_AuroraPostgreSqlParameters omitted.
 
+// se_AuthConfig omitted.
+
+// se_AuthenticationMetadata omitted.
+
+// se_AuthorizationCodeGrantCredentialsDetails omitted.
+
+// se_AuthorizationCodeGrantDetails omitted.
+
+// se_AuthorizationCodeGrantMetadata omitted.
+
 // se_AuthorizedTargetsList omitted.
 
 // se_AuthorSpecifiedAggregations omitted.
@@ -12676,6 +13393,8 @@ const se_BarChartVisual = (input: BarChartVisual, context: __SerdeContext): any 
     VisualId: [],
   });
 };
+
+// se_BasicAuthConnectionMetadata omitted.
 
 // se_BigQueryParameters omitted.
 
@@ -12948,6 +13667,12 @@ const se_CategoryInnerFilter = (input: CategoryInnerFilter, context: __SerdeCont
 
 // se_ChartAxisLabelOptions omitted.
 
+// se_ClientCredentialsDetails omitted.
+
+// se_ClientCredentialsGrantDetails omitted.
+
+// se_ClientCredentialsGrantMetadata omitted.
+
 // se_ClusterMarker omitted.
 
 // se_ClusterMarkerConfiguration omitted.
@@ -13212,7 +13937,11 @@ const se_ConditionalFormattingGradientColor = (
 
 // se_ConditionalFormattingSolidColor omitted.
 
+// se_ConfluenceParameters omitted.
+
 // se_ContextMenuOption omitted.
+
+// se_ContextualAccentPalette omitted.
 
 // se_ContributionAnalysisDefault omitted.
 
@@ -15038,6 +15767,8 @@ const se_HistogramVisual = (input: HistogramVisual, context: __SerdeContext): an
   });
 };
 
+// se_IAMConnectionMetadata omitted.
+
 // se_Identifier omitted.
 
 // se_IdentityCenterConfiguration omitted.
@@ -15666,6 +16397,8 @@ const se_NewDefaultValues = (input: NewDefaultValues, context: __SerdeContext): 
   });
 };
 
+// se_NoneConnectionMetadata omitted.
+
 // se_NonRepeatingVisualsList omitted.
 
 // se_NullValueFormatConfiguration omitted.
@@ -15931,6 +16664,8 @@ const se_PeriodToDateComputation = (input: PeriodToDateComputation, context: __S
     Value: (_) => se_MeasureField(_, context),
   });
 };
+
+// se_Permission omitted.
 
 // se_PhysicalTable omitted.
 
@@ -16292,7 +17027,11 @@ const se_PredefinedHierarchy = (input: PredefinedHierarchy, context: __SerdeCont
 
 // se_ProjectOperation omitted.
 
+// se_QBusinessParameters omitted.
+
 // se_QueryExecutionOptions omitted.
+
+// se_QuickSuiteActionsOption omitted.
 
 /**
  * serializeAws_restJson1RadarChartAggregatedFieldWells
@@ -16564,6 +17303,8 @@ const se_RowSortList = (input: FieldSortOptions[], context: __SerdeContext): any
 
 // se_S3BucketConfiguration omitted.
 
+// se_S3KnowledgeBaseParameters omitted.
+
 // se_S3Parameters omitted.
 
 // se_S3Source omitted.
@@ -16721,6 +17462,10 @@ const se_ScrollBarOptions = (input: ScrollBarOptions, context: __SerdeContext): 
     VisibleRange: (_) => se_VisibleRangeOptions(_, context),
   });
 };
+
+// se_SearchFlowsFilter omitted.
+
+// se_SearchFlowsFilterList omitted.
 
 // se_SecondaryValueOptions omitted.
 
@@ -17666,6 +18411,10 @@ const se_TreeMapVisual = (input: TreeMapVisual, context: __SerdeContext): any =>
 
 // se_UntagColumnOperation omitted.
 
+// se_UpdateFlowPermissionsInputGrantPermissionsList omitted.
+
+// se_UpdateFlowPermissionsInputRevokePermissionsList omitted.
+
 // se_UpdateLinkPermissionList omitted.
 
 // se_UpdateResourcePermissionList omitted.
@@ -17872,6 +18621,10 @@ const se_WaterfallVisual = (input: WaterfallVisual, context: __SerdeContext): an
   });
 };
 
+// se_WebCrawlerParameters omitted.
+
+// se_WebProxyCredentials omitted.
+
 /**
  * serializeAws_restJson1WhatIfPointScenario
  */
@@ -17973,7 +18726,61 @@ const se_WordCloudVisual = (input: WordCloudVisual, context: __SerdeContext): an
 
 // de_AccountSettings omitted.
 
+/**
+ * deserializeAws_restJson1ActionConnector
+ */
+const de_ActionConnector = (output: any, context: __SerdeContext): ActionConnector => {
+  return take(output, {
+    ActionConnectorId: __expectString,
+    Arn: __expectString,
+    AuthenticationConfig: _json,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EnabledActions: _json,
+    Error: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+    Type: __expectString,
+    VpcConnectionArn: __expectString,
+  }) as any;
+};
+
+// de_ActionConnectorError omitted.
+
+/**
+ * deserializeAws_restJson1ActionConnectorSummary
+ */
+const de_ActionConnectorSummary = (output: any, context: __SerdeContext): ActionConnectorSummary => {
+  return take(output, {
+    ActionConnectorId: __expectString,
+    Arn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Error: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+    Type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ActionConnectorSummaryList
+ */
+const de_ActionConnectorSummaryList = (output: any, context: __SerdeContext): ActionConnectorSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ActionConnectorSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_ActionIdList omitted.
+
 // de_ActionList omitted.
+
+// de_ActionsList omitted.
 
 // de_ActiveIAMPolicyAssignment omitted.
 
@@ -19188,7 +19995,11 @@ const de_ConditionalFormattingGradientColor = (
 
 // de_ConditionalFormattingSolidColor omitted.
 
+// de_ConfluenceParameters omitted.
+
 // de_ContextMenuOption omitted.
+
+// de_ContextualAccentPalette omitted.
 
 // de_ContributionAnalysisDefault omitted.
 
@@ -20320,6 +21131,39 @@ const de_FilterSliderControl = (output: any, context: __SerdeContext): FilterSli
 // de_FilterTextAreaControl omitted.
 
 // de_FilterTextFieldControl omitted.
+
+/**
+ * deserializeAws_restJson1FlowSummary
+ */
+const de_FlowSummary = (output: any, context: __SerdeContext): FlowSummary => {
+  return take(output, {
+    Arn: __expectString,
+    CreatedBy: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    FlowId: __expectString,
+    LastPublishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastPublishedBy: __expectString,
+    LastUpdatedBy: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    PublishState: __expectString,
+    RunCount: __expectInt32,
+    UserCount: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowSummaryList
+ */
+const de_FlowSummaryList = (output: any, context: __SerdeContext): FlowSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FlowSummary(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Folder
@@ -22226,6 +23070,10 @@ const de_PeriodToDateComputation = (output: any, context: __SerdeContext): Perio
   }) as any;
 };
 
+// de_Permission omitted.
+
+// de_PermissionsList omitted.
+
 // de_PhysicalTable omitted.
 
 // de_PhysicalTableMap omitted.
@@ -22594,11 +23442,15 @@ const de_PredefinedHierarchy = (output: any, context: __SerdeContext): Predefine
 
 // de_QAResults omitted.
 
+// de_QBusinessParameters omitted.
+
 // de_QDataKey omitted.
 
 // de_QueryExecutionOptions omitted.
 
 // de_QueueInfo omitted.
+
+// de_QuickSuiteActionsOption omitted.
 
 /**
  * deserializeAws_restJson1RadarChartAggregatedFieldWells
@@ -22696,6 +23548,30 @@ const de_RadarChartVisual = (output: any, context: __SerdeContext): RadarChartVi
 // de_RangeEndsLabelType omitted.
 
 // de_RdsParameters omitted.
+
+// de_ReadAPIKeyConnectionMetadata omitted.
+
+// de_ReadAuthConfig omitted.
+
+// de_ReadAuthenticationMetadata omitted.
+
+// de_ReadAuthorizationCodeGrantCredentialsDetails omitted.
+
+// de_ReadAuthorizationCodeGrantDetails omitted.
+
+// de_ReadAuthorizationCodeGrantMetadata omitted.
+
+// de_ReadBasicAuthConnectionMetadata omitted.
+
+// de_ReadClientCredentialsDetails omitted.
+
+// de_ReadClientCredentialsGrantDetails omitted.
+
+// de_ReadClientCredentialsGrantMetadata omitted.
+
+// de_ReadIamConnectionMetadata omitted.
+
+// de_ReadNoneConnectionMetadata omitted.
 
 // de_RedshiftIAMParameters omitted.
 
@@ -22868,6 +23744,8 @@ const de_RowSortList = (output: any, context: __SerdeContext): FieldSortOptions[
 };
 
 // de_S3BucketConfiguration omitted.
+
+// de_S3KnowledgeBaseParameters omitted.
 
 // de_S3Parameters omitted.
 
@@ -24542,6 +25420,8 @@ const de_WaterfallVisual = (output: any, context: __SerdeContext): WaterfallVisu
     VisualId: __expectString,
   }) as any;
 };
+
+// de_WebCrawlerParameters omitted.
 
 /**
  * deserializeAws_restJson1WhatIfPointScenario

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RegisterUserRequest, RegisterUserResponse } from "../models/models_4";
+import { RegisterUserRequest, RegisterUserResponse } from "../models/models_5";
 import { de_RegisterUserCommand, se_RegisterUserCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -28,7 +28,7 @@ export interface RegisterUserCommandInput extends RegisterUserRequest {}
 export interface RegisterUserCommandOutput extends RegisterUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon QuickSight user whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. When you register a new user from the QuickSight API, QuickSight generates a registration URL. The user accesses this registration URL to create their account. QuickSight doesn't send a registration email to users who are registered from the QuickSight API. If you want new users to receive a registration email, then add those users in the QuickSight console. For more information on registering a new user in the QuickSight console, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users"> Inviting users to access QuickSight</a>.</p>
+ * <p>Creates an Amazon Quick Sight user whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. When you register a new user from the Quick Sight API, Quick Sight generates a registration URL. The user accesses this registration URL to create their account. Quick Sight doesn't send a registration email to users who are registered from the Quick Sight API. If you want new users to receive a registration email, then add those users in the Quick Sight console. For more information on registering a new user in the Quick Sight console, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users"> Inviting users to access Quick Sight</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,7 +89,7 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

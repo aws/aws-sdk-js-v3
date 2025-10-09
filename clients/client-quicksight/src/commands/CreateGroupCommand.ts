@@ -28,7 +28,7 @@ export interface CreateGroupCommandInput extends CreateGroupRequest {}
 export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Use the <code>CreateGroup</code> operation to create a group in   QuickSight. You can create up to 10,000 groups in a namespace. If you want to create more than 10,000 groups in a namespace, contact Amazon Web Services Support.</p>
+ * <p>Use the <code>CreateGroup</code> operation to create a group in   Quick Sight. You can create up to 10,000 groups in a namespace. If you want to create more than 10,000 groups in a namespace, contact Amazon Web Services Support.</p>
  *          <p>The permissions resource is
  * 					<code>arn:aws:quicksight:<your-region>:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
  *             </code>.</p>
@@ -71,7 +71,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

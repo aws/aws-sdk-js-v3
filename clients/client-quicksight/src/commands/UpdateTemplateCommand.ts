@@ -32,7 +32,7 @@ export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
 export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a template from an existing Amazon QuickSight analysis or another template.</p>
+ * <p>Updates a template from an existing Amazon Quick Sight analysis or another template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -5536,9 +5536,9 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

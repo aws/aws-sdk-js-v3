@@ -33,8 +33,15 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
 
 /**
  * <p>Starts an Asset Bundle import job.</p>
- *          <p>An Asset Bundle import job imports specified QuickSight assets into an QuickSight account. You can also choose to import a naming prefix and specified configuration overrides. The assets that are contained in the bundle file that you provide are used to create or update a new or existing asset in your QuickSight account. Each QuickSight account can run up to 5 import jobs concurrently.</p>
- *          <p>The API caller must have the necessary <code>"create"</code>, <code>"describe"</code>, and <code>"update"</code> permissions in their IAM role to access each resource type that is contained in the bundle file before the resources can be imported.</p>
+ *          <p>An Asset Bundle import job imports specified Amazon Quick Sight assets into an Amazon Quick
+ *          Sight account. You can also choose to import a naming prefix and specified configuration
+ *          overrides. The assets that are contained in the bundle file that you provide are used to
+ *          create or update a new or existing asset in your Amazon Quick Sight account. Each Amazon
+ *          Quick Sight account can run up to 5 import jobs concurrently.</p>
+ *          <p>The API caller must have the necessary <code>"create"</code>, <code>"describe"</code>,
+ *          and <code>"update"</code> permissions in their IAM role to access each
+ *          resource type that is contained in the bundle file before the resources can be
+ *          imported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -162,6 +169,11 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             },
  *             RoleArn: "STRING_VALUE",
  *           },
+ *           S3KnowledgeBaseParameters: { // S3KnowledgeBaseParameters
+ *             RoleArn: "STRING_VALUE",
+ *             BucketUrl: "STRING_VALUE", // required
+ *             MetadataFilesLocation: "STRING_VALUE",
+ *           },
  *           ServiceNowParameters: { // ServiceNowParameters
  *             SiteBaseUrl: "STRING_VALUE", // required
  *           },
@@ -243,6 +255,22 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *           },
  *           CustomConnectionParameters: { // CustomConnectionParameters
  *             ConnectionType: "STRING_VALUE",
+ *           },
+ *           WebCrawlerParameters: { // WebCrawlerParameters
+ *             WebCrawlerAuthType: "NO_AUTH" || "BASIC_AUTH" || "FORM" || "SAML", // required
+ *             UsernameFieldXpath: "STRING_VALUE",
+ *             PasswordFieldXpath: "STRING_VALUE",
+ *             UsernameButtonXpath: "STRING_VALUE",
+ *             PasswordButtonXpath: "STRING_VALUE",
+ *             LoginPageUrl: "STRING_VALUE",
+ *             WebProxyHostName: "STRING_VALUE",
+ *             WebProxyPortNumber: Number("int"),
+ *           },
+ *           ConfluenceParameters: { // ConfluenceParameters
+ *             ConfluenceUrl: "STRING_VALUE", // required
+ *           },
+ *           QBusinessParameters: { // QBusinessParameters
+ *             ApplicationArn: "STRING_VALUE", // required
  *           },
  *         },
  *         VpcConnectionProperties: {
@@ -488,7 +516,7 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link ConflictException} (client fault)
@@ -507,9 +535,9 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

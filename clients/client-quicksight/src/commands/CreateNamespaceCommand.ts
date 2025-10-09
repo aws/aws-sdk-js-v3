@@ -28,12 +28,12 @@ export interface CreateNamespaceCommandInput extends CreateNamespaceRequest {}
 export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight.</p>
- *          <p>A namespace allows you to isolate the QuickSight users and groups that are registered
+ * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon Quick Sight.</p>
+ *          <p>A namespace allows you to isolate the Quick Sight users and groups that are registered
  *             for that namespace. Users that access the namespace can share assets only with other
  *             users or groups in the same namespace. They can't see users and groups in other
  *             namespaces. You can create a namespace after your Amazon Web Services account is subscribed to
- *             QuickSight. The namespace must be unique within the Amazon Web Services account. By default, there is a
+ *             Quick Sight. The namespace must be unique within the Amazon Web Services account. By default, there is a
  *             limit of 100 namespaces per Amazon Web Services account. To increase your limit, create a ticket with
  *             Amazon Web Services Support. </p>
  * @example
@@ -78,7 +78,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link ConflictException} (client fault)

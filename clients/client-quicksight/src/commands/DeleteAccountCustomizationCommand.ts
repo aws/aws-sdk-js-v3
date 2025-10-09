@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse } from "../models/models_3";
+import { DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse } from "../models/models_4";
 import { de_DeleteAccountCustomizationCommand, se_DeleteAccountCustomizationCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -29,7 +29,7 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
 
 /**
  * <important>
- *             <p>This API permanently deletes all QuickSight customizations for the specified Amazon Web Services account and namespace. When you delete account customizations:</p>
+ *             <p>This API permanently deletes all Quick Sight customizations for the specified Amazon Web Services account and namespace. When you delete account customizations:</p>
  *             <ul>
  *                <li>
  *                   <p>All customizations are removed including themes, branding, and visual settings</p>
@@ -38,13 +38,13 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  *                   <p>This action cannot be undone through the API</p>
  *                </li>
  *                <li>
- *                   <p>Users will see default QuickSight styling after customizations are deleted</p>
+ *                   <p>Users will see default Quick Sight styling after customizations are deleted</p>
  *                </li>
  *             </ul>
  *             <p>
  *                <b>Before proceeding:</b> Ensure you have backups of any custom themes or branding elements you may want to recreate.</p>
  *          </important>
- *          <p>Deletes all Amazon QuickSight customizations for the specified Amazon Web Services account and QuickSight namespace.</p>
+ *          <p>Deletes all Amazon Quick Sight customizations for the specified Amazon Web Services account and Quick Sight namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +75,7 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link ConflictException} (client fault)

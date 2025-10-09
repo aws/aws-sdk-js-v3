@@ -28,9 +28,9 @@ export interface UpdateAccountCustomizationCommandInput extends UpdateAccountCus
 export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCustomizationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates Amazon QuickSight customizations. Currently, the only customization that you can use is a theme.</p>
+ * <p>Updates Amazon Quick Sight customizations. Currently, the only customization that you can use is a theme.</p>
  *          <p>You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a
- *             QuickSight namespace instead. Customizations that apply to a namespace override
+ *             Quick Sight namespace instead. Customizations that apply to a namespace override
  *             customizations that apply to an Amazon Web Services account. To find out which customizations apply, use
  *             the <code>DescribeAccountCustomization</code> API operation. </p>
  * @example
@@ -74,7 +74,7 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link ConflictException} (client fault)

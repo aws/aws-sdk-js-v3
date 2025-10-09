@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAnalysisRequest, DeleteAnalysisResponse } from "../models/models_3";
+import { DeleteAnalysisRequest, DeleteAnalysisResponse } from "../models/models_4";
 import { de_DeleteAnalysisCommand, se_DeleteAnalysisCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -28,16 +28,16 @@ export interface DeleteAnalysisCommandInput extends DeleteAnalysisRequest {}
 export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during
+ * <p>Deletes an analysis from Amazon Quick Sight. You can optionally include a recovery window during
  *             which you can restore the analysis. If you don't specify a recovery window value, the
- *             operation defaults to 30 days. QuickSight attaches a <code>DeletionTime</code> stamp to
+ *             operation defaults to 30 days. Amazon Quick Sight attaches a <code>DeletionTime</code> stamp to
  *             the response that specifies the end of the recovery window. At the end of the recovery
- *             window, QuickSight deletes the analysis permanently.</p>
+ *             window, Amazon Quick Sight deletes the analysis permanently.</p>
  *          <p>At any time before recovery window ends, you can use the <code>RestoreAnalysis</code>
  *             API operation to remove the <code>DeletionTime</code> stamp and cancel the deletion of
  *             the analysis. The analysis remains visible in the API until it's deleted, so you can
  *             describe it but you can't make a template from it.</p>
- *          <p>An analysis that's scheduled for deletion isn't accessible in the QuickSight console.
+ *          <p>An analysis that's scheduled for deletion isn't accessible in the Amazon Quick Sight console.
  *             To access it in the console, restore it. Deleting an analysis doesn't delete the
  *             dashboards that you publish from it.</p>
  * @example
@@ -88,9 +88,9 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

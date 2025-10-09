@@ -28,27 +28,27 @@ export interface CreateAccountSubscriptionCommandInput extends CreateAccountSubs
 export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an QuickSight account, or subscribes to QuickSight Q.</p>
+ * <p>Creates an Amazon Quick Sight account, or subscribes to Amazon Quick Sight Q.</p>
  *          <p>The Amazon Web Services Region for the account is derived from what is configured in the
  *           CLI or SDK.</p>
  *          <p>Before you use this operation, make sure that you can connect to an existing Amazon Web Services account. If you don't have an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html">Sign
- *                 up for Amazon Web Services</a> in the <i>Amazon QuickSight User
- *                 Guide</i>. The person who signs up for QuickSight needs to have the
+ *                 up for Amazon Web Services</a> in the <i>Amazon Quick Sight User
+ *                 Guide</i>. The person who signs up for Amazon Quick Sight needs to have the
  *             correct Identity and Access Management (IAM) permissions. For more information,
- *             see <a href="https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html">IAM Policy Examples for QuickSight</a> in the
- *                     <i>QuickSight User Guide</i>.</p>
+ *             see <a href="https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html">IAM Policy Examples for Amazon Quick Sight</a> in the
+ *                     <i>Amazon Quick Sight User Guide</i>.</p>
  *          <p>If your IAM policy includes both the <code>Subscribe</code> and
  *                 <code>CreateAccountSubscription</code> actions, make sure that both actions are set
  *             to <code>Allow</code>. If either action is set to <code>Deny</code>, the
  *                 <code>Deny</code> action prevails and your API call fails.</p>
  *          <p>You can't pass an existing IAM role to access other Amazon Web Services services using this API operation. To pass your existing IAM role to
- *                 QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role">Passing IAM roles to QuickSight</a> in the
- *                     <i>QuickSight User Guide</i>.</p>
- *          <p>You can't set default resource access on the new account from the QuickSight
- *             API. Instead, add default resource access from the QuickSight console. For more
+ *                 Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role">Passing IAM roles to Amazon Quick Sight</a> in the
+ *                     <i>Amazon Quick Sight User Guide</i>.</p>
+ *          <p>You can't set default resource access on the new account from the Amazon Quick Sight
+ *             API. Instead, add default resource access from the Amazon Quick Sight console. For more
  *             information about setting default resource access to Amazon Web Services services, see
  *                 <a href="https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-defaults.html">Setting default resource
- *                 access to Amazon Web Services services</a> in the <i>QuickSight
+ *                 access to Amazon Web Services services</a> in the <i>Amazon Quick Sight
  *                 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,7 +113,7 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link ConflictException} (client fault)

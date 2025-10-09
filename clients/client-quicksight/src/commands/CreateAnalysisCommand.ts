@@ -32,7 +32,7 @@ export interface CreateAnalysisCommandInput extends CreateAnalysisRequest {}
 export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an analysis in Amazon QuickSight.  Analyses can be created either from a template or from an <code>AnalysisDefinition</code>.</p>
+ * <p>Creates an analysis in Amazon Quick Sight. Analyses can be created either from a template or from an <code>AnalysisDefinition</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -5565,9 +5565,9 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

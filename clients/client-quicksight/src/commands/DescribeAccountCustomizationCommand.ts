@@ -34,7 +34,7 @@ export interface DescribeAccountCustomizationCommandOutput
 
 /**
  * <p>Describes the customizations associated with the provided Amazon Web Services account and Amazon
- *             QuickSight namespace. The QuickSight console evaluates which
+ *             Quick Sight namespace. The Quick Sight console evaluates which
  *             customizations to apply by running this API operation with the <code>Resolved</code> flag
  *             included. </p>
  *          <p>To determine what customizations display when you run this command, it can help to
@@ -44,15 +44,15 @@ export interface DescribeAccountCustomizationCommandOutput
  *                <p>
  *                   <code>Amazon Web Services account</code> - The Amazon Web Services account exists at the top of the hierarchy.
  *                     It has the potential to use all of the Amazon Web Services Regions and Amazon Web Services Services. When you
- *                     subscribe to QuickSight, you choose one Amazon Web Services Region to use as your home Region.
- *                     That's where your free SPICE capacity is located. You can use QuickSight in any
+ *                     subscribe to Quick Sight, you choose one Amazon Web Services Region to use as your home Region.
+ *                     That's where your free SPICE capacity is located. You can use Quick Sight in any
  *                     supported Amazon Web Services Region. </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Amazon Web Services Region</code> - You can sign in to QuickSight in any Amazon Web Services Region. If
+ *                   <code>Amazon Web Services Region</code> - You can sign in to Quick Sight in any Amazon Web Services Region. If
  *                     you have a user directory, it resides in us-east-1, which is US East (N.
- *                     Virginia). Generally speaking, these users have access to QuickSight in any
+ *                     Virginia). Generally speaking, these users have access to Quick Sight in any
  *                     Amazon Web Services Region, unless they are constrained to a namespace. </p>
  *                <p>To run the command in a different Amazon Web Services Region, you change your Region settings.
  *                     If you're using the CLI, you can use one of the following options:</p>
@@ -72,7 +72,7 @@ export interface DescribeAccountCustomizationCommandOutput
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Namespace</code> - A QuickSight namespace is a partition that contains
+ *                   <code>Namespace</code> - A Quick Sight namespace is a partition that contains
  *                     users and assets (data sources, datasets, dashboards, and so on). To access
  *                     assets that are in a specific namespace, users and groups must also be part of
  *                     the same namespace. People who share a namespace are completely isolated from
@@ -81,7 +81,7 @@ export interface DescribeAccountCustomizationCommandOutput
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Applied customizations</code> - QuickSight customizations can apply to an Amazon Web Services account or to a namespace.
+ *                   <code>Applied customizations</code> - Quick Sight customizations can apply to an Amazon Web Services account or to a namespace.
  *                     Settings that you apply to a namespace override settings that you apply to an
  *                     Amazon Web Services account.</p>
  *             </li>
@@ -124,7 +124,7 @@ export interface DescribeAccountCustomizationCommandOutput
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

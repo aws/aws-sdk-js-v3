@@ -33,23 +33,23 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
 
 /**
  * <p>Generates a session URL and authorization code that you can use to embed the Amazon
- *             QuickSight console in your web server code. Use <code>GetSessionEmbedUrl</code> where
- *             you want to provide an authoring portal that allows users to create data sources,
- *             datasets, analyses, and dashboards. The users who access an embedded QuickSight console
- *             need belong to the author or admin security cohort. If you want to restrict permissions
- *             to some of these features, add a custom permissions profile to the user with the
- *             <code>
+ *                 Amazon Quick Sight console in your web server code. Use
+ *                 <code>GetSessionEmbedUrl</code> where you want to provide an authoring portal that
+ *             allows users to create data sources, datasets, analyses, and dashboards. The users who
+ *             access an embedded Amazon Quick Sight console need belong to the author or admin security
+ *             cohort. If you want to restrict permissions to some of these features, add a custom
+ *             permissions profile to the user with the <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
  *             </code> API operation. Use <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
- *             </code>
- *             API operation to add a new user with a custom permission profile attached. For more
- *             information, see the following sections in the <i>Amazon QuickSight User
- *             Guide</i>:</p>
+ *             </code> API operation to add a new user with a custom
+ *             permission profile attached. For more information, see the following sections in the
+ *                     <i>Amazon QuickSight User Guide</i>:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedding Analytics</a>
+ *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedding
+ *                         Analytics</a>
  *                </p>
  *             </li>
  *             <li>
@@ -91,7 +91,7 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -119,9 +119,9 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

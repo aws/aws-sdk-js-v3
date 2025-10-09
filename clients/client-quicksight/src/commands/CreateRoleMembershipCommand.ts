@@ -28,7 +28,7 @@ export interface CreateRoleMembershipCommandInput extends CreateRoleMembershipRe
 export interface CreateRoleMembershipCommandOutput extends CreateRoleMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Use <code>CreateRoleMembership</code> to add an existing QuickSight group to an existing role.</p>
+ * <p>Use <code>CreateRoleMembership</code> to add an existing Quick Sight group to an existing role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,7 +61,7 @@ export interface CreateRoleMembershipCommandOutput extends CreateRoleMembershipR
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

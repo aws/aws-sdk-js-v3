@@ -28,7 +28,10 @@ export interface ListAssetBundleImportJobsCommandInput extends ListAssetBundleIm
 export interface ListAssetBundleImportJobsCommandOutput extends ListAssetBundleImportJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all asset bundle import jobs that have taken place in the last 14 days. Jobs created more than 14 days ago are deleted forever and are not returned. If you are using the same job ID for multiple jobs, <code>ListAssetBundleImportJobs</code> only returns the most recent job that uses the repeated job ID.</p>
+ * <p>Lists all asset bundle import jobs that have taken place in the last 14 days. Jobs
+ *          created more than 14 days ago are deleted forever and are not returned. If you are using
+ *          the same job ID for multiple jobs, <code>ListAssetBundleImportJobs</code> only returns the
+ *          most recent job that uses the repeated job ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +73,7 @@ export interface ListAssetBundleImportJobsCommandOutput extends ListAssetBundleI
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
@@ -83,9 +86,9 @@ export interface ListAssetBundleImportJobsCommandOutput extends ListAssetBundleI
  *  <p>Access is throttled.</p>
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
  * @throws {@link QuickSightServiceException}

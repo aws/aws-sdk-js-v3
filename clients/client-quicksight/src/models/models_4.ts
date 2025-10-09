@@ -5,19 +5,22 @@ import {
   AccountCustomization,
   AccountInfo,
   AccountSettings,
-  ActiveIAMPolicyAssignment,
+  ActionConnector,
+  ActionConnectorFilterSensitiveLog,
+  ActionConnectorSummary,
+  ActionConnectorSummaryFilterSensitiveLog,
   AmazonQInQuickSightConsoleConfigurations,
   AmazonQInQuickSightDashboardConfigurations,
   Analysis,
   AnalysisError,
   Entity,
+  FilterOperator,
   ResourceStatus,
   Sheet,
 } from "./models_0";
 
 import {
   AnalysisDefinition,
-  AnalysisSearchFilter,
   AnalysisSummary,
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserSnapshotJobResult,
@@ -40,21 +43,19 @@ import {
   AssetBundleImportSourceDescription,
   AssetBundleImportSourceDescriptionFilterSensitiveLog,
   AssignmentStatus,
-  AuthorizedTargetsByService,
-  BookmarksConfigurations,
-  BrandDefinition,
   DashboardVisualId,
   DataSetRefreshProperties,
-  FilterOperator,
+  ServiceType,
   SharedViewConfigurations,
   SnapshotFile,
   SnapshotS3DestinationConfiguration,
-  Tag,
 } from "./models_2";
 
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
+  BookmarksConfigurations,
+  BrandDefinition,
   BrandDetail,
   BrandSummary,
   CustomInstructions,
@@ -63,23 +64,23 @@ import {
   Dashboard,
   DashboardError,
   DashboardPublishOptions,
-  DashboardSearchFilter,
   DashboardsQAStatus,
   DashboardSummary,
   DashboardVersionDefinition,
   DashboardVersionSummary,
-  DashboardVisualResult,
   DataSet,
   DataSetConfiguration,
   DataSetFilterSensitiveLog,
   DataSetSummary,
   DataSource,
+  DataSourceType,
   FolderType,
   Group,
   GroupMember,
   IdentityStore,
   IngestionStatus,
   LinkSharingConfiguration,
+  MemberType,
   NamespaceStatus,
   RefreshSchedule,
   ResourcePermission,
@@ -91,12 +92,980 @@ import {
   ThemeConfiguration,
   TopicDetails,
   TopicRefreshSchedule,
-  TopicUserExperienceVersion,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>A <code>DataSourceSummary</code> object that returns a summary of a data source.</p>
+ * @public
+ */
+export interface DataSourceSummary {
+  /**
+   * <p>The arn of the datasource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The unique ID of the data source.</p>
+   * @public
+   */
+  DataSourceId?: string | undefined;
+
+  /**
+   * <p>The name of the data source.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of the data source.</p>
+   * @public
+   */
+  Type?: DataSourceType | undefined;
+
+  /**
+   * <p>The date and time that the data source was created. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The date and time the data source was last updated. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountCustomizationRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to delete Quick Sight customizations from.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Quick Sight namespace that you're deleting the customizations from.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountCustomizationResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountCustomPermissionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account from which you want to unapply the custom permissions profile.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountSubscriptionRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the account that you want to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountSubscriptionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteActionConnectorRequest {
+  /**
+   * <p>The Amazon Web Services account ID that contains the action connector to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action connector to delete.</p>
+   * @public
+   */
+  ActionConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteActionConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted action connector.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the deleted action connector.</p>
+   * @public
+   */
+  ActionConnectorId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status code of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnalysisRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account where you want to delete an analysis.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis that you're deleting.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A value that specifies the number of days that Amazon Quick Sight waits before it deletes the
+   *             analysis. You can't use this parameter with the <code>ForceDeleteWithoutRecovery</code>
+   *             option in the same API call. The default value is 30.</p>
+   * @public
+   */
+  RecoveryWindowInDays?: number | undefined;
+
+  /**
+   * <p>This option defaults to the value <code>NoForceDeleteWithoutRecovery</code>. To
+   *             immediately delete the analysis, add the <code>ForceDeleteWithoutRecovery</code> option.
+   *             You can't restore an analysis after it's deleted. </p>
+   * @public
+   */
+  ForceDeleteWithoutRecovery?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnalysisResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted analysis.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the deleted analysis.</p>
+   * @public
+   */
+  AnalysisId?: string | undefined;
+
+  /**
+   * <p>The date and time that the analysis is scheduled to be deleted.</p>
+   * @public
+   */
+  DeletionTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBrandRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the QuickSight brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBrandResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBrandAssignmentRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBrandAssignmentResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the custom permissions profile that you want to delete.</p>
+   * @public
+   */
+  CustomPermissionsName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomPermissionsResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDashboardRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             deleting.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The version number of the dashboard. If the version number property is provided, only
+   *             the specified version of the dashboard is deleted.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDashboardResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Secure Socket Layer (SSL) properties that apply for the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard.</p>
+   * @public
+   */
+  DashboardId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSetRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSetResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  DataSetId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSetRefreshPropertiesRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSetRefreshPropertiesResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSourceRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
+   * 				Amazon Web Services account.</p>
+   * @public
+   */
+  DataSourceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSourceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
+   * 				Amazon Web Services account.</p>
+   * @public
+   */
+  DataSourceId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDefaultQBusinessApplicationRequest {
+  /**
+   * <p>The ID of the Quick Sight account that you want to disconnect from a Amazon Q Business application.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Quick Sight namespace that you want to delete a linked Amazon Q Business application from. If this field is left blank, the Amazon Q Business application is deleted from the default namespace. Currently, the default namespace is the only valid value for this parameter.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDefaultQBusinessApplicationResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   * @public
+   */
+  FolderId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name of the deleted folder.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   * @public
+   */
+  FolderId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderMembershipRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Folder ID.</p>
+   * @public
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The ID of the asset that you want to delete.</p>
+   * @public
+   */
+  MemberId: string | undefined;
+
+  /**
+   * <p>The member type of the asset that you want to delete from a folder.</p>
+   * @public
+   */
+  MemberType: MemberType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderMembershipResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupRequest {
+  /**
+   * <p>The name of the group that you want to delete.</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the group that you want to delete.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupMembershipRequest {
+  /**
+   * <p>The name of the user that you want to delete from the group membership.</p>
+   * @public
+   */
+  MemberName: string | undefined;
+
+  /**
+   * <p>The name of the group that you want to delete the user from.</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the group that you want to remove a user from.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupMembershipResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIAMPolicyAssignmentRequest {
+  /**
+   * <p>The Amazon Web Services account ID where you want to delete the IAM
+   * 			policy assignment.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the assignment. </p>
+   * @public
+   */
+  AssignmentName: string | undefined;
+
+  /**
+   * <p>The namespace that contains the assignment.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIAMPolicyAssignmentResponse {
+  /**
+   * <p>The name of the assignment. </p>
+   * @public
+   */
+  AssignmentName?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIdentityPropagationConfigRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that you want to delete an identity propagation configuration from.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services service that you want to delete the associated access scopes and authorized targets from.</p>
+   * @public
+   */
+  Service: ServiceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIdentityPropagationConfigResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNamespaceRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to delete the Quick Sight namespace from.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that you want to delete.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNamespaceResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRefreshScheduleRequest {
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRefreshScheduleResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   * @public
+   */
+  ScheduleId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoleCustomPermissionRequest {
+  /**
+   * <p>The role that you want to remove permissions from.</p>
+   * @public
+   */
+  Role: Role | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   *             Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that includes the role.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoleCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoleMembershipRequest {
+  /**
+   * <p>The name of the group.</p>
+   * @public
+   */
+  MemberName: string | undefined;
+
+  /**
+   * <p>The role that you want to remove permissions from.</p>
+   * @public
+   */
+  Role: Role | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that contains the role.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
 
 /**
  * @public
@@ -460,7 +1429,7 @@ export interface DeleteUserRequest {
 
   /**
    * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -502,7 +1471,7 @@ export interface DeleteUserByPrincipalIdRequest {
 
   /**
    * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -638,14 +1607,14 @@ export interface DeleteVPCConnectionResponse {
  */
 export interface DescribeAccountCustomizationRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that you want to describe QuickSight customizations
+   * <p>The ID for the Amazon Web Services account that you want to describe Quick Sight customizations
    *             for.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The QuickSight namespace that you want to describe QuickSight customizations
+   * <p>The Quick Sight namespace that you want to describe Quick Sight customizations
    *             for.</p>
    * @public
    */
@@ -653,8 +1622,8 @@ export interface DescribeAccountCustomizationRequest {
 
   /**
    * <p>The <code>Resolved</code> flag works with the other parameters to determine which view
-   *             of QuickSight customizations is returned. You can add this flag to your command to use
-   *             the same view that QuickSight uses to identify which customizations to apply to the
+   *             of Quick Sight customizations is returned. You can add this flag to your command to use
+   *             the same view that Quick Sight uses to identify which customizations to apply to the
    *             console. Omit this flag, or set it to <code>no-resolved</code>, to reveal customizations
    *             that are configured at different levels. </p>
    * @public
@@ -679,13 +1648,13 @@ export interface DescribeAccountCustomizationResponse {
   AwsAccountId?: string | undefined;
 
   /**
-   * <p>The QuickSight namespace that you're describing. </p>
+   * <p>The Quick Sight namespace that you're describing. </p>
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * <p>The QuickSight customizations that exist. </p>
+   * <p>The Quick Sight customizations that exist. </p>
    * @public
    */
   AccountCustomization?: AccountCustomization | undefined;
@@ -753,12 +1722,12 @@ export interface DescribeAccountSettingsRequest {
  */
 export interface DescribeAccountSettingsResponse {
   /**
-   * <p>The QuickSight settings for this Amazon Web Services account. This information
-   *             includes the edition of Amazon QuickSight that you subscribed to (Standard or
-   *             Enterprise) and the notification email for the QuickSight subscription. </p>
-   *          <p>In the QuickSight console, the QuickSight subscription is sometimes referred to
-   *             as a QuickSight "account" even though it's technically not an account by
-   *             itself. Instead, it's a subscription to the QuickSight service for your
+   * <p>The Amazon Quick Sight settings for this Amazon Web Services account. This information
+   *             includes the edition of Amazon Quick Sight that you subscribed to (Standard or
+   *             Enterprise) and the notification email for the Amazon Quick Sight subscription. </p>
+   *          <p>In the Quick Sight console, the Amazon Quick Sight subscription is sometimes referred to
+   *             as a Quick Sight "account" even though it's technically not an account by
+   *             itself. Instead, it's a subscription to the Amazon Quick Sight service for your
    *                 Amazon Web Services account. The edition that you subscribe to applies to QuickSight in every Amazon Web Services Region where you use it.</p>
    * @public
    */
@@ -782,7 +1751,7 @@ export interface DescribeAccountSettingsResponse {
  */
 export interface DescribeAccountSubscriptionRequest {
   /**
-   * <p>The Amazon Web Services account ID associated with your QuickSight account.</p>
+   * <p>The Amazon Web Services account ID associated with your Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -796,21 +1765,21 @@ export interface DescribeAccountSubscriptionResponse {
    * <p>A structure that contains the following elements:</p>
    *          <ul>
    *             <li>
-   *                <p>Your QuickSight account name.</p>
+   *                <p>Your Quick Sight account name.</p>
    *             </li>
    *             <li>
-   *                <p>The edition of QuickSight that your account is using.</p>
+   *                <p>The edition of Quick Sight that your account is using.</p>
    *             </li>
    *             <li>
-   *                <p>The notification email address that is associated with the QuickSight
+   *                <p>The notification email address that is associated with the Amazon Quick Sight
    *                     account.
    *             </p>
    *             </li>
    *             <li>
-   *                <p>The authentication type of the QuickSight account.</p>
+   *                <p>The authentication type of the Quick Sight account.</p>
    *             </li>
    *             <li>
-   *                <p>The status of the QuickSight account's subscription.</p>
+   *                <p>The status of the Quick Sight account's subscription.</p>
    *             </li>
    *          </ul>
    * @public
@@ -828,6 +1797,98 @@ export interface DescribeAccountSubscriptionResponse {
    * @public
    */
   RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeActionConnectorRequest {
+  /**
+   * <p>The Amazon Web Services account ID that contains the action connector.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action connector to describe.</p>
+   * @public
+   */
+  ActionConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeActionConnectorResponse {
+  /**
+   * <p>The detailed information about the action connector, including its configuration and current state.</p>
+   * @public
+   */
+  ActionConnector?: ActionConnector | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status code of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeActionConnectorPermissionsRequest {
+  /**
+   * <p>The Amazon Web Services account ID that contains the action connector.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action connector whose permissions you want to describe.</p>
+   * @public
+   */
+  ActionConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeActionConnectorPermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the action connector.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the action connector.</p>
+   * @public
+   */
+  ActionConnectorId?: string | undefined;
+
+  /**
+   * <p>The list of permissions associated with the action connector, including the principals and their allowed actions.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status code of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
 }
 
 /**
@@ -1050,7 +2111,8 @@ export interface DescribeAssetBundleExportJobRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the job that you want described. The job ID is set when you start a new job with a <code>StartAssetBundleExportJob</code> API call.</p>
+   * <p>The ID of the job that you want described. The job ID is set when you start a new job
+   *          with a <code>StartAssetBundleExportJob</code> API call.</p>
    * @public
    */
   AssetBundleExportJobId: string | undefined;
@@ -1077,23 +2139,30 @@ export type IncludeFolderMembers = (typeof IncludeFolderMembers)[keyof typeof In
 export interface DescribeAssetBundleExportJobResponse {
   /**
    * <p>Indicates the status of a job through its queuing and execution.</p>
-   *          <p>Poll this <code>DescribeAssetBundleExportApi</code> until <code>JobStatus</code> is either <code>SUCCESSFUL</code> or <code>FAILED</code>.</p>
+   *          <p>Poll this <code>DescribeAssetBundleExportApi</code> until <code>JobStatus</code> is
+   *          either <code>SUCCESSFUL</code> or <code>FAILED</code>.</p>
    * @public
    */
   JobStatus?: AssetBundleExportJobStatus | undefined;
 
   /**
    * <p>The URL to download the exported asset bundle data from.</p>
-   *          <p>This URL is available only after the job has succeeded. This URL is valid for 5 minutes after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if needed.</p>
-   *          <p>The downloaded asset bundle is a zip file named <code>assetbundle-\{jobId\}.qs</code>. The file has a <code>.qs</code> extension.</p>
-   *          <p>This URL can't be used in a <code>StartAssetBundleImportJob</code> API call and should only be used for download purposes.</p>
+   *          <p>This URL is available only after the job has succeeded. This URL is valid for 5 minutes
+   *          after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if
+   *          needed.</p>
+   *          <p>The downloaded asset bundle is a zip file named <code>assetbundle-\{jobId\}.qs</code>. The
+   *          file has a <code>.qs</code> extension.</p>
+   *          <p>This URL can't be used in a <code>StartAssetBundleImportJob</code> API call and
+   *          should only be used for download purposes.</p>
    * @public
    */
   DownloadUrl?: string | undefined;
 
   /**
-   * <p>An array of error records that describes any failures that occurred during the export job processing.</p>
-   *          <p>Error records accumulate while the job runs. The complete set of error records is available after the job has completed and failed.</p>
+   * <p>An array of error records that describes any failures that occurred during the export
+   *          job processing.</p>
+   *          <p>Error records accumulate while the job runs. The complete set of error records is
+   *          available after the job has completed and failed.</p>
    * @public
    */
   Errors?: AssetBundleExportJobError[] | undefined;
@@ -1111,7 +2180,8 @@ export interface DescribeAssetBundleExportJobResponse {
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleExportJob</code> API call.</p>
+   * <p>The ID of the job. The job ID is set when you start a new job with a
+   *             <code>StartAssetBundleExportJob</code> API call.</p>
    * @public
    */
   AssetBundleExportJobId?: string | undefined;
@@ -1135,7 +2205,10 @@ export interface DescribeAssetBundleExportJobResponse {
   IncludeAllDependencies?: boolean | undefined;
 
   /**
-   * <p>The format of the exported asset bundle. A <code>QUICKSIGHT_JSON</code> formatted file can be used to make a <code>StartAssetBundleImportJob</code> API call. A <code>CLOUDFORMATION_JSON</code> formatted file can be used in the CloudFormation console and with the CloudFormation APIs.</p>
+   * <p>The format of the exported asset bundle. A <code>QUICKSIGHT_JSON</code> formatted file
+   *          can be used to make a <code>StartAssetBundleImportJob</code> API call. A
+   *             <code>CLOUDFORMATION_JSON</code> formatted file can be used in the CloudFormation
+   *          console and with the CloudFormation APIs.</p>
    * @public
    */
   ExportFormat?: AssetBundleExportFormat | undefined;
@@ -1177,8 +2250,10 @@ export interface DescribeAssetBundleExportJobResponse {
   ValidationStrategy?: AssetBundleExportJobValidationStrategy | undefined;
 
   /**
-   * <p>An array of warning records that describe the analysis or dashboard that is exported. This array includes UI errors that can be skipped during the validation process.</p>
-   *          <p>This property only appears if <code>StrictModeForAllResources</code> in <code>ValidationStrategy</code> is set to <code>FALSE</code>.</p>
+   * <p>An array of warning records that describe the analysis or dashboard that is exported.
+   *          This array includes UI errors that can be skipped during the validation process.</p>
+   *          <p>This property only appears if <code>StrictModeForAllResources</code> in
+   *             <code>ValidationStrategy</code> is set to <code>FALSE</code>.</p>
    * @public
    */
   Warnings?: AssetBundleExportJobWarning[] | undefined;
@@ -1207,7 +2282,8 @@ export interface DescribeAssetBundleImportJobRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleImportJob</code> API call.</p>
+   * <p>The ID of the job. The job ID is set when you start a new job with a
+   *             <code>StartAssetBundleImportJob</code> API call.</p>
    * @public
    */
   AssetBundleImportJobId: string | undefined;
@@ -1219,7 +2295,8 @@ export interface DescribeAssetBundleImportJobRequest {
 export interface DescribeAssetBundleImportJobResponse {
   /**
    * <p>Indicates the status of a job through its queuing and execution.</p>
-   *          <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns one of the following values:</p>
+   *          <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns
+   *          one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1247,15 +2324,19 @@ export interface DescribeAssetBundleImportJobResponse {
   JobStatus?: AssetBundleImportJobStatus | undefined;
 
   /**
-   * <p>An array of error records that describes any failures that occurred during the export job processing.</p>
-   *          <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
+   * <p>An array of error records that describes any failures that occurred during the export
+   *          job processing.</p>
+   *          <p>Error records accumulate while the job is still running. The complete set of error
+   *          records is available after the job has completed and failed.</p>
    * @public
    */
   Errors?: AssetBundleImportJobError[] | undefined;
 
   /**
-   * <p>An array of error records that describes any failures that occurred while an import job was attempting a rollback.</p>
-   *          <p>Error records accumulate while the job is still running. The complete set of error records is available after the job has completed and failed.</p>
+   * <p>An array of error records that describes any failures that occurred while an import job
+   *          was attempting a rollback.</p>
+   *          <p>Error records accumulate while the job is still running. The complete set of error
+   *          records is available after the job has completed and failed.</p>
    * @public
    */
   RollbackErrors?: AssetBundleImportJobError[] | undefined;
@@ -1273,7 +2354,8 @@ export interface DescribeAssetBundleImportJobResponse {
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleImportJob</code> API call.</p>
+   * <p>The ID of the job. The job ID is set when you start a new job with a
+   *             <code>StartAssetBundleImportJob</code> API call.</p>
    * @public
    */
   AssetBundleImportJobId?: string | undefined;
@@ -1285,7 +2367,8 @@ export interface DescribeAssetBundleImportJobResponse {
   AwsAccountId?: string | undefined;
 
   /**
-   * <p>The source of the asset bundle zip file that contains the data that is imported by the job.</p>
+   * <p>The source of the asset bundle zip file that contains the data that is imported by the
+   *          job.</p>
    * @public
    */
   AssetBundleImportSource?: AssetBundleImportSourceDescription | undefined;
@@ -1315,25 +2398,29 @@ export interface DescribeAssetBundleImportJobResponse {
   Status?: number | undefined;
 
   /**
-   * <p>Optional permission overrides that are applied to the resource configuration before import.</p>
+   * <p>Optional permission overrides that are applied to the resource configuration before
+   *          import.</p>
    * @public
    */
   OverridePermissions?: AssetBundleImportJobOverridePermissions | undefined;
 
   /**
-   * <p>Optional tag overrides that are applied to the resource configuration before import.</p>
+   * <p>Optional tag overrides that are applied to the resource configuration before
+   *          import.</p>
    * @public
    */
   OverrideTags?: AssetBundleImportJobOverrideTags | undefined;
 
   /**
-   * <p>An optional validation strategy override for all analyses and dashboards to be applied to the resource configuration before import.</p>
+   * <p>An optional validation strategy override for all analyses and dashboards to be applied
+   *          to the resource configuration before import.</p>
    * @public
    */
   OverrideValidationStrategy?: AssetBundleImportJobOverrideValidationStrategy | undefined;
 
   /**
-   * <p>An array of warning records that describe all permitted errors that are encountered during the import job.</p>
+   * <p>An array of warning records that describe all permitted errors that are encountered
+   *          during the import job.</p>
    * @public
    */
   Warnings?: AssetBundleImportJobWarning[] | undefined;
@@ -1675,8 +2762,8 @@ export interface DescribeDashboardDefinitionResponse {
    *                <p>
    *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
    *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, QuickSight disables the left filter pane on the
-   *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     set to <code>DISABLED</code>, Amazon Quick Sight disables the left filter pane on
+   *                     the published dashboard, which can be used for ad hoc (one-time) filtering. This
    *                     option is <code>ENABLED</code> by default. </p>
    *             </li>
    *             <li>
@@ -1684,7 +2771,8 @@ export interface DescribeDashboardDefinitionResponse {
    *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
    *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
    *                     option to export data to .CSV format isn't enabled when this is set to
-   *                     <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by default.
+   *                 </p>
    *             </li>
    *             <li>
    *                <p>
@@ -1694,17 +2782,27 @@ export interface DescribeDashboardDefinitionResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This status
-   *                     can be either <code>ENABLED</code> or <code>DISABLED</code>. The option to build an executive
-   *                     summary is disabled when this is set to <code>DISABLED</code>. This option is <code>ENABLED</code>
+   *                   <code>AvailabilityStatus</code> for <code>QuickSuiteActionsOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>.
+   *                     Features related to Actions in Amazon Quick Suite on dashboards are disabled
+   *                     when this is set to <code>DISABLED</code>. This option is <code>DISABLED</code>
    *                     by default.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> - This status
-   *                     can be either <code>ENABLED</code> or <code>DISABLED</code>. The option to share a data story is
-   *                     disabled when this is set to <code>DISABLED</code>. This option is <code>ENABLED</code>
-   *                     by default.</p>
+   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The option
+   *                     to build an executive summary is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The
+   *                     option to share a data story is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1717,8 +2815,8 @@ export interface DescribeDashboardDefinitionResponse {
  */
 export interface DescribeDashboardPermissionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're describing
-   *             permissions for.</p>
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             describing permissions for.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -1857,7 +2955,7 @@ export interface SnapshotConfiguration {
   DestinationConfiguration?: SnapshotDestinationConfiguration | undefined;
 
   /**
-   * <p>A list of QuickSight parameters and the list's override values.</p>
+   * <p>A list of Quick Sight parameters and the list's override values.</p>
    * @public
    */
   Parameters?: _Parameters | undefined;
@@ -2270,7 +3368,8 @@ export interface DescribeDataSourceRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
+   * 				Amazon Web Services account.</p>
    * @public
    */
   DataSourceId: string | undefined;
@@ -2310,7 +3409,8 @@ export interface DescribeDataSourcePermissionsRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
+   * 				Amazon Web Services account.</p>
    * @public
    */
   DataSourceId: string | undefined;
@@ -2327,7 +3427,8 @@ export interface DescribeDataSourcePermissionsResponse {
   DataSourceArn?: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
+   * 				Amazon Web Services account.</p>
    * @public
    */
   DataSourceId?: string | undefined;
@@ -2356,13 +3457,13 @@ export interface DescribeDataSourcePermissionsResponse {
  */
 export interface DescribeDefaultQBusinessApplicationRequest {
   /**
-   * <p>The ID of the QuickSight account that is linked to the Amazon Q Business application that you want described.</p>
+   * <p>The ID of the Quick Sight account that is linked to the Amazon Q Business application that you want described.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The QuickSight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter.</p>
+   * <p>The Quick Sight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter.</p>
    * @public
    */
   Namespace?: string | undefined;
@@ -2385,7 +3486,7 @@ export interface DescribeDefaultQBusinessApplicationResponse {
   Status?: number | undefined;
 
   /**
-   * <p>The ID of the Amazon Q Business application that is linked to the QuickSight account.</p>
+   * <p>The ID of the Amazon Q Business application that is linked to the Quick Sight account.</p>
    * @public
    */
   ApplicationId?: string | undefined;
@@ -2409,7 +3510,7 @@ export interface DescribeFolderRequest {
 }
 
 /**
- * <p>A folder in QuickSight.</p>
+ * <p>A folder in Quick Sight.</p>
  * @public
  */
 export interface Folder {
@@ -2677,7 +3778,7 @@ export interface DescribeGroupRequest {
 
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -2730,7 +3831,7 @@ export interface DescribeGroupMembershipRequest {
 
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   *          Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   *          Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -2747,7 +3848,7 @@ export interface DescribeGroupMembershipRequest {
  */
 export interface DescribeGroupMembershipResponse {
   /**
-   * <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
+   * <p>A member of an Quick Sight group. Currently, group members must be users. Groups
    *             can't be members of another group. .</p>
    * @public
    */
@@ -3202,7 +4303,7 @@ export interface DescribeKeyRegistrationRequest {
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>KeyArn</code> - The ARN of a KMS key that is registered to a QuickSight account for encryption and decryption use.</p>
+ *                   <code>KeyArn</code> - The ARN of a KMS key that is registered to a Quick Sight account for encryption and decryption use.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -3213,7 +4314,7 @@ export interface DescribeKeyRegistrationRequest {
  */
 export interface RegisteredCustomerManagedKey {
   /**
-   * <p>The ARN of the KMS key that is registered to a QuickSight account for encryption and decryption use.</p>
+   * <p>The ARN of the KMS key that is registered to a Quick Sight account for encryption and decryption use.</p>
    * @public
    */
   KeyArn?: string | undefined;
@@ -3245,7 +4346,7 @@ export type QDataKeyType = (typeof QDataKeyType)[keyof typeof QDataKeyType];
  */
 export interface QDataKey {
   /**
-   * <p>The ARN of the KMS key that is registered to a QuickSight account for encryption and decryption use as a <code>QDataKey</code>.</p>
+   * <p>The ARN of the KMS key that is registered to a Quick Sight account for encryption and decryption use as a <code>QDataKey</code>.</p>
    * @public
    */
   QDataKeyArn?: string | undefined;
@@ -3268,13 +4369,13 @@ export interface DescribeKeyRegistrationResponse {
   AwsAccountId?: string | undefined;
 
   /**
-   * <p>A list of <code>RegisteredCustomerManagedKey</code> objects in a QuickSight account.</p>
+   * <p>A list of <code>RegisteredCustomerManagedKey</code> objects in a Quick Sight account.</p>
    * @public
    */
   KeyRegistration?: RegisteredCustomerManagedKey[] | undefined;
 
   /**
-   * <p>A list of <code>QDataKey</code> objects in a QuickSight account.</p>
+   * <p>A list of <code>QDataKey</code> objects in a Quick Sight account.</p>
    * @public
    */
   QDataKey?: QDataKey | undefined;
@@ -3297,7 +4398,7 @@ export interface DescribeKeyRegistrationResponse {
  */
 export interface DescribeNamespaceRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that contains the QuickSight namespace that you want to describe.</p>
+   * <p>The ID for the Amazon Web Services account that contains the Quick Sight namespace that you want to describe.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -3474,7 +4575,7 @@ export interface DescribeQPersonalizationConfigurationResponse {
  */
 export interface DescribeQuickSightQSearchConfigurationRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that contains the QuickSight Q Search configuration that the user wants described.</p>
+   * <p>The ID of the Amazon Web Services account that contains the Quick Sight Q Search configuration that the user wants described.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -3499,7 +4600,7 @@ export type QSearchStatus = (typeof QSearchStatus)[keyof typeof QSearchStatus];
  */
 export interface DescribeQuickSightQSearchConfigurationResponse {
   /**
-   * <p>The status of QuickSight Q Search configuration.</p>
+   * <p>The status of Quick Sight Q Search configuration.</p>
    * @public
    */
   QSearchStatus?: QSearchStatus | undefined;
@@ -3580,7 +4681,7 @@ export interface DescribeRoleCustomPermissionRequest {
   Role: Role | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -3789,7 +4890,7 @@ export interface TemplateVersion {
 }
 
 /**
- * <p>A template object. A <i>template</i> is an entity in QuickSight that
+ * <p>A template object. A <i>template</i> is an entity in Quick Sight that
  *             encapsulates the metadata required to create an analysis and that you can use to create
  *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
  *             dataset associated with an analysis. You can use templates to create dashboards by
@@ -4189,8 +5290,8 @@ export interface ThemeVersion {
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-   *             themes initially inherit from a default QuickSight theme.</p>
+   * <p>The Quick Sight-defined ID of the theme that a custom theme inherits from. All
+   *             themes initially inherit from a default Quick Sight theme.</p>
    * @public
    */
   BaseThemeId?: string | undefined;
@@ -4668,7 +5769,7 @@ export interface DescribeUserRequest {
 
   /**
    * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -4716,7 +5817,7 @@ export const UserRole = {
 export type UserRole = (typeof UserRole)[keyof typeof UserRole];
 
 /**
- * <p>A registered user of Amazon QuickSight. </p>
+ * <p>A registered user of Quick Sight. </p>
  * @public
  */
 export interface User {
@@ -4727,7 +5828,7 @@ export interface User {
   Arn?: string | undefined;
 
   /**
-   * <p>The user's user name. This value is required if you are registering a user that will be managed in QuickSight. In the output, the value for <code>UserName</code> is
+   * <p>The user's user name. This value is required if you are registering a user that will be managed in Quick Sight. In the output, the value for <code>UserName</code> is
    *                 <code>N/A</code> when the value for <code>IdentityType</code> is <code>IAM</code>
    *             and the corresponding IAM user is deleted.</p>
    * @public
@@ -4741,7 +5842,7 @@ export interface User {
   Email?: string | undefined;
 
   /**
-   * <p>The Amazon QuickSight role for the user. The user role can be one of the
+   * <p>The Quick Sight role for the user. The user role can be one of the
    *             following:.</p>
    *          <ul>
    *             <li>
@@ -4756,11 +5857,11 @@ export interface User {
    *             <li>
    *                <p>
    *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon
-   *                     QuickSight settings.</p>
+   *                     Quick Sight settings.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
+   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Quick Sight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4768,7 +5869,7 @@ export interface User {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
+   *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Quick Sight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4792,7 +5893,7 @@ export interface User {
   IdentityType?: IdentityType | undefined;
 
   /**
-   * <p>The active status of user. When you create an Amazon QuickSight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a
+   * <p>The active status of user. When you create an Quick Sight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a
    *             password.</p>
    * @public
    */
@@ -4812,7 +5913,7 @@ export interface User {
 
   /**
    * <p>The type of supported external login provider that provides identity to let the user
-   *             federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
+   *             federate into Quick Sight with an associated IAM role. The type can be one of the following.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5046,7 +6147,7 @@ export interface DescribeVPCConnectionResponse {
 
 /**
  * <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
- * 			added to the approved list by an Amazon QuickSight admin.</p>
+ * 			added to the approved list by an Amazon Quick Suite admin.</p>
  * @public
  */
 export class DomainNotWhitelistedException extends __BaseException {
@@ -5089,7 +6190,7 @@ export const EmbeddingIdentityType = {
 export type EmbeddingIdentityType = (typeof EmbeddingIdentityType)[keyof typeof EmbeddingIdentityType];
 
 /**
- * <p>An entry that appears when a <code>KeyRegistration</code> update to QuickSight fails.</p>
+ * <p>An entry that appears when a <code>KeyRegistration</code> update to Quick Sight fails.</p>
  * @public
  */
 export interface FailedKeyRegistrationEntry {
@@ -5117,6 +6218,123 @@ export interface FailedKeyRegistrationEntry {
    * @public
    */
   SenderFault: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldName = {
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  FLOW_DESCRIPTION: "assetDescription",
+  FLOW_NAME: "assetName",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldName = (typeof FieldName)[keyof typeof FieldName];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowPublishState = {
+  DRAFT: "DRAFT",
+  PENDING_APPROVAL: "PENDING_APPROVAL",
+  PUBLISHED: "PUBLISHED",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowPublishState = (typeof FlowPublishState)[keyof typeof FlowPublishState];
+
+/**
+ * <p>The basic information of the flow exluding its definition specifying the steps.</p>
+ * @public
+ */
+export interface FlowSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  FlowId: string | undefined;
+
+  /**
+   * <p>The display name of the flow.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the flow.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The time this flow was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The identifier of the principal who created the flow.</p>
+   * @public
+   */
+  CreatedBy?: string | undefined;
+
+  /**
+   * <p>The last time this flow was modified.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The identifier of the last principal who updated the flow.</p>
+   * @public
+   */
+  LastUpdatedBy?: string | undefined;
+
+  /**
+   * <p>The publish state for the flow. The valid values are <code>DRAFT</code>, <code>PUBLISHED</code>,
+   *             or <code>PENDING_APPROVAL</code>.</p>
+   * @public
+   */
+  PublishState?: FlowPublishState | undefined;
+
+  /**
+   * <p>The number of runs done for the flow.</p>
+   * @public
+   */
+  RunCount?: number | undefined;
+
+  /**
+   * <p>The number of users who have used the flow.</p>
+   * @public
+   */
+  UserCount?: number | undefined;
+
+  /**
+   * <p>The identifier of the last principal who published the flow.</p>
+   * @public
+   */
+  LastPublishedBy?: string | undefined;
+
+  /**
+   * <p>The last time this flow was published.</p>
+   * @public
+   */
+  LastPublishedAt?: Date | undefined;
 }
 
 /**
@@ -5157,7 +6375,7 @@ export interface MemberIdArnPair {
 }
 
 /**
- * <p>A filter to use to search an QuickSight folder.</p>
+ * <p>A filter to use to search an Quick Sight folder.</p>
  * @public
  */
 export interface FolderSearchFilter {
@@ -5214,7 +6432,7 @@ export interface FolderSearchFilter {
 }
 
 /**
- * <p>A summary of information about an existing QuickSight folder. </p>
+ * <p>A summary of information about an existing Quick Sight folder. </p>
  * @public
  */
 export interface FolderSummary {
@@ -5353,36 +6571,47 @@ export interface SessionTag {
  */
 export interface GenerateEmbedUrlForAnonymousUserRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
+   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're
+   *             embedding.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>How many minutes the session is valid. The session lifetime must be in [15-600] minutes range.</p>
+   * <p>How many minutes the session is valid. The session lifetime must be in [15-600]
+   *             minutes range.</p>
    * @public
    */
   SessionLifetimeInMinutes?: number | undefined;
 
   /**
-   * <p>The QuickSight namespace that the anonymous user virtually belongs to. If you are not using an Amazon QuickSight custom namespace, set this to <code>default</code>.</p>
+   * <p>The Amazon Quick Sight namespace that the anonymous user virtually belongs to. If you
+   *             are not using an Amazon QuickSight custom namespace, set this to
+   *                 <code>default</code>.</p>
    * @public
    */
   Namespace: string | undefined;
 
   /**
-   * <p>The session tags used for row-level security. Before you use this parameter, make sure that you have configured the relevant datasets using the <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter so that session tags can be used to provide row-level security.</p>
-   *          <p>These are not the tags used for the Amazon Web Services resource tagging feature. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
+   * <p>The session tags used for row-level security. Before you use this parameter, make sure
+   *             that you have configured the relevant datasets using the
+   *                 <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter so that session
+   *             tags can be used to provide row-level security.</p>
+   *          <p>These are not the tags used for the Amazon Web Services resource tagging feature. For
+   *             more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security
+   *                 (RLS) with Tags</a>in the <i>Amazon Quick Sight User
+   *             Guide</i>.</p>
    * @public
    */
   SessionTags?: SessionTag[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) for the QuickSight resources that the user
-   *             is authorized to access during the lifetime of the session.</p>
-   *          <p>If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the
-   *             account that you want the user to be able to view.</p>
-   *          <p>If you want to make changes to the theme of your embedded content, pass a list of theme ARNs that the anonymous users need access to.</p>
+   * <p>The Amazon Resource Names (ARNs) for the Quick Sight resources that the user is authorized to
+   *             access during the lifetime of the session.</p>
+   *          <p>If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard
+   *             ARNs in the account that you want the user to be able to view.</p>
+   *          <p>If you want to make changes to the theme of your embedded content, pass a list of
+   *             theme ARNs that the anonymous users need access to.</p>
    *          <p>Currently, you can pass up to 25 theme ARNs in each API call.</p>
    * @public
    */
@@ -5395,14 +6624,14 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
   ExperienceConfiguration: AnonymousUserEmbeddingExperienceConfiguration | undefined;
 
   /**
-   * <p>The domains that you want to add to the allow list for access to the generated URL that
-   *             is then embedded. This optional parameter overrides the static domains that are
-   *             configured in the Manage QuickSight menu in the QuickSight console. Instead, it
+   * <p>The domains that you want to add to the allow list for access to the generated URL
+   *             that is then embedded. This optional parameter overrides the static domains that are
+   *             configured in the Manage Quick Sight menu in the Amazon Quick Sight console. Instead, it
    *             allows only the domains that you include in this parameter. You can list up to three
    *             domains or subdomains in each API call.</p>
-   *          <p>To include all subdomains under a specific domain to the allow list, use <code>*</code>.
-   *             For example, <code>https://*.sapp.amazon.com</code> includes all subdomains under
-   *             <code>https://sapp.amazon.com</code>.</p>
+   *          <p>To include all subdomains under a specific domain to the allow list, use
+   *                 <code>*</code>. For example, <code>https://*.sapp.amazon.com</code> includes all
+   *             subdomains under <code>https://sapp.amazon.com</code>.</p>
    * @public
    */
   AllowedDomains?: string[] | undefined;
@@ -5431,7 +6660,8 @@ export interface GenerateEmbedUrlForAnonymousUserResponse {
   RequestId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) to use for the anonymous Amazon QuickSight user.</p>
+   * <p>The Amazon Resource Name (ARN) to use for the anonymous Amazon QuickSight
+   *             user.</p>
    * @public
    */
   AnonymousUserArn: string | undefined;
@@ -5467,10 +6697,10 @@ export class SessionLifetimeInMinutesInvalidException extends __BaseException {
 }
 
 /**
- * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
+ * <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight
  * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to QuickSight. You
- * 		    can do this on the <b>Manage QuickSight</b> page. </p>
+ * 			for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You
+ * 		    can do this on the <b>Manage Quick Suite</b> page. </p>
  *          <p>After capacity pricing is added, you can use the
  *             <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
@@ -5503,24 +6733,24 @@ export class UnsupportedPricingPlanException extends __BaseException {
 }
 
 /**
- * <p>The recent snapshots configuration for an embedded QuickSight dashboard.</p>
+ * <p>The recent snapshots configuration for an embedded Quick Sight dashboard.</p>
  * @public
  */
 export interface RecentSnapshotsConfigurations {
   /**
-   * <p>The recent snapshots configuration for an embedded QuickSight dashboard.</p>
+   * <p>The recent snapshots configuration for an embedded Quick Sight dashboard.</p>
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The schedules configuration for an embedded QuickSight dashboard.</p>
+ * <p>The schedules configuration for an embedded Quick Sight dashboard.</p>
  * @public
  */
 export interface SchedulesConfigurations {
   /**
-   * <p>The schedules configuration for an embedded QuickSight dashboard.</p>
+   * <p>The schedules configuration for an embedded Quick Sight dashboard.</p>
    * @public
    */
   Enabled: boolean | undefined;
@@ -5532,19 +6762,19 @@ export interface SchedulesConfigurations {
  */
 export interface StatePersistenceConfigurations {
   /**
-   * <p>Determines if a QuickSight dashboard's state persistence settings are turned on or off.</p>
+   * <p>Determines if a Quick Sight dashboard's state persistence settings are turned on or off.</p>
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The threshold alerts configuration for an embedded QuickSight dashboard.</p>
+ * <p>The threshold alerts configuration for an embedded Quick Sight dashboard.</p>
  * @public
  */
 export interface ThresholdAlertsConfigurations {
   /**
-   * <p>The threshold alerts configuration for an embedded QuickSight dashboard.</p>
+   * <p>The threshold alerts configuration for an embedded Quick Sight dashboard.</p>
    * @public
    */
   Enabled: boolean | undefined;
@@ -5568,31 +6798,32 @@ export interface RegisteredUserDashboardFeatureConfigurations {
   SharedView?: SharedViewConfigurations | undefined;
 
   /**
-   * <p>The bookmarks configuration for an embedded dashboard in QuickSight.</p>
+   * <p>The bookmarks configuration for an embedded dashboard in Amazon Quick Sight.</p>
    * @public
    */
   Bookmarks?: BookmarksConfigurations | undefined;
 
   /**
-   * <p>The Amazon Q configurations of an embedded QuickSight dashboard.</p>
+   * <p>The Amazon Q configurations of an embedded Amazon Quick Sight
+   *             dashboard.</p>
    * @public
    */
   AmazonQInQuickSight?: AmazonQInQuickSightDashboardConfigurations | undefined;
 
   /**
-   * <p>The schedules configuration for an embedded QuickSight dashboard.</p>
+   * <p>The schedules configuration for an embedded Quick Sight dashboard.</p>
    * @public
    */
   Schedules?: SchedulesConfigurations | undefined;
 
   /**
-   * <p>The recent snapshots configuration for an QuickSight embedded dashboard</p>
+   * <p>The recent snapshots configuration for an Quick Sight embedded dashboard</p>
    * @public
    */
   RecentSnapshots?: RecentSnapshotsConfigurations | undefined;
 
   /**
-   * <p>The threshold alerts configuration for an QuickSight embedded dashboard.</p>
+   * <p>The threshold alerts configuration for an Quick Sight embedded dashboard.</p>
    * @public
    */
   ThresholdAlerts?: ThresholdAlertsConfigurations | undefined;
@@ -5604,27 +6835,35 @@ export interface RegisteredUserDashboardFeatureConfigurations {
  */
 export interface RegisteredUserDashboardEmbeddingConfiguration {
   /**
-   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is included in the output URL. When the URL in response is accessed, QuickSight renders this dashboard if the user has permissions to view it.</p>
-   *          <p>If the user does not have permission to view this dashboard, they see a permissions error message.</p>
+   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is
+   *             included in the output URL. When the URL in response is accessed, Amazon Quick Sight
+   *             renders this dashboard if the user has permissions to view it.</p>
+   *          <p>If the user does not have permission to view this dashboard, they see a permissions
+   *             error message.</p>
    * @public
    */
   InitialDashboardId: string | undefined;
 
   /**
-   * <p>The feature configurations of an embbedded QuickSight dashboard.</p>
+   * <p>The feature configurations of an embbedded Amazon Quick Sight dashboard.</p>
    * @public
    */
   FeatureConfigurations?: RegisteredUserDashboardFeatureConfigurations | undefined;
 }
 
 /**
- * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
+ * <p>The experience that you are embedding. You can use this object to generate a url that
+ *             embeds a visual into your application.</p>
  * @public
  */
 export interface RegisteredUserDashboardVisualEmbeddingConfiguration {
   /**
-   * <p>The visual ID for the visual that you want the user to embed. This ID is included in the output URL. When the URL in response is accessed, QuickSight renders this visual.</p>
-   *          <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   * <p>The visual ID for the visual that you want the user to embed. This ID is included in
+   *             the output URL. When the URL in response is accessed, Amazon Quick Sight renders this
+   *             visual.</p>
+   *          <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be
+   *             included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request
+   *             will fail with <code>InvalidParameterValueException</code>.</p>
    * @public
    */
   InitialDashboardVisualId: DashboardVisualId | undefined;
@@ -5636,10 +6875,14 @@ export interface RegisteredUserDashboardVisualEmbeddingConfiguration {
  */
 export interface RegisteredUserGenerativeQnAEmbeddingConfiguration {
   /**
-   * <p>The ID of the new Q reader experience topic that you want to make the starting topic in the Generative Q&A experience.
-   *         You can find a topic ID by navigating to the Topics pane in the QuickSight application and opening
-   *         a topic. The ID is in the URL for the topic that you open.</p>
-   *          <p>If you don't specify an initial topic or you specify a legacy topic, a list of all shared new reader experience topics is shown in the Generative Q&A experience for your readers. When you select an initial new reader experience topic, you can specify whether or not readers are allowed to select other new reader experience topics from the available ones in the list.</p>
+   * <p>The ID of the new Q reader experience topic that you want to make the starting topic
+   *             in the Generative Q&A experience. You can find a topic ID by navigating to the Topics pane in the QuickSight application and opening a topic. The ID is in the URL for the topic that
+   *             you open.</p>
+   *          <p>If you don't specify an initial topic or you specify a legacy topic, a list of all
+   *             shared new reader experience topics is shown in the Generative Q&A experience for
+   *             your readers. When you select an initial new reader experience topic, you can specify
+   *             whether or not readers are allowed to select other new reader experience topics from the
+   *             available ones in the list.</p>
    * @public
    */
   InitialTopicId?: string | undefined;
@@ -5651,21 +6894,26 @@ export interface RegisteredUserGenerativeQnAEmbeddingConfiguration {
  */
 export interface RegisteredUserQSearchBarEmbeddingConfiguration {
   /**
-   * <p>The ID of the legacy Q topic that you want to use as the starting topic in the Q search bar. To locate the topic ID of the topic that you want to use, open the <a href="https://quicksight.aws.amazon.com/">QuickSight console</a>, navigate to the <b>Topics</b> pane, and choose thre topic that you want to use. The <code>TopicID</code> is located in the URL of the topic that opens. When you select an initial topic, you can specify whether or not readers
-   *       are allowed to select other topics from the list of available topics.</p>
-   *          <p>If you don't specify an initial topic or if you specify a new reader experience topic, a list of all shared legacy topics is shown in the Q bar. </p>
+   * <p>The ID of the legacy Q topic that you want to use as the starting topic in the Q
+   *             search bar. To locate the topic ID of the topic that you want to use, open the <a href="https://quicksight.aws.amazon.com/">Quick Sight console</a>, navigate to the
+   *                 <b>Topics</b> pane, and choose thre topic that you want to
+   *             use. The <code>TopicID</code> is located in the URL of the topic that opens. When you
+   *             select an initial topic, you can specify whether or not readers are allowed to select
+   *             other topics from the list of available topics.</p>
+   *          <p>If you don't specify an initial topic or if you specify a new reader experience topic,
+   *             a list of all shared legacy topics is shown in the Q bar. </p>
    * @public
    */
   InitialTopicId?: string | undefined;
 }
 
 /**
- * <p>The feature configurations of an embedded QuickSight console.</p>
+ * <p>The feature configurations of an embedded Amazon Quick Sight console.</p>
  * @public
  */
 export interface RegisteredUserConsoleFeatureConfigurations {
   /**
-   * <p>The state persistence configurations of an embedded QuickSight console.</p>
+   * <p>The state persistence configurations of an embedded Amazon Quick Sight console.</p>
    * @public
    */
   StatePersistence?: StatePersistenceConfigurations | undefined;
@@ -5677,37 +6925,39 @@ export interface RegisteredUserConsoleFeatureConfigurations {
   SharedView?: SharedViewConfigurations | undefined;
 
   /**
-   * <p>The Amazon Q configurations of an embedded QuickSight console.</p>
+   * <p>The Amazon Q configurations of an embedded Amazon Quick Sight
+   *             console.</p>
    * @public
    */
   AmazonQInQuickSight?: AmazonQInQuickSightConsoleConfigurations | undefined;
 
   /**
-   * <p>The schedules configuration for an embedded QuickSight dashboard.</p>
+   * <p>The schedules configuration for an embedded Quick Sight dashboard.</p>
    * @public
    */
   Schedules?: SchedulesConfigurations | undefined;
 
   /**
-   * <p>The recent snapshots configuration for an embedded QuickSight dashboard.</p>
+   * <p>The recent snapshots configuration for an embedded Quick Sight dashboard.</p>
    * @public
    */
   RecentSnapshots?: RecentSnapshotsConfigurations | undefined;
 
   /**
-   * <p>The threshold alerts configuration for an embedded QuickSight dashboard.</p>
+   * <p>The threshold alerts configuration for an embedded Quick Sight dashboard.</p>
    * @public
    */
   ThresholdAlerts?: ThresholdAlertsConfigurations | undefined;
 }
 
 /**
- * <p>Information about the QuickSight console that you want to embed.</p>
+ * <p>Information about the Amazon Quick Sight console that you want to embed.</p>
  * @public
  */
 export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
   /**
-   * <p>The initial URL path for the QuickSight console. <code>InitialPath</code> is required.</p>
+   * <p>The initial URL path for the Amazon Quick Sight console. <code>InitialPath</code> is
+   *             required.</p>
    *          <p>The entry point URL is constrained to the following paths:</p>
    *          <ul>
    *             <li>
@@ -5732,11 +6982,13 @@ export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/dashboards/DashboardId</code>. <i>DashboardId</i> is the actual ID key from the QuickSight console URL of the dashboard.</p>
+   *                   <code>/dashboards/DashboardId</code>. <i>DashboardId</i> is the
+   *                     actual ID key from the Amazon Quick Sight console URL of the dashboard.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/analyses/AnalysisId</code>. <i>AnalysisId</i> is the actual ID key from the QuickSight console URL of the analysis.</p>
+   *                   <code>/analyses/AnalysisId</code>. <i>AnalysisId</i> is the
+   *                     actual ID key from the Amazon Quick Sight console URL of the analysis.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5744,14 +6996,14 @@ export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
   InitialPath?: string | undefined;
 
   /**
-   * <p>The embedding configuration of an embedded QuickSight console.</p>
+   * <p>The embedding configuration of an embedded Amazon Quick Sight console.</p>
    * @public
    */
   FeatureConfigurations?: RegisteredUserConsoleFeatureConfigurations | undefined;
 }
 
 /**
- * <p>The type of experience you want to embed. For registered users, you can embed QuickSight dashboards or the QuickSight console.</p>
+ * <p>The type of experience you want to embed. For registered users, you can embed QuickSight dashboards or the Amazon Quick Sight console.</p>
  *          <note>
  *             <p>Exactly one of the experience configurations is required. You can choose
  *                     <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more
@@ -5767,27 +7019,28 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
   Dashboard?: RegisteredUserDashboardEmbeddingConfiguration | undefined;
 
   /**
-   * <p>The configuration details for providing each QuickSight console embedding experience. This can be used along with custom permissions to restrict access to certain features. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the QuickSight Console</a> in the <i>Amazon QuickSight User
-   *             Guide</i>.</p>
+   * <p>The configuration details for providing each Amazon Quick Sight console embedding
+   *             experience. This can be used along with custom permissions to restrict access to certain
+   *             features. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon Quick Sight Console</a> in the
+   *                     <i>Amazon QuickSight User Guide</i>.</p>
    *          <p>Use <code>
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html">GenerateEmbedUrlForRegisteredUser</a>
-   *             </code>
-   *             where
-   *             you want to provide an authoring portal that allows users to create data sources,
-   *             datasets, analyses, and dashboards. The users who accesses an embedded QuickSight console
-   *             needs to belong to the author or admin security cohort. If you want to restrict permissions
-   *             to some of these features, add a custom permissions profile to the user with the
-   *             <code>
+   *             </code> where you want to provide an
+   *             authoring portal that allows users to create data sources, datasets, analyses, and
+   *             dashboards. The users who accesses an embedded Amazon Quick Sight console needs to belong
+   *             to the author or admin security cohort. If you want to restrict permissions to some of
+   *             these features, add a custom permissions profile to the user with the <code>
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
    *             </code> API operation. Use the <code>
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
-   *             </code> API operation to add a new user with a custom permission profile attached. For more
-   *             information, see the following sections in the <i>Amazon QuickSight User
-   *             Guide</i>:</p>
+   *             </code> API operation to add a new user with a custom
+   *             permission profile attached. For more information, see the following sections in the
+   *                     <i>Amazon QuickSight User Guide</i>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.html">Embedding the Full Functionality of the QuickSight Console for Authenticated Users</a>
+   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.html">Embedding the Full Functionality of the Amazon Quick Sight Console for
+   *                         Authenticated Users</a>
    *                </p>
    *             </li>
    *             <li>
@@ -5796,7 +7049,9 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
+   *          <p>For more information about the high-level steps for embedding and for an interactive
+   *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight
+   *                 Developer Portal</a>.</p>
    * @public
    */
   QuickSightConsole?: RegisteredUserQuickSightConsoleEmbeddingConfiguration | undefined;
@@ -5804,13 +7059,13 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
   /**
    * <p>The configuration details for embedding the Q search bar.</p>
    *          <p>For more information about embedding the Q search bar, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a> in
-   *             the <i>QuickSight User Guide</i>.</p>
+   *             the <i>Amazon Quick Sight User Guide</i>.</p>
    * @public
    */
   QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration | undefined;
 
   /**
-   * <p>The type of embedding experience. In this case, QuickSight visuals.</p>
+   * <p>The type of embedding experience. In this case, Amazon Quick Sight visuals.</p>
    * @public
    */
   DashboardVisual?: RegisteredUserDashboardVisualEmbeddingConfiguration | undefined;
@@ -5818,7 +7073,7 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
   /**
    * <p>The configuration details for embedding the Generative Q&A experience.</p>
    *          <p>For more information about embedding the Generative Q&A experience, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a> in
-   *                 the <i>QuickSight User Guide</i>.</p>
+   *             the <i>Amazon Quick Sight User Guide</i>.</p>
    * @public
    */
   GenerativeQnA?: RegisteredUserGenerativeQnAEmbeddingConfiguration | undefined;
@@ -5829,13 +7084,15 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
  */
 export interface GenerateEmbedUrlForRegisteredUserRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
+   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're
+   *             embedding.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>How many minutes the session is valid. The session lifetime must be in [15-600] minutes range.</p>
+   * <p>How many minutes the session is valid. The session lifetime must be in [15-600]
+   *             minutes range.</p>
    * @public
    */
   SessionLifetimeInMinutes?: number | undefined;
@@ -5847,20 +7104,21 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
   UserArn: string | undefined;
 
   /**
-   * <p>The experience that you want to embed. For registered users, you can embed QuickSight dashboards, QuickSight visuals, the QuickSight Q search bar, the QuickSight Generative Q&A experience, or the entire QuickSight console.</p>
+   * <p>The experience that you want to embed. For registered users, you can embed QuickSight dashboards, Amazon Quick Sight visuals, the Amazon Quick Sight Q search bar,
+   *             the Amazon Quick Sight Generative Q&A experience, or the entire Amazon Quick Sight console.</p>
    * @public
    */
   ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
 
   /**
-   * <p>The domains that you want to add to the allow list for access to the generated URL that
-   *           is then embedded. This optional parameter overrides the static domains that are
-   *           configured in the Manage QuickSight menu in the QuickSight console. Instead, it
-   *           allows only the domains that you include in this parameter. You can list up to three
-   *           domains or subdomains in each API call.</p>
-   *          <p>To include all subdomains under a specific domain to the allow list, use <code>*</code>.
-   *             For example, <code>https://*.sapp.amazon.com</code> includes all subdomains under
-   *             <code>https://sapp.amazon.com</code>.</p>
+   * <p>The domains that you want to add to the allow list for access to the generated URL
+   *             that is then embedded. This optional parameter overrides the static domains that are
+   *             configured in the Manage Quick Sight menu in the Amazon Quick Sight console. Instead, it
+   *             allows only the domains that you include in this parameter. You can list up to three
+   *             domains or subdomains in each API call.</p>
+   *          <p>To include all subdomains under a specific domain to the allow list, use
+   *                 <code>*</code>. For example, <code>https://*.sapp.amazon.com</code> includes all
+   *             subdomains under <code>https://sapp.amazon.com</code>.</p>
    * @public
    */
   AllowedDomains?: string[] | undefined;
@@ -5871,7 +7129,8 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
  */
 export interface GenerateEmbedUrlForRegisteredUserResponse {
   /**
-   * <p>The embed URL for the QuickSight dashboard, visual, Q search bar, Generative Q&A experience, or console.</p>
+   * <p>The embed URL for the Amazon Quick Sight dashboard, visual, Q search bar, Generative Q&A experience, or
+   *             console.</p>
    * @public
    */
   EmbedUrl: string | undefined;
@@ -5936,7 +7195,7 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityRequest {
   SessionLifetimeInMinutes?: number | undefined;
 
   /**
-   * <p>The type of experience you want to embed. For registered users, you can embed QuickSight dashboards or the QuickSight console.</p>
+   * <p>The type of experience you want to embed. For registered users, you can embed QuickSight dashboards or the Amazon Quick Sight console.</p>
    *          <note>
    *             <p>Exactly one of the experience configurations is required. You can choose
    *                     <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more
@@ -5981,14 +7240,14 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityResponse {
  */
 export interface GetDashboardEmbedUrlRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
+   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're
+   *             embedding.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dashboard, also added to the Identity and Access Management (IAM)
-   *             policy.</p>
+   * <p>The ID for the dashboard, also added to the Identity and Access Management (IAM) policy.</p>
    * @public
    */
   DashboardId: string | undefined;
@@ -6000,21 +7259,22 @@ export interface GetDashboardEmbedUrlRequest {
   IdentityType: EmbeddingIdentityType | undefined;
 
   /**
-   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
+   * <p>How many minutes the session is valid. The session lifetime must be 15-600
+   *             minutes.</p>
    * @public
    */
   SessionLifetimeInMinutes?: number | undefined;
 
   /**
-   * <p>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which enables
-   * 			the undo/redo button.</p>
+   * <p>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which
+   *             enables the undo/redo button.</p>
    * @public
    */
   UndoRedoDisabled?: boolean | undefined;
 
   /**
-   * <p>Remove the reset button on the embedded dashboard. The default is FALSE, which enables the
-   * 			reset button.</p>
+   * <p>Remove the reset button on the embedded dashboard. The default is FALSE, which enables
+   *             the reset button.</p>
    * @public
    */
   ResetDisabled?: boolean | undefined;
@@ -6022,19 +7282,19 @@ export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>Adds persistence of state for the user session in an embedded dashboard. Persistence
    *             applies to the sheet and the parameter settings. These are control settings that the
-   *             dashboard subscriber (QuickSight reader) chooses while viewing the dashboard. If this is
-   *             set to <code>TRUE</code>, the settings are the same when the subscriber reopens the same
-   *             dashboard URL. The state is stored in QuickSight, not in a browser cookie. If this is
-   *             set to FALSE, the state of the user session is not persisted. The default is
-   *                 <code>FALSE</code>.</p>
+   *             dashboard subscriber (Amazon Quick Sight reader) chooses while viewing the dashboard. If
+   *             this is set to <code>TRUE</code>, the settings are the same when the subscriber reopens
+   *             the same dashboard URL. The state is stored in Amazon Quick Sight, not in a browser
+   *             cookie. If this is set to FALSE, the state of the user session is not persisted. The
+   *             default is <code>FALSE</code>.</p>
    * @public
    */
   StatePersistenceEnabled?: boolean | undefined;
 
   /**
-   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
-   * 			You can use this for any Amazon QuickSight users in your account (readers, authors, or
-   * 			admins) authenticated as one of the following:</p>
+   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with
+   *                 <code>QUICKSIGHT</code> identity type. You can use this for any Amazon QuickSight users in your account (readers, authors, or admins) authenticated as one of the
+   *             following:</p>
    *          <ul>
    *             <li>
    *                <p>Active Directory (AD) users or group members</p>
@@ -6043,8 +7303,9 @@ export interface GetDashboardEmbedUrlRequest {
    *                <p>Invited nonfederated users</p>
    *             </li>
    *             <li>
-   *                <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using
-   * 					SAML, OpenID Connect, or IAM federation.</p>
+   *                <p>IAM users and IAM role-based sessions
+   *                     authenticated through Federated Single Sign-On using SAML, OpenID Connect, or
+   *                         IAM federation.</p>
    *             </li>
    *          </ul>
    *          <p>Omit this parameter for users in the third group – IAM users and IAM
@@ -6054,14 +7315,18 @@ export interface GetDashboardEmbedUrlRequest {
   UserArn?: string | undefined;
 
   /**
-   * <p>The QuickSight namespace that contains the dashboard IDs in this request.
-   *     	   If you're not using a custom namespace, set <code>Namespace = default</code>.</p>
+   * <p>The Amazon Quick Sight namespace that contains the dashboard IDs in this request. If
+   *             you're not using a custom namespace, set <code>Namespace = default</code>.</p>
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * <p>A list of one or more dashboard IDs that you want anonymous users to have tempporary access to. Currently, the <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code> because other identity types authenticate as QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session can access all three dashboards.</p>
+   * <p>A list of one or more dashboard IDs that you want anonymous users to have tempporary
+   *             access to. Currently, the <code>IdentityType</code> parameter must be set to
+   *                 <code>ANONYMOUS</code> because other identity types authenticate as QuickSight or IAM users. For example, if you set "<code>--dashboard-id
+   *                 dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the
+   *             session can access all three dashboards.</p>
    * @public
    */
   AdditionalDashboardIds?: string[] | undefined;
@@ -6074,9 +7339,9 @@ export interface GetDashboardEmbedUrlRequest {
 export interface GetDashboardEmbedUrlResponse {
   /**
    * <p>A single-use URL that you can put into your server-side webpage to embed your
-   * 			dashboard. This URL is valid for 5 minutes. The API operation provides the URL with an
-   * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
-   * 			that is valid for 10 hours. </p>
+   *             dashboard. This URL is valid for 5 minutes. The API operation provides the URL with an
+   *                 <code>auth_code</code> value that enables one (and only one) sign-on to a user
+   *             session that is valid for 10 hours. </p>
    * @public
    */
   EmbedUrl?: string | undefined;
@@ -6126,16 +7391,244 @@ export class IdentityTypeNotSupportedException extends __BaseException {
 /**
  * @public
  */
+export interface GetFlowMetadataInput {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the flow that you are getting metadata for.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  FlowId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFlowMetadataOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  FlowId: string | undefined;
+
+  /**
+   * <p>A display name for the flow.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description for the flow.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The publish state for the flow. Valid values are <code>DRAFT</code>, <code>PUBLISHED</code>,
+   *             or <code>PENDING_APPROVAL</code>.</p>
+   * @public
+   */
+  PublishState?: FlowPublishState | undefined;
+
+  /**
+   * <p>The number of users who have used the flow.</p>
+   * @public
+   */
+  UserCount?: number | undefined;
+
+  /**
+   * <p>The number of runs done for the flow.</p>
+   * @public
+   */
+  RunCount?: number | undefined;
+
+  /**
+   * <p>The time this flow was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The last time this flow was modified.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFlowPermissionsInput {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the flow that you are getting permissions for.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow to get permissions from.</p>
+   * @public
+   */
+  FlowId: string | undefined;
+}
+
+/**
+ * <p>A structure that contains the permission information for one principal against one flow.</p>
+ * @public
+ */
+export interface Permission {
+  /**
+   * <p>A list of actions that the principal can perform against the flow.</p>
+   *          <p>The following are the list of values to set a principal as a flow owner:</p>
+   *          <ul>
+   *             <li>
+   *                <p>quicksight:PublishFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:GetFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:UpdateFlowPermissions</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:GetFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:StartFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:StopFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:UpdateFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:UnpublishFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:GetFlowStages</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:DeleteFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:DescribeFlowPermissions</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:UpdateFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:CreatePresignedUrl</p>
+   *             </li>
+   *          </ul>
+   *          <p>The following are the list of values to set a principal as a flow viewer:</p>
+   *          <ul>
+   *             <li>
+   *                <p>quicksight:GetFlow</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:UpdateFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:StartFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:StopFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:GetFlowSession</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:CreatePresignedUrl</p>
+   *             </li>
+   *             <li>
+   *                <p>quicksight:GetFlowStages</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Actions: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the principal.
+   *             This can be an Amazon QuickSight user, group or namespace associated with the flow.
+   *             Namespace principal can only be set as a viewer and will grant everyone in the same namespace viewer permissions.</p>
+   * @public
+   */
+  Principal: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFlowPermissionsOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow you are getting permissions against.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow with permissions.</p>
+   * @public
+   */
+  FlowId: string | undefined;
+
+  /**
+   * <p>A structure that contains the permissions for the flow.</p>
+   * @public
+   */
+  Permissions: Permission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetSessionEmbedUrlRequest {
   /**
-   * <p>The ID for the Amazon Web Services account associated with your QuickSight subscription.</p>
+   * <p>The ID for the Amazon Web Services account associated with your Amazon Quick Sight
+   *             subscription.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
    * <p>The URL you use to access the embedded session. The entry point URL is constrained to
-   *           the following paths:</p>
+   *             the following paths:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6160,12 +7653,16 @@ export interface GetSessionEmbedUrlRequest {
    *             <li>
    *                <p>
    *                   <code>/dashboards/<i>DashboardId</i>
-   *                   </code> - where <code>DashboardId</code> is the actual ID key from the QuickSight console URL of the dashboard</p>
+   *                   </code> - where
+   *                         <code>DashboardId</code> is the actual ID key from the Amazon Quick Sight
+   *                     console URL of the dashboard</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>/analyses/<i>AnalysisId</i>
-   *                   </code> - where <code>AnalysisId</code> is the actual ID key from the QuickSight console URL of the analysis</p>
+   *                   </code> - where
+   *                         <code>AnalysisId</code> is the actual ID key from the Amazon Quick Sight
+   *                     console URL of the analysis</p>
    *             </li>
    *          </ul>
    * @public
@@ -6173,15 +7670,16 @@ export interface GetSessionEmbedUrlRequest {
   EntryPoint?: string | undefined;
 
   /**
-   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
+   * <p>How many minutes the session is valid. The session lifetime must be 15-600
+   *             minutes.</p>
    * @public
    */
   SessionLifetimeInMinutes?: number | undefined;
 
   /**
-   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
-   * 			You can use this for any type of Amazon QuickSight users in your account (readers, authors, or
-   * 			admins). They need to be authenticated as one of the following:</p>
+   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with
+   *                 <code>QUICKSIGHT</code> identity type. You can use this for any type of Amazon QuickSight users in your account (readers, authors, or admins). They need to be
+   *             authenticated as one of the following:</p>
    *          <ol>
    *             <li>
    *                <p>Active Directory (AD) users or group members</p>
@@ -6190,13 +7688,12 @@ export interface GetSessionEmbedUrlRequest {
    *                <p>Invited nonfederated users</p>
    *             </li>
    *             <li>
-   *                <p>IAM users and IAM role-based sessions authenticated
-   *                     through Federated Single Sign-On using SAML, OpenID Connect, or IAM
-   *                     federation</p>
+   *                <p>IAM users and IAM role-based sessions
+   *                     authenticated through Federated Single Sign-On using SAML, OpenID Connect, or
+   *                         IAM federation</p>
    *             </li>
    *          </ol>
-   *          <p>Omit this parameter for users in the third group, IAM users and IAM role-based
-   *             sessions.</p>
+   *          <p>Omit this parameter for users in the third group, IAM users and IAM role-based sessions.</p>
    * @public
    */
   UserArn?: string | undefined;
@@ -6207,10 +7704,9 @@ export interface GetSessionEmbedUrlRequest {
  */
 export interface GetSessionEmbedUrlResponse {
   /**
-   * <p>A single-use URL that you can put into your server-side web page to embed your
-   * 			QuickSight session. This URL is valid for 5 minutes. The API operation provides the URL with an
-   * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
-   * 			that is valid for 10 hours. </p>
+   * <p>A single-use URL that you can put into your server-side web page to embed your QuickSight session. This URL is valid for 5 minutes. The API operation provides the
+   *             URL with an <code>auth_code</code> value that enables one (and only one) sign-on to a
+   *             user session that is valid for 10 hours. </p>
    * @public
    */
   EmbedUrl?: string | undefined;
@@ -6327,6 +7823,58 @@ export const IncludeQuickSightQIndex = {
  * @public
  */
 export type IncludeQuickSightQIndex = (typeof IncludeQuickSightQIndex)[keyof typeof IncludeQuickSightQIndex];
+
+/**
+ * @public
+ */
+export interface ListActionConnectorsRequest {
+  /**
+   * <p>The Amazon Web Services account ID for which to list action connectors.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of action connectors to return in a single response. Valid range is 1 to 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next set of results. Use the token returned from a previous call to continue listing action connectors.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListActionConnectorsResponse {
+  /**
+   * <p>A list of action connector summaries containing basic information about each connector.</p>
+   * @public
+   */
+  ActionConnectorSummaries: ActionConnectorSummary[] | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next set of results. If null, there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status code of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
 
 /**
  * @public
@@ -6606,8 +8154,8 @@ export interface ListDashboardsRequest {
  */
 export interface ListDashboardsResponse {
   /**
-   * <p>A structure that contains all of the dashboards in your Amazon Web Services account. This structure
-   *             provides basic information about the dashboards.</p>
+   * <p>A structure that contains all of the dashboards in your Amazon Web Services account.
+   *             This structure provides basic information about the dashboards.</p>
    * @public
    */
   DashboardSummaryList?: DashboardSummary[] | undefined;
@@ -6636,8 +8184,8 @@ export interface ListDashboardsResponse {
  */
 export interface ListDashboardVersionsRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're listing versions
-   *             for.</p>
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             listing versions for.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -6774,6 +8322,59 @@ export interface ListDataSourcesResponse {
    * @public
    */
   DataSources?: DataSource[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlowsInput {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the flow list that you are getting.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token to request the next set of results, or null if you want to retrieve the first set.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlowsOutput {
+  /**
+   * <p>A structure that contains all of the flows in your Amazon Web Services account. This structure
+   *             provides basic information about the flows.</p>
+   * @public
+   */
+  FlowSummaryList?: FlowSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -6986,7 +8587,7 @@ export interface ListGroupMembershipsRequest {
 
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -7033,7 +8634,7 @@ export interface ListGroupMembershipsResponse {
 export interface ListGroupsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -7058,1960 +8659,12 @@ export interface ListGroupsRequest {
 }
 
 /**
- * @public
- */
-export interface ListGroupsResponse {
-  /**
-   * <p>The list of the groups.</p>
-   * @public
-   */
-  GroupList?: Group[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIAMPolicyAssignmentsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains these IAM policy
-   * 			assignments.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The status of the assignments.</p>
-   * @public
-   */
-  AssignmentStatus?: AssignmentStatus | undefined;
-
-  /**
-   * <p>The namespace for the assignments.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIAMPolicyAssignmentsResponse {
-  /**
-   * <p>Information describing the IAM policy assignments.</p>
-   * @public
-   */
-  IAMPolicyAssignments?: IAMPolicyAssignmentSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIAMPolicyAssignmentsForUserRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the assignments.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the user.</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The namespace of the assignment.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIAMPolicyAssignmentsForUserResponse {
-  /**
-   * <p>The active assignments for this user.</p>
-   * @public
-   */
-  ActiveAssignments?: ActiveIAMPolicyAssignment[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIdentityPropagationConfigsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contain the identity propagation configurations of.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIdentityPropagationConfigsResponse {
-  /**
-   * <p>A list of services and their authorized targets that the QuickSight IAM Identity Center application can access.</p>
-   * @public
-   */
-  Services?: AuthorizedTargetsByService[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIngestionsRequest {
-  /**
-   * <p>The ID of the dataset used in the ingestion.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIngestionsResponse {
-  /**
-   * <p>A list of the ingestions.</p>
-   * @public
-   */
-  Ingestions?: Ingestion[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListNamespacesRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the QuickSight namespaces that you want to list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A unique pagination token that can be used in a subsequent request. You will receive a pagination token in the response body of a previous <code>ListNameSpaces</code> API call if there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListNamespacesResponse {
-  /**
-   * <p>The information about the namespaces in this Amazon Web Services account. The response includes
-   *         the namespace ARN, name, Amazon Web Services Region, notification email address, creation status, and
-   *         identity store.</p>
-   * @public
-   */
-  Namespaces?: NamespaceInfoV2[] | undefined;
-
-  /**
-   * <p>A unique pagination token that can be used in a subsequent request. Receiving <code>NextToken</code> in your response inticates that there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRefreshSchedulesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRefreshSchedulesResponse {
-  /**
-   * <p>The list of refresh schedules for the dataset.</p>
-   * @public
-   */
-  RefreshSchedules?: RefreshSchedule[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRoleMembershipsRequest {
-  /**
-   * <p>The name of the role.</p>
-   * @public
-   */
-  Role: Role | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that includes the role.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRoleMembershipsResponse {
-  /**
-   * <p>The list of groups associated with a role</p>
-   * @public
-   */
-  MembersList?: string[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-   * 			resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplateAliasesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplateAliasesResponse {
-  /**
-   * <p>A structure containing the list of the template's aliases.</p>
-   * @public
-   */
-  TemplateAliasList?: TemplateAlias[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplatesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The template summary.</p>
- * @public
- */
-export interface TemplateSummary {
-  /**
-   * <p>A summary of a template.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the template. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>A display name for the template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A structure containing a list of version numbers for the template summary.</p>
-   * @public
-   */
-  LatestVersionNumber?: number | undefined;
-
-  /**
-   * <p>The last time that this template was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The last time that this template was updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplatesResponse {
-  /**
-   * <p>A structure containing information about the templates in the list.</p>
-   * @public
-   */
-  TemplateSummaryList?: TemplateSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplateVersionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The template version.</p>
- * @public
- */
-export interface TemplateVersionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template version.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The version number of the template version.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The time that this template version was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The status of the template version.</p>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-
-  /**
-   * <p>The description of the template version.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplateVersionsResponse {
-  /**
-   * <p>A structure containing a list of all the versions of the specified template.</p>
-   * @public
-   */
-  TemplateVersionSummaryList?: TemplateVersionSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListThemeAliasesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme aliases that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListThemeAliasesResponse {
-  /**
-   * <p>A structure containing the list of the theme's aliases.</p>
-   * @public
-   */
-  ThemeAliasList?: ThemeAlias[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListThemesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The type of themes that you want to list. Valid options include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL (default)</code>- Display all existing themes.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CUSTOM</code> - Display only the themes created by people using Amazon QuickSight.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT</code> - Display only the starting themes defined by QuickSight.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Type?: ThemeType | undefined;
-}
-
-/**
- * <p>The theme summary.</p>
- * @public
- */
-export interface ThemeSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>the display name for the theme.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The ID of the theme. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  ThemeId?: string | undefined;
-
-  /**
-   * <p>The latest version number for the theme. </p>
-   * @public
-   */
-  LatestVersionNumber?: number | undefined;
-
-  /**
-   * <p>The date and time that this theme was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The last date and time that this theme was updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListThemesResponse {
-  /**
-   * <p>Information about the themes in the list.</p>
-   * @public
-   */
-  ThemeSummaryList?: ThemeSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListThemeVersionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The theme version.</p>
- * @public
- */
-export interface ThemeVersionSummary {
-  /**
-   * <p>The version number of the theme version.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme version.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The description of the theme version.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The date and time that this theme version was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The status of the theme version.</p>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListThemeVersionsResponse {
-  /**
-   * <p>A structure containing a list of all the versions of the specified theme.</p>
-   * @public
-   */
-  ThemeVersionSummaryList?: ThemeVersionSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTopicRefreshSchedulesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic whose refresh schedule
-   *          you want described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-}
-
-/**
- * <p>A summary of the refresh schedule details for a dataset.</p>
- * @public
- */
-export interface TopicRefreshScheduleSummary {
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DatasetId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  DatasetArn?: string | undefined;
-
-  /**
-   * <p>The name of the dataset.</p>
-   * @public
-   */
-  DatasetName?: string | undefined;
-
-  /**
-   * <p>The definition of a refresh schedule.</p>
-   * @public
-   */
-  RefreshSchedule?: TopicRefreshSchedule | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTopicRefreshSchedulesResponse {
-  /**
-   * <p>The ID for the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string | undefined;
-
-  /**
-   * <p>The list of topic refresh schedules.</p>
-   * @public
-   */
-  RefreshSchedules?: TopicRefreshScheduleSummary[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTopicReviewedAnswersRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that containd the reviewed answers that you want listed.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the topic that contains the reviewed answer that you want to list. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTopicsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topics that you want to
-   *          list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>A topic summary.</p>
- * @public
- */
-export interface TopicSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID for the topic. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The name of the topic.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The user experience version of the topic.</p>
-   * @public
-   */
-  UserExperienceVersion?: TopicUserExperienceVersion | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTopicsResponse {
-  /**
-   * <p>A list of topic summaries.</p>
-   * @public
-   */
-  TopicsSummaries?: TopicSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserGroupsRequest {
-  /**
-   * <p>The Amazon QuickSight user name that you want to list group memberships for.</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID that the user is in. Currently, you use the ID for the Amazon Web Services account
-   * 			that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return from this request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserGroupsResponse {
-  /**
-   * <p>The list of groups the user is a member of.</p>
-   * @public
-   */
-  GroupList?: Group[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsersRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return from this request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsersResponse {
-  /**
-   * <p>The list of users.</p>
-   * @public
-   */
-  UserList?: User[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListVPCConnectionsRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account that contains the VPC connections
-   * 			that you want to list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The summary metadata that describes a VPC connection.</p>
- * @public
- */
-export interface VPCConnectionSummary {
-  /**
-   * <p>The ID of the VPC connection that
-   *             you're
-   *             creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   *                 Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The display name for the VPC connection.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
-   * @public
-   */
-  VPCId?: string | undefined;
-
-  /**
-   * <p>The Amazon EC2 security group IDs associated with the VPC connection.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
-   * @public
-   */
-  DnsResolvers?: string[] | undefined;
-
-  /**
-   * <p>The status of the VPC connection.</p>
-   * @public
-   */
-  Status?: VPCConnectionResourceStatus | undefined;
-
-  /**
-   * <p>The availability status of the VPC connection.</p>
-   * @public
-   */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
-
-  /**
-   * <p>A list of network interfaces.</p>
-   * @public
-   */
-  NetworkInterfaces?: NetworkInterface[] | undefined;
-
-  /**
-   * <p>The ARN of the IAM role associated
-   *             with the VPC connection.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>The time that the VPC connection was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The time that the VPC connection was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListVPCConnectionsResponse {
-  /**
-   * <p>A <code>VPCConnectionSummaries</code> object that returns a summary of VPC connection
-   * 			objects.</p>
-   * @public
-   */
-  VPCConnectionSummaries?: VPCConnectionSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more
-   * 			results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface PredictQAResultsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that the user wants to execute Predict QA results in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The query text to be used to predict QA results.</p>
-   * @public
-   */
-  QueryText: string | undefined;
-
-  /**
-   * <p>Indicates whether Q indicies are included or excluded.</p>
-   * @public
-   */
-  IncludeQuickSightQIndex?: IncludeQuickSightQIndex | undefined;
-
-  /**
-   * <p>Indicates whether generated answers are included or excluded.</p>
-   * @public
-   */
-  IncludeGeneratedAnswer?: IncludeGeneratedAnswer | undefined;
-
-  /**
-   * <p>The number of maximum topics to be considered to predict QA results.</p>
-   * @public
-   */
-  MaxTopicsToConsider?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const QAResultType = {
-  DASHBOARD_VISUAL: "DASHBOARD_VISUAL",
-  GENERATED_ANSWER: "GENERATED_ANSWER",
-  NO_ANSWER: "NO_ANSWER",
-} as const;
-
-/**
- * @public
- */
-export type QAResultType = (typeof QAResultType)[keyof typeof QAResultType];
-
-/**
- * <p>The QA result that is made from the <code>DashboardVisual</code> or <code>GeneratedAnswer</code>.</p>
- * @public
- */
-export interface QAResult {
-  /**
-   * <p>The type of QA result.</p>
-   * @public
-   */
-  ResultType?: QAResultType | undefined;
-
-  /**
-   * <p>The representation of a dashboard visual result.</p>
-   * @public
-   */
-  DashboardVisual?: DashboardVisualResult | undefined;
-
-  /**
-   * <p>The representation of a generated answer result.</p>
-   * @public
-   */
-  GeneratedAnswer?: GeneratedAnswerResult | undefined;
-}
-
-/**
- * @public
- */
-export interface PredictQAResultsResponse {
-  /**
-   * <p>The primary visual response.</p>
-   * @public
-   */
-  PrimaryResult?: QAResult | undefined;
-
-  /**
-   * <p>Additional visual responses.</p>
-   * @public
-   */
-  AdditionalResults?: QAResult[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PurchaseMode = {
-  AUTO_PURCHASE: "AUTO_PURCHASE",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type PurchaseMode = (typeof PurchaseMode)[keyof typeof PurchaseMode];
-
-/**
- * @public
- */
-export interface PutDataSetRefreshPropertiesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The dataset refresh properties.</p>
-   * @public
-   */
-  DataSetRefreshProperties: DataSetRefreshProperties | undefined;
-}
-
-/**
- * @public
- */
-export interface PutDataSetRefreshPropertiesResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterUserRequest {
-  /**
-   * <p>The identity type that your QuickSight account uses to manage the identity of users.</p>
-   * @public
-   */
-  IdentityType: IdentityType | undefined;
-
-  /**
-   * <p>The email address of the user that you want to register.</p>
-   * @public
-   */
-  Email: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight role for the user. The user role can be one of the
-   * 			following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
-   * 					dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
-   * 					settings.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESTRICTED_READER</code>: This role isn't currently available for
-   * 					use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for
-   * 					use.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  UserRole: UserRole | undefined;
-
-  /**
-   * <p>The ARN of the IAM user or role that you are registering with Amazon QuickSight. </p>
-   * @public
-   */
-  IamArn?: string | undefined;
-
-  /**
-   * <p>You need to use this parameter only when you register one or more users using an assumed
-   * 			IAM role. You don't need to provide the session name for other scenarios, for example when
-   * 			you are registering an IAM user or an Amazon QuickSight user. You can register multiple
-   * 			users using the same IAM role if each user has a different session name. For more
-   * 			information on assuming IAM roles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
-   *                <code>assume-role</code>
-   *             </a> in the <i>CLI Reference.</i>
-   *          </p>
-   * @public
-   */
-  SessionName?: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight user name that you want to create for the user you are
-   * 			registering.</p>
-   * @public
-   */
-  UserName?: string | undefined;
-
-  /**
-   * <p>(Enterprise edition only) The name of the custom permissions profile that you want to
-   *             assign to this user. Customized permissions allows you to control a user's access by
-   *             restricting access the following operations:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Create and update data sources</p>
-   *             </li>
-   *             <li>
-   *                <p>Create and update datasets</p>
-   *             </li>
-   *             <li>
-   *                <p>Create and update email reports</p>
-   *             </li>
-   *             <li>
-   *                <p>Subscribe to email reports</p>
-   *             </li>
-   *          </ul>
-   *          <p>To add custom permissions to an existing user, use <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
-   *             </code> instead.</p>
-   *          <p>A set of custom permissions includes any combination of these restrictions. Currently,
-   *             you need to create the profile names for custom permission sets by using the QuickSight
-   *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
-   *             permissions to a QuickSight user. </p>
-   *          <p>QuickSight custom permissions are applied through IAM policies. Therefore, they
-   *             override the permissions typically granted by assigning QuickSight users to one of the
-   *             default security cohorts in QuickSight (admin, author, reader, admin pro, author pro, reader pro).</p>
-   *          <p>This feature is available only to QuickSight Enterprise edition subscriptions.</p>
-   * @public
-   */
-  CustomPermissionsName?: string | undefined;
-
-  /**
-   * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ExternalLoginFederationProviderType?: string | undefined;
-
-  /**
-   * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
-   *          into QuickSight with an associated Identity and Access Management(IAM) role. This parameter should
-   *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
-   * @public
-   */
-  CustomFederationProviderUrl?: string | undefined;
-
-  /**
-   * <p>The identity ID for a user in the external login provider.</p>
-   * @public
-   */
-  ExternalLoginId?: string | undefined;
-
-  /**
-   * <p>The tags to associate with the user.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterUserResponse {
-  /**
-   * <p>The user's user name.</p>
-   * @public
-   */
-  User?: User | undefined;
-
-  /**
-   * <p>The URL the user visits to complete registration and provide a password. This is
-   * 			returned only for users with an identity type of <code>QUICKSIGHT</code>.</p>
-   * @public
-   */
-  UserInvitationUrl?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreAnalysisRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis that you're restoring.</p>
-   * @public
-   */
-  AnalysisId: string | undefined;
-
-  /**
-   * <p>A boolean value that determines if the analysis will be restored to folders that it previously resided in. A <code>True</code> value restores analysis back to all folders that it previously resided in. A <code>False</code> value restores the analysis but does not restore the analysis back to all previously resided folders. Restoring a restricted analysis requires this parameter to be set to <code>True</code>.</p>
-   * @public
-   */
-  RestoreToFolders?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreAnalysisResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the analysis that you're restoring.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the analysis that you're restoring.
-   *         </p>
-   * @public
-   */
-  AnalysisId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>A list of folder arns thatthe analysis failed to be restored to.</p>
-   * @public
-   */
-  RestorationFailedFolderArns?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchAnalysesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analyses that you're searching
-   *             for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The structure for the search filters that you want to apply to your search. </p>
-   * @public
-   */
-  Filters: AnalysisSearchFilter[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchAnalysesResponse {
-  /**
-   * <p>Metadata describing the analyses that you searched for.</p>
-   * @public
-   */
-  AnalysisSummaryList?: AnalysisSummary[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.
-   *             </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchDashboardsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the user whose dashboards you're searching
-   *             for. </p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The filters to apply to the search. Currently, you can search only by user name, for
-   *             example, <code>"Filters": [ \{ "Name": "QUICKSIGHT_USER", "Operator": "StringEquals",
-   *             "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1" \} ]</code>
-   *          </p>
-   * @public
-   */
-  Filters: DashboardSearchFilter[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchDashboardsResponse {
-  /**
-   * <p>The list of dashboards owned by the user specified in <code>Filters</code> in your
-   *             request.</p>
-   * @public
-   */
-  DashboardSummaryList?: DashboardSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
+ * @internal
+ */
+export const DescribeActionConnectorResponseFilterSensitiveLog = (obj: DescribeActionConnectorResponse): any => ({
+  ...obj,
+  ...(obj.ActionConnector && { ActionConnector: ActionConnectorFilterSensitiveLog(obj.ActionConnector) }),
+});
 
 /**
  * @internal
@@ -9218,26 +8871,11 @@ export const GetSessionEmbedUrlResponseFilterSensitiveLog = (obj: GetSessionEmbe
 /**
  * @internal
  */
-export const PredictQAResultsRequestFilterSensitiveLog = (obj: PredictQAResultsRequest): any => ({
+export const ListActionConnectorsResponseFilterSensitiveLog = (obj: ListActionConnectorsResponse): any => ({
   ...obj,
-  ...(obj.QueryText && { QueryText: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const QAResultFilterSensitiveLog = (obj: QAResult): any => ({
-  ...obj,
-  ...(obj.GeneratedAnswer && { GeneratedAnswer: GeneratedAnswerResultFilterSensitiveLog(obj.GeneratedAnswer) }),
-});
-
-/**
- * @internal
- */
-export const PredictQAResultsResponseFilterSensitiveLog = (obj: PredictQAResultsResponse): any => ({
-  ...obj,
-  ...(obj.PrimaryResult && { PrimaryResult: QAResultFilterSensitiveLog(obj.PrimaryResult) }),
-  ...(obj.AdditionalResults && {
-    AdditionalResults: obj.AdditionalResults.map((item) => QAResultFilterSensitiveLog(item)),
+  ...(obj.ActionConnectorSummaries && {
+    ActionConnectorSummaries: obj.ActionConnectorSummaries.map((item) =>
+      ActionConnectorSummaryFilterSensitiveLog(item)
+    ),
   }),
 });

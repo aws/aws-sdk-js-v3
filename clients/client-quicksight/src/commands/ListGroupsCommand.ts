@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListGroupsRequest, ListGroupsResponse } from "../models/models_4";
+import { ListGroupsRequest } from "../models/models_4";
+import { ListGroupsResponse } from "../models/models_5";
 import { de_ListGroupsCommand, se_ListGroupsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -28,7 +29,7 @@ export interface ListGroupsCommandInput extends ListGroupsRequest {}
 export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all user groups in Amazon QuickSight. </p>
+ * <p>Lists all user groups in Amazon Quick Sight. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +71,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link InternalFailureException} (server fault)

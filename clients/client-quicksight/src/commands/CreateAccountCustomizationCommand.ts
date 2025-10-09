@@ -28,13 +28,13 @@ export interface CreateAccountCustomizationCommandInput extends CreateAccountCus
 export interface CreateAccountCustomizationCommandOutput extends CreateAccountCustomizationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates Amazon QuickSight customizations. Currently, you can add a custom default theme by using the
- *                 <code>CreateAccountCustomization</code> or <code>UpdateAccountCustomization</code>
- *             API operation. To further customize QuickSight by removing QuickSight
- *             sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing QuickSight</a> in the <i>Amazon QuickSight User Guide.</i>
+ * <p>Creates Amazon Quick Sight customizations. Currently, you can add a custom default theme by using the
+ *             <code>CreateAccountCustomization</code> or <code>UpdateAccountCustomization</code>
+ *             API operation. To further customize Amazon Quick Sight by removing Amazon Quick Sight
+ *             sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing Quick Sight</a> in the <i>Amazon Quick Sight User Guide.</i>
  *          </p>
  *          <p>You can create customizations for your Amazon Web Services account or, if you specify a namespace, for
- *             a QuickSight namespace instead. Customizations that apply to a namespace always override
+ *             a Quick Sight namespace instead. Customizations that apply to a namespace always override
  *             customizations that apply to an Amazon Web Services account. To find out which customizations apply, use
  *             the <code>DescribeAccountCustomization</code> API operation.</p>
  *          <p>Before you use the <code>CreateAccountCustomization</code> API operation to add a theme
@@ -98,7 +98,7 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access to this item. The provided credentials couldn't be
  * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon QuickSight service, that your policies have the
+ * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
  * @throws {@link ConflictException} (client fault)

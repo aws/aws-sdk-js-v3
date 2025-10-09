@@ -3,7 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import {
   AccountCustomization,
+  ActionConnectorType,
   AdHocFilteringOption,
+  AggFunction,
   AnalysisDefaults,
   AssetOptions,
   CalculatedField,
@@ -15,6 +17,8 @@ import {
   Edition,
   Entity,
   FilterGroup,
+  FilterOperator,
+  NumberScale,
   ParameterDeclaration,
   ParameterDeclarationFilterSensitiveLog,
   QueryExecutionOptions,
@@ -22,36 +26,1052 @@ import {
   Sheet,
   TimeGranularity,
   TopicTimeGranularity,
-  VisualMenuOption,
 } from "./models_0";
+
+import { VisualMenuOption } from "./models_1";
 
 import {
   AnalysisDefinition,
   AnalysisSourceEntity,
+  ApplicationTheme,
   AssignmentStatus,
+  AuthConfig,
+  AuthConfigFilterSensitiveLog,
   AuthenticationMethodOption,
   AuthorSpecifiedAggregation,
-  BorderStyle,
-  BrandDefinition,
-  BrandStatus,
   ConstantType,
+  ContributionAnalysisDirection,
+  ContributionAnalysisFactor,
+  ContributionAnalysisSortType,
+  ContributionAnalysisTimeRanges,
   DataSetReference,
   DataSourceParameters,
-  DisplayFormat,
-  DisplayFormatOptions,
-  ExceptionResourceType,
   FilterClass,
-  FilterOperator,
-  LogoSet,
-  ServiceType,
+  Identifier,
   SheetDefinition,
   SslProperties,
   StaticFile,
   Tag,
+  TopicIRFilterOption,
+  TopicSortDirection,
   VpcConnectionProperties,
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The definition for a <code>TopicIRContributionAnalysis</code>.</p>
+ * @public
+ */
+export interface TopicIRContributionAnalysis {
+  /**
+   * <p>The factors for a <code>TopicIRContributionAnalysis</code>.</p>
+   * @public
+   */
+  Factors?: ContributionAnalysisFactor[] | undefined;
+
+  /**
+   * <p>The time ranges for the <code>TopicIRContributionAnalysis</code>.</p>
+   * @public
+   */
+  TimeRanges?: ContributionAnalysisTimeRanges | undefined;
+
+  /**
+   * <p>The direction for the <code>TopicIRContributionAnalysis</code>.</p>
+   * @public
+   */
+  Direction?: ContributionAnalysisDirection | undefined;
+
+  /**
+   * <p>The sort type for the <code>TopicIRContributionAnalysis</code>.</p>
+   * @public
+   */
+  SortType?: ContributionAnalysisSortType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DisplayFormat = {
+  AUTO: "AUTO",
+  CURRENCY: "CURRENCY",
+  DATE: "DATE",
+  NUMBER: "NUMBER",
+  PERCENT: "PERCENT",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type DisplayFormat = (typeof DisplayFormat)[keyof typeof DisplayFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicNumericSeparatorSymbol = {
+  COMMA: "COMMA",
+  DOT: "DOT",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicNumericSeparatorSymbol =
+  (typeof TopicNumericSeparatorSymbol)[keyof typeof TopicNumericSeparatorSymbol];
+
+/**
+ * <p>A structure that represents a negative format.</p>
+ * @public
+ */
+export interface NegativeFormat {
+  /**
+   * <p>The prefix for a negative format.</p>
+   * @public
+   */
+  Prefix?: string | undefined;
+
+  /**
+   * <p>The suffix for a negative format.</p>
+   * @public
+   */
+  Suffix?: string | undefined;
+}
+
+/**
+ * <p>A structure that represents additional options for display formatting.</p>
+ * @public
+ */
+export interface DisplayFormatOptions {
+  /**
+   * <p>A Boolean value that indicates whether to use blank cell format.</p>
+   * @public
+   */
+  UseBlankCellFormat?: boolean | undefined;
+
+  /**
+   * <p>Determines the blank cell format.</p>
+   * @public
+   */
+  BlankCellFormat?: string | undefined;
+
+  /**
+   * <p>Determines the <code>DateTime</code> format.</p>
+   * @public
+   */
+  DateFormat?: string | undefined;
+
+  /**
+   * <p>Determines the decimal separator.</p>
+   * @public
+   */
+  DecimalSeparator?: TopicNumericSeparatorSymbol | undefined;
+
+  /**
+   * <p>Determines the grouping separator.</p>
+   * @public
+   */
+  GroupingSeparator?: string | undefined;
+
+  /**
+   * <p>A Boolean value that indicates whether to use grouping.</p>
+   * @public
+   */
+  UseGrouping?: boolean | undefined;
+
+  /**
+   * <p>Determines the number of fraction digits.</p>
+   * @public
+   */
+  FractionDigits?: number | undefined;
+
+  /**
+   * <p>The prefix value for a display format.</p>
+   * @public
+   */
+  Prefix?: string | undefined;
+
+  /**
+   * <p>The suffix value for a display format.</p>
+   * @public
+   */
+  Suffix?: string | undefined;
+
+  /**
+   * <p>The unit scaler. Valid values for this structure are: <code>NONE</code>,
+   *             <code>AUTO</code>, <code>THOUSANDS</code>, <code>MILLIONS</code>,
+   *          <code>BILLIONS</code>,
+   *          and <code>TRILLIONS</code>.</p>
+   * @public
+   */
+  UnitScaler?: NumberScale | undefined;
+
+  /**
+   * <p>The negative format.</p>
+   * @public
+   */
+  NegativeFormat?: NegativeFormat | undefined;
+
+  /**
+   * <p>The currency symbol, such as <code>USD</code>.</p>
+   * @public
+   */
+  CurrencySymbol?: string | undefined;
+}
+
+/**
+ * <p>The definition for a <code>NamedEntityRef</code>.</p>
+ * @public
+ */
+export interface NamedEntityRef {
+  /**
+   * <p>The <code>NamedEntityName</code> for the <code>NamedEntityRef</code>.</p>
+   * @public
+   */
+  NamedEntityName?: string | undefined;
+}
+
+/**
+ * <p>The definition for a <code>TopicSortClause</code>.</p>
+ * @public
+ */
+export interface TopicSortClause {
+  /**
+   * <p>The operand for a <code>TopicSortClause</code>.</p>
+   * @public
+   */
+  Operand?: Identifier | undefined;
+
+  /**
+   * <p>The sort direction for the <code>TopicSortClause</code>.</p>
+   * @public
+   */
+  SortDirection?: TopicSortDirection | undefined;
+}
+
+/**
+ * <p>The definition for a <code>TopicIRGroupBy</code>.</p>
+ * @public
+ */
+export interface TopicIRGroupBy {
+  /**
+   * <p>The field name for the <code>TopicIRGroupBy</code>.</p>
+   * @public
+   */
+  FieldName?: Identifier | undefined;
+
+  /**
+   * <p>The time granularity for the <code>TopicIRGroupBy</code>.</p>
+   * @public
+   */
+  TimeGranularity?: TopicTimeGranularity | undefined;
+
+  /**
+   * <p>The sort for the <code>TopicIRGroupBy</code>.</p>
+   * @public
+   */
+  Sort?: TopicSortClause | undefined;
+
+  /**
+   * <p>The display format for the <code>TopicIRGroupBy</code>.</p>
+   * @public
+   */
+  DisplayFormat?: DisplayFormat | undefined;
+
+  /**
+   * <p>A structure that represents additional options for display formatting.</p>
+   * @public
+   */
+  DisplayFormatOptions?: DisplayFormatOptions | undefined;
+
+  /**
+   * <p>The named entity for the <code>TopicIRGroupBy</code>.</p>
+   * @public
+   */
+  NamedEntity?: NamedEntityRef | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonMethodType = {
+  DIFF: "DIFF",
+  DIFF_AS_PERC: "DIFF_AS_PERC",
+  MOVING_AVERAGE: "MOVING_AVERAGE",
+  PERCENT_OF_TOTAL: "PERCENT_OF_TOTAL",
+  PERC_DIFF: "PERC_DIFF",
+  POP_CURRENT_DIFF: "POP_CURRENT_DIFF",
+  POP_CURRENT_DIFF_AS_PERC: "POP_CURRENT_DIFF_AS_PERC",
+  POP_OVERTIME_DIFF: "POP_OVERTIME_DIFF",
+  POP_OVERTIME_DIFF_AS_PERC: "POP_OVERTIME_DIFF_AS_PERC",
+  RUNNING_SUM: "RUNNING_SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonMethodType = (typeof ComparisonMethodType)[keyof typeof ComparisonMethodType];
+
+/**
+ * <p>The definition of a <code>TopicIRComparisonMethod</code>.</p>
+ * @public
+ */
+export interface TopicIRComparisonMethod {
+  /**
+   * <p>The type for the <code>TopicIRComparisonMethod</code>.</p>
+   * @public
+   */
+  Type?: ComparisonMethodType | undefined;
+
+  /**
+   * <p>The period for the <code>TopicIRComparisonMethod</code>.</p>
+   * @public
+   */
+  Period?: TopicTimeGranularity | undefined;
+
+  /**
+   * <p>The window size for the <code>TopicIRComparisonMethod</code>.</p>
+   * @public
+   */
+  WindowSize?: number | undefined;
+}
+
+/**
+ * <p>The definition for a <code>TopicIRMetric</code>.</p>
+ * @public
+ */
+export interface TopicIRMetric {
+  /**
+   * <p>The metric ID for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  MetricId?: Identifier | undefined;
+
+  /**
+   * <p>The function for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  Function?: AggFunction | undefined;
+
+  /**
+   * <p>The operands for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  Operands?: Identifier[] | undefined;
+
+  /**
+   * <p>The comparison method for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  ComparisonMethod?: TopicIRComparisonMethod | undefined;
+
+  /**
+   * <p>The expression for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  Expression?: string | undefined;
+
+  /**
+   * <p>The calculated field references for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  CalculatedFieldReferences?: Identifier[] | undefined;
+
+  /**
+   * <p>The display format for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  DisplayFormat?: DisplayFormat | undefined;
+
+  /**
+   * <p>A structure that represents additional options for display formatting.</p>
+   * @public
+   */
+  DisplayFormatOptions?: DisplayFormatOptions | undefined;
+
+  /**
+   * <p>The named entity for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  NamedEntity?: NamedEntityRef | undefined;
+}
+
+/**
+ * <p>The definition for a <code>VisualOptions</code>.</p>
+ * @public
+ */
+export interface VisualOptions {
+  /**
+   * <p>The type for a <code>VisualOptions</code>.</p>
+   * @public
+   */
+  type?: string | undefined;
+}
+
+/**
+ * <p>The definition for a <code>TopicIR</code>.</p>
+ * @public
+ */
+export interface TopicIR {
+  /**
+   * <p>The metrics for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  Metrics?: TopicIRMetric[] | undefined;
+
+  /**
+   * <p>The GroupBy list for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  GroupByList?: TopicIRGroupBy[] | undefined;
+
+  /**
+   * <p>The filters for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  Filters?: TopicIRFilterOption[][] | undefined;
+
+  /**
+   * <p>The sort for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  Sort?: TopicSortClause | undefined;
+
+  /**
+   * <p>The contribution analysis for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  ContributionAnalysis?: TopicIRContributionAnalysis | undefined;
+
+  /**
+   * <p>The visual for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  Visual?: VisualOptions | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VisualRole = {
+  COMPLIMENTARY: "COMPLIMENTARY",
+  FALLBACK: "FALLBACK",
+  FRAGMENT: "FRAGMENT",
+  MULTI_INTENT: "MULTI_INTENT",
+  PRIMARY: "PRIMARY",
+} as const;
+
+/**
+ * @public
+ */
+export type VisualRole = (typeof VisualRole)[keyof typeof VisualRole];
+
+/**
+ * <p>The definition for the slot.</p>
+ * @public
+ */
+export interface Slot {
+  /**
+   * <p>The slot ID of the slot.</p>
+   * @public
+   */
+  SlotId?: string | undefined;
+
+  /**
+   * <p>The visual ID for the slot.</p>
+   * @public
+   */
+  VisualId?: string | undefined;
+}
+
+/**
+ * <p>The definition for a <code>TopicTemplate</code>.</p>
+ * @public
+ */
+export interface TopicTemplate {
+  /**
+   * <p>The template type for the <code>TopicTemplate</code>.</p>
+   * @public
+   */
+  TemplateType?: string | undefined;
+
+  /**
+   * <p>The slots for the <code>TopicTemplate</code>.</p>
+   * @public
+   */
+  Slots?: Slot[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReviewedAnswerErrorCode = {
+  DATASET_DOES_NOT_EXIST: "DATASET_DOES_NOT_EXIST",
+  DUPLICATED_ANSWER: "DUPLICATED_ANSWER",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_DATA: "INVALID_DATA",
+  INVALID_DATASET_ARN: "INVALID_DATASET_ARN",
+  MISSING_ANSWER: "MISSING_ANSWER",
+  MISSING_REQUIRED_FIELDS: "MISSING_REQUIRED_FIELDS",
+} as const;
+
+/**
+ * @public
+ */
+export type ReviewedAnswerErrorCode = (typeof ReviewedAnswerErrorCode)[keyof typeof ReviewedAnswerErrorCode];
+
+/**
+ * <p>The definition for a <code>InvalidTopicReviewedAnswer</code>.</p>
+ * @public
+ */
+export interface InvalidTopicReviewedAnswer {
+  /**
+   * <p>The answer ID for the <code>InvalidTopicReviewedAnswer</code>.</p>
+   * @public
+   */
+  AnswerId?: string | undefined;
+
+  /**
+   * <p>The error that is returned for the <code>InvalidTopicReviewedAnswer</code>.</p>
+   * @public
+   */
+  Error?: ReviewedAnswerErrorCode | undefined;
+}
+
+/**
+ * <p>The definition for a <code>SucceededTopicReviewedAnswer</code>.</p>
+ * @public
+ */
+export interface SucceededTopicReviewedAnswer {
+  /**
+   * <p>The answer ID for the <code>SucceededTopicReviewedAnswer</code>.</p>
+   * @public
+   */
+  AnswerId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateTopicReviewedAnswerResponse {
+  /**
+   * <p>The ID for the topic reviewed answer that you want to create. This ID is unique per Amazon Web Services Region
+   *          for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>The definition of Answers that are successfully created.</p>
+   * @public
+   */
+  SucceededAnswers?: SucceededTopicReviewedAnswer[] | undefined;
+
+  /**
+   * <p>The definition of Answers that are invalid and not created.</p>
+   * @public
+   */
+  InvalidAnswers?: InvalidTopicReviewedAnswer[] | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * <p>An internal failure occurred.</p>
+ * @public
+ */
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>One or more parameters has a value that isn't valid.</p>
+ * @public
+ */
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExceptionResourceType = {
+  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
+  DATA_SET: "DATA_SET",
+  DATA_SOURCE: "DATA_SOURCE",
+  GROUP: "GROUP",
+  IAMPOLICY_ASSIGNMENT: "IAMPOLICY_ASSIGNMENT",
+  INGESTION: "INGESTION",
+  NAMESPACE: "NAMESPACE",
+  USER: "USER",
+  VPC_CONNECTION: "VPC_CONNECTION",
+} as const;
+
+/**
+ * @public
+ */
+export type ExceptionResourceType = (typeof ExceptionResourceType)[keyof typeof ExceptionResourceType];
+
+/**
+ * <p>One or more resources can't be found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>The resource type for this request.</p>
+   * @public
+   */
+  ResourceType?: ExceptionResourceType | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>Access is throttled.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteTopicReviewedAnswerRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that you want to delete a reviewed answers in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the topic reviewed answer that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The Answer IDs of the Answers to be deleted.</p>
+   * @public
+   */
+  AnswerIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteTopicReviewedAnswerResponse {
+  /**
+   * <p>The ID of the topic reviewed answer that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>The definition of Answers that are successfully deleted.</p>
+   * @public
+   */
+  SucceededAnswers?: SucceededTopicReviewedAnswer[] | undefined;
+
+  /**
+   * <p>The definition of Answers that are invalid and not deleted.</p>
+   * @public
+   */
+  InvalidAnswers?: InvalidTopicReviewedAnswer[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>The bookmarks configuration of an embedded dashboard.</p>
+ * @public
+ */
+export interface BookmarksConfigurations {
+  /**
+   * <p>A Boolean value that determines whether a user
+   *             can bookmark an embedded dashboard.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * <p>The display options for tile borders for visuals.</p>
+ * @public
+ */
+export interface BorderStyle {
+  /**
+   * <p>The option to enable display of borders for visuals.</p>
+   * @public
+   */
+  Show?: boolean | undefined;
+}
+
+/**
+ * <p>The source of the image.</p>
+ * @public
+ */
+export type ImageSource = ImageSource.PublicUrlMember | ImageSource.S3UriMember | ImageSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ImageSource {
+  /**
+   * <p>The public URL that points to the source image.</p>
+   * @public
+   */
+  export interface PublicUrlMember {
+    PublicUrl: string;
+    S3Uri?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon S3 URI that points to the source image.</p>
+   * @public
+   */
+  export interface S3UriMember {
+    PublicUrl?: never;
+    S3Uri: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    PublicUrl?: never;
+    S3Uri?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    PublicUrl: (value: string) => T;
+    S3Uri: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ImageSource, visitor: Visitor<T>): T => {
+    if (value.PublicUrl !== undefined) return visitor.PublicUrl(value.PublicUrl);
+    if (value.S3Uri !== undefined) return visitor.S3Uri(value.S3Uri);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The logo image configuration.</p>
+ * @public
+ */
+export interface ImageConfiguration {
+  /**
+   * <p>The source of the image.</p>
+   * @public
+   */
+  Source?: ImageSource | undefined;
+}
+
+/**
+ * <p>The image set configuration.</p>
+ * @public
+ */
+export interface ImageSetConfiguration {
+  /**
+   * <p>The original image.</p>
+   * @public
+   */
+  Original: ImageConfiguration | undefined;
+}
+
+/**
+ * <p>The logo set configuration.</p>
+ * @public
+ */
+export interface LogoSetConfiguration {
+  /**
+   * <p>The primary logo.</p>
+   * @public
+   */
+  Primary: ImageSetConfiguration | undefined;
+
+  /**
+   * <p>The favicon logo.</p>
+   * @public
+   */
+  Favicon?: ImageSetConfiguration | undefined;
+}
+
+/**
+ * <p>The logo configuration.</p>
+ * @public
+ */
+export interface LogoConfiguration {
+  /**
+   * <p>The alt text for the logo.</p>
+   * @public
+   */
+  AltText: string | undefined;
+
+  /**
+   * <p>A set of configured logos.</p>
+   * @public
+   */
+  LogoSet: LogoSetConfiguration | undefined;
+}
+
+/**
+ * <p>The definition of the brand.</p>
+ * @public
+ */
+export interface BrandDefinition {
+  /**
+   * <p>The name of the brand.</p>
+   * @public
+   */
+  BrandName: string | undefined;
+
+  /**
+   * <p>The description of the brand.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The application theme of the brand.</p>
+   * @public
+   */
+  ApplicationTheme?: ApplicationTheme | undefined;
+
+  /**
+   * <p>The logo configuration of the brand.</p>
+   * @public
+   */
+  LogoConfiguration?: LogoConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BrandStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCEEDED: "CREATE_SUCCEEDED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type BrandStatus = (typeof BrandStatus)[keyof typeof BrandStatus];
+
+/**
+ * <p>The logo image.</p>
+ * @public
+ */
+export interface Image {
+  /**
+   * <p>The source of the logo image.</p>
+   * @public
+   */
+  Source?: ImageSource | undefined;
+
+  /**
+   * <p>The URL that points to the generated logo image.</p>
+   * @public
+   */
+  GeneratedImageUrl?: string | undefined;
+}
+
+/**
+ * <p>The image set.</p>
+ * @public
+ */
+export interface ImageSet {
+  /**
+   * <p>The original image.</p>
+   * @public
+   */
+  Original: Image | undefined;
+
+  /**
+   * <p>The image with the height set to 64 pixels.</p>
+   * @public
+   */
+  Height64?: Image | undefined;
+
+  /**
+   * <p>The image with the height set to 32 pixels.</p>
+   * @public
+   */
+  Height32?: Image | undefined;
+}
+
+/**
+ * <p>A set of logos.</p>
+ * @public
+ */
+export interface LogoSet {
+  /**
+   * <p>The primary logo.</p>
+   * @public
+   */
+  Primary: ImageSet | undefined;
+
+  /**
+   * <p>The favicon logo.</p>
+   * @public
+   */
+  Favicon?: ImageSet | undefined;
+}
 
 /**
  * <p>The logo configuration.</p>
@@ -207,7 +1227,7 @@ export interface CalculatedColumn {
 
   /**
    * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
-   *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
+   *             of a calculated column matches that of an existing calculated column, Quick Sight
    *             preserves the existing calculated column.</p>
    * @public
    */
@@ -321,7 +1341,7 @@ export const CapabilityState = {
 export type CapabilityState = (typeof CapabilityState)[keyof typeof CapabilityState];
 
 /**
- * <p>A set of actions that correspond to QuickSight permissions.</p>
+ * <p>A set of actions that correspond to Amazon Quick Sight permissions.</p>
  * @public
  */
 export interface Capabilities {
@@ -474,6 +1494,79 @@ export interface Capabilities {
    * @public
    */
   Analysis?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform automate-related actions.</p>
+   * @public
+   */
+  Automate?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform flow-related actions.</p>
+   * @public
+   */
+  Flow?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to enable approvals for flow share.</p>
+   * @public
+   */
+  PublishWithoutApproval?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Bedrock models for general knowledge step in flows.</p>
+   * @public
+   */
+  UseBedrockModels?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use UI Agent step to perform tasks on public websites.</p>
+   * @public
+   */
+  PerformFlowUiTask?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use internet to enhance results in Chat Agents, Flows, and Quick Research.
+   * 	          Web search queries will be processed securely in an Amazon Web Services region <code>us-east-1</code>.</p>
+   * @public
+   */
+  UseAgentWebSearch?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use knowledge bases to specify content from external applications.</p>
+   * @public
+   */
+  KnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions in external services through Action connectors. Actions allow users to interact with third-party systems.</p>
+   * @public
+   */
+  Action?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform space-related actions.</p>
+   * @public
+   */
+  Space?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform chat-related actions.</p>
+   * @public
+   */
+  ChatAgent?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create chat agents.</p>
+   * @public
+   */
+  CreateChatAgents?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform research-related actions.</p>
+   * @public
+   */
+  Research?: CapabilityState | undefined;
 }
 
 /**
@@ -531,7 +1624,7 @@ export interface CastColumnTypeOperation {
 
   /**
    * <p>When casting a column from string to datetime type, you can supply a string in a
-   *             format supported by Amazon QuickSight to denote the source data format.</p>
+   *             format supported by Quick Sight to denote the source data format.</p>
    * @public
    */
   Format?: string | undefined;
@@ -660,7 +1753,7 @@ export interface GeoSpatialColumnGroup {
 }
 
 /**
- * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+ * <p>Groupings of columns that work together in certain Quick Sight features. This is
  *             a variant type structure. For this structure to be valid, only one of the attributes can
  *             be non-null.</p>
  * @public
@@ -714,7 +1807,7 @@ export interface ColumnGroupSchema {
  */
 export interface ColumnLevelPermissionRule {
   /**
-   * <p>An array of Amazon Resource Names (ARNs) for QuickSight users or groups.</p>
+   * <p>An array of Amazon Resource Names (ARNs) for Quick Sight users or groups.</p>
    * @public
    */
   Principals?: string[] | undefined;
@@ -891,19 +1984,19 @@ export class ConcurrentUpdatingException extends __BaseException {
  */
 export interface CreateAccountCustomizationRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that you want to customize QuickSight for.</p>
+   * <p>The ID for the Amazon Web Services account that you want to customize Quick Sight for.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The QuickSight namespace that you want to add customizations to.</p>
+   * <p>The Quick Sight namespace that you want to add customizations to.</p>
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * <p>The QuickSight customizations you're adding. You can add
+   * <p>The Quick Sight customizations you're adding. You can add
    *             these to an Amazon Web Services account and a QuickSight namespace. </p>
    *          <p>For example, you can add a default theme by setting <code>AccountCustomization</code>
    *             to the midnight theme: <code>"AccountCustomization": \{ "DefaultTheme":
@@ -933,7 +2026,7 @@ export interface CreateAccountCustomizationResponse {
   Arn?: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account that you want to customize QuickSight for.</p>
+   * <p>The ID for the Amazon Web Services account that you want to customize Quick Sight for.</p>
    * @public
    */
   AwsAccountId?: string | undefined;
@@ -945,7 +2038,7 @@ export interface CreateAccountCustomizationResponse {
   Namespace?: string | undefined;
 
   /**
-   * <p>The QuickSight customizations you're adding. </p>
+   * <p>The Quick Sight customizations you're adding. </p>
    * @public
    */
   AccountCustomization?: AccountCustomization | undefined;
@@ -1003,7 +2096,7 @@ export class ResourceUnavailableException extends __BaseException {
  */
 export interface CreateAccountSubscriptionRequest {
   /**
-   * <p>The edition of QuickSight that you want your account to have. Currently, you can
+   * <p>The edition of Amazon Quick Sight that you want your account to have. Currently, you can
    *             choose from <code>ENTERPRISE</code> or
    *                 <code>ENTERPRISE_AND_Q</code>.</p>
    *          <p>If you choose <code>ENTERPRISE_AND_Q</code>, the following parameters are
@@ -1035,7 +2128,7 @@ export interface CreateAccountSubscriptionRequest {
   Edition?: Edition | undefined;
 
   /**
-   * <p>The method that you want to use to authenticate your QuickSight account.</p>
+   * <p>The method that you want to use to authenticate your Quick Sight account.</p>
    *          <p>If you choose <code>ACTIVE_DIRECTORY</code>, provide an <code>ActiveDirectoryName</code>
    *             and an <code>AdminGroup</code> associated with your Active Directory.</p>
    *          <p>If you choose <code>IAM_IDENTITY_CENTER</code>, provide an <code>AdminGroup</code> associated with your IAM Identity Center account.</p>
@@ -1044,113 +2137,113 @@ export interface CreateAccountSubscriptionRequest {
   AuthenticationMethod: AuthenticationMethodOption | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the account that you're using to create your QuickSight account.</p>
+   * <p>The Amazon Web Services account ID of the account that you're using to create your Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The name of your QuickSight account. This name is unique over all of Amazon Web Services, and it appears only when users sign in. You can't change
-   *                 <code>AccountName</code> value after the QuickSight account is
+   * <p>The name of your Amazon Quick Sight account. This name is unique over all of Amazon Web Services, and it appears only when users sign in. You can't change
+   *                 <code>AccountName</code> value after the Amazon Quick Sight account is
    *             created.</p>
    * @public
    */
   AccountName: string | undefined;
 
   /**
-   * <p>The email address that you want QuickSight to send notifications to regarding your QuickSight account or QuickSight subscription.</p>
+   * <p>The email address that you want Quick Sight to send notifications to regarding your Quick Sight account or Quick Sight subscription.</p>
    * @public
    */
   NotificationEmail: string | undefined;
 
   /**
-   * <p>The name of your Active Directory. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new QuickSight account.</p>
+   * <p>The name of your Active Directory. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Quick Sight account.</p>
    * @public
    */
   ActiveDirectoryName?: string | undefined;
 
   /**
-   * <p>The realm of the Active Directory that is associated with your QuickSight account. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new QuickSight account.</p>
+   * <p>The realm of the Active Directory that is associated with your Quick Sight account. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Quick Sight account.</p>
    * @public
    */
   Realm?: string | undefined;
 
   /**
-   * <p>The ID of the Active Directory that is associated with your QuickSight account.</p>
+   * <p>The ID of the Active Directory that is associated with your Quick Sight account.</p>
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p>The admin group associated with your Active Directory or IAM Identity Center account. Either this field or the <code>AdminProGroup</code> field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new QuickSight account.</p>
-   *          <p>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</p>
+   * <p>The admin group associated with your Active Directory or IAM Identity Center account. Either this field or the <code>AdminProGroup</code> field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new Quick Sight account.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide.</p>
    * @public
    */
   AdminGroup?: string[] | undefined;
 
   /**
    * <p>The author group associated with your Active Directory or IAM Identity Center account.</p>
-   *          <p>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide.</p>
    * @public
    */
   AuthorGroup?: string[] | undefined;
 
   /**
    * <p>The reader group associated with your Active Directory or IAM Identity Center account.</p>
-   *          <p>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide.</p>
    * @public
    */
   ReaderGroup?: string[] | undefined;
 
   /**
-   * <p>The admin pro group associated with your Active Directory or IAM Identity Center account. Either this field or the <code>AdminGroup</code> field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new QuickSight account.</p>
-   *          <p>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</p>
+   * <p>The admin pro group associated with your Active Directory or IAM Identity Center account. Either this field or the <code>AdminGroup</code> field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new Quick Sight account.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide.</p>
    * @public
    */
   AdminProGroup?: string[] | undefined;
 
   /**
    * <p>The author pro group associated with your Active Directory or IAM Identity Center account.</p>
-   *          <p>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide.</p>
    * @public
    */
   AuthorProGroup?: string[] | undefined;
 
   /**
    * <p>The reader pro group associated with your Active Directory or IAM Identity Center account.</p>
-   *          <p>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide. For more information about using Active Directory in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick Sight User Guide.</p>
    * @public
    */
   ReaderProGroup?: string[] | undefined;
 
   /**
-   * <p>The first name of the author of the QuickSight account to use for future
+   * <p>The first name of the author of the Amazon Quick Sight account to use for future
    *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
-   *             edition of the new QuickSight account.</p>
+   *             edition of the new Amazon Quick Sight account.</p>
    * @public
    */
   FirstName?: string | undefined;
 
   /**
-   * <p>The last name of the author of the QuickSight account to use for future
+   * <p>The last name of the author of the Amazon Quick Sight account to use for future
    *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
-   *             edition of the new QuickSight account.</p>
+   *             edition of the new Amazon Quick Sight account.</p>
    * @public
    */
   LastName?: string | undefined;
 
   /**
-   * <p>The email address of the author of the QuickSight account to use for future
+   * <p>The email address of the author of the Amazon Quick Sight account to use for future
    *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
-   *             edition of the new QuickSight account.</p>
+   *             edition of the new Amazon Quick Sight account.</p>
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p>A 10-digit phone number for the author of the QuickSight account to use for
+   * <p>A 10-digit phone number for the author of the Amazon Quick Sight account to use for
    *             future communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the
-   *             selected edition of the new QuickSight account.</p>
+   *             selected edition of the new Amazon Quick Sight account.</p>
    * @public
    */
   ContactNumber?: string | undefined;
@@ -1168,26 +2261,26 @@ export interface CreateAccountSubscriptionRequest {
  */
 export interface SignupResponse {
   /**
-   * <p>A Boolean that is <code>TRUE</code> if the QuickSight uses IAM as an
+   * <p>A Boolean that is <code>TRUE</code> if the Amazon Quick Sight uses IAM as an
    *             authentication method.</p>
    * @public
    */
   IAMUser?: boolean | undefined;
 
   /**
-   * <p>The user login name for your QuickSight account.</p>
+   * <p>The user login name for your Amazon Quick Sight account.</p>
    * @public
    */
   userLoginName?: string | undefined;
 
   /**
-   * <p>The name of your QuickSight account.</p>
+   * <p>The name of your Quick Sight account.</p>
    * @public
    */
   accountName?: string | undefined;
 
   /**
-   * <p>The type of Active Directory that is being used to authenticate the QuickSight
+   * <p>The type of Active Directory that is being used to authenticate the Amazon Quick Sight
    *             account. Valid values are <code>SIMPLE_AD</code>, <code>AD_CONNECTOR</code>, and
    *                 <code>MICROSOFT_AD</code>.</p>
    * @public
@@ -1200,7 +2293,7 @@ export interface SignupResponse {
  */
 export interface CreateAccountSubscriptionResponse {
   /**
-   * <p>A <code>SignupResponse</code> object that returns information about a newly created QuickSight account.</p>
+   * <p>A <code>SignupResponse</code> object that returns information about a newly created Quick Sight account.</p>
    * @public
    */
   SignupResponse?: SignupResponse | undefined;
@@ -1244,6 +2337,134 @@ export class PreconditionNotMetException extends __BaseException {
     this.Message = opts.Message;
     this.RequestId = opts.RequestId;
   }
+}
+
+/**
+ * <p>Permission for the resource.</p>
+ * @public
+ */
+export interface ResourcePermission {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The ARN of an Quick Sight user or group associated with a data source or dataset. (This is common.)</p>
+   *             </li>
+   *             <li>
+   *                <p>The ARN of an Quick Sight user, group, or namespace associated with an analysis, dashboard, template, or theme. Namespace sharing is not supported for action connectors. (This is common.)</p>
+   *             </li>
+   *             <li>
+   *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a Quick Sight
+   *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts. Account root sharing is not supported for action connectors.
+   *                     (This is less common.) </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Principal: string | undefined;
+
+  /**
+   * <p>The IAM action to grant or revoke permissions on.</p>
+   * @public
+   */
+  Actions: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateActionConnectorRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with the action connector.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the action connector. This ID must be unique within the Amazon Web Services account. The <code>ActionConnectorId</code> must not
+   * 	          start with the prefix <code>quicksuite-</code>
+   *          </p>
+   * @public
+   */
+  ActionConnectorId: string | undefined;
+
+  /**
+   * <p>A descriptive name for the action connector.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of action connector.</p>
+   * @public
+   */
+  Type: ActionConnectorType | undefined;
+
+  /**
+   * <p>The authentication configuration for connecting to the external service. This includes the authentication type, base URL, and authentication metadata such as client credentials or API keys.</p>
+   * @public
+   */
+  AuthenticationConfig: AuthConfig | undefined;
+
+  /**
+   * <p>An optional description of the action connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The permissions configuration that defines which users, groups, or namespaces can access this action connector and what operations they can perform.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The ARN of the VPC connection to use for secure connectivity to the external service.</p>
+   * @public
+   */
+  VpcConnectionArn?: string | undefined;
+
+  /**
+   * <p>A list of tags to apply to the action connector for resource management and organization.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateActionConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created action connector.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The creation status of the action connector.</p>
+   * @public
+   */
+  CreationStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the created action connector.</p>
+   * @public
+   */
+  ActionConnectorId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status code of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
 }
 
 /**
@@ -1319,7 +2540,7 @@ export interface StringParameter {
 }
 
 /**
- * <p>A list of QuickSight parameters and the list's override values.</p>
+ * <p>A list of Quick Sight parameters and the list's override values.</p>
  * @public
  */
 export interface _Parameters {
@@ -1346,38 +2567,6 @@ export interface _Parameters {
    * @public
    */
   DateTimeParameters?: DateTimeParameter[] | undefined;
-}
-
-/**
- * <p>Permission for the resource.</p>
- * @public
- */
-export interface ResourcePermission {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-   *             following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
-   *             </li>
-   *             <li>
-   *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
-   *             </li>
-   *             <li>
-   *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
-   *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
-   *                     (This is less common.) </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Principal: string | undefined;
-
-  /**
-   * <p>The IAM action to grant or revoke permissions on.</p>
-   * @public
-   */
-  Actions: string[] | undefined;
 }
 
 /**
@@ -1425,7 +2614,7 @@ export interface CreateAnalysisRequest {
 
   /**
    * <p>A descriptive name for the analysis that you're creating. This name displays for the
-   *             analysis in the QuickSight console. </p>
+   *             analysis in the Amazon Quick Sight console. </p>
    * @public
    */
   Name: string | undefined;
@@ -1458,7 +2647,7 @@ export interface CreateAnalysisRequest {
 
   /**
    * <p>The ARN for the theme to apply to the analysis that you're creating. To see the theme
-   *             in the QuickSight console, make sure that you have access to it.</p>
+   *             in the Amazon Quick Sight console, make sure that you have access to it.</p>
    * @public
    */
   ThemeArn?: string | undefined;
@@ -1486,7 +2675,7 @@ export interface CreateAnalysisRequest {
   ValidationStrategy?: ValidationStrategy | undefined;
 
   /**
-   * <p>When you create the analysis, QuickSight adds the analysis to these folders.</p>
+   * <p>When you create the analysis, Amazon Quick Sight adds the analysis to these folders.</p>
    * @public
    */
   FolderArns?: string[] | undefined;
@@ -1563,9 +2752,9 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * <p>This error indicates that you are calling an operation on an Amazon Quick Suite
  * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  * @public
  */
@@ -1857,6 +3046,18 @@ export interface ExportWithHiddenFieldsOption {
 }
 
 /**
+ * <p>Determines if Actions in Amazon Quick Suite are enabled in a dashboard..</p>
+ * @public
+ */
+export interface QuickSuiteActionsOption {
+  /**
+   * <p>Availability status.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2004,10 +3205,16 @@ export interface DashboardPublishOptions {
   DataPointTooltipOption?: DataPointTooltipOption | undefined;
 
   /**
-   * <p>Adds Q&A capabilities to an QuickSight dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is used.</p>
+   * <p>Adds Q&A capabilities to an Quick Sight dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is used.</p>
    * @public
    */
   DataQAEnabledOption?: DataQAEnabledOption | undefined;
+
+  /**
+   * <p>Determines if Actions in Amazon Quick Suite are enabled in a dashboard.</p>
+   * @public
+   */
+  QuickSuiteActionsOption?: QuickSuiteActionsOption | undefined;
 
   /**
    * <p>Executive summary option.</p>
@@ -2048,14 +3255,14 @@ export interface DashboardVersionDefinition {
 
   /**
    * <p>The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   ParameterDeclarations?: ParameterDeclaration[] | undefined;
 
   /**
    * <p>The filter definitions for a dashboard.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   FilterGroups?: FilterGroup[] | undefined;
@@ -2088,7 +3295,8 @@ export interface DashboardVersionDefinition {
 }
 
 /**
- * <p>A structure that contains the configuration of a shareable link to the dashboard.</p>
+ * <p>A structure that contains the configuration of a shareable link to the
+ *             dashboard.</p>
  * @public
  */
 export interface LinkSharingConfiguration {
@@ -2134,7 +3342,8 @@ export interface DashboardSourceEntity {
  */
 export interface CreateDashboardRequest {
   /**
-   * <p>The ID of the Amazon Web Services account where you want to create the dashboard.</p>
+   * <p>The ID of the Amazon Web Services account where you want to create the
+   *             dashboard.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -2161,8 +3370,8 @@ export interface CreateDashboardRequest {
 
   /**
    * <p>A structure that contains the permissions of the dashboard. You can use this structure
-   *             for granting permissions by providing a list of IAM action information for each
-   *             principal ARN. </p>
+   *             for granting permissions by providing a list of IAM action information
+   *             for each principal ARN. </p>
    *          <p>To specify no permissions, omit the permissions list.</p>
    * @public
    */
@@ -2170,16 +3379,15 @@ export interface CreateDashboardRequest {
 
   /**
    * <p>The entity that you are using as a source when you create the dashboard. In
-   *             <code>SourceEntity</code>, you specify the type of object you're using as source. You
-   *             can only create a dashboard from a template, so you use a <code>SourceTemplate</code>
-   *             entity. If you need to create a dashboard from an analysis, first convert the analysis
-   *             to a template by using the <code>
+   *                 <code>SourceEntity</code>, you specify the type of object you're using as source.
+   *             You can only create a dashboard from a template, so you use a
+   *                 <code>SourceTemplate</code> entity. If you need to create a dashboard from an
+   *             analysis, first convert the analysis to a template by using the <code>
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
-   *             </code>
-   *             API operation. For
-   *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
-   *             template. The <code>SourceTemplate</code>ARN can contain any Amazon Web Services account and any
-   *             QuickSight-supported Amazon Web Services Region. </p>
+   *             </code> API operation. For <code>SourceTemplate</code>,
+   *             specify the Amazon Resource Name (ARN) of the source template. The
+   *                 <code>SourceTemplate</code>ARN can contain any Amazon Web Services account and any
+   *                 Amazon Quick Sight-supported Amazon Web Services Region. </p>
    *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
    *             list the replacement datasets for the placeholders listed in the original. The schema in
    *             each dataset must match its placeholder. </p>
@@ -2209,8 +3417,8 @@ export interface CreateDashboardRequest {
    *                <p>
    *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
    *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, QuickSight disables the left filter pane on the
-   *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     set to <code>DISABLED</code>, Amazon Quick Sight disables the left filter pane on
+   *                     the published dashboard, which can be used for ad hoc (one-time) filtering. This
    *                     option is <code>ENABLED</code> by default. </p>
    *             </li>
    *             <li>
@@ -2218,7 +3426,8 @@ export interface CreateDashboardRequest {
    *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
    *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
    *                     option to export data to .CSV format isn't enabled when this is set to
-   *                     <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by default.
+   *                 </p>
    *             </li>
    *             <li>
    *                <p>
@@ -2228,17 +3437,27 @@ export interface CreateDashboardRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This status
-   *                 can be either <code>ENABLED</code> or <code>DISABLED</code>. The option to build an executive
-   *                 summary is disabled when this is set to <code>DISABLED</code>. This option is <code>ENABLED</code>
-   *                 by default.</p>
+   *                   <code>AvailabilityStatus</code> for <code>QuickSuiteActionsOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>.
+   *                     Features related to Actions in Amazon Quick Suite on dashboards are disabled
+   *                     when this is set to <code>DISABLED</code>. This option is <code>DISABLED</code>
+   *                     by default.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> - This status
-   *                 can be either <code>ENABLED</code> or <code>DISABLED</code>. The option to share a data story is
-   *                 disabled when this is set to <code>DISABLED</code>. This option is <code>ENABLED</code>
-   *                 by default.</p>
+   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The option
+   *                     to build an executive summary is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The
+   *                     option to share a data story is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2248,8 +3467,8 @@ export interface CreateDashboardRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
    *             you add a value for this field, it overrides the value that is used in the source
-   *             entity. The theme ARN must exist in the same Amazon Web Services account where you create the
-   *             dashboard.</p>
+   *             entity. The theme ARN must exist in the same Amazon Web Services account where you create
+   *             the dashboard.</p>
    * @public
    */
   ThemeArn?: string | undefined;
@@ -2264,13 +3483,15 @@ export interface CreateDashboardRequest {
   Definition?: DashboardVersionDefinition | undefined;
 
   /**
-   * <p>The option to relax the validation needed to create a dashboard with definition objects. This option skips the validation step for specific errors.</p>
+   * <p>The option to relax the validation needed to create a dashboard with definition
+   *             objects. This option skips the validation step for specific errors.</p>
    * @public
    */
   ValidationStrategy?: ValidationStrategy | undefined;
 
   /**
-   * <p>When you create the dashboard, QuickSight adds the dashboard to these folders.</p>
+   * <p>When you create the dashboard, Amazon Quick Sight adds the dashboard to these
+   *             folders.</p>
    * @public
    */
   FolderArns?: string[] | undefined;
@@ -2560,7 +3781,7 @@ export interface DataSetUsageConfiguration {
   DisableUseAsDirectQuerySource?: boolean | undefined;
 
   /**
-   * <p>An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.</p>
+   * <p>An option that controls whether a child dataset that's stored in Quick Sight can use this dataset as a source.</p>
    * @public
    */
   DisableUseAsImportedSource?: boolean | undefined;
@@ -2934,7 +4155,7 @@ export namespace TransformOperation {
 export interface JoinKeyProperties {
   /**
    * <p>A value that indicates that a row in a table is uniquely identified by the columns in
-   *             a join key. This is used by QuickSight to optimize query performance.</p>
+   *             a join key. This is used by Quick Sight to optimize query performance.</p>
    * @public
    */
   UniqueKey?: boolean | undefined;
@@ -3056,14 +4277,16 @@ export interface LogicalTable {
  */
 export interface UniqueKey {
   /**
-   * <p>The name of the column that is referenced in the <code>UniqueKey</code> configuration.</p>
+   * <p>The name of the column that is referenced in the <code>UniqueKey</code>
+   * 			configuration.</p>
    * @public
    */
   ColumnNames: string[] | undefined;
 }
 
 /**
- * <p>The configuration for the performance optimization of the dataset that contains a <code>UniqueKey</code> configuration.</p>
+ * <p>The configuration for the performance optimization of the dataset that contains a
+ * 				<code>UniqueKey</code> configuration.</p>
  * @public
  */
 export interface PerformanceConfiguration {
@@ -3398,7 +4621,7 @@ export type Status = (typeof Status)[keyof typeof Status];
 /**
  * <p>Information about a dataset that contains permissions for row-level security (RLS).
  *             The permissions dataset maps fields to users or groups. For more information, see
- *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+ *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Quick Sight User
  *                 Guide</i>.</p>
  *          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
  *             not supported for new RLS datasets.</p>
@@ -3534,7 +4757,8 @@ export interface CreateDataSetRequest {
   PhysicalTableMap: Record<string, PhysicalTable> | undefined;
 
   /**
-   * <p>Configures the combination and transformation of the data from the physical tables.</p>
+   * <p>Configures the combination and transformation of the data from the physical
+   * 			tables.</p>
    * @public
    */
   LogicalTableMap?: Record<string, LogicalTable> | undefined;
@@ -3546,7 +4770,8 @@ export interface CreateDataSetRequest {
   ImportMode: DataSetImportMode | undefined;
 
   /**
-   * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+   * <p>Groupings of columns that work together in certain Amazon Quick Sight features.
+   * 			Currently, only geospatial hierarchy is supported.</p>
    * @public
    */
   ColumnGroups?: ColumnGroup[] | undefined;
@@ -3570,7 +4795,8 @@ export interface CreateDataSetRequest {
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
 
   /**
-   * <p>The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only.</p>
+   * <p>The configuration of tags on a dataset to set row-level security. Row-level security
+   * 			tags are currently supported for anonymous embedding only.</p>
    * @public
    */
   RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
@@ -3584,7 +4810,8 @@ export interface CreateDataSetRequest {
   ColumnLevelPermissionRules?: ColumnLevelPermissionRule[] | undefined;
 
   /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   * 			dataset.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -3602,19 +4829,22 @@ export interface CreateDataSetRequest {
   DatasetParameters?: DatasetParameter[] | undefined;
 
   /**
-   * <p>When you create the dataset, QuickSight adds the dataset to these folders.</p>
+   * <p>When you create the dataset, Amazon Quick Sight adds the dataset to these
+   * 			folders.</p>
    * @public
    */
   FolderArns?: string[] | undefined;
 
   /**
-   * <p>The configuration for the performance optimization of the dataset that contains a <code>UniqueKey</code> configuration.</p>
+   * <p>The configuration for the performance optimization of the dataset that contains a
+   * 				<code>UniqueKey</code> configuration.</p>
    * @public
    */
   PerformanceConfiguration?: PerformanceConfiguration | undefined;
 
   /**
-   * <p>The usage of the dataset. <code>RLS_RULES</code> must be specified for RLS permission datasets.</p>
+   * <p>The usage of the dataset. <code>RLS_RULES</code> must be specified for RLS permission
+   * 			datasets.</p>
    * @public
    */
   UseAs?: DataSetUseAs | undefined;
@@ -3637,15 +4867,15 @@ export interface CreateDataSetResponse {
   DataSetId?: string | undefined;
 
   /**
-   * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import
-   * 			mode is SPICE.</p>
+   * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the
+   * 			import mode is SPICE.</p>
    * @public
    */
   IngestionArn?: string | undefined;
 
   /**
-   * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import
-   * 			mode is SPICE.</p>
+   * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the
+   * 			import mode is SPICE.</p>
    * @public
    */
   IngestionId?: string | undefined;
@@ -3696,6 +4926,24 @@ export interface CredentialPair {
 }
 
 /**
+ * <p>The credentials for authenticating with a web proxy server.</p>
+ * @public
+ */
+export interface WebProxyCredentials {
+  /**
+   * <p>The username for authenticating with the web proxy server.</p>
+   * @public
+   */
+  WebProxyUsername: string | undefined;
+
+  /**
+   * <p>The password for authenticating with the web proxy server.</p>
+   * @public
+   */
+  WebProxyPassword: string | undefined;
+}
+
+/**
  * <p>Data source credentials. This is a variant type structure. For this structure to be
  *             valid, only one of the attributes can be non-null.</p>
  * @public
@@ -3724,6 +4972,12 @@ export interface DataSourceCredentials {
    * @public
    */
   SecretArn?: string | undefined;
+
+  /**
+   * <p>The credentials for connecting through a web proxy server.</p>
+   * @public
+   */
+  WebProxyCredentials?: WebProxyCredentials | undefined;
 }
 
 /**
@@ -3739,20 +4993,26 @@ export const DataSourceType = {
   AURORA_POSTGRESQL: "AURORA_POSTGRESQL",
   AWS_IOT_ANALYTICS: "AWS_IOT_ANALYTICS",
   BIGQUERY: "BIGQUERY",
+  CONFLUENCE: "CONFLUENCE",
   DATABRICKS: "DATABRICKS",
   EXASOL: "EXASOL",
   GITHUB: "GITHUB",
   GOOGLESHEETS: "GOOGLESHEETS",
+  GOOGLE_DRIVE: "GOOGLE_DRIVE",
   JIRA: "JIRA",
   MARIADB: "MARIADB",
   MYSQL: "MYSQL",
+  ONE_DRIVE: "ONE_DRIVE",
   ORACLE: "ORACLE",
   POSTGRESQL: "POSTGRESQL",
   PRESTO: "PRESTO",
+  QBUSINESS: "QBUSINESS",
   REDSHIFT: "REDSHIFT",
   S3: "S3",
+  S3_KNOWLEDGE_BASE: "S3_KNOWLEDGE_BASE",
   SALESFORCE: "SALESFORCE",
   SERVICENOW: "SERVICENOW",
+  SHAREPOINT: "SHAREPOINT",
   SNOWFLAKE: "SNOWFLAKE",
   SPARK: "SPARK",
   SQLSERVER: "SQLSERVER",
@@ -3761,6 +5021,7 @@ export const DataSourceType = {
   TIMESTREAM: "TIMESTREAM",
   TRINO: "TRINO",
   TWITTER: "TWITTER",
+  WEB_CRAWLER: "WEB_CRAWLER",
 } as const;
 
 /**
@@ -3779,7 +5040,8 @@ export interface CreateDataSourceRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>An ID for the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
+   * <p>An ID for the data source. This ID is unique per Amazon Web Services Region for each
+   * 				Amazon Web Services account. </p>
    * @public
    */
   DataSourceId: string | undefined;
@@ -3791,22 +5053,23 @@ export interface CreateDataSourceRequest {
   Name: string | undefined;
 
   /**
-   * <p>The type of the data source. To return a
-   * 			list of all data sources, use <code>ListDataSources</code>.</p>
+   * <p>The type of the data source. To return a list of all data sources, use
+   * 				<code>ListDataSources</code>.</p>
    *          <p>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon OpenSearch Service.</p>
    * @public
    */
   Type: DataSourceType | undefined;
 
   /**
-   * <p>The parameters that QuickSight uses to connect to your underlying source.</p>
+   * <p>The parameters that Amazon Quick Sight uses to connect to your underlying
+   * 			source.</p>
    * @public
    */
   DataSourceParameters?: DataSourceParameters | undefined;
 
   /**
-   * <p>The credentials QuickSight that uses to connect to your underlying source. Currently, only
-   * 			credentials based on user name and password are supported.</p>
+   * <p>The credentials Amazon Quick Sight that uses to connect to your underlying source.
+   * 			Currently, only credentials based on user name and password are supported.</p>
    * @public
    */
   Credentials?: DataSourceCredentials | undefined;
@@ -3818,26 +5081,29 @@ export interface CreateDataSourceRequest {
   Permissions?: ResourcePermission[] | undefined;
 
   /**
-   * <p>Use this parameter only when you want QuickSight to use a VPC connection when connecting to
-   * 			your underlying source.</p>
+   * <p>Use this parameter only when you want Amazon Quick Sight to use a VPC connection when
+   * 			connecting to your underlying source.</p>
    * @public
    */
   VpcConnectionProperties?: VpcConnectionProperties | undefined;
 
   /**
-   * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying source.</p>
+   * <p>Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to
+   * 			your underlying source.</p>
    * @public
    */
   SslProperties?: SslProperties | undefined;
 
   /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   * 			data source.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>When you create the data source, QuickSight adds the data source to these folders.</p>
+   * <p>When you create the data source, Amazon Quick Sight adds the data source to these
+   * 			folders.</p>
    * @public
    */
   FolderArns?: string[] | undefined;
@@ -3854,7 +5120,8 @@ export interface CreateDataSourceResponse {
   Arn?: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
+   * 				Amazon Web Services account.</p>
    * @public
    */
   DataSourceId?: string | undefined;
@@ -3879,7 +5146,7 @@ export interface CreateDataSourceResponse {
 }
 
 /**
- * <p>The customer managed key that is registered to your QuickSight account is unavailable.</p>
+ * <p>The customer managed key that is registered to your Amazon Quick Sight account is unavailable.</p>
  * @public
  */
 export class CustomerManagedKeyUnavailableException extends __BaseException {
@@ -4066,7 +5333,7 @@ export interface CreateFolderMembershipRequest {
 }
 
 /**
- * <p>An asset in a QuickSight folder, such as a dashboard, analysis, or dataset.</p>
+ * <p>An asset in a Quick Sight folder, such as a dashboard, analysis, or dataset.</p>
  * @public
  */
 export interface FolderMember {
@@ -4125,7 +5392,7 @@ export interface CreateGroupRequest {
 
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -4138,7 +5405,7 @@ export interface CreateGroupRequest {
 }
 
 /**
- * <p>A <i>group</i> in Amazon QuickSight consists of a set of users. You can
+ * <p>A <i>group</i> in Quick Sight consists of a set of users. You can
  *             use groups to make it easier to manage access and security. </p>
  * @public
  */
@@ -4210,7 +5477,7 @@ export interface CreateGroupMembershipRequest {
 
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -4223,7 +5490,7 @@ export interface CreateGroupMembershipRequest {
 }
 
 /**
- * <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
+ * <p>A member of an Quick Sight group. Currently, group members must be users. Groups
  *             can't be members of another group. .</p>
  * @public
  */
@@ -4269,7 +5536,7 @@ export interface CreateGroupMembershipResponse {
  */
 export interface CreateIAMPolicyAssignmentRequest {
   /**
-   * <p>The ID of the Amazon Web Services account where you want to assign an IAM policy to QuickSight users or groups.</p>
+   * <p>The ID of the Amazon Web Services account where you want to assign an IAM policy to Amazon Quick Sight users or groups.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -4308,14 +5575,14 @@ export interface CreateIAMPolicyAssignmentRequest {
   AssignmentStatus: AssignmentStatus | undefined;
 
   /**
-   * <p>The ARN for the IAM policy to apply to the QuickSight users and
+   * <p>The ARN for the IAM policy to apply to the Amazon Quick Sight users and
    * 			groups specified in this assignment.</p>
    * @public
    */
   PolicyArn?: string | undefined;
 
   /**
-   * <p>The QuickSight users, groups, or both that you want to assign the policy
+   * <p>The Amazon Quick Sight users, groups, or both that you want to assign the policy
    * 			to.</p>
    * @public
    */
@@ -4370,14 +5637,14 @@ export interface CreateIAMPolicyAssignmentResponse {
   AssignmentStatus?: AssignmentStatus | undefined;
 
   /**
-   * <p>The ARN for the IAM policy that is applied to the QuickSight
+   * <p>The ARN for the IAM policy that is applied to the Amazon Quick Sight
    * 			users and groups specified in this assignment.</p>
    * @public
    */
   PolicyArn?: string | undefined;
 
   /**
-   * <p>The QuickSight users, groups, or both that the IAM policy is
+   * <p>The Amazon Quick Sight users, groups, or both that the IAM policy is
    * 			assigned to.</p>
    * @public
    */
@@ -4510,7 +5777,7 @@ export type IdentityStore = (typeof IdentityStore)[keyof typeof IdentityStore];
  */
 export interface CreateNamespaceRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that you want to create the QuickSight namespace in.</p>
+   * <p>The ID for the Amazon Web Services account that you want to create the Quick Sight namespace in.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -4557,7 +5824,7 @@ export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceSta
  */
 export interface CreateNamespaceResponse {
   /**
-   * <p>The ARN of the QuickSight namespace you created. </p>
+   * <p>The ARN of the Quick Sight namespace you created. </p>
    * @public
    */
   Arn?: string | undefined;
@@ -4751,7 +6018,7 @@ export interface RefreshSchedule {
    *                   <code>INCREMENTAL_REFRESH</code>: A partial refresh of some rows of a dataset, based on the time window specified.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information on full and incremental refreshes, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html">Refreshing SPICE data</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   *          <p>For more information on full and incremental refreshes, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html">Refreshing SPICE data</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   RefreshType: IngestionType | undefined;
@@ -4844,7 +6111,7 @@ export interface CreateRoleMembershipRequest {
   MemberName: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -4942,8 +6209,8 @@ export interface TemplateVersionDefinition {
    * <p>An array of parameter declarations for a template.</p>
    *          <p>
    *             <i>Parameters</i> are named variables that can transfer a value for use by an action or an object.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon QuickSight</a> in the
-   *             <i>Amazon QuickSight User Guide</i>.
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the
+   *             <i>Amazon Quick Suite User Guide</i>.
    *         </p>
    * @public
    */
@@ -4951,7 +6218,7 @@ export interface TemplateVersionDefinition {
 
   /**
    * <p>Filter definitions for a template.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html">Filtering Data</a> in the <i>Amazon QuickSight User Guide</i>.
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html">Filtering Data</a> in the <i>Amazon Quick Suite User Guide</i>.
    *         </p>
    * @public
    */
@@ -5043,7 +6310,7 @@ export interface TemplateSourceEntity {
  */
 export interface CreateTemplateRequest {
   /**
-   * <p>The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * <p>The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -5074,7 +6341,7 @@ export interface CreateTemplateRequest {
    * 			analysis. Both of these require an Amazon Resource Name (ARN). For
    * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
    * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any Amazon Web Services account and any QuickSight-supported Amazon Web Services Region. </p>
+   * 			ARN can contain any Amazon Web Services account and any Quick Sight-supported Amazon Web Services Region. </p>
    *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
    * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
    * 			in the original. The schema in each dataset must match its placeholder. </p>
@@ -5176,7 +6443,7 @@ export interface CreateTemplateAliasRequest {
   /**
    * <p>The name that you want to give to the template alias that you're creating. Don't start the
    * 			alias name with the <code>$</code> character. Alias names that start with <code>$</code>
-   * 			are reserved by QuickSight. </p>
+   * 			are reserved by Quick Sight. </p>
    * @public
    */
   AliasName: string | undefined;
@@ -5362,7 +6629,7 @@ export interface Typography {
 /**
  * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
  *             description is a hexadecimal color code that consists of six alphanumerical characters,
- *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+ *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Quick Sight</a> in the <i>Quick Sight User
  *                 Guide.</i>
  *          </p>
  * @public
@@ -5532,7 +6799,7 @@ export interface CreateThemeRequest {
 
   /**
    * <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-   * 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+   * 			the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use
    * 				<code>ListThemes</code> or choose <b>Themes</b> from
    * 			within an analysis. </p>
    * @public
@@ -5629,7 +6896,7 @@ export interface CreateThemeAliasRequest {
   /**
    * <p>The name that you want to give to the theme alias that you are creating. The
    * 			alias name can't begin with a <code>$</code>. Alias names that start with <code>$</code>
-   * 			are reserved by Amazon QuickSight. </p>
+   * 			are reserved by Amazon Quick Sight. </p>
    * @public
    */
   AliasName: string | undefined;
@@ -7610,7 +8877,7 @@ export interface DataSet {
   ConsumedSpiceCapacityInBytes?: number | undefined;
 
   /**
-   * <p>Groupings of columns that work together in certain Amazon QuickSight features.
+   * <p>Groupings of columns that work together in certain Quick Sight features.
    *             Currently, only geospatial hierarchy is supported.</p>
    * @public
    */
@@ -7895,7 +9162,7 @@ export interface DataSource {
   LastUpdatedTime?: Date | undefined;
 
   /**
-   * <p>The parameters that Amazon QuickSight uses to connect to your underlying source. This
+   * <p>The parameters that Quick Sight uses to connect to your underlying source. This
    *             is a variant type structure. For this structure to be valid, only one of the attributes
    *             can be non-null.</p>
    * @public
@@ -7918,13 +9185,13 @@ export interface DataSource {
 
   /**
    * <p>The VPC connection information. You need to use this parameter only when you want
-   *             QuickSight to use a VPC connection when connecting to your underlying source.</p>
+   *             Quick Sight to use a VPC connection when connecting to your underlying source.</p>
    * @public
    */
   VpcConnectionProperties?: VpcConnectionProperties | undefined;
 
   /**
-   * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+   * <p>Secure Socket Layer (SSL) properties that apply when Quick Sight connects to your
    *             underlying source.</p>
    * @public
    */
@@ -8008,925 +9275,20 @@ export interface DataSourceSearchFilter {
 }
 
 /**
- * <p>A <code>DataSourceSummary</code> object that returns a summary of a data source.</p>
- * @public
+ * @internal
  */
-export interface DataSourceSummary {
-  /**
-   * <p>The arn of the datasource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The unique ID of the data source.</p>
-   * @public
-   */
-  DataSourceId?: string | undefined;
-
-  /**
-   * <p>The name of the data source.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of the data source.</p>
-   * @public
-   */
-  Type?: DataSourceType | undefined;
-
-  /**
-   * <p>The date and time that the data source was created. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The date and time the data source was last updated. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-}
+export const TopicIRMetricFilterSensitiveLog = (obj: TopicIRMetric): any => ({
+  ...obj,
+  ...(obj.Expression && { Expression: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteAccountCustomizationRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to delete QuickSight customizations from.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The QuickSight namespace that you're deleting the customizations from.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountCustomizationResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountCustomPermissionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account from which you want to unapply the custom permissions profile.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountCustomPermissionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountSubscriptionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account that you want to delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountSubscriptionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAnalysisRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account where you want to delete an analysis.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis that you're deleting.</p>
-   * @public
-   */
-  AnalysisId: string | undefined;
-
-  /**
-   * <p>A value that specifies the number of days that QuickSight waits before it deletes the
-   *             analysis. You can't use this parameter with the <code>ForceDeleteWithoutRecovery</code>
-   *             option in the same API call. The default value is 30.</p>
-   * @public
-   */
-  RecoveryWindowInDays?: number | undefined;
-
-  /**
-   * <p>This option defaults to the value <code>NoForceDeleteWithoutRecovery</code>. To
-   *             immediately delete the analysis, add the <code>ForceDeleteWithoutRecovery</code> option.
-   *             You can't restore an analysis after it's deleted. </p>
-   * @public
-   */
-  ForceDeleteWithoutRecovery?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAnalysisResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted analysis.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the deleted analysis.</p>
-   * @public
-   */
-  AnalysisId?: string | undefined;
-
-  /**
-   * <p>The date and time that the analysis is scheduled to be deleted.</p>
-   * @public
-   */
-  DeletionTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteBrandRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the QuickSight brand.</p>
-   * @public
-   */
-  BrandId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteBrandResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteBrandAssignmentRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteBrandAssignmentResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCustomPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want to delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the custom permissions profile that you want to delete.</p>
-   * @public
-   */
-  CustomPermissionsName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCustomPermissionsResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDashboardRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             deleting.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The version number of the dashboard. If the version number property is provided, only
-   *             the specified version of the dashboard is deleted.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDashboardResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Secure Socket Layer (SSL) properties that apply for the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the dashboard.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSetRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSetResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSetRefreshPropertiesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSetRefreshPropertiesResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSourceRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSourceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSourceResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSourceId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDefaultQBusinessApplicationRequest {
-  /**
-   * <p>The ID of the QuickSight account that you want to disconnect from a Amazon Q Business application.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The QuickSight namespace that you want to delete a linked Amazon Q Business application from. If this field is left blank, the Amazon Q Business application is deleted from the default namespace. Currently, the default namespace is the only valid value for this parameter.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDefaultQBusinessApplicationResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFolderRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFolderResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name of the deleted folder.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFolderMembershipRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Folder ID.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The ID of the asset that you want to delete.</p>
-   * @public
-   */
-  MemberId: string | undefined;
-
-  /**
-   * <p>The member type of the asset that you want to delete from a folder.</p>
-   * @public
-   */
-  MemberType: MemberType | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFolderMembershipResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupRequest {
-  /**
-   * <p>The name of the group that you want to delete.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want to delete.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupMembershipRequest {
-  /**
-   * <p>The name of the user that you want to delete from the group membership.</p>
-   * @public
-   */
-  MemberName: string | undefined;
-
-  /**
-   * <p>The name of the group that you want to delete the user from.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want to remove a user from.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupMembershipResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIAMPolicyAssignmentRequest {
-  /**
-   * <p>The Amazon Web Services account ID where you want to delete the IAM
-   * 			policy assignment.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the assignment. </p>
-   * @public
-   */
-  AssignmentName: string | undefined;
-
-  /**
-   * <p>The namespace that contains the assignment.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIAMPolicyAssignmentResponse {
-  /**
-   * <p>The name of the assignment. </p>
-   * @public
-   */
-  AssignmentName?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIdentityPropagationConfigRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that you want to delete an identity propagation configuration from.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the Amazon Web Services service that you want to delete the associated access scopes and authorized targets from.</p>
-   * @public
-   */
-  Service: ServiceType | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIdentityPropagationConfigResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNamespaceRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to delete the QuickSight namespace from.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that you want to delete.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNamespaceResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRefreshScheduleRequest {
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the refresh schedule.</p>
-   * @public
-   */
-  ScheduleId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRefreshScheduleResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The ID of the refresh schedule.</p>
-   * @public
-   */
-  ScheduleId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRoleCustomPermissionRequest {
-  /**
-   * <p>The role that you want to remove permissions from.</p>
-   * @public
-   */
-  Role: Role | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   *             Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that includes the role.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRoleCustomPermissionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRoleMembershipRequest {
-  /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  MemberName: string | undefined;
-
-  /**
-   * <p>The role that you want to remove permissions from.</p>
-   * @public
-   */
-  Role: Role | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that contains the role.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
+export const TopicIRFilterSensitiveLog = (obj: TopicIR): any => ({
+  ...obj,
+  ...(obj.Metrics && { Metrics: obj.Metrics.map((item) => TopicIRMetricFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal
@@ -8950,6 +9312,16 @@ export const ColumnDescriptionFilterSensitiveLog = (obj: ColumnDescription): any
 export const ColumnTagFilterSensitiveLog = (obj: ColumnTag): any => ({
   ...obj,
   ...(obj.ColumnDescription && { ColumnDescription: ColumnDescriptionFilterSensitiveLog(obj.ColumnDescription) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateActionConnectorRequestFilterSensitiveLog = (obj: CreateActionConnectorRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.AuthenticationConfig && { AuthenticationConfig: AuthConfigFilterSensitiveLog(obj.AuthenticationConfig) }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });
 
 /**
