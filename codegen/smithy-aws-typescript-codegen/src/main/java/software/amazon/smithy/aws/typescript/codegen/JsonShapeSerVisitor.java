@@ -16,7 +16,10 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeMap;
+import software.amazon.smithy.codegen.core.ReservedWords;
+import software.amazon.smithy.codegen.core.ReservedWordsBuilder;
 import java.util.function.BiFunction;
 import software.amazon.smithy.aws.typescript.codegen.validation.UnaryFunctionCall;
 import software.amazon.smithy.codegen.core.Symbol;
@@ -35,6 +38,7 @@ import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.TypeScriptClientCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
@@ -56,6 +60,10 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     private static final Format TIMESTAMP_FORMAT = Format.EPOCH_SECONDS;
 
     private final BiFunction<MemberShape, String, String> memberNameStrategy;
+
+    private final ReservedWords reservedWords = new ReservedWordsBuilder()
+        .loadWords(Objects.requireNonNull(TypeScriptClientCodegenPlugin.class.getResource("reserved-words.txt")))
+        .build();
 
     JsonShapeSerVisitor(GenerationContext context, boolean serdeElisionEnabled) {
         this(context,
@@ -208,7 +216,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
         ServiceShape serviceShape = context.getService();
 
         // Visit over the union type, then get the right serialization for the member.
-        writer.openBlock("return $L.visit(input, {", "});", shape.getId().getName(serviceShape), () -> {
+        writer.openBlock("return $L.visit(input, {", "});", reservedWords.escape(shape.getId().getName(serviceShape)), () -> {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
             members.forEach((memberName, memberShape) -> {
