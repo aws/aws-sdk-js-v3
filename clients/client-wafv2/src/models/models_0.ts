@@ -3759,6 +3759,37 @@ export class WAFInvalidParameterException extends __BaseException {
 }
 
 /**
+ * <p>WAF couldn’t perform the operation because you exceeded your resource limit. For
+ *          example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services
+ *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+ *             <i>WAF Developer Guide</i>.</p>
+ * @public
+ */
+export class WAFLimitsExceededException extends __BaseException {
+  readonly name: "WAFLimitsExceededException" = "WAFLimitsExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>Source type for the exception. </p>
+   * @public
+   */
+  SourceType?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFLimitsExceededException, __BaseException>) {
+    super({
+      name: "WAFLimitsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFLimitsExceededException.prototype);
+    this.Message = opts.Message;
+    this.SourceType = opts.SourceType;
+  }
+}
+
+/**
  * <p>WAF couldn’t perform the operation because your resource doesn't exist.
  *        If you've just created a resource that you're using in this operation, you might
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
@@ -4080,37 +4111,6 @@ export class WAFInvalidResourceException extends __BaseException {
     });
     Object.setPrototypeOf(this, WAFInvalidResourceException.prototype);
     this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>WAF couldn’t perform the operation because you exceeded your resource limit. For
- *          example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services
- *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
- *             <i>WAF Developer Guide</i>.</p>
- * @public
- */
-export class WAFLimitsExceededException extends __BaseException {
-  readonly name: "WAFLimitsExceededException" = "WAFLimitsExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>Source type for the exception. </p>
-   * @public
-   */
-  SourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFLimitsExceededException, __BaseException>) {
-    super({
-      name: "WAFLimitsExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFLimitsExceededException.prototype);
-    this.Message = opts.Message;
-    this.SourceType = opts.SourceType;
   }
 }
 

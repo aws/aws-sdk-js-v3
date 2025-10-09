@@ -2169,6 +2169,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafv2#WAFInvalidParameterException":
       throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
+    case "WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
+      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafv2#WAFNonexistentItemException":
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
@@ -2181,9 +2184,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "WAFInvalidResourceException":
     case "com.amazonaws.wafv2#WAFInvalidResourceException":
       throw await de_WAFInvalidResourceExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
     case "WAFSubscriptionNotFoundException":
     case "com.amazonaws.wafv2#WAFSubscriptionNotFoundException":
       throw await de_WAFSubscriptionNotFoundExceptionRes(parsedOutput, context);
