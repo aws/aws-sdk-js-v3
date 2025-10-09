@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.907.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.906.0...v3.907.0) (2025-10-09)
+
+
+### Features
+
+* **client-quicksight:** This release adds support for ActionConnector and Flow, which are new resources associated with Amazon Quick Suite. Additional updates include expanded Data Source options, further branding customization, and new capabilities that can be restricted by Admins. ([72c12a0](https://github.com/aws/aws-sdk-js-v3/commit/72c12a09df979cc5b9930bbbd168aca3810110d7))
+* **client-wafv2:** This release adds the ability to throw WafLimitsExceededException when the maximum number of Application Load Balancer (ALB) associations per AWS WAF v2 WebACL is exceeded. ([33438d9](https://github.com/aws/aws-sdk-js-v3/commit/33438d9d2baab8fd388914c3f9a37d19b0643313))
+* **clients:** update client endpoints as of 2025-10-09 ([9814891](https://github.com/aws/aws-sdk-js-v3/commit/98148915460e3d6dbdd8916748db46b401a28794))
+
+
+
+
+
 # [3.906.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.905.0...v3.906.0) (2025-10-08)
 
 
