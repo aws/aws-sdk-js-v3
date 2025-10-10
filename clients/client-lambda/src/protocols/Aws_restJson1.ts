@@ -366,6 +366,7 @@ export const se_AddPermissionCommand = async (
       Action: [],
       EventSourceToken: [],
       FunctionUrlAuthType: [],
+      InvokedViaFunctionUrl: [],
       Principal: [],
       PrincipalOrgID: [],
       RevisionId: [],

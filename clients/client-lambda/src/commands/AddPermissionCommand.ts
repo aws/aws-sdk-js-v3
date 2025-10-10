@@ -49,6 +49,7 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  *   RevisionId: "STRING_VALUE",
  *   PrincipalOrgID: "STRING_VALUE",
  *   FunctionUrlAuthType: "NONE" || "AWS_IAM",
+ *   InvokedViaFunctionUrl: true || false,
  * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);

@@ -406,6 +406,12 @@ export interface AddPermissionRequest {
    * @public
    */
   FunctionUrlAuthType?: FunctionUrlAuthType | undefined;
+
+  /**
+   * <p>Restricts the <code>lambda:InvokeFunction</code> action to calls coming from a function URL. When set to <code>true</code>, this prevents the principal from invoking the function by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+   * @public
+   */
+  InvokedViaFunctionUrl?: boolean | undefined;
 }
 
 /**
@@ -661,7 +667,7 @@ export type CodeSigningPolicy = (typeof CodeSigningPolicy)[keyof typeof CodeSign
  */
 export interface CodeSigningPolicies {
   /**
-   * <p>Code signing configuration policy for deployment validation failure. If you set the policy to <code>Enforce</code>, Lambda blocks the deployment request if signature validation checks fail. If you set the policy to <code>Warn</code>, Lambda allows the deployment and creates a CloudWatch log. </p> <p>Default value: <code>Warn</code> </p>
+   * <p>Code signing configuration policy for deployment validation failure. If you set the policy to <code>Enforce</code>, Lambda blocks the deployment request if signature validation checks fail. If you set the policy to <code>Warn</code>, Lambda allows the deployment and issues a new Amazon CloudWatch metric (<code>SignatureValidationErrors</code>) and also stores the warning in the CloudTrail log.</p> <p>Default value: <code>Warn</code> </p>
    * @public
    */
   UntrustedArtifactOnDeployment?: CodeSigningPolicy | undefined;
