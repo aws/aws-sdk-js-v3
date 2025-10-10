@@ -38,6 +38,8 @@ export interface StopCodeInterpreterSessionCommandOutput extends StopCodeInterpr
  * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // StopCodeInterpreterSessionRequest
+ *   traceId: "STRING_VALUE",
+ *   traceParent: "STRING_VALUE",
  *   codeInterpreterIdentifier: "STRING_VALUE", // required
  *   sessionId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",

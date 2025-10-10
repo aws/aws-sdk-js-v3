@@ -745,6 +745,18 @@ export interface ListBrowserSessionsResponse {
  */
 export interface StartBrowserSessionRequest {
   /**
+   * <p>The trace identifier for request tracking.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The parent trace information for distributed tracing.</p>
+   * @public
+   */
+  traceParent?: string | undefined;
+
+  /**
    * <p>The unique identifier of the browser to use for this session. This identifier specifies which browser environment to initialize for the session.</p>
    * @public
    */
@@ -808,6 +820,18 @@ export interface StartBrowserSessionResponse {
  * @public
  */
 export interface StopBrowserSessionRequest {
+  /**
+   * <p>The trace identifier for request tracking.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The parent trace information for distributed tracing.</p>
+   * @public
+   */
+  traceParent?: string | undefined;
+
   /**
    * <p>The unique identifier of the browser associated with the session.</p>
    * @public
@@ -1124,6 +1148,18 @@ export interface ListCodeInterpreterSessionsResponse {
  */
 export interface StartCodeInterpreterSessionRequest {
   /**
+   * <p>The trace identifier for request tracking.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The parent trace information for distributed tracing.</p>
+   * @public
+   */
+  traceParent?: string | undefined;
+
+  /**
    * <p>The unique identifier of the code interpreter to use for this session. This identifier specifies which code interpreter environment to initialize for the session.</p>
    * @public
    */
@@ -1175,6 +1211,18 @@ export interface StartCodeInterpreterSessionResponse {
  * @public
  */
 export interface StopCodeInterpreterSessionRequest {
+  /**
+   * <p>The trace identifier for request tracking.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The parent trace information for distributed tracing.</p>
+   * @public
+   */
+  traceParent?: string | undefined;
+
   /**
    * <p>The unique identifier of the code interpreter associated with the session.</p>
    * @public
@@ -1536,6 +1584,18 @@ export interface InvokeCodeInterpreterRequest {
    * @public
    */
   sessionId?: string | undefined;
+
+  /**
+   * <p>The trace identifier for request tracking.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The parent trace information for distributed tracing.</p>
+   * @public
+   */
+  traceParent?: string | undefined;
 
   /**
    * <p>The name of the code interpreter to invoke.</p>

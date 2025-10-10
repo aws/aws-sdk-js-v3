@@ -45,6 +45,8 @@ export interface InvokeCodeInterpreterCommandOutput extends InvokeCodeInterprete
  * const input = { // InvokeCodeInterpreterRequest
  *   codeInterpreterIdentifier: "STRING_VALUE", // required
  *   sessionId: "STRING_VALUE",
+ *   traceId: "STRING_VALUE",
+ *   traceParent: "STRING_VALUE",
  *   name: "executeCode" || "executeCommand" || "readFiles" || "listFiles" || "removeFiles" || "writeFiles" || "startCommandExecution" || "getTask" || "stopTask", // required
  *   arguments: { // ToolArguments
  *     code: "STRING_VALUE",

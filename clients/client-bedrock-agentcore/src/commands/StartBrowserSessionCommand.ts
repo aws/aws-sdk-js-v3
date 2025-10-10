@@ -38,6 +38,8 @@ export interface StartBrowserSessionCommandOutput extends StartBrowserSessionRes
  * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // StartBrowserSessionRequest
+ *   traceId: "STRING_VALUE",
+ *   traceParent: "STRING_VALUE",
  *   browserIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   sessionTimeoutSeconds: Number("int"),

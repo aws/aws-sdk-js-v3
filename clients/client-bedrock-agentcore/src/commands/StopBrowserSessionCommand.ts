@@ -38,6 +38,8 @@ export interface StopBrowserSessionCommandOutput extends StopBrowserSessionRespo
  * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // StopBrowserSessionRequest
+ *   traceId: "STRING_VALUE",
+ *   traceParent: "STRING_VALUE",
  *   browserIdentifier: "STRING_VALUE", // required
  *   sessionId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",

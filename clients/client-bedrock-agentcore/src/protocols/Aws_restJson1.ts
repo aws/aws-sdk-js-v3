@@ -557,6 +557,8 @@ export const se_InvokeCodeInterpreterCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
     [_xacisi]: input[_sI]!,
+    [_xati]: input[_tI]!,
+    [_t]: input[_tP]!,
   });
   b.bp("/code-interpreters/{codeInterpreterIdentifier}/tools/invoke");
   b.p("codeInterpreterIdentifier", () => input.codeInterpreterIdentifier!, "{codeInterpreterIdentifier}", false);
@@ -758,9 +760,11 @@ export const se_StartBrowserSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-  };
+    [_xati]: input[_tI]!,
+    [_t]: input[_tP]!,
+  });
   b.bp("/browsers/{browserIdentifier}/sessions/start");
   b.p("browserIdentifier", () => input.browserIdentifier!, "{browserIdentifier}", false);
   let body: any;
@@ -784,9 +788,11 @@ export const se_StartCodeInterpreterSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-  };
+    [_xati]: input[_tI]!,
+    [_t]: input[_tP]!,
+  });
   b.bp("/code-interpreters/{codeInterpreterIdentifier}/sessions/start");
   b.p("codeInterpreterIdentifier", () => input.codeInterpreterIdentifier!, "{codeInterpreterIdentifier}", false);
   let body: any;
@@ -809,9 +815,11 @@ export const se_StopBrowserSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-  };
+    [_xati]: input[_tI]!,
+    [_t]: input[_tP]!,
+  });
   b.bp("/browsers/{browserIdentifier}/sessions/stop");
   b.p("browserIdentifier", () => input.browserIdentifier!, "{browserIdentifier}", false);
   const query: any = map({
@@ -835,9 +843,11 @@ export const se_StopCodeInterpreterSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-  };
+    [_xati]: input[_tI]!,
+    [_t]: input[_tP]!,
+  });
   b.bp("/code-interpreters/{codeInterpreterIdentifier}/sessions/stop");
   b.p("codeInterpreterIdentifier", () => input.codeInterpreterIdentifier!, "{codeInterpreterIdentifier}", false);
   const query: any = map({
@@ -914,7 +924,7 @@ export const de_BatchCreateMemoryRecordsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateMemoryRecordsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -980,7 +990,7 @@ export const de_CreateEventCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({

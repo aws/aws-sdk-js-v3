@@ -43,6 +43,8 @@ export interface StartCodeInterpreterSessionCommandOutput
  * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // StartCodeInterpreterSessionRequest
+ *   traceId: "STRING_VALUE",
+ *   traceParent: "STRING_VALUE",
  *   codeInterpreterIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   sessionTimeoutSeconds: Number("int"),
