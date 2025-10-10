@@ -166,6 +166,10 @@ import {
   ListWorkloadIdentitiesCommandOutput,
 } from "./commands/ListWorkloadIdentitiesCommand";
 import { SetTokenVaultCMKCommandInput, SetTokenVaultCMKCommandOutput } from "./commands/SetTokenVaultCMKCommand";
+import {
+  SynchronizeGatewayTargetsCommandInput,
+  SynchronizeGatewayTargetsCommandOutput,
+} from "./commands/SynchronizeGatewayTargetsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentRuntimeCommandInput, UpdateAgentRuntimeCommandOutput } from "./commands/UpdateAgentRuntimeCommand";
@@ -250,6 +254,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListWorkloadIdentitiesCommandInput
   | SetTokenVaultCMKCommandInput
+  | SynchronizeGatewayTargetsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentRuntimeCommandInput
@@ -309,6 +314,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListWorkloadIdentitiesCommandOutput
   | SetTokenVaultCMKCommandOutput
+  | SynchronizeGatewayTargetsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentRuntimeCommandOutput

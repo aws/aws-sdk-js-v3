@@ -104,9 +104,12 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  *           ],
  *         },
  *       },
+ *       mcpServer: { // McpServerTargetConfiguration
+ *         endpoint: "STRING_VALUE", // required
+ *       },
  *     },
  *   },
- *   credentialProviderConfigurations: [ // CredentialProviderConfigurations // required
+ *   credentialProviderConfigurations: [ // CredentialProviderConfigurations
  *     { // CredentialProviderConfiguration
  *       credentialProviderType: "GATEWAY_IAM_ROLE" || "OAUTH" || "API_KEY", // required
  *       credentialProvider: { // CredentialProvider Union: only one key present
@@ -136,7 +139,7 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //   targetId: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
- * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED", // required
+ * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL", // required
  * //   statusReasons: [ // StatusReasons
  * //     "STRING_VALUE",
  * //   ],
@@ -195,6 +198,9 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //           ],
  * //         },
  * //       },
+ * //       mcpServer: { // McpServerTargetConfiguration
+ * //         endpoint: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   },
  * //   credentialProviderConfigurations: [ // CredentialProviderConfigurations // required
@@ -219,6 +225,7 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //       },
  * //     },
  * //   ],
+ * //   lastSynchronizedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```

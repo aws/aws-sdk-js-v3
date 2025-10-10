@@ -560,6 +560,14 @@ SetTokenVaultCMK
 </details>
 <details>
 <summary>
+SynchronizeGatewayTargets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/SynchronizeGatewayTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/SynchronizeGatewayTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/SynchronizeGatewayTargetsCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

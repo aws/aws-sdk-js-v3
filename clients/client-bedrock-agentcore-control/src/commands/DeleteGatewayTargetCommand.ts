@@ -50,7 +50,7 @@ export interface DeleteGatewayTargetCommandOutput extends DeleteGatewayTargetRes
  * // { // DeleteGatewayTargetResponse
  * //   gatewayArn: "STRING_VALUE", // required
  * //   targetId: "STRING_VALUE", // required
- * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED", // required
+ * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL", // required
  * //   statusReasons: [ // StatusReasons
  * //     "STRING_VALUE",
  * //   ],

@@ -109,6 +109,26 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *               modelId: "STRING_VALUE", // required
  *             },
  *           },
+ *           selfManagedConfiguration: { // SelfManagedConfigurationInput
+ *             triggerConditions: [ // TriggerConditionInputList
+ *               { // TriggerConditionInput Union: only one key present
+ *                 messageBasedTrigger: { // MessageBasedTriggerInput
+ *                   messageCount: Number("int"),
+ *                 },
+ *                 tokenBasedTrigger: { // TokenBasedTriggerInput
+ *                   tokenCount: Number("int"),
+ *                 },
+ *                 timeBasedTrigger: { // TimeBasedTriggerInput
+ *                   idleSessionTimeout: Number("int"),
+ *                 },
+ *               },
+ *             ],
+ *             invocationConfiguration: { // InvocationConfigurationInput
+ *               topicArn: "STRING_VALUE", // required
+ *               payloadDeliveryBucketName: "STRING_VALUE", // required
+ *             },
+ *             historicalContextWindowSize: Number("int"),
+ *           },
  *         },
  *       },
  *     },
@@ -138,7 +158,7 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //         name: "STRING_VALUE", // required
  * //         description: "STRING_VALUE",
  * //         configuration: { // StrategyConfiguration
- * //           type: "SEMANTIC_OVERRIDE" || "SUMMARY_OVERRIDE" || "USER_PREFERENCE_OVERRIDE",
+ * //           type: "SEMANTIC_OVERRIDE" || "SUMMARY_OVERRIDE" || "USER_PREFERENCE_OVERRIDE" || "SELF_MANAGED",
  * //           extraction: { // ExtractionConfiguration Union: only one key present
  * //             customExtractionConfiguration: { // CustomExtractionConfiguration Union: only one key present
  * //               semanticExtractionOverride: { // SemanticExtractionOverride
@@ -166,6 +186,26 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //                 modelId: "STRING_VALUE", // required
  * //               },
  * //             },
+ * //           },
+ * //           selfManagedConfiguration: { // SelfManagedConfiguration
+ * //             triggerConditions: [ // TriggerConditionsList // required
+ * //               { // TriggerCondition Union: only one key present
+ * //                 messageBasedTrigger: { // MessageBasedTrigger
+ * //                   messageCount: Number("int"),
+ * //                 },
+ * //                 tokenBasedTrigger: { // TokenBasedTrigger
+ * //                   tokenCount: Number("int"),
+ * //                 },
+ * //                 timeBasedTrigger: { // TimeBasedTrigger
+ * //                   idleSessionTimeout: Number("int"),
+ * //                 },
+ * //               },
+ * //             ],
+ * //             invocationConfiguration: { // InvocationConfiguration
+ * //               topicArn: "STRING_VALUE", // required
+ * //               payloadDeliveryBucketName: "STRING_VALUE", // required
+ * //             },
+ * //             historicalContextWindowSize: Number("int"), // required
  * //           },
  * //         },
  * //         type: "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "CUSTOM", // required

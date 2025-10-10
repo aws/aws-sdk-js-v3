@@ -211,6 +211,11 @@ import {
   SetTokenVaultCMKCommandInput,
   SetTokenVaultCMKCommandOutput,
 } from "./commands/SetTokenVaultCMKCommand";
+import {
+  SynchronizeGatewayTargetsCommand,
+  SynchronizeGatewayTargetsCommandInput,
+  SynchronizeGatewayTargetsCommandOutput,
+} from "./commands/SynchronizeGatewayTargetsCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -303,6 +308,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListWorkloadIdentitiesCommand,
   SetTokenVaultCMKCommand,
+  SynchronizeGatewayTargetsCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAgentRuntimeCommand,
@@ -990,6 +996,23 @@ export interface BedrockAgentCoreControl {
     args: SetTokenVaultCMKCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SetTokenVaultCMKCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SynchronizeGatewayTargetsCommand}
+   */
+  synchronizeGatewayTargets(
+    args: SynchronizeGatewayTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SynchronizeGatewayTargetsCommandOutput>;
+  synchronizeGatewayTargets(
+    args: SynchronizeGatewayTargetsCommandInput,
+    cb: (err: any, data?: SynchronizeGatewayTargetsCommandOutput) => void
+  ): void;
+  synchronizeGatewayTargets(
+    args: SynchronizeGatewayTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SynchronizeGatewayTargetsCommandOutput) => void
   ): void;
 
   /**

@@ -144,6 +144,10 @@ import {
   ListWorkloadIdentitiesCommandOutput,
 } from "../commands/ListWorkloadIdentitiesCommand";
 import { SetTokenVaultCMKCommandInput, SetTokenVaultCMKCommandOutput } from "../commands/SetTokenVaultCMKCommand";
+import {
+  SynchronizeGatewayTargetsCommandInput,
+  SynchronizeGatewayTargetsCommandOutput,
+} from "../commands/SynchronizeGatewayTargetsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAgentRuntimeCommandInput, UpdateAgentRuntimeCommandOutput } from "../commands/UpdateAgentRuntimeCommand";
@@ -199,23 +203,29 @@ import {
   GatewayApiKeyCredentialProvider,
   GatewayProtocolConfiguration,
   GatewaySummary,
+  GatewayTarget,
   GithubOauth2ProviderConfigInput,
   GoogleOauth2ProviderConfigInput,
   InternalServerException,
+  InvocationConfigurationInput,
   KmsConfiguration,
   LifecycleConfiguration,
   MCPGatewayConfiguration,
   McpLambdaTargetConfiguration,
+  McpServerTargetConfiguration,
   McpTargetConfiguration,
   Memory,
   MemoryStrategy,
   MemoryStrategyInput,
   MemorySummary,
+  MessageBasedTriggerInput,
   MicrosoftOauth2ProviderConfigInput,
   ModifyConsolidationConfiguration,
   ModifyExtractionConfiguration,
+  ModifyInvocationConfigurationInput,
   ModifyMemoryStrategies,
   ModifyMemoryStrategyInput,
+  ModifySelfManagedConfiguration,
   ModifyStrategyConfiguration,
   NetworkConfiguration,
   Oauth2AuthorizationServerMetadata,
@@ -232,6 +242,7 @@ import {
   S3Location,
   SalesforceOauth2ProviderConfigInput,
   SchemaDefinition,
+  SelfManagedConfigurationInput,
   SemanticMemoryStrategyInput,
   SemanticOverrideConfigurationInput,
   SemanticOverrideConsolidationConfigurationInput,
@@ -246,8 +257,11 @@ import {
   TargetSummary,
   ThrottledException,
   ThrottlingException,
+  TimeBasedTriggerInput,
+  TokenBasedTriggerInput,
   ToolDefinition,
   ToolSchema,
+  TriggerConditionInput,
   UnauthorizedException,
   UserPreferenceMemoryStrategyInput,
   UserPreferenceOverrideConfigurationInput,
@@ -1197,6 +1211,29 @@ export const se_SetTokenVaultCMKCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SynchronizeGatewayTargetsCommand
+ */
+export const se_SynchronizeGatewayTargetsCommand = async (
+  input: SynchronizeGatewayTargetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/gateways/{gatewayIdentifier}/synchronizeTargets");
+  b.p("gatewayIdentifier", () => input.gatewayIdentifier!, "{gatewayIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      targetIdList: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -1629,6 +1666,7 @@ export const de_CreateGatewayTargetCommand = async (
     credentialProviderConfigurations: _json,
     description: __expectString,
     gatewayArn: __expectString,
+    lastSynchronizedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     status: __expectString,
     statusReasons: _json,
@@ -1647,7 +1685,7 @@ export const de_CreateMemoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMemoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1866,7 +1904,7 @@ export const de_DeleteMemoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMemoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -2125,6 +2163,7 @@ export const de_GetGatewayTargetCommand = async (
     credentialProviderConfigurations: _json,
     description: __expectString,
     gatewayArn: __expectString,
+    lastSynchronizedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     status: __expectString,
     statusReasons: _json,
@@ -2519,6 +2558,27 @@ export const de_SetTokenVaultCMKCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SynchronizeGatewayTargetsCommand
+ */
+export const de_SynchronizeGatewayTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SynchronizeGatewayTargetsCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    targets: (_) => de_GatewayTargetList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2687,6 +2747,7 @@ export const de_UpdateGatewayTargetCommand = async (
     credentialProviderConfigurations: _json,
     description: __expectString,
     gatewayArn: __expectString,
+    lastSynchronizedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
     status: __expectString,
     statusReasons: _json,
@@ -2705,7 +2766,7 @@ export const de_UpdateMemoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMemoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -3143,6 +3204,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_GoogleOauth2ProviderConfigInput omitted.
 
+// se_InvocationConfigurationInput omitted.
+
 // se_KmsConfiguration omitted.
 
 // se_LifecycleConfiguration omitted.
@@ -3159,6 +3222,8 @@ const se_McpLambdaTargetConfiguration = (input: McpLambdaTargetConfiguration, co
   });
 };
 
+// se_McpServerTargetConfiguration omitted.
+
 // se_McpSupportedVersions omitted.
 
 /**
@@ -3167,6 +3232,7 @@ const se_McpLambdaTargetConfiguration = (input: McpLambdaTargetConfiguration, co
 const se_McpTargetConfiguration = (input: McpTargetConfiguration, context: __SerdeContext): any => {
   return McpTargetConfiguration.visit(input, {
     lambda: (value) => ({ lambda: se_McpLambdaTargetConfiguration(value, context) }),
+    mcpServer: (value) => ({ mcpServer: _json(value) }),
     openApiSchema: (value) => ({ openApiSchema: _json(value) }),
     smithyModel: (value) => ({ smithyModel: _json(value) }),
     _: (name, value) => ({ [name]: value } as any),
@@ -3177,17 +3243,23 @@ const se_McpTargetConfiguration = (input: McpTargetConfiguration, context: __Ser
 
 // se_MemoryStrategyInputList omitted.
 
+// se_MessageBasedTriggerInput omitted.
+
 // se_MicrosoftOauth2ProviderConfigInput omitted.
 
 // se_ModifyConsolidationConfiguration omitted.
 
 // se_ModifyExtractionConfiguration omitted.
 
+// se_ModifyInvocationConfigurationInput omitted.
+
 // se_ModifyMemoryStrategies omitted.
 
 // se_ModifyMemoryStrategiesList omitted.
 
 // se_ModifyMemoryStrategyInput omitted.
+
+// se_ModifySelfManagedConfiguration omitted.
 
 // se_ModifyStrategyConfiguration omitted.
 
@@ -3255,6 +3327,8 @@ const se_SchemaProperties = (input: Record<string, SchemaDefinition>, context: _
 
 // se_SecurityGroups omitted.
 
+// se_SelfManagedConfigurationInput omitted.
+
 // se_SemanticMemoryStrategyInput omitted.
 
 // se_SemanticOverrideConfigurationInput omitted.
@@ -3284,6 +3358,12 @@ const se_TargetConfiguration = (input: TargetConfiguration, context: __SerdeCont
     _: (name, value) => ({ [name]: value } as any),
   });
 };
+
+// se_TargetIdList omitted.
+
+// se_TimeBasedTriggerInput omitted.
+
+// se_TokenBasedTriggerInput omitted.
 
 /**
  * serializeAws_restJson1ToolDefinition
@@ -3318,6 +3398,10 @@ const se_ToolSchema = (input: ToolSchema, context: __SerdeContext): any => {
     _: (name, value) => ({ [name]: value } as any),
   });
 };
+
+// se_TriggerConditionInput omitted.
+
+// se_TriggerConditionInputList omitted.
 
 // se_UserPreferenceMemoryStrategyInput omitted.
 
@@ -3532,9 +3616,42 @@ const de_GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1GatewayTarget
+ */
+const de_GatewayTarget = (output: any, context: __SerdeContext): GatewayTarget => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    credentialProviderConfigurations: _json,
+    description: __expectString,
+    gatewayArn: __expectString,
+    lastSynchronizedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    status: __expectString,
+    statusReasons: _json,
+    targetConfiguration: (_: any) => de_TargetConfiguration(__expectUnion(_), context),
+    targetId: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GatewayTargetList
+ */
+const de_GatewayTargetList = (output: any, context: __SerdeContext): GatewayTarget[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GatewayTarget(entry, context);
+    });
+  return retVal;
+};
+
 // de_GithubOauth2ProviderConfigOutput omitted.
 
 // de_GoogleOauth2ProviderConfigOutput omitted.
+
+// de_InvocationConfiguration omitted.
 
 // de_KmsConfiguration omitted.
 
@@ -3552,6 +3669,8 @@ const de_McpLambdaTargetConfiguration = (output: any, context: __SerdeContext): 
   }) as any;
 };
 
+// de_McpServerTargetConfiguration omitted.
+
 // de_McpSupportedVersions omitted.
 
 /**
@@ -3561,6 +3680,11 @@ const de_McpTargetConfiguration = (output: any, context: __SerdeContext): McpTar
   if (output.lambda != null) {
     return {
       lambda: de_McpLambdaTargetConfiguration(output.lambda, context),
+    };
+  }
+  if (output.mcpServer != null) {
+    return {
+      mcpServer: _json(output.mcpServer),
     };
   }
   if (output.openApiSchema != null) {
@@ -3649,6 +3773,8 @@ const de_MemorySummaryList = (output: any, context: __SerdeContext): MemorySumma
     });
   return retVal;
 };
+
+// de_MessageBasedTrigger omitted.
 
 // de_MicrosoftOauth2ProviderConfigOutput omitted.
 
@@ -3743,6 +3869,8 @@ const de_SchemaProperties = (output: any, context: __SerdeContext): Record<strin
 
 // de_SecurityGroups omitted.
 
+// de_SelfManagedConfiguration omitted.
+
 // de_SemanticConsolidationOverride omitted.
 
 // de_SemanticExtractionOverride omitted.
@@ -3797,6 +3925,10 @@ const de_TargetSummary = (output: any, context: __SerdeContext): TargetSummary =
   }) as any;
 };
 
+// de_TimeBasedTrigger omitted.
+
+// de_TokenBasedTrigger omitted.
+
 /**
  * deserializeAws_restJson1ToolDefinition
  */
@@ -3837,6 +3969,10 @@ const de_ToolSchema = (output: any, context: __SerdeContext): ToolSchema => {
   }
   return { $unknown: Object.entries(output)[0] };
 };
+
+// de_TriggerCondition omitted.
+
+// de_TriggerConditionsList omitted.
 
 // de_UserPreferenceConsolidationOverride omitted.
 

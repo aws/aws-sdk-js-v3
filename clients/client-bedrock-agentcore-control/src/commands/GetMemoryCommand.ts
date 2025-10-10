@@ -65,7 +65,7 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * //         name: "STRING_VALUE", // required
  * //         description: "STRING_VALUE",
  * //         configuration: { // StrategyConfiguration
- * //           type: "SEMANTIC_OVERRIDE" || "SUMMARY_OVERRIDE" || "USER_PREFERENCE_OVERRIDE",
+ * //           type: "SEMANTIC_OVERRIDE" || "SUMMARY_OVERRIDE" || "USER_PREFERENCE_OVERRIDE" || "SELF_MANAGED",
  * //           extraction: { // ExtractionConfiguration Union: only one key present
  * //             customExtractionConfiguration: { // CustomExtractionConfiguration Union: only one key present
  * //               semanticExtractionOverride: { // SemanticExtractionOverride
@@ -93,6 +93,26 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * //                 modelId: "STRING_VALUE", // required
  * //               },
  * //             },
+ * //           },
+ * //           selfManagedConfiguration: { // SelfManagedConfiguration
+ * //             triggerConditions: [ // TriggerConditionsList // required
+ * //               { // TriggerCondition Union: only one key present
+ * //                 messageBasedTrigger: { // MessageBasedTrigger
+ * //                   messageCount: Number("int"),
+ * //                 },
+ * //                 tokenBasedTrigger: { // TokenBasedTrigger
+ * //                   tokenCount: Number("int"),
+ * //                 },
+ * //                 timeBasedTrigger: { // TimeBasedTrigger
+ * //                   idleSessionTimeout: Number("int"),
+ * //                 },
+ * //               },
+ * //             ],
+ * //             invocationConfiguration: { // InvocationConfiguration
+ * //               topicArn: "STRING_VALUE", // required
+ * //               payloadDeliveryBucketName: "STRING_VALUE", // required
+ * //             },
+ * //             historicalContextWindowSize: Number("int"), // required
  * //           },
  * //         },
  * //         type: "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "CUSTOM", // required

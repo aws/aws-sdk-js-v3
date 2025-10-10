@@ -2526,7 +2526,7 @@ export interface CreateGatewayRequest {
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2550,13 +2550,13 @@ export interface CreateGatewayRequest {
   protocolConfiguration?: GatewayProtocolConfiguration | undefined;
 
   /**
-   * <p>The type of authorizer to use for the gateway.</p>
+   * <p>The type of authorizer to use for the gateway.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
    * @public
    */
   authorizerType: AuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the gateway.</p>
+   * <p>The authorizer configuration for the gateway. Required if <code>authorizerType</code> is <code>CUSTOM_JWT</code>.</p>
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
@@ -3312,6 +3312,18 @@ export interface S3Configuration {
 }
 
 /**
+ * <p>The target configuration for the MCP server.</p>
+ * @public
+ */
+export interface McpServerTargetConfiguration {
+  /**
+   * <p>The endpoint for the MCP server target configuration.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+}
+
+/**
  * <p>Configuration for API schema.</p>
  * @public
  */
@@ -3375,6 +3387,8 @@ export const TargetStatus = {
   DELETING: "DELETING",
   FAILED: "FAILED",
   READY: "READY",
+  SYNCHRONIZE_UNSUCCESSFUL: "SYNCHRONIZE_UNSUCCESSFUL",
+  SYNCHRONIZING: "SYNCHRONIZING",
   UPDATE_UNSUCCESSFUL: "UPDATE_UNSUCCESSFUL",
   UPDATING: "UPDATING",
 } as const;
@@ -3532,6 +3546,23 @@ export interface ListGatewayTargetsResponse {
 /**
  * @public
  */
+export interface SynchronizeGatewayTargetsRequest {
+  /**
+   * <p>The gateway Identifier.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The target ID list.</p>
+   * @public
+   */
+  targetIdList: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTokenVaultRequest {
   /**
    * <p>The unique identifier of the token vault to retrieve.</p>
@@ -3615,6 +3646,156 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The configuration to invoke a self-managed memory processing pipeline with.</p>
+ * @public
+ */
+export interface InvocationConfigurationInput {
+  /**
+   * <p>The ARN of the SNS topic for job notifications.</p>
+   * @public
+   */
+  topicArn: string | undefined;
+
+  /**
+   * <p>The S3 bucket name for event payload delivery.</p>
+   * @public
+   */
+  payloadDeliveryBucketName: string | undefined;
+}
+
+/**
+ * <p>The trigger configuration based on a message.</p>
+ * @public
+ */
+export interface MessageBasedTriggerInput {
+  /**
+   * <p>The number of messages that trigger memory processing.</p>
+   * @public
+   */
+  messageCount?: number | undefined;
+}
+
+/**
+ * <p>Trigger configuration based on time.</p>
+ * @public
+ */
+export interface TimeBasedTriggerInput {
+  /**
+   * <p>Idle session timeout (seconds) that triggers memory processing.</p>
+   * @public
+   */
+  idleSessionTimeout?: number | undefined;
+}
+
+/**
+ * <p>Trigger configuration based on tokens.</p>
+ * @public
+ */
+export interface TokenBasedTriggerInput {
+  /**
+   * <p>Number of tokens that trigger memory processing.</p>
+   * @public
+   */
+  tokenCount?: number | undefined;
+}
+
+/**
+ * <p>Condition that triggers memory processing.</p>
+ * @public
+ */
+export type TriggerConditionInput =
+  | TriggerConditionInput.MessageBasedTriggerMember
+  | TriggerConditionInput.TimeBasedTriggerMember
+  | TriggerConditionInput.TokenBasedTriggerMember
+  | TriggerConditionInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TriggerConditionInput {
+  /**
+   * <p>Message based trigger configuration.</p>
+   * @public
+   */
+  export interface MessageBasedTriggerMember {
+    messageBasedTrigger: MessageBasedTriggerInput;
+    tokenBasedTrigger?: never;
+    timeBasedTrigger?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Token based trigger configuration.</p>
+   * @public
+   */
+  export interface TokenBasedTriggerMember {
+    messageBasedTrigger?: never;
+    tokenBasedTrigger: TokenBasedTriggerInput;
+    timeBasedTrigger?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Time based trigger configuration.</p>
+   * @public
+   */
+  export interface TimeBasedTriggerMember {
+    messageBasedTrigger?: never;
+    tokenBasedTrigger?: never;
+    timeBasedTrigger: TimeBasedTriggerInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    messageBasedTrigger?: never;
+    tokenBasedTrigger?: never;
+    timeBasedTrigger?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    messageBasedTrigger: (value: MessageBasedTriggerInput) => T;
+    tokenBasedTrigger: (value: TokenBasedTriggerInput) => T;
+    timeBasedTrigger: (value: TimeBasedTriggerInput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TriggerConditionInput, visitor: Visitor<T>): T => {
+    if (value.messageBasedTrigger !== undefined) return visitor.messageBasedTrigger(value.messageBasedTrigger);
+    if (value.tokenBasedTrigger !== undefined) return visitor.tokenBasedTrigger(value.tokenBasedTrigger);
+    if (value.timeBasedTrigger !== undefined) return visitor.timeBasedTrigger(value.timeBasedTrigger);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Input configuration for a self-managed memory strategy.</p>
+ * @public
+ */
+export interface SelfManagedConfigurationInput {
+  /**
+   * <p>A list of conditions that trigger memory processing.</p>
+   * @public
+   */
+  triggerConditions?: TriggerConditionInput[] | undefined;
+
+  /**
+   * <p>Configuration to invoke a self-managed memory processing pipeline with.</p>
+   * @public
+   */
+  invocationConfiguration: InvocationConfigurationInput | undefined;
+
+  /**
+   * <p>Number of historical messages to include in processing context.</p>
+   * @public
+   */
+  historicalContextWindowSize?: number | undefined;
 }
 
 /**
@@ -3760,6 +3941,7 @@ export interface UserPreferenceOverrideConfigurationInput {
  * @public
  */
 export type CustomConfigurationInput =
+  | CustomConfigurationInput.SelfManagedConfigurationMember
   | CustomConfigurationInput.SemanticOverrideMember
   | CustomConfigurationInput.SummaryOverrideMember
   | CustomConfigurationInput.UserPreferenceOverrideMember
@@ -3777,6 +3959,7 @@ export namespace CustomConfigurationInput {
     semanticOverride: SemanticOverrideConfigurationInput;
     summaryOverride?: never;
     userPreferenceOverride?: never;
+    selfManagedConfiguration?: never;
     $unknown?: never;
   }
 
@@ -3788,6 +3971,7 @@ export namespace CustomConfigurationInput {
     semanticOverride?: never;
     summaryOverride: SummaryOverrideConfigurationInput;
     userPreferenceOverride?: never;
+    selfManagedConfiguration?: never;
     $unknown?: never;
   }
 
@@ -3799,6 +3983,19 @@ export namespace CustomConfigurationInput {
     semanticOverride?: never;
     summaryOverride?: never;
     userPreferenceOverride: UserPreferenceOverrideConfigurationInput;
+    selfManagedConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The self managed configuration for a custom memory strategy.</p>
+   * @public
+   */
+  export interface SelfManagedConfigurationMember {
+    semanticOverride?: never;
+    summaryOverride?: never;
+    userPreferenceOverride?: never;
+    selfManagedConfiguration: SelfManagedConfigurationInput;
     $unknown?: never;
   }
 
@@ -3809,6 +4006,7 @@ export namespace CustomConfigurationInput {
     semanticOverride?: never;
     summaryOverride?: never;
     userPreferenceOverride?: never;
+    selfManagedConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -3816,6 +4014,7 @@ export namespace CustomConfigurationInput {
     semanticOverride: (value: SemanticOverrideConfigurationInput) => T;
     summaryOverride: (value: SummaryOverrideConfigurationInput) => T;
     userPreferenceOverride: (value: UserPreferenceOverrideConfigurationInput) => T;
+    selfManagedConfiguration: (value: SelfManagedConfigurationInput) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -3823,6 +4022,8 @@ export namespace CustomConfigurationInput {
     if (value.semanticOverride !== undefined) return visitor.semanticOverride(value.semanticOverride);
     if (value.summaryOverride !== undefined) return visitor.summaryOverride(value.summaryOverride);
     if (value.userPreferenceOverride !== undefined) return visitor.userPreferenceOverride(value.userPreferenceOverride);
+    if (value.selfManagedConfiguration !== undefined)
+      return visitor.selfManagedConfiguration(value.selfManagedConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4395,10 +4596,161 @@ export namespace ExtractionConfiguration {
 }
 
 /**
+ * <p>The configuration to invoke a self-managed memory processing pipeline with.</p>
+ * @public
+ */
+export interface InvocationConfiguration {
+  /**
+   * <p>The ARN of the SNS topic for job notifications.</p>
+   * @public
+   */
+  topicArn: string | undefined;
+
+  /**
+   * <p>The S3 bucket name for event payload delivery.</p>
+   * @public
+   */
+  payloadDeliveryBucketName: string | undefined;
+}
+
+/**
+ * <p>The trigger configuration based on a message.</p>
+ * @public
+ */
+export interface MessageBasedTrigger {
+  /**
+   * <p>The number of messages that trigger memory processing.</p>
+   * @public
+   */
+  messageCount?: number | undefined;
+}
+
+/**
+ * <p>Trigger configuration based on time.</p>
+ * @public
+ */
+export interface TimeBasedTrigger {
+  /**
+   * <p>Idle session timeout (seconds) that triggers memory processing.</p>
+   * @public
+   */
+  idleSessionTimeout?: number | undefined;
+}
+
+/**
+ * <p>Trigger configuration based on tokens.</p>
+ * @public
+ */
+export interface TokenBasedTrigger {
+  /**
+   * <p>Number of tokens that trigger memory processing.</p>
+   * @public
+   */
+  tokenCount?: number | undefined;
+}
+
+/**
+ * <p>Condition that triggers memory processing.</p>
+ * @public
+ */
+export type TriggerCondition =
+  | TriggerCondition.MessageBasedTriggerMember
+  | TriggerCondition.TimeBasedTriggerMember
+  | TriggerCondition.TokenBasedTriggerMember
+  | TriggerCondition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TriggerCondition {
+  /**
+   * <p>Message based trigger configuration.</p>
+   * @public
+   */
+  export interface MessageBasedTriggerMember {
+    messageBasedTrigger: MessageBasedTrigger;
+    tokenBasedTrigger?: never;
+    timeBasedTrigger?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Token based trigger configuration.</p>
+   * @public
+   */
+  export interface TokenBasedTriggerMember {
+    messageBasedTrigger?: never;
+    tokenBasedTrigger: TokenBasedTrigger;
+    timeBasedTrigger?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Time based trigger configuration.</p>
+   * @public
+   */
+  export interface TimeBasedTriggerMember {
+    messageBasedTrigger?: never;
+    tokenBasedTrigger?: never;
+    timeBasedTrigger: TimeBasedTrigger;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    messageBasedTrigger?: never;
+    tokenBasedTrigger?: never;
+    timeBasedTrigger?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    messageBasedTrigger: (value: MessageBasedTrigger) => T;
+    tokenBasedTrigger: (value: TokenBasedTrigger) => T;
+    timeBasedTrigger: (value: TimeBasedTrigger) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TriggerCondition, visitor: Visitor<T>): T => {
+    if (value.messageBasedTrigger !== undefined) return visitor.messageBasedTrigger(value.messageBasedTrigger);
+    if (value.tokenBasedTrigger !== undefined) return visitor.tokenBasedTrigger(value.tokenBasedTrigger);
+    if (value.timeBasedTrigger !== undefined) return visitor.timeBasedTrigger(value.timeBasedTrigger);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>A configuration for a self-managed memory strategy.</p>
+ * @public
+ */
+export interface SelfManagedConfiguration {
+  /**
+   * <p>A list of conditions that trigger memory processing.</p>
+   * @public
+   */
+  triggerConditions: TriggerCondition[] | undefined;
+
+  /**
+   * <p>The configuration to use when invoking memory processing.</p>
+   * @public
+   */
+  invocationConfiguration: InvocationConfiguration | undefined;
+
+  /**
+   * <p>The number of historical messages to include in processing context.</p>
+   * @public
+   */
+  historicalContextWindowSize: number | undefined;
+}
+
+/**
  * @public
  * @enum
  */
 export const OverrideType = {
+  SELF_MANAGED: "SELF_MANAGED",
   SEMANTIC_OVERRIDE: "SEMANTIC_OVERRIDE",
   SUMMARY_OVERRIDE: "SUMMARY_OVERRIDE",
   USER_PREFERENCE_OVERRIDE: "USER_PREFERENCE_OVERRIDE",
@@ -4431,6 +4783,12 @@ export interface StrategyConfiguration {
    * @public
    */
   consolidation?: ConsolidationConfiguration | undefined;
+
+  /**
+   * <p>Self-managed configuration settings.</p>
+   * @public
+   */
+  selfManagedConfiguration?: SelfManagedConfiguration | undefined;
 }
 
 /**
@@ -5009,6 +5367,48 @@ export namespace ModifyExtractionConfiguration {
 }
 
 /**
+ * <p>The configuration for updating invocation settings.</p>
+ * @public
+ */
+export interface ModifyInvocationConfigurationInput {
+  /**
+   * <p>The updated ARN of the SNS topic for job notifications.</p>
+   * @public
+   */
+  topicArn?: string | undefined;
+
+  /**
+   * <p>The updated S3 bucket name for event payload delivery.</p>
+   * @public
+   */
+  payloadDeliveryBucketName?: string | undefined;
+}
+
+/**
+ * <p>The configuration for updating the self-managed memory strategy.</p>
+ * @public
+ */
+export interface ModifySelfManagedConfiguration {
+  /**
+   * <p>The updated list of conditions that trigger memory processing.</p>
+   * @public
+   */
+  triggerConditions?: TriggerConditionInput[] | undefined;
+
+  /**
+   * <p>The updated configuration to invoke self-managed memory processing pipeline.</p>
+   * @public
+   */
+  invocationConfiguration?: ModifyInvocationConfigurationInput | undefined;
+
+  /**
+   * <p>The updated number of historical messages to include in processing context.</p>
+   * @public
+   */
+  historicalContextWindowSize?: number | undefined;
+}
+
+/**
  * <p>Contains information for modifying a strategy configuration.</p>
  * @public
  */
@@ -5024,6 +5424,12 @@ export interface ModifyStrategyConfiguration {
    * @public
    */
   consolidation?: ModifyConsolidationConfiguration | undefined;
+
+  /**
+   * <p>The updated self-managed configuration.</p>
+   * @public
+   */
+  selfManagedConfiguration?: ModifySelfManagedConfiguration | undefined;
 }
 
 /**
@@ -6417,6 +6823,7 @@ export interface McpLambdaTargetConfiguration {
  */
 export type McpTargetConfiguration =
   | McpTargetConfiguration.LambdaMember
+  | McpTargetConfiguration.McpServerMember
   | McpTargetConfiguration.OpenApiSchemaMember
   | McpTargetConfiguration.SmithyModelMember
   | McpTargetConfiguration.$UnknownMember;
@@ -6433,6 +6840,7 @@ export namespace McpTargetConfiguration {
     openApiSchema: ApiSchemaConfiguration;
     smithyModel?: never;
     lambda?: never;
+    mcpServer?: never;
     $unknown?: never;
   }
 
@@ -6444,6 +6852,7 @@ export namespace McpTargetConfiguration {
     openApiSchema?: never;
     smithyModel: ApiSchemaConfiguration;
     lambda?: never;
+    mcpServer?: never;
     $unknown?: never;
   }
 
@@ -6455,6 +6864,19 @@ export namespace McpTargetConfiguration {
     openApiSchema?: never;
     smithyModel?: never;
     lambda: McpLambdaTargetConfiguration;
+    mcpServer?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The MCP server specified as the gateway target.</p>
+   * @public
+   */
+  export interface McpServerMember {
+    openApiSchema?: never;
+    smithyModel?: never;
+    lambda?: never;
+    mcpServer: McpServerTargetConfiguration;
     $unknown?: never;
   }
 
@@ -6465,6 +6887,7 @@ export namespace McpTargetConfiguration {
     openApiSchema?: never;
     smithyModel?: never;
     lambda?: never;
+    mcpServer?: never;
     $unknown: [string, any];
   }
 
@@ -6472,6 +6895,7 @@ export namespace McpTargetConfiguration {
     openApiSchema: (value: ApiSchemaConfiguration) => T;
     smithyModel: (value: ApiSchemaConfiguration) => T;
     lambda: (value: McpLambdaTargetConfiguration) => T;
+    mcpServer: (value: McpServerTargetConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -6479,6 +6903,7 @@ export namespace McpTargetConfiguration {
     if (value.openApiSchema !== undefined) return visitor.openApiSchema(value.openApiSchema);
     if (value.smithyModel !== undefined) return visitor.smithyModel(value.smithyModel);
     if (value.lambda !== undefined) return visitor.lambda(value.lambda);
+    if (value.mcpServer !== undefined) return visitor.mcpServer(value.mcpServer);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -6544,7 +6969,7 @@ export interface CreateGatewayTargetRequest {
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -6559,7 +6984,7 @@ export interface CreateGatewayTargetRequest {
    * <p>The credential provider configurations for the target. These configurations specify how the gateway authenticates with the target endpoint.</p>
    * @public
    */
-  credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
+  credentialProviderConfigurations?: CredentialProviderConfiguration[] | undefined;
 }
 
 /**
@@ -6625,6 +7050,84 @@ export interface CreateGatewayTargetResponse {
    * @public
    */
   credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
+
+  /**
+   * <p>The last synchronization of the target.</p>
+   * @public
+   */
+  lastSynchronizedAt?: Date | undefined;
+}
+
+/**
+ * <p>The gateway target.</p>
+ * @public
+ */
+export interface GatewayTarget {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway target.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The target ID.</p>
+   * @public
+   */
+  targetId: string | undefined;
+
+  /**
+   * <p>The date and time at which the target was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time at which the target was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The status of the gateway target.</p>
+   * @public
+   */
+  status: TargetStatus | undefined;
+
+  /**
+   * <p>The status reasons for the target status.</p>
+   * @public
+   */
+  statusReasons?: string[] | undefined;
+
+  /**
+   * <p>The name of the gateway target.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description for the gateway target.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.</p>
+   * @public
+   */
+  targetConfiguration: TargetConfiguration | undefined;
+
+  /**
+   * <p>The provider configurations.</p>
+   * @public
+   */
+  credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
+
+  /**
+   * <p>The last synchronization time.</p>
+   * @public
+   */
+  lastSynchronizedAt?: Date | undefined;
 }
 
 /**
@@ -6690,6 +7193,12 @@ export interface GetGatewayTargetResponse {
    * @public
    */
   credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
+
+  /**
+   * <p>The last synchronization of the target.</p>
+   * @public
+   */
+  lastSynchronizedAt?: Date | undefined;
 }
 
 /**
@@ -6730,7 +7239,7 @@ export interface UpdateGatewayTargetRequest {
    * <p>The updated credential provider configurations for the gateway target.</p>
    * @public
    */
-  credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
+  credentialProviderConfigurations?: CredentialProviderConfiguration[] | undefined;
 }
 
 /**
@@ -6796,6 +7305,23 @@ export interface UpdateGatewayTargetResponse {
    * @public
    */
   credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
+
+  /**
+   * <p>The date and time at which the targets were last synchronized.</p>
+   * @public
+   */
+  lastSynchronizedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SynchronizeGatewayTargetsResponse {
+  /**
+   * <p>The gateway targets for synchronization.</p>
+   * @public
+   */
+  targets?: GatewayTarget[] | undefined;
 }
 
 /**
@@ -7228,6 +7754,7 @@ export const CustomConfigurationInputFilterSensitiveLog = (obj: CustomConfigurat
     return {
       userPreferenceOverride: UserPreferenceOverrideConfigurationInputFilterSensitiveLog(obj.userPreferenceOverride),
     };
+  if (obj.selfManagedConfiguration !== undefined) return { selfManagedConfiguration: obj.selfManagedConfiguration };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -7403,6 +7930,7 @@ export const StrategyConfigurationFilterSensitiveLog = (obj: StrategyConfigurati
   ...obj,
   ...(obj.extraction && { extraction: ExtractionConfigurationFilterSensitiveLog(obj.extraction) }),
   ...(obj.consolidation && { consolidation: ConsolidationConfigurationFilterSensitiveLog(obj.consolidation) }),
+  ...(obj.selfManagedConfiguration && { selfManagedConfiguration: obj.selfManagedConfiguration }),
 });
 
 /**
@@ -7518,6 +8046,7 @@ export const ModifyStrategyConfigurationFilterSensitiveLog = (obj: ModifyStrateg
   ...obj,
   ...(obj.extraction && { extraction: ModifyExtractionConfigurationFilterSensitiveLog(obj.extraction) }),
   ...(obj.consolidation && { consolidation: ModifyConsolidationConfigurationFilterSensitiveLog(obj.consolidation) }),
+  ...(obj.selfManagedConfiguration && { selfManagedConfiguration: obj.selfManagedConfiguration }),
 });
 
 /**
@@ -7677,6 +8206,7 @@ export const McpTargetConfigurationFilterSensitiveLog = (obj: McpTargetConfigura
     return { openApiSchema: ApiSchemaConfigurationFilterSensitiveLog(obj.openApiSchema) };
   if (obj.smithyModel !== undefined) return { smithyModel: ApiSchemaConfigurationFilterSensitiveLog(obj.smithyModel) };
   if (obj.lambda !== undefined) return { lambda: obj.lambda };
+  if (obj.mcpServer !== undefined) return { mcpServer: obj.mcpServer };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -7709,6 +8239,23 @@ export const CreateGatewayTargetRequestFilterSensitiveLog = (obj: CreateGatewayT
  * @internal
  */
 export const CreateGatewayTargetResponseFilterSensitiveLog = (obj: CreateGatewayTargetResponse): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.targetConfiguration && {
+    targetConfiguration: TargetConfigurationFilterSensitiveLog(obj.targetConfiguration),
+  }),
+  ...(obj.credentialProviderConfigurations && {
+    credentialProviderConfigurations: obj.credentialProviderConfigurations.map((item) =>
+      CredentialProviderConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GatewayTargetFilterSensitiveLog = (obj: GatewayTarget): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -7771,4 +8318,12 @@ export const UpdateGatewayTargetResponseFilterSensitiveLog = (obj: UpdateGateway
       CredentialProviderConfigurationFilterSensitiveLog(item)
     ),
   }),
+});
+
+/**
+ * @internal
+ */
+export const SynchronizeGatewayTargetsResponseFilterSensitiveLog = (obj: SynchronizeGatewayTargetsResponse): any => ({
+  ...obj,
+  ...(obj.targets && { targets: obj.targets.map((item) => GatewayTargetFilterSensitiveLog(item)) }),
 });

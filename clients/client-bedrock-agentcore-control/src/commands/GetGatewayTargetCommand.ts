@@ -56,7 +56,7 @@ export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse,
  * //   targetId: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
- * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED", // required
+ * //   status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL", // required
  * //   statusReasons: [ // StatusReasons
  * //     "STRING_VALUE",
  * //   ],
@@ -115,6 +115,9 @@ export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse,
  * //           ],
  * //         },
  * //       },
+ * //       mcpServer: { // McpServerTargetConfiguration
+ * //         endpoint: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   },
  * //   credentialProviderConfigurations: [ // CredentialProviderConfigurations // required
@@ -139,6 +142,7 @@ export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse,
  * //       },
  * //     },
  * //   ],
+ * //   lastSynchronizedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```

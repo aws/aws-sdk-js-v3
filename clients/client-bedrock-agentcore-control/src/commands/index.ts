@@ -43,6 +43,7 @@ export * from "./ListOauth2CredentialProvidersCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListWorkloadIdentitiesCommand";
 export * from "./SetTokenVaultCMKCommand";
+export * from "./SynchronizeGatewayTargetsCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAgentRuntimeCommand";
