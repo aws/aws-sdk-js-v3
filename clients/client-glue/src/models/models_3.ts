@@ -3831,8 +3831,7 @@ export interface UpdateTableRequest {
   Force?: boolean | undefined;
 
   /**
-   * <p>Input parameters for updating open table format tables in GlueData Catalog,
-   *       serving as a wrapper for format-specific update operations such as Apache Iceberg.</p>
+   * <p>Input parameters for updating open table format tables in GlueData Catalog, serving as a wrapper for format-specific update operations such as Apache Iceberg.</p>
    * @public
    */
   UpdateOpenTableFormatInput?: UpdateOpenTableFormatInput | undefined;

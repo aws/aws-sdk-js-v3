@@ -47,6 +47,13 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  *   MaxResults: Number("int"),
  *   TransactionId: "STRING_VALUE",
  *   QueryAsOfTime: new Date("TIMESTAMP"),
+ *   AuditContext: { // AuditContext
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *     RequestedColumns: [ // AuditColumnNamesList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllColumnsRequested: true || false,
+ *   },
  *   IncludeStatusDetails: true || false,
  *   AttributesToGet: [ // TableAttributesList
  *     "NAME" || "TABLE_TYPE",

@@ -45,6 +45,13 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  *   Name: "STRING_VALUE", // required
  *   TransactionId: "STRING_VALUE",
  *   QueryAsOfTime: new Date("TIMESTAMP"),
+ *   AuditContext: { // AuditContext
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *     RequestedColumns: [ // AuditColumnNamesList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllColumnsRequested: true || false,
+ *   },
  *   IncludeStatusDetails: true || false,
  * };
  * const command = new GetTableCommand(input);

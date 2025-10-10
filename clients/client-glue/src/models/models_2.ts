@@ -5697,6 +5697,12 @@ export interface GetTableRequest {
   QueryAsOfTime?: Date | undefined;
 
   /**
+   * <p>A structure containing the Lake Formation <a href="https://docs.aws.amazon.com/glue/latest/webapi/API_AuditContext.html">audit context</a>.</p>
+   * @public
+   */
+  AuditContext?: AuditContext | undefined;
+
+  /**
    * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
    * @public
    */
@@ -6004,6 +6010,12 @@ export interface GetTablesRequest {
    * @public
    */
   QueryAsOfTime?: Date | undefined;
+
+  /**
+   * <p>A structure containing the Lake Formation <a href="https://docs.aws.amazon.com/glue/latest/webapi/API_AuditContext.html">audit context</a>.</p>
+   * @public
+   */
+  AuditContext?: AuditContext | undefined;
 
   /**
    * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>

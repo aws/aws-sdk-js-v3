@@ -11886,6 +11886,7 @@ const se_GetPartitionsRequest = (input: GetPartitionsRequest, context: __SerdeCo
  */
 const se_GetTableRequest = (input: GetTableRequest, context: __SerdeContext): any => {
   return take(input, {
+    AuditContext: _json,
     CatalogId: [],
     DatabaseName: [],
     IncludeStatusDetails: [],
@@ -11901,6 +11902,7 @@ const se_GetTableRequest = (input: GetTableRequest, context: __SerdeContext): an
 const se_GetTablesRequest = (input: GetTablesRequest, context: __SerdeContext): any => {
   return take(input, {
     AttributesToGet: _json,
+    AuditContext: _json,
     CatalogId: [],
     DatabaseName: [],
     Expression: [],
