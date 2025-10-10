@@ -56,6 +56,9 @@ export interface ListOdbPeeringConnectionsCommandOutput extends ListOdbPeeringCo
  * //       odbNetworkArn: "STRING_VALUE",
  * //       peerNetworkArn: "STRING_VALUE",
  * //       odbPeeringConnectionType: "STRING_VALUE",
+ * //       peerNetworkCidrs: [ // PeeredCidrList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       createdAt: new Date("TIMESTAMP"),
  * //       percentProgress: Number("float"),
  * //     },

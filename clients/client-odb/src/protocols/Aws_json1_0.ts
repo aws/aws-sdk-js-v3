@@ -128,6 +128,10 @@ import {
 } from "../commands/UpdateCloudExadataInfrastructureCommand";
 import { UpdateOdbNetworkCommandInput, UpdateOdbNetworkCommandOutput } from "../commands/UpdateOdbNetworkCommand";
 import {
+  UpdateOdbPeeringConnectionCommandInput,
+  UpdateOdbPeeringConnectionCommandOutput,
+} from "../commands/UpdateOdbPeeringConnectionCommand";
+import {
   AcceptMarketplaceRegistrationInput,
   AccessDeniedException,
   CloudAutonomousVmCluster,
@@ -210,6 +214,7 @@ import {
   UntagResourceRequest,
   UpdateCloudExadataInfrastructureInput,
   UpdateOdbNetworkInput,
+  UpdateOdbPeeringConnectionInput,
   ValidationException,
 } from "../models/models_0";
 import { OdbServiceException as __BaseException } from "../models/OdbServiceException";
@@ -729,6 +734,19 @@ export const se_UpdateOdbNetworkCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateOdbNetwork");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateOdbPeeringConnectionCommand
+ */
+export const se_UpdateOdbPeeringConnectionCommand = async (
+  input: UpdateOdbPeeringConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateOdbPeeringConnection");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1535,6 +1553,26 @@ export const de_UpdateOdbNetworkCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0UpdateOdbPeeringConnectionCommand
+ */
+export const de_UpdateOdbPeeringConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOdbPeeringConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateOdbPeeringConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserialize_Aws_json1_0CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -1788,6 +1826,7 @@ const se_CreateOdbPeeringConnectionInput = (input: CreateOdbPeeringConnectionInp
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     displayName: [],
     odbNetworkId: [],
+    peerNetworkCidrsToBeAdded: _json,
     peerNetworkId: [],
     tags: _json,
   });
@@ -1865,6 +1904,8 @@ const se_CreateOdbPeeringConnectionInput = (input: CreateOdbPeeringConnectionInp
 
 // se_Months omitted.
 
+// se_PeeredCidrList omitted.
+
 // se_RebootDbNodeInput omitted.
 
 // se_RequestTagMap omitted.
@@ -1884,6 +1925,8 @@ const se_CreateOdbPeeringConnectionInput = (input: CreateOdbPeeringConnectionInp
 // se_UpdateCloudExadataInfrastructureInput omitted.
 
 // se_UpdateOdbNetworkInput omitted.
+
+// se_UpdateOdbPeeringConnectionInput omitted.
 
 // se_WeeksOfMonth omitted.
 
@@ -2755,6 +2798,7 @@ const de_OdbPeeringConnection = (output: any, context: __SerdeContext): OdbPeeri
     odbPeeringConnectionId: __expectString,
     odbPeeringConnectionType: __expectString,
     peerNetworkArn: __expectString,
+    peerNetworkCidrs: _json,
     percentProgress: __limitedParseFloat32,
     status: __expectString,
     statusReason: __expectString,
@@ -2785,11 +2829,14 @@ const de_OdbPeeringConnectionSummary = (output: any, context: __SerdeContext): O
     odbPeeringConnectionId: __expectString,
     odbPeeringConnectionType: __expectString,
     peerNetworkArn: __expectString,
+    peerNetworkCidrs: _json,
     percentProgress: __limitedParseFloat32,
     status: __expectString,
     statusReason: __expectString,
   }) as any;
 };
+
+// de_PeeredCidrList omitted.
 
 // de_RebootDbNodeOutput omitted.
 
@@ -2824,6 +2871,8 @@ const de_OdbPeeringConnectionSummary = (output: any, context: __SerdeContext): O
 // de_UpdateCloudExadataInfrastructureOutput omitted.
 
 // de_UpdateOdbNetworkOutput omitted.
+
+// de_UpdateOdbPeeringConnectionOutput omitted.
 
 // de_ValidationException omitted.
 

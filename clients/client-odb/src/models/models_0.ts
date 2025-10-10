@@ -3580,6 +3580,12 @@ export interface CreateOdbPeeringConnectionInput {
   displayName?: string | undefined;
 
   /**
+   * <p>A list of CIDR blocks to add to the peering connection. These CIDR blocks define the IP address ranges that can communicate through the peering connection.</p>
+   * @public
+   */
+  peerNetworkCidrsToBeAdded?: string[] | undefined;
+
+  /**
    * <p>The client token for the ODB peering connection request.</p> <p>Constraints:</p> <ul> <li> <p>Must be unique for each request.</p> </li> </ul>
    * @public
    */
@@ -4833,6 +4839,12 @@ export interface OdbPeeringConnection {
   odbPeeringConnectionType?: string | undefined;
 
   /**
+   * <p>The CIDR blocks associated with the peering connection. These CIDR blocks define the IP address ranges that can communicate through the peering connection.</p>
+   * @public
+   */
+  peerNetworkCidrs?: string[] | undefined;
+
+  /**
    * <p>The timestamp when the ODB peering connection was created.</p>
    * @public
    */
@@ -5207,6 +5219,12 @@ export interface OdbPeeringConnectionSummary {
   odbPeeringConnectionType?: string | undefined;
 
   /**
+   * <p>The CIDR blocks associated with the peering connection. These CIDR blocks define the IP address ranges that can communicate through the peering connection.</p>
+   * @public
+   */
+  peerNetworkCidrs?: string[] | undefined;
+
+  /**
    * <p>The timestamp when the ODB peering connection was created.</p>
    * @public
    */
@@ -5402,6 +5420,64 @@ export interface UpdateOdbNetworkOutput {
    * @public
    */
   odbNetworkId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOdbPeeringConnectionInput {
+  /**
+   * <p>The identifier of the Oracle Database@Amazon Web Services peering connection to update.</p>
+   * @public
+   */
+  odbPeeringConnectionId: string | undefined;
+
+  /**
+   * <p>A new display name for the peering connection.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>A list of CIDR blocks to add to the peering connection. These CIDR blocks define the IP address ranges that can communicate through the peering connection. The CIDR blocks must not overlap with existing CIDR blocks in the Oracle Database@Amazon Web Services network.</p>
+   * @public
+   */
+  peerNetworkCidrsToBeAdded?: string[] | undefined;
+
+  /**
+   * <p>A list of CIDR blocks to remove from the peering connection. The CIDR blocks must currently exist in the peering connection.</p>
+   * @public
+   */
+  peerNetworkCidrsToBeRemoved?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOdbPeeringConnectionOutput {
+  /**
+   * <p>The display name of the peering connection.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The status of the peering connection update operation.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the peering connection update operation.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The identifier of the Oracle Database@Amazon Web Services peering connection that was updated.</p>
+   * @public
+   */
+  odbPeeringConnectionId: string | undefined;
 }
 
 /**

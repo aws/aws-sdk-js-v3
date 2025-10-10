@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateOdbPeeringConnectionInput, CreateOdbPeeringConnectionOutput } from "../models/models_0";
+import { UpdateOdbPeeringConnectionInput, UpdateOdbPeeringConnectionOutput } from "../models/models_0";
 import { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { de_CreateOdbPeeringConnectionCommand, se_CreateOdbPeeringConnectionCommand } from "../protocols/Aws_json1_0";
+import { de_UpdateOdbPeeringConnectionCommand, se_UpdateOdbPeeringConnectionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -17,41 +17,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateOdbPeeringConnectionCommand}.
+ * The input for {@link UpdateOdbPeeringConnectionCommand}.
  */
-export interface CreateOdbPeeringConnectionCommandInput extends CreateOdbPeeringConnectionInput {}
+export interface UpdateOdbPeeringConnectionCommandInput extends UpdateOdbPeeringConnectionInput {}
 /**
  * @public
  *
- * The output of {@link CreateOdbPeeringConnectionCommand}.
+ * The output of {@link UpdateOdbPeeringConnectionCommand}.
  */
-export interface CreateOdbPeeringConnectionCommandOutput extends CreateOdbPeeringConnectionOutput, __MetadataBearer {}
+export interface UpdateOdbPeeringConnectionCommandOutput extends UpdateOdbPeeringConnectionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a peering connection between an ODB network and a VPC.</p> <p>A peering connection enables private connectivity between the networks for application-tier communication.</p>
+ * <p>Modifies the settings of an Oracle Database@Amazon Web Services peering connection. You can update the display name and add or remove CIDR blocks from the peering connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OdbClient, CreateOdbPeeringConnectionCommand } from "@aws-sdk/client-odb"; // ES Modules import
- * // const { OdbClient, CreateOdbPeeringConnectionCommand } = require("@aws-sdk/client-odb"); // CommonJS import
+ * import { OdbClient, UpdateOdbPeeringConnectionCommand } from "@aws-sdk/client-odb"; // ES Modules import
+ * // const { OdbClient, UpdateOdbPeeringConnectionCommand } = require("@aws-sdk/client-odb"); // CommonJS import
  * // import type { OdbClientConfig } from "@aws-sdk/client-odb";
  * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
- * const input = { // CreateOdbPeeringConnectionInput
- *   odbNetworkId: "STRING_VALUE", // required
- *   peerNetworkId: "STRING_VALUE", // required
+ * const input = { // UpdateOdbPeeringConnectionInput
+ *   odbPeeringConnectionId: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE",
  *   peerNetworkCidrsToBeAdded: [ // PeeredCidrList
  *     "STRING_VALUE",
  *   ],
- *   clientToken: "STRING_VALUE",
- *   tags: { // RequestTagMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ *   peerNetworkCidrsToBeRemoved: [
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new CreateOdbPeeringConnectionCommand(input);
+ * const command = new UpdateOdbPeeringConnectionCommand(input);
  * const response = await client.send(command);
- * // { // CreateOdbPeeringConnectionOutput
+ * // { // UpdateOdbPeeringConnectionOutput
  * //   displayName: "STRING_VALUE",
  * //   status: "AVAILABLE" || "FAILED" || "PROVISIONING" || "TERMINATED" || "TERMINATING" || "UPDATING" || "MAINTENANCE_IN_PROGRESS",
  * //   statusReason: "STRING_VALUE",
@@ -60,10 +58,10 @@ export interface CreateOdbPeeringConnectionCommandOutput extends CreateOdbPeerin
  *
  * ```
  *
- * @param CreateOdbPeeringConnectionCommandInput - {@link CreateOdbPeeringConnectionCommandInput}
- * @returns {@link CreateOdbPeeringConnectionCommandOutput}
- * @see {@link CreateOdbPeeringConnectionCommandInput} for command's `input` shape.
- * @see {@link CreateOdbPeeringConnectionCommandOutput} for command's `response` shape.
+ * @param UpdateOdbPeeringConnectionCommandInput - {@link UpdateOdbPeeringConnectionCommandInput}
+ * @returns {@link UpdateOdbPeeringConnectionCommandOutput}
+ * @see {@link UpdateOdbPeeringConnectionCommandInput} for command's `input` shape.
+ * @see {@link UpdateOdbPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link OdbClientResolvedConfig | config} for OdbClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -90,10 +88,10 @@ export interface CreateOdbPeeringConnectionCommandOutput extends CreateOdbPeerin
  *
  * @public
  */
-export class CreateOdbPeeringConnectionCommand extends $Command
+export class UpdateOdbPeeringConnectionCommand extends $Command
   .classBuilder<
-    CreateOdbPeeringConnectionCommandInput,
-    CreateOdbPeeringConnectionCommandOutput,
+    UpdateOdbPeeringConnectionCommandInput,
+    UpdateOdbPeeringConnectionCommandOutput,
     OdbClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -105,21 +103,21 @@ export class CreateOdbPeeringConnectionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Odb", "CreateOdbPeeringConnection", {})
-  .n("OdbClient", "CreateOdbPeeringConnectionCommand")
+  .s("Odb", "UpdateOdbPeeringConnection", {})
+  .n("OdbClient", "UpdateOdbPeeringConnectionCommand")
   .f(void 0, void 0)
-  .ser(se_CreateOdbPeeringConnectionCommand)
-  .de(de_CreateOdbPeeringConnectionCommand)
+  .ser(se_UpdateOdbPeeringConnectionCommand)
+  .de(de_UpdateOdbPeeringConnectionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateOdbPeeringConnectionInput;
-      output: CreateOdbPeeringConnectionOutput;
+      input: UpdateOdbPeeringConnectionInput;
+      output: UpdateOdbPeeringConnectionOutput;
     };
     sdk: {
-      input: CreateOdbPeeringConnectionCommandInput;
-      output: CreateOdbPeeringConnectionCommandOutput;
+      input: UpdateOdbPeeringConnectionCommandInput;
+      output: UpdateOdbPeeringConnectionCommandOutput;
     };
   };
 }

@@ -39,3 +39,4 @@ export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateCloudExadataInfrastructureCommand";
 export * from "./UpdateOdbNetworkCommand";
+export * from "./UpdateOdbPeeringConnectionCommand";
