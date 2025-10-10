@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
+
+
+### Features
+
+* **client-lambda:** Add InvokedViaFunctionUrl context key to limit invocations to only FURL invokes. ([cf1e3be](https://github.com/aws/aws-sdk-js-v3/commit/cf1e3beb2586bb8e924b495a0c72c1aa90e45890))
+
+
+
+
+
 # [3.907.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.906.0...v3.907.0) (2025-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda

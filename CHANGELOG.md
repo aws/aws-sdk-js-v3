@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
+
+
+### Bug Fixes
+
+* **codegen:** apply reserved word escaping to union shape in Json serializer ([#7419](https://github.com/aws/aws-sdk-js-v3/issues/7419)) ([9ee6cdc](https://github.com/aws/aws-sdk-js-v3/commit/9ee6cdcd05b7ac80a5bf63158fea82e37e48bc43))
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Bedrock AgentCore release for Gateway, and Memory including Self-Managed Strategies support for Memory. ([dd8408b](https://github.com/aws/aws-sdk-js-v3/commit/dd8408b93ed1ae35e310d2584b6e6d2472512b8d))
+* **client-bedrock-agentcore:** Bedrock AgentCore release for Runtime, and Memory. ([9ad809e](https://github.com/aws/aws-sdk-js-v3/commit/9ad809ec1f59ff568791dab2aa410fc27ee6f78e))
+* **client-cloudfront:** Added new viewer security policy, TLSv1.2_2025, for CloudFront. ([bbe5fc5](https://github.com/aws/aws-sdk-js-v3/commit/bbe5fc5500366d8145f7d1c34599250f3db7e5a4))
+* **client-glue:** Addition of AuditContext in GetTable/GetTables Request ([cf3d8e1](https://github.com/aws/aws-sdk-js-v3/commit/cf3d8e194f621fe562efe6eead32f81b8f3b50c2))
+* **client-lambda:** Add InvokedViaFunctionUrl context key to limit invocations to only FURL invokes. ([cf1e3be](https://github.com/aws/aws-sdk-js-v3/commit/cf1e3beb2586bb8e924b495a0c72c1aa90e45890))
+* **client-odb:** This release adds APIs that allow you to specify CIDR ranges in your ODB peering connection. ([72de496](https://github.com/aws/aws-sdk-js-v3/commit/72de496b8c4a670dd3f79ee60fbdbcf3d1aec98f))
+* **clients:** update client endpoints as of 2025-10-10 ([b5e87b1](https://github.com/aws/aws-sdk-js-v3/commit/b5e87b16d4845da067fcbdc348b36e30ae48d735))
+
+
+
+
+
 # [3.907.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.906.0...v3.907.0) (2025-10-09)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
+
+
+### Features
+
+* **client-glue:** Addition of AuditContext in GetTable/GetTables Request ([cf3d8e1](https://github.com/aws/aws-sdk-js-v3/commit/cf3d8e194f621fe562efe6eead32f81b8f3b50c2))
+
+
+
+
+
 # [3.907.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.906.0...v3.907.0) (2025-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

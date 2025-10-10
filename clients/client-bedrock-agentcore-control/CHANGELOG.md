@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Bedrock AgentCore release for Gateway, and Memory including Self-Managed Strategies support for Memory. ([dd8408b](https://github.com/aws/aws-sdk-js-v3/commit/dd8408b93ed1ae35e310d2584b6e6d2472512b8d))
+
+
+
+
+
 # [3.907.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.906.0...v3.907.0) (2025-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

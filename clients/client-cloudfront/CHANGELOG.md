@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
+
+
+### Features
+
+* **client-cloudfront:** Added new viewer security policy, TLSv1.2_2025, for CloudFront. ([bbe5fc5](https://github.com/aws/aws-sdk-js-v3/commit/bbe5fc5500366d8145f7d1c34599250f3db7e5a4))
+
+
+
+
+
 # [3.907.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.906.0...v3.907.0) (2025-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudfront
