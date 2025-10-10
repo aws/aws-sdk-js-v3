@@ -337,7 +337,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //           IAMCertificateId: "STRING_VALUE",
  * //           ACMCertificateArn: "STRING_VALUE",
  * //           SSLSupportMethod: "sni-only" || "vip" || "static-ip",
- * //           MinimumProtocolVersion: "SSLv3" || "TLSv1" || "TLSv1_2016" || "TLSv1.1_2016" || "TLSv1.2_2018" || "TLSv1.2_2019" || "TLSv1.2_2021" || "TLSv1.3_2025",
+ * //           MinimumProtocolVersion: "SSLv3" || "TLSv1" || "TLSv1_2016" || "TLSv1.1_2016" || "TLSv1.2_2018" || "TLSv1.2_2019" || "TLSv1.2_2021" || "TLSv1.3_2025" || "TLSv1.2_2025",
  * //           Certificate: "STRING_VALUE",
  * //           CertificateSource: "cloudfront" || "iam" || "acm",
  * //         },
