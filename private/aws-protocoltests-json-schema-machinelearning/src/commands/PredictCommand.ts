@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { PredictInput, PredictOutput } from "../models/models_0";
-import { Predict } from "../schemas/schemas_1_Predict";
+import { Predict } from "../schemas/schemas_0";
 
 /**
  * @public

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { XmlBlobsOutput } from "../models/models_0";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { XmlBlobs } from "../schemas/schemas_7_Blobs";
+import { XmlBlobs } from "../schemas/schemas_0";
 
 /**
  * @public
