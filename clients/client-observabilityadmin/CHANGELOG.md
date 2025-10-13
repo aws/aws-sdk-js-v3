@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.909.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.908.0...v3.909.0) (2025-10-13)
+
+
+### Features
+
+* **client-observabilityadmin:** CloudWatch Observability Admin adds the ability to enable Resource tags for telemetry in a customer account. The release introduces new APIs to enable, disable and describe the status of Resource tags for telemetry feature. This new capability simplifies monitoring AWS resources using tags. ([f74cc08](https://github.com/aws/aws-sdk-js-v3/commit/f74cc089c493dd44700ecc5d6c47635f7bbfe7a2))
+
+
+
+
+
 # [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
 
 **Note:** Version bump only for package @aws-sdk/client-observabilityadmin

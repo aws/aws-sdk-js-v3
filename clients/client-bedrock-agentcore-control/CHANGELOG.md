@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.909.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.908.0...v3.909.0) (2025-10-13)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Updated http status code in control plane apis of agentcore runtime, tools and identity. Additional included provider types for AgentCore Identity ([ef2d3c3](https://github.com/aws/aws-sdk-js-v3/commit/ef2d3c362799520a8d216dc4ed88712803eeb64a))
+
+
+
+
+
 # [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
 
 

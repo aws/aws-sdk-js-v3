@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.909.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.908.0...v3.909.0) (2025-10-13)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Updated InvokeAgentRuntime API to accept account id optionally and added CompleteResourceTokenAuth API. ([d21a546](https://github.com/aws/aws-sdk-js-v3/commit/d21a546467142617f508d720f8b16a236009a271))
+
+
+
+
+
 # [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
 
 

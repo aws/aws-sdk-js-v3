@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.909.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.908.0...v3.909.0) (2025-10-13)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Updated http status code in control plane apis of agentcore runtime, tools and identity. Additional included provider types for AgentCore Identity ([ef2d3c3](https://github.com/aws/aws-sdk-js-v3/commit/ef2d3c362799520a8d216dc4ed88712803eeb64a))
+* **client-bedrock-agentcore:** Updated InvokeAgentRuntime API to accept account id optionally and added CompleteResourceTokenAuth API. ([d21a546](https://github.com/aws/aws-sdk-js-v3/commit/d21a546467142617f508d720f8b16a236009a271))
+* **client-ec2:** Release Amazon EC2 c8i, c8i-flex, m8a, and r8gb ([d1cdea8](https://github.com/aws/aws-sdk-js-v3/commit/d1cdea81f536ca950897705143f076e348901bf8))
+* **client-observabilityadmin:** CloudWatch Observability Admin adds the ability to enable Resource tags for telemetry in a customer account. The release introduces new APIs to enable, disable and describe the status of Resource tags for telemetry feature. This new capability simplifies monitoring AWS resources using tags. ([f74cc08](https://github.com/aws/aws-sdk-js-v3/commit/f74cc089c493dd44700ecc5d6c47635f7bbfe7a2))
+
+
+
+
+
 # [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
 
 

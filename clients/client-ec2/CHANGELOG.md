@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.909.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.908.0...v3.909.0) (2025-10-13)
+
+
+### Features
+
+* **client-ec2:** Release Amazon EC2 c8i, c8i-flex, m8a, and r8gb ([d1cdea8](https://github.com/aws/aws-sdk-js-v3/commit/d1cdea81f536ca950897705143f076e348901bf8))
+
+
+
+
+
 # [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
