@@ -37,9 +37,7 @@ export interface GetTelemetryRuleForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *       Retrieves the details of a specific organization telemetry rule. This operation can only be called by the organization's management account or a delegated administrator account.
- *     </p>
+ * <p> Retrieves the details of a specific organization telemetry rule. This operation can only be called by the organization's management account or a delegated administrator account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,29 +83,19 @@ export interface GetTelemetryRuleForOrganizationCommandOutput
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *       Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide.
- *     </p>
+ *  <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *       Indicates the request has failed to process because of an unknown server error, exception, or failure.
- *     </p>
+ *  <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *       The specified resource (such as a telemetry rule) could not be found.
- *     </p>
+ *  <p> The specified resource (such as a telemetry rule) could not be found. </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>
- *       The request throughput limit was exceeded.
- *     </p>
+ *  <p> The request throughput limit was exceeded. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *      Indicates input validation failed. Check your request parameters and retry the request.
- *     </p>
+ *  <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
  *
  * @throws {@link ObservabilityAdminServiceException}
  * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>

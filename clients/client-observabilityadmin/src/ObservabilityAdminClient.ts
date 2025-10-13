@@ -82,6 +82,10 @@ import {
   GetCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/GetCentralizationRuleForOrganizationCommand";
 import {
+  GetTelemetryEnrichmentStatusCommandInput,
+  GetTelemetryEnrichmentStatusCommandOutput,
+} from "./commands/GetTelemetryEnrichmentStatusCommand";
+import {
   GetTelemetryEvaluationStatusCommandInput,
   GetTelemetryEvaluationStatusCommandOutput,
 } from "./commands/GetTelemetryEvaluationStatusCommand";
@@ -116,6 +120,10 @@ import {
   ListTelemetryRulesForOrganizationCommandOutput,
 } from "./commands/ListTelemetryRulesForOrganizationCommand";
 import {
+  StartTelemetryEnrichmentCommandInput,
+  StartTelemetryEnrichmentCommandOutput,
+} from "./commands/StartTelemetryEnrichmentCommand";
+import {
   StartTelemetryEvaluationCommandInput,
   StartTelemetryEvaluationCommandOutput,
 } from "./commands/StartTelemetryEvaluationCommand";
@@ -123,6 +131,10 @@ import {
   StartTelemetryEvaluationForOrganizationCommandInput,
   StartTelemetryEvaluationForOrganizationCommandOutput,
 } from "./commands/StartTelemetryEvaluationForOrganizationCommand";
+import {
+  StopTelemetryEnrichmentCommandInput,
+  StopTelemetryEnrichmentCommandOutput,
+} from "./commands/StopTelemetryEnrichmentCommand";
 import {
   StopTelemetryEvaluationCommandInput,
   StopTelemetryEvaluationCommandOutput,
@@ -167,6 +179,7 @@ export type ServiceInputTypes =
   | DeleteTelemetryRuleCommandInput
   | DeleteTelemetryRuleForOrganizationCommandInput
   | GetCentralizationRuleForOrganizationCommandInput
+  | GetTelemetryEnrichmentStatusCommandInput
   | GetTelemetryEvaluationStatusCommandInput
   | GetTelemetryEvaluationStatusForOrganizationCommandInput
   | GetTelemetryRuleCommandInput
@@ -177,8 +190,10 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTelemetryRulesCommandInput
   | ListTelemetryRulesForOrganizationCommandInput
+  | StartTelemetryEnrichmentCommandInput
   | StartTelemetryEvaluationCommandInput
   | StartTelemetryEvaluationForOrganizationCommandInput
+  | StopTelemetryEnrichmentCommandInput
   | StopTelemetryEvaluationCommandInput
   | StopTelemetryEvaluationForOrganizationCommandInput
   | TagResourceCommandInput
@@ -198,6 +213,7 @@ export type ServiceOutputTypes =
   | DeleteTelemetryRuleCommandOutput
   | DeleteTelemetryRuleForOrganizationCommandOutput
   | GetCentralizationRuleForOrganizationCommandOutput
+  | GetTelemetryEnrichmentStatusCommandOutput
   | GetTelemetryEvaluationStatusCommandOutput
   | GetTelemetryEvaluationStatusForOrganizationCommandOutput
   | GetTelemetryRuleCommandOutput
@@ -208,8 +224,10 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTelemetryRulesCommandOutput
   | ListTelemetryRulesForOrganizationCommandOutput
+  | StartTelemetryEnrichmentCommandOutput
   | StartTelemetryEvaluationCommandOutput
   | StartTelemetryEvaluationForOrganizationCommandOutput
+  | StopTelemetryEnrichmentCommandOutput
   | StopTelemetryEvaluationCommandOutput
   | StopTelemetryEvaluationForOrganizationCommandOutput
   | TagResourceCommandOutput
@@ -409,10 +427,7 @@ export type ObservabilityAdminClientResolvedConfigType = __SmithyResolvedConfigu
 export interface ObservabilityAdminClientResolvedConfig extends ObservabilityAdminClientResolvedConfigType {}
 
 /**
- * <p>
- *       You can use Amazon CloudWatch Observability Admin to discover and understand the state of telemetry configuration in CloudWatch for your Amazon Web Services Organization or account. This simplifies the process of auditing your telemetry collection configurations across multiple resource types within your Amazon Web Services Organization or account. By providing a consolidated view, it allows you to easily review and manage telemetry settings, helping you ensure proper monitoring and data collection across your Amazon Web Services environment.
- *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html">Auditing CloudWatch telemetry conﬁgurations</a> in the CloudWatch User Guide.</p>
- *          <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html">Identity and access management for Amazon CloudWatch</a> in the CloudWatch User Guide.</p>
+ * <p> You can use Amazon CloudWatch Observability Admin to discover and understand the state of telemetry configuration in CloudWatch for your Amazon Web Services Organization or account. This simplifies the process of auditing your telemetry collection configurations across multiple resource types within your Amazon Web Services Organization or account. By providing a consolidated view, it allows you to easily review and manage telemetry settings, helping you ensure proper monitoring and data collection across your Amazon Web Services environment. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html">Auditing CloudWatch telemetry conﬁgurations</a> in the CloudWatch User Guide.</p> <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html">Identity and access management for Amazon CloudWatch</a> in the CloudWatch User Guide.</p>
  * @public
  */
 export class ObservabilityAdminClient extends __Client<

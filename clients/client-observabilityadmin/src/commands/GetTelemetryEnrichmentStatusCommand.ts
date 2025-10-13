@@ -5,13 +5,16 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
+import { GetTelemetryEnrichmentStatusOutput } from "../models/models_0";
 import {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import {
+  de_GetTelemetryEnrichmentStatusCommand,
+  se_GetTelemetryEnrichmentStatusCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,43 +24,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link GetTelemetryEnrichmentStatusCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceInput {}
+export interface GetTelemetryEnrichmentStatusCommandInput {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link GetTelemetryEnrichmentStatusCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
+export interface GetTelemetryEnrichmentStatusCommandOutput
+  extends GetTelemetryEnrichmentStatusOutput,
+    __MetadataBearer {}
 
 /**
- * <p> Lists all tags attached to the specified telemetry rule resource. </p>
+ * <p> Returns the current status of the resource tags for telemetry feature, which enhances telemetry data with additional resource metadata from Amazon Web Services Resource Explorer. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ObservabilityAdminClient, ListTagsForResourceCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
- * // const { ObservabilityAdminClient, ListTagsForResourceCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * import { ObservabilityAdminClient, GetTelemetryEnrichmentStatusCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
+ * // const { ObservabilityAdminClient, GetTelemetryEnrichmentStatusCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
  * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
  * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
- * const input = { // ListTagsForResourceInput
- *   ResourceARN: "STRING_VALUE", // required
- * };
- * const command = new ListTagsForResourceCommand(input);
+ * const input = {};
+ * const command = new GetTelemetryEnrichmentStatusCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceOutput
- * //   Tags: { // TagMapOutput // required
- * //     "<keys>": "STRING_VALUE",
- * //   },
+ * // { // GetTelemetryEnrichmentStatusOutput
+ * //   Status: "Running" || "Stopped" || "Impaired",
+ * //   AwsResourceExplorerManagedViewArn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param GetTelemetryEnrichmentStatusCommandInput - {@link GetTelemetryEnrichmentStatusCommandInput}
+ * @returns {@link GetTelemetryEnrichmentStatusCommandOutput}
+ * @see {@link GetTelemetryEnrichmentStatusCommandInput} for command's `input` shape.
+ * @see {@link GetTelemetryEnrichmentStatusCommandOutput} for command's `response` shape.
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -72,19 +74,16 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p> The request throughput limit was exceeded. </p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
- *
  * @throws {@link ObservabilityAdminServiceException}
  * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
  *
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class GetTelemetryEnrichmentStatusCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    GetTelemetryEnrichmentStatusCommandInput,
+    GetTelemetryEnrichmentStatusCommandOutput,
     ObservabilityAdminClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -96,21 +95,21 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ObservabilityAdmin", "ListTagsForResource", {})
-  .n("ObservabilityAdminClient", "ListTagsForResourceCommand")
+  .s("ObservabilityAdmin", "GetTelemetryEnrichmentStatus", {})
+  .n("ObservabilityAdminClient", "GetTelemetryEnrichmentStatusCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_GetTelemetryEnrichmentStatusCommand)
+  .de(de_GetTelemetryEnrichmentStatusCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceInput;
-      output: ListTagsForResourceOutput;
+      input: {};
+      output: GetTelemetryEnrichmentStatusOutput;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: GetTelemetryEnrichmentStatusCommandInput;
+      output: GetTelemetryEnrichmentStatusCommandOutput;
     };
   };
 }

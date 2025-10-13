@@ -6,10 +6,7 @@
 
 AWS SDK for JavaScript ObservabilityAdmin Client for Node.js, Browser and React Native.
 
-<p>
-You can use Amazon CloudWatch Observability Admin to discover and understand the state of telemetry configuration in CloudWatch for your Amazon Web Services Organization or account. This simplifies the process of auditing your telemetry collection configurations across multiple resource types within your Amazon Web Services Organization or account. By providing a consolidated view, it allows you to easily review and manage telemetry settings, helping you ensure proper monitoring and data collection across your Amazon Web Services environment.
-For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html">Auditing CloudWatch telemetry conﬁgurations</a> in the CloudWatch User Guide.</p>
-<p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html">Identity and access management for Amazon CloudWatch</a> in the CloudWatch User Guide.</p>
+<p> You can use Amazon CloudWatch Observability Admin to discover and understand the state of telemetry configuration in CloudWatch for your Amazon Web Services Organization or account. This simplifies the process of auditing your telemetry collection configurations across multiple resource types within your Amazon Web Services Organization or account. By providing a consolidated view, it allows you to easily review and manage telemetry settings, helping you ensure proper monitoring and data collection across your Amazon Web Services environment. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-cloudwatch.html">Auditing CloudWatch telemetry conﬁgurations</a> in the CloudWatch User Guide.</p> <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html">Identity and access management for Amazon CloudWatch</a> in the CloudWatch User Guide.</p>
 
 ## Installing
 
@@ -264,6 +261,14 @@ GetCentralizationRuleForOrganization
 </details>
 <details>
 <summary>
+GetTelemetryEnrichmentStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetTelemetryEnrichmentStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetTelemetryEnrichmentStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetTelemetryEnrichmentStatusCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetTelemetryEvaluationStatus
 </summary>
 
@@ -344,6 +349,14 @@ ListTelemetryRulesForOrganization
 </details>
 <details>
 <summary>
+StartTelemetryEnrichment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/StartTelemetryEnrichmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StartTelemetryEnrichmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StartTelemetryEnrichmentCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartTelemetryEvaluation
 </summary>
 
@@ -356,6 +369,14 @@ StartTelemetryEvaluationForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/StartTelemetryEvaluationForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StartTelemetryEvaluationForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StartTelemetryEvaluationForOrganizationCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopTelemetryEnrichment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/StopTelemetryEnrichmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StopTelemetryEnrichmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/StopTelemetryEnrichmentCommandOutput/)
 
 </details>
 <details>

@@ -49,6 +49,10 @@ import {
   GetCentralizationRuleForOrganizationCommandOutput,
 } from "../commands/GetCentralizationRuleForOrganizationCommand";
 import {
+  GetTelemetryEnrichmentStatusCommandInput,
+  GetTelemetryEnrichmentStatusCommandOutput,
+} from "../commands/GetTelemetryEnrichmentStatusCommand";
+import {
   GetTelemetryEvaluationStatusCommandInput,
   GetTelemetryEvaluationStatusCommandOutput,
 } from "../commands/GetTelemetryEvaluationStatusCommand";
@@ -83,6 +87,10 @@ import {
   ListTelemetryRulesForOrganizationCommandOutput,
 } from "../commands/ListTelemetryRulesForOrganizationCommand";
 import {
+  StartTelemetryEnrichmentCommandInput,
+  StartTelemetryEnrichmentCommandOutput,
+} from "../commands/StartTelemetryEnrichmentCommand";
+import {
   StartTelemetryEvaluationCommandInput,
   StartTelemetryEvaluationCommandOutput,
 } from "../commands/StartTelemetryEvaluationCommand";
@@ -90,6 +98,10 @@ import {
   StartTelemetryEvaluationForOrganizationCommandInput,
   StartTelemetryEvaluationForOrganizationCommandOutput,
 } from "../commands/StartTelemetryEvaluationForOrganizationCommand";
+import {
+  StopTelemetryEnrichmentCommandInput,
+  StopTelemetryEnrichmentCommandOutput,
+} from "../commands/StopTelemetryEnrichmentCommand";
 import {
   StopTelemetryEvaluationCommandInput,
   StopTelemetryEvaluationCommandOutput,
@@ -292,6 +304,21 @@ export const se_GetCentralizationRuleForOrganizationCommand = async (
       RuleIdentifier: [],
     })
   );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTelemetryEnrichmentStatusCommand
+ */
+export const se_GetTelemetryEnrichmentStatusCommand = async (
+  input: GetTelemetryEnrichmentStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/GetTelemetryEnrichmentStatus");
+  let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -523,6 +550,21 @@ export const se_ListTelemetryRulesForOrganizationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartTelemetryEnrichmentCommand
+ */
+export const se_StartTelemetryEnrichmentCommand = async (
+  input: StartTelemetryEnrichmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/StartTelemetryEnrichment");
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartTelemetryEvaluationCommand
  */
 export const se_StartTelemetryEvaluationCommand = async (
@@ -547,6 +589,21 @@ export const se_StartTelemetryEvaluationForOrganizationCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/StartTelemetryEvaluationForOrganization");
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopTelemetryEnrichmentCommand
+ */
+export const se_StopTelemetryEnrichmentCommand = async (
+  input: StopTelemetryEnrichmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/StopTelemetryEnrichment");
   let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
@@ -841,6 +898,28 @@ export const de_GetCentralizationRuleForOrganizationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetTelemetryEnrichmentStatusCommand
+ */
+export const de_GetTelemetryEnrichmentStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTelemetryEnrichmentStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AwsResourceExplorerManagedViewArn: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetTelemetryEvaluationStatusCommand
  */
 export const de_GetTelemetryEvaluationStatusCommand = async (
@@ -1066,6 +1145,28 @@ export const de_ListTelemetryRulesForOrganizationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartTelemetryEnrichmentCommand
+ */
+export const de_StartTelemetryEnrichmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTelemetryEnrichmentCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AwsResourceExplorerManagedViewArn: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartTelemetryEvaluationCommand
  */
 export const de_StartTelemetryEvaluationCommand = async (
@@ -1096,6 +1197,27 @@ export const de_StartTelemetryEvaluationForOrganizationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopTelemetryEnrichmentCommand
+ */
+export const de_StopTelemetryEnrichmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopTelemetryEnrichmentCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
