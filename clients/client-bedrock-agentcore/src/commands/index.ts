@@ -2,6 +2,7 @@
 export * from "./BatchCreateMemoryRecordsCommand";
 export * from "./BatchDeleteMemoryRecordsCommand";
 export * from "./BatchUpdateMemoryRecordsCommand";
+export * from "./CompleteResourceTokenAuthCommand";
 export * from "./CreateEventCommand";
 export * from "./DeleteEventCommand";
 export * from "./DeleteMemoryRecordCommand";

@@ -72,6 +72,10 @@ import {
   BatchUpdateMemoryRecordsCommandInput,
   BatchUpdateMemoryRecordsCommandOutput,
 } from "./commands/BatchUpdateMemoryRecordsCommand";
+import {
+  CompleteResourceTokenAuthCommandInput,
+  CompleteResourceTokenAuthCommandOutput,
+} from "./commands/CompleteResourceTokenAuthCommand";
 import { CreateEventCommandInput, CreateEventCommandOutput } from "./commands/CreateEventCommand";
 import { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import { DeleteMemoryRecordCommandInput, DeleteMemoryRecordCommandOutput } from "./commands/DeleteMemoryRecordCommand";
@@ -157,6 +161,7 @@ export type ServiceInputTypes =
   | BatchCreateMemoryRecordsCommandInput
   | BatchDeleteMemoryRecordsCommandInput
   | BatchUpdateMemoryRecordsCommandInput
+  | CompleteResourceTokenAuthCommandInput
   | CreateEventCommandInput
   | DeleteEventCommandInput
   | DeleteMemoryRecordCommandInput
@@ -193,6 +198,7 @@ export type ServiceOutputTypes =
   | BatchCreateMemoryRecordsCommandOutput
   | BatchDeleteMemoryRecordsCommandOutput
   | BatchUpdateMemoryRecordsCommandOutput
+  | CompleteResourceTokenAuthCommandOutput
   | CreateEventCommandOutput
   | DeleteEventCommandOutput
   | DeleteMemoryRecordCommandOutput

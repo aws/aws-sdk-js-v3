@@ -18,6 +18,11 @@ import {
   BatchUpdateMemoryRecordsCommandInput,
   BatchUpdateMemoryRecordsCommandOutput,
 } from "./commands/BatchUpdateMemoryRecordsCommand";
+import {
+  CompleteResourceTokenAuthCommand,
+  CompleteResourceTokenAuthCommandInput,
+  CompleteResourceTokenAuthCommandOutput,
+} from "./commands/CompleteResourceTokenAuthCommand";
 import { CreateEventCommand, CreateEventCommandInput, CreateEventCommandOutput } from "./commands/CreateEventCommand";
 import { DeleteEventCommand, DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import {
@@ -143,6 +148,7 @@ const commands = {
   BatchCreateMemoryRecordsCommand,
   BatchDeleteMemoryRecordsCommand,
   BatchUpdateMemoryRecordsCommand,
+  CompleteResourceTokenAuthCommand,
   CreateEventCommand,
   DeleteEventCommand,
   DeleteMemoryRecordCommand,
@@ -223,6 +229,23 @@ export interface BedrockAgentCore {
     args: BatchUpdateMemoryRecordsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchUpdateMemoryRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CompleteResourceTokenAuthCommand}
+   */
+  completeResourceTokenAuth(
+    args: CompleteResourceTokenAuthCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CompleteResourceTokenAuthCommandOutput>;
+  completeResourceTokenAuth(
+    args: CompleteResourceTokenAuthCommandInput,
+    cb: (err: any, data?: CompleteResourceTokenAuthCommandOutput) => void
+  ): void;
+  completeResourceTokenAuth(
+    args: CompleteResourceTokenAuthCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CompleteResourceTokenAuthCommandOutput) => void
   ): void;
 
   /**

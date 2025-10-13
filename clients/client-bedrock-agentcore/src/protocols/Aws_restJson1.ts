@@ -50,6 +50,10 @@ import {
   BatchUpdateMemoryRecordsCommandInput,
   BatchUpdateMemoryRecordsCommandOutput,
 } from "../commands/BatchUpdateMemoryRecordsCommand";
+import {
+  CompleteResourceTokenAuthCommandInput,
+  CompleteResourceTokenAuthCommandOutput,
+} from "../commands/CompleteResourceTokenAuthCommand";
 import { CreateEventCommandInput, CreateEventCommandOutput } from "../commands/CreateEventCommand";
 import { DeleteEventCommandInput, DeleteEventCommandOutput } from "../commands/DeleteEventCommand";
 import { DeleteMemoryRecordCommandInput, DeleteMemoryRecordCommandOutput } from "../commands/DeleteMemoryRecordCommand";
@@ -160,6 +164,7 @@ import {
   ToolArguments,
   ToolResultStructuredContent,
   UnauthorizedException,
+  UserIdentifier,
   ValidationException,
   ViewPort,
 } from "../models/models_0";
@@ -228,6 +233,29 @@ export const se_BatchUpdateMemoryRecordsCommand = async (
   body = JSON.stringify(
     take(input, {
       records: (_) => se_MemoryRecordsUpdateInputList(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CompleteResourceTokenAuthCommand
+ */
+export const se_CompleteResourceTokenAuthCommand = async (
+  input: CompleteResourceTokenAuthCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/identities/CompleteResourceTokenAuth");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sessionUri: [],
+      userIdentifier: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -433,11 +461,13 @@ export const se_GetResourceOauth2TokenCommand = async (
   body = JSON.stringify(
     take(input, {
       customParameters: (_) => _json(_),
+      customState: [],
       forceAuthentication: [],
       oauth2Flow: [],
       resourceCredentialProviderName: [],
       resourceOauth2ReturnUrl: [],
       scopes: (_) => _json(_),
+      sessionUri: [],
       workloadIdentityToken: [],
     })
   );
@@ -537,6 +567,7 @@ export const se_InvokeAgentRuntimeCommand = async (
   b.p("agentRuntimeArn", () => input.agentRuntimeArn!, "{agentRuntimeArn}", false);
   const query: any = map({
     [_q]: [, input[_q]!],
+    [_aI]: [, input[_aI]!],
   });
   let body: any;
   if (input.payload !== undefined) {
@@ -984,6 +1015,23 @@ export const de_BatchUpdateMemoryRecordsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CompleteResourceTokenAuthCommand
+ */
+export const de_CompleteResourceTokenAuthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CompleteResourceTokenAuthCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateEventCommand
  */
 export const de_CreateEventCommand = async (
@@ -1205,6 +1253,8 @@ export const de_GetResourceOauth2TokenCommand = async (
   const doc = take(data, {
     accessToken: __expectString,
     authorizationUrl: __expectString,
+    sessionStatus: __expectString,
+    sessionUri: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1642,21 +1692,21 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.bedrockagentcore#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.bedrockagentcore#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.bedrockagentcore#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "RuntimeClientError":
-    case "com.amazonaws.bedrockagentcore#RuntimeClientError":
-      throw await de_RuntimeClientErrorRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.bedrockagentcore#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.bedrockagentcore#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.bedrockagentcore#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "RuntimeClientError":
+    case "com.amazonaws.bedrockagentcore#RuntimeClientError":
+      throw await de_RuntimeClientErrorRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.bedrockagentcore#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -2174,6 +2224,8 @@ const se_ToolArguments = (input: ToolArguments, context: __SerdeContext): any =>
   });
 };
 
+// se_UserIdentifier omitted.
+
 // se_ViewPort omitted.
 
 // de_ActorSummary omitted.
@@ -2475,6 +2527,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const _a = "accept";
+const _aI = "accountId";
 const _b = "baggage";
 const _cT = "contentType";
 const _ct = "content-type";

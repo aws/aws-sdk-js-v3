@@ -319,6 +319,12 @@ export interface InvokeAgentRuntimeRequest {
   qualifier?: string | undefined;
 
   /**
+   * <p>The identifier of the Amazon Web Services account for the agent runtime resource.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
    * <p>The input data to send to the agent runtime. The format of this data depends on the specific agent configuration and must match the specified content type. For most agents, this is a JSON object containing the user's request.</p>
    * @public
    */
@@ -1266,6 +1272,83 @@ export interface StopCodeInterpreterSessionResponse {
 }
 
 /**
+ * <p>The OAuth2.0 token or user ID that was used to generate the workload access token used for initiating the user authorization flow to retrieve OAuth2.0 tokens.</p>
+ * @public
+ */
+export type UserIdentifier =
+  | UserIdentifier.UserIdMember
+  | UserIdentifier.UserTokenMember
+  | UserIdentifier.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UserIdentifier {
+  /**
+   * <p>The OAuth2.0 token issued by the user’s identity provider</p>
+   * @public
+   */
+  export interface UserTokenMember {
+    userToken: string;
+    userId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ID of the user for whom you have retrieved a workload access token for</p>
+   * @public
+   */
+  export interface UserIdMember {
+    userToken?: never;
+    userId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    userToken?: never;
+    userId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    userToken: (value: string) => T;
+    userId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UserIdentifier, visitor: Visitor<T>): T => {
+    if (value.userToken !== undefined) return visitor.userToken(value.userToken);
+    if (value.userId !== undefined) return visitor.userId(value.userId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CompleteResourceTokenAuthRequest {
+  /**
+   * <p>The OAuth2.0 token or user ID that was used to generate the workload access token used for initiating the user authorization flow to retrieve OAuth2.0 tokens.</p>
+   * @public
+   */
+  userIdentifier: UserIdentifier | undefined;
+
+  /**
+   * <p>Unique identifier for the user's authentication session for retrieving OAuth2 tokens. This ID tracks the authorization flow state across multiple requests and responses during the OAuth2 authentication process.</p>
+   * @public
+   */
+  sessionUri: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CompleteResourceTokenAuthResponse {}
+
+/**
  * @public
  */
 export interface GetResourceApiKeyRequest {
@@ -1336,6 +1419,12 @@ export interface GetResourceOauth2TokenRequest {
   oauth2Flow: Oauth2FlowType | undefined;
 
   /**
+   * <p>Unique identifier for the user's authentication session for retrieving OAuth2 tokens. This ID tracks the authorization flow state across multiple requests and responses during the OAuth2 authentication process.</p>
+   * @public
+   */
+  sessionUri?: string | undefined;
+
+  /**
    * <p>The callback URL to redirect to after the OAuth 2.0 token retrieval is complete. This URL must be one of the provided URLs configured for the workload identity.</p>
    * @public
    */
@@ -1352,7 +1441,27 @@ export interface GetResourceOauth2TokenRequest {
    * @public
    */
   customParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>An opaque string that will be sent back to the callback URL provided in resourceOauth2ReturnUrl. This state should be used to protect the callback URL of your application against CSRF attacks by ensuring the response corresponds to the original request.</p>
+   * @public
+   */
+  customState?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
 
 /**
  * @public
@@ -1369,6 +1478,18 @@ export interface GetResourceOauth2TokenResponse {
    * @public
    */
   accessToken?: string | undefined;
+
+  /**
+   * <p>Unique identifier for the user's authorization session for retrieving OAuth2 tokens. This matches the sessionId from the request and can be used to track the session state.</p>
+   * @public
+   */
+  sessionUri?: string | undefined;
+
+  /**
+   * <p>Status indicating whether the user's authorization session is in progress or has failed. This helps determine the next steps in the OAuth2 authentication flow.</p>
+   * @public
+   */
+  sessionStatus?: SessionStatus | undefined;
 }
 
 /**
@@ -3350,6 +3471,23 @@ export const InvokeAgentRuntimeResponseFilterSensitiveLog = (obj: InvokeAgentRun
 /**
  * @internal
  */
+export const UserIdentifierFilterSensitiveLog = (obj: UserIdentifier): any => {
+  if (obj.userToken !== undefined) return { userToken: SENSITIVE_STRING };
+  if (obj.userId !== undefined) return { userId: obj.userId };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CompleteResourceTokenAuthRequestFilterSensitiveLog = (obj: CompleteResourceTokenAuthRequest): any => ({
+  ...obj,
+  ...(obj.userIdentifier && { userIdentifier: UserIdentifierFilterSensitiveLog(obj.userIdentifier) }),
+});
+
+/**
+ * @internal
+ */
 export const GetResourceApiKeyRequestFilterSensitiveLog = (obj: GetResourceApiKeyRequest): any => ({
   ...obj,
   ...(obj.workloadIdentityToken && { workloadIdentityToken: SENSITIVE_STRING }),
@@ -3370,6 +3508,7 @@ export const GetResourceOauth2TokenRequestFilterSensitiveLog = (obj: GetResource
   ...obj,
   ...(obj.workloadIdentityToken && { workloadIdentityToken: SENSITIVE_STRING }),
   ...(obj.customParameters && { customParameters: SENSITIVE_STRING }),
+  ...(obj.customState && { customState: SENSITIVE_STRING }),
 });
 
 /**
@@ -3377,6 +3516,7 @@ export const GetResourceOauth2TokenRequestFilterSensitiveLog = (obj: GetResource
  */
 export const GetResourceOauth2TokenResponseFilterSensitiveLog = (obj: GetResourceOauth2TokenResponse): any => ({
   ...obj,
+  ...(obj.authorizationUrl && { authorizationUrl: SENSITIVE_STRING }),
   ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
 });
 

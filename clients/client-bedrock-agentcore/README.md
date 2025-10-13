@@ -229,6 +229,14 @@ BatchUpdateMemoryRecords
 </details>
 <details>
 <summary>
+CompleteResourceTokenAuth
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/CompleteResourceTokenAuthCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/CompleteResourceTokenAuthCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/CompleteResourceTokenAuthCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateEvent
 </summary>
 

@@ -7,12 +7,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  GetResourceOauth2TokenRequest,
-  GetResourceOauth2TokenRequestFilterSensitiveLog,
-  GetResourceOauth2TokenResponse,
-  GetResourceOauth2TokenResponseFilterSensitiveLog,
+  CompleteResourceTokenAuthRequest,
+  CompleteResourceTokenAuthRequestFilterSensitiveLog,
+  CompleteResourceTokenAuthResponse,
 } from "../models/models_0";
-import { de_GetResourceOauth2TokenCommand, se_GetResourceOauth2TokenCommand } from "../protocols/Aws_restJson1";
+import { de_CompleteResourceTokenAuthCommand, se_CompleteResourceTokenAuthCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -22,56 +21,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetResourceOauth2TokenCommand}.
+ * The input for {@link CompleteResourceTokenAuthCommand}.
  */
-export interface GetResourceOauth2TokenCommandInput extends GetResourceOauth2TokenRequest {}
+export interface CompleteResourceTokenAuthCommandInput extends CompleteResourceTokenAuthRequest {}
 /**
  * @public
  *
- * The output of {@link GetResourceOauth2TokenCommand}.
+ * The output of {@link CompleteResourceTokenAuthCommand}.
  */
-export interface GetResourceOauth2TokenCommandOutput extends GetResourceOauth2TokenResponse, __MetadataBearer {}
+export interface CompleteResourceTokenAuthCommandOutput extends CompleteResourceTokenAuthResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the OAuth 2.0 token of the provided resource.</p>
+ * <p>Confirms the user authentication session for obtaining OAuth2.0 tokens for a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreClient, GetResourceOauth2TokenCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
- * // const { BedrockAgentCoreClient, GetResourceOauth2TokenCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
+ * import { BedrockAgentCoreClient, CompleteResourceTokenAuthCommand } from "@aws-sdk/client-bedrock-agentcore"; // ES Modules import
+ * // const { BedrockAgentCoreClient, CompleteResourceTokenAuthCommand } = require("@aws-sdk/client-bedrock-agentcore"); // CommonJS import
  * // import type { BedrockAgentCoreClientConfig } from "@aws-sdk/client-bedrock-agentcore";
  * const config = {}; // type is BedrockAgentCoreClientConfig
  * const client = new BedrockAgentCoreClient(config);
- * const input = { // GetResourceOauth2TokenRequest
- *   workloadIdentityToken: "STRING_VALUE", // required
- *   resourceCredentialProviderName: "STRING_VALUE", // required
- *   scopes: [ // ScopesListType // required
- *     "STRING_VALUE",
- *   ],
- *   oauth2Flow: "USER_FEDERATION" || "M2M", // required
- *   sessionUri: "STRING_VALUE",
- *   resourceOauth2ReturnUrl: "STRING_VALUE",
- *   forceAuthentication: true || false,
- *   customParameters: { // CustomRequestParametersType
- *     "<keys>": "STRING_VALUE",
+ * const input = { // CompleteResourceTokenAuthRequest
+ *   userIdentifier: { // UserIdentifier Union: only one key present
+ *     userToken: "STRING_VALUE",
+ *     userId: "STRING_VALUE",
  *   },
- *   customState: "STRING_VALUE",
+ *   sessionUri: "STRING_VALUE", // required
  * };
- * const command = new GetResourceOauth2TokenCommand(input);
+ * const command = new CompleteResourceTokenAuthCommand(input);
  * const response = await client.send(command);
- * // { // GetResourceOauth2TokenResponse
- * //   authorizationUrl: "STRING_VALUE",
- * //   accessToken: "STRING_VALUE",
- * //   sessionUri: "STRING_VALUE",
- * //   sessionStatus: "IN_PROGRESS" || "FAILED",
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetResourceOauth2TokenCommandInput - {@link GetResourceOauth2TokenCommandInput}
- * @returns {@link GetResourceOauth2TokenCommandOutput}
- * @see {@link GetResourceOauth2TokenCommandInput} for command's `input` shape.
- * @see {@link GetResourceOauth2TokenCommandOutput} for command's `response` shape.
+ * @param CompleteResourceTokenAuthCommandInput - {@link CompleteResourceTokenAuthCommandInput}
+ * @returns {@link CompleteResourceTokenAuthCommandOutput}
+ * @see {@link CompleteResourceTokenAuthCommandInput} for command's `input` shape.
+ * @see {@link CompleteResourceTokenAuthCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreClientResolvedConfig | config} for BedrockAgentCoreClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -98,10 +84,10 @@ export interface GetResourceOauth2TokenCommandOutput extends GetResourceOauth2To
  *
  * @public
  */
-export class GetResourceOauth2TokenCommand extends $Command
+export class CompleteResourceTokenAuthCommand extends $Command
   .classBuilder<
-    GetResourceOauth2TokenCommandInput,
-    GetResourceOauth2TokenCommandOutput,
+    CompleteResourceTokenAuthCommandInput,
+    CompleteResourceTokenAuthCommandOutput,
     BedrockAgentCoreClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -113,21 +99,21 @@ export class GetResourceOauth2TokenCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockAgentCore", "GetResourceOauth2Token", {})
-  .n("BedrockAgentCoreClient", "GetResourceOauth2TokenCommand")
-  .f(GetResourceOauth2TokenRequestFilterSensitiveLog, GetResourceOauth2TokenResponseFilterSensitiveLog)
-  .ser(se_GetResourceOauth2TokenCommand)
-  .de(de_GetResourceOauth2TokenCommand)
+  .s("AmazonBedrockAgentCore", "CompleteResourceTokenAuth", {})
+  .n("BedrockAgentCoreClient", "CompleteResourceTokenAuthCommand")
+  .f(CompleteResourceTokenAuthRequestFilterSensitiveLog, void 0)
+  .ser(se_CompleteResourceTokenAuthCommand)
+  .de(de_CompleteResourceTokenAuthCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetResourceOauth2TokenRequest;
-      output: GetResourceOauth2TokenResponse;
+      input: CompleteResourceTokenAuthRequest;
+      output: {};
     };
     sdk: {
-      input: GetResourceOauth2TokenCommandInput;
-      output: GetResourceOauth2TokenCommandOutput;
+      input: CompleteResourceTokenAuthCommandInput;
+      output: CompleteResourceTokenAuthCommandOutput;
     };
   };
 }

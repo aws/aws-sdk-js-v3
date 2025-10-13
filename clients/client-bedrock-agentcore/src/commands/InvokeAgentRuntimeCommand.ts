@@ -70,6 +70,7 @@ export interface InvokeAgentRuntimeCommandOutput
  *   baggage: "STRING_VALUE",
  *   agentRuntimeArn: "STRING_VALUE", // required
  *   qualifier: "STRING_VALUE",
+ *   accountId: "STRING_VALUE",
  *   payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new InvokeAgentRuntimeCommand(input);
