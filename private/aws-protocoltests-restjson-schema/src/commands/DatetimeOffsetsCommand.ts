@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DatetimeOffsetsOutput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { DatetimeOffsets } from "../schemas/schemas_7_Timestamp";
+import { DatetimeOffsets } from "../schemas/schemas_0";
 
 /**
  * @public

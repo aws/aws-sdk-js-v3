@@ -6401,7 +6401,7 @@ export interface AnomalySubscription {
    *          <p>One of Threshold or ThresholdExpression is required for this resource. You cannot
    *             specify both.</p>
    *
-   * @deprecated
+   * @deprecated Threshold has been deprecated in favor of ThresholdExpression
    * @public
    */
   Threshold?: number | undefined;
@@ -9793,7 +9793,7 @@ export interface UpdateAnomalySubscriptionRequest {
    *       use of Threshold will be treated as shorthand syntax for a ThresholdExpression.</p>
    *          <p>You can specify either Threshold or ThresholdExpression, but not both.</p>
    *
-   * @deprecated
+   * @deprecated Threshold has been deprecated in favor of ThresholdExpression
    * @public
    */
   Threshold?: number | undefined;

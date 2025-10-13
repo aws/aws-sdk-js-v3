@@ -129,7 +129,7 @@ export interface AccountDetails {
   /**
    * <p>A description of the types of email that you plan to send.</p>
    *
-   * @deprecated
+   * @deprecated Use case description is optional and deprecated
    * @public
    */
   UseCaseDescription?: string | undefined;

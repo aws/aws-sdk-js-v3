@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpPayloadWithXmlNamespaceAndPrefixInputOutput } from "../models/models_0";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { HttpPayloadWithXmlNamespaceAndPrefix } from "../schemas/schemas_40_HttpPayloadWithXmlNamespaceAndPrefix";
+import { HttpPayloadWithXmlNamespaceAndPrefix } from "../schemas/schemas_0";
 
 /**
  * @public

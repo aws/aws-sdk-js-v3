@@ -688,7 +688,7 @@ export interface DescribeSimulationOutput {
    * <p>An error message that SimSpace Weaver returns only if there is a problem with the simulation
    *          schema.</p>
    *
-   * @deprecated
+   * @deprecated SchemaError is no longer used, check StartError instead.
    * @public
    */
   SchemaError?: string | undefined;

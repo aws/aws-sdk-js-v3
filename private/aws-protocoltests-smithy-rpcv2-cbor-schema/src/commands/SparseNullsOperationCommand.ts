@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SparseNullsOperationInputOutput } from "../models/models_0";
 import { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
-import { SparseNullsOperation } from "../schemas/schemas_1_Rpc";
+import { SparseNullsOperation } from "../schemas/schemas_0";
 
 /**
  * @public

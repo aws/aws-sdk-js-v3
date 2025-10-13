@@ -1901,7 +1901,7 @@ export interface ReportInstanceStatusRequest {
   /**
    * <p>Descriptive text about the health state of your instance.</p>
    *
-   * @deprecated
+   * @deprecated This member has been deprecated
    * @public
    */
   Description?: string | undefined;
@@ -3561,7 +3561,7 @@ export interface RunInstancesRequest {
    *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
    *
-   * @deprecated
+   * @deprecated Specifying Elastic Graphics accelerators is no longer supported on the RunInstances API.
    * @public
    */
   ElasticGpuSpecification?: ElasticGpuSpecification[] | undefined;
@@ -3572,7 +3572,7 @@ export interface RunInstancesRequest {
    *             <p>Amazon Elastic Inference is no longer available.</p>
    *          </note>
    *
-   * @deprecated
+   * @deprecated Specifying Elastic Inference accelerators is no longer supported on the RunInstances API.
    * @public
    */
   ElasticInferenceAccelerators?: ElasticInferenceAccelerator[] | undefined;

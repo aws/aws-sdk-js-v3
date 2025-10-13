@@ -4373,7 +4373,7 @@ export interface DescribeProvisioningParametersOutput {
   /**
    * <p>The output of the provisioning artifact.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated and returns the Id and Description of the Provisioning Artifact. Use ProvisioningArtifactOutputKeys instead to get the Keys and Descriptions of the outputs.
    * @public
    */
   ProvisioningArtifactOutputs?: ProvisioningArtifactOutput[] | undefined;

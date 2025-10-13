@@ -3766,7 +3766,7 @@ export interface AwsSecurityFinding {
   /**
    * <p>The workflow state of a finding. </p>
    *
-   * @deprecated
+   * @deprecated This filter is deprecated. Instead, use SeverityLabel or FindingProviderFieldsSeverityLabel.
    * @public
    */
   WorkflowState?: WorkflowState | undefined;
@@ -3983,7 +3983,7 @@ export interface AwsSecurityFindingFilters {
    * <p>The native severity as defined by the security findings provider's solution that
    *          generated the finding.</p>
    *
-   * @deprecated
+   * @deprecated This filter is deprecated. Instead, use FindingProviderSeverityOriginal.
    * @public
    */
   SeverityProduct?: NumberFilter[] | undefined;
@@ -3991,7 +3991,7 @@ export interface AwsSecurityFindingFilters {
   /**
    * <p>The normalized severity of a finding.</p>
    *
-   * @deprecated
+   * @deprecated This filter is deprecated. Instead, use SeverityLabel or FindingProviderFieldsSeverityLabel.
    * @public
    */
   SeverityNormalized?: NumberFilter[] | undefined;
@@ -4337,7 +4337,7 @@ export interface AwsSecurityFindingFilters {
   /**
    * <p>The user associated with the IAM access key related to a finding.</p>
    *
-   * @deprecated
+   * @deprecated This filter is deprecated. Instead, use ResourceAwsIamAccessKeyPrincipalName.
    * @public
    */
   ResourceAwsIamAccessKeyUserName?: StringFilter[] | undefined;
@@ -4533,7 +4533,7 @@ export interface AwsSecurityFindingFilters {
   /**
    * <p>A keyword for a finding.</p>
    *
-   * @deprecated
+   * @deprecated The Keyword property is deprecated.
    * @public
    */
   Keyword?: KeywordFilter[] | undefined;

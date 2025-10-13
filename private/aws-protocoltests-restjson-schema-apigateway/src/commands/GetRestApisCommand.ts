@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetRestApisRequest, RestApis } from "../models/models_0";
-import { GetRestApis } from "../schemas/schemas_1_GetRestApis";
+import { GetRestApis } from "../schemas/schemas_0";
 
 /**
  * @public

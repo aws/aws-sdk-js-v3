@@ -869,7 +869,7 @@ export interface Captions {
    *          <p>
    *             <code>MergePolicy</code> cannot be null.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   MergePolicy?: string | undefined;
@@ -878,7 +878,7 @@ export interface Captions {
    * <p>Source files for the input sidecar captions used during the transcoding
    *          process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   CaptionSources?: CaptionSource[] | undefined;
@@ -918,7 +918,7 @@ export interface TimeSpan {
 /**
  * <p>Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.</p>
  *
- * @deprecated
+ * @deprecated deprecated
  * @public
  */
 export interface Clip {
@@ -1350,7 +1350,7 @@ export interface CreateJobOutput {
    *             for the clips that make up an output file. For the current release, you can only specify settings for a
    *             single clip per output file. The Composition object cannot be null.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Composition?: Clip[] | undefined;
@@ -1914,7 +1914,7 @@ export interface JobOutput {
    *             for the clips that make up an output file. For the current release, you can only specify settings for a
    *             single clip per output file. The Composition object cannot be null.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Composition?: Clip[] | undefined;
@@ -4468,7 +4468,7 @@ export interface ReadPresetResponse {
 /**
  * <p> The <code>TestRoleRequest</code> structure. </p>
  *
- * @deprecated
+ * @deprecated deprecated
  * @public
  */
 export interface TestRoleRequest {
@@ -4500,7 +4500,7 @@ export interface TestRoleRequest {
 /**
  * <p>The <code>TestRoleResponse</code> structure.</p>
  *
- * @deprecated
+ * @deprecated deprecated
  * @public
  */
 export interface TestRoleResponse {

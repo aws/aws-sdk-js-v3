@@ -552,7 +552,7 @@ export interface AnomalyDetector {
   /**
    * <p>The namespace of the metric associated with the anomaly detection model.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.Namespace property.
    * @public
    */
   Namespace?: string | undefined;
@@ -560,7 +560,7 @@ export interface AnomalyDetector {
   /**
    * <p>The name of the metric associated with the anomaly detection model.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.MetricName property.
    * @public
    */
   MetricName?: string | undefined;
@@ -568,7 +568,7 @@ export interface AnomalyDetector {
   /**
    * <p>The metric dimensions associated with the anomaly detection model.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.Dimensions property.
    * @public
    */
   Dimensions?: Dimension[] | undefined;
@@ -576,7 +576,7 @@ export interface AnomalyDetector {
   /**
    * <p>The statistic associated with the anomaly detection model.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.Stat property.
    * @public
    */
   Stat?: string | undefined;
@@ -1077,7 +1077,7 @@ export interface DeleteAnomalyDetectorInput {
   /**
    * <p>The namespace associated with the anomaly detection model to delete.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.
    * @public
    */
   Namespace?: string | undefined;
@@ -1085,7 +1085,7 @@ export interface DeleteAnomalyDetectorInput {
   /**
    * <p>The metric name associated with the anomaly detection model to delete.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.
    * @public
    */
   MetricName?: string | undefined;
@@ -1093,7 +1093,7 @@ export interface DeleteAnomalyDetectorInput {
   /**
    * <p>The metric dimensions associated with the anomaly detection model to delete.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.
    * @public
    */
   Dimensions?: Dimension[] | undefined;
@@ -1101,7 +1101,7 @@ export interface DeleteAnomalyDetectorInput {
   /**
    * <p>The statistic associated with the anomaly detection model to delete.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.
    * @public
    */
   Stat?: string | undefined;
@@ -3713,7 +3713,7 @@ export interface PutAnomalyDetectorInput {
   /**
    * <p>The namespace of the metric to create the anomaly detection model for.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.
    * @public
    */
   Namespace?: string | undefined;
@@ -3721,7 +3721,7 @@ export interface PutAnomalyDetectorInput {
   /**
    * <p>The name of the metric to create the anomaly detection model for.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.
    * @public
    */
   MetricName?: string | undefined;
@@ -3729,7 +3729,7 @@ export interface PutAnomalyDetectorInput {
   /**
    * <p>The metric dimensions to create the anomaly detection model for.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.
    * @public
    */
   Dimensions?: Dimension[] | undefined;
@@ -3737,7 +3737,7 @@ export interface PutAnomalyDetectorInput {
   /**
    * <p>The statistic to use for the metric and the anomaly detection model.</p>
    *
-   * @deprecated
+   * @deprecated Use SingleMetricAnomalyDetector.
    * @public
    */
   Stat?: string | undefined;

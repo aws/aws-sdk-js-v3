@@ -7454,7 +7454,7 @@ export interface CreateSecurityProfileRequest {
    *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
    *         any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
    *
-   * @deprecated
+   * @deprecated Use additionalMetricsToRetainV2.
    * @public
    */
   additionalMetricsToRetain?: string[] | undefined;

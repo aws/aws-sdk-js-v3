@@ -309,7 +309,7 @@ export interface CitationEvent {
   /**
    * <p>The citation.</p>
    *
-   * @deprecated
+   * @deprecated Citation is deprecated. Please use GeneratedResponsePart and RetrievedReferences for citation event.
    * @public
    */
   citation?: Citation | undefined;

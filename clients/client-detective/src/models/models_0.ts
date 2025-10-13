@@ -593,7 +593,7 @@ export interface MemberDetail {
    * <p>The Amazon Web Services account identifier of the administrator account for the behavior
    *          graph.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated. Use AdministratorId instead.
    * @public
    */
   MasterId?: string | undefined;
@@ -691,7 +691,7 @@ export interface MemberDetail {
   /**
    * <p>The data volume in bytes per day for the member account.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated. Use VolumeUsageByDatasourcePackage instead.
    * @public
    */
   VolumeUsageInBytes?: number | undefined;
@@ -700,7 +700,7 @@ export interface MemberDetail {
    * <p>The data and time when the member account data volume was last updated. The value is an
    *          ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated. Use VolumeUsageByDatasourcePackage instead.
    * @public
    */
   VolumeUsageUpdatedTime?: Date | undefined;
@@ -714,7 +714,7 @@ export interface MemberDetail {
    *             <code>PercentOfGraphUtilization</code> is 25. It represents 25% of the maximum allowed
    *          data volume. </p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated. Use VolumeUsageByDatasourcePackage instead.
    * @public
    */
   PercentOfGraphUtilization?: number | undefined;
@@ -723,7 +723,7 @@ export interface MemberDetail {
    * <p>The date and time when the graph utilization percentage was last updated. The value is
    *          an ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated. Use VolumeUsageByDatasourcePackage instead.
    * @public
    */
   PercentOfGraphUtilizationUpdatedTime?: Date | undefined;

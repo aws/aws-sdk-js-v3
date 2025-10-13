@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaTypeHeaderInput, MediaTypeHeaderOutput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { MediaTypeHeader } from "../schemas/schemas_13_MediaTypeHeader";
+import { MediaTypeHeader } from "../schemas/schemas_0";
 
 /**
  * @public

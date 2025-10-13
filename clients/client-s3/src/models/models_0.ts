@@ -7715,7 +7715,7 @@ export interface LifecycleRule {
    *             XML related object key constraints</a>.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Prefix?: string | undefined;
@@ -9818,7 +9818,7 @@ export interface ReplicationRule {
    *             XML related object key constraints</a>.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Prefix?: string | undefined;
@@ -10520,7 +10520,7 @@ export interface GetObjectOutput {
   /**
    * Deprecated in favor of ExpiresString.
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Expires?: Date | undefined;
@@ -12323,7 +12323,7 @@ export interface HeadObjectOutput {
   /**
    * Deprecated in favor of ExpiresString.
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Expires?: Date | undefined;

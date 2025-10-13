@@ -37,7 +37,7 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  *       see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects
  *       at Direct Connect Locations</a> in the <i>Direct Connect User Guide</i>.</p>
  *
- * @deprecated
+ * @deprecated deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1623,7 +1623,7 @@ export interface CreateKeyRequest {
    *       way. Only the names differ. We recommend that you use <code>KeySpec</code> parameter in your
    *       code. However, to avoid breaking changes, KMS supports both parameters.</p>
    *
-   * @deprecated
+   * @deprecated This parameter has been deprecated. Instead, use the KeySpec parameter.
    * @public
    */
   CustomerMasterKeySpec?: CustomerMasterKeySpec | undefined;
@@ -2212,7 +2212,7 @@ export interface KeyMetadata {
    *       value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
    *       avoid breaking changes, KMS supports both fields.</p>
    *
-   * @deprecated
+   * @deprecated This field has been deprecated. Instead, use the KeySpec field.
    * @public
    */
   CustomerMasterKeySpec?: CustomerMasterKeySpec | undefined;
@@ -4698,7 +4698,7 @@ export interface GetPublicKeyResponse {
    *       value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
    *       avoid breaking changes, KMS supports both fields.</p>
    *
-   * @deprecated
+   * @deprecated This field has been deprecated. Instead, use the KeySpec field.
    * @public
    */
   CustomerMasterKeySpec?: CustomerMasterKeySpec | undefined;

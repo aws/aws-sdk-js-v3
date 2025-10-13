@@ -989,7 +989,7 @@ export interface ListGroupsRequest {
    * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and
    *             <code>ListGroups</code> requests.</p>
    *
-   * @deprecated
+   * @deprecated Using filters with ListGroups API is deprecated, please use GetGroupId API instead.
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -1582,7 +1582,7 @@ export interface ListUsersRequest {
    * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and
    *             <code>ListGroups</code> requests. </p>
    *
-   * @deprecated
+   * @deprecated Using filters with ListUsers API is deprecated, please use GetGroupId API instead.
    * @public
    */
   Filters?: Filter[] | undefined;

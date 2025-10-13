@@ -279,7 +279,7 @@ export interface JobRun {
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *         pricing page</a>.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated, use MaxCapacity instead.
    * @public
    */
   AllocatedCapacity?: number | undefined;

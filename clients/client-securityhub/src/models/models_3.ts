@@ -496,7 +496,7 @@ export interface Member {
    * <p>This is replaced by <code>AdministratorID</code>.</p>
    *          <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use AdministratorId instead.
    * @public
    */
   MasterId?: string | undefined;

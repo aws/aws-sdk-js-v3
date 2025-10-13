@@ -2753,7 +2753,7 @@ export interface Budget {
    *             </li>
    *          </ul>
    *
-   * @deprecated
+   * @deprecated CostFilters lack support for newer dimensions and filtering options. Please consider using the new 'FilterExpression' field.
    * @public
    */
   CostFilters?: Record<string, string[]> | undefined;
@@ -2765,7 +2765,7 @@ export interface Budget {
    * 				<code>SAVINGS_PLANS_UTILIZATION</code>, and <code>SAVINGS_PLANS_COVERAGE</code>
    * 			budgets do not have <code>CostTypes</code>.</p>
    *
-   * @deprecated
+   * @deprecated CostTypes lack support for newer record type dimensions and filtering options. Please consider using the new 'Metrics' field.
    * @public
    */
   CostTypes?: CostTypes | undefined;

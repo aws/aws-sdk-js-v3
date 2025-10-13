@@ -439,7 +439,7 @@ export interface AccountFreeTrialInfo {
   /**
    * <p>Describes the data source enabled for the GuardDuty member account.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated, use Features instead
    * @public
    */
   DataSources?: DataSourcesFreeTrial | undefined;
@@ -1696,7 +1696,7 @@ export interface Condition {
    * <p>Represents the <i>equal</i> condition to be applied to a single field when
    *       querying for findings.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Eq?: string[] | undefined;
@@ -1705,7 +1705,7 @@ export interface Condition {
    * <p>Represents the <i>not equal</i> condition to be applied to a single field
    *       when querying for findings.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Neq?: string[] | undefined;
@@ -1714,7 +1714,7 @@ export interface Condition {
    * <p>Represents a <i>greater than</i> condition to be applied to a single field
    *       when querying for findings.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Gt?: number | undefined;
@@ -1723,7 +1723,7 @@ export interface Condition {
    * <p>Represents a <i>greater than or equal</i> condition to be applied to a
    *       single field when querying for findings.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Gte?: number | undefined;
@@ -1732,7 +1732,7 @@ export interface Condition {
    * <p>Represents a <i>less than</i> condition to be applied to a single field when
    *       querying for findings.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Lt?: number | undefined;
@@ -1741,7 +1741,7 @@ export interface Condition {
    * <p>Represents a <i>less than or equal</i> condition to be applied to a single
    *       field when querying for findings.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Lte?: number | undefined;
@@ -2623,7 +2623,7 @@ export interface CreateDetectorRequest {
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
    *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated, use Features instead
    * @public
    */
   DataSources?: DataSourceConfigurations | undefined;
@@ -4919,7 +4919,7 @@ export interface DescribeOrganizationConfigurationResponse {
    *          <p>Even though this is still supported, we recommend using
    *         <code>AutoEnableOrganizationMembers</code> to achieve the similar results.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use AutoEnableOrganizationMembers instead
    * @public
    */
   AutoEnable?: boolean | undefined;
@@ -4934,7 +4934,7 @@ export interface DescribeOrganizationConfigurationResponse {
   /**
    * <p>Describes which data sources are enabled automatically for member accounts.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated, use Features instead
    * @public
    */
   DataSources?: OrganizationDataSourceConfigurationsResult | undefined;
@@ -8254,7 +8254,7 @@ export interface FindingStatistics {
   /**
    * <p>Represents a list of map of severity to count statistics for a set of findings.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated. Please set GroupBy to 'SEVERITY' to return GroupedBySeverity instead.
    * @public
    */
   CountBySeverity?: Record<string, number> | undefined;

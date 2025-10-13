@@ -1478,7 +1478,7 @@ export interface ClientVpnEndpoint {
   /**
    * <p>Information about the associated target networks. A target network is a subnet in a VPC.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated. To view the target networks associated with a Client VPN endpoint, call DescribeClientVpnTargetNetworks and inspect the clientVpnTargetNetworks response element.
    * @public
    */
   AssociatedTargetNetworks?: AssociatedTargetNetwork[] | undefined;

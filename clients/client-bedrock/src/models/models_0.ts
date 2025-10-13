@@ -6840,7 +6840,7 @@ export interface EvaluationSummary {
   /**
    * <p>The Amazon Resource Names (ARNs) of the model(s) used for the evaluation job.</p>
    *
-   * @deprecated
+   * @deprecated Inference identifiers should be retrieved from the inferenceConfigSummary
    * @public
    */
   modelIdentifiers?: string[] | undefined;
@@ -6848,7 +6848,7 @@ export interface EvaluationSummary {
   /**
    * <p>The Amazon Resource Names (ARNs) of the knowledge base resources used for a knowledge base evaluation job.</p>
    *
-   * @deprecated
+   * @deprecated Inference identifiers should be retrieved from the inferenceConfigSummary
    * @public
    */
   ragIdentifiers?: string[] | undefined;

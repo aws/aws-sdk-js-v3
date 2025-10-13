@@ -184,7 +184,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The events that the application subscribes.</p>
    *
-   * @deprecated
+   * @deprecated Subscriptions has been replaced with Permissions
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
@@ -192,7 +192,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The events that the application publishes.</p>
    *
-   * @deprecated
+   * @deprecated Publications has been replaced with Permissions
    * @public
    */
   Publications?: Publication[] | undefined;
@@ -888,7 +888,7 @@ export interface GetApplicationResponse {
   /**
    * <p>The events that the application subscribes.</p>
    *
-   * @deprecated
+   * @deprecated Subscriptions has been replaced with Permissions
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
@@ -896,7 +896,7 @@ export interface GetApplicationResponse {
   /**
    * <p>The events that the application publishes.</p>
    *
-   * @deprecated
+   * @deprecated Publications has been replaced with Permissions
    * @public
    */
   Publications?: Publication[] | undefined;
@@ -1659,7 +1659,7 @@ export interface UpdateApplicationRequest {
   /**
    * <p>The events that the application subscribes.</p>
    *
-   * @deprecated
+   * @deprecated Subscriptions has been replaced with Permissions
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
@@ -1667,7 +1667,7 @@ export interface UpdateApplicationRequest {
   /**
    * <p>The events that the application publishes.</p>
    *
-   * @deprecated
+   * @deprecated Publications has been replaced with Permissions
    * @public
    */
   Publications?: Publication[] | undefined;

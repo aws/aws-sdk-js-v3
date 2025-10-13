@@ -303,7 +303,7 @@ export interface LoggingConfig {
    *             <p>This API is no longer supported and will throw an error if used.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated AWS RoboMaker is ending support for ROS software suite. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/software-support-policy.html.
    * @public
    */
   recordAllRosTopics?: boolean | undefined;
@@ -590,7 +590,7 @@ export interface RobotApplicationConfig {
    *             <p>This API is no longer supported and will throw an error if used.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated AWS RoboMaker is ending support for ROS software suite. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/software-support-policy.html.
    * @public
    */
   useDefaultUploadConfigurations?: boolean | undefined;
@@ -608,7 +608,7 @@ export interface RobotApplicationConfig {
    *             <p>This API is no longer supported and will throw an error if used.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated AWS RoboMaker is ending support for ROS software suite. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/software-support-policy.html.
    * @public
    */
   useDefaultTools?: boolean | undefined;
@@ -673,7 +673,7 @@ export interface SimulationApplicationConfig {
    *             <p>This API is no longer supported and will throw an error if used.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated AWS RoboMaker is ending support for ROS software suite. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/software-support-policy.html.
    * @public
    */
   useDefaultUploadConfigurations?: boolean | undefined;
@@ -691,7 +691,7 @@ export interface SimulationApplicationConfig {
    *             <p>This API is no longer supported and will throw an error if used.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated AWS RoboMaker is ending support for ROS software suite. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/software-support-policy.html.
    * @public
    */
   useDefaultTools?: boolean | undefined;

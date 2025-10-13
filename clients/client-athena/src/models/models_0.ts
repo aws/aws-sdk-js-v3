@@ -4786,7 +4786,7 @@ export interface StartCalculationExecutionRequest {
   /**
    * <p>Contains configuration information for the calculation.</p>
    *
-   * @deprecated
+   * @deprecated Structure is deprecated.
    * @public
    */
   CalculationConfiguration?: CalculationConfiguration | undefined;

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { UploadMultipartPartInput, UploadMultipartPartOutput } from "../models/models_0";
-import { UploadMultipartPart } from "../schemas/schemas_1_Upload";
+import { UploadMultipartPart } from "../schemas/schemas_0";
 
 /**
  * @public

@@ -4975,7 +4975,7 @@ export interface DeleteHealthCheckResponse {}
 /**
  * <p>This error code is not in use.</p>
  *
- * @deprecated
+ * @deprecated deprecated
  * @public
  */
 export class HealthCheckInUse extends __BaseException {

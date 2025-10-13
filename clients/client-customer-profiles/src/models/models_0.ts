@@ -1849,7 +1849,7 @@ export interface Profile {
   /**
    * <p>The type of profile used to describe the customer.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   PartyType?: PartyType | undefined;
@@ -1887,7 +1887,7 @@ export interface Profile {
   /**
    * <p>The gender with which the customer identifies. </p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Gender?: Gender | undefined;
@@ -3669,7 +3669,7 @@ export interface CreateProfileRequest {
   /**
    * <p>The type of profile used to describe the customer.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   PartyType?: PartyType | undefined;
@@ -3707,7 +3707,7 @@ export interface CreateProfileRequest {
   /**
    * <p>The gender with which the customer identifies. </p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Gender?: Gender | undefined;

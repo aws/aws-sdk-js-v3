@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ConstantQueryStringInput } from "../models/models_0";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { ConstantQueryString } from "../schemas/schemas_37_ConstantQueryString";
+import { ConstantQueryString } from "../schemas/schemas_0";
 
 /**
  * @public

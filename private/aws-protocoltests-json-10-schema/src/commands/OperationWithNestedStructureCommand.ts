@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { OperationWithNestedStructureInput, OperationWithNestedStructureOutput } from "../models/models_0";
-import { OperationWithNestedStructure } from "../schemas/schemas_1_With";
+import { OperationWithNestedStructure } from "../schemas/schemas_0";
 
 /**
  * @public

@@ -40,7 +40,7 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  *             <p>Intended for use by Direct Connect Partners only.</p>
  *          </note>
  *
- * @deprecated
+ * @deprecated deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

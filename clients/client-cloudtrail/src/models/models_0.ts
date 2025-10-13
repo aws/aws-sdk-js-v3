@@ -763,7 +763,7 @@ export interface CancelQueryRequest {
    * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified
    *          query is running.</p>
    *
-   * @deprecated
+   * @deprecated EventDataStore is no longer required by CancelQueryRequest
    * @public
    */
   EventDataStore?: string | undefined;
@@ -2357,7 +2357,7 @@ export interface CreateTrailResponse {
   /**
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   SnsTopicName?: string | undefined;
@@ -2645,7 +2645,7 @@ export class InvalidSnsTopicNameException extends __BaseException {
 /**
  * <p>This exception is no longer in use.</p>
  *
- * @deprecated
+ * @deprecated deprecated
  * @public
  */
 export class KmsKeyDisabledException extends __BaseException {
@@ -3155,7 +3155,7 @@ export interface DescribeQueryRequest {
    * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified
    *          query was run.</p>
    *
-   * @deprecated
+   * @deprecated EventDataStore is no longer required by DescribeQueryRequest
    * @public
    */
   EventDataStore?: string | undefined;
@@ -3399,7 +3399,7 @@ export interface Trail {
   /**
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   SnsTopicName?: string | undefined;
@@ -4833,7 +4833,7 @@ export interface GetQueryResultsRequest {
    * <p>The ARN (or ID suffix of the ARN) of the event data store against which the query was
    *          run.</p>
    *
-   * @deprecated
+   * @deprecated EventDataStore is no longer required by GetQueryResultsRequest
    * @public
    */
   EventDataStore?: string | undefined;
@@ -5379,7 +5379,7 @@ export interface EventDataStore {
    * <p>Indicates whether the event data store is protected from
    *          termination.</p>
    *
-   * @deprecated
+   * @deprecated TerminationProtectionEnabled is no longer returned by ListEventDataStores
    * @public
    */
   TerminationProtectionEnabled?: boolean | undefined;
@@ -5387,7 +5387,7 @@ export interface EventDataStore {
   /**
    * <p>The status of an event data store.</p>
    *
-   * @deprecated
+   * @deprecated Status is no longer returned by ListEventDataStores
    * @public
    */
   Status?: EventDataStoreStatus | undefined;
@@ -5396,7 +5396,7 @@ export interface EventDataStore {
    * <p>The advanced event selectors that were used to select
    *          events for the data store.</p>
    *
-   * @deprecated
+   * @deprecated AdvancedEventSelectors is no longer returned by ListEventDataStores
    * @public
    */
   AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
@@ -5405,7 +5405,7 @@ export interface EventDataStore {
    * <p>Indicates whether the event data store includes events
    *          from all Regions, or only from the Region in which it was created.</p>
    *
-   * @deprecated
+   * @deprecated MultiRegionEnabled is no longer returned by ListEventDataStores
    * @public
    */
   MultiRegionEnabled?: boolean | undefined;
@@ -5414,7 +5414,7 @@ export interface EventDataStore {
    * <p>Indicates that an event data store is collecting logged
    *          events for an organization.</p>
    *
-   * @deprecated
+   * @deprecated OrganizationEnabled is no longer returned by ListEventDataStores
    * @public
    */
   OrganizationEnabled?: boolean | undefined;
@@ -5422,7 +5422,7 @@ export interface EventDataStore {
   /**
    * <p>The retention period, in days.</p>
    *
-   * @deprecated
+   * @deprecated RetentionPeriod is no longer returned by ListEventDataStores
    * @public
    */
   RetentionPeriod?: number | undefined;
@@ -5430,7 +5430,7 @@ export interface EventDataStore {
   /**
    * <p>The timestamp of the event data store's creation.</p>
    *
-   * @deprecated
+   * @deprecated CreatedTimestamp is no longer returned by ListEventDataStores
    * @public
    */
   CreatedTimestamp?: Date | undefined;
@@ -5440,7 +5440,7 @@ export interface EventDataStore {
    *          updated, if applicable. <code>UpdatedTimestamp</code> is always either the same or newer
    *          than the time shown in <code>CreatedTimestamp</code>.</p>
    *
-   * @deprecated
+   * @deprecated UpdatedTimestamp is no longer returned by ListEventDataStores
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -8098,7 +8098,7 @@ export interface UpdateTrailResponse {
   /**
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   SnsTopicName?: string | undefined;

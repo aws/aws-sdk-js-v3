@@ -3474,7 +3474,7 @@ export interface AwsIamAccessKeyDetails {
    *             <code>PrincipalName</code> parameter because access keys can also be assigned to
    *          principals that are not IAM users.</p>
    *
-   * @deprecated
+   * @deprecated This filter is deprecated. Instead, use PrincipalName.
    * @public
    */
   UserName?: string | undefined;

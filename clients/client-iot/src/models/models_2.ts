@@ -4016,7 +4016,7 @@ export interface RegisterCertificateRequest {
    *          <p>Valid values: <code>ACTIVE | INACTIVE</code>
    *          </p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   setAsActive?: boolean | undefined;
@@ -6359,7 +6359,7 @@ export interface UpdateSecurityProfileRequest {
    *       it is
    *       also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
    *
-   * @deprecated
+   * @deprecated Use additionalMetricsToRetainV2.
    * @public
    */
   additionalMetricsToRetain?: string[] | undefined;
@@ -6459,7 +6459,7 @@ export interface UpdateSecurityProfileResponse {
    *       it is
    *       also retained for any metric specified here.</p>
    *
-   * @deprecated
+   * @deprecated Use additionalMetricsToRetainV2.
    * @public
    */
   additionalMetricsToRetain?: string[] | undefined;

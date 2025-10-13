@@ -74,7 +74,7 @@ export interface ListAccessGrantsInstanceEntry {
    *          application; a subresource of the original Identity Center instance. S3 Access Grants creates this
    *          Identity Center application for the specific S3 Access Grants instance. </p>
    *
-   * @deprecated
+   * @deprecated IdentityCenterArn has been deprecated. Use IdentityCenterInstanceArn or IdentityCenterApplicationArn.
    * @public
    */
   IdentityCenterArn?: string | undefined;
@@ -1280,7 +1280,7 @@ export interface CreateAccessGrantsInstanceResult {
    *          application; a subresource of the original Identity Center instance. S3 Access Grants creates this
    *          Identity Center application for the specific S3 Access Grants instance. </p>
    *
-   * @deprecated
+   * @deprecated IdentityCenterArn has been deprecated. Use IdentityCenterInstanceArn or IdentityCenterApplicationArn.
    * @public
    */
   IdentityCenterArn?: string | undefined;
@@ -4906,7 +4906,7 @@ export interface GetAccessGrantsInstanceResult {
    *          application; a subresource of the original Identity Center instance. S3 Access Grants creates this
    *          Identity Center application for the specific S3 Access Grants instance. </p>
    *
-   * @deprecated
+   * @deprecated IdentityCenterArn has been deprecated. Use IdentityCenterInstanceArn or IdentityCenterApplicationArn.
    * @public
    */
   IdentityCenterArn?: string | undefined;
@@ -6314,7 +6314,7 @@ export interface ReplicationRule {
    *             XML-related object key constraints</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated Prefix has been deprecated
    * @public
    */
   Prefix?: string | undefined;

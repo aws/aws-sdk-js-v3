@@ -160,7 +160,7 @@ export interface AssessmentControl {
   /**
    * <p> The description of the control. </p>
    *
-   * @deprecated
+   * @deprecated This data type will be deprecated on May 19, 2025. To view the assessment control description, use GetControl.
    * @public
    */
   description?: string | undefined;
@@ -564,7 +564,7 @@ export interface Scope {
    *             value for <code>awsServices</code> will show as empty.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated You can't specify services in scope when creating/updating an assessment. If you use the parameter to specify one or more AWS services, Audit Manager ignores the input. Instead the value of the parameter will show as empty indicating that the services are defined and managed by Audit Manager.
    * @public
    */
   awsServices?: AWSService[] | undefined;
@@ -2460,7 +2460,7 @@ export interface Framework {
    *             <p>This API parameter is no longer supported.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated Use controlSources from the Control
    * @public
    */
   controlSources?: string | undefined;

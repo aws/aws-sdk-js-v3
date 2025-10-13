@@ -1780,7 +1780,7 @@ export interface StartJobRunRequest {
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *         pricing page</a>.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated, use MaxCapacity instead.
    * @public
    */
   AllocatedCapacity?: number | undefined;
@@ -5150,7 +5150,7 @@ export interface CreateJobRequest {
    *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *       page</a>.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated, use MaxCapacity instead.
    * @public
    */
   AllocatedCapacity?: number | undefined;
@@ -5436,7 +5436,7 @@ export interface Job {
    *       page</a>.</p>
    *          <p></p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated, use MaxCapacity instead.
    * @public
    */
   AllocatedCapacity?: number | undefined;
@@ -5702,7 +5702,7 @@ export interface JobUpdate {
    *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *       page</a>.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated, use MaxCapacity instead.
    * @public
    */
   AllocatedCapacity?: number | undefined;

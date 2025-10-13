@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SimpleScalarXmlPropertiesOutput } from "../models/models_0";
-import { SimpleScalarXmlProperties } from "../schemas/schemas_2_Xml";
+import { SimpleScalarXmlProperties } from "../schemas/schemas_0";
 
 /**
  * @public

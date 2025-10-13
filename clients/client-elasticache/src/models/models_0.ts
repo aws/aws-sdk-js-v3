@@ -11063,7 +11063,7 @@ export interface ModifyReplicationGroupMessage {
   /**
    * <p>Deprecated. This parameter is not used.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   NodeGroupId?: string | undefined;

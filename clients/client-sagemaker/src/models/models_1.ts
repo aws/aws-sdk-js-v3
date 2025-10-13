@@ -4311,7 +4311,7 @@ export interface CreateDomainRequest {
   /**
    * <p>Use <code>KmsKeyId</code>.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated, use KmsKeyId instead.
    * @public
    */
   HomeEfsFileSystemKmsKeyId?: string | undefined;

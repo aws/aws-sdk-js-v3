@@ -2003,7 +2003,7 @@ export interface DescribeEndpointsRequest {
   /**
    * Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
    *
-   * @deprecated
+   * @deprecated DescribeEndpoints and account specific endpoints are no longer required. We recommend that you send your requests directly to the regional endpoint instead.
    * @public
    */
   Mode?: DescribeEndpointsMode | undefined;

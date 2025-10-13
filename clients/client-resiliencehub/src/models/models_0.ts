@@ -747,7 +747,7 @@ export interface AlarmRecommendation {
    * <p>Application Component name for the CloudWatch alarm recommendation. This name is saved as the first
    *       item in the <code>appComponentNames</code> list.</p>
    *
-   * @deprecated
+   * @deprecated An alarm recommendation can be attached to multiple Application Components, hence this property will be replaced by the new property 'appComponentNames'.
    * @public
    */
   appComponentName?: string | undefined;

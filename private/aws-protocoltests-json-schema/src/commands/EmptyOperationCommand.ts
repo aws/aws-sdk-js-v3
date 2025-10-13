@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { EmptyOperation } from "../schemas/schemas_8_EmptyOperation";
+import { EmptyOperation } from "../schemas/schemas_0";
 
 /**
  * @public

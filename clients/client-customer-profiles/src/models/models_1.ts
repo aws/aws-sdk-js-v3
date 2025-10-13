@@ -1199,7 +1199,7 @@ export interface UpdateProfileRequest {
   /**
    * <p>The type of profile used to describe the customer.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   PartyType?: PartyType | undefined;
@@ -1237,7 +1237,7 @@ export interface UpdateProfileRequest {
   /**
    * <p>The gender with which the customer identifies. </p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   Gender?: Gender | undefined;
