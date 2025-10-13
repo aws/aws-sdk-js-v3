@@ -57,7 +57,8 @@ export interface GetOauth2CredentialProviderCommandOutput
  * //   },
  * //   name: "STRING_VALUE", // required
  * //   credentialProviderArn: "STRING_VALUE", // required
- * //   credentialProviderVendor: "GoogleOauth2" || "GithubOauth2" || "SlackOauth2" || "SalesforceOauth2" || "MicrosoftOauth2" || "CustomOauth2", // required
+ * //   credentialProviderVendor: "GoogleOauth2" || "GithubOauth2" || "SlackOauth2" || "SalesforceOauth2" || "MicrosoftOauth2" || "CustomOauth2" || "AtlassianOauth2" || "LinkedinOauth2" || "XOauth2" || "OktaOauth2" || "OneLoginOauth2" || "PingOneOauth2" || "FacebookOauth2" || "YandexOauth2" || "RedditOauth2" || "ZoomOauth2" || "TwitchOauth2" || "SpotifyOauth2" || "DropboxOauth2" || "NotionOauth2" || "HubspotOauth2" || "CyberArkOauth2" || "FusionAuthOauth2" || "Auth0Oauth2" || "CognitoOauth2", // required
+ * //   callbackUrl: "STRING_VALUE",
  * //   oauth2ProviderConfigOutput: { // Oauth2ProviderConfigOutput Union: only one key present
  * //     customOauth2ProviderConfig: { // CustomOauth2ProviderConfigOutput
  * //       oauthDiscovery: { // Oauth2Discovery Union: only one key present
@@ -69,8 +70,12 @@ export interface GetOauth2CredentialProviderCommandOutput
  * //           responseTypes: [ // ResponseListType
  * //             "STRING_VALUE",
  * //           ],
+ * //           tokenEndpointAuthMethods: [ // TokenEndpointAuthMethodsType
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
+ * //       clientId: "STRING_VALUE",
  * //     },
  * //     googleOauth2ProviderConfig: { // GoogleOauth2ProviderConfigOutput
  * //       oauthDiscovery: {//  Union: only one key present
@@ -82,8 +87,12 @@ export interface GetOauth2CredentialProviderCommandOutput
  * //           responseTypes: [
  * //             "STRING_VALUE",
  * //           ],
+ * //           tokenEndpointAuthMethods: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
+ * //       clientId: "STRING_VALUE",
  * //     },
  * //     githubOauth2ProviderConfig: { // GithubOauth2ProviderConfigOutput
  * //       oauthDiscovery: {//  Union: only one key present
@@ -95,8 +104,12 @@ export interface GetOauth2CredentialProviderCommandOutput
  * //           responseTypes: [
  * //             "STRING_VALUE",
  * //           ],
+ * //           tokenEndpointAuthMethods: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
+ * //       clientId: "STRING_VALUE",
  * //     },
  * //     slackOauth2ProviderConfig: { // SlackOauth2ProviderConfigOutput
  * //       oauthDiscovery: {//  Union: only one key present
@@ -108,8 +121,12 @@ export interface GetOauth2CredentialProviderCommandOutput
  * //           responseTypes: [
  * //             "STRING_VALUE",
  * //           ],
+ * //           tokenEndpointAuthMethods: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
+ * //       clientId: "STRING_VALUE",
  * //     },
  * //     salesforceOauth2ProviderConfig: { // SalesforceOauth2ProviderConfigOutput
  * //       oauthDiscovery: {//  Union: only one key present
@@ -121,11 +138,28 @@ export interface GetOauth2CredentialProviderCommandOutput
  * //           responseTypes: [
  * //             "STRING_VALUE",
  * //           ],
+ * //           tokenEndpointAuthMethods: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
+ * //       clientId: "STRING_VALUE",
  * //     },
  * //     microsoftOauth2ProviderConfig: { // MicrosoftOauth2ProviderConfigOutput
  * //       oauthDiscovery: "<Oauth2Discovery>", // required
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     atlassianOauth2ProviderConfig: { // AtlassianOauth2ProviderConfigOutput
+ * //       oauthDiscovery: "<Oauth2Discovery>", // required
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     linkedinOauth2ProviderConfig: { // LinkedinOauth2ProviderConfigOutput
+ * //       oauthDiscovery: "<Oauth2Discovery>", // required
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     includedOauth2ProviderConfig: { // IncludedOauth2ProviderConfigOutput
+ * //       oauthDiscovery: "<Oauth2Discovery>", // required
+ * //       clientId: "STRING_VALUE",
  * //     },
  * //   },
  * //   createdTime: new Date("TIMESTAMP"), // required

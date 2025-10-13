@@ -46,6 +46,9 @@ export interface CreateWorkloadIdentityCommandOutput extends CreateWorkloadIdent
  *   allowedResourceOauth2ReturnUrls: [ // ResourceOauth2ReturnUrlListType
  *     "STRING_VALUE",
  *   ],
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateWorkloadIdentityCommand(input);
  * const response = await client.send(command);

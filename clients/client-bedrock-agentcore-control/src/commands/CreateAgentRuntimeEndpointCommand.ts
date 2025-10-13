@@ -14,6 +14,7 @@ import {
   CreateAgentRuntimeEndpointRequest,
   CreateAgentRuntimeEndpointRequestFilterSensitiveLog,
   CreateAgentRuntimeEndpointResponse,
+  CreateAgentRuntimeEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { de_CreateAgentRuntimeEndpointCommand, se_CreateAgentRuntimeEndpointCommand } from "../protocols/Aws_restJson1";
 
@@ -61,6 +62,8 @@ export interface CreateAgentRuntimeEndpointCommandOutput extends CreateAgentRunt
  * //   targetVersion: "STRING_VALUE", // required
  * //   agentRuntimeEndpointArn: "STRING_VALUE", // required
  * //   agentRuntimeArn: "STRING_VALUE", // required
+ * //   agentRuntimeId: "STRING_VALUE",
+ * //   endpointName: "STRING_VALUE",
  * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * // };
@@ -117,7 +120,7 @@ export class CreateAgentRuntimeEndpointCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "CreateAgentRuntimeEndpoint", {})
   .n("BedrockAgentCoreControlClient", "CreateAgentRuntimeEndpointCommand")
-  .f(CreateAgentRuntimeEndpointRequestFilterSensitiveLog, void 0)
+  .f(CreateAgentRuntimeEndpointRequestFilterSensitiveLog, CreateAgentRuntimeEndpointResponseFilterSensitiveLog)
   .ser(se_CreateAgentRuntimeEndpointCommand)
   .de(de_CreateAgentRuntimeEndpointCommand)
   .build() {

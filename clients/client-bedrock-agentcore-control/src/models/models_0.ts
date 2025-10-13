@@ -125,6 +125,18 @@ export interface CreateAgentRuntimeEndpointResponse {
   agentRuntimeArn: string | undefined;
 
   /**
+   * <p>The unique identifier of the AgentCore Runtime.</p>
+   * @public
+   */
+  agentRuntimeId?: string | undefined;
+
+  /**
+   * <p>The name of the AgentCore Runtime endpoint.</p>
+   * @public
+   */
+  endpointName?: string | undefined;
+
+  /**
    * <p>The current status of the AgentCore Runtime endpoint.</p>
    * @public
    */
@@ -308,6 +320,18 @@ export interface DeleteAgentRuntimeEndpointResponse {
    * @public
    */
   status: AgentRuntimeEndpointStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the AgentCore Runtime.</p>
+   * @public
+   */
+  agentRuntimeId?: string | undefined;
+
+  /**
+   * <p>The name of the AgentCore Runtime endpoint.</p>
+   * @public
+   */
+  endpointName?: string | undefined;
 }
 
 /**
@@ -1005,6 +1029,12 @@ export interface DeleteAgentRuntimeResponse {
    * @public
    */
   status: AgentRuntimeStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the AgentCore Runtime.</p>
+   * @public
+   */
+  agentRuntimeId?: string | undefined;
 }
 
 /**
@@ -1386,6 +1416,12 @@ export interface CreateApiKeyCredentialProviderRequest {
    * @public
    */
   apiKey: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the API key credential provider. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5543,12 +5579,31 @@ export interface UpdateMemoryOutput {
  * @enum
  */
 export const CredentialProviderVendorType = {
+  AtlassianOauth2: "AtlassianOauth2",
+  Auth0Oauth2: "Auth0Oauth2",
+  CognitoOauth2: "CognitoOauth2",
   CustomOauth2: "CustomOauth2",
+  CyberArkOauth2: "CyberArkOauth2",
+  DropboxOauth2: "DropboxOauth2",
+  FacebookOauth2: "FacebookOauth2",
+  FusionAuthOauth2: "FusionAuthOauth2",
   GithubOauth2: "GithubOauth2",
   GoogleOauth2: "GoogleOauth2",
+  HubspotOauth2: "HubspotOauth2",
+  LinkedinOauth2: "LinkedinOauth2",
   MicrosoftOauth2: "MicrosoftOauth2",
+  NotionOauth2: "NotionOauth2",
+  OktaOauth2: "OktaOauth2",
+  OneLoginOauth2: "OneLoginOauth2",
+  PingOneOauth2: "PingOneOauth2",
+  RedditOauth2: "RedditOauth2",
   SalesforceOauth2: "SalesforceOauth2",
   SlackOauth2: "SlackOauth2",
+  SpotifyOauth2: "SpotifyOauth2",
+  TwitchOauth2: "TwitchOauth2",
+  XOauth2: "XOauth2",
+  YandexOauth2: "YandexOauth2",
+  ZoomOauth2: "ZoomOauth2",
 } as const;
 
 /**
@@ -5556,6 +5611,24 @@ export const CredentialProviderVendorType = {
  */
 export type CredentialProviderVendorType =
   (typeof CredentialProviderVendorType)[keyof typeof CredentialProviderVendorType];
+
+/**
+ * <p>Configuration settings for connecting to Atlassian services using OAuth2 authentication. This includes the client credentials required to authenticate with Atlassian's OAuth2 authorization server.</p>
+ * @public
+ */
+export interface AtlassianOauth2ProviderConfigInput {
+  /**
+   * <p>The client ID for the Atlassian OAuth2 provider. This identifier is assigned by Atlassian when you register your application.</p>
+   * @public
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>The client secret for the Atlassian OAuth2 provider. This secret is assigned by Atlassian and used along with the client ID to authenticate your application.</p>
+   * @public
+   */
+  clientSecret: string | undefined;
+}
 
 /**
  * <p>Contains the authorization server metadata for an OAuth2 provider.</p>
@@ -5585,6 +5658,12 @@ export interface Oauth2AuthorizationServerMetadata {
    * @public
    */
   responseTypes?: string[] | undefined;
+
+  /**
+   * <p>The authentication methods supported by the token endpoint. This specifies how clients can authenticate when requesting tokens from the authorization server.</p>
+   * @public
+   */
+  tokenEndpointAuthMethods?: string[] | undefined;
 }
 
 /**
@@ -5704,6 +5783,60 @@ export interface GoogleOauth2ProviderConfigInput {
 }
 
 /**
+ * <p>Configuration settings for connecting to a supported OAuth2 provider. This includes client credentials and OAuth2 discovery information for providers that have built-in support.</p>
+ * @public
+ */
+export interface IncludedOauth2ProviderConfigInput {
+  /**
+   * <p>The client ID for the supported OAuth2 provider. This identifier is assigned by the OAuth2 provider when you register your application.</p>
+   * @public
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>The client secret for the supported OAuth2 provider. This secret is assigned by the OAuth2 provider and used along with the client ID to authenticate your application.</p>
+   * @public
+   */
+  clientSecret: string | undefined;
+
+  /**
+   * <p>Token issuer of your isolated OAuth2 application tenant. This URL identifies the authorization server that issues tokens for this provider.</p>
+   * @public
+   */
+  issuer?: string | undefined;
+
+  /**
+   * <p>OAuth2 authorization endpoint for your isolated OAuth2 application tenant. This is where users are redirected to authenticate and authorize access to their resources.</p>
+   * @public
+   */
+  authorizationEndpoint?: string | undefined;
+
+  /**
+   * <p>OAuth2 token endpoint for your isolated OAuth2 application tenant. This is where authorization codes are exchanged for access tokens.</p>
+   * @public
+   */
+  tokenEndpoint?: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for connecting to LinkedIn services using OAuth2 authentication. This includes the client credentials required to authenticate with LinkedIn's OAuth2 authorization server.</p>
+ * @public
+ */
+export interface LinkedinOauth2ProviderConfigInput {
+  /**
+   * <p>The client ID for the LinkedIn OAuth2 provider. This identifier is assigned by LinkedIn when you register your application.</p>
+   * @public
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>The client secret for the LinkedIn OAuth2 provider. This secret is assigned by LinkedIn and used along with the client ID to authenticate your application.</p>
+   * @public
+   */
+  clientSecret: string | undefined;
+}
+
+/**
  * <p>Input configuration for a Microsoft OAuth2 provider.</p>
  * @public
  */
@@ -5719,6 +5852,12 @@ export interface MicrosoftOauth2ProviderConfigInput {
    * @public
    */
   clientSecret: string | undefined;
+
+  /**
+   * <p>The Microsoft Entra ID (formerly Azure AD) tenant ID for your organization. This identifies the specific tenant within Microsoft's identity platform where your application is registered.</p>
+   * @public
+   */
+  tenantId?: string | undefined;
 }
 
 /**
@@ -5762,9 +5901,12 @@ export interface SlackOauth2ProviderConfigInput {
  * @public
  */
 export type Oauth2ProviderConfigInput =
+  | Oauth2ProviderConfigInput.AtlassianOauth2ProviderConfigMember
   | Oauth2ProviderConfigInput.CustomOauth2ProviderConfigMember
   | Oauth2ProviderConfigInput.GithubOauth2ProviderConfigMember
   | Oauth2ProviderConfigInput.GoogleOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.IncludedOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.LinkedinOauth2ProviderConfigMember
   | Oauth2ProviderConfigInput.MicrosoftOauth2ProviderConfigMember
   | Oauth2ProviderConfigInput.SalesforceOauth2ProviderConfigMember
   | Oauth2ProviderConfigInput.SlackOauth2ProviderConfigMember
@@ -5785,6 +5927,9 @@ export namespace Oauth2ProviderConfigInput {
     slackOauth2ProviderConfig?: never;
     salesforceOauth2ProviderConfig?: never;
     microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
     $unknown?: never;
   }
 
@@ -5799,6 +5944,9 @@ export namespace Oauth2ProviderConfigInput {
     slackOauth2ProviderConfig?: never;
     salesforceOauth2ProviderConfig?: never;
     microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
     $unknown?: never;
   }
 
@@ -5813,6 +5961,9 @@ export namespace Oauth2ProviderConfigInput {
     slackOauth2ProviderConfig?: never;
     salesforceOauth2ProviderConfig?: never;
     microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
     $unknown?: never;
   }
 
@@ -5827,6 +5978,9 @@ export namespace Oauth2ProviderConfigInput {
     slackOauth2ProviderConfig: SlackOauth2ProviderConfigInput;
     salesforceOauth2ProviderConfig?: never;
     microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
     $unknown?: never;
   }
 
@@ -5841,6 +5995,9 @@ export namespace Oauth2ProviderConfigInput {
     slackOauth2ProviderConfig?: never;
     salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigInput;
     microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
     $unknown?: never;
   }
 
@@ -5855,6 +6012,60 @@ export namespace Oauth2ProviderConfigInput {
     slackOauth2ProviderConfig?: never;
     salesforceOauth2ProviderConfig?: never;
     microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigInput;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for Atlassian OAuth2 provider integration.</p>
+   * @public
+   */
+  export interface AtlassianOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigInput;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for LinkedIn OAuth2 provider integration.</p>
+   * @public
+   */
+  export interface LinkedinOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigInput;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a non-custom OAuth2 provider. This includes settings for supported OAuth2 providers that have built-in integration support.</p>
+   * @public
+   */
+  export interface IncludedOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig: IncludedOauth2ProviderConfigInput;
     $unknown?: never;
   }
 
@@ -5868,6 +6079,9 @@ export namespace Oauth2ProviderConfigInput {
     slackOauth2ProviderConfig?: never;
     salesforceOauth2ProviderConfig?: never;
     microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
     $unknown: [string, any];
   }
 
@@ -5878,6 +6092,9 @@ export namespace Oauth2ProviderConfigInput {
     slackOauth2ProviderConfig: (value: SlackOauth2ProviderConfigInput) => T;
     salesforceOauth2ProviderConfig: (value: SalesforceOauth2ProviderConfigInput) => T;
     microsoftOauth2ProviderConfig: (value: MicrosoftOauth2ProviderConfigInput) => T;
+    atlassianOauth2ProviderConfig: (value: AtlassianOauth2ProviderConfigInput) => T;
+    linkedinOauth2ProviderConfig: (value: LinkedinOauth2ProviderConfigInput) => T;
+    includedOauth2ProviderConfig: (value: IncludedOauth2ProviderConfigInput) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -5894,6 +6111,12 @@ export namespace Oauth2ProviderConfigInput {
       return visitor.salesforceOauth2ProviderConfig(value.salesforceOauth2ProviderConfig);
     if (value.microsoftOauth2ProviderConfig !== undefined)
       return visitor.microsoftOauth2ProviderConfig(value.microsoftOauth2ProviderConfig);
+    if (value.atlassianOauth2ProviderConfig !== undefined)
+      return visitor.atlassianOauth2ProviderConfig(value.atlassianOauth2ProviderConfig);
+    if (value.linkedinOauth2ProviderConfig !== undefined)
+      return visitor.linkedinOauth2ProviderConfig(value.linkedinOauth2ProviderConfig);
+    if (value.includedOauth2ProviderConfig !== undefined)
+      return visitor.includedOauth2ProviderConfig(value.includedOauth2ProviderConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5919,6 +6142,399 @@ export interface CreateOauth2CredentialProviderRequest {
    * @public
    */
   oauth2ProviderConfigInput: Oauth2ProviderConfigInput | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the OAuth2 credential provider. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The configuration details returned for an Atlassian OAuth2 provider, including the client ID and OAuth2 discovery information.</p>
+ * @public
+ */
+export interface AtlassianOauth2ProviderConfigOutput {
+  /**
+   * <p>Contains the discovery information for an OAuth2 provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the Atlassian OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a custom OAuth2 provider.</p>
+ * @public
+ */
+export interface CustomOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the custom provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the custom OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a GitHub OAuth2 provider.</p>
+ * @public
+ */
+export interface GithubOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the GitHub provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the GitHub OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a Google OAuth2 provider.</p>
+ * @public
+ */
+export interface GoogleOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the Google provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the Google OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>The configuration details returned for a supported OAuth2 provider, including client credentials and OAuth2 discovery information.</p>
+ * @public
+ */
+export interface IncludedOauth2ProviderConfigOutput {
+  /**
+   * <p>Contains the discovery information for an OAuth2 provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the supported OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>The configuration details returned for a LinkedIn OAuth2 provider, including the client ID and OAuth2 discovery information.</p>
+ * @public
+ */
+export interface LinkedinOauth2ProviderConfigOutput {
+  /**
+   * <p>Contains the discovery information for an OAuth2 provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the LinkedIn OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a Microsoft OAuth2 provider.</p>
+ * @public
+ */
+export interface MicrosoftOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the Microsoft provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the Microsoft OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a Salesforce OAuth2 provider.</p>
+ * @public
+ */
+export interface SalesforceOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the Salesforce provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the Salesforce OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a Slack OAuth2 provider.</p>
+ * @public
+ */
+export interface SlackOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the Slack provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the Slack OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Contains the output configuration for an OAuth2 provider.</p>
+ * @public
+ */
+export type Oauth2ProviderConfigOutput =
+  | Oauth2ProviderConfigOutput.AtlassianOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.CustomOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.GithubOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.GoogleOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.IncludedOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.LinkedinOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.MicrosoftOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.SalesforceOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.SlackOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Oauth2ProviderConfigOutput {
+  /**
+   * <p>The output configuration for a custom OAuth2 provider.</p>
+   * @public
+   */
+  export interface CustomOauth2ProviderConfigMember {
+    customOauth2ProviderConfig: CustomOauth2ProviderConfigOutput;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output configuration for a Google OAuth2 provider.</p>
+   * @public
+   */
+  export interface GoogleOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig: GoogleOauth2ProviderConfigOutput;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output configuration for a GitHub OAuth2 provider.</p>
+   * @public
+   */
+  export interface GithubOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig: GithubOauth2ProviderConfigOutput;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output configuration for a Slack OAuth2 provider.</p>
+   * @public
+   */
+  export interface SlackOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig: SlackOauth2ProviderConfigOutput;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output configuration for a Salesforce OAuth2 provider.</p>
+   * @public
+   */
+  export interface SalesforceOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigOutput;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output configuration for a Microsoft OAuth2 provider.</p>
+   * @public
+   */
+  export interface MicrosoftOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigOutput;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration details for the Atlassian OAuth2 provider.</p>
+   * @public
+   */
+  export interface AtlassianOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigOutput;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration details for the LinkedIn OAuth2 provider.</p>
+   * @public
+   */
+  export interface LinkedinOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigOutput;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a non-custom OAuth2 provider. This includes the configuration details for supported OAuth2 providers that have built-in integration support.</p>
+   * @public
+   */
+  export interface IncludedOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig: IncludedOauth2ProviderConfigOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    customOauth2ProviderConfig: (value: CustomOauth2ProviderConfigOutput) => T;
+    googleOauth2ProviderConfig: (value: GoogleOauth2ProviderConfigOutput) => T;
+    githubOauth2ProviderConfig: (value: GithubOauth2ProviderConfigOutput) => T;
+    slackOauth2ProviderConfig: (value: SlackOauth2ProviderConfigOutput) => T;
+    salesforceOauth2ProviderConfig: (value: SalesforceOauth2ProviderConfigOutput) => T;
+    microsoftOauth2ProviderConfig: (value: MicrosoftOauth2ProviderConfigOutput) => T;
+    atlassianOauth2ProviderConfig: (value: AtlassianOauth2ProviderConfigOutput) => T;
+    linkedinOauth2ProviderConfig: (value: LinkedinOauth2ProviderConfigOutput) => T;
+    includedOauth2ProviderConfig: (value: IncludedOauth2ProviderConfigOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Oauth2ProviderConfigOutput, visitor: Visitor<T>): T => {
+    if (value.customOauth2ProviderConfig !== undefined)
+      return visitor.customOauth2ProviderConfig(value.customOauth2ProviderConfig);
+    if (value.googleOauth2ProviderConfig !== undefined)
+      return visitor.googleOauth2ProviderConfig(value.googleOauth2ProviderConfig);
+    if (value.githubOauth2ProviderConfig !== undefined)
+      return visitor.githubOauth2ProviderConfig(value.githubOauth2ProviderConfig);
+    if (value.slackOauth2ProviderConfig !== undefined)
+      return visitor.slackOauth2ProviderConfig(value.slackOauth2ProviderConfig);
+    if (value.salesforceOauth2ProviderConfig !== undefined)
+      return visitor.salesforceOauth2ProviderConfig(value.salesforceOauth2ProviderConfig);
+    if (value.microsoftOauth2ProviderConfig !== undefined)
+      return visitor.microsoftOauth2ProviderConfig(value.microsoftOauth2ProviderConfig);
+    if (value.atlassianOauth2ProviderConfig !== undefined)
+      return visitor.atlassianOauth2ProviderConfig(value.atlassianOauth2ProviderConfig);
+    if (value.linkedinOauth2ProviderConfig !== undefined)
+      return visitor.linkedinOauth2ProviderConfig(value.linkedinOauth2ProviderConfig);
+    if (value.includedOauth2ProviderConfig !== undefined)
+      return visitor.includedOauth2ProviderConfig(value.includedOauth2ProviderConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
@@ -5942,6 +6558,18 @@ export interface CreateOauth2CredentialProviderResponse {
    * @public
    */
   credentialProviderArn: string | undefined;
+
+  /**
+   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
+   * @public
+   */
+  callbackUrl?: string | undefined;
+
+  /**
+   * <p>Contains the output configuration for an OAuth2 provider.</p>
+   * @public
+   */
+  oauth2ProviderConfigOutput?: Oauth2ProviderConfigOutput | undefined;
 }
 
 /**
@@ -5972,219 +6600,6 @@ export interface GetOauth2CredentialProviderRequest {
 }
 
 /**
- * <p>Output configuration for a custom OAuth2 provider.</p>
- * @public
- */
-export interface CustomOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the custom provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-}
-
-/**
- * <p>Output configuration for a GitHub OAuth2 provider.</p>
- * @public
- */
-export interface GithubOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the GitHub provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-}
-
-/**
- * <p>Output configuration for a Google OAuth2 provider.</p>
- * @public
- */
-export interface GoogleOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the Google provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-}
-
-/**
- * <p>Output configuration for a Microsoft OAuth2 provider.</p>
- * @public
- */
-export interface MicrosoftOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the Microsoft provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-}
-
-/**
- * <p>Output configuration for a Salesforce OAuth2 provider.</p>
- * @public
- */
-export interface SalesforceOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the Salesforce provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-}
-
-/**
- * <p>Output configuration for a Slack OAuth2 provider.</p>
- * @public
- */
-export interface SlackOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the Slack provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-}
-
-/**
- * <p>Contains the output configuration for an OAuth2 provider.</p>
- * @public
- */
-export type Oauth2ProviderConfigOutput =
-  | Oauth2ProviderConfigOutput.CustomOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.GithubOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.GoogleOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.MicrosoftOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.SalesforceOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.SlackOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Oauth2ProviderConfigOutput {
-  /**
-   * <p>The output configuration for a custom OAuth2 provider.</p>
-   * @public
-   */
-  export interface CustomOauth2ProviderConfigMember {
-    customOauth2ProviderConfig: CustomOauth2ProviderConfigOutput;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The output configuration for a Google OAuth2 provider.</p>
-   * @public
-   */
-  export interface GoogleOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig: GoogleOauth2ProviderConfigOutput;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The output configuration for a GitHub OAuth2 provider.</p>
-   * @public
-   */
-  export interface GithubOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig: GithubOauth2ProviderConfigOutput;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The output configuration for a Slack OAuth2 provider.</p>
-   * @public
-   */
-  export interface SlackOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig: SlackOauth2ProviderConfigOutput;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The output configuration for a Salesforce OAuth2 provider.</p>
-   * @public
-   */
-  export interface SalesforceOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigOutput;
-    microsoftOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The output configuration for a Microsoft OAuth2 provider.</p>
-   * @public
-   */
-  export interface MicrosoftOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    customOauth2ProviderConfig: (value: CustomOauth2ProviderConfigOutput) => T;
-    googleOauth2ProviderConfig: (value: GoogleOauth2ProviderConfigOutput) => T;
-    githubOauth2ProviderConfig: (value: GithubOauth2ProviderConfigOutput) => T;
-    slackOauth2ProviderConfig: (value: SlackOauth2ProviderConfigOutput) => T;
-    salesforceOauth2ProviderConfig: (value: SalesforceOauth2ProviderConfigOutput) => T;
-    microsoftOauth2ProviderConfig: (value: MicrosoftOauth2ProviderConfigOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: Oauth2ProviderConfigOutput, visitor: Visitor<T>): T => {
-    if (value.customOauth2ProviderConfig !== undefined)
-      return visitor.customOauth2ProviderConfig(value.customOauth2ProviderConfig);
-    if (value.googleOauth2ProviderConfig !== undefined)
-      return visitor.googleOauth2ProviderConfig(value.googleOauth2ProviderConfig);
-    if (value.githubOauth2ProviderConfig !== undefined)
-      return visitor.githubOauth2ProviderConfig(value.githubOauth2ProviderConfig);
-    if (value.slackOauth2ProviderConfig !== undefined)
-      return visitor.slackOauth2ProviderConfig(value.slackOauth2ProviderConfig);
-    if (value.salesforceOauth2ProviderConfig !== undefined)
-      return visitor.salesforceOauth2ProviderConfig(value.salesforceOauth2ProviderConfig);
-    if (value.microsoftOauth2ProviderConfig !== undefined)
-      return visitor.microsoftOauth2ProviderConfig(value.microsoftOauth2ProviderConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
  * @public
  */
 export interface GetOauth2CredentialProviderResponse {
@@ -6211,6 +6626,12 @@ export interface GetOauth2CredentialProviderResponse {
    * @public
    */
   credentialProviderVendor: CredentialProviderVendorType | undefined;
+
+  /**
+   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
+   * @public
+   */
+  callbackUrl?: string | undefined;
 
   /**
    * <p>The configuration output for the OAuth2 provider.</p>
@@ -6353,6 +6774,12 @@ export interface UpdateOauth2CredentialProviderResponse {
   credentialProviderArn: string | undefined;
 
   /**
+   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
+   * @public
+   */
+  callbackUrl?: string | undefined;
+
+  /**
    * <p>The configuration output for the OAuth2 provider.</p>
    * @public
    */
@@ -6490,6 +6917,12 @@ export interface CreateWorkloadIdentityRequest {
    * @public
    */
   allowedResourceOauth2ReturnUrls?: string[] | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the workload identity. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -7335,7 +7768,23 @@ export const CreateAgentRuntimeEndpointRequestFilterSensitiveLog = (obj: CreateA
 /**
  * @internal
  */
+export const CreateAgentRuntimeEndpointResponseFilterSensitiveLog = (obj: CreateAgentRuntimeEndpointResponse): any => ({
+  ...obj,
+  ...(obj.endpointName && { endpointName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const DeleteAgentRuntimeEndpointRequestFilterSensitiveLog = (obj: DeleteAgentRuntimeEndpointRequest): any => ({
+  ...obj,
+  ...(obj.endpointName && { endpointName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteAgentRuntimeEndpointResponseFilterSensitiveLog = (obj: DeleteAgentRuntimeEndpointResponse): any => ({
   ...obj,
   ...(obj.endpointName && { endpointName: SENSITIVE_STRING }),
 });
@@ -8091,6 +8540,14 @@ export const UpdateMemoryOutputFilterSensitiveLog = (obj: UpdateMemoryOutput): a
 /**
  * @internal
  */
+export const AtlassianOauth2ProviderConfigInputFilterSensitiveLog = (obj: AtlassianOauth2ProviderConfigInput): any => ({
+  ...obj,
+  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CustomOauth2ProviderConfigInputFilterSensitiveLog = (obj: CustomOauth2ProviderConfigInput): any => ({
   ...obj,
   ...(obj.oauthDiscovery && { oauthDiscovery: obj.oauthDiscovery }),
@@ -8109,6 +8566,22 @@ export const GithubOauth2ProviderConfigInputFilterSensitiveLog = (obj: GithubOau
  * @internal
  */
 export const GoogleOauth2ProviderConfigInputFilterSensitiveLog = (obj: GoogleOauth2ProviderConfigInput): any => ({
+  ...obj,
+  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IncludedOauth2ProviderConfigInputFilterSensitiveLog = (obj: IncludedOauth2ProviderConfigInput): any => ({
+  ...obj,
+  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LinkedinOauth2ProviderConfigInputFilterSensitiveLog = (obj: LinkedinOauth2ProviderConfigInput): any => ({
   ...obj,
   ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
 });
@@ -8169,6 +8642,24 @@ export const Oauth2ProviderConfigInputFilterSensitiveLog = (obj: Oauth2ProviderC
     return {
       microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigInputFilterSensitiveLog(
         obj.microsoftOauth2ProviderConfig
+      ),
+    };
+  if (obj.atlassianOauth2ProviderConfig !== undefined)
+    return {
+      atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigInputFilterSensitiveLog(
+        obj.atlassianOauth2ProviderConfig
+      ),
+    };
+  if (obj.linkedinOauth2ProviderConfig !== undefined)
+    return {
+      linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigInputFilterSensitiveLog(
+        obj.linkedinOauth2ProviderConfig
+      ),
+    };
+  if (obj.includedOauth2ProviderConfig !== undefined)
+    return {
+      includedOauth2ProviderConfig: IncludedOauth2ProviderConfigInputFilterSensitiveLog(
+        obj.includedOauth2ProviderConfig
       ),
     };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };

@@ -181,6 +181,7 @@ import {
   AgentRuntimeEndpoint,
   ApiKeyCredentialProviderItem,
   ApiSchemaConfiguration,
+  AtlassianOauth2ProviderConfigInput,
   AuthorizerConfiguration,
   BrowserNetworkConfiguration,
   BrowserSummary,
@@ -206,10 +207,12 @@ import {
   GatewayTarget,
   GithubOauth2ProviderConfigInput,
   GoogleOauth2ProviderConfigInput,
+  IncludedOauth2ProviderConfigInput,
   InternalServerException,
   InvocationConfigurationInput,
   KmsConfiguration,
   LifecycleConfiguration,
+  LinkedinOauth2ProviderConfigInput,
   MCPGatewayConfiguration,
   McpLambdaTargetConfiguration,
   McpServerTargetConfiguration,
@@ -348,6 +351,7 @@ export const se_CreateApiKeyCredentialProviderCommand = async (
     take(input, {
       apiKey: [],
       name: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -515,6 +519,7 @@ export const se_CreateOauth2CredentialProviderCommand = async (
       credentialProviderVendor: [],
       name: [],
       oauth2ProviderConfigInput: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -538,6 +543,7 @@ export const se_CreateWorkloadIdentityCommand = async (
     take(input, {
       allowedResourceOauth2ReturnUrls: (_) => _json(_),
       name: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1495,7 +1501,7 @@ export const de_CreateAgentRuntimeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAgentRuntimeCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1521,7 +1527,7 @@ export const de_CreateAgentRuntimeEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAgentRuntimeEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1531,7 +1537,9 @@ export const de_CreateAgentRuntimeEndpointCommand = async (
   const doc = take(data, {
     agentRuntimeArn: __expectString,
     agentRuntimeEndpointArn: __expectString,
+    agentRuntimeId: __expectString,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    endpointName: __expectString,
     status: __expectString,
     targetVersion: __expectString,
   });
@@ -1546,7 +1554,7 @@ export const de_CreateApiKeyCredentialProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApiKeyCredentialProviderCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1569,7 +1577,7 @@ export const de_CreateBrowserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBrowserCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1593,7 +1601,7 @@ export const de_CreateCodeInterpreterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCodeInterpreterCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1706,7 +1714,7 @@ export const de_CreateOauth2CredentialProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOauth2CredentialProviderCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1714,9 +1722,11 @@ export const de_CreateOauth2CredentialProviderCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    callbackUrl: __expectString,
     clientSecretArn: _json,
     credentialProviderArn: __expectString,
     name: __expectString,
+    oauth2ProviderConfigOutput: (_) => _json(__expectUnion(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1729,7 +1739,7 @@ export const de_CreateWorkloadIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkloadIdentityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1752,7 +1762,7 @@ export const de_DeleteAgentRuntimeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAgentRuntimeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1760,6 +1770,7 @@ export const de_DeleteAgentRuntimeCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    agentRuntimeId: __expectString,
     status: __expectString,
   });
   Object.assign(contents, doc);
@@ -1773,7 +1784,7 @@ export const de_DeleteAgentRuntimeEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAgentRuntimeEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1781,6 +1792,8 @@ export const de_DeleteAgentRuntimeEndpointCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    agentRuntimeId: __expectString,
+    endpointName: __expectString,
     status: __expectString,
   });
   Object.assign(contents, doc);
@@ -1794,7 +1807,7 @@ export const de_DeleteApiKeyCredentialProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiKeyCredentialProviderCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1811,7 +1824,7 @@ export const de_DeleteBrowserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBrowserCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1834,7 +1847,7 @@ export const de_DeleteCodeInterpreterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCodeInterpreterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1926,7 +1939,7 @@ export const de_DeleteOauth2CredentialProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOauth2CredentialProviderCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -1943,7 +1956,7 @@ export const de_DeleteWorkloadIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkloadIdentityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -2211,6 +2224,7 @@ export const de_GetOauth2CredentialProviderCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    callbackUrl: __expectString,
     clientSecretArn: _json,
     createdTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     credentialProviderArn: __expectString,
@@ -2619,7 +2633,7 @@ export const de_UpdateAgentRuntimeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAgentRuntimeCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -2646,7 +2660,7 @@ export const de_UpdateAgentRuntimeEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAgentRuntimeEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -2795,6 +2809,7 @@ export const de_UpdateOauth2CredentialProviderCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    callbackUrl: __expectString,
     clientSecretArn: _json,
     createdTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     credentialProviderArn: __expectString,
@@ -3164,6 +3179,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ApiSchemaConfiguration omitted.
 
+// se_AtlassianOauth2ProviderConfigInput omitted.
+
 // se_AuthorizerConfiguration omitted.
 
 // se_BrowserNetworkConfiguration omitted.
@@ -3204,11 +3221,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_GoogleOauth2ProviderConfigInput omitted.
 
+// se_IncludedOauth2ProviderConfigInput omitted.
+
 // se_InvocationConfigurationInput omitted.
 
 // se_KmsConfiguration omitted.
 
 // se_LifecycleConfiguration omitted.
+
+// se_LinkedinOauth2ProviderConfigInput omitted.
 
 // se_MCPGatewayConfiguration omitted.
 
@@ -3365,6 +3386,8 @@ const se_TargetConfiguration = (input: TargetConfiguration, context: __SerdeCont
 
 // se_TokenBasedTriggerInput omitted.
 
+// se_TokenEndpointAuthMethodsType omitted.
+
 /**
  * serializeAws_restJson1ToolDefinition
  */
@@ -3501,6 +3524,8 @@ const de_ApiKeyCredentialProviders = (output: any, context: __SerdeContext): Api
 };
 
 // de_ApiSchemaConfiguration omitted.
+
+// de_AtlassianOauth2ProviderConfigOutput omitted.
 
 // de_AuthorizerConfiguration omitted.
 
@@ -3651,11 +3676,15 @@ const de_GatewayTargetList = (output: any, context: __SerdeContext): GatewayTarg
 
 // de_GoogleOauth2ProviderConfigOutput omitted.
 
+// de_IncludedOauth2ProviderConfigOutput omitted.
+
 // de_InvocationConfiguration omitted.
 
 // de_KmsConfiguration omitted.
 
 // de_LifecycleConfiguration omitted.
+
+// de_LinkedinOauth2ProviderConfigOutput omitted.
 
 // de_MCPGatewayConfiguration omitted.
 
@@ -3928,6 +3957,8 @@ const de_TargetSummary = (output: any, context: __SerdeContext): TargetSummary =
 // de_TimeBasedTrigger omitted.
 
 // de_TokenBasedTrigger omitted.
+
+// de_TokenEndpointAuthMethodsType omitted.
 
 /**
  * deserializeAws_restJson1ToolDefinition

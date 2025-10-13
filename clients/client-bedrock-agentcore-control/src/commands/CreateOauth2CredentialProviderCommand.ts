@@ -52,7 +52,7 @@ export interface CreateOauth2CredentialProviderCommandOutput
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // CreateOauth2CredentialProviderRequest
  *   name: "STRING_VALUE", // required
- *   credentialProviderVendor: "GoogleOauth2" || "GithubOauth2" || "SlackOauth2" || "SalesforceOauth2" || "MicrosoftOauth2" || "CustomOauth2", // required
+ *   credentialProviderVendor: "GoogleOauth2" || "GithubOauth2" || "SlackOauth2" || "SalesforceOauth2" || "MicrosoftOauth2" || "CustomOauth2" || "AtlassianOauth2" || "LinkedinOauth2" || "XOauth2" || "OktaOauth2" || "OneLoginOauth2" || "PingOneOauth2" || "FacebookOauth2" || "YandexOauth2" || "RedditOauth2" || "ZoomOauth2" || "TwitchOauth2" || "SpotifyOauth2" || "DropboxOauth2" || "NotionOauth2" || "HubspotOauth2" || "CyberArkOauth2" || "FusionAuthOauth2" || "Auth0Oauth2" || "CognitoOauth2", // required
  *   oauth2ProviderConfigInput: { // Oauth2ProviderConfigInput Union: only one key present
  *     customOauth2ProviderConfig: { // CustomOauth2ProviderConfigInput
  *       oauthDiscovery: { // Oauth2Discovery Union: only one key present
@@ -62,6 +62,9 @@ export interface CreateOauth2CredentialProviderCommandOutput
  *           authorizationEndpoint: "STRING_VALUE", // required
  *           tokenEndpoint: "STRING_VALUE", // required
  *           responseTypes: [ // ResponseListType
+ *             "STRING_VALUE",
+ *           ],
+ *           tokenEndpointAuthMethods: [ // TokenEndpointAuthMethodsType
  *             "STRING_VALUE",
  *           ],
  *         },
@@ -88,7 +91,26 @@ export interface CreateOauth2CredentialProviderCommandOutput
  *     microsoftOauth2ProviderConfig: { // MicrosoftOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
  *       clientSecret: "STRING_VALUE", // required
+ *       tenantId: "STRING_VALUE",
  *     },
+ *     atlassianOauth2ProviderConfig: { // AtlassianOauth2ProviderConfigInput
+ *       clientId: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE", // required
+ *     },
+ *     linkedinOauth2ProviderConfig: { // LinkedinOauth2ProviderConfigInput
+ *       clientId: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE", // required
+ *     },
+ *     includedOauth2ProviderConfig: { // IncludedOauth2ProviderConfigInput
+ *       clientId: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE", // required
+ *       issuer: "STRING_VALUE",
+ *       authorizationEndpoint: "STRING_VALUE",
+ *       tokenEndpoint: "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
  *   },
  * };
  * const command = new CreateOauth2CredentialProviderCommand(input);
@@ -99,6 +121,110 @@ export interface CreateOauth2CredentialProviderCommandOutput
  * //   },
  * //   name: "STRING_VALUE", // required
  * //   credentialProviderArn: "STRING_VALUE", // required
+ * //   callbackUrl: "STRING_VALUE",
+ * //   oauth2ProviderConfigOutput: { // Oauth2ProviderConfigOutput Union: only one key present
+ * //     customOauth2ProviderConfig: { // CustomOauth2ProviderConfigOutput
+ * //       oauthDiscovery: { // Oauth2Discovery Union: only one key present
+ * //         discoveryUrl: "STRING_VALUE",
+ * //         authorizationServerMetadata: { // Oauth2AuthorizationServerMetadata
+ * //           issuer: "STRING_VALUE", // required
+ * //           authorizationEndpoint: "STRING_VALUE", // required
+ * //           tokenEndpoint: "STRING_VALUE", // required
+ * //           responseTypes: [ // ResponseListType
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           tokenEndpointAuthMethods: [ // TokenEndpointAuthMethodsType
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     googleOauth2ProviderConfig: { // GoogleOauth2ProviderConfigOutput
+ * //       oauthDiscovery: {//  Union: only one key present
+ * //         discoveryUrl: "STRING_VALUE",
+ * //         authorizationServerMetadata: {
+ * //           issuer: "STRING_VALUE", // required
+ * //           authorizationEndpoint: "STRING_VALUE", // required
+ * //           tokenEndpoint: "STRING_VALUE", // required
+ * //           responseTypes: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           tokenEndpointAuthMethods: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     githubOauth2ProviderConfig: { // GithubOauth2ProviderConfigOutput
+ * //       oauthDiscovery: {//  Union: only one key present
+ * //         discoveryUrl: "STRING_VALUE",
+ * //         authorizationServerMetadata: {
+ * //           issuer: "STRING_VALUE", // required
+ * //           authorizationEndpoint: "STRING_VALUE", // required
+ * //           tokenEndpoint: "STRING_VALUE", // required
+ * //           responseTypes: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           tokenEndpointAuthMethods: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     slackOauth2ProviderConfig: { // SlackOauth2ProviderConfigOutput
+ * //       oauthDiscovery: {//  Union: only one key present
+ * //         discoveryUrl: "STRING_VALUE",
+ * //         authorizationServerMetadata: {
+ * //           issuer: "STRING_VALUE", // required
+ * //           authorizationEndpoint: "STRING_VALUE", // required
+ * //           tokenEndpoint: "STRING_VALUE", // required
+ * //           responseTypes: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           tokenEndpointAuthMethods: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     salesforceOauth2ProviderConfig: { // SalesforceOauth2ProviderConfigOutput
+ * //       oauthDiscovery: {//  Union: only one key present
+ * //         discoveryUrl: "STRING_VALUE",
+ * //         authorizationServerMetadata: {
+ * //           issuer: "STRING_VALUE", // required
+ * //           authorizationEndpoint: "STRING_VALUE", // required
+ * //           tokenEndpoint: "STRING_VALUE", // required
+ * //           responseTypes: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           tokenEndpointAuthMethods: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     microsoftOauth2ProviderConfig: { // MicrosoftOauth2ProviderConfigOutput
+ * //       oauthDiscovery: "<Oauth2Discovery>", // required
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     atlassianOauth2ProviderConfig: { // AtlassianOauth2ProviderConfigOutput
+ * //       oauthDiscovery: "<Oauth2Discovery>", // required
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     linkedinOauth2ProviderConfig: { // LinkedinOauth2ProviderConfigOutput
+ * //       oauthDiscovery: "<Oauth2Discovery>", // required
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //     includedOauth2ProviderConfig: { // IncludedOauth2ProviderConfigOutput
+ * //       oauthDiscovery: "<Oauth2Discovery>", // required
+ * //       clientId: "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```

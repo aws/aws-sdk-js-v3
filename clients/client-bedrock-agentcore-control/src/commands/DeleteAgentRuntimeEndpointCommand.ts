@@ -14,6 +14,7 @@ import {
   DeleteAgentRuntimeEndpointRequest,
   DeleteAgentRuntimeEndpointRequestFilterSensitiveLog,
   DeleteAgentRuntimeEndpointResponse,
+  DeleteAgentRuntimeEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { de_DeleteAgentRuntimeEndpointCommand, se_DeleteAgentRuntimeEndpointCommand } from "../protocols/Aws_restJson1";
 
@@ -54,6 +55,8 @@ export interface DeleteAgentRuntimeEndpointCommandOutput extends DeleteAgentRunt
  * const response = await client.send(command);
  * // { // DeleteAgentRuntimeEndpointResponse
  * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
+ * //   agentRuntimeId: "STRING_VALUE",
+ * //   endpointName: "STRING_VALUE",
  * // };
  *
  * ```
@@ -102,7 +105,7 @@ export class DeleteAgentRuntimeEndpointCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteAgentRuntimeEndpoint", {})
   .n("BedrockAgentCoreControlClient", "DeleteAgentRuntimeEndpointCommand")
-  .f(DeleteAgentRuntimeEndpointRequestFilterSensitiveLog, void 0)
+  .f(DeleteAgentRuntimeEndpointRequestFilterSensitiveLog, DeleteAgentRuntimeEndpointResponseFilterSensitiveLog)
   .ser(se_DeleteAgentRuntimeEndpointCommand)
   .de(de_DeleteAgentRuntimeEndpointCommand)
   .build() {
