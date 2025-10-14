@@ -75,6 +75,8 @@ export var OmniWidget = struct(
   ]
 );
 
+TypeRegistry.for(OmniWidget.namespace).register(OmniWidget.getName(), OmniWidget);
+
 function getJsonCodec(test: { settings: JsonSettings }): JsonCodec {
   const { settings } = test;
   const format =
