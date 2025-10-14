@@ -115,6 +115,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       ],
  * //       DynamicAppProvidersEnabled: "ENABLED" || "DISABLED",
  * //       ImageSharedWithOthers: "TRUE" || "FALSE",
+ * //       ManagedSoftwareIncluded: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -67,6 +67,10 @@ import {
 } from "./commands/AssociateApplicationToEntitlementCommand";
 import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "./commands/AssociateFleetCommand";
 import {
+  AssociateSoftwareToImageBuilderCommandInput,
+  AssociateSoftwareToImageBuilderCommandOutput,
+} from "./commands/AssociateSoftwareToImageBuilderCommand";
+import {
   BatchAssociateUserStackCommandInput,
   BatchAssociateUserStackCommandOutput,
 } from "./commands/BatchAssociateUserStackCommand";
@@ -154,6 +158,10 @@ import {
   DescribeApplicationsCommandOutput,
 } from "./commands/DescribeApplicationsCommand";
 import {
+  DescribeAppLicenseUsageCommandInput,
+  DescribeAppLicenseUsageCommandOutput,
+} from "./commands/DescribeAppLicenseUsageCommand";
+import {
   DescribeDirectoryConfigsCommandInput,
   DescribeDirectoryConfigsCommandOutput,
 } from "./commands/DescribeDirectoryConfigsCommand";
@@ -172,6 +180,10 @@ import {
 } from "./commands/DescribeImagePermissionsCommand";
 import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
 import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "./commands/DescribeSessionsCommand";
+import {
+  DescribeSoftwareAssociationsCommandInput,
+  DescribeSoftwareAssociationsCommandOutput,
+} from "./commands/DescribeSoftwareAssociationsCommand";
 import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand";
 import {
   DescribeThemeForStackCommandInput,
@@ -200,6 +212,10 @@ import {
   DisassociateApplicationFromEntitlementCommandOutput,
 } from "./commands/DisassociateApplicationFromEntitlementCommand";
 import { DisassociateFleetCommandInput, DisassociateFleetCommandOutput } from "./commands/DisassociateFleetCommand";
+import {
+  DisassociateSoftwareFromImageBuilderCommandInput,
+  DisassociateSoftwareFromImageBuilderCommandOutput,
+} from "./commands/DisassociateSoftwareFromImageBuilderCommand";
 import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
 import {
@@ -224,6 +240,10 @@ import {
 } from "./commands/StartAppBlockBuilderCommand";
 import { StartFleetCommandInput, StartFleetCommandOutput } from "./commands/StartFleetCommand";
 import { StartImageBuilderCommandInput, StartImageBuilderCommandOutput } from "./commands/StartImageBuilderCommand";
+import {
+  StartSoftwareDeploymentToImageBuilderCommandInput,
+  StartSoftwareDeploymentToImageBuilderCommandOutput,
+} from "./commands/StartSoftwareDeploymentToImageBuilderCommand";
 import {
   StopAppBlockBuilderCommandInput,
   StopAppBlockBuilderCommandOutput,
@@ -271,6 +291,7 @@ export type ServiceInputTypes =
   | AssociateApplicationFleetCommandInput
   | AssociateApplicationToEntitlementCommandInput
   | AssociateFleetCommandInput
+  | AssociateSoftwareToImageBuilderCommandInput
   | BatchAssociateUserStackCommandInput
   | BatchDisassociateUserStackCommandInput
   | CopyImageCommandInput
@@ -305,6 +326,7 @@ export type ServiceInputTypes =
   | DescribeAppBlockBuilderAppBlockAssociationsCommandInput
   | DescribeAppBlockBuildersCommandInput
   | DescribeAppBlocksCommandInput
+  | DescribeAppLicenseUsageCommandInput
   | DescribeApplicationFleetAssociationsCommandInput
   | DescribeApplicationsCommandInput
   | DescribeDirectoryConfigsCommandInput
@@ -314,6 +336,7 @@ export type ServiceInputTypes =
   | DescribeImagePermissionsCommandInput
   | DescribeImagesCommandInput
   | DescribeSessionsCommandInput
+  | DescribeSoftwareAssociationsCommandInput
   | DescribeStacksCommandInput
   | DescribeThemeForStackCommandInput
   | DescribeUsageReportSubscriptionsCommandInput
@@ -324,6 +347,7 @@ export type ServiceInputTypes =
   | DisassociateApplicationFleetCommandInput
   | DisassociateApplicationFromEntitlementCommandInput
   | DisassociateFleetCommandInput
+  | DisassociateSoftwareFromImageBuilderCommandInput
   | EnableUserCommandInput
   | ExpireSessionCommandInput
   | ListAssociatedFleetsCommandInput
@@ -333,6 +357,7 @@ export type ServiceInputTypes =
   | StartAppBlockBuilderCommandInput
   | StartFleetCommandInput
   | StartImageBuilderCommandInput
+  | StartSoftwareDeploymentToImageBuilderCommandInput
   | StopAppBlockBuilderCommandInput
   | StopFleetCommandInput
   | StopImageBuilderCommandInput
@@ -355,6 +380,7 @@ export type ServiceOutputTypes =
   | AssociateApplicationFleetCommandOutput
   | AssociateApplicationToEntitlementCommandOutput
   | AssociateFleetCommandOutput
+  | AssociateSoftwareToImageBuilderCommandOutput
   | BatchAssociateUserStackCommandOutput
   | BatchDisassociateUserStackCommandOutput
   | CopyImageCommandOutput
@@ -389,6 +415,7 @@ export type ServiceOutputTypes =
   | DescribeAppBlockBuilderAppBlockAssociationsCommandOutput
   | DescribeAppBlockBuildersCommandOutput
   | DescribeAppBlocksCommandOutput
+  | DescribeAppLicenseUsageCommandOutput
   | DescribeApplicationFleetAssociationsCommandOutput
   | DescribeApplicationsCommandOutput
   | DescribeDirectoryConfigsCommandOutput
@@ -398,6 +425,7 @@ export type ServiceOutputTypes =
   | DescribeImagePermissionsCommandOutput
   | DescribeImagesCommandOutput
   | DescribeSessionsCommandOutput
+  | DescribeSoftwareAssociationsCommandOutput
   | DescribeStacksCommandOutput
   | DescribeThemeForStackCommandOutput
   | DescribeUsageReportSubscriptionsCommandOutput
@@ -408,6 +436,7 @@ export type ServiceOutputTypes =
   | DisassociateApplicationFleetCommandOutput
   | DisassociateApplicationFromEntitlementCommandOutput
   | DisassociateFleetCommandOutput
+  | DisassociateSoftwareFromImageBuilderCommandOutput
   | EnableUserCommandOutput
   | ExpireSessionCommandOutput
   | ListAssociatedFleetsCommandOutput
@@ -417,6 +446,7 @@ export type ServiceOutputTypes =
   | StartAppBlockBuilderCommandOutput
   | StartFleetCommandOutput
   | StartImageBuilderCommandOutput
+  | StartSoftwareDeploymentToImageBuilderCommandOutput
   | StopAppBlockBuilderCommandOutput
   | StopFleetCommandOutput
   | StopImageBuilderCommandOutput

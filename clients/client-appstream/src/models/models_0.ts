@@ -55,6 +55,54 @@ export const Action = {
 export type Action = (typeof Action)[keyof typeof Action];
 
 /**
+ * <p>The collection of license usage records.</p>
+ * @public
+ */
+export interface AdminAppLicenseUsageRecord {
+  /**
+   * <p>The ARN of the user who used the license-included application.</p>
+   * @public
+   */
+  UserArn: string | undefined;
+
+  /**
+   * <p>The billing period for the license usage record.</p>
+   * @public
+   */
+  BillingPeriod: string | undefined;
+
+  /**
+   * <p>The account ID of the owner of the license.</p>
+   * @public
+   */
+  OwnerAWSAccountId: string | undefined;
+
+  /**
+   * <p>The date and time when the license was first used.</p>
+   * @public
+   */
+  SubscriptionFirstUsedDate: Date | undefined;
+
+  /**
+   * <p>The date and time when the license was last used.</p>
+   * @public
+   */
+  SubscriptionLastUsedDate: Date | undefined;
+
+  /**
+   * <p>The type of license (for example, Microsoft Office).</p>
+   * @public
+   */
+  LicenseType: string | undefined;
+
+  /**
+   * <p>The ID of the user who used the license-included application.</p>
+   * @public
+   */
+  UserId: string | undefined;
+}
+
+/**
  * <p>The error details.</p>
  * @public
  */
@@ -1045,6 +1093,103 @@ export class InvalidAccountStatusException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * @public
+ */
+export interface AssociateSoftwareToImageBuilderRequest {
+  /**
+   * <p>The name of the target image builder instance.</p>
+   * @public
+   */
+  ImageBuilderName: string | undefined;
+
+  /**
+   * <p>The list of license included applications to associate with the image builder.</p>
+   *          <p>Possible values include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Standard_64Bit</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SoftwareNames: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateSoftwareToImageBuilderResult {}
 
 /**
  * @public
@@ -3069,6 +3214,168 @@ export interface CreateImageBuilderRequest {
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
+
+  /**
+   * <p>The list of license included applications to install on the image builder during creation.</p>
+   *          <p>Possible values include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Standard_64Bit</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SoftwaresToInstall?: string[] | undefined;
+
+  /**
+   * <p>The list of license included applications to uninstall from the image builder during creation.</p>
+   *          <p>Possible values include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Standard_64Bit</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SoftwaresToUninstall?: string[] | undefined;
 }
 
 /**
@@ -3113,11 +3420,13 @@ export const ImageBuilderState = {
   FAILED: "FAILED",
   PENDING: "PENDING",
   PENDING_QUALIFICATION: "PENDING_QUALIFICATION",
+  PENDING_SYNCING_APPS: "PENDING_SYNCING_APPS",
   REBOOTING: "REBOOTING",
   RUNNING: "RUNNING",
   SNAPSHOTTING: "SNAPSHOTTING",
   STOPPED: "STOPPED",
   STOPPING: "STOPPING",
+  SYNCING_APPS: "SYNCING_APPS",
   UPDATING: "UPDATING",
   UPDATING_AGENT: "UPDATING_AGENT",
 } as const;
@@ -4347,6 +4656,12 @@ export interface Image {
    * @public
    */
   ImageSharedWithOthers?: ImageSharedWithOthers | undefined;
+
+  /**
+   * <p>Indicates whether the image includes license-included applications.</p>
+   * @public
+   */
+  ManagedSoftwareIncluded?: boolean | undefined;
 }
 
 /**
@@ -4952,6 +5267,48 @@ export interface DescribeApplicationsResult {
 /**
  * @public
  */
+export interface DescribeAppLicenseUsageRequest {
+  /**
+   * <p>Billing period for the usage record.</p>
+   *          <p>Specify the value in <i>yyyy-mm</i> format. For example, for August
+   *             2025, use <i>2025-08</i>.</p>
+   * @public
+   */
+  BillingPeriod: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Token for pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppLicenseUsageResult {
+  /**
+   * <p>Collection of license usage records.</p>
+   * @public
+   */
+  AppLicenseUsages?: AdminAppLicenseUsageRecord[] | undefined;
+
+  /**
+   * <p>Token for pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeDirectoryConfigsRequest {
   /**
    * <p>The directory names.</p>
@@ -5395,6 +5752,184 @@ export interface DescribeSessionsResult {
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSoftwareAssociationsRequest {
+  /**
+   * <p>The ARN of the resource to describe software associations. Possible resources are Image and ImageBuilder.</p>
+   * @public
+   */
+  AssociatedResource: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SoftwareDeploymentStatus = {
+  FAILED_TO_INSTALL: "FAILED_TO_INSTALL",
+  FAILED_TO_UNINSTALL: "FAILED_TO_UNINSTALL",
+  INSTALLED: "INSTALLED",
+  PENDING_INSTALLATION: "PENDING_INSTALLATION",
+  PENDING_UNINSTALLATION: "PENDING_UNINSTALLATION",
+  STAGED_FOR_INSTALLATION: "STAGED_FOR_INSTALLATION",
+  STAGED_FOR_UNINSTALLATION: "STAGED_FOR_UNINSTALLATION",
+} as const;
+
+/**
+ * @public
+ */
+export type SoftwareDeploymentStatus = (typeof SoftwareDeploymentStatus)[keyof typeof SoftwareDeploymentStatus];
+
+/**
+ * <p>The association between a license-included application and a resource.</p>
+ * @public
+ */
+export interface SoftwareAssociations {
+  /**
+   * <p>The name of the license-included application.</p>
+   *          <p>Possible values include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Standard_64Bit</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SoftwareName?: string | undefined;
+
+  /**
+   * <p>The deployment status of the license-included application.</p>
+   * @public
+   */
+  Status?: SoftwareDeploymentStatus | undefined;
+
+  /**
+   * <p>The error details for failed deployments of the license-included application.</p>
+   * @public
+   */
+  DeploymentError?: ErrorDetails[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSoftwareAssociationsResult {
+  /**
+   * <p>The ARN of the resource to describe software associations.</p>
+   * @public
+   */
+  AssociatedResource?: string | undefined;
+
+  /**
+   * <p>Collection of license included applications association details including:</p>
+   *          <ul>
+   *             <li>
+   *                <p>License included application name and version information</p>
+   *             </li>
+   *             <li>
+   *                <p>Deployment status (SoftwareDeploymentStatus enum)</p>
+   *             </li>
+   *             <li>
+   *                <p>Error details for failed deployments</p>
+   *             </li>
+   *             <li>
+   *                <p>Association timestamps</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SoftwareAssociations?: SoftwareAssociations[] | undefined;
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -5850,6 +6385,103 @@ export interface DisassociateFleetResult {}
 /**
  * @public
  */
+export interface DisassociateSoftwareFromImageBuilderRequest {
+  /**
+   * <p>The name of the target image builder instance.</p>
+   * @public
+   */
+  ImageBuilderName: string | undefined;
+
+  /**
+   * <p>The list of license included applications to disassociate from the image builder.</p>
+   *          <p>Possible values include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Professional_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Professional_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2021_Standard_64Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Standard_32Bit</p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft_Project_2024_Standard_64Bit</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SoftwareNames: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSoftwareFromImageBuilderResult {}
+
+/**
+ * @public
+ */
 export interface EnableUserRequest {
   /**
    * <p>The email address of the user.</p>
@@ -6120,6 +6752,28 @@ export interface StartImageBuilderResult {
    */
   ImageBuilder?: ImageBuilder | undefined;
 }
+
+/**
+ * @public
+ */
+export interface StartSoftwareDeploymentToImageBuilderRequest {
+  /**
+   * <p>The name of the target image builder instance.</p>
+   * @public
+   */
+  ImageBuilderName: string | undefined;
+
+  /**
+   * <p>Whether to retry previously failed license included application deployments.</p>
+   * @public
+   */
+  RetryFailedDeployments?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSoftwareDeploymentToImageBuilderResult {}
 
 /**
  * @public

@@ -35,6 +35,10 @@ import {
 } from "../commands/AssociateApplicationToEntitlementCommand";
 import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "../commands/AssociateFleetCommand";
 import {
+  AssociateSoftwareToImageBuilderCommandInput,
+  AssociateSoftwareToImageBuilderCommandOutput,
+} from "../commands/AssociateSoftwareToImageBuilderCommand";
+import {
   BatchAssociateUserStackCommandInput,
   BatchAssociateUserStackCommandOutput,
 } from "../commands/BatchAssociateUserStackCommand";
@@ -122,6 +126,10 @@ import {
   DescribeApplicationsCommandOutput,
 } from "../commands/DescribeApplicationsCommand";
 import {
+  DescribeAppLicenseUsageCommandInput,
+  DescribeAppLicenseUsageCommandOutput,
+} from "../commands/DescribeAppLicenseUsageCommand";
+import {
   DescribeDirectoryConfigsCommandInput,
   DescribeDirectoryConfigsCommandOutput,
 } from "../commands/DescribeDirectoryConfigsCommand";
@@ -140,6 +148,10 @@ import {
 } from "../commands/DescribeImagePermissionsCommand";
 import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "../commands/DescribeImagesCommand";
 import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "../commands/DescribeSessionsCommand";
+import {
+  DescribeSoftwareAssociationsCommandInput,
+  DescribeSoftwareAssociationsCommandOutput,
+} from "../commands/DescribeSoftwareAssociationsCommand";
 import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "../commands/DescribeStacksCommand";
 import {
   DescribeThemeForStackCommandInput,
@@ -168,6 +180,10 @@ import {
   DisassociateApplicationFromEntitlementCommandOutput,
 } from "../commands/DisassociateApplicationFromEntitlementCommand";
 import { DisassociateFleetCommandInput, DisassociateFleetCommandOutput } from "../commands/DisassociateFleetCommand";
+import {
+  DisassociateSoftwareFromImageBuilderCommandInput,
+  DisassociateSoftwareFromImageBuilderCommandOutput,
+} from "../commands/DisassociateSoftwareFromImageBuilderCommand";
 import { EnableUserCommandInput, EnableUserCommandOutput } from "../commands/EnableUserCommand";
 import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "../commands/ExpireSessionCommand";
 import {
@@ -192,6 +208,10 @@ import {
 } from "../commands/StartAppBlockBuilderCommand";
 import { StartFleetCommandInput, StartFleetCommandOutput } from "../commands/StartFleetCommand";
 import { StartImageBuilderCommandInput, StartImageBuilderCommandOutput } from "../commands/StartImageBuilderCommand";
+import {
+  StartSoftwareDeploymentToImageBuilderCommandInput,
+  StartSoftwareDeploymentToImageBuilderCommandOutput,
+} from "../commands/StartSoftwareDeploymentToImageBuilderCommand";
 import {
   StopAppBlockBuilderCommandInput,
   StopAppBlockBuilderCommandOutput,
@@ -223,6 +243,7 @@ import {
 import { AppStreamServiceException as __BaseException } from "../models/AppStreamServiceException";
 import {
   AccessEndpoint,
+  AdminAppLicenseUsageRecord,
   AppBlock,
   AppBlockBuilder,
   AppBlockBuilderAttribute,
@@ -233,6 +254,7 @@ import {
   AssociateApplicationFleetRequest,
   AssociateApplicationToEntitlementRequest,
   AssociateFleetRequest,
+  AssociateSoftwareToImageBuilderRequest,
   BatchAssociateUserStackRequest,
   BatchDisassociateUserStackRequest,
   CertificateBasedAuthProperties,
@@ -290,6 +312,8 @@ import {
   DescribeApplicationFleetAssociationsRequest,
   DescribeApplicationsRequest,
   DescribeApplicationsResult,
+  DescribeAppLicenseUsageRequest,
+  DescribeAppLicenseUsageResult,
   DescribeDirectoryConfigsRequest,
   DescribeDirectoryConfigsResult,
   DescribeEntitlementsRequest,
@@ -303,6 +327,7 @@ import {
   DescribeImagesResult,
   DescribeSessionsRequest,
   DescribeSessionsResult,
+  DescribeSoftwareAssociationsRequest,
   DescribeStacksRequest,
   DescribeStacksResult,
   DescribeThemeForStackRequest,
@@ -318,6 +343,7 @@ import {
   DisassociateApplicationFleetRequest,
   DisassociateApplicationFromEntitlementRequest,
   DisassociateFleetRequest,
+  DisassociateSoftwareFromImageBuilderRequest,
   DomainJoinInfo,
   EnableUserRequest,
   Entitlement,
@@ -358,6 +384,7 @@ import {
   StartFleetRequest,
   StartImageBuilderRequest,
   StartImageBuilderResult,
+  StartSoftwareDeploymentToImageBuilderRequest,
   StopAppBlockBuilderRequest,
   StopAppBlockBuilderResult,
   StopFleetRequest,
@@ -439,6 +466,19 @@ export const se_AssociateFleetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateFleet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1AssociateSoftwareToImageBuilderCommand
+ */
+export const se_AssociateSoftwareToImageBuilderCommand = async (
+  input: AssociateSoftwareToImageBuilderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AssociateSoftwareToImageBuilder");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -913,6 +953,19 @@ export const se_DescribeApplicationsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeAppLicenseUsageCommand
+ */
+export const se_DescribeAppLicenseUsageCommand = async (
+  input: DescribeAppLicenseUsageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeAppLicenseUsage");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeDirectoryConfigsCommand
  */
 export const se_DescribeDirectoryConfigsCommand = async (
@@ -998,6 +1051,19 @@ export const se_DescribeSessionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeSessions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeSoftwareAssociationsCommand
+ */
+export const se_DescribeSoftwareAssociationsCommand = async (
+  input: DescribeSoftwareAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeSoftwareAssociations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1134,6 +1200,19 @@ export const se_DisassociateFleetCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DisassociateSoftwareFromImageBuilderCommand
+ */
+export const se_DisassociateSoftwareFromImageBuilderCommand = async (
+  input: DisassociateSoftwareFromImageBuilderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisassociateSoftwareFromImageBuilder");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1EnableUserCommand
  */
 export const se_EnableUserCommand = async (
@@ -1245,6 +1324,19 @@ export const se_StartImageBuilderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartImageBuilder");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartSoftwareDeploymentToImageBuilderCommand
+ */
+export const se_StartSoftwareDeploymentToImageBuilderCommand = async (
+  input: StartSoftwareDeploymentToImageBuilderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartSoftwareDeploymentToImageBuilder");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1493,6 +1585,26 @@ export const de_AssociateFleetCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: AssociateFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1AssociateSoftwareToImageBuilderCommand
+ */
+export const de_AssociateSoftwareToImageBuilderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSoftwareToImageBuilderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AssociateSoftwareToImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2220,6 +2332,26 @@ export const de_DescribeApplicationsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeAppLicenseUsageCommand
+ */
+export const de_DescribeAppLicenseUsageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppLicenseUsageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAppLicenseUsageResult(data, context);
+  const response: DescribeAppLicenseUsageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeDirectoryConfigsCommand
  */
 export const de_DescribeDirectoryConfigsCommand = async (
@@ -2353,6 +2485,26 @@ export const de_DescribeSessionsCommand = async (
   let contents: any = {};
   contents = de_DescribeSessionsResult(data, context);
   const response: DescribeSessionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSoftwareAssociationsCommand
+ */
+export const de_DescribeSoftwareAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSoftwareAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSoftwareAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2560,6 +2712,26 @@ export const de_DisassociateFleetCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DisassociateSoftwareFromImageBuilderCommand
+ */
+export const de_DisassociateSoftwareFromImageBuilderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSoftwareFromImageBuilderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateSoftwareFromImageBuilderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1EnableUserCommand
  */
 export const de_EnableUserCommand = async (
@@ -2733,6 +2905,26 @@ export const de_StartImageBuilderCommand = async (
   let contents: any = {};
   contents = de_StartImageBuilderResult(data, context);
   const response: StartImageBuilderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartSoftwareDeploymentToImageBuilderCommand
+ */
+export const de_StartSoftwareDeploymentToImageBuilderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSoftwareDeploymentToImageBuilderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartSoftwareDeploymentToImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3305,6 +3497,8 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_AssociateFleetRequest omitted.
 
+// se_AssociateSoftwareToImageBuilderRequest omitted.
+
 // se_AwsAccountIdList omitted.
 
 // se_BatchAssociateUserStackRequest omitted.
@@ -3383,6 +3577,8 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_DescribeApplicationsRequest omitted.
 
+// se_DescribeAppLicenseUsageRequest omitted.
+
 // se_DescribeDirectoryConfigsRequest omitted.
 
 // se_DescribeEntitlementsRequest omitted.
@@ -3396,6 +3592,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_DescribeImagesRequest omitted.
 
 // se_DescribeSessionsRequest omitted.
+
+// se_DescribeSoftwareAssociationsRequest omitted.
 
 // se_DescribeStacksRequest omitted.
 
@@ -3418,6 +3616,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_DisassociateApplicationFromEntitlementRequest omitted.
 
 // se_DisassociateFleetRequest omitted.
+
+// se_DisassociateSoftwareFromImageBuilderRequest omitted.
 
 // se_DomainJoinInfo omitted.
 
@@ -3464,6 +3664,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_StartFleetRequest omitted.
 
 // se_StartImageBuilderRequest omitted.
+
+// se_StartSoftwareDeploymentToImageBuilderRequest omitted.
 
 // se_StopAppBlockBuilderRequest omitted.
 
@@ -3526,6 +3728,33 @@ const de_ResourceNotFoundExceptionRes = async (
 // de_AccessEndpoint omitted.
 
 // de_AccessEndpointList omitted.
+
+/**
+ * deserializeAws_json1_1AdminAppLicenseUsageList
+ */
+const de_AdminAppLicenseUsageList = (output: any, context: __SerdeContext): AdminAppLicenseUsageRecord[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AdminAppLicenseUsageRecord(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1AdminAppLicenseUsageRecord
+ */
+const de_AdminAppLicenseUsageRecord = (output: any, context: __SerdeContext): AdminAppLicenseUsageRecord => {
+  return take(output, {
+    BillingPeriod: __expectString,
+    LicenseType: __expectString,
+    OwnerAWSAccountId: __expectString,
+    SubscriptionFirstUsedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SubscriptionLastUsedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UserArn: __expectString,
+    UserId: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1AppBlock
@@ -3646,6 +3875,8 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 // de_AssociateApplicationToEntitlementResult omitted.
 
 // de_AssociateFleetResult omitted.
+
+// de_AssociateSoftwareToImageBuilderResult omitted.
 
 // de_BatchAssociateUserStackResult omitted.
 
@@ -3865,6 +4096,16 @@ const de_DescribeApplicationsResult = (output: any, context: __SerdeContext): De
 };
 
 /**
+ * deserializeAws_json1_1DescribeAppLicenseUsageResult
+ */
+const de_DescribeAppLicenseUsageResult = (output: any, context: __SerdeContext): DescribeAppLicenseUsageResult => {
+  return take(output, {
+    AppLicenseUsages: (_: any) => de_AdminAppLicenseUsageList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeDirectoryConfigsResult
  */
 const de_DescribeDirectoryConfigsResult = (output: any, context: __SerdeContext): DescribeDirectoryConfigsResult => {
@@ -3925,6 +4166,8 @@ const de_DescribeSessionsResult = (output: any, context: __SerdeContext): Descri
     Sessions: (_: any) => de_SessionList(_, context),
   }) as any;
 };
+
+// de_DescribeSoftwareAssociationsResult omitted.
 
 /**
  * deserializeAws_json1_1DescribeStacksResult
@@ -4004,6 +4247,8 @@ const de_DirectoryConfigList = (output: any, context: __SerdeContext): Directory
 // de_DisassociateApplicationFromEntitlementResult omitted.
 
 // de_DisassociateFleetResult omitted.
+
+// de_DisassociateSoftwareFromImageBuilderResult omitted.
 
 // de_DomainJoinInfo omitted.
 
@@ -4126,6 +4371,7 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
     ImagePermissions: _json,
     ImageSharedWithOthers: __expectString,
     LatestAppstreamAgentVersion: __expectString,
+    ManagedSoftwareIncluded: __expectBoolean,
     Name: __expectString,
     Platform: __expectString,
     PublicBaseImageReleasedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -4301,6 +4547,10 @@ const de_SessionList = (output: any, context: __SerdeContext): Session[] => {
 
 // de_SharedImagePermissionsList omitted.
 
+// de_SoftwareAssociations omitted.
+
+// de_SoftwareAssociationsList omitted.
+
 /**
  * deserializeAws_json1_1Stack
  */
@@ -4358,6 +4608,8 @@ const de_StartImageBuilderResult = (output: any, context: __SerdeContext): Start
     ImageBuilder: (_: any) => de_ImageBuilder(_, context),
   }) as any;
 };
+
+// de_StartSoftwareDeploymentToImageBuilderResult omitted.
 
 /**
  * deserializeAws_json1_1StopAppBlockBuilderResult

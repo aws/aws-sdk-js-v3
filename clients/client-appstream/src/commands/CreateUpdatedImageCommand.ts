@@ -115,6 +115,7 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * //     ],
  * //     DynamicAppProvidersEnabled: "ENABLED" || "DISABLED",
  * //     ImageSharedWithOthers: "TRUE" || "FALSE",
+ * //     ManagedSoftwareIncluded: true || false,
  * //   },
  * //   canUpdateImage: true || false,
  * // };

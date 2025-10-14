@@ -24,6 +24,11 @@ import {
   AssociateFleetCommandOutput,
 } from "./commands/AssociateFleetCommand";
 import {
+  AssociateSoftwareToImageBuilderCommand,
+  AssociateSoftwareToImageBuilderCommandInput,
+  AssociateSoftwareToImageBuilderCommandOutput,
+} from "./commands/AssociateSoftwareToImageBuilderCommand";
+import {
   BatchAssociateUserStackCommand,
   BatchAssociateUserStackCommandInput,
   BatchAssociateUserStackCommandOutput,
@@ -172,6 +177,11 @@ import {
   DescribeApplicationsCommandOutput,
 } from "./commands/DescribeApplicationsCommand";
 import {
+  DescribeAppLicenseUsageCommand,
+  DescribeAppLicenseUsageCommandInput,
+  DescribeAppLicenseUsageCommandOutput,
+} from "./commands/DescribeAppLicenseUsageCommand";
+import {
   DescribeDirectoryConfigsCommand,
   DescribeDirectoryConfigsCommandInput,
   DescribeDirectoryConfigsCommandOutput,
@@ -206,6 +216,11 @@ import {
   DescribeSessionsCommandInput,
   DescribeSessionsCommandOutput,
 } from "./commands/DescribeSessionsCommand";
+import {
+  DescribeSoftwareAssociationsCommand,
+  DescribeSoftwareAssociationsCommandInput,
+  DescribeSoftwareAssociationsCommandOutput,
+} from "./commands/DescribeSoftwareAssociationsCommand";
 import {
   DescribeStacksCommand,
   DescribeStacksCommandInput,
@@ -252,6 +267,11 @@ import {
   DisassociateFleetCommandInput,
   DisassociateFleetCommandOutput,
 } from "./commands/DisassociateFleetCommand";
+import {
+  DisassociateSoftwareFromImageBuilderCommand,
+  DisassociateSoftwareFromImageBuilderCommandInput,
+  DisassociateSoftwareFromImageBuilderCommandOutput,
+} from "./commands/DisassociateSoftwareFromImageBuilderCommand";
 import { EnableUserCommand, EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import {
   ExpireSessionCommand,
@@ -289,6 +309,11 @@ import {
   StartImageBuilderCommandInput,
   StartImageBuilderCommandOutput,
 } from "./commands/StartImageBuilderCommand";
+import {
+  StartSoftwareDeploymentToImageBuilderCommand,
+  StartSoftwareDeploymentToImageBuilderCommandInput,
+  StartSoftwareDeploymentToImageBuilderCommandOutput,
+} from "./commands/StartSoftwareDeploymentToImageBuilderCommand";
 import {
   StopAppBlockBuilderCommand,
   StopAppBlockBuilderCommandInput,
@@ -344,6 +369,7 @@ const commands = {
   AssociateApplicationFleetCommand,
   AssociateApplicationToEntitlementCommand,
   AssociateFleetCommand,
+  AssociateSoftwareToImageBuilderCommand,
   BatchAssociateUserStackCommand,
   BatchDisassociateUserStackCommand,
   CopyImageCommand,
@@ -380,6 +406,7 @@ const commands = {
   DescribeAppBlocksCommand,
   DescribeApplicationFleetAssociationsCommand,
   DescribeApplicationsCommand,
+  DescribeAppLicenseUsageCommand,
   DescribeDirectoryConfigsCommand,
   DescribeEntitlementsCommand,
   DescribeFleetsCommand,
@@ -387,6 +414,7 @@ const commands = {
   DescribeImagePermissionsCommand,
   DescribeImagesCommand,
   DescribeSessionsCommand,
+  DescribeSoftwareAssociationsCommand,
   DescribeStacksCommand,
   DescribeThemeForStackCommand,
   DescribeUsageReportSubscriptionsCommand,
@@ -397,6 +425,7 @@ const commands = {
   DisassociateApplicationFleetCommand,
   DisassociateApplicationFromEntitlementCommand,
   DisassociateFleetCommand,
+  DisassociateSoftwareFromImageBuilderCommand,
   EnableUserCommand,
   ExpireSessionCommand,
   ListAssociatedFleetsCommand,
@@ -406,6 +435,7 @@ const commands = {
   StartAppBlockBuilderCommand,
   StartFleetCommand,
   StartImageBuilderCommand,
+  StartSoftwareDeploymentToImageBuilderCommand,
   StopAppBlockBuilderCommand,
   StopFleetCommand,
   StopImageBuilderCommand,
@@ -485,6 +515,23 @@ export interface AppStream {
     args: AssociateFleetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateFleetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateSoftwareToImageBuilderCommand}
+   */
+  associateSoftwareToImageBuilder(
+    args: AssociateSoftwareToImageBuilderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSoftwareToImageBuilderCommandOutput>;
+  associateSoftwareToImageBuilder(
+    args: AssociateSoftwareToImageBuilderCommandInput,
+    cb: (err: any, data?: AssociateSoftwareToImageBuilderCommandOutput) => void
+  ): void;
+  associateSoftwareToImageBuilder(
+    args: AssociateSoftwareToImageBuilderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSoftwareToImageBuilderCommandOutput) => void
   ): void;
 
   /**
@@ -1053,6 +1100,23 @@ export interface AppStream {
   ): void;
 
   /**
+   * @see {@link DescribeAppLicenseUsageCommand}
+   */
+  describeAppLicenseUsage(
+    args: DescribeAppLicenseUsageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppLicenseUsageCommandOutput>;
+  describeAppLicenseUsage(
+    args: DescribeAppLicenseUsageCommandInput,
+    cb: (err: any, data?: DescribeAppLicenseUsageCommandOutput) => void
+  ): void;
+  describeAppLicenseUsage(
+    args: DescribeAppLicenseUsageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppLicenseUsageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDirectoryConfigsCommand}
    */
   describeDirectoryConfigs(): Promise<DescribeDirectoryConfigsCommandOutput>;
@@ -1167,6 +1231,23 @@ export interface AppStream {
     args: DescribeSessionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSoftwareAssociationsCommand}
+   */
+  describeSoftwareAssociations(
+    args: DescribeSoftwareAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSoftwareAssociationsCommandOutput>;
+  describeSoftwareAssociations(
+    args: DescribeSoftwareAssociationsCommandInput,
+    cb: (err: any, data?: DescribeSoftwareAssociationsCommandOutput) => void
+  ): void;
+  describeSoftwareAssociations(
+    args: DescribeSoftwareAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSoftwareAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -1328,6 +1409,23 @@ export interface AppStream {
   ): void;
 
   /**
+   * @see {@link DisassociateSoftwareFromImageBuilderCommand}
+   */
+  disassociateSoftwareFromImageBuilder(
+    args: DisassociateSoftwareFromImageBuilderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSoftwareFromImageBuilderCommandOutput>;
+  disassociateSoftwareFromImageBuilder(
+    args: DisassociateSoftwareFromImageBuilderCommandInput,
+    cb: (err: any, data?: DisassociateSoftwareFromImageBuilderCommandOutput) => void
+  ): void;
+  disassociateSoftwareFromImageBuilder(
+    args: DisassociateSoftwareFromImageBuilderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSoftwareFromImageBuilderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableUserCommand}
    */
   enableUser(args: EnableUserCommandInput, options?: __HttpHandlerOptions): Promise<EnableUserCommandOutput>;
@@ -1460,6 +1558,23 @@ export interface AppStream {
     args: StartImageBuilderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartImageBuilderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSoftwareDeploymentToImageBuilderCommand}
+   */
+  startSoftwareDeploymentToImageBuilder(
+    args: StartSoftwareDeploymentToImageBuilderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSoftwareDeploymentToImageBuilderCommandOutput>;
+  startSoftwareDeploymentToImageBuilder(
+    args: StartSoftwareDeploymentToImageBuilderCommandInput,
+    cb: (err: any, data?: StartSoftwareDeploymentToImageBuilderCommandOutput) => void
+  ): void;
+  startSoftwareDeploymentToImageBuilder(
+    args: StartSoftwareDeploymentToImageBuilderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSoftwareDeploymentToImageBuilderCommandOutput) => void
   ): void;
 
   /**

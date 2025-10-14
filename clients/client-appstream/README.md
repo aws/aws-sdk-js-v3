@@ -255,6 +255,14 @@ AssociateFleet
 </details>
 <details>
 <summary>
+AssociateSoftwareToImageBuilder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/AssociateSoftwareToImageBuilderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/AssociateSoftwareToImageBuilderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/AssociateSoftwareToImageBuilderCommandOutput/)
+
+</details>
+<details>
+<summary>
 BatchAssociateUserStack
 </summary>
 
@@ -543,6 +551,14 @@ DescribeApplications
 </details>
 <details>
 <summary>
+DescribeAppLicenseUsage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/DescribeAppLicenseUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DescribeAppLicenseUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DescribeAppLicenseUsageCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeDirectoryConfigs
 </summary>
 
@@ -595,6 +611,14 @@ DescribeSessions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/DescribeSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DescribeSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DescribeSessionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeSoftwareAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/DescribeSoftwareAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DescribeSoftwareAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DescribeSoftwareAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -679,6 +703,14 @@ DisassociateFleet
 </details>
 <details>
 <summary>
+DisassociateSoftwareFromImageBuilder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/DisassociateSoftwareFromImageBuilderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DisassociateSoftwareFromImageBuilderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/DisassociateSoftwareFromImageBuilderCommandOutput/)
+
+</details>
+<details>
+<summary>
 EnableUser
 </summary>
 
@@ -747,6 +779,14 @@ StartImageBuilder
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/StartImageBuilderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/StartImageBuilderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/StartImageBuilderCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartSoftwareDeploymentToImageBuilder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/StartSoftwareDeploymentToImageBuilderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/StartSoftwareDeploymentToImageBuilderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/StartSoftwareDeploymentToImageBuilderCommandOutput/)
 
 </details>
 <details>
