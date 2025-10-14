@@ -2770,7 +2770,7 @@ export interface DescribeUsersResponse {
   /**
    * <p>The total number of users included in the results.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   TotalNumberOfUsers?: number | undefined;

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { KitchenSink } from "../models/models_0";
-import { KitchenSinkOperation } from "../schemas/schemas_1_Operation";
+import { KitchenSinkOperation } from "../schemas/schemas_0";
 
 /**
  * @public

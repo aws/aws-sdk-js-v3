@@ -709,7 +709,7 @@ export interface RevisionLocation {
    * <p>Information about the location of an Lambda deployment revision stored
    *             as a RawString.</p>
    *
-   * @deprecated
+   * @deprecated RawString and String revision type are deprecated, use AppSpecContent type instead.
    * @public
    */
   string?: RawString | undefined;
@@ -2052,7 +2052,7 @@ export interface InstanceSummary {
    *             </li>
    *          </ul>
    *
-   * @deprecated
+   * @deprecated InstanceStatus is deprecated, use TargetStatus instead.
    * @public
    */
   status?: InstanceStatus | undefined;
@@ -2690,7 +2690,7 @@ export interface DeploymentInfo {
    * <p>Provides information about the results of a deployment, such as whether instances in
    *             the original environment in a blue/green deployment were not terminated.</p>
    *
-   * @deprecated
+   * @deprecated AdditionalDeploymentStatusInfo is deprecated, use DeploymentStatusMessageList instead.
    * @public
    */
   additionalDeploymentStatusInfo?: string | undefined;
@@ -5603,7 +5603,7 @@ export interface GetDeploymentInstanceOutput {
   /**
    * <p> Information about the instance. </p>
    *
-   * @deprecated
+   * @deprecated InstanceSummary is deprecated, use DeploymentTarget instead.
    * @public
    */
   instanceSummary?: InstanceSummary | undefined;

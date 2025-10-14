@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { UnionInputOutput } from "../models/models_0";
-import { JsonUnions } from "../schemas/schemas_1_Operation";
+import { JsonUnions } from "../schemas/schemas_0";
 
 /**
  * @public

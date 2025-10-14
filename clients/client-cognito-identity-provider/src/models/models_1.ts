@@ -1491,7 +1491,7 @@ export interface UserPoolDescriptionType {
   /**
    * <p>The user pool status.</p>
    *
-   * @deprecated
+   * @deprecated This property is no longer available.
    * @public
    */
   Status?: StatusType | undefined;

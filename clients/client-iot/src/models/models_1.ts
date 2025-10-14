@@ -3929,7 +3929,7 @@ export interface DescribeSecurityProfileResponse {
    *       it is
    *       also retained for any metric specified here.</p>
    *
-   * @deprecated
+   * @deprecated Use additionalMetricsToRetainV2.
    * @public
    */
   additionalMetricsToRetain?: string[] | undefined;

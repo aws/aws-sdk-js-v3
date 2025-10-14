@@ -3157,7 +3157,7 @@ export interface DashboardPublishOptions {
   /**
    * <p>The visual publish options of a visual in a dashboard.</p>
    *
-   * @deprecated
+   * @deprecated VisualPublishOptions property will reach its end of standard support in a future release. To perform this action, use ExportWithHiddenFields.
    * @public
    */
   VisualPublishOptions?: DashboardVisualPublishOptions | undefined;

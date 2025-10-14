@@ -866,7 +866,7 @@ export interface ComputeResource {
    *     in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          </note>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use ec2Configuration[].imageIdOverride instead.
    * @public
    */
   imageId?: string | undefined;
@@ -3215,7 +3215,7 @@ export interface ContainerProperties {
    *    number of vCPUs must be specified but can be specified in several places. You must specify it at
    *    least once for each node.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use resourceRequirements instead.
    * @public
    */
   vcpus?: number | undefined;
@@ -3228,7 +3228,7 @@ export interface ContainerProperties {
    *    specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be
    *    specified in several places. It must be specified for each node at least once.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use resourceRequirements instead.
    * @public
    */
   memory?: number | undefined;
@@ -7950,7 +7950,7 @@ export interface ContainerOverrides {
    *     <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override job
    *     definition resource requirements</a> in the <i>Batch User Guide</i>.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use resourceRequirements instead.
    * @public
    */
   vcpus?: number | undefined;
@@ -7967,7 +7967,7 @@ export interface ContainerOverrides {
    *    value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override job
    *     definition resource requirements</a> in the <i>Batch User Guide</i>.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use resourceRequirements instead.
    * @public
    */
   memory?: number | undefined;

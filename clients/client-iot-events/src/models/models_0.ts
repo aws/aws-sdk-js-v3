@@ -663,7 +663,7 @@ export interface SetTimerAction {
    * <p>The number of seconds until the timer expires. The minimum value is 60 seconds to ensure
    *       accuracy. The maximum value is 31622400 seconds. </p>
    *
-   * @deprecated
+   * @deprecated seconds is deprecated. You can use durationExpression for SetTimerAction. The value of seconds can be used as a string expression for durationExpression.
    * @public
    */
   seconds?: number | undefined;

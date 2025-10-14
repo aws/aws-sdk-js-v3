@@ -7531,7 +7531,7 @@ export interface UserPoolType {
   /**
    * <p>This parameter is no longer used.</p>
    *
-   * @deprecated
+   * @deprecated This property is no longer available.
    * @public
    */
   Status?: StatusType | undefined;

@@ -39,7 +39,7 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  *       using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of
  *       two configuration exports in six hours.</p>
  *
- * @deprecated
+ * @deprecated deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

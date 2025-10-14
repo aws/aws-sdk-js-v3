@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RecursiveXmlShapesOutput } from "../models/models_0";
-import { RecursiveXmlShapes } from "../schemas/schemas_10_RecursiveXmlShapes";
+import { RecursiveXmlShapes } from "../schemas/schemas_0";
 
 /**
  * @public

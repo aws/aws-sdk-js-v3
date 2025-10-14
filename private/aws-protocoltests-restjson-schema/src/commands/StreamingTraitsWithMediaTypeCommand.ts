@@ -10,7 +10,7 @@ import {
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StreamingTraitsWithMediaTypeInputOutput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { StreamingTraitsWithMediaType } from "../schemas/schemas_29_StreamingTraitsWithMediaType";
+import { StreamingTraitsWithMediaType } from "../schemas/schemas_0";
 
 /**
  * @public

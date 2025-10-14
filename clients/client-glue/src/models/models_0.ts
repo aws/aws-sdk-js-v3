@@ -9113,7 +9113,7 @@ export interface TableOptimizerRun {
    * <p>A <code>RunMetrics</code> object containing metrics for the optimizer run.</p>
    *          <p>This member is deprecated. See the individual metric members for compaction, retention, and orphan file deletion.</p>
    *
-   * @deprecated
+   * @deprecated Metrics has been replaced by optimizer type specific metrics such as IcebergCompactionMetrics
    * @public
    */
   metrics?: RunMetrics | undefined;

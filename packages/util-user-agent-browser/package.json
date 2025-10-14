@@ -25,7 +25,7 @@
   "react-native": "dist-es/index.native.js",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/types": "^4.6.0",
+    "@smithy/types": "^4.7.1",
     "bowser": "^2.11.0",
     "tslib": "^2.6.2"
   },

@@ -396,7 +396,7 @@ export interface Vulnerability {
   /**
    * <p>The number of times the vulnerability appears in your code.</p>
    *
-   * @deprecated
+   * @deprecated This shape is not used.
    * @public
    */
   itemCount?: number | undefined;

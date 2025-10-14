@@ -5786,7 +5786,7 @@ export interface Metrics {
   /**
    * <p>The root-mean-square error (RMSE).</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated, please refer to ErrorMetrics for both RMSE and WAPE
    * @public
    */
   RMSE?: number | undefined;

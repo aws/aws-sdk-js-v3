@@ -11,6 +11,7 @@ import type {
   OperationSchema,
   ResponseMetadata,
   SerdeFunctions,
+  StaticErrorSchema,
   TimestampDateTimeSchema,
 } from "@smithy/types";
 
@@ -160,11 +161,11 @@ export class AwsQueryProtocol extends RpcProtocol {
       (registry: TypeRegistry, errorName: string) =>
         registry.find(
           (schema) => (NormalizedSchema.of(schema).getMergedTraits().awsQueryError as any)?.[0] === errorName
-        ) as ErrorSchema
+        ) as StaticErrorSchema
     );
 
     const ns = NormalizedSchema.of(errorSchema);
-    const ErrorCtor = TypeRegistry.for(errorSchema.namespace).getErrorCtor(errorSchema) ?? Error;
+    const ErrorCtor = TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
     const exception = new ErrorCtor(message);
 
     const output = {

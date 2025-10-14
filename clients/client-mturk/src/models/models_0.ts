@@ -574,7 +574,7 @@ export interface QualificationRequirement {
    *             be used in combination with the <code>ActionsGuarded</code> field.
    *         </p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   RequiredToPreview?: boolean | undefined;

@@ -5830,7 +5830,7 @@ export interface DomainEntry {
    *         response. It is now discontinued.</p>
    *          </note>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   options?: Record<string, string> | undefined;
@@ -5990,7 +5990,7 @@ export interface CreateInstancesRequest {
    *         discontinued.</p>
    *          </note>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   customImageName?: string | undefined;
@@ -7792,7 +7792,7 @@ export interface Disk {
    *         response. Use <code>isAttached</code> instead.</p>
    *          </note>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   attachmentState?: string | undefined;
@@ -7804,7 +7804,7 @@ export interface Disk {
    *         response. It is now discontinued.</p>
    *          </note>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   gbInUse?: number | undefined;

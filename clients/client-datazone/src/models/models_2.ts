@@ -3442,7 +3442,7 @@ export interface UpdateSubscriptionGrantStatusOutput {
   /**
    * <p>The identifier of the subscription.</p>
    *
-   * @deprecated
+   * @deprecated Multiple subscriptions can exist for a single grant
    * @public
    */
   subscriptionId?: string | undefined;

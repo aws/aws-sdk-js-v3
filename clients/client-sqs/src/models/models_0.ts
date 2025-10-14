@@ -1882,7 +1882,7 @@ export interface ReceiveMessageRequest {
    *             </li>
    *          </ul>
    *
-   * @deprecated
+   * @deprecated AttributeNames has been replaced by MessageSystemAttributeNames
    * @public
    */
   AttributeNames?: QueueAttributeName[] | undefined;

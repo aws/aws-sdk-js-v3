@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutWithContentEncodingInput } from "../models/models_0";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { PutWithContentEncoding } from "../schemas/schemas_16_PutWithContentEncoding";
+import { PutWithContentEncoding } from "../schemas/schemas_0";
 
 /**
  * @public

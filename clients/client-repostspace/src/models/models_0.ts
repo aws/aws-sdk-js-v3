@@ -1009,7 +1009,7 @@ export interface GetSpaceOutput {
   /**
    * <p>The list of users that are administrators of the private re:Post.</p>
    *
-   * @deprecated
+   * @deprecated This property has been depracted and will be replaced by the roles property.
    * @public
    */
   userAdmins?: string[] | undefined;
@@ -1017,7 +1017,7 @@ export interface GetSpaceOutput {
   /**
    * <p>The list of groups that are administrators of the private re:Post.</p>
    *
-   * @deprecated
+   * @deprecated This property has been depracted and will be replaced by the roles property.
    * @public
    */
   groupAdmins?: string[] | undefined;

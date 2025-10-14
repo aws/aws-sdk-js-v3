@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IgnoreQueryParamsInResponseOutput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { IgnoreQueryParamsInResponse } from "../schemas/schemas_54_IgnoreQueryParamsInResponse";
+import { IgnoreQueryParamsInResponse } from "../schemas/schemas_0";
 
 /**
  * @public

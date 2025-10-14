@@ -6738,7 +6738,7 @@ export interface UpdateFleetRequest {
   /**
    * <p>Deletes the VPC association for the specified fleet.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   DeleteVpcConfig?: boolean | undefined;
@@ -6931,7 +6931,7 @@ export interface UpdateStackRequest {
   /**
    * <p>Deletes the storage connectors currently enabled for the stack.</p>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   DeleteStorageConnectors?: boolean | undefined;

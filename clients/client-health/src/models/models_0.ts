@@ -436,7 +436,7 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
    * <p>A JSON set of elements including the <code>awsAccountId</code> and the
    *             <code>eventArn</code>.</p>
    *
-   * @deprecated
+   * @deprecated This property is deprecated, use organizationEntityAccountFilters instead.
    * @public
    */
   organizationEntityFilters?: EventAccountFilter[] | undefined;

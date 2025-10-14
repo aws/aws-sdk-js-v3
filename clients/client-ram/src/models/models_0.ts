@@ -216,7 +216,7 @@ export interface ResourceShareInvitation {
   /**
    * <p>To view the resources associated with a pending resource share invitation, use <a>ListPendingInvitationResources</a>.</p>
    *
-   * @deprecated
+   * @deprecated This member has been deprecated. Use ListPendingInvitationResources.
    * @public
    */
   resourceShareAssociations?: ResourceShareAssociation[] | undefined;

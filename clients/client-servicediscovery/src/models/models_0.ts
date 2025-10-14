@@ -601,7 +601,7 @@ export interface DnsConfig {
    *          </p>
    *          <p>The ID of the namespace to use for DNS configuration.</p>
    *
-   * @deprecated
+   * @deprecated Top level attribute in request should be used to reference namespace-id
    * @public
    */
   NamespaceId?: string | undefined;
@@ -875,7 +875,7 @@ export interface HealthCheckCustomConfig {
    *    the same value before 30 seconds has passed doesn't accelerate the change. Cloud Map still waits
    *     <code>30</code> seconds after the first request to make the change.</p>
    *
-   * @deprecated
+   * @deprecated Configurable FailureThreshold of HealthCheckCustomConfig is deprecated.  It will always have value 1.
    * @public
    */
   FailureThreshold?: number | undefined;

@@ -34,7 +34,7 @@ export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  *          expected for backward compatibility, but we won't add enhancements. Use <a>DetachPolicy</a> instead.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPrincipalPolicy</a> action.</p>
  *
- * @deprecated
+ * @deprecated deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,5 +1,5 @@
 import { ErrorSchema, NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
-import type { HttpResponse as IHttpResponse, MetadataBearer, ResponseMetadata } from "@smithy/types";
+import type { HttpResponse as IHttpResponse, MetadataBearer, ResponseMetadata, StaticErrorSchema } from "@smithy/types";
 
 /**
  * @internal
@@ -64,8 +64,8 @@ export class ProtocolLib {
     response: IHttpResponse,
     dataObject: any,
     metadata: ResponseMetadata,
-    getErrorSchema?: (registry: TypeRegistry, errorName: string) => ErrorSchema
-  ): Promise<{ errorSchema: ErrorSchema; errorMetadata: ErrorMetadataBearer }> {
+    getErrorSchema?: (registry: TypeRegistry, errorName: string) => StaticErrorSchema
+  ): Promise<{ errorSchema: StaticErrorSchema; errorMetadata: ErrorMetadataBearer }> {
     let namespace = defaultNamespace;
     let errorName = errorIdentifier;
     if (errorIdentifier.includes("#")) {
@@ -81,7 +81,8 @@ export class ProtocolLib {
     const registry = TypeRegistry.for(namespace);
 
     try {
-      const errorSchema = getErrorSchema?.(registry, errorName) ?? (registry.getSchema(errorIdentifier) as ErrorSchema);
+      const errorSchema =
+        getErrorSchema?.(registry, errorName) ?? (registry.getSchema(errorIdentifier) as StaticErrorSchema);
       return { errorSchema, errorMetadata };
     } catch (e) {
       dataObject.message = dataObject.message ?? dataObject.Message ?? "UnknownError";

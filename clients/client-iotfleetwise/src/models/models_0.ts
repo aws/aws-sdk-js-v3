@@ -120,7 +120,7 @@ export interface Actuator {
   /**
    * <p>A specified value for the actuator.</p>
    *
-   * @deprecated
+   * @deprecated assignedValue is no longer in use
    * @public
    */
   assignedValue?: string | undefined;
@@ -428,7 +428,7 @@ export interface Attribute {
   /**
    * <p>A specified value for the attribute.</p>
    *
-   * @deprecated
+   * @deprecated assignedValue is no longer in use
    * @public
    */
   assignedValue?: string | undefined;
@@ -1765,7 +1765,7 @@ export interface CreateCampaignRequest {
    *          <p>Default: <code>0</code>
    *          </p>
    *
-   * @deprecated
+   * @deprecated priority is no longer used or needed as input
    * @public
    */
   priority?: number | undefined;
@@ -5612,7 +5612,7 @@ export interface RegisterAccountRequest {
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
    *             your vehicle data to.</p>
    *
-   * @deprecated
+   * @deprecated Amazon Timestream metadata is now passed in the CreateCampaign API.
    * @public
    */
   timestreamResources?: TimestreamResources | undefined;
@@ -5620,7 +5620,7 @@ export interface RegisterAccountRequest {
   /**
    * <p>The IAM resource that allows Amazon Web Services IoT FleetWise to send data to Amazon Timestream.</p>
    *
-   * @deprecated
+   * @deprecated iamResources is no longer used or needed as input
    * @public
    */
   iamResources?: IamResources | undefined;

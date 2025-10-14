@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EnumPayloadInput } from "../models/models_0";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { HttpEnumPayload } from "../schemas/schemas_15_Json";
+import { HttpEnumPayload } from "../schemas/schemas_0";
 
 /**
  * @public

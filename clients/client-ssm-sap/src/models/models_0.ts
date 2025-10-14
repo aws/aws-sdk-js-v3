@@ -614,7 +614,7 @@ export interface Component {
   /**
    * <p>The hosts of the component.</p>
    *
-   * @deprecated
+   * @deprecated This shape is no longer used. Please use AssociatedHost.
    * @public
    */
   Hosts?: Host[] | undefined;
@@ -622,7 +622,7 @@ export interface Component {
   /**
    * <p>The primary host of the component.</p>
    *
-   * @deprecated
+   * @deprecated This shape is no longer used. Please use AssociatedHost.
    * @public
    */
   PrimaryHost?: string | undefined;

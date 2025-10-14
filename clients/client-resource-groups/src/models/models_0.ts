@@ -653,7 +653,7 @@ export interface DeleteGroupInput {
   /**
    * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use Group instead.
    * @public
    */
   GroupName?: string | undefined;
@@ -716,7 +716,7 @@ export interface GetGroupInput {
   /**
    * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use Group instead.
    * @public
    */
   GroupName?: string | undefined;
@@ -773,7 +773,7 @@ export interface GetGroupQueryInput {
   /**
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use Group instead.
    * @public
    */
   GroupName?: string | undefined;
@@ -1284,7 +1284,7 @@ export interface ListGroupResourcesInput {
    *             </p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use Group instead.
    * @public
    */
   GroupName?: string | undefined;
@@ -1480,7 +1480,7 @@ export interface ListGroupResourcesOutput {
    *             </p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use Resources instead.
    * @public
    */
   ResourceIdentifiers?: ResourceIdentifier[] | undefined;
@@ -1693,7 +1693,7 @@ export interface ListGroupsOutput {
    *             </p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use GroupIdentifiers instead.
    * @public
    */
   Groups?: Group[] | undefined;
@@ -2284,7 +2284,7 @@ export interface UpdateGroupInput {
   /**
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use Group instead.
    * @public
    */
   GroupName?: string | undefined;
@@ -2341,7 +2341,7 @@ export interface UpdateGroupQueryInput {
   /**
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use Group instead.
    * @public
    */
   GroupName?: string | undefined;

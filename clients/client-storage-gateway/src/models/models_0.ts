@@ -1583,7 +1583,7 @@ export interface CreateNFSFileShareInput {
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    *
-   * @deprecated
+   * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
    */
   KMSEncrypted?: boolean | undefined;
@@ -1867,7 +1867,7 @@ export interface CreateSMBFileShareInput {
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    *
-   * @deprecated
+   * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
    */
   KMSEncrypted?: boolean | undefined;
@@ -3939,7 +3939,7 @@ export interface NFSFileShareInfo {
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    *
-   * @deprecated
+   * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
    */
   KMSEncrypted?: boolean | undefined;
@@ -4250,7 +4250,7 @@ export interface SMBFileShareInfo {
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    *
-   * @deprecated
+   * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
    */
   KMSEncrypted?: boolean | undefined;
@@ -7813,7 +7813,7 @@ export interface UpdateNFSFileShareInput {
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    *
-   * @deprecated
+   * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
    */
   KMSEncrypted?: boolean | undefined;
@@ -8027,7 +8027,7 @@ export interface UpdateSMBFileShareInput {
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
    *
-   * @deprecated
+   * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
    */
   KMSEncrypted?: boolean | undefined;

@@ -164,7 +164,7 @@ export interface GetDetectorResponse {
   /**
    * <p>Describes which data sources are enabled for the detector.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated, use Features instead
    * @public
    */
   DataSources?: DataSourceConfigurationsResult | undefined;
@@ -313,7 +313,7 @@ export interface GetFindingsStatisticsRequest {
   /**
    * <p>The types of finding statistics to retrieve.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated, please use GroupBy instead
    * @public
    */
   FindingStatisticTypes?: FindingStatisticType[] | undefined;
@@ -809,7 +809,7 @@ export interface MemberDataSourceConfiguration {
   /**
    * <p>Contains information on the status of data sources for the account.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated, use Features instead
    * @public
    */
   DataSources?: DataSourceConfigurationsResult | undefined;
@@ -1407,7 +1407,7 @@ export interface UsageCriteria {
   /**
    * <p>The data sources to aggregate usage statistics from.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated, use Features instead
    * @public
    */
   DataSources?: DataSource[] | undefined;
@@ -2755,7 +2755,7 @@ export interface UpdateDetectorRequest {
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
    *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated, use Features instead
    * @public
    */
   DataSources?: DataSourceConfigurations | undefined;
@@ -3069,7 +3069,7 @@ export interface UpdateMemberDetectorsRequest {
   /**
    * <p>Describes which data sources will be updated.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated, use Features instead
    * @public
    */
   DataSources?: DataSourceConfigurations | undefined;
@@ -3313,7 +3313,7 @@ export interface UpdateOrganizationConfigurationRequest {
    *    <code>AutoEnableOrganizationMembers</code> to achieve the similar results. You must provide a
    *     value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>.</p>
    *
-   * @deprecated
+   * @deprecated This field is deprecated, use AutoEnableOrganizationMembers instead
    * @public
    */
   AutoEnable?: boolean | undefined;
@@ -3321,7 +3321,7 @@ export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>Describes which data sources will be updated.</p>
    *
-   * @deprecated
+   * @deprecated This parameter is deprecated, use Features instead
    * @public
    */
   DataSources?: OrganizationDataSourceConfigurations | undefined;

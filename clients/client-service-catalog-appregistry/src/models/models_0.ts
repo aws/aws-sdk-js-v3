@@ -1656,7 +1656,7 @@ export interface UpdateApplicationRequest {
    * <p>Deprecated: The new name of the application. The name must be unique in the region in which you are
    *        updating the application. Please do not use this field as we have stopped supporting name updates.</p>
    *
-   * @deprecated
+   * @deprecated Name update for application is deprecated.
    * @public
    */
   name?: string | undefined;
@@ -1698,7 +1698,7 @@ export interface UpdateAttributeGroupRequest {
    * <p>Deprecated: The new name of the attribute group. The name must be unique in the region in which you are
    *        updating the attribute group. Please do not use this field as we have stopped supporting name updates.</p>
    *
-   * @deprecated
+   * @deprecated Name update for attribute group is deprecated.
    * @public
    */
   name?: string | undefined;

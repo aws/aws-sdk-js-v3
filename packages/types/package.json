@@ -42,7 +42,7 @@
     "directory": "packages/types"
   },
   "dependencies": {
-    "@smithy/types": "^4.6.0",
+    "@smithy/types": "^4.7.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

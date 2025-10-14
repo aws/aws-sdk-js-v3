@@ -2758,7 +2758,7 @@ export interface BudgetSummary {
    *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
    *          </important>
    *
-   * @deprecated
+   * @deprecated ListBudgets no longer supports description. Use GetBudget if description is needed.
    * @public
    */
   description?: string | undefined;

@@ -3737,7 +3737,7 @@ export interface GetOperationsForResourceResult {
    *         instead.</p>
    *          </note>
    *
-   * @deprecated
+   * @deprecated deprecated
    * @public
    */
   nextPageCount?: string | undefined;

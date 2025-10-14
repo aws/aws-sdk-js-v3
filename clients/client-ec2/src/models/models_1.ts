@@ -12074,7 +12074,7 @@ export interface RequestLaunchTemplateData {
    *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
    *
-   * @deprecated
+   * @deprecated Specifying Elastic Graphics accelerators is no longer supported on the RunInstances API.
    * @public
    */
   ElasticGpuSpecifications?: ElasticGpuSpecification[] | undefined;
@@ -12088,7 +12088,7 @@ export interface RequestLaunchTemplateData {
    *             your Deep Learning (DL) inference workloads.</p>
    *          <p>You cannot specify accelerators from different generations in the same request.</p>
    *
-   * @deprecated
+   * @deprecated Specifying Elastic Inference accelerators is no longer supported on the RunInstances API.
    * @public
    */
   ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[] | undefined;

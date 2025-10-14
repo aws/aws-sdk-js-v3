@@ -5454,7 +5454,7 @@ export interface DescribeClusterVersionsRequest {
    *          </important>
    *          <p>Filter versions by their current status.</p>
    *
-   * @deprecated
+   * @deprecated status has been replaced by versionStatus
    * @public
    */
   status?: ClusterVersionStatus | undefined;

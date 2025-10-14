@@ -811,7 +811,7 @@ export interface CreateSubscriptionGrantOutput {
   /**
    * <p>The identifier of the subscription grant.</p>
    *
-   * @deprecated
+   * @deprecated Multiple subscriptions can exist for a single grant
    * @public
    */
   subscriptionId?: string | undefined;
@@ -1884,7 +1884,7 @@ export interface DeleteDataSourceInput {
   /**
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
    *
-   * @deprecated
+   * @deprecated This field is no longer required for idempotency.
    * @public
    */
   clientToken?: string | undefined;
@@ -3556,7 +3556,7 @@ export interface DeleteSubscriptionGrantOutput {
   /**
    * <p>The identifier of the subsctiption whose subscription grant is to be deleted.</p>
    *
-   * @deprecated
+   * @deprecated Multiple subscriptions can exist for a single grant
    * @public
    */
   subscriptionId?: string | undefined;
@@ -6383,7 +6383,7 @@ export interface GetSubscriptionGrantOutput {
   /**
    * <p>The identifier of the subscription.</p>
    *
-   * @deprecated
+   * @deprecated Multiple subscriptions can exist for a single grant
    * @public
    */
   subscriptionId?: string | undefined;
@@ -9852,7 +9852,7 @@ export interface SubscriptionGrantSummary {
   /**
    * <p>The ID of the subscription.</p>
    *
-   * @deprecated
+   * @deprecated Multiple subscriptions can exist for a single grant
    * @public
    */
   subscriptionId?: string | undefined;

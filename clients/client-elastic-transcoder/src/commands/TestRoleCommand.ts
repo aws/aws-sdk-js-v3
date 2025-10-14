@@ -39,7 +39,7 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  *             input and output buckets, and tries to send a test notification to Amazon SNS topics
  *             that you specify.</p>
  *
- * @deprecated
+ * @deprecated deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

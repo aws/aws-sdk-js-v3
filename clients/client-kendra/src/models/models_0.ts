@@ -5134,7 +5134,7 @@ export interface DataSourceConfiguration {
    *         API.</p>
    *          </note>
    *
-   * @deprecated
+   * @deprecated Deprecated AlfrescoConfiguration in favor of TemplateConfiguration
    * @public
    */
   AlfrescoConfiguration?: AlfrescoConfiguration | undefined;
