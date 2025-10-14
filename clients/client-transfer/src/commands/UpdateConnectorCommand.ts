@@ -62,6 +62,12 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *     MaxConcurrentConnections: Number("int"),
  *   },
  *   SecurityPolicyName: "STRING_VALUE",
+ *   EgressConfig: { // UpdateConnectorEgressConfig Union: only one key present
+ *     VpcLattice: { // UpdateConnectorVpcLatticeEgressConfig
+ *       ResourceConfigurationArn: "STRING_VALUE",
+ *       PortNumber: Number("int"),
+ *     },
+ *   },
  * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);

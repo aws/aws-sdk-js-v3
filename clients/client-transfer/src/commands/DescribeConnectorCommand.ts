@@ -78,6 +78,15 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //       "STRING_VALUE",
  * //     ],
  * //     SecurityPolicyName: "STRING_VALUE",
+ * //     EgressConfig: { // DescribedConnectorEgressConfig Union: only one key present
+ * //       VpcLattice: { // DescribedConnectorVpcLatticeEgressConfig
+ * //         ResourceConfigurationArn: "STRING_VALUE", // required
+ * //         PortNumber: Number("int"),
+ * //       },
+ * //     },
+ * //     EgressType: "SERVICE_MANAGED" || "VPC_LATTICE", // required
+ * //     ErrorMessage: "STRING_VALUE",
+ * //     Status: "ACTIVE" || "ERRORED" || "PENDING", // required
  * //   },
  * // };
  *

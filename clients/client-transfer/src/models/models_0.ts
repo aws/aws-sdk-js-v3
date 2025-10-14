@@ -1219,6 +1219,76 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * <p>VPC_LATTICE egress configuration that specifies the Resource Configuration ARN and port for connecting to SFTP servers through customer VPCs. Requires a valid Resource Configuration with appropriate network access.</p>
+ * @public
+ */
+export interface ConnectorVpcLatticeEgressConfig {
+  /**
+   * <p>ARN of the VPC_LATTICE Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in the customer's VPC with appropriate network connectivity to the SFTP server.</p>
+   * @public
+   */
+  ResourceConfigurationArn: string | undefined;
+
+  /**
+   * <p>Port number for connecting to the SFTP server through VPC_LATTICE. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening.</p>
+   * @public
+   */
+  PortNumber?: number | undefined;
+}
+
+/**
+ * <p>Configuration structure that defines how traffic is routed from the connector to the SFTP server. Contains VPC Lattice settings when using VPC_LATTICE egress type for private connectivity through customer VPCs.</p>
+ * @public
+ */
+export type ConnectorEgressConfig = ConnectorEgressConfig.VpcLatticeMember | ConnectorEgressConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConnectorEgressConfig {
+  /**
+   * <p>VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.</p>
+   * @public
+   */
+  export interface VpcLatticeMember {
+    VpcLattice: ConnectorVpcLatticeEgressConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    VpcLattice?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    VpcLattice: (value: ConnectorVpcLatticeEgressConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ConnectorEgressConfig, visitor: Visitor<T>): T => {
+    if (value.VpcLattice !== undefined) return visitor.VpcLattice(value.VpcLattice);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorEgressType = {
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+  VPC_LATTICE: "VPC_LATTICE",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorEgressType = (typeof ConnectorEgressType)[keyof typeof ConnectorEgressType];
+
+/**
  * @public
  * @enum
  */
@@ -1276,7 +1346,7 @@ export interface SftpConnectorConfig {
   UserSecretId?: string | undefined;
 
   /**
-   * <p>The public portion of the host key, or keys, that are used to identify the external server to which you are connecting. You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p> <note> <p> <code>TrustedHostKeys</code> is optional for <code>CreateConnector</code>. If not provided, you can use <code>TestConnection</code> to retrieve the server host key during the initial connection attempt, and subsequently update the connector with the observed host key.</p> </note> <p>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>, <code>&lt;body base64&gt;</code>, and an optional <code>&lt;comment&gt;</code>, with spaces between each element. Specify only the <code>&lt;key type&gt;</code> and <code>&lt;body base64&gt;</code>: do not enter the <code>&lt;comment&gt;</code> portion of the key.</p> <p>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</p> <ul> <li> <p>For RSA keys, the <code>&lt;key type&gt;</code> string is <code>ssh-rsa</code>.</p> </li> <li> <p>For ECDSA keys, the <code>&lt;key type&gt;</code> string is either <code>ecdsa-sha2-nistp256</code>, <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</p> </li> </ul> <p>Run this command to retrieve the SFTP server host key, where your SFTP server name is <code>ftp.host.com</code>.</p> <p> <code>ssh-keyscan ftp.host.com</code> </p> <p>This prints the public host key to standard output.</p> <p> <code>ftp.host.com ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key</code> </p> <p>Copy and paste this string into the <code>TrustedHostKeys</code> field for the <code>create-connector</code> command or into the <b>Trusted host keys</b> field in the console.</p>
+   * <p>The public portion of the host key, or keys, that are used to identify the external server to which you are connecting. You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p> <note> <p> <code>TrustedHostKeys</code> is optional for <code>CreateConnector</code>. If not provided, you can use <code>TestConnection</code> to retrieve the server host key during the initial connection attempt, and subsequently update the connector with the observed host key.</p> </note> <p>When creating connectors with egress config (VPC_LATTICE type connectors), since host name is not something we can verify, the only accepted trusted host key format is <code>key-type key-body</code> without the host name. For example: <code>ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key&gt;</code> </p> <p>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>, <code>&lt;body base64&gt;</code>, and an optional <code>&lt;comment&gt;</code>, with spaces between each element. Specify only the <code>&lt;key type&gt;</code> and <code>&lt;body base64&gt;</code>: do not enter the <code>&lt;comment&gt;</code> portion of the key.</p> <p>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</p> <ul> <li> <p>For RSA keys, the <code>&lt;key type&gt;</code> string is <code>ssh-rsa</code>.</p> </li> <li> <p>For ECDSA keys, the <code>&lt;key type&gt;</code> string is either <code>ecdsa-sha2-nistp256</code>, <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</p> </li> </ul> <p>Run this command to retrieve the SFTP server host key, where your SFTP server name is <code>ftp.host.com</code>.</p> <p> <code>ssh-keyscan ftp.host.com</code> </p> <p>This prints the public host key to standard output.</p> <p> <code>ftp.host.com ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key&gt;</code> </p> <p>Copy and paste this string into the <code>TrustedHostKeys</code> field for the <code>create-connector</code> command or into the <b>Trusted host keys</b> field in the console.</p> <p>For VPC Lattice type connectors (VPC_LATTICE), remove the hostname from the key and use only the <code>key-type key-body</code> format. In this example, it should be: <code>ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key&gt;</code> </p>
    * @public
    */
   TrustedHostKeys?: string[] | undefined;
@@ -1293,10 +1363,10 @@ export interface SftpConnectorConfig {
  */
 export interface CreateConnectorRequest {
   /**
-   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p> <p>When creating AS2 connectors or service-managed SFTP connectors (connectors without egress configuration), you must provide a URL to specify the remote server endpoint. For VPC Lattice type connectors, the URL must be null.</p>
    * @public
    */
-  Url: string | undefined;
+  Url?: string | undefined;
 
   /**
    * <p>A structure that contains the parameters for an AS2 connector object.</p>
@@ -1333,6 +1403,12 @@ export interface CreateConnectorRequest {
    * @public
    */
   SecurityPolicyName?: string | undefined;
+
+  /**
+   * <p>Specifies the egress configuration for the connector, which determines how traffic is routed from the connector to the SFTP server. When set to VPC, enables routing through customer VPCs using VPC_LATTICE for private connectivity.</p>
+   * @public
+   */
+  EgressConfig?: ConnectorEgressConfig | undefined;
 }
 
 /**
@@ -1369,6 +1445,79 @@ export interface DescribeConnectorRequest {
 }
 
 /**
+ * <p>VPC_LATTICE egress configuration details in the response, containing the Resource Configuration ARN and port number currently configured for the connector.</p>
+ * @public
+ */
+export interface DescribedConnectorVpcLatticeEgressConfig {
+  /**
+   * <p>ARN of the VPC_LATTICE Resource Configuration currently used by the connector. This Resource Configuration defines the network path to the SFTP server through the customer's VPC.</p>
+   * @public
+   */
+  ResourceConfigurationArn: string | undefined;
+
+  /**
+   * <p>Port number currently configured for SFTP connections through VPC_LATTICE. Shows the port on which the connector attempts to connect to the target SFTP server.</p>
+   * @public
+   */
+  PortNumber?: number | undefined;
+}
+
+/**
+ * <p>Response structure containing the current egress configuration details for the connector. Shows how traffic is currently routed from the connector to the SFTP server.</p>
+ * @public
+ */
+export type DescribedConnectorEgressConfig =
+  | DescribedConnectorEgressConfig.VpcLatticeMember
+  | DescribedConnectorEgressConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DescribedConnectorEgressConfig {
+  /**
+   * <p>VPC_LATTICE configuration details in the response, showing the current Resource Configuration ARN and port settings for VPC-based connectivity.</p>
+   * @public
+   */
+  export interface VpcLatticeMember {
+    VpcLattice: DescribedConnectorVpcLatticeEgressConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    VpcLattice?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    VpcLattice: (value: DescribedConnectorVpcLatticeEgressConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DescribedConnectorEgressConfig, visitor: Visitor<T>): T => {
+    if (value.VpcLattice !== undefined) return visitor.VpcLattice(value.VpcLattice);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorStatus = {
+  ACTIVE: "ACTIVE",
+  ERRORED: "ERRORED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
+
+/**
  * <p>Describes the parameters for the connector, as identified by the <code>ConnectorId</code>.</p>
  * @public
  */
@@ -1386,7 +1535,7 @@ export interface DescribedConnector {
   ConnectorId?: string | undefined;
 
   /**
-   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p> <p>When creating AS2 connectors or service-managed SFTP connectors (connectors without egress configuration), you must provide a URL to specify the remote server endpoint. For VPC Lattice type connectors, the URL must be null.</p>
    * @public
    */
   Url?: string | undefined;
@@ -1432,6 +1581,30 @@ export interface DescribedConnector {
    * @public
    */
   SecurityPolicyName?: string | undefined;
+
+  /**
+   * <p>Current egress configuration of the connector, showing how traffic is routed to the SFTP server. Contains VPC Lattice settings when using VPC_LATTICE egress type.</p> <p>When using the VPC_LATTICE egress type, Transfer Family uses a managed Service Network to simplify the resource sharing process.</p>
+   * @public
+   */
+  EgressConfig?: DescribedConnectorEgressConfig | undefined;
+
+  /**
+   * <p>Type of egress configuration for the connector. SERVICE_MANAGED uses Transfer Family managed NAT gateways, while VPC_LATTICE routes traffic through customer VPCs using VPC Lattice.</p>
+   * @public
+   */
+  EgressType: ConnectorEgressType | undefined;
+
+  /**
+   * <p>Error message providing details when the connector is in ERRORED status. Contains information to help troubleshoot connector creation or operation failures.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>Current status of the connector. PENDING indicates creation/update in progress, ACTIVE means ready for operations, and ERRORED indicates a failure requiring attention.</p>
+   * @public
+   */
+  Status: ConnectorStatus | undefined;
 }
 
 /**
@@ -1480,7 +1653,7 @@ export interface ListedConnector {
   ConnectorId?: string | undefined;
 
   /**
-   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p> <p>When creating AS2 connectors or service-managed SFTP connectors (connectors without egress configuration), you must provide a URL to specify the remote server endpoint. For VPC Lattice type connectors, the URL must be null.</p>
    * @public
    */
   Url?: string | undefined;
@@ -1504,6 +1677,64 @@ export interface ListConnectorsResponse {
 }
 
 /**
+ * <p>VPC_LATTICE egress configuration updates for modifying how the connector routes traffic through customer VPCs. Changes to these settings may require connector restart to take effect.</p>
+ * @public
+ */
+export interface UpdateConnectorVpcLatticeEgressConfig {
+  /**
+   * <p>Updated ARN of the VPC_LATTICE Resource Configuration. Use this to change the target SFTP server location or modify the network path through the customer's VPC infrastructure.</p>
+   * @public
+   */
+  ResourceConfigurationArn?: string | undefined;
+
+  /**
+   * <p>Updated port number for SFTP connections through VPC_LATTICE. Change this if the target SFTP server port has been modified or if connecting to a different server endpoint.</p>
+   * @public
+   */
+  PortNumber?: number | undefined;
+}
+
+/**
+ * <p>Structure for updating the egress configuration of an existing connector. Allows modification of how traffic is routed from the connector to the SFTP server, including VPC_LATTICE settings.</p>
+ * @public
+ */
+export type UpdateConnectorEgressConfig =
+  | UpdateConnectorEgressConfig.VpcLatticeMember
+  | UpdateConnectorEgressConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateConnectorEgressConfig {
+  /**
+   * <p>VPC_LATTICE configuration updates for the connector. Use this to modify the Resource Configuration ARN or port number for VPC-based connectivity.</p>
+   * @public
+   */
+  export interface VpcLatticeMember {
+    VpcLattice: UpdateConnectorVpcLatticeEgressConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    VpcLattice?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    VpcLattice: (value: UpdateConnectorVpcLatticeEgressConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UpdateConnectorEgressConfig, visitor: Visitor<T>): T => {
+    if (value.VpcLattice !== undefined) return visitor.VpcLattice(value.VpcLattice);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  */
 export interface UpdateConnectorRequest {
@@ -1514,7 +1745,7 @@ export interface UpdateConnectorRequest {
   ConnectorId: string | undefined;
 
   /**
-   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p> <p>When creating AS2 connectors or service-managed SFTP connectors (connectors without egress configuration), you must provide a URL to specify the remote server endpoint. For VPC Lattice type connectors, the URL must be null.</p>
    * @public
    */
   Url?: string | undefined;
@@ -1548,6 +1779,12 @@ export interface UpdateConnectorRequest {
    * @public
    */
   SecurityPolicyName?: string | undefined;
+
+  /**
+   * <p>Updates the egress configuration for the connector, allowing you to modify how traffic is routed from the connector to the SFTP server. Changes to VPC configuration may require connector restart.</p>
+   * @public
+   */
+  EgressConfig?: UpdateConnectorEgressConfig | undefined;
 }
 
 /**
@@ -2041,7 +2278,7 @@ export type TlsSessionResumptionMode = (typeof TlsSessionResumptionMode)[keyof t
  */
 export interface ProtocolDetails {
   /**
-   * <p> Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example: </p> <p> <code>aws transfer update-server --protocol-details PassiveIp=0.0.0.0</code> </p> <p>Replace <code>0.0.0.0</code> in the example above with the actual IP address you want to use.</p> <note> <p> If you change the <code>PassiveIp</code> value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring your FTPS server behind a firewall or NAT with Transfer Family</a>. </p> </note> <p> <i>Special values</i> </p> <p>The <code>AUTO</code> and <code>0.0.0.0</code> are special values for the <code>PassiveIp</code> parameter. The value <code>PassiveIp=AUTO</code> is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. <code>PassiveIp=0.0.0.0</code> has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the <code>PassiveIp</code> parameter. This reduces the effectiveness of having High Availability. In this case, you can specify <code>PassiveIp=0.0.0.0</code>. This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the <code>PassiveIp=0.0.0.0</code> response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the <code>PassiveIp=0.0.0.0</code> response.</p>
+   * <p> Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example: </p> <p> <code>aws transfer update-server --protocol-details PassiveIp=0.0.0.0</code> </p> <p>Replace <code>0.0.0.0</code> in the example above with the actual IP address you want to use.</p> <note> <p> If you change the <code>PassiveIp</code> value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring your FTPS server behind a firewall or NAT with Transfer Family</a>. </p> <p>Additionally, avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers. This configuration increases costs and can cause performance issues. When NLBs or NATs are in the communication path, Transfer Family cannot accurately recognize client IP addresses, which impacts connection sharding and limits FTPS servers to only 300 simultaneous connections instead of 10,000. If you must use an NLB, use port 21 for health checks and enable TLS session resumption by setting <code>TlsSessionResumptionMode = ENFORCED</code>. For optimal performance, migrate to VPC endpoints with Elastic IP addresses instead of using NLBs. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations"> Avoid placing NLBs and NATs in front of Transfer Family</a>. </p> </note> <p> <i>Special values</i> </p> <p>The <code>AUTO</code> and <code>0.0.0.0</code> are special values for the <code>PassiveIp</code> parameter. The value <code>PassiveIp=AUTO</code> is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. <code>PassiveIp=0.0.0.0</code> has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the <code>PassiveIp</code> parameter. This reduces the effectiveness of having High Availability. In this case, you can specify <code>PassiveIp=0.0.0.0</code>. This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the <code>PassiveIp=0.0.0.0</code> response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the <code>PassiveIp=0.0.0.0</code> response.</p>
    * @public
    */
   PassiveIp?: string | undefined;
@@ -2215,7 +2452,7 @@ export interface CreateServerRequest {
   Protocols?: Protocol[] | undefined;
 
   /**
-   * <p>The protocol settings that are configured for your server.</p> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
+   * <p>The protocol settings that are configured for your server.</p> <note> <p>Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations"> Avoid placing NLBs and NATs in front of Transfer Family</a>.</p> </note> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
    * @public
    */
   ProtocolDetails?: ProtocolDetails | undefined;
@@ -3459,7 +3696,7 @@ export interface DescribedServer {
   Certificate?: string | undefined;
 
   /**
-   * <p>The protocol settings that are configured for your server.</p> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
+   * <p>The protocol settings that are configured for your server.</p> <note> <p>Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations"> Avoid placing NLBs and NATs in front of Transfer Family</a>.</p> </note> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
    * @public
    */
   ProtocolDetails?: ProtocolDetails | undefined;
@@ -4975,7 +5212,7 @@ export interface UpdateServerRequest {
   Certificate?: string | undefined;
 
   /**
-   * <p>The protocol settings that are configured for your server.</p> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
+   * <p>The protocol settings that are configured for your server.</p> <note> <p>Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of Transfer Family servers, as this increases costs and can cause performance issues, including reduced connection limits for FTPS. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations"> Avoid placing NLBs and NATs in front of Transfer Family</a>.</p> </note> <ul> <li> <p> To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter. Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer. </p> </li> <li> <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code> call.</p> </li> <li> <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the <code>TlsSessionResumptionMode</code> parameter.</p> </li> <li> <p> <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p> </li> </ul>
    * @public
    */
   ProtocolDetails?: ProtocolDetails | undefined;

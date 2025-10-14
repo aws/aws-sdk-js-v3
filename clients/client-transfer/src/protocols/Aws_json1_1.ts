@@ -128,6 +128,8 @@ import {
   As2ConnectorConfig,
   As2Transport,
   ConflictException,
+  ConnectorEgressConfig,
+  ConnectorVpcLatticeEgressConfig,
   CopyStepDetails,
   CreateAccessRequest,
   CreateAgreementRequest,
@@ -232,7 +234,9 @@ import {
   UpdateAccessRequest,
   UpdateAgreementRequest,
   UpdateCertificateRequest,
+  UpdateConnectorEgressConfig,
   UpdateConnectorRequest,
+  UpdateConnectorVpcLatticeEgressConfig,
   UpdateHostKeyRequest,
   UpdateProfileRequest,
   UpdateServerRequest,
@@ -2737,6 +2741,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CertificateIds omitted.
 
+// se_ConnectorEgressConfig omitted.
+
+// se_ConnectorVpcLatticeEgressConfig omitted.
+
 // se_CopyStepDetails omitted.
 
 // se_CreateAccessRequest omitted.
@@ -2953,7 +2961,11 @@ const se_UpdateCertificateRequest = (input: UpdateCertificateRequest, context: _
   });
 };
 
+// se_UpdateConnectorEgressConfig omitted.
+
 // se_UpdateConnectorRequest omitted.
+
+// se_UpdateConnectorVpcLatticeEgressConfig omitted.
 
 // se_UpdateHostKeyRequest omitted.
 
@@ -3077,6 +3089,10 @@ const de_DescribedCertificate = (output: any, context: __SerdeContext): Describe
 };
 
 // de_DescribedConnector omitted.
+
+// de_DescribedConnectorEgressConfig omitted.
+
+// de_DescribedConnectorVpcLatticeEgressConfig omitted.
 
 // de_DescribedExecution omitted.
 

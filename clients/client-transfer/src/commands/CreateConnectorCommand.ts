@@ -38,7 +38,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * const config = {}; // type is TransferClientConfig
  * const client = new TransferClient(config);
  * const input = { // CreateConnectorRequest
- *   Url: "STRING_VALUE", // required
+ *   Url: "STRING_VALUE",
  *   As2Config: { // As2ConnectorConfig
  *     LocalProfileId: "STRING_VALUE",
  *     PartnerProfileId: "STRING_VALUE",
@@ -67,6 +67,12 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *     MaxConcurrentConnections: Number("int"),
  *   },
  *   SecurityPolicyName: "STRING_VALUE",
+ *   EgressConfig: { // ConnectorEgressConfig Union: only one key present
+ *     VpcLattice: { // ConnectorVpcLatticeEgressConfig
+ *       ResourceConfigurationArn: "STRING_VALUE", // required
+ *       PortNumber: Number("int"),
+ *     },
+ *   },
  * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);
