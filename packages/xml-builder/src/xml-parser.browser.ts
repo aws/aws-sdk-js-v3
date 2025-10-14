@@ -1,4 +1,4 @@
-const parser = new DOMParser();
+let parser: DOMParser | undefined;
 
 /**
  * Cases where this differs from fast-xml-parser:
@@ -9,6 +9,10 @@ const parser = new DOMParser();
  * @internal
  */
 export function parseXML(xmlString: string): any {
+  if (!parser) {
+     parser = new DOMParser();
+  }
+
   const xmlDocument = parser.parseFromString(xmlString, "application/xml");
 
   if (xmlDocument.getElementsByTagName("parsererror").length > 0) {
