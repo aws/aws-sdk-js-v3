@@ -69,8 +69,12 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * //       CreatedBy: { // RecoveryPointCreator
  * //         BackupPlanId: "STRING_VALUE",
  * //         BackupPlanArn: "STRING_VALUE",
+ * //         BackupPlanName: "STRING_VALUE",
  * //         BackupPlanVersion: "STRING_VALUE",
  * //         BackupRuleId: "STRING_VALUE",
+ * //         BackupRuleName: "STRING_VALUE",
+ * //         BackupRuleCron: "STRING_VALUE",
+ * //         BackupRuleTimezone: "STRING_VALUE",
  * //       },
  * //       IamRoleArn: "STRING_VALUE",
  * //       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED" || "AVAILABLE" || "STOPPED" || "CREATING",

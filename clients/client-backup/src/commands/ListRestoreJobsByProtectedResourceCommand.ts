@@ -62,6 +62,8 @@ export interface ListRestoreJobsByProtectedResourceCommandOutput
  * //       AccountId: "STRING_VALUE",
  * //       RestoreJobId: "STRING_VALUE",
  * //       RecoveryPointArn: "STRING_VALUE",
+ * //       SourceResourceArn: "STRING_VALUE",
+ * //       BackupVaultArn: "STRING_VALUE",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       CompletionDate: new Date("TIMESTAMP"),
  * //       Status: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",

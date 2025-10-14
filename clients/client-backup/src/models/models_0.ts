@@ -19,13 +19,16 @@ export interface AdvancedBackupSetting {
   ResourceType?: string | undefined;
 
   /**
-   * <p>Specifies the backup option for a selected resource. This option is only available for
-   *          Windows VSS backup jobs.</p>
+   * <p>Specifies the backup option for a selected resource. This option is available for
+   *          Windows VSS backup jobs and S3 backups.</p>
    *          <p>Valid values: </p>
    *          <p>Set to <code>"WindowsVSS":"enabled"</code> to enable the <code>WindowsVSS</code> backup
    *          option and create a Windows VSS backup. </p>
    *          <p>Set to <code>"WindowsVSS":"disabled"</code> to create a regular backup. The
    *             <code>WindowsVSS</code> option is not enabled by default.</p>
+   *          <p>For S3 backups, set to <code>"S3BackupACLs":"disabled"</code> to exclude ACLs from the backup,
+   *          or <code>"S3BackupObjectTags":"disabled"</code> to exclude object tags from the backup.
+   *          By default, both ACLs and object tags are included in S3 backups.</p>
    *          <p>If you specify an invalid option, you get an <code>InvalidParameterValueException</code>
    *          exception.</p>
    *          <p>For more information about Windows VSS backups, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html">Creating a VSS-Enabled Windows
@@ -331,6 +334,12 @@ export interface RecoveryPointCreator {
   BackupPlanArn?: string | undefined;
 
   /**
+   * <p>The name of the backup plan that created this recovery point. This provides human-readable context about which backup plan was responsible for the backup job.</p>
+   * @public
+   */
+  BackupPlanName?: string | undefined;
+
+  /**
    * <p>Version IDs are unique, randomly generated, Unicode, UTF-8 encoded strings that are at
    *          most 1,024 bytes long. They cannot be edited.</p>
    * @public
@@ -343,6 +352,61 @@ export interface RecoveryPointCreator {
    * @public
    */
   BackupRuleId?: string | undefined;
+
+  /**
+   * <p>The name of the backup rule within the backup plan that created this recovery point. This helps identify which specific rule triggered the backup job.</p>
+   * @public
+   */
+  BackupRuleName?: string | undefined;
+
+  /**
+   * <p>The cron expression that defines the schedule for the backup rule. This shows the frequency and timing of when backups are automatically triggered.</p>
+   * @public
+   */
+  BackupRuleCron?: string | undefined;
+
+  /**
+   * <p>The timezone used for the backup rule schedule. This provides context for when backups are scheduled to run in the specified timezone.</p>
+   * @public
+   */
+  BackupRuleTimezone?: string | undefined;
+}
+
+/**
+ * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
+ *          or is deleted.</p>
+ *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
+ *          days. Therefore, on the console, the retention setting must be 90 days greater than the
+ *          transition to cold after days setting. The transition to cold after days setting can't
+ *          be changed after a backup has been transitioned to cold.</p>
+ *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+ *          availability by resource</a> table. Backup ignores this expression for
+ *          other resource types.</p>
+ *          <p>To remove the existing lifecycle and retention periods and keep your recovery points indefinitely,
+ *          specify -1 for <code>MoveToColdStorageAfterDays</code> and <code>DeleteAfterDays</code>.</p>
+ * @public
+ */
+export interface Lifecycle {
+  /**
+   * <p>The number of days after creation that a recovery point is moved to cold
+   *          storage.</p>
+   * @public
+   */
+  MoveToColdStorageAfterDays?: number | undefined;
+
+  /**
+   * <p>The number of days after creation that a recovery point is deleted. This value must be
+   *          at least 90 days after the number of days specified in <code>MoveToColdStorageAfterDays</code>.</p>
+   * @public
+   */
+  DeleteAfterDays?: number | undefined;
+
+  /**
+   * <p>If the value is true, your backup plan transitions supported resources to
+   *          archive (cold) storage tier in accordance with your lifecycle settings.</p>
+   * @public
+   */
+  OptInToArchiveForSupportedResources?: boolean | undefined;
 }
 
 /**
@@ -399,11 +463,51 @@ export interface BackupJob {
   BackupVaultArn?: string | undefined;
 
   /**
+   * <p>The type of backup vault where the recovery point is stored. Valid values are <code>BACKUP_VAULT</code> for standard backup vaults and <code>LOGICALLY_AIR_GAPPED_BACKUP_VAULT</code> for logically air-gapped vaults.</p>
+   * @public
+   */
+  VaultType?: string | undefined;
+
+  /**
+   * <p>The lock state of the backup vault. For logically air-gapped vaults, this indicates whether the vault is locked in compliance mode. Valid values include <code>LOCKED</code> and <code>UNLOCKED</code>.</p>
+   * @public
+   */
+  VaultLockState?: string | undefined;
+
+  /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
   RecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
+   *          or is deleted.</p>
+   *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
+   *          days. Therefore, on the console, the retention setting must be 90 days greater than the
+   *          transition to cold after days setting. The transition to cold after days setting can't
+   *          be changed after a backup has been transitioned to cold.</p>
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+   *          availability by resource</a> table. Backup ignores this expression for
+   *          other resource types.</p>
+   *          <p>To remove the existing lifecycle and retention periods and keep your recovery points indefinitely,
+   *          specify -1 for <code>MoveToColdStorageAfterDays</code> and <code>DeleteAfterDays</code>.</p>
+   * @public
+   */
+  RecoveryPointLifecycle?: Lifecycle | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the backup. This can be a customer-managed key or an Amazon Web Services managed key, depending on the vault configuration.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A boolean value indicating whether the backup is encrypted. All backups in Backup are encrypted, but this field indicates the encryption status for transparency.</p>
+   * @public
+   */
+  IsEncrypted?: boolean | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
@@ -703,43 +807,6 @@ export interface BackupJobSummary {
    * @public
    */
   EndTime?: Date | undefined;
-}
-
-/**
- * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
- *          or is deleted.</p>
- *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
- *          days. Therefore, on the console, the retention setting must be 90 days greater than the
- *          transition to cold after days setting. The transition to cold after days setting can't
- *          be changed after a backup has been transitioned to cold.</p>
- *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
- *          availability by resource</a> table. Backup ignores this expression for
- *          other resource types.</p>
- *          <p>To remove the existing lifecycle and retention periods and keep your recovery points indefinitely,
- *          specify -1 for <code>MoveToColdStorageAfterDays</code> and <code>DeleteAfterDays</code>.</p>
- * @public
- */
-export interface Lifecycle {
-  /**
-   * <p>The number of days after creation that a recovery point is moved to cold
-   *          storage.</p>
-   * @public
-   */
-  MoveToColdStorageAfterDays?: number | undefined;
-
-  /**
-   * <p>The number of days after creation that a recovery point is deleted. This value must be
-   *          at least 90 days after the number of days specified in <code>MoveToColdStorageAfterDays</code>.</p>
-   * @public
-   */
-  DeleteAfterDays?: number | undefined;
-
-  /**
-   * <p>If the value is true, your backup plan transitions supported resources to
-   *          archive (cold) storage tier in accordance with your lifecycle settings.</p>
-   * @public
-   */
-  OptInToArchiveForSupportedResources?: boolean | undefined;
 }
 
 /**
@@ -1829,11 +1896,45 @@ export interface CopyJob {
   DestinationBackupVaultArn?: string | undefined;
 
   /**
+   * <p>The type of destination backup vault where the copied recovery point is stored. Valid values are <code>BACKUP_VAULT</code> for standard backup vaults and <code>LOGICALLY_AIR_GAPPED_BACKUP_VAULT</code> for logically air-gapped vaults.</p>
+   * @public
+   */
+  DestinationVaultType?: string | undefined;
+
+  /**
+   * <p>The lock state of the destination backup vault. For logically air-gapped vaults, this indicates whether the vault is locked in compliance mode. Valid values include <code>LOCKED</code> and <code>UNLOCKED</code>.</p>
+   * @public
+   */
+  DestinationVaultLockState?: string | undefined;
+
+  /**
    * <p>An ARN that uniquely identifies a destination recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
   DestinationRecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the copied backup in the destination vault. This can be a customer-managed key or an Amazon Web Services managed key.</p>
+   * @public
+   */
+  DestinationEncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
+   *          or is deleted.</p>
+   *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
+   *          days. Therefore, on the console, the retention setting must be 90 days greater than the
+   *          transition to cold after days setting. The transition to cold after days setting can't
+   *          be changed after a backup has been transitioned to cold.</p>
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+   *          availability by resource</a> table. Backup ignores this expression for
+   *          other resource types.</p>
+   *          <p>To remove the existing lifecycle and retention periods and keep your recovery points indefinitely,
+   *          specify -1 for <code>MoveToColdStorageAfterDays</code> and <code>DeleteAfterDays</code>.</p>
+   * @public
+   */
+  DestinationRecoveryPointLifecycle?: Lifecycle | undefined;
 
   /**
    * <p>The Amazon Web Services resource to be copied; for example, an Amazon Elastic Block Store
@@ -3598,6 +3699,22 @@ export interface DescribeBackupJobOutput {
   BackupVaultName?: string | undefined;
 
   /**
+   * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
+   *          or is deleted.</p>
+   *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
+   *          days. Therefore, on the console, the retention setting must be 90 days greater than the
+   *          transition to cold after days setting. The transition to cold after days setting can't
+   *          be changed after a backup has been transitioned to cold.</p>
+   *          <p>Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+   *          availability by resource</a> table. Backup ignores this expression for
+   *          other resource types.</p>
+   *          <p>To remove the existing lifecycle and retention periods and keep your recovery points indefinitely,
+   *          specify -1 for <code>MoveToColdStorageAfterDays</code> and <code>DeleteAfterDays</code>.</p>
+   * @public
+   */
+  RecoveryPointLifecycle?: Lifecycle | undefined;
+
+  /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
@@ -3605,11 +3722,35 @@ export interface DescribeBackupJobOutput {
   BackupVaultArn?: string | undefined;
 
   /**
+   * <p>The type of backup vault where the recovery point is stored. Valid values are <code>BACKUP_VAULT</code> for standard backup vaults and <code>LOGICALLY_AIR_GAPPED_BACKUP_VAULT</code> for logically air-gapped vaults.</p>
+   * @public
+   */
+  VaultType?: string | undefined;
+
+  /**
+   * <p>The lock state of the backup vault. For logically air-gapped vaults, this indicates whether the vault is locked in compliance mode. Valid values include <code>LOCKED</code> and <code>UNLOCKED</code>.</p>
+   * @public
+   */
+  VaultLockState?: string | undefined;
+
+  /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
   RecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the backup. This can be a customer-managed key or an Amazon Web Services managed key, depending on the vault configuration.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A boolean value indicating whether the backup is encrypted. All backups in Backup are encrypted, but this field indicates the encryption status for transparency.</p>
+   * @public
+   */
+  IsEncrypted?: boolean | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a saved resource. The format of the ARN depends on the
@@ -4933,6 +5074,18 @@ export interface DescribeRestoreJobOutput {
    * @public
    */
   RecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the original resource that was backed up. This provides context about what resource is being restored.</p>
+   * @public
+   */
+  SourceResourceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup vault containing the recovery point being restored. This helps identify vault access policies and permissions.</p>
+   * @public
+   */
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>The date and time that a restore job is created, in Unix format and Coordinated
@@ -8533,6 +8686,18 @@ export interface RestoreJobsListMember {
    * @public
    */
   RecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the original resource that was backed up. This provides context about what resource is being restored.</p>
+   * @public
+   */
+  SourceResourceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup vault containing the recovery point being restored. This helps identify vault access policies and permissions.</p>
+   * @public
+   */
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>The date and time a restore job is created, in Unix format and Coordinated Universal
