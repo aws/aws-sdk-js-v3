@@ -30,9 +30,9 @@
     "@aws-sdk/core": "*",
     "@aws-sdk/token-providers": "*",
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^4.2.1",
-    "@smithy/shared-ini-file-loader": "^4.3.1",
-    "@smithy/types": "^4.7.0",
+    "@smithy/property-provider": "^4.2.2",
+    "@smithy/shared-ini-file-loader": "^4.3.2",
+    "@smithy/types": "^4.7.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

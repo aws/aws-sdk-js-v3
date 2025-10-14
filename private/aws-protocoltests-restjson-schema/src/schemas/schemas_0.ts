@@ -601,7 +601,6 @@ export var FiniteStreamingBlob: StaticSimpleSchema = [
     [_rL]: 1,
     [_s]: 1,
   },
-
   42,
 ];
 export var JsonHeaderString: StaticSimpleSchema = [
@@ -611,7 +610,6 @@ export var JsonHeaderString: StaticSimpleSchema = [
   {
     [_mT]: _a,
   },
-
   0,
 ];
 export var JsonValue: StaticSimpleSchema = [
@@ -621,7 +619,6 @@ export var JsonValue: StaticSimpleSchema = [
   {
     [_mT]: _a,
   },
-
   0,
 ];
 export var StreamingBlob: StaticSimpleSchema = [
@@ -631,7 +628,6 @@ export var StreamingBlob: StaticSimpleSchema = [
   {
     [_s]: 1,
   },
-
   42,
 ];
 export var StreamingTextPlainBlob: StaticSimpleSchema = [
@@ -642,7 +638,6 @@ export var StreamingTextPlainBlob: StaticSimpleSchema = [
     [_mT]: _t,
     [_s]: 1,
   },
-
   42,
 ];
 export var JpegBlob: StaticSimpleSchema = [
@@ -652,7 +647,6 @@ export var JpegBlob: StaticSimpleSchema = [
   {
     [_mT]: _i,
   },
-
   21,
 ];
 export var TextPlainBlob: StaticSimpleSchema = [
@@ -662,7 +656,6 @@ export var TextPlainBlob: StaticSimpleSchema = [
   {
     [_mT]: _t,
   },
-
   21,
 ];
 export var AllQueryStringTypesInput: StaticStructureSchema = [

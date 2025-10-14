@@ -446,7 +446,6 @@ export var TextPlainBlob: StaticSimpleSchema = [
   {
     [_mT]: _t,
   },
-
   21,
 ];
 export var AllQueryStringTypesInput: StaticStructureSchema = [

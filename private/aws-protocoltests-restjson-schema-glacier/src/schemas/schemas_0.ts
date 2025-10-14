@@ -59,7 +59,6 @@ export var _Stream: StaticSimpleSchema = [
   {
     [_s]: 1,
   },
-
   42,
 ];
 export var ArchiveCreationOutput: StaticStructureSchema = [
