@@ -419,6 +419,8 @@ import {
   AggregationListItem,
   AllDomainUnitsGrantFilter,
   AllUsersGrantFilter,
+  AmazonQPropertiesInput,
+  AmazonQPropertiesPatch,
   AssetFilterSummary,
   AssetItem,
   AssetItemAdditionalAttributes,
@@ -462,7 +464,6 @@ import {
   DomainUnitFilterForProject,
   DomainUnitGrantFilter,
   DomainUnitPolicyGrantPrincipal,
-  EnvironmentConfiguration,
   EnvironmentConfigurationParameter,
   EnvironmentConfigurationParametersDetails,
   EnvironmentConfigurationUserParameter,
@@ -564,6 +565,7 @@ import {
   DomainUnitTarget,
   EnvironmentBlueprintConfigurationItem,
   EnvironmentBlueprintSummary,
+  EnvironmentConfiguration,
   EnvironmentProfileSummary,
   EnvironmentSummary,
   FailureCause,
@@ -969,9 +971,11 @@ export const se_CreateConnectionCommand = async (
       awsLocation: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
+      enableTrustedIdentityPropagation: [],
       environmentIdentifier: [],
       name: [],
       props: (_) => _json(_),
+      scope: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2848,8 +2852,9 @@ export const se_ListConnectionsCommand = async (
     [_sO]: [, input[_sO]!],
     [_n]: [, input[_n]!],
     [_eI]: [, input[_eI]!],
-    [_pI]: [, __expectNonNull(input[_pI]!, `projectIdentifier`)],
+    [_pI]: [, input[_pI]!],
     [_ty]: [, input[_ty]!],
+    [_sc]: [, input[_sc]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4878,6 +4883,7 @@ export const de_CreateConnectionCommand = async (
     physicalEndpoints: (_) => de_PhysicalEndpoints(_, context),
     projectId: __expectString,
     props: (_) => de_ConnectionPropertiesOutput(__expectUnion(_), context),
+    scope: __expectString,
     type: __expectString,
   });
   Object.assign(contents, doc);
@@ -6234,6 +6240,7 @@ export const de_GetConnectionCommand = async (
     physicalEndpoints: (_) => de_PhysicalEndpoints(_, context),
     projectId: __expectString,
     props: (_) => de_ConnectionPropertiesOutput(__expectUnion(_), context),
+    scope: __expectString,
     type: __expectString,
   });
   Object.assign(contents, doc);
@@ -8388,6 +8395,7 @@ export const de_UpdateConnectionCommand = async (
     physicalEndpoints: (_) => de_PhysicalEndpoints(_, context),
     projectId: __expectString,
     props: (_) => de_ConnectionPropertiesOutput(__expectUnion(_), context),
+    scope: __expectString,
     type: __expectString,
   });
   Object.assign(contents, doc);
@@ -9161,6 +9169,10 @@ const se_AcceptRule = (input: AcceptRule, context: __SerdeContext): any => {
 
 // se_AllUsersGrantFilter omitted.
 
+// se_AmazonQPropertiesInput omitted.
+
+// se_AmazonQPropertiesPatch omitted.
+
 // se_ApplicableAssetTypes omitted.
 
 /**
@@ -9650,6 +9662,8 @@ const se_TimeSeriesDataPointFormInputList = (input: TimeSeriesDataPointFormInput
 
 // de_AllUsersGrantFilter omitted.
 
+// de_AmazonQPropertiesOutput omitted.
+
 // de_ApplicableAssetTypes omitted.
 
 /**
@@ -9892,6 +9906,11 @@ const de_ConnectionCredentials = (output: any, context: __SerdeContext): Connect
  * deserializeAws_restJson1ConnectionPropertiesOutput
  */
 const de_ConnectionPropertiesOutput = (output: any, context: __SerdeContext): ConnectionPropertiesOutput => {
+  if (output.amazonQProperties != null) {
+    return {
+      amazonQProperties: _json(output.amazonQProperties),
+    };
+  }
   if (output.athenaProperties != null) {
     return {
       athenaProperties: _json(output.athenaProperties),
@@ -9960,6 +9979,7 @@ const de_ConnectionSummary = (output: any, context: __SerdeContext): ConnectionS
     physicalEndpoints: (_: any) => de_PhysicalEndpoints(_, context),
     projectId: __expectString,
     props: (_: any) => de_ConnectionPropertiesOutput(__expectUnion(_), context),
+    scope: __expectString,
     type: __expectString,
   }) as any;
 };
@@ -10896,6 +10916,7 @@ const de_NotificationsList = (output: any, context: __SerdeContext): Notificatio
 const de_PhysicalEndpoint = (output: any, context: __SerdeContext): PhysicalEndpoint => {
   return take(output, {
     awsLocation: _json,
+    enableTrustedIdentityPropagation: __expectBoolean,
     glueConnection: (_: any) => de_GlueConnection(_, context),
     glueConnectionName: __expectString,
     host: __expectString,
@@ -11649,6 +11670,7 @@ const _sLI = "subscribedListingId";
 const _sO = "sortOrder";
 const _sRI = "subscriptionRequestIdentifier";
 const _sTI = "subscriptionTargetId";
+const _sc = "scope";
 const _su = "subjects";
 const _t = "timestamp";
 const _tA = "timestampAfter";

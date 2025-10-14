@@ -17,10 +17,12 @@ import {
   AssetScope,
   AssetTargetNameMap,
   AssetTypesForRule,
+  AwsAccount,
   ConfigurableEnvironmentAction,
   ConnectionCredentials,
   ConnectionPropertiesOutput,
   ConnectionPropertiesOutputFilterSensitiveLog,
+  ConnectionScope,
   ConnectionSummary,
   ConnectionSummaryFilterSensitiveLog,
   ConnectionType,
@@ -42,8 +44,7 @@ import {
   DomainUnitOwnerProperties,
   DomainVersion,
   EnableSetting,
-  EnvironmentConfiguration,
-  EnvironmentConfigurationFilterSensitiveLog,
+  EnvironmentConfigurationParametersDetails,
   EnvironmentConfigurationUserParameter,
   EnvironmentConfigurationUserParameterFilterSensitiveLog,
   EnvironmentDeploymentDetails,
@@ -71,12 +72,12 @@ import {
   ProjectStatus,
   ProvisioningProperties,
   RecommendationConfiguration,
+  Region,
   ResolutionStrategy,
   Resource,
   RuleScopeSelectionMode,
   ScheduleConfiguration,
   SingleSignOn,
-  Status,
   SubscribedListing,
   SubscribedListingFilterSensitiveLog,
   SubscribedPrincipal,
@@ -85,9 +86,143 @@ import {
   SubscriptionStatus,
   TargetEntityType,
   TermRelations,
-  TimeSeriesDataPointSummaryFormOutput,
   UserDesignation,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentMode = {
+  ON_CREATE: "ON_CREATE",
+  ON_DEMAND: "ON_DEMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
+
+/**
+ * <p>The configuration of an environment.</p>
+ * @public
+ */
+export interface EnvironmentConfiguration {
+  /**
+   * <p>The environment name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The environment ID.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The environment blueprint ID.</p>
+   * @public
+   */
+  environmentBlueprintId: string | undefined;
+
+  /**
+   * <p>The environment description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The deployment mode of the environment.</p>
+   * @public
+   */
+  deploymentMode?: DeploymentMode | undefined;
+
+  /**
+   * <p>The configuration parameters of the environment.</p>
+   * @public
+   */
+  configurationParameters?: EnvironmentConfigurationParametersDetails | undefined;
+
+  /**
+   * <p>The Amazon Web Services account of the environment.</p>
+   * @public
+   */
+  awsAccount?: AwsAccount | undefined;
+
+  /**
+   * <p>The account pools used by a custom project profile.</p>
+   * @public
+   */
+  accountPools?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the environment.</p>
+   * @public
+   */
+  awsRegion?: Region | undefined;
+
+  /**
+   * <p>The deployment order of the environment.</p>
+   * @public
+   */
+  deploymentOrder?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ */
+export interface CreateProjectProfileInput {
+  /**
+   * <p>A domain ID of the project profile.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>Project profile name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of a project profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Project profile status.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>Environment configurations of the project profile.</p>
+   * @public
+   */
+  environmentConfigurations?: EnvironmentConfiguration[] | undefined;
+
+  /**
+   * <p>A domain unit ID of the project profile.</p>
+   * @public
+   */
+  domainUnitIdentifier?: string | undefined;
+}
 
 /**
  * @public
@@ -5068,6 +5203,12 @@ export interface GetConnectionOutput {
    * @public
    */
   type: ConnectionType | undefined;
+
+  /**
+   * <p>The scope of the connection.</p>
+   * @public
+   */
+  scope?: ConnectionScope | undefined;
 }
 
 /**
@@ -7507,13 +7648,19 @@ export interface ListConnectionsInput {
    * <p>The ID of the project where you want to list connections.</p>
    * @public
    */
-  projectIdentifier: string | undefined;
+  projectIdentifier?: string | undefined;
 
   /**
    * <p>The type of connection.</p>
    * @public
    */
   type?: ConnectionType | undefined;
+
+  /**
+   * <p>The scope of the connection.</p>
+   * @public
+   */
+  scope?: ConnectionScope | undefined;
 }
 
 /**
@@ -10396,109 +10543,30 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface ListTimeSeriesDataPointsInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain that houses the assets for which you want to list time series data points.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the asset for which you want to list data points.</p>
-   * @public
-   */
-  entityIdentifier: string | undefined;
-
-  /**
-   * <p>The type of the asset for which you want to list data points.</p>
-   * @public
-   */
-  entityType: TimeSeriesEntityType | undefined;
-
-  /**
-   * <p>The name of the time series data points form.</p>
-   * @public
-   */
-  formName: string | undefined;
-
-  /**
-   * <p>The timestamp at which the data points that you want to list started.</p>
-   * @public
-   */
-  startedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp at which the data points that you wanted to list ended.</p>
-   * @public
-   */
-  endedAt?: Date | undefined;
-
-  /**
-   * <p>When the number of data points is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of data points, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of data points to return in a single call to ListTimeSeriesDataPoints. When the number of data points to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
+export const EnvironmentConfigurationFilterSensitiveLog = (obj: EnvironmentConfiguration): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.id && { id: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.awsAccount && { awsAccount: obj.awsAccount }),
+  ...(obj.awsRegion && { awsRegion: obj.awsRegion }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface ListTimeSeriesDataPointsOutput {
-  /**
-   * <p>The results of the ListTimeSeriesDataPoints action. </p>
-   * @public
-   */
-  items?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
-
-  /**
-   * <p>When the number of data points is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of data points, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMetadataGenerationRunInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain the metadata generation run of which you want to get.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the metadata generation run.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MetadataGenerationRunStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUBMITTED: "SUBMITTED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type MetadataGenerationRunStatus =
-  (typeof MetadataGenerationRunStatus)[keyof typeof MetadataGenerationRunStatus];
+export const CreateProjectProfileInputFilterSensitiveLog = (obj: CreateProjectProfileInput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.environmentConfigurations && {
+    environmentConfigurations: obj.environmentConfigurations.map((item) =>
+      EnvironmentConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+});
 
 /**
  * @internal

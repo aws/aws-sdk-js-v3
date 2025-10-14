@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateProjectProfileInput, CreateProjectProfileInputFilterSensitiveLog } from "../models/models_0";
-import { CreateProjectProfileOutput, CreateProjectProfileOutputFilterSensitiveLog } from "../models/models_1";
+import {
+  CreateProjectProfileInput,
+  CreateProjectProfileInputFilterSensitiveLog,
+  CreateProjectProfileOutput,
+  CreateProjectProfileOutputFilterSensitiveLog,
+} from "../models/models_1";
 import { de_CreateProjectProfileCommand, se_CreateProjectProfileCommand } from "../protocols/Aws_restJson1";
 
 /**

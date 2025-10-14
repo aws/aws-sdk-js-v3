@@ -20,14 +20,13 @@ import {
   ConnectionPropertiesOutputFilterSensitiveLog,
   ConnectionPropertiesPatch,
   ConnectionPropertiesPatchFilterSensitiveLog,
+  ConnectionScope,
   ConnectionType,
   CustomParameter,
   CustomParameterFilterSensitiveLog,
   DataZoneEntityType,
   Deployment,
   DeploymentProperties,
-  EnvironmentConfiguration,
-  EnvironmentConfigurationFilterSensitiveLog,
   EnvironmentConfigurationUserParameter,
   EnvironmentConfigurationUserParameterFilterSensitiveLog,
   EnvironmentDeploymentDetails,
@@ -56,7 +55,6 @@ import {
   ResolutionStrategy,
   Resource,
   RowFilterExpression,
-  Status,
   SubscribedListing,
   SubscribedListingFilterSensitiveLog,
   SubscribedPrincipal,
@@ -65,6 +63,7 @@ import {
   SubscriptionStatus,
   TargetEntityType,
   TermRelations,
+  TimeSeriesDataPointSummaryFormOutput,
 } from "./models_0";
 
 import {
@@ -72,11 +71,12 @@ import {
   DataProductListingItemFilterSensitiveLog,
   DataProductResultItem,
   DataProductResultItemFilterSensitiveLog,
+  EnvironmentConfiguration,
+  EnvironmentConfigurationFilterSensitiveLog,
   FailureCause,
   GrantedEntity,
   Import,
   ImportFilterSensitiveLog,
-  MetadataGenerationRunStatus,
   RuleAction,
   RuleDetail,
   RuleScope,
@@ -84,6 +84,7 @@ import {
   RuleTargetType,
   RuleType,
   SortOrder,
+  Status,
   SubscribedAsset,
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
@@ -95,6 +96,111 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListTimeSeriesDataPointsInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain that houses the assets for which you want to list time series data points.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the asset for which you want to list data points.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the asset for which you want to list data points.</p>
+   * @public
+   */
+  entityType: TimeSeriesEntityType | undefined;
+
+  /**
+   * <p>The name of the time series data points form.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data points that you want to list started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the data points that you wanted to list ended.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>When the number of data points is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of data points, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of data points to return in a single call to ListTimeSeriesDataPoints. When the number of data points to be listed is greater than the value of MaxResults, the response contains a NextToken value that you can use in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTimeSeriesDataPointsOutput {
+  /**
+   * <p>The results of the ListTimeSeriesDataPoints action. </p>
+   * @public
+   */
+  items?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
+
+  /**
+   * <p>When the number of data points is greater than the default value for the MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than the number of data points, the response includes a pagination token named NextToken. You can specify this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMetadataGenerationRunInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain the metadata generation run of which you want to get.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the metadata generation run.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataGenerationRunStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataGenerationRunStatus =
+  (typeof MetadataGenerationRunStatus)[keyof typeof MetadataGenerationRunStatus];
 
 /**
  * @public
@@ -2530,6 +2636,12 @@ export interface UpdateConnectionOutput {
    * @public
    */
   type: ConnectionType | undefined;
+
+  /**
+   * <p>The scope of the connection.</p>
+   * @public
+   */
+  scope?: ConnectionScope | undefined;
 }
 
 /**

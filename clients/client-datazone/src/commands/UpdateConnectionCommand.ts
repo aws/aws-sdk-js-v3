@@ -110,6 +110,11 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  *       s3Uri: "STRING_VALUE", // required
  *       s3AccessGrantLocationId: "STRING_VALUE",
  *     },
+ *     amazonQProperties: { // AmazonQPropertiesPatch
+ *       isEnabled: true || false, // required
+ *       profileArn: "STRING_VALUE",
+ *       authMode: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new UpdateConnectionCommand(input);
@@ -133,7 +138,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //       glueConnection: { // GlueConnection
  * //         name: "STRING_VALUE",
  * //         description: "STRING_VALUE",
- * //         connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA",
+ * //         connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q",
  * //         matchCriteria: [ // MatchCriteria
  * //           "STRING_VALUE",
  * //         ],
@@ -195,6 +200,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //           "SPARK" || "ATHENA" || "PYTHON",
  * //         ],
  * //       },
+ * //       enableTrustedIdentityPropagation: true || false,
  * //       host: "STRING_VALUE",
  * //       port: Number("int"),
  * //       protocol: "ATHENA" || "GLUE_INTERACTIVE_SESSION" || "HTTPS" || "JDBC" || "LIVY" || "ODBC" || "PRISM",
@@ -285,8 +291,14 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //       status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED",
  * //       errorMessage: "STRING_VALUE",
  * //     },
+ * //     amazonQProperties: { // AmazonQPropertiesOutput
+ * //       isEnabled: true || false, // required
+ * //       profileArn: "STRING_VALUE",
+ * //       authMode: "STRING_VALUE",
+ * //     },
  * //   },
- * //   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA", // required
+ * //   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q", // required
+ * //   scope: "DOMAIN" || "PROJECT",
  * // };
  *
  * ```

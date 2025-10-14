@@ -52,7 +52,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *   clientToken: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   domainIdentifier: "STRING_VALUE", // required
- *   environmentIdentifier: "STRING_VALUE", // required
+ *   environmentIdentifier: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   props: { // ConnectionPropertiesInput Union: only one key present
  *     athenaProperties: { // AthenaPropertiesInput
@@ -179,7 +179,14 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *       s3Uri: "STRING_VALUE", // required
  *       s3AccessGrantLocationId: "STRING_VALUE",
  *     },
+ *     amazonQProperties: { // AmazonQPropertiesInput
+ *       isEnabled: true || false, // required
+ *       profileArn: "STRING_VALUE",
+ *       authMode: "STRING_VALUE",
+ *     },
  *   },
+ *   enableTrustedIdentityPropagation: true || false,
+ *   scope: "DOMAIN" || "PROJECT",
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
@@ -202,7 +209,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //       glueConnection: { // GlueConnection
  * //         name: "STRING_VALUE",
  * //         description: "STRING_VALUE",
- * //         connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA",
+ * //         connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q",
  * //         matchCriteria: [ // MatchCriteria
  * //           "STRING_VALUE",
  * //         ],
@@ -264,6 +271,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //           "SPARK" || "ATHENA" || "PYTHON",
  * //         ],
  * //       },
+ * //       enableTrustedIdentityPropagation: true || false,
  * //       host: "STRING_VALUE",
  * //       port: Number("int"),
  * //       protocol: "ATHENA" || "GLUE_INTERACTIVE_SESSION" || "HTTPS" || "JDBC" || "LIVY" || "ODBC" || "PRISM",
@@ -354,8 +362,14 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //       status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED",
  * //       errorMessage: "STRING_VALUE",
  * //     },
+ * //     amazonQProperties: { // AmazonQPropertiesOutput
+ * //       isEnabled: true || false, // required
+ * //       profileArn: "STRING_VALUE",
+ * //       authMode: "STRING_VALUE",
+ * //     },
  * //   },
- * //   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA", // required
+ * //   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q", // required
+ * //   scope: "DOMAIN" || "PROJECT",
  * // };
  *
  * ```
