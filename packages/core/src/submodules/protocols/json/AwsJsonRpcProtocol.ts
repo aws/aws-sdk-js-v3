@@ -64,7 +64,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     }
     Object.assign(request.headers, {
       "content-type": `application/x-amz-json-${this.getJsonRpcVersion()}`,
-      "x-amz-target": `${this.serviceTarget}.${NormalizedSchema.of(operationSchema).getName()}`,
+      "x-amz-target": `${this.serviceTarget}.${operationSchema.name}`,
     });
     if (this.awsQueryCompatible) {
       request.headers["x-amzn-query-mode"] = "true";

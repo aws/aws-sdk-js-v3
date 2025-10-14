@@ -1,5 +1,4 @@
 import { cbor } from "@smithy/core/cbor";
-import { op } from "@smithy/core/schema";
 import { error as registerError } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
 import type { NumericSchema, StringSchema } from "@smithy/types";
@@ -32,7 +31,13 @@ describe(AwsSmithyRpcV2CborProtocol.name, () => {
 
     const error = await (async () => {
       return protocol.deserializeResponse(
-        op("ns", "Operation", 0, "unit", "unit"),
+        {
+          namespace: "ns",
+          name: "Operation",
+          traits: 0,
+          input: "unit",
+          output: "unit",
+        },
         {} as any,
         new HttpResponse({
           statusCode: 400,

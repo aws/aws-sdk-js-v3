@@ -3,13 +3,14 @@ import {
   HttpInterceptingShapeDeserializer,
   HttpInterceptingShapeSerializer,
 } from "@smithy/core/protocols";
-import { NormalizedSchema, OperationSchema, TypeRegistry } from "@smithy/core/schema";
+import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
   HttpRequest as IHttpRequest,
   HttpResponse as IHttpResponse,
   MetadataBearer,
+  OperationSchema,
   ResponseMetadata,
   SerdeFunctions,
   ShapeDeserializer,

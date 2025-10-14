@@ -1,6 +1,6 @@
-import { error as registerError, op } from "@smithy/core/schema";
+import { TypeRegistry } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
-import type { NumericSchema, StringSchema, TimestampEpochSecondsSchema } from "@smithy/types";
+import type { NumericSchema, StaticErrorSchema, StringSchema, TimestampEpochSecondsSchema } from "@smithy/types";
 import { fromUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
 
@@ -35,14 +35,16 @@ describe(AwsJsonRpcProtocol.name, () => {
   it("should support awsQueryCompatible", async () => {
     class MyQueryError extends Error {}
 
-    registerError(
+    const errorSchema: StaticErrorSchema = [
+      -3,
       "ns",
       "MyQueryError",
       { error: "client" },
       ["Message", "Prop2"],
       [0 satisfies StringSchema, 1 satisfies NumericSchema],
-      MyQueryError
-    );
+    ];
+
+    TypeRegistry.for(`${errorSchema[1]}#${errorSchema[2]}`).registerError(errorSchema, MyQueryError);
 
     const body = fromUtf8(
       JSON.stringify({
@@ -53,7 +55,13 @@ describe(AwsJsonRpcProtocol.name, () => {
 
     const error = await (async () => {
       return protocol.deserializeResponse(
-        op("ns", "Operation", 0, "unit", "unit"),
+        {
+          namespace: "ns",
+          name: "Operation",
+          traits: 0,
+          input: "unit",
+          output: "unit",
+        },
         {} as any,
         new HttpResponse({
           statusCode: 400,

@@ -1,10 +1,12 @@
-import { op, sim, struct } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
 import type {
   BlobSchema,
   BooleanSchema,
   MapSchemaModifier,
   NumericSchema,
+  StaticOperationSchema,
+  StaticSimpleSchema,
+  StaticStructureSchema,
   StringSchema,
   TimestampDateTimeSchema,
   TimestampDefaultSchema,
@@ -26,7 +28,8 @@ describe(AwsRestJsonProtocol.name, () => {
     blob: "AAAAAAAAAAA=",
     timestamp: 0,
   };
-  const schema = struct(
+  const schema: StaticStructureSchema = [
+    3,
     "ns",
     "MyStruct",
     0,
@@ -37,8 +40,8 @@ describe(AwsRestJsonProtocol.name, () => {
       2 satisfies BooleanSchema,
       21 satisfies BlobSchema,
       4 satisfies TimestampDefaultSchema,
-    ]
-  );
+    ],
+  ];
   const serdeContext = {
     base64Encoder: toBase64,
     utf8Encoder: toUtf8,
@@ -94,11 +97,13 @@ describe(AwsRestJsonProtocol.name, () => {
     });
     protocol.setSerdeContext(serdeContext);
 
-    const operationSchema = op(
+    const operationSchema: StaticOperationSchema = [
+      9,
       "ns",
       "MyOperation",
       {},
-      struct(
+      [
+        3,
         "ns",
         "MyHttpBindingStructureRequest",
         {},
@@ -113,7 +118,8 @@ describe(AwsRestJsonProtocol.name, () => {
             },
           ],
           [
-            struct(
+            [
+              3,
               "ns",
               "PayloadStruct",
               0,
@@ -121,13 +127,14 @@ describe(AwsRestJsonProtocol.name, () => {
               [
                 [0 satisfies StringSchema, 0],
                 [0 satisfies StringSchema, { jsonName: "JSON_NAME" }],
-              ]
-            ),
+              ],
+            ],
             { httpPayload: 1 },
           ],
-        ]
-      ),
-      struct(
+        ],
+      ],
+      [
+        3,
         "ns",
         "MyHttpBindingStructureResponse",
         {},
@@ -142,7 +149,8 @@ describe(AwsRestJsonProtocol.name, () => {
             },
           ],
           [
-            struct(
+            [
+              3,
               "ns",
               "PayloadStruct",
               { httpPayload: 1 },
@@ -150,17 +158,23 @@ describe(AwsRestJsonProtocol.name, () => {
               [
                 [0 satisfies StringSchema, 0],
                 [0 satisfies StringSchema, { jsonName: "JSON_NAME" }],
-              ]
-            ),
+              ],
+            ],
             { httpPayload: 1 },
           ],
-        ]
-      )
-    );
+        ],
+      ],
+    ];
 
     it("obeys jsonName and HTTP bindings during serialization", async () => {
       const request = await protocol.serializeRequest(
-        operationSchema,
+        {
+          namespace: operationSchema[1],
+          name: operationSchema[2],
+          traits: operationSchema[3],
+          input: operationSchema[4],
+          output: operationSchema[5],
+        },
         {
           header: "hello",
           query: "world",
@@ -192,7 +206,13 @@ describe(AwsRestJsonProtocol.name, () => {
 
     it("obeys jsonName and HTTP bindings and deserialization", async () => {
       const output = await protocol.deserializeResponse(
-        operationSchema,
+        {
+          namespace: operationSchema[1],
+          name: operationSchema[2],
+          traits: operationSchema[3],
+          input: operationSchema[4],
+          output: operationSchema[5],
+        },
         {} as any,
         new HttpResponse({
           statusCode: 200,
@@ -229,11 +249,12 @@ describe(AwsRestJsonProtocol.name, () => {
 
     it("selects the correct timestamp format based on http binding location", async () => {
       const request = await protocol.serializeRequest(
-        op(
-          "ns",
-          "",
-          0,
-          struct(
+        {
+          namespace: "ns",
+          name: "",
+          traits: 0,
+          input: [
+            3,
             "ns",
             "",
             0,
@@ -252,20 +273,17 @@ describe(AwsRestJsonProtocol.name, () => {
               [6 satisfies TimestampHttpDateSchema, { httpHeader: "header-http-date" }],
               [7 satisfies TimestampEpochSecondsSchema, { httpHeader: "header-epoch-seconds" }],
               [
-                sim("ns", "", 7 satisfies TimestampEpochSecondsSchema, 0),
+                [0, "ns", "", 0, 7 satisfies TimestampEpochSecondsSchema] satisfies StaticSimpleSchema,
                 {
                   httpHeader: "header-target-trait-date",
                 },
               ],
               [4 satisfies TimestampDefaultSchema, { httpQuery: "query-default-date" }],
-              [
-                struct("ns", "date", 0, ["payloadDefaultDate"], [4 satisfies TimestampDefaultSchema]),
-                { httpPayload: 1 },
-              ],
-            ]
-          ),
-          "unit"
-        ),
+              [[3, "ns", "date", 0, ["payloadDefaultDate"], [4 satisfies TimestampDefaultSchema]], { httpPayload: 1 }],
+            ],
+          ],
+          output: "unit",
+        },
         {
           headerDefaultDate: new Date(0),
           headerMemberTraitDate: new Date(0),
@@ -279,7 +297,6 @@ describe(AwsRestJsonProtocol.name, () => {
         },
         context
       );
-
       expect(request.body).toEqual(`{"payloadDefaultDate":0}`);
 
       expect(request.headers).toEqual({
