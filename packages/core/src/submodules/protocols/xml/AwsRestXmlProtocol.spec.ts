@@ -1,4 +1,5 @@
 import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { StaticOperationSchema } from "@smithy/types";
 import { toUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
 
@@ -15,7 +16,7 @@ describe(AwsRestXmlProtocol.name, () => {
     const testCases = [
       {
         name: "DeleteObjects",
-        schema: command.schema?.input,
+        schema: command.schema[4],
         input: {
           Delete: {
             Objects: [
@@ -61,7 +62,14 @@ describe(AwsRestXmlProtocol.name, () => {
           xmlNamespace: "http://s3.amazonaws.com/doc/2006-03-01/",
           defaultNamespace: "com.amazonaws.s3",
         });
-        const httpRequest = await protocol.serializeRequest(command.schema!, testCase.input, context);
+
+        const [, namespace, name, traits, input, output] = command.schema as StaticOperationSchema;
+
+        const httpRequest = await protocol.serializeRequest(
+          { namespace, name, traits, input, output },
+          testCase.input,
+          context
+        );
 
         const body = httpRequest.body;
         httpRequest.body = void 0;
@@ -99,7 +107,17 @@ describe(AwsRestXmlProtocol.name, () => {
       xmlNamespace: "ns",
     });
 
-    const output = await protocol.deserializeResponse(deleteObjects, context, httpResponse);
+    const output = await protocol.deserializeResponse(
+      {
+        namespace: deleteObjects[1],
+        name: deleteObjects[2],
+        traits: deleteObjects[3],
+        input: deleteObjects[4],
+        output: deleteObjects[5],
+      },
+      context,
+      httpResponse
+    );
 
     expect(output).toEqual({
       $metadata: {

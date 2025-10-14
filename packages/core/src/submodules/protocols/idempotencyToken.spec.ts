@@ -1,5 +1,5 @@
 import { CborShapeSerializer } from "@smithy/core/cbor";
-import { sim, struct } from "@smithy/core/schema";
+import { StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { JsonShapeSerializer } from "./json/JsonShapeSerializer";
@@ -7,13 +7,17 @@ import { QueryShapeSerializer } from "./query/QueryShapeSerializer";
 import { XmlShapeSerializer } from "./xml/XmlShapeSerializer";
 
 describe("idempotencyToken", () => {
-  const structureSchema = struct(
+  const structureSchema = [
+    3,
     "ns",
     "StructureWithIdempotencyToken",
     0,
     ["idempotencyToken", "plain"],
-    [sim("ns", "IdempotencyTokenString", 0, 0b0100), sim("ns", "PlainString", 0, 0b0000)]
-  );
+    [
+      [0, "ns", "IdempotencyTokenString", 0b0100, 0] satisfies StaticSimpleSchema,
+      [0, "ns", "PlainString", 0b0000, 0] satisfies StaticSimpleSchema,
+    ],
+  ] satisfies StaticStructureSchema;
 
   it("all ShapeSerializer implementations should generate an idempotency token if no input was provided by the caller", () => {
     const serializers = [

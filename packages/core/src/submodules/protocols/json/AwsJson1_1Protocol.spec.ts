@@ -8,6 +8,15 @@ import { AwsJson1_1Protocol } from "./AwsJson1_1Protocol";
  * These tests are cursory since most coverage is provided by protocol tests.
  */
 describe(AwsJson1_1Protocol, () => {
+  const [, namespace, name, traits, input, output] = deleteObjects;
+  const deleteObjectsOperation = {
+    namespace,
+    name,
+    traits,
+    input,
+    output,
+  };
+
   it("is 1.0", async () => {
     const protocol = new AwsJson1_1Protocol({
       defaultNamespace: "",
@@ -22,7 +31,7 @@ describe(AwsJson1_1Protocol, () => {
       serviceTarget: "JsonRpc11",
     });
     const httpRequest = await protocol.serializeRequest(
-      deleteObjects,
+      deleteObjectsOperation,
       {
         Delete: {
           Objects: [
@@ -66,7 +75,7 @@ describe(AwsJson1_1Protocol, () => {
       serviceTarget: "JsonRpc11",
     });
 
-    const output = await protocol.deserializeResponse(deleteObjects, context, httpResponse);
+    const output = await protocol.deserializeResponse(deleteObjectsOperation, context, httpResponse);
 
     expect(output).toEqual({
       $metadata: {

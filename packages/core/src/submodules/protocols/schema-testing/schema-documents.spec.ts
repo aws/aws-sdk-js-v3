@@ -1,4 +1,4 @@
-import { list, map, NormalizedSchema, sim, struct, TypeRegistry } from "@smithy/core/schema";
+import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   BigDecimalSchema,
   BigIntegerSchema,
@@ -7,6 +7,10 @@ import type {
   DocumentSchema,
   DocumentType,
   NumericSchema,
+  StaticListSchema,
+  StaticMapSchema,
+  StaticSimpleSchema,
+  StaticStructureSchema,
   StringSchema,
   TimestampDateTimeSchema,
   TimestampDefaultSchema,
@@ -20,7 +24,8 @@ import { JsonShapeDeserializer } from "../json/JsonShapeDeserializer";
 import { testCases } from "./new-document-type-test-cases.spec";
 
 /* eslint no-var: 0 */
-export var OmniWidget = struct(
+export var OmniWidget: StaticStructureSchema = [
+  3,
   "smithy.example",
   "OmniWidget",
   0,
@@ -50,15 +55,21 @@ export var OmniWidget = struct(
   [
     21 satisfies BlobSchema,
     2 satisfies BooleanSchema,
-    sim("smithy.api", "String", 0, {
-      jsonName: "String",
-      xmlName: "String",
-    }),
-    sim("smithy.api", "Byte", 1 satisfies NumericSchema, 0),
-    sim("smithy.api", "Short", 1 satisfies NumericSchema, 0),
-    sim("smithy.api", "Integer", 1 satisfies NumericSchema, 0),
-    sim("smithy.api", "Long", 1 satisfies NumericSchema, 0),
-    sim("smithy.api", "Float", 1 satisfies NumericSchema, 0),
+    [
+      0,
+      "smithy.api",
+      "String",
+      {
+        jsonName: "String",
+        xmlName: "String",
+      },
+      0,
+    ] satisfies StaticSimpleSchema,
+    [0, "smithy.api", "Byte", 0, 1 satisfies NumericSchema] satisfies StaticSimpleSchema,
+    [0, "smithy.api", "Short", 0, 1 satisfies NumericSchema] satisfies StaticSimpleSchema,
+    [0, "smithy.api", "Integer", 0, 1 satisfies NumericSchema] satisfies StaticSimpleSchema,
+    [0, "smithy.api", "Long", 0, 1 satisfies NumericSchema] satisfies StaticSimpleSchema,
+    [0, "smithy.api", "Float", 0, 1 satisfies NumericSchema] satisfies StaticSimpleSchema,
     1 satisfies NumericSchema, // double
     17 satisfies BigIntegerSchema,
     19 satisfies BigDecimalSchema,
@@ -67,15 +78,15 @@ export var OmniWidget = struct(
     6 satisfies TimestampHttpDateSchema,
     7 satisfies TimestampEpochSecondsSchema,
     15 satisfies DocumentSchema,
-    sim("smithy.api", "Enum", 0 satisfies StringSchema, 0),
-    sim("smithy.api", "IntEnum", 1 satisfies NumericSchema, 0),
-    list("smithy.example", "OmniWidgetList", 0, () => OmniWidget),
-    map("smithy.example", "OmniWidgetMap", 0, 0, () => OmniWidget),
+    [0, "smithy.api", "Enum", 0 satisfies StringSchema, 0],
+    [0, "smithy.api", "IntEnum", 1 satisfies NumericSchema, 0],
+    [1, "smithy.example", "OmniWidgetList", 0, () => OmniWidget] satisfies StaticListSchema,
+    [2, "smithy.example", "OmniWidgetMap", 0, 0, () => OmniWidget] satisfies StaticMapSchema,
     () => OmniWidget,
-  ]
-);
+  ],
+];
 
-TypeRegistry.for(OmniWidget.namespace).register(OmniWidget.getName(), OmniWidget);
+TypeRegistry.for(OmniWidget[1]).register(`${OmniWidget[1]}#${OmniWidget[2]}`, OmniWidget);
 
 function getJsonCodec(test: { settings: JsonSettings }): JsonCodec {
   const { settings } = test;

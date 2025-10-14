@@ -1,9 +1,10 @@
-import { map, op, sim, struct } from "@smithy/core/schema";
 import type {
   BlobSchema,
   BooleanSchema,
   DocumentSchema,
   NumericSchema,
+  OperationSchema,
+  StaticStructureSchema,
   StringSchema,
   TimestampDefaultSchema,
 } from "@smithy/types";
@@ -22,7 +23,8 @@ describe(AwsJson1_0Protocol.name, () => {
     blob: "AAAAAAAAAAA=",
     timestamp: 0,
   };
-  const schema = struct(
+  const schema: StaticStructureSchema = [
+    3,
     "ns",
     "MyStruct",
     0,
@@ -33,8 +35,8 @@ describe(AwsJson1_0Protocol.name, () => {
       2 satisfies BooleanSchema,
       21 satisfies BlobSchema,
       4 satisfies TimestampDefaultSchema,
-    ]
-  );
+    ],
+  ];
   const serdeContext = {
     base64Encoder: toBase64,
     utf8Encoder: toUtf8,
@@ -93,27 +95,36 @@ describe(AwsJson1_0Protocol.name, () => {
       });
       protocol.setSerdeContext(serdeContext);
 
-      const schema = struct(
+      const schema: StaticStructureSchema = [
+        3,
         "ns",
         "MyHttpBindingStructure",
         {},
         ["header", "query", "headerMap", "payload"],
         [
-          sim("ns", "MyHeader", 0 satisfies StringSchema, { httpHeader: "header", jsonName: "MyHeader" }),
-          sim("ns", "MyQuery", 0 satisfies StringSchema, { httpQuery: "query" }),
-          map(
+          [0, "ns", "MyHeader", { httpHeader: "header", jsonName: "MyHeader" }, 0 satisfies StringSchema],
+          [0, "ns", "MyQuery", { httpQuery: "query" }, 0 satisfies StringSchema],
+          [
+            2,
             "ns",
             "HeaderMap",
             {
               httpPrefixHeaders: "",
             },
             0 satisfies StringSchema,
-            1 satisfies NumericSchema
-          ),
-          sim("ns", "MyPayload", 15 satisfies DocumentSchema, { httpPayload: 1 }),
-        ]
-      );
-      const operationSchema = op("ns", "MyOperation", {}, schema, "unit");
+            1 satisfies NumericSchema,
+          ],
+          [0, "ns", "MyPayload", { httpPayload: 1 }, 15 satisfies DocumentSchema],
+        ],
+      ];
+
+      const operationSchema: OperationSchema = {
+        namespace: "ns",
+        name: "MyOperation",
+        traits: {},
+        input: schema,
+        output: "unit",
+      };
 
       const request = await protocol.serializeRequest(
         operationSchema,
