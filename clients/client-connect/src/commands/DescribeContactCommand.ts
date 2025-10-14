@@ -31,20 +31,42 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the specified contact. </p>
- *          <important>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>SystemEndpoint</code> is not populated for contacts with initiation method of
- *       MONITOR, QUEUE_TRANSFER, or CALLBACK</p>
- *                </li>
- *                <li>
- *                   <p>Contact information remains available in Amazon Connect for 24 months from the
- *        <code>InitiationTimestamp</code>, and then it is deleted. Only contact information that is
- *       available in Amazon Connect is returned by this API.</p>
- *                </li>
- *             </ul>
- *          </important>
+ *          <p>
+ *             <b>Use cases</b>
+ *          </p>
+ *          <p>Following are common uses cases for this API:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Retrieve contact information such as the caller's phone number and the specific number the
+ *      caller dialed to integrate into custom monitoring or custom agent experience solutions.</p>
+ *             </li>
+ *             <li>
+ *                <p>Detect when a customer chat session disconnects due to a network issue on the agent's end.
+ *      Use the DisconnectReason field in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> to detect this event and then re-queue the chat for followup.</p>
+ *             </li>
+ *             <li>
+ *                <p>Identify after contact work (ACW) duration and call recordings information when a
+ *      COMPLETED event is received by using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-events.html">contact event stream</a>. </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Important things to know</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>SystemEndpoint</code> is not populated for contacts with initiation method of
+ *      MONITOR, QUEUE_TRANSFER, or CALLBACK</p>
+ *             </li>
+ *             <li>
+ *                <p>Contact information remains available in Amazon Connect for 24 months from the
+ *       <code>InitiationTimestamp</code>, and then it is deleted. Only contact information that is
+ *      available in Amazon Connect is returned by this API.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and
+ *    quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -377,6 +399,10 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //         DeleteTimestamp: new Date("TIMESTAMP"),
  * //         ExportLocation: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     TaskTemplateInfo: { // TaskTemplateInfoV2
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
  * //     },
  * //     ContactDetails: { // ContactDetails
  * //       Name: "STRING_VALUE",

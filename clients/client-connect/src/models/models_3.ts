@@ -73,6 +73,7 @@ import {
   RecordingInfo,
   RoutingCriteriaStepStatus,
   SignInConfig,
+  TaskTemplateInfoV2,
   TelephonyConfig,
   WisdomInfo,
 } from "./models_1";
@@ -101,13 +102,26 @@ import {
   QueueInfoInput,
   QueueSearchFilter,
   QuickConnectSearchFilter,
-  RoutingCriteriaInputStepExpiry,
   RoutingProfileSearchFilter,
   SearchableQueueType,
   SecurityProfilesSearchFilter,
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * <p>Specify whether this routing criteria step should apply for only a limited amount of time,
+ *    or if it should never expire.</p>
+ * @public
+ */
+export interface RoutingCriteriaInputStepExpiry {
+  /**
+   * <p>The number of seconds that the contact will be routed only to agents matching this routing
+   *    step, if expiry was configured for this routing step.</p>
+   * @public
+   */
+  DurationInSeconds?: number | undefined;
+}
 
 /**
  * @public
@@ -4358,6 +4372,12 @@ export interface Contact {
    * @public
    */
   ContactEvaluations?: Record<string, ContactEvaluation> | undefined;
+
+  /**
+   * <p>If this contact was created using a task template, this contains information about the task template.</p>
+   * @public
+   */
+  TaskTemplateInfo?: TaskTemplateInfoV2 | undefined;
 
   /**
    * <p>A map of string key/value pairs that contain user-defined attributes which are lightly typed

@@ -1268,6 +1268,24 @@ export const RoutingCriteriaStepStatus = {
 export type RoutingCriteriaStepStatus = (typeof RoutingCriteriaStepStatus)[keyof typeof RoutingCriteriaStepStatus];
 
 /**
+ * <p>Information about the task template used to create this contact.</p>
+ * @public
+ */
+export interface TaskTemplateInfoV2 {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task template used to create this contact.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the task template used to create this contact.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
  * <p>Information about Amazon Connect Wisdom.</p>
  * @public
  */
@@ -10327,24 +10345,6 @@ export interface ListInstanceAttributesResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInstancesRequest {
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }
 
 /**

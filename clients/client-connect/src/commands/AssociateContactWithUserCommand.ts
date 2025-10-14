@@ -35,16 +35,11 @@ export interface AssociateContactWithUserCommandOutput extends AssociateContactW
  *          <p>Following are common uses cases for this API:</p>
  *          <ul>
  *             <li>
- *                <p>Custom contact routing. You can build custom contact routing mechanisms beyond the default
- *      system routing in Amazon Connect. You can create tailored contact distribution logic that
- *      offers queued contacts directly to specific agents.</p>
+ *                <p>Programmatically assign queued contacts to available users.</p>
  *             </li>
  *             <li>
- *                <p>Manual contact assignment. You can programmatically assign queued contacts to available users. This
- *      provides flexibility to contact centers that require manual oversight or specialized routing
- *      workflows outside of standard queue management.</p>
- *                <p>For information about how manual contact assignment works in the agent workspace, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html">Access the Worklist app in the Amazon Connect agent workspace</a> in the <i>Amazon Connect Administrator
- *         Guide</i>. </p>
+ *                <p>Leverage the IAM context key <code>connect:PreferredUserArn</code> to restrict contact
+ *      association to specific preferred user.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -52,7 +47,7 @@ export interface AssociateContactWithUserCommandOutput extends AssociateContactW
  *          </p>
  *          <ul>
  *             <li>
- *                <p>Use this API chat/SMS, email, and task contacts. It does not support voice
+ *                <p>Use this API with chat, email, and task contacts. It does not support voice
  *      contacts.</p>
  *             </li>
  *             <li>
@@ -68,6 +63,11 @@ export interface AssociateContactWithUserCommandOutput extends AssociateContactW
  *                <p>It respects the IAM context key <code>connect:PreferredUserArn</code> to enforce
  *      authorization controls and prevent unauthorized contact associations. Verify that your IAM
  *      policies are properly configured to support your intended use cases.</p>
+ *             </li>
+ *             <li>
+ *                <p>The service quota <i>Queues per routing profile per instance</i> applies to
+ *      manually assigned queues, too. For more information about this quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect quotas</a> in the <i>Amazon Connect Administrator
+ *      Guide</i>.</p>
  *             </li>
  *          </ul>
  *          <p>

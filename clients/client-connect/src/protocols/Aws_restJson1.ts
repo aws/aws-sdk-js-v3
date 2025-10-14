@@ -1102,7 +1102,6 @@ import {
   RealTimeContactAnalysisSegmentType,
   RealTimeContactAnalysisTimeData,
   ResourceTagsSearchCriteria,
-  RoutingCriteriaInputStepExpiry,
   RoutingProfileSearchFilter,
   RoutingProfileSummary,
   RuleSummary,
@@ -1163,6 +1162,7 @@ import {
   RoutingCriteria,
   RoutingCriteriaInput,
   RoutingCriteriaInputStep,
+  RoutingCriteriaInputStepExpiry,
   RoutingProfileSearchCriteria,
   SecurityProfileSearchCriteria,
   SegmentAttributeValue,
@@ -15804,6 +15804,7 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     SegmentAttributes: (_: any) => de_SegmentAttributes(_, context),
     SystemEndpoint: _json,
     Tags: _json,
+    TaskTemplateInfo: _json,
     TotalPauseCount: __expectInt32,
     TotalPauseDurationInSeconds: __expectInt32,
     WisdomInfo: _json,
@@ -17836,6 +17837,8 @@ const de_Steps = (output: any, context: __SerdeContext): Step[] => {
 // de_TaskTemplateFieldIdentifier omitted.
 
 // de_TaskTemplateFields omitted.
+
+// de_TaskTemplateInfoV2 omitted.
 
 /**
  * deserializeAws_restJson1TaskTemplateList

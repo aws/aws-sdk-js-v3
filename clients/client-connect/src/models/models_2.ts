@@ -66,6 +66,24 @@ import {
 } from "./models_1";
 
 /**
+ * @public
+ */
+export interface ListInstancesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
  * <p>Information about the instance.</p>
  * @public
  */
@@ -972,7 +990,7 @@ export interface ListQueuesResponse {
  */
 export interface ListQuickConnectsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. Both Instance ID and Instance ARN are supported input formats. </p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1850,6 +1868,10 @@ export interface RoutingProfileManualAssignmentQueueConfigSummary {
 
   /**
    * <p>The channels this queue supports. Valid Values: CHAT | TASK | EMAIL </p>
+   *          <important>
+   *             <p>VOICE is not supported. The information shown below is incorrect. We're working to correct
+   *     it. </p>
+   *          </important>
    * @public
    */
   Channel: Channel | undefined;
@@ -3754,8 +3776,8 @@ export type SearchContactsTimeRangeConditionType =
   (typeof SearchContactsTimeRangeConditionType)[keyof typeof SearchContactsTimeRangeConditionType];
 
 /**
- * <p>The timestamp condition indicating which timestamp should be used and how it should be
- *    filtered.</p>
+ * <p>The timestamp condition indicating which contact timestamp should be used and how it should
+ *    be filtered. It is not an actual timestamp value. </p>
  * @public
  */
 export interface SearchContactsTimestampCondition {
@@ -3807,7 +3829,10 @@ export const SearchContactsMatchType = {
 export type SearchContactsMatchType = (typeof SearchContactsMatchType)[keyof typeof SearchContactsMatchType];
 
 /**
- * <p>Time range that you additionally want to filter on.</p>
+ * <p>Time range that you <b>additionally</b> want to filter on.</p>
+ *          <note>
+ *             <p>This is different from the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchContactsTimeRange.html">SearchContactsTimeRange</a> data type.</p>
+ *          </note>
  * @public
  */
 export interface SearchContactsAdditionalTimeRange {
@@ -7737,20 +7762,6 @@ export interface UpdateContactFlowNameRequest {
  * @public
  */
 export interface UpdateContactFlowNameResponse {}
-
-/**
- * <p>Specify whether this routing criteria step should apply for only a limited amount of time,
- *    or if it should never expire.</p>
- * @public
- */
-export interface RoutingCriteriaInputStepExpiry {
-  /**
-   * <p>The number of seconds that the contact will be routed only to agents matching this routing
-   *    step, if expiry was configured for this routing step.</p>
-   * @public
-   */
-  DurationInSeconds?: number | undefined;
-}
 
 /**
  * @internal
