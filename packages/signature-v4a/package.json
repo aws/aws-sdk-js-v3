@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4a",
-  "version": "3.901.0",
+  "version": "3.910.0",
   "description": "AWS SDK for JavaScript SignatureV4a package",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

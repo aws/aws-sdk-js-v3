@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
+
+
+### Features
+
+* **client-datazone:** Support creating scoped and trustedIdentityPropagation enabled connections. ([acbdd2f](https://github.com/aws/aws-sdk-js-v3/commit/acbdd2f72134c616e060445cb6ad187065fce435))
+
+
+
+
+
 # [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

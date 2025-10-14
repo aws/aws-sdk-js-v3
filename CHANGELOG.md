@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
+
+
+### Features
+
+* **client-appstream:** This release introduces support for Microsoft license included applications streaming. ([d7579fe](https://github.com/aws/aws-sdk-js-v3/commit/d7579fed4921684ca73d1e6929cc80fb98bad8bc))
+* **client-backup:** The AWS Backup job attribute extension enhancement helps customers better understand the plan that initiated each job, and the properties of the resource each job creates. ([69c1ccd](https://github.com/aws/aws-sdk-js-v3/commit/69c1ccd9a87e838c062c576daa19241ffad820b8))
+* **client-connect:** SDK release for TaskTemplateInfo in Contact for DescribeContact response. ([a34b5ea](https://github.com/aws/aws-sdk-js-v3/commit/a34b5ea7950f659da7f3a0420b1469a7f407e8d7))
+* **client-datazone:** Support creating scoped and trustedIdentityPropagation enabled connections. ([acbdd2f](https://github.com/aws/aws-sdk-js-v3/commit/acbdd2f72134c616e060445cb6ad187065fce435))
+* **client-ec2:** This release adds support for creating instant, point-in-time copies of EBS volumes within the same Availability Zone ([35be968](https://github.com/aws/aws-sdk-js-v3/commit/35be968f6e8fad594f291eccb3c96181c4fc00d2))
+* **client-transcribe:** Move UntagResource API body member to query parameter ([eefe247](https://github.com/aws/aws-sdk-js-v3/commit/eefe24729edbcf5c6df7f1c42f5b3d05c4657a68))
+* **client-transfer:** SFTP connectors now support routing connections via customers' VPC. This enables connections to remote servers that are only accessible in a customer's VPC environment, and to servers that are accessible over the internet but need connections coming from an IP address in a customer VPC's CIDR range. ([2951a5b](https://github.com/aws/aws-sdk-js-v3/commit/2951a5b615996854dd681494425bab23b75a4a46))
+
+
+
+
+
 # [3.909.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.908.0...v3.909.0) (2025-10-13)
 
 

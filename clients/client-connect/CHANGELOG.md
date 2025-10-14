@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
+
+
+### Features
+
+* **client-connect:** SDK release for TaskTemplateInfo in Contact for DescribeContact response. ([a34b5ea](https://github.com/aws/aws-sdk-js-v3/commit/a34b5ea7950f659da7f3a0420b1469a7f407e8d7))
+
+
+
+
+
 # [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

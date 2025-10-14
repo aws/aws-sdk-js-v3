@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
+
+
+### Features
+
+* **client-ec2:** This release adds support for creating instant, point-in-time copies of EBS volumes within the same Availability Zone ([35be968](https://github.com/aws/aws-sdk-js-v3/commit/35be968f6e8fad594f291eccb3c96181c4fc00d2))
+
+
+
+
+
 # [3.909.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.908.0...v3.909.0) (2025-10-13)
 
 

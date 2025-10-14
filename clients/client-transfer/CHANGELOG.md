@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
+
+
+### Features
+
+* **client-transfer:** SFTP connectors now support routing connections via customers' VPC. This enables connections to remote servers that are only accessible in a customer's VPC environment, and to servers that are accessible over the internet but need connections coming from an IP address in a customer VPC's CIDR range. ([2951a5b](https://github.com/aws/aws-sdk-js-v3/commit/2951a5b615996854dd681494425bab23b75a4a46))
+
+
+
+
+
 # [3.908.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.907.0...v3.908.0) (2025-10-10)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer
