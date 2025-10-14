@@ -254,6 +254,7 @@ import {
 import { CopyFpgaImageCommandInput, CopyFpgaImageCommandOutput } from "./commands/CopyFpgaImageCommand";
 import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
+import { CopyVolumesCommandInput, CopyVolumesCommandOutput } from "./commands/CopyVolumesCommand";
 import {
   CreateCapacityReservationBySplittingCommandInput,
   CreateCapacityReservationBySplittingCommandOutput,
@@ -2511,6 +2512,7 @@ export type ServiceInputTypes =
   | CopyFpgaImageCommandInput
   | CopyImageCommandInput
   | CopySnapshotCommandInput
+  | CopyVolumesCommandInput
   | CreateCapacityReservationBySplittingCommandInput
   | CreateCapacityReservationCommandInput
   | CreateCapacityReservationFleetCommandInput
@@ -3210,6 +3212,7 @@ export type ServiceOutputTypes =
   | CopyFpgaImageCommandOutput
   | CopyImageCommandOutput
   | CopySnapshotCommandOutput
+  | CopyVolumesCommandOutput
   | CreateCapacityReservationBySplittingCommandOutput
   | CreateCapacityReservationCommandOutput
   | CreateCapacityReservationFleetCommandOutput

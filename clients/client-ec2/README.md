@@ -688,6 +688,14 @@ CopySnapshot
 </details>
 <details>
 <summary>
+CopyVolumes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CopyVolumesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CopyVolumesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CopyVolumesCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateCapacityReservation
 </summary>
 

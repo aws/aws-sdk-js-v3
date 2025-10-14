@@ -59,6 +59,7 @@ export * from "./ConfirmProductInstanceCommand";
 export * from "./CopyFpgaImageCommand";
 export * from "./CopyImageCommand";
 export * from "./CopySnapshotCommand";
+export * from "./CopyVolumesCommand";
 export * from "./CreateCapacityReservationBySplittingCommand";
 export * from "./CreateCapacityReservationCommand";
 export * from "./CreateCapacityReservationFleetCommand";

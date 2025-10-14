@@ -85,7 +85,6 @@ import {
   RouteServer,
   RouteServerPersistRoutesAction,
   SubnetCidrReservation,
-  SubnetConfiguration,
   TrafficDirection,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
@@ -104,7 +103,6 @@ import {
 } from "./models_2";
 
 import {
-  Byoasn,
   Filter,
   IKEVersionsRequestListValue,
   PayerResponsibility,
@@ -114,6 +112,7 @@ import {
   Phase2DHGroupNumbersRequestListValue,
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
+  SubnetConfiguration,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
   VpnTunnelLogOptionsSpecification,
@@ -165,12 +164,62 @@ import {
   InternetGatewayBlockMode,
   IpamResourceCidr,
   ManagedBy,
+  PrefixListEntry,
   RouteServerPropagation,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VpcBlockPublicAccessOptions,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetManagedPrefixListEntriesResult {
+  /**
+   * <p>Information about the prefix list entries.</p>
+   * @public
+   */
+  Entries?: PrefixListEntry[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetNetworkInsightsAccessScopeAnalysisFindingsRequest {
+  /**
+   * <p>The ID of the Network Access Scope analysis.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeAnalysisId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -8227,9 +8276,12 @@ export interface ModifyVolumeRequest {
    *                   <code>io2</code>: 100 - 256,000 IOPS</p>
    *             </li>
    *          </ul>
-   *          <p>For <code>io2</code> volumes, you can achieve up to 256,000 IOPS on
-   * <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">instances
-   * built on the Nitro System</a>. On other instances, you can achieve performance up to 32,000 IOPS.</p>
+   *          <note>
+   *             <p>
+   *                <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
+   * Instances built on the Nitro System</a> can support up to 256,000 IOPS. Other instances can support up to 32,000
+   * IOPS.</p>
+   *          </note>
    *          <p>Default: The existing value is retained if you keep the same volume type. If you change
    *       the volume type to <code>io1</code>, <code>io2</code>, or <code>gp3</code>, the default is 3,000.</p>
    * @public
@@ -9665,48 +9717,6 @@ export interface AsnAuthorizationContext {
    * @public
    */
   Signature: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionIpamByoasnRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>An IPAM ID.</p>
-   * @public
-   */
-  IpamId: string | undefined;
-
-  /**
-   * <p>A public 2-byte or 4-byte ASN.</p>
-   * @public
-   */
-  Asn: string | undefined;
-
-  /**
-   * <p>An ASN authorization context.</p>
-   * @public
-   */
-  AsnAuthorizationContext: AsnAuthorizationContext | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionIpamByoasnResult {
-  /**
-   * <p>An ASN and BYOIP CIDR association.</p>
-   * @public
-   */
-  Byoasn?: Byoasn | undefined;
 }
 
 /**

@@ -298,6 +298,7 @@ import {
   CopySnapshotCommandInput,
   CopySnapshotCommandOutput,
 } from "./commands/CopySnapshotCommand";
+import { CopyVolumesCommand, CopyVolumesCommandInput, CopyVolumesCommandOutput } from "./commands/CopyVolumesCommand";
 import {
   CreateCapacityReservationBySplittingCommand,
   CreateCapacityReservationBySplittingCommandInput,
@@ -3467,6 +3468,7 @@ const commands = {
   CopyFpgaImageCommand,
   CopyImageCommand,
   CopySnapshotCommand,
+  CopyVolumesCommand,
   CreateCapacityReservationCommand,
   CreateCapacityReservationBySplittingCommand,
   CreateCapacityReservationFleetCommand,
@@ -5092,6 +5094,17 @@ export interface EC2 {
     args: CopySnapshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CopySnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CopyVolumesCommand}
+   */
+  copyVolumes(args: CopyVolumesCommandInput, options?: __HttpHandlerOptions): Promise<CopyVolumesCommandOutput>;
+  copyVolumes(args: CopyVolumesCommandInput, cb: (err: any, data?: CopyVolumesCommandOutput) => void): void;
+  copyVolumes(
+    args: CopyVolumesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CopyVolumesCommandOutput) => void
   ): void;
 
   /**

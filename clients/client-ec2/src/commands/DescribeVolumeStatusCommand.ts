@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeVolumeStatusRequest, DescribeVolumeStatusResult } from "../models/models_5";
+import { DescribeVolumeStatusRequest } from "../models/models_5";
+import { DescribeVolumeStatusResult } from "../models/models_6";
 import { de_DescribeVolumeStatusCommand, se_DescribeVolumeStatusCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -134,7 +135,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * //         },
  * //       ],
  * //       InitializationStatusDetails: { // InitializationStatusDetails
- * //         InitializationType: "default" || "provisioned-rate",
+ * //         InitializationType: "default" || "provisioned-rate" || "volume-copy",
  * //         Progress: Number("long"),
  * //         EstimatedTimeToCompleteInSeconds: Number("long"),
  * //       },

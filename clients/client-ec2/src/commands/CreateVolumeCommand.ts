@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateVolumeRequest, Volume } from "../models/models_2";
+import { Volume } from "../models/models_1";
+import { CreateVolumeRequest } from "../models/models_2";
 import { de_CreateVolumeCommand, se_CreateVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -82,6 +83,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * // { // Volume
  * //   AvailabilityZoneId: "STRING_VALUE",
  * //   OutpostArn: "STRING_VALUE",
+ * //   SourceVolumeId: "STRING_VALUE",
  * //   Iops: Number("int"),
  * //   Tags: [ // TagList
  * //     { // Tag

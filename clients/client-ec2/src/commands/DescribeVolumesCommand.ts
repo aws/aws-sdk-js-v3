@@ -73,6 +73,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * //     { // Volume
  * //       AvailabilityZoneId: "STRING_VALUE",
  * //       OutpostArn: "STRING_VALUE",
+ * //       SourceVolumeId: "STRING_VALUE",
  * //       Iops: Number("int"),
  * //       Tags: [ // TagList
  * //         { // Tag

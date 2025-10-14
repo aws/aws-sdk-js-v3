@@ -57,6 +57,7 @@ import {
   Subnet,
   TargetCapacityUnitType,
   Tenancy,
+  Volume,
   VolumeType,
 } from "./models_1";
 
@@ -102,7 +103,6 @@ import {
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
-  Volume,
 } from "./models_2";
 
 import { Byoasn, Filter, IdFormat } from "./models_3";
@@ -119,12 +119,44 @@ import {
   MediaAcceleratorInfo,
   MemoryInfo,
   NetworkInfo,
-  NeuronInfo,
-  NitroEnclavesSupport,
+  NeuronDeviceInfo,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_4";
+
+/**
+ * <p>Describes the neuron accelerators for the instance type.</p>
+ * @public
+ */
+export interface NeuronInfo {
+  /**
+   * <p>Describes the neuron accelerators for the instance type.</p>
+   * @public
+   */
+  NeuronDevices?: NeuronDeviceInfo[] | undefined;
+
+  /**
+   * <p>The total size of the memory for the neuron accelerators for the instance type, in
+   *    MiB.</p>
+   * @public
+   */
+  TotalNeuronDeviceMemoryInMiB?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NitroEnclavesSupport = {
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type NitroEnclavesSupport = (typeof NitroEnclavesSupport)[keyof typeof NitroEnclavesSupport];
 
 /**
  * <p>Describes the supported NitroTPM versions for the instance type.</p>
@@ -12358,6 +12390,7 @@ export interface VolumeStatusEvent {
 export const InitializationType = {
   default: "default",
   provisioned_rate: "provisioned-rate",
+  volume_copy: "volume-copy",
 } as const;
 
 /**
@@ -12382,6 +12415,10 @@ export interface InitializationStatusDetails {
    *                <p>
    *                   <code>provisioned-rate</code> - Volume initialized using an Amazon EBS Provisioned
    *           Rate for Volume Initialization.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-copy</code> - Volume copy initialized at the rate for volume copies.</p>
    *             </li>
    *          </ul>
    * @public
@@ -12555,39 +12592,6 @@ export interface VolumeStatusItem {
    */
   AvailabilityZoneId?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface DescribeVolumeStatusResult {
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *   This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the status of the volumes.</p>
-   * @public
-   */
-  VolumeStatuses?: VolumeStatusItem[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VpcAttributeName = {
-  enableDnsHostnames: "enableDnsHostnames",
-  enableDnsSupport: "enableDnsSupport",
-  enableNetworkAddressUsageMetrics: "enableNetworkAddressUsageMetrics",
-} as const;
-
-/**
- * @public
- */
-export type VpcAttributeName = (typeof VpcAttributeName)[keyof typeof VpcAttributeName];
 
 /**
  * @internal

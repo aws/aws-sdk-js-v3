@@ -41,13 +41,13 @@ import {
   IpAddressType,
   IpamResourceTag,
   RequestIpamResourceTag,
+  SSEType,
   Vpc,
 } from "./models_1";
 
 import {
   ResponseLaunchTemplateData,
   ResponseLaunchTemplateDataFilterSensitiveLog,
-  SSEType,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
 
@@ -86,7 +86,40 @@ import {
   VirtualizationType,
 } from "./models_4";
 
-import { ArchitectureType, VpcAttributeName } from "./models_5";
+import { ArchitectureType, VolumeStatusItem } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DescribeVolumeStatusResult {
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the status of the volumes.</p>
+   * @public
+   */
+  VolumeStatuses?: VolumeStatusItem[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcAttributeName = {
+  enableDnsHostnames: "enableDnsHostnames",
+  enableDnsSupport: "enableDnsSupport",
+  enableNetworkAddressUsageMetrics: "enableNetworkAddressUsageMetrics",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcAttributeName = (typeof VpcAttributeName)[keyof typeof VpcAttributeName];
 
 /**
  * @public
@@ -8166,55 +8199,6 @@ export interface PrefixListEntry {
    * @public
    */
   Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetManagedPrefixListEntriesResult {
-  /**
-   * <p>Information about the prefix list entries.</p>
-   * @public
-   */
-  Entries?: PrefixListEntry[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetNetworkInsightsAccessScopeAnalysisFindingsRequest {
-  /**
-   * <p>The ID of the Network Access Scope analysis.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeAnalysisId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

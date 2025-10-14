@@ -56,7 +56,6 @@ import {
   RouteServerEndpoint,
   RouteServerPeer,
   SubnetCidrReservation,
-  SubnetConfiguration,
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
@@ -69,8 +68,56 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
-  VpcEndpointType,
 } from "./models_2";
+
+/**
+ * <p>Describes the configuration of a subnet for a VPC endpoint.</p>
+ * @public
+ */
+export interface SubnetConfiguration {
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The IPv4 address to assign to the endpoint network interface in the subnet. You must provide
+   *             an IPv4 address if the VPC endpoint supports IPv4.</p>
+   *          <p>If you specify an IPv4 address when modifying a VPC endpoint, we replace the existing
+   *             endpoint network interface with a new endpoint network interface with this IP address.
+   *             This process temporarily disconnects the subnet and the VPC endpoint.</p>
+   * @public
+   */
+  Ipv4?: string | undefined;
+
+  /**
+   * <p>The IPv6 address to assign to the endpoint network interface in the subnet. You must provide
+   *             an IPv6 address if the VPC endpoint supports IPv6.</p>
+   *          <p>If you specify an IPv6 address when modifying a VPC endpoint, we replace the existing
+   *             endpoint network interface with a new endpoint network interface with this IP address.
+   *             This process temporarily disconnects the subnet and the VPC endpoint.</p>
+   * @public
+   */
+  Ipv6?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcEndpointType = {
+  Gateway: "Gateway",
+  GatewayLoadBalancer: "GatewayLoadBalancer",
+  Interface: "Interface",
+  Resource: "Resource",
+  ServiceNetwork: "ServiceNetwork",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointType];
 
 /**
  * @public
@@ -7356,96 +7403,6 @@ export interface DescribeCapacityBlockStatusResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CallerRole = {
-  odcr_owner: "odcr-owner",
-  unused_reservation_billing_owner: "unused-reservation-billing-owner",
-} as const;
-
-/**
- * @public
- */
-export type CallerRole = (typeof CallerRole)[keyof typeof CallerRole];
-
-/**
- * @public
- */
-export interface DescribeCapacityReservationBillingRequestsRequest {
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationIds?: string[] | undefined;
-
-  /**
-   * <p>Specify one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>odcr-owner</code> - If you are the Capacity Reservation owner, specify
-   * 					this value to view requests that you have initiated. Not supported with the
-   * 						<code>requested-by</code> filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unused-reservation-billing-owner</code> - If you are the consumer
-   * 					account, specify this value to view requests that have been sent to you. Not
-   * 					supported with the <code>unused-reservation-billing-owner</code> filter.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Role: CallerRole | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
-   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The state of the request (<code>pending</code> |
-   * 						<code>accepted</code> | <code>rejected</code> | <code>cancelled</code> |
-   * 						<code>revoked</code> | <code>expired</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>requested-by</code> - The account ID of the Capacity Reservation owner
-   * 					that initiated the request. Not supported if you specify
-   * 						<code>requested-by</code> for <b>Role</b>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unused-reservation-billing-owner</code> - The ID of the consumer account
-   * 					to which the request was sent. Not supported if you specify
-   * 						<code>unused-reservation-billing-owner</code> for <b>Role</b>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

@@ -20,6 +20,7 @@ import {
   Tag,
   TagSpecification,
   UnsuccessfulItem,
+  VolumeAttachment,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
   WeekDay,
@@ -415,6 +416,351 @@ export interface CopySnapshotResult {
    * @public
    */
   SnapshotId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeType = {
+  gp2: "gp2",
+  gp3: "gp3",
+  io1: "io1",
+  io2: "io2",
+  sc1: "sc1",
+  st1: "st1",
+  standard: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
+
+/**
+ * @public
+ */
+export interface CopyVolumesRequest {
+  /**
+   * <p>The ID of the source EBS volume to copy.</p>
+   * @public
+   */
+  SourceVolumeId: string | undefined;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS) to provision for the volume copy.
+   *       Required for <code>io1</code> and <code>io2</code> volumes. Optional for <code>gp3</code>
+   *       volumes. Omit for all other volume types. Full provisioned IOPS performance can be
+   *       achieved only once the volume copy is fully initialized. </p>
+   *          <p>Valid ranges:</p>
+   *          <ul>
+   *             <li>
+   *                <p>gp3: <code>3,000 </code>(<i>default</i>)<code> - 80,000</code> IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>io1: <code>100 - 64,000</code> IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>io2: <code>100 - 256,000</code> IOPS</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>
+   *                <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
+   * Instances built on the Nitro System</a> can support up to 256,000 IOPS. Other instances can support up to 32,000
+   * IOPS.</p>
+   *          </note>
+   * @public
+   */
+  Iops?: number | undefined;
+
+  /**
+   * <p>The size of the volume copy, in GiBs. The size must be equal to or greater than the
+   *       size of the source volume. If not specified, the size defaults to the size of the source
+   *       volume.</p>
+   *          <p>Maximum supported sizes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>gp2: <code>16,384</code> GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>gp3: <code>65,536</code> GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>io1: <code>16,384</code> GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>io2: <code>65,536</code> GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>st1 and sc1: <code>16,384</code> GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>standard: <code>1024</code> GiB</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Size?: number | undefined;
+
+  /**
+   * <p>The volume type for the volume copy. If not specified, the volume type defaults to
+   *       <code>gp2</code>.</p>
+   * @public
+   */
+  VolumeType?: VolumeType | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the volume copy during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Indicates whether to enable Amazon EBS Multi-Attach for the volume copy. If you enable
+   *       Multi-Attach, you can attach the volume to up to 16 Nitro instances in the same
+   *       Availability Zone simultaneously. Supported with <code>io1</code> and <code>io2</code> volumes only. For more
+   *       information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
+   *         Amazon EBS Multi-Attach</a>.</p>
+   * @public
+   */
+  MultiAttachEnabled?: boolean | undefined;
+
+  /**
+   * <p>The throughput to provision for the volume copy, in MiB/s. Supported for <code>gp3</code>
+   *       volumes only. Omit for all other volume types. Full provisioned throughput performance can be
+   *       achieved only once the volume copy is fully initialized.</p>
+   *          <p>Valid Range: <code>125 - 2000</code> MiB/s</p>
+   *          <p></p>
+   * @public
+   */
+  Throughput?: number | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">
+   *         Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>Describes whether the resource is managed by a service provider and, if so, describes
+ *             the service provider that manages it.</p>
+ * @public
+ */
+export interface OperatorResponse {
+  /**
+   * <p>If <code>true</code>, the resource is managed by a service provider.</p>
+   * @public
+   */
+  Managed?: boolean | undefined;
+
+  /**
+   * <p>If <code>managed</code> is <code>true</code>, then the principal is returned. The
+   *             principal is the service provider that manages the resource.</p>
+   * @public
+   */
+  Principal?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SSEType = {
+  none: "none",
+  sse_ebs: "sse-ebs",
+  sse_kms: "sse-kms",
+} as const;
+
+/**
+ * @public
+ */
+export type SSEType = (typeof SSEType)[keyof typeof SSEType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeState = {
+  available: "available",
+  creating: "creating",
+  deleted: "deleted",
+  deleting: "deleting",
+  error: "error",
+  in_use: "in-use",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeState = (typeof VolumeState)[keyof typeof VolumeState];
+
+/**
+ * <p>Describes a volume.</p>
+ * @public
+ */
+export interface Volume {
+  /**
+   * <p>The ID of the Availability Zone for the volume.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The ID of the source volume from which the volume copy was created. Only for
+   *       volume copies.</p>
+   * @public
+   */
+  SourceVolumeId?: string | undefined;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this represents
+   *       the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline
+   *       performance of the volume and the rate at which the volume accumulates I/O credits for bursting.</p>
+   * @public
+   */
+  Iops?: number | undefined;
+
+  /**
+   * <p>Any tags assigned to the volume.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The volume type.</p>
+   * @public
+   */
+  VolumeType?: VolumeType | undefined;
+
+  /**
+   * <note>
+   *             <p>This parameter is not returned by CreateVolume.</p>
+   *          </note>
+   *          <p>Indicates whether the volume was created using fast snapshot restore.</p>
+   * @public
+   */
+  FastRestored?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether Amazon EBS Multi-Attach is enabled.</p>
+   * @public
+   */
+  MultiAttachEnabled?: boolean | undefined;
+
+  /**
+   * <p>The throughput that the volume supports, in MiB/s.</p>
+   * @public
+   */
+  Throughput?: number | undefined;
+
+  /**
+   * <note>
+   *             <p>This parameter is not returned by CreateVolume.</p>
+   *          </note>
+   *          <p>Reserved for future use.</p>
+   * @public
+   */
+  SseType?: SSEType | undefined;
+
+  /**
+   * <p>The service provider that manages the volume.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>The Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate) specified for the volume during creation,
+   *       in MiB/s. If no volume initialization rate was specified, the value is <code>null</code>.</p>
+   * @public
+   */
+  VolumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+
+  /**
+   * <p>The size of the volume, in GiBs.</p>
+   * @public
+   */
+  Size?: number | undefined;
+
+  /**
+   * <p>The snapshot from which the volume was created, if applicable.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The Availability Zone for the volume.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The volume state.</p>
+   * @public
+   */
+  State?: VolumeState | undefined;
+
+  /**
+   * <p>The time stamp when volume creation was initiated.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <note>
+   *             <p>This parameter is not returned by CreateVolume.</p>
+   *          </note>
+   *          <p>Information about the volume attachments.</p>
+   * @public
+   */
+  Attachments?: VolumeAttachment[] | undefined;
+
+  /**
+   * <p>Indicates whether the volume is encrypted.</p>
+   * @public
+   */
+  Encrypted?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key that was used to protect the
+   *       volume encryption key for the volume.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CopyVolumesResult {
+  /**
+   * <p>Information about the volume copy.</p>
+   * @public
+   */
+  Volumes?: Volume[] | undefined;
 }
 
 /**
@@ -4664,25 +5010,6 @@ export interface FleetLaunchTemplateSpecificationRequest {
    */
   Version?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VolumeType = {
-  gp2: "gp2",
-  gp3: "gp3",
-  io1: "io1",
-  io2: "io2",
-  sc1: "sc1",
-  st1: "st1",
-  standard: "standard",
-} as const;
-
-/**
- * @public
- */
-export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
 
 /**
  * <p>Describes a block device for an EBS volume.</p>
@@ -12303,26 +12630,6 @@ export interface CreateLaunchTemplateRequest {
 }
 
 /**
- * <p>Describes whether the resource is managed by a service provider and, if so, describes
- *             the service provider that manages it.</p>
- * @public
- */
-export interface OperatorResponse {
-  /**
-   * <p>If <code>true</code>, the resource is managed by a service provider.</p>
-   * @public
-   */
-  Managed?: boolean | undefined;
-
-  /**
-   * <p>If <code>managed</code> is <code>true</code>, then the principal is returned. The
-   *             principal is the service provider that manages the resource.</p>
-   * @public
-   */
-  Principal?: string | undefined;
-}
-
-/**
  * <p>Describes a launch template.</p>
  * @public
  */
@@ -12688,90 +12995,6 @@ export interface CreditSpecification {
    * @public
    */
   CpuCredits?: string | undefined;
-}
-
-/**
- * <p>Deprecated.</p>
- *          <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
- *          </note>
- * @public
- */
-export interface ElasticGpuSpecificationResponse {
-  /**
-   * <p>Deprecated.</p>
-   *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
-   *          </note>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <note>
- *             <p>Amazon Elastic Inference is no longer available.</p>
- *          </note>
- *          <p> Describes an elastic inference accelerator. </p>
- * @public
- */
-export interface LaunchTemplateElasticInferenceAcceleratorResponse {
-  /**
-   * <p>The type of elastic inference accelerator. The possible values are eia1.medium,
-   *             eia1.large, and eia1.xlarge. </p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>The number of elastic inference accelerators to attach to the instance. </p>
-   * @public
-   */
-  Count?: number | undefined;
-}
-
-/**
- * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
- * @public
- */
-export interface LaunchTemplateEnclaveOptions {
-  /**
-   * <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro
-   *             Enclaves; otherwise, it is not enabled for Amazon Web Services Nitro Enclaves.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-}
-
-/**
- * <p>Indicates whether an instance is configured for hibernation.</p>
- * @public
- */
-export interface LaunchTemplateHibernationOptions {
-  /**
-   * <p>If this parameter is set to <code>true</code>, the instance is enabled for
-   *             hibernation; otherwise, it is not enabled for hibernation.</p>
-   * @public
-   */
-  Configured?: boolean | undefined;
-}
-
-/**
- * <p>Describes an IAM instance profile.</p>
- * @public
- */
-export interface LaunchTemplateIamInstanceProfileSpecification {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the instance profile.</p>
-   * @public
-   */
-  Name?: string | undefined;
 }
 
 /**

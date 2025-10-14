@@ -37,6 +37,7 @@ import {
   Placement,
   ShutdownBehavior,
   SpotInstanceType,
+  SSEType,
 } from "./models_1";
 
 import {
@@ -46,11 +47,11 @@ import {
   ManagedPrefixList,
   RuleAction,
   SnapshotState,
-  SSEType,
   TransitGatewayRoute,
 } from "./models_2";
 
 import {
+  Byoasn,
   CapacityBlock,
   CapacityBlockExtension,
   Filter,
@@ -90,7 +91,49 @@ import {
 
 import { Purchase } from "./models_6";
 
-import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_7";
+import { AsnAuthorizationContext, CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_7";
+
+/**
+ * @public
+ */
+export interface ProvisionIpamByoasnRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>An IPAM ID.</p>
+   * @public
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>A public 2-byte or 4-byte ASN.</p>
+   * @public
+   */
+  Asn: string | undefined;
+
+  /**
+   * <p>An ASN authorization context.</p>
+   * @public
+   */
+  AsnAuthorizationContext: AsnAuthorizationContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionIpamByoasnResult {
+  /**
+   * <p>An ASN and BYOIP CIDR association.</p>
+   * @public
+   */
+  Byoasn?: Byoasn | undefined;
+}
 
 /**
  * <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>

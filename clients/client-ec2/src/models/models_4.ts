@@ -73,6 +73,96 @@ import { GroupIdentifier, InstanceIpv6Address, NetworkInterfaceStatus, StateReas
 import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
 
 /**
+ * @public
+ * @enum
+ */
+export const CallerRole = {
+  odcr_owner: "odcr-owner",
+  unused_reservation_billing_owner: "unused-reservation-billing-owner",
+} as const;
+
+/**
+ * @public
+ */
+export type CallerRole = (typeof CallerRole)[keyof typeof CallerRole];
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationBillingRequestsRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationIds?: string[] | undefined;
+
+  /**
+   * <p>Specify one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>odcr-owner</code> - If you are the Capacity Reservation owner, specify
+   * 					this value to view requests that you have initiated. Not supported with the
+   * 						<code>requested-by</code> filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unused-reservation-billing-owner</code> - If you are the consumer
+   * 					account, specify this value to view requests that have been sent to you. Not
+   * 					supported with the <code>unused-reservation-billing-owner</code> filter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Role: CallerRole | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The state of the request (<code>pending</code> |
+   * 						<code>accepted</code> | <code>rejected</code> | <code>cancelled</code> |
+   * 						<code>revoked</code> | <code>expired</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>requested-by</code> - The account ID of the Capacity Reservation owner
+   * 					that initiated the request. Not supported if you specify
+   * 						<code>requested-by</code> for <b>Role</b>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unused-reservation-billing-owner</code> - The ID of the consumer account
+   * 					to which the request was sent. Not supported if you specify
+   * 						<code>unused-reservation-billing-owner</code> for <b>Role</b>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
  * <p>Information about a Capacity Reservation.</p>
  * @public
  */
@@ -12401,39 +12491,6 @@ export interface NeuronDeviceInfo {
    */
   MemoryInfo?: NeuronDeviceMemoryInfo | undefined;
 }
-
-/**
- * <p>Describes the neuron accelerators for the instance type.</p>
- * @public
- */
-export interface NeuronInfo {
-  /**
-   * <p>Describes the neuron accelerators for the instance type.</p>
-   * @public
-   */
-  NeuronDevices?: NeuronDeviceInfo[] | undefined;
-
-  /**
-   * <p>The total size of the memory for the neuron accelerators for the instance type, in
-   *    MiB.</p>
-   * @public
-   */
-  TotalNeuronDeviceMemoryInMiB?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NitroEnclavesSupport = {
-  SUPPORTED: "supported",
-  UNSUPPORTED: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type NitroEnclavesSupport = (typeof NitroEnclavesSupport)[keyof typeof NitroEnclavesSupport];
 
 /**
  * @internal

@@ -225,6 +225,7 @@ import {
 import { CopyFpgaImageCommandInput, CopyFpgaImageCommandOutput } from "../commands/CopyFpgaImageCommand";
 import { CopyImageCommandInput, CopyImageCommandOutput } from "../commands/CopyImageCommand";
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "../commands/CopySnapshotCommand";
+import { CopyVolumesCommandInput, CopyVolumesCommandOutput } from "../commands/CopyVolumesCommand";
 import {
   CreateCapacityReservationBySplittingCommandInput,
   CreateCapacityReservationBySplittingCommandOutput,
@@ -2683,6 +2684,8 @@ import {
   CopyImageResult,
   CopySnapshotRequest,
   CopySnapshotResult,
+  CopyVolumesRequest,
+  CopyVolumesResult,
   CpuManufacturer,
   CpuPerformanceFactor,
   CpuPerformanceFactorRequest,
@@ -2760,7 +2763,6 @@ import {
   Ec2InstanceConnectEndpoint,
   EgressOnlyInternetGateway,
   ElasticGpuSpecification,
-  ElasticGpuSpecificationResponse,
   EnaSrdSpecificationRequest,
   EnaSrdUdpSpecificationRequest,
   ExportTask,
@@ -2813,12 +2815,8 @@ import {
   LaunchTemplateEbsBlockDevice,
   LaunchTemplateEbsBlockDeviceRequest,
   LaunchTemplateElasticInferenceAccelerator,
-  LaunchTemplateElasticInferenceAcceleratorResponse,
-  LaunchTemplateEnclaveOptions,
   LaunchTemplateEnclaveOptionsRequest,
-  LaunchTemplateHibernationOptions,
   LaunchTemplateHibernationOptionsRequest,
-  LaunchTemplateIamInstanceProfileSpecification,
   LaunchTemplateIamInstanceProfileSpecificationRequest,
   LaunchTemplateInstanceMaintenanceOptionsRequest,
   LaunchTemplateInstanceMarketOptionsRequest,
@@ -2865,6 +2863,7 @@ import {
   ValidationWarning,
   VCpuCountRange,
   VCpuCountRangeRequest,
+  Volume,
   Vpc,
   VpcEncryptionControl,
   VpcEncryptionControlExclusion,
@@ -2995,6 +2994,7 @@ import {
   CreateVpcRequest,
   CreateVpcResult,
   DnsOptionsSpecification,
+  ElasticGpuSpecificationResponse,
   FilterPortRange,
   GroupIdentifier,
   IcmpTypeCode,
@@ -3003,8 +3003,12 @@ import {
   Ipv4PrefixSpecificationResponse,
   Ipv6PrefixSpecification,
   Ipv6PrefixSpecificationResponse,
+  LaunchTemplateElasticInferenceAcceleratorResponse,
   LaunchTemplateEnaSrdSpecification,
   LaunchTemplateEnaSrdUdpSpecification,
+  LaunchTemplateEnclaveOptions,
+  LaunchTemplateHibernationOptions,
+  LaunchTemplateIamInstanceProfileSpecification,
   LaunchTemplateInstanceMaintenanceOptions,
   LaunchTemplateInstanceMarketOptions,
   LaunchTemplateInstanceMetadataOptions,
@@ -3066,7 +3070,6 @@ import {
   SpotInstanceStateFault,
   StateReason,
   SubnetCidrReservation,
-  SubnetConfiguration,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
@@ -3101,7 +3104,6 @@ import {
   VerifiedAccessEndpointStatus,
   VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
-  Volume,
   VpcBlockPublicAccessExclusion,
 } from "../models/models_2";
 import {
@@ -3328,7 +3330,6 @@ import {
   DescribeCapacityBlocksResult,
   DescribeCapacityBlockStatusRequest,
   DescribeCapacityBlockStatusResult,
-  DescribeCapacityReservationBillingRequestsRequest,
   DnsEntry,
   DnsOptions,
   FailedQueuedPurchaseDeletion,
@@ -3359,6 +3360,7 @@ import {
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
+  SubnetConfiguration,
   SubnetIpPrefixes,
   Subscription,
   SuccessfulQueuedPurchaseDeletion,
@@ -3404,6 +3406,7 @@ import {
   ConversionTask,
   CpuOptions,
   DeclarativePoliciesReport,
+  DescribeCapacityReservationBillingRequestsRequest,
   DescribeCapacityReservationBillingRequestsResult,
   DescribeCapacityReservationFleetsRequest,
   DescribeCapacityReservationFleetsResult,
@@ -3604,7 +3607,6 @@ import {
   NeuronDeviceCoreInfo,
   NeuronDeviceInfo,
   NeuronDeviceMemoryInfo,
-  NeuronInfo,
   OnDemandOptions,
   PciId,
   PrivateDnsNameOptionsResponse,
@@ -3808,7 +3810,6 @@ import {
   DescribeVolumesRequest,
   DescribeVolumesResult,
   DescribeVolumeStatusRequest,
-  DescribeVolumeStatusResult,
   HistoryRecord,
   InitializationStatusDetails,
   InstanceNetworkInterfaceSpecification,
@@ -3825,6 +3826,7 @@ import {
   MovingAddressStatus,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
+  NeuronInfo,
   NitroTpmInfo,
   OutpostLag,
   PlacementGroupInfo,
@@ -3905,6 +3907,7 @@ import {
   DataQuery,
   DataResponse,
   DeprecationTimeCondition,
+  DescribeVolumeStatusResult,
   DescribeVpcAttributeRequest,
   DescribeVpcAttributeResult,
   DescribeVpcBlockPublicAccessExclusionsRequest,
@@ -4134,8 +4137,6 @@ import {
   GetManagedPrefixListAssociationsRequest,
   GetManagedPrefixListAssociationsResult,
   GetManagedPrefixListEntriesRequest,
-  GetManagedPrefixListEntriesResult,
-  GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
   ImageCriterion,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -4181,6 +4182,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetManagedPrefixListEntriesResult,
+  GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
   GetNetworkInsightsAccessScopeAnalysisFindingsResult,
   GetNetworkInsightsAccessScopeContentRequest,
   GetNetworkInsightsAccessScopeContentResult,
@@ -4419,8 +4422,6 @@ import {
   PeeringConnectionOptionsRequest,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
-  ProvisionIpamByoasnRequest,
-  ProvisionIpamByoasnResult,
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
@@ -4475,6 +4476,8 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ProvisionIpamByoasnRequest,
+  ProvisionIpamByoasnResult,
   ProvisionIpamPoolCidrRequest,
   ProvisionIpamPoolCidrResult,
   ProvisionPublicIpv4PoolCidrRequest,
@@ -5639,6 +5642,23 @@ export const se_CopySnapshotCommand = async (
   body = buildFormUrlencodedString({
     ...se_CopySnapshotRequest(input, context),
     [_A]: _CS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2CopyVolumesCommand
+ */
+export const se_CopyVolumesCommand = async (
+  input: CopyVolumesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CopyVolumesRequest(input, context),
+    [_A]: _CV,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7066,7 +7086,7 @@ export const se_CreateVolumeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateVolumeRequest(input, context),
-    [_A]: _CV,
+    [_A]: _CVr,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7083,7 +7103,7 @@ export const se_CreateVpcCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateVpcRequest(input, context),
-    [_A]: _CVr,
+    [_A]: _CVre,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -17604,6 +17624,26 @@ export const de_CopySnapshotCommand = async (
   let contents: any = {};
   contents = de_CopySnapshotResult(data, context);
   const response: CopySnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2CopyVolumesCommand
+ */
+export const de_CopyVolumesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyVolumesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyVolumesResult(data, context);
+  const response: CopyVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -32740,6 +32780,48 @@ const se_CopySnapshotRequest = (input: CopySnapshotRequest, context: __SerdeCont
 };
 
 /**
+ * serializeAws_ec2CopyVolumesRequest
+ */
+const se_CopyVolumesRequest = (input: CopyVolumesRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_SVI] != null) {
+    entries[_SVI] = input[_SVI];
+  }
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
+  }
+  if (input[_Siz] != null) {
+    entries[_Siz] = input[_Siz];
+  }
+  if (input[_VT] != null) {
+    entries[_VT] = input[_VT];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MAE] != null) {
+    entries[_MAE] = input[_MAE];
+  }
+  if (input[_Th] != null) {
+    entries[_Th] = input[_Th];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2CpuManufacturerSet
  */
 const se_CpuManufacturerSet = (input: CpuManufacturer[], context: __SerdeContext): any => {
@@ -36155,8 +36237,8 @@ const se_CreateVerifiedAccessNativeApplicationOidcOptions = (
   if (input[_PSKE] != null) {
     entries[_PSKE] = input[_PSKE];
   }
-  if (input[_I] != null) {
-    entries[_I] = input[_I];
+  if (input[_Is] != null) {
+    entries[_Is] = input[_Is];
   }
   if (input[_AE] != null) {
     entries[_AE] = input[_AE];
@@ -36204,8 +36286,8 @@ const se_CreateVerifiedAccessTrustProviderOidcOptions = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input[_I] != null) {
-    entries[_I] = input[_I];
+  if (input[_Is] != null) {
+    entries[_Is] = input[_Is];
   }
   if (input[_AE] != null) {
     entries[_AE] = input[_AE];
@@ -36370,8 +36452,8 @@ const se_CreateVolumeRequest = (input: CreateVolumeRequest, context: __SerdeCont
   if (input[_Enc] != null) {
     entries[_Enc] = input[_Enc];
   }
-  if (input[_Io] != null) {
-    entries[_Io] = input[_Io];
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
   if (input[_KKI] != null) {
     entries[_KKI] = input[_KKI];
@@ -44783,8 +44865,8 @@ const se_EbsBlockDevice = (input: EbsBlockDevice, context: __SerdeContext): any 
   if (input[_DOT] != null) {
     entries[_DOT] = input[_DOT];
   }
-  if (input[_Io] != null) {
-    entries[_Io] = input[_Io];
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
   if (input[_SIn] != null) {
     entries[_SIn] = input[_SIn];
@@ -45777,8 +45859,8 @@ const se_FleetEbsBlockDeviceRequest = (input: FleetEbsBlockDeviceRequest, contex
   if (input[_DOT] != null) {
     entries[_DOT] = input[_DOT];
   }
-  if (input[_Io] != null) {
-    entries[_Io] = input[_Io];
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
   if (input[_Th] != null) {
     entries[_Th] = input[_Th];
@@ -49756,8 +49838,8 @@ const se_LaunchTemplateEbsBlockDeviceRequest = (
   if (input[_DOT] != null) {
     entries[_DOT] = input[_DOT];
   }
-  if (input[_Io] != null) {
-    entries[_Io] = input[_Io];
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
   if (input[_KKI] != null) {
     entries[_KKI] = input[_KKI];
@@ -52871,8 +52953,8 @@ const se_ModifyVerifiedAccessNativeApplicationOidcOptions = (
   if (input[_PSKE] != null) {
     entries[_PSKE] = input[_PSKE];
   }
-  if (input[_I] != null) {
-    entries[_I] = input[_I];
+  if (input[_Is] != null) {
+    entries[_Is] = input[_Is];
   }
   if (input[_AE] != null) {
     entries[_AE] = input[_AE];
@@ -52917,8 +52999,8 @@ const se_ModifyVerifiedAccessTrustProviderOidcOptions = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input[_I] != null) {
-    entries[_I] = input[_I];
+  if (input[_Is] != null) {
+    entries[_Is] = input[_Is];
   }
   if (input[_AE] != null) {
     entries[_AE] = input[_AE];
@@ -53033,8 +53115,8 @@ const se_ModifyVolumeRequest = (input: ModifyVolumeRequest, context: __SerdeCont
   if (input[_VT] != null) {
     entries[_VT] = input[_VT];
   }
-  if (input[_Io] != null) {
-    entries[_Io] = input[_Io];
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
   if (input[_Th] != null) {
     entries[_Th] = input[_Th];
@@ -57558,8 +57640,8 @@ const se_ScheduledInstancesEbs = (input: ScheduledInstancesEbs, context: __Serde
   if (input[_Enc] != null) {
     entries[_Enc] = input[_Enc];
   }
-  if (input[_Io] != null) {
-    entries[_Io] = input[_Io];
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
   if (input[_SIn] != null) {
     entries[_SIn] = input[_SIn];
@@ -64284,6 +64366,19 @@ const de_CopySnapshotResult = (output: any, context: __SerdeContext): CopySnapsh
   }
   if (output[_sIn] != null) {
     contents[_SIn] = __expectString(output[_sIn]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CopyVolumesResult
+ */
+const de_CopyVolumesResult = (output: any, context: __SerdeContext): CopyVolumesResult => {
+  const contents: any = {};
+  if (String(output.volumeSet).trim() === "") {
+    contents[_Vol] = [];
+  } else if (output[_vS] != null && output[_vS][_i] != null) {
+    contents[_Vol] = de_VolumeList(__getArrayIfSingleItem(output[_vS][_i]), context);
   }
   return contents;
 };
@@ -71035,7 +71130,7 @@ const de_EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice
     contents[_DOT] = __parseBoolean(output[_dOT]);
   }
   if (output[_io] != null) {
-    contents[_Io] = __strictParseInt32(output[_io]) as number;
+    contents[_I] = __strictParseInt32(output[_io]) as number;
   }
   if (output[_sIn] != null) {
     contents[_SIn] = __expectString(output[_sIn]);
@@ -71082,7 +71177,7 @@ const de_EbsBlockDeviceResponse = (output: any, context: __SerdeContext): EbsBlo
     contents[_DOT] = __parseBoolean(output[_dOT]);
   }
   if (output[_io] != null) {
-    contents[_Io] = __strictParseInt32(output[_io]) as number;
+    contents[_I] = __strictParseInt32(output[_io]) as number;
   }
   if (output[_th] != null) {
     contents[_Th] = __strictParseInt32(output[_th]) as number;
@@ -79112,7 +79207,7 @@ const de_LaunchTemplateEbsBlockDevice = (output: any, context: __SerdeContext): 
     contents[_DOT] = __parseBoolean(output[_dOT]);
   }
   if (output[_io] != null) {
-    contents[_Io] = __strictParseInt32(output[_io]) as number;
+    contents[_I] = __strictParseInt32(output[_io]) as number;
   }
   if (output[_kKI] != null) {
     contents[_KKI] = __expectString(output[_kKI]);
@@ -81591,7 +81686,7 @@ const de_NativeApplicationOidcOptions = (output: any, context: __SerdeContext): 
     contents[_PSKE] = __expectString(output[_pSKE]);
   }
   if (output[_is] != null) {
-    contents[_I] = __expectString(output[_is]);
+    contents[_Is] = __expectString(output[_is]);
   }
   if (output[_aE] != null) {
     contents[_AE] = __expectString(output[_aE]);
@@ -82571,7 +82666,7 @@ const de_OccurrenceDaySet = (output: any, context: __SerdeContext): number[] => 
 const de_OidcOptions = (output: any, context: __SerdeContext): OidcOptions => {
   const contents: any = {};
   if (output[_is] != null) {
-    contents[_I] = __expectString(output[_is]);
+    contents[_Is] = __expectString(output[_is]);
   }
   if (output[_aE] != null) {
     contents[_AE] = __expectString(output[_aE]);
@@ -82854,8 +82949,8 @@ const de_PciId = (output: any, context: __SerdeContext): PciId => {
   if (output[_SIubs] != null) {
     contents[_SIubs] = __expectString(output[_SIubs]);
   }
-  if (output[_SVI] != null) {
-    contents[_SVI] = __expectString(output[_SVI]);
+  if (output[_SVIu] != null) {
+    contents[_SVIu] = __expectString(output[_SVIu]);
   }
   return contents;
 };
@@ -90975,7 +91070,7 @@ const de_VerifiedAccessInstanceUserTrustProviderClientConfiguration = (
     contents[_Scop] = __expectString(output[_scop]);
   }
   if (output[_is] != null) {
-    contents[_I] = __expectString(output[_is]);
+    contents[_Is] = __expectString(output[_is]);
   }
   if (output[_aE] != null) {
     contents[_AE] = __expectString(output[_aE]);
@@ -91277,8 +91372,11 @@ const de_Volume = (output: any, context: __SerdeContext): Volume => {
   if (output[_oA] != null) {
     contents[_OA] = __expectString(output[_oA]);
   }
+  if (output[_sVI] != null) {
+    contents[_SVI] = __expectString(output[_sVI]);
+  }
   if (output[_io] != null) {
-    contents[_Io] = __strictParseInt32(output[_io]) as number;
+    contents[_I] = __strictParseInt32(output[_io]) as number;
   }
   if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
@@ -93136,7 +93234,7 @@ const _CTonv = "ConversionTask";
 const _CTr = "CreateTime";
 const _CTre = "CreationTime";
 const _CTrea = "CreationTimestamp";
-const _CV = "CreateVolume";
+const _CV = "CopyVolumes";
 const _CVAE = "CreateVerifiedAccessEndpoint";
 const _CVAG = "CreateVerifiedAccessGroup";
 const _CVAI = "CreateVerifiedAccessInstance";
@@ -93155,7 +93253,8 @@ const _CVP = "CreateVolumePermission";
 const _CVPC = "CreateVpcPeeringConnection";
 const _CVPr = "CreateVolumePermissions";
 const _CVTN = "ClientVpnTargetNetworks";
-const _CVr = "CreateVpc";
+const _CVr = "CreateVolume";
+const _CVre = "CreateVpc";
 const _CVu = "CurrentVersion";
 const _CWL = "CloudWatchLogs";
 const _CWLO = "CloudWatchLogOptions";
@@ -93905,7 +94004,7 @@ const _HTo = "HostnameType";
 const _HZI = "HostedZoneId";
 const _Hi = "Hibernate";
 const _Ho = "Hosts";
-const _I = "Issuer";
+const _I = "Iops";
 const _IA = "Ipv6Addresses";
 const _IAA = "Ipv6AddressAttribute";
 const _IAC = "Ipv6AddressCount";
@@ -94126,11 +94225,11 @@ const _Ima = "Images";
 const _In = "Instances";
 const _Ins = "Instance";
 const _Int = "Interval";
-const _Io = "Iops";
 const _Ip = "Ipv4";
 const _Ipa = "Ipam";
 const _Ipam = "Ipams";
 const _Ipv = "Ipv6";
+const _Is = "Issuer";
 const _K = "Kernel";
 const _KDF = "KinesisDataFirehose";
 const _KF = "KeyFormat";
@@ -95164,7 +95263,8 @@ const _STto = "StorageTier";
 const _SUC = "SupportedUsageClasses";
 const _SV = "SourceVersion";
 const _SVESPDV = "StartVpcEndpointServicePrivateDnsVerification";
-const _SVI = "SubsystemVendorId";
+const _SVI = "SourceVolumeId";
+const _SVIu = "SubsystemVendorId";
 const _SVT = "SupportedVirtualizationTypes";
 const _SVh = "ShellVersion";
 const _SVo = "SourceVpc";
@@ -97106,6 +97206,7 @@ const _sTs = "sseType";
 const _sTt = "storageTier";
 const _sUC = "supportedUsageClasses";
 const _sV = "sourceVpc";
+const _sVI = "sourceVolumeId";
 const _sVT = "supportedVirtualizationTypes";
 const _sVh = "shellVersion";
 const _sVu = "supportedVersions";
