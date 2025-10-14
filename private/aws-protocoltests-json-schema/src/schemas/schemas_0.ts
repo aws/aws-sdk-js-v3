@@ -137,7 +137,7 @@ export const n0 = "aws.protocoltests.json";
 export const n1 = "aws.protocoltests.shared";
 
 // smithy-typescript generated code
-import { error, TypeRegistry } from "@smithy/core/schema";
+import { TypeRegistry } from "@smithy/core/schema";
 import {
   StaticErrorSchema,
   StaticListSchema,
@@ -162,10 +162,11 @@ export var JsonValue: StaticSimpleSchema = [
   0,
   n0,
   _JV,
-  0,
   {
     [_mT]: _a,
   },
+
+  0,
 ];
 export var ComplexError: StaticErrorSchema = [
   -3,
@@ -322,13 +323,13 @@ export var KitchenSink: StaticStructureSchema = [
     1,
     5,
     [() => JsonValue, 0],
-    [1, n0, _LOLOS, 0, 64 | 0] as StaticListSchema,
-    [1, n0, _LOMOS, 0, 128 | 0] as StaticListSchema,
+    [1, n0, _LOLOS, 0, 64 | 0],
+    [1, n0, _LOMOS, 0, 128 | 0],
     64 | 0,
     () => ListOfStructs,
     1,
-    [2, n0, _MOLOS, 0, 64 | 0, 64 | 0] as StaticMapSchema,
-    [2, n0, _MOMOS, 0, 0, 128 | 0, 128 | 0] as StaticMapSchema,
+    [2, n0, _MOLOS, 0, 0, 64 | 0],
+    [2, n0, _MOMOS, 0, 0, 128 | 0],
     128 | 0,
     () => MapOfStructs,
     [() => ListOfKitchenSinks, 0],
@@ -393,7 +394,7 @@ export var UnionInputOutput: StaticStructureSchema = [3, n0, _UIO, 0, [_co], [()
 export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_h], [0]];
 export var Unit = "unit" as const;
 
-export var JsonProtocolServiceException = error(_sm, "JsonProtocolServiceException", 0, [], [], null);
+export var JsonProtocolServiceException: StaticErrorSchema = [-3, _sm, "JsonProtocolServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(JsonProtocolServiceException, __JsonProtocolServiceException);
 
 export var ListOfKitchenSinks: StaticListSchema = [1, n0, _LOKS, 0, [() => KitchenSink, 0]];

@@ -131,7 +131,7 @@ export const n1 = "smithy.protocoltests.rpcv2Cbor";
 export const n2 = "smithy.protocoltests.shared";
 
 // smithy-typescript generated code
-import { error, TypeRegistry } from "@smithy/core/schema";
+import { TypeRegistry } from "@smithy/core/schema";
 import {
   StaticErrorSchema,
   StaticListSchema,
@@ -296,7 +296,7 @@ export var RpcV2CborDenseMapsInputOutput: StaticStructureSchema = [
   _RVCDMIO,
   0,
   [_dSM, _dNM, _dBM, _dSMe, _dSMen],
-  [() => DenseStructMap, 128 | 1, 128 | 2, 128 | 0, [2, n1, _DSM, 0, 64 | 0, 64 | 0] as StaticMapSchema],
+  [() => DenseStructMap, 128 | 1, 128 | 2, 128 | 0, [2, n1, _DSM, 0, 0, 64 | 0]],
 ];
 export var RpcV2CborListInputOutput: StaticStructureSchema = [
   3,
@@ -304,18 +304,7 @@ export var RpcV2CborListInputOutput: StaticStructureSchema = [
   _RVCLIO,
   0,
   [_sL, _sS, _iL, _bL, _tL, _eL, _iEL, _nSL, _sLt, _bLl],
-  [
-    64 | 0,
-    64 | 0,
-    64 | 1,
-    64 | 2,
-    64 | 4,
-    64 | 0,
-    64 | 1,
-    [1, n2, _NSL, 0, 64 | 0] as StaticListSchema,
-    () => StructureList,
-    64 | 21,
-  ],
+  [64 | 0, 64 | 0, 64 | 1, 64 | 2, 64 | 4, 64 | 0, 64 | 1, [1, n2, _NSL, 0, 64 | 0], () => StructureList, 64 | 21],
 ];
 export var RpcV2CborSparseMapsInputOutput: StaticStructureSchema = [
   3,
@@ -353,7 +342,7 @@ export var SparseNullsOperationInputOutput: StaticStructureSchema = [
 ];
 export var StructureListMember: StaticStructureSchema = [3, n1, _SLM, 0, [_a, _b_], [0, 0]];
 export var GreetingStruct: StaticStructureSchema = [3, n2, _GS, 0, [_h], [0]];
-export var RpcV2ProtocolServiceException = error(_sC, "RpcV2ProtocolServiceException", 0, [], [], null);
+export var RpcV2ProtocolServiceException: StaticErrorSchema = [-3, _sC, "RpcV2ProtocolServiceException", 0, [], []];
 TypeRegistry.for(_sC).registerError(RpcV2ProtocolServiceException, __RpcV2ProtocolServiceException);
 
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];

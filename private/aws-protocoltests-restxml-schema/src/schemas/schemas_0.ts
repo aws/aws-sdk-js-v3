@@ -424,7 +424,7 @@ export const n0 = "aws.protocoltests.shared";
 export const n1 = "aws.protocoltests.restxml";
 
 // smithy-typescript generated code
-import { error, TypeRegistry } from "@smithy/core/schema";
+import { TypeRegistry } from "@smithy/core/schema";
 import {
   StaticErrorSchema,
   StaticListSchema,
@@ -443,10 +443,11 @@ export var TextPlainBlob: StaticSimpleSchema = [
   0,
   n0,
   _TPB,
-  21,
   {
     [_mT]: _t,
   },
+
+  21,
 ];
 export var AllQueryStringTypesInput: StaticStructureSchema = [
   3,
@@ -1135,9 +1136,9 @@ export var NestedXmlMapsRequest: StaticStructureSchema = [
   0,
   [_nM, _fNM],
   [
-    [2, n1, _NM, 0, 0, 128 | 0, 128 | 0] as StaticMapSchema,
+    [2, n1, _NM, 0, 0, 128 | 0],
     [
-      [2, n1, _NM, 0, 0, 128 | 0, 128 | 0] as StaticMapSchema,
+      [2, n1, _NM, 0, 0, 128 | 0],
       {
         [_xF]: 1,
       },
@@ -1151,9 +1152,9 @@ export var NestedXmlMapsResponse: StaticStructureSchema = [
   0,
   [_nM, _fNM],
   [
-    [2, n1, _NM, 0, 0, 128 | 0, 128 | 0] as StaticMapSchema,
+    [2, n1, _NM, 0, 0, 128 | 0],
     [
-      [2, n1, _NM, 0, 0, 128 | 0, 128 | 0] as StaticMapSchema,
+      [2, n1, _NM, 0, 0, 128 | 0],
       {
         [_xF]: 1,
       },
@@ -1300,7 +1301,7 @@ export var QueryParamsAsStringListMapInput: StaticStructureSchema = [
         [_hQ]: _co,
       },
     ],
-    [[2, n0, _SLM, 0, 64 | 0, 64 | 0] as StaticMapSchema, 64],
+    [[2, n0, _SLM, 0, 0, 64 | 0], 64],
   ],
 ];
 export var QueryPrecedenceInput: StaticStructureSchema = [
@@ -1584,7 +1585,7 @@ export var XmlEmptyListsRequest: StaticStructureSchema = [
     64 | 4,
     64 | 0,
     64 | 1,
-    [1, n0, _NSL, 0, 64 | 0] as StaticListSchema,
+    [1, n0, _NSL, 0, 64 | 0],
     [
       () => RenamedListMembers,
       {
@@ -1644,7 +1645,7 @@ export var XmlEmptyListsResponse: StaticStructureSchema = [
     64 | 4,
     64 | 0,
     64 | 1,
-    [1, n0, _NSL, 0, 64 | 0] as StaticListSchema,
+    [1, n0, _NSL, 0, 64 | 0],
     [
       () => RenamedListMembers,
       {
@@ -1740,7 +1741,7 @@ export var XmlListsRequest: StaticStructureSchema = [
     64 | 4,
     64 | 0,
     64 | 1,
-    [1, n0, _NSL, 0, 64 | 0] as StaticListSchema,
+    [1, n0, _NSL, 0, 64 | 0],
     [
       () => RenamedListMembers,
       {
@@ -1800,7 +1801,7 @@ export var XmlListsResponse: StaticStructureSchema = [
     64 | 4,
     64 | 0,
     64 | 1,
-    [1, n0, _NSL, 0, 64 | 0] as StaticListSchema,
+    [1, n0, _NSL, 0, 64 | 0],
     [
       () => RenamedListMembers,
       {
@@ -1968,7 +1969,7 @@ export var XmlUnionsResponse: StaticStructureSchema = [3, n1, _XURm, 0, [_uV], [
 export var GreetingStruct: StaticStructureSchema = [3, n0, _GS, 0, [_hi], [0]];
 export var Unit = "unit" as const;
 
-export var RestXmlProtocolServiceException = error(_sm, "RestXmlProtocolServiceException", 0, [], [], null);
+export var RestXmlProtocolServiceException: StaticErrorSchema = [-3, _sm, "RestXmlProtocolServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RestXmlProtocolServiceException, __RestXmlProtocolServiceException);
 
 export var ListWithMemberNamespace: StaticListSchema = [

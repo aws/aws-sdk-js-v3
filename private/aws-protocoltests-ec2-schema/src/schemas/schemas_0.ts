@@ -178,7 +178,7 @@ export const n0 = "aws.protocoltests.ec2";
 export const n1 = "aws.protocoltests.shared";
 
 // smithy-typescript generated code
-import { error, TypeRegistry } from "@smithy/core/schema";
+import { TypeRegistry } from "@smithy/core/schema";
 import {
   StaticErrorSchema,
   StaticListSchema,
@@ -429,7 +429,7 @@ export var XmlListsOutput: StaticStructureSchema = [
     64 | 4,
     64 | 0,
     64 | 1,
-    [1, n1, _NSL, 0, 64 | 0] as StaticListSchema,
+    [1, n1, _NSL, 0, 64 | 0],
     [
       () => RenamedListMembers,
       {
@@ -513,7 +513,7 @@ export var XmlTimestampsOutput: StaticStructureSchema = [
 export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
 export var Unit = "unit" as const;
 
-export var EC2ProtocolServiceException = error(_s, "EC2ProtocolServiceException", 0, [], [], null);
+export var EC2ProtocolServiceException: StaticErrorSchema = [-3, _s, "EC2ProtocolServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(EC2ProtocolServiceException, __EC2ProtocolServiceException);
 
 export var ListWithMemberNamespace: StaticListSchema = [

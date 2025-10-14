@@ -24,7 +24,7 @@ export const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.machinelearning";
 export const n0 = "com.amazonaws.machinelearning";
 
 // smithy-typescript generated code
-import { error, TypeRegistry } from "@smithy/core/schema";
+import { TypeRegistry } from "@smithy/core/schema";
 import { StaticErrorSchema, StaticMapSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
@@ -108,7 +108,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFound
 
 export var Unit = "unit" as const;
 
-export var MachineLearningServiceException = error(_sm, "MachineLearningServiceException", 0, [], [], null);
+export var MachineLearningServiceException: StaticErrorSchema = [-3, _sm, "MachineLearningServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MachineLearningServiceException, __MachineLearningServiceException);
 
 export var DetailsMap = 128 | 0;

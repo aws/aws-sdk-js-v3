@@ -40,7 +40,7 @@ export const _w = "warnings";
 export const n0 = "com.amazonaws.apigateway";
 
 // smithy-typescript generated code
-import { error, TypeRegistry } from "@smithy/core/schema";
+import { TypeRegistry } from "@smithy/core/schema";
 import {
   StaticErrorSchema,
   StaticListSchema,
@@ -153,7 +153,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedExceptio
 
 export var Unit = "unit" as const;
 
-export var APIGatewayServiceException = error(_s, "APIGatewayServiceException", 0, [], [], null);
+export var APIGatewayServiceException: StaticErrorSchema = [-3, _s, "APIGatewayServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(APIGatewayServiceException, __APIGatewayServiceException);
 
 export var ListOfEndpointType = 64 | 0;

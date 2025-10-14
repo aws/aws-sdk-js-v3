@@ -38,7 +38,7 @@ export const _xasth = "x-amz-sha256-tree-hash";
 export const n0 = "com.amazonaws.glacier";
 
 // smithy-typescript generated code
-import { error, TypeRegistry } from "@smithy/core/schema";
+import { TypeRegistry } from "@smithy/core/schema";
 import { StaticErrorSchema, StaticOperationSchema, StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
 
 import { GlacierServiceException as __GlacierServiceException } from "../models/GlacierServiceException";
@@ -56,10 +56,11 @@ export var _Stream: StaticSimpleSchema = [
   0,
   n0,
   _S,
-  42,
   {
     [_s]: 1,
   },
+
+  42,
 ];
 export var ArchiveCreationOutput: StaticStructureSchema = [
   3,
@@ -217,7 +218,7 @@ export var UploadMultipartPartOutput: StaticStructureSchema = [
     ],
   ],
 ];
-export var GlacierServiceException = error(_sm, "GlacierServiceException", 0, [], [], null);
+export var GlacierServiceException: StaticErrorSchema = [-3, _sm, "GlacierServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GlacierServiceException, __GlacierServiceException);
 
 export var UploadArchive: StaticOperationSchema = [

@@ -574,7 +574,7 @@ export const n1 = "aws.protocoltests.shared";
 export const n2 = "aws.protocoltests.restjson.nested";
 
 // smithy-typescript generated code
-import { error, TypeRegistry } from "@smithy/core/schema";
+import { TypeRegistry } from "@smithy/core/schema";
 import {
   StaticErrorSchema,
   StaticListSchema,
@@ -597,66 +597,73 @@ export var FiniteStreamingBlob: StaticSimpleSchema = [
   0,
   n0,
   _FSB,
-  42,
   {
     [_rL]: 1,
     [_s]: 1,
   },
+
+  42,
 ];
 export var JsonHeaderString: StaticSimpleSchema = [
   0,
   n0,
   _JHS,
-  0,
   {
     [_mT]: _a,
   },
+
+  0,
 ];
 export var JsonValue: StaticSimpleSchema = [
   0,
   n0,
   _JV,
-  0,
   {
     [_mT]: _a,
   },
+
+  0,
 ];
 export var StreamingBlob: StaticSimpleSchema = [
   0,
   n0,
   _SB,
-  42,
   {
     [_s]: 1,
   },
+
+  42,
 ];
 export var StreamingTextPlainBlob: StaticSimpleSchema = [
   0,
   n0,
   _STPB,
-  42,
   {
     [_mT]: _t,
     [_s]: 1,
   },
+
+  42,
 ];
 export var JpegBlob: StaticSimpleSchema = [
   0,
   n1,
   _JB,
-  21,
   {
     [_mT]: _i,
   },
+
+  21,
 ];
 export var TextPlainBlob: StaticSimpleSchema = [
   0,
   n1,
   _TPB,
-  21,
   {
     [_mT]: _t,
   },
+
+  21,
 ];
 export var AllQueryStringTypesInput: StaticStructureSchema = [
   3,
@@ -807,7 +814,7 @@ export var AllQueryStringTypesInput: StaticStructureSchema = [
         [_hQ]: _IEL,
       },
     ],
-    [[2, n1, _SLM, 0, 64 | 0, 64 | 0] as StaticMapSchema, 64],
+    [[2, n1, _SLM, 0, 0, 64 | 0], 64],
   ],
 ];
 export var ClientOptionalDefaults: StaticStructureSchema = [3, n0, _COD, 0, [_m], [1]];
@@ -1344,7 +1351,7 @@ export var JsonListsInputOutput: StaticStructureSchema = [
     64 | 4,
     64 | 0,
     64 | 1,
-    [1, n1, _NSL, 0, 64 | 0] as StaticListSchema,
+    [1, n1, _NSL, 0, 64 | 0],
     [
       () => StructureList,
       {
@@ -1359,7 +1366,7 @@ export var JsonMapsInputOutput: StaticStructureSchema = [
   _JMIO,
   0,
   [_dSM, _dNM, _dBM, _dSMe, _dSMen],
-  [() => DenseStructMap, 128 | 1, 128 | 2, 128 | 0, [2, n0, _DSM, 0, 64 | 0, 64 | 0] as StaticMapSchema],
+  [() => DenseStructMap, 128 | 1, 128 | 2, 128 | 0, [2, n0, _DSM, 0, 0, 64 | 0]],
 ];
 export var JsonTimestampsInputOutput: StaticStructureSchema = [
   3,
@@ -1921,7 +1928,7 @@ export var QueryParamsAsStringListMapInput: StaticStructureSchema = [
         [_hQ]: _co,
       },
     ],
-    [[2, n1, _SLM, 0, 64 | 0, 64 | 0] as StaticMapSchema, 64],
+    [[2, n1, _SLM, 0, 0, 64 | 0], 64],
   ],
 ];
 export var QueryPrecedenceInput: StaticStructureSchema = [
@@ -2214,11 +2221,18 @@ export var TopLevel: StaticStructureSchema = [
   [() => Dialog, () => DialogList, () => DialogMap],
 ];
 export var UnionInputOutput: StaticStructureSchema = [3, n0, _UIO, 0, [_con], [() => MyUnion]];
-export var GreetingStruct: StaticStructureSchema = [3, n2, _GS, 0, [_sa], [0]];
-export var GreetingStruct_n1: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
+export var GreetingStruct_n2: StaticStructureSchema = [3, n2, _GS, 0, [_sa], [0]];
+export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
 export var Unit = "unit" as const;
 
-export var RestJsonProtocolServiceException = error(_sm, "RestJsonProtocolServiceException", 0, [], [], null);
+export var RestJsonProtocolServiceException: StaticErrorSchema = [
+  -3,
+  _sm,
+  "RestJsonProtocolServiceException",
+  0,
+  [],
+  [],
+];
 TypeRegistry.for(_sm).registerError(RestJsonProtocolServiceException, __RestJsonProtocolServiceException);
 
 export var DialogList: StaticListSchema = [1, n0, _DLi, 0, () => Dialog];
@@ -2275,7 +2289,7 @@ export var DenseNumberMap = 128 | 1;
 export var DenseSetMap: StaticMapSchema = [2, n0, _DSM, 0, 0, 64 | 0];
 export var DenseStringMap = 128 | 0;
 
-export var DenseStructMap: StaticMapSchema = [2, n0, _DSMe, 0, 0, () => GreetingStruct_n1];
+export var DenseStructMap: StaticMapSchema = [2, n0, _DSMe, 0, 0, () => GreetingStruct];
 export var DialogMap: StaticMapSchema = [2, n0, _DM, 0, 0, () => Dialog];
 export var DocumentValuedMap = 128 | 15;
 
@@ -2319,7 +2333,7 @@ export var SparseStructMap: StaticMapSchema = [
     [_sp]: 1,
   },
   0,
-  () => GreetingStruct_n1,
+  () => GreetingStruct,
 ];
 export var TestStringMap = 128 | 0;
 
@@ -2346,7 +2360,7 @@ export var MyUnion: StaticStructureSchema = [
   _MU,
   0,
   [_sV, _bVo, _nVu, _bVl, _tV, _eV, _lVi, _mV, _sVt, _rSV],
-  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1, () => GreetingStruct],
+  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct, () => GreetingStruct_n2],
 ];
 export var PlayerAction: StaticStructureSchema = [3, n0, _PA, 0, [_qu], [() => Unit]];
 export var SimpleUnion: StaticStructureSchema = [3, n0, _SU, 0, [_int, _st], [1, 0]];
@@ -2782,7 +2796,7 @@ export var MalformedAcceptWithBody: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedAcceptWithBody", 200],
   },
   () => Unit,
-  () => GreetingStruct_n1,
+  () => GreetingStruct,
 ];
 export var MalformedAcceptWithGenericString: StaticOperationSchema = [
   9,
@@ -2841,7 +2855,7 @@ export var MalformedContentTypeWithBody: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/MalformedContentTypeWithBody", 200],
   },
-  () => GreetingStruct_n1,
+  () => GreetingStruct,
   () => Unit,
 ];
 export var MalformedContentTypeWithGenericString: StaticOperationSchema = [

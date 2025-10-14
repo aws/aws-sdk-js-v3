@@ -136,7 +136,7 @@ export const n0 = "aws.protocoltests.json10";
 export const n1 = "aws.protocoltests.shared";
 
 // smithy-typescript generated code
-import { error, TypeRegistry } from "@smithy/core/schema";
+import { TypeRegistry } from "@smithy/core/schema";
 import {
   StaticErrorSchema,
   StaticListSchema,
@@ -368,7 +368,7 @@ export var TopLevel: StaticStructureSchema = [
 export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_h], [0]];
 export var Unit = "unit" as const;
 
-export var JSONRPC10ServiceException = error(_sm, "JSONRPC10ServiceException", 0, [], [], null);
+export var JSONRPC10ServiceException: StaticErrorSchema = [-3, _sm, "JSONRPC10ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(JSONRPC10ServiceException, __JSONRPC10ServiceException);
 
 export var DialogList: StaticListSchema = [1, n0, _DL, 0, () => Dialog];
