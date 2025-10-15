@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
+
+
+### Features
+
+* **client-lightsail:** Add support for manage Lightsail Bucket CORS configuration ([719ff90](https://github.com/aws/aws-sdk-js-v3/commit/719ff9024f9e1c529ae8097e8dd17a52e948d384))
+
+
+
+
+
 # [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
 
 **Note:** Version bump only for package @aws-sdk/client-lightsail

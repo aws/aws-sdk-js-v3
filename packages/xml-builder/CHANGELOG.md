@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
+
+
+### Bug Fixes
+
+* **xml-builder:** move DOMParser init from module level to function call ([#7426](https://github.com/aws/aws-sdk-js-v3/issues/7426)) ([68252cb](https://github.com/aws/aws-sdk-js-v3/commit/68252cbaab87996625cacc31809801d8353b3f50))
+
+
+
+
+
 # [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
 
 **Note:** Version bump only for package @aws-sdk/xml-builder

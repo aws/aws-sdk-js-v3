@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
+
+
+### Features
+
+* **client-ec2:** Introducing EC2 Capacity Manager for monitoring and analyzing capacity usage across On-Demand Instances, Spot Instances, and Capacity Reservations. ([4d78ec9](https://github.com/aws/aws-sdk-js-v3/commit/4d78ec9bfb9780043f087f1539f3a12e715714e0))
+
+
+
+
+
 # [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
 
 

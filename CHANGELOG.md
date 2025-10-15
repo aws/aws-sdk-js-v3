@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
+
+
+### Bug Fixes
+
+* **xml-builder:** move DOMParser init from module level to function call ([#7426](https://github.com/aws/aws-sdk-js-v3/issues/7426)) ([68252cb](https://github.com/aws/aws-sdk-js-v3/commit/68252cbaab87996625cacc31809801d8353b3f50))
+
+
+### Features
+
+* **client-bedrock:** Amazon Bedrock Automated Reasoning Policy now offers enhanced AWS KMS integration. The CreateAutomatedReasoningPolicy API includes a new kmsKeyId field, allowing customers to specify their preferred KMS key for encryption, improving control and compliance with AWS encryption mandates. ([cf20670](https://github.com/aws/aws-sdk-js-v3/commit/cf20670c2f237e9feb84997afcf4af5308fb7c91))
+* **client-docdb:** Add support for NetworkType field in CreateDbCluster, ModifyDbCluster, RestoreDbClusterFromSnapshot and RestoreDbClusterToPointInTime for DocumentDB. ([63f5c25](https://github.com/aws/aws-sdk-js-v3/commit/63f5c2577215fe9aeefe765c46b1e2505d06e78a))
+* **client-ec2:** Introducing EC2 Capacity Manager for monitoring and analyzing capacity usage across On-Demand Instances, Spot Instances, and Capacity Reservations. ([4d78ec9](https://github.com/aws/aws-sdk-js-v3/commit/4d78ec9bfb9780043f087f1539f3a12e715714e0))
+* **client-elastic-load-balancing-v2:** This release expands Listener Rule Conditions to support RegexValues and adds support for a new Transforms field in Listener Rules. ([4e96bda](https://github.com/aws/aws-sdk-js-v3/commit/4e96bda6de785bf6fa53c8a9246d87a89aeb4688))
+* **client-guardduty:** Added default pagination value for ListMalwareProtectionPlans API and updated UpdateFindingsFeedback API ([0251678](https://github.com/aws/aws-sdk-js-v3/commit/0251678c5da16172dfce87ffecadd477243e3ef2))
+* **client-lightsail:** Add support for manage Lightsail Bucket CORS configuration ([719ff90](https://github.com/aws/aws-sdk-js-v3/commit/719ff9024f9e1c529ae8097e8dd17a52e948d384))
+* **client-timestream-influxdb:** This release adds support for creating and managing InfluxDB 3 Core and Enterprise DbClusters. ([cd8530e](https://github.com/aws/aws-sdk-js-v3/commit/cd8530e8621dc05ec123a10493c1f7238bc8b8f1))
+* **clients:** update client endpoints as of 2025-10-15 ([8544d3a](https://github.com/aws/aws-sdk-js-v3/commit/8544d3a1d67c417a5662acf912224553e55a0d93))
+
+
+
+
+
 # [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
 
 
